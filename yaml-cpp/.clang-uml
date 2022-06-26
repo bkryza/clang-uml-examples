@@ -1,0 +1,24 @@
+compilation_database_dir: _build
+output_directory: puml
+generate_links:
+  link: 'https://github.com/jbeder/yaml-cpp/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+  tooltip: '{% if "comment" in element %}{{ abbrv(trim(replace(element.comment, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+diagrams:
+  all_class:
+    type: class
+    glob:
+      - include/yaml-cpp/*.h
+      - src/*.h
+      - src/*.cpp
+    using_namespace:
+      - YAML
+    include:
+      namespaces:
+        - YAML
+    exclude:
+      namespaces:
+        - YAML::detail
+        - YAML::enable_if
+        - YAML::disable_if
+        # This class is deprecated
+        - YAML::ptr_vector

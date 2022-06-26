@@ -1,0 +1,83 @@
+@startuml
+left to right direction
+class "cpp_scope_name" as C_0000000176
+class C_0000000176 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L22{The name of a scope. It is a combination of a name and optional template parameters.}]] {
+}
+abstract "cpp_entity" as C_0000000186
+abstract C_0000000186 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L47{The base class for all entities in the C++ AST.}]] {
+}
+class "cpp_unexposed_entity" as C_0000000204
+class C_0000000204 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L187{A [cppast::cpp_entity]() that isn't exposed directly. The only information available is the raw source code.}]] {
+}
+class "cpp_entity_container<Derived,T>" as C_0000000219
+class C_0000000219 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity_container.hpp#L15{cpp_entity_container}]] {
+}
+class "cpp_entity_id" as C_0000000229
+class C_0000000229 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity_index.hpp#L38{A [ts::strong_typedef]() representing the unique id of a [cppast::cpp_entity](). It is comparable for equality.}]] {
+}
+class "cpp_entity_index" as C_0000000233
+class C_0000000233 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity_index.hpp#L58{An index of all [cppast::cpp_entity]() objects created. It maps [cppast::cpp_entity_id]() to references to the [cppast::cpp_entity]() objects.}]] {
+}
+class "duplicate_definition_error" as C_0000000260
+class C_0000000260 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity_index.hpp#L62{Exception thrown on duplicate entity definition.}]] {
+}
+class "hash" as C_0000000264
+class C_0000000264 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity_index.hpp#L116{hash}]] {
+}
+class "value" as C_0000000270
+class C_0000000270 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity_index.hpp#L124{value}]] {
+}
+enum "cpp_entity_kind" as C_0000000306
+enum C_0000000306 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity_kind.hpp#L13{All possible kinds of C++ entities.}]] {
+file_t
+macro_parameter_t
+macro_definition_t
+include_directive_t
+language_linkage_t
+namespace_t
+namespace_alias_t
+using_directive_t
+using_declaration_t
+type_alias_t
+enum_t
+enum_value_t
+class_t
+access_specifier_t
+base_class_t
+variable_t
+member_variable_t
+bitfield_t
+function_parameter_t
+function_t
+member_function_t
+conversion_op_t
+constructor_t
+destructor_t
+friend_t
+template_type_parameter_t
+non_type_template_parameter_t
+template_template_parameter_t
+alias_template_t
+variable_template_t
+function_template_t
+function_template_specialization_t
+class_template_t
+class_template_specialization_t
+static_assert_t
+unexposed_t
+count
+}
+class "basic_cpp_entity_ref<T,Predicate>" as C_0000000311
+class C_0000000311 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity_ref.hpp#L23{basic_cpp_entity_ref}]] {
+}
+C_0000000176 o-- C_0000000186 : -entity_
+C_0000000186 o-- C_0000000186 : -parent_
+C_0000000186 <|-- C_0000000204
+C_0000000233 o-- C_0000000229 : -map_
+C_0000000233 o-- C_0000000229 : -ns_
+C_0000000260 --+ C_0000000233
+C_0000000264 --+ C_0000000233
+C_0000000270 o-- C_0000000186 : +entity
+C_0000000270 --+ C_0000000233
+C_0000000311 o-- C_0000000229 : -target_
+@enduml

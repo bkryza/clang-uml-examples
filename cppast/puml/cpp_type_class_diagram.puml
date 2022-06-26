@@ -1,0 +1,113 @@
+@startuml
+enum "cpp_type_kind" as C_0000000003
+enum C_0000000003 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L17{The kinds of a [cppast::cpp_type]().}]] {
+builtin_t
+user_defined_t
+auto_t
+decltype_t
+decltype_auto_t
+cv_qualified_t
+pointer_t
+reference_t
+array_t
+function_t
+member_function_t
+member_object_t
+template_parameter_t
+template_instantiation_t
+dependent_t
+unexposed_t
+}
+abstract "cpp_type" as C_0000000007
+abstract C_0000000007 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L44{Base class for all C++ types.}]] {
+}
+class "cpp_unexposed_type" as C_0000000019
+class C_0000000019 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L95{An unexposed [cppast::cpp_type](). This is one where no further information besides a name is available.}]] {
+}
+enum "cpp_builtin_type_kind" as C_0000000023
+enum C_0000000023 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L122{The C++ builtin types.}]] {
+cpp_void
+cpp_bool
+cpp_uchar
+cpp_ushort
+cpp_uint
+cpp_ulong
+cpp_ulonglong
+cpp_uint128
+cpp_schar
+cpp_short
+cpp_int
+cpp_long
+cpp_longlong
+cpp_int128
+cpp_float
+cpp_double
+cpp_longdouble
+cpp_float128
+cpp_char
+cpp_wchar
+cpp_char16
+cpp_char32
+cpp_nullptr
+}
+class "cpp_builtin_type" as C_0000000027
+class C_0000000027 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L161{A builtin [cppast::cpp_type](). This is one where there is no associated [cppast::cpp_entity]().}]] {
+}
+class "basic_cpp_entity_ref<cpp_entity,detail::cpp_type_ref_predicate>" as C_0000000039
+class C_0000000039 {
+}
+class "cpp_user_defined_type" as C_0000000036
+class C_0000000036 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L202{A user-defined [cppast::cpp_type](). It has an associated [cppast::cpp_entity]().}]] {
+}
+class "cpp_auto_type" as C_0000000069
+class C_0000000069 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L230{A [cppast::cpp_type]() that isn't given but deduced by `auto`.}]] {
+}
+class "cpp_dependent_type" as C_0000000077
+class C_0000000077 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L249{A [cppast::cpp_type]() that depends on another type.}]] {
+}
+enum "cpp_cv" as C_0000000116
+enum C_0000000116 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L290{The kinds of C++ cv qualifiers.}]] {
+cpp_cv_none
+cpp_cv_const
+cpp_cv_volatile
+cpp_cv_const_volatile
+}
+class "cpp_cv_qualified_type" as C_0000000120
+class C_0000000120 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L311{A [cppast::cpp_cv]() qualified [cppast::cpp_type]().}]] {
+}
+class "cpp_pointer_type" as C_0000000138
+class C_0000000138 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L359{A pointer to a [cppast::cpp_type]().}]] {
+}
+enum "cpp_reference" as C_0000000152
+enum C_0000000152 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L386{The kinds of C++ references.}]] {
+cpp_ref_none
+cpp_ref_lvalue
+cpp_ref_rvalue
+}
+class "cpp_reference_type" as C_0000000156
+class C_0000000156 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L394{A reference to a [cppast::cpp_type]().}]] {
+}
+C_0000000007 <|-- C_0000000019
+C_0000000027 ..> C_0000000023
+C_0000000027 o-- C_0000000023 : -kind_
+C_0000000007 <|-- C_0000000027
+C_0000000036 o-- C_0000000039 : -entity_
+C_0000000007 <|-- C_0000000036
+C_0000000007 <|-- C_0000000069
+C_0000000077 ..> C_0000000007
+C_0000000077 o-- C_0000000007 : -dependee_
+C_0000000007 <|-- C_0000000077
+C_0000000120 ..> C_0000000007
+C_0000000120 ..> C_0000000116
+C_0000000120 o-- C_0000000007 : -type_
+C_0000000120 o-- C_0000000116 : -cv_
+C_0000000007 <|-- C_0000000120
+C_0000000138 ..> C_0000000007
+C_0000000138 o-- C_0000000007 : -pointee_
+C_0000000007 <|-- C_0000000138
+C_0000000156 ..> C_0000000007
+C_0000000156 ..> C_0000000152
+C_0000000156 o-- C_0000000007 : -referee_
+C_0000000156 o-- C_0000000152 : -ref_
+C_0000000007 <|-- C_0000000156
+@enduml
