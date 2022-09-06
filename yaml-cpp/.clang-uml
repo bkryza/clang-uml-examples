@@ -7,8 +7,6 @@ diagrams:
   all_class:
     type: class
     glob:
-      - include/yaml-cpp/*.h
-      - src/*.h
       - src/*.cpp
     using_namespace:
       - YAML
@@ -16,6 +14,9 @@ diagrams:
       namespaces:
         - YAML
     exclude:
+      elements:
+        - YAML::convert
+        - YAML::is_numeric
       namespaces:
         - YAML::detail
         - YAML::enable_if
