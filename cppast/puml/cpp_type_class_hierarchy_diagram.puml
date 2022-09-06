@@ -1,70 +1,70 @@
 @startuml
 left to right direction
-class "cpp_function_type" as C_0000005325
-class C_0000005325 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_type.hpp#L14{A [cppast::cpp_type]() that is a function. A function pointer is created by wrapping it in [cppast::cpp_pointer_type]().}]] {
+abstract "cpp_type" as C_0001585653041236922459
+abstract C_0001585653041236922459 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L44{Base class for all C++ types.}]] {
 }
-class "cpp_member_function_type" as C_0000005357
-class C_0000005357 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_type.hpp#L87{A [cppast::cpp_type]() that is a member function. A member function with cv qualifier is created by wrapping it in [cppast::cpp_cv_qualified_type](). A member function with reference qualifier is created by wrapping it in [cppast::cpp_reference_type]()....}]] {
+class "cpp_unexposed_type" as C_0000601730303705395408
+class C_0000601730303705395408 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L95{An unexposed [cppast::cpp_type](). This is one where no further information besides a name is available.}]] {
 }
-class "cpp_member_object_type" as C_0000005399
-class C_0000005399 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_type.hpp#L164{A [cppast::cpp_type]() that is a member object. A member object pointer is created by wrapping it in [cppast::cpp_pointer_type]().}]] {
+class "cpp_builtin_type" as C_0002035785082080260407
+class C_0002035785082080260407 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L161{A builtin [cppast::cpp_type](). This is one where there is no associated [cppast::cpp_entity]().}]] {
 }
-class "cpp_template_instantiation_type" as C_0000005499
-class C_0000005499 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L93{A [cppast::cpp_type]() representing an instantiation of a [cppast::cpp_template]().}]] {
+class "cpp_user_defined_type" as C_0002166954434825938188
+class C_0002166954434825938188 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L202{A user-defined [cppast::cpp_type](). It has an associated [cppast::cpp_entity]().}]] {
 }
-class "cpp_decltype_type" as C_0000005750
-class C_0000005750 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_decltype_type.hpp#L13{A [cppast::cpp_type]() that isn't given but taken from an expression.}]] {
+class "cpp_auto_type" as C_0001809003368459807767
+class C_0001809003368459807767 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L230{A [cppast::cpp_type]() that isn't given but deduced by `auto`.}]] {
 }
-class "cpp_decltype_auto_type" as C_0000005764
-class C_0000005764 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_decltype_type.hpp#L40{A [cppast::cpp_type]() that isn't given but deduced using the `decltype` rules.}]] {
+class "cpp_dependent_type" as C_0000507998479194737071
+class C_0000507998479194737071 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L249{A [cppast::cpp_type]() that depends on another type.}]] {
 }
-class "cpp_array_type" as C_0000005855
-class C_0000005855 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_array_type.hpp#L13{An array of a [cppast::cpp_type]().}]] {
+class "cpp_cv_qualified_type" as C_0000342846994454958214
+class C_0000342846994454958214 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L311{A [cppast::cpp_cv]() qualified [cppast::cpp_type]().}]] {
 }
-class "cpp_template_parameter_type" as C_0000006025
-class C_0000006025 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L97{A [cppast::cpp_type]() defined by a [cppast::cpp_template_type_parameter]().}]] {
+class "cpp_pointer_type" as C_0000861535705589766807
+class C_0000861535705589766807 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L359{A pointer to a [cppast::cpp_type]().}]] {
 }
-abstract "cpp_type" as C_0000006348
-abstract C_0000006348 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L44{Base class for all C++ types.}]] {
+class "cpp_reference_type" as C_0000600573949475383075
+class C_0000600573949475383075 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L394{A reference to a [cppast::cpp_type]().}]] {
 }
-class "cpp_unexposed_type" as C_0000006383
-class C_0000006383 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L95{An unexposed [cppast::cpp_type](). This is one where no further information besides a name is available.}]] {
+class "cpp_decltype_auto_type" as C_0000026248340214462662
+class C_0000026248340214462662 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L27{cpp_decltype_auto_type}]] {
 }
-class "cpp_builtin_type" as C_0000006418
-class C_0000006418 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L161{A builtin [cppast::cpp_type](). This is one where there is no associated [cppast::cpp_entity]().}]] {
+class "cpp_member_object_type" as C_0000603633382993980808
+class C_0000603633382993980808 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L53{cpp_member_object_type}]] {
 }
-class "cpp_user_defined_type" as C_0000006472
-class C_0000006472 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L202{A user-defined [cppast::cpp_type](). It has an associated [cppast::cpp_entity]().}]] {
+class "cpp_template_instantiation_type" as C_0001009421424714355715
+class C_0001009421424714355715 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L63{cpp_template_instantiation_type}]] {
 }
-class "cpp_auto_type" as C_0000006545
-class C_0000006545 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L230{A [cppast::cpp_type]() that isn't given but deduced by `auto`.}]] {
+class "cpp_decltype_type" as C_0001184982835175222056
+class C_0001184982835175222056 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L28{cpp_decltype_type}]] {
 }
-class "cpp_dependent_type" as C_0000006564
-class C_0000006564 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L249{A [cppast::cpp_type]() that depends on another type.}]] {
+class "cpp_array_type" as C_0001347498727659770075
+class C_0001347498727659770075 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L14{cpp_array_type}]] {
 }
-class "cpp_cv_qualified_type" as C_0000006623
-class C_0000006623 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L311{A [cppast::cpp_cv]() qualified [cppast::cpp_type]().}]] {
+class "cpp_function_type" as C_0001455852309215570565
+class C_0001455852309215570565 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L44{cpp_function_type}]] {
 }
-class "cpp_pointer_type" as C_0000006670
-class C_0000006670 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L359{A pointer to a [cppast::cpp_type]().}]] {
+class "cpp_member_function_type" as C_0001956941679276907326
+class C_0001956941679276907326 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L52{cpp_member_function_type}]] {
 }
-class "cpp_reference_type" as C_0000006727
-class C_0000006727 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type.hpp#L394{A reference to a [cppast::cpp_type]().}]] {
+class "cpp_template_parameter_type" as C_0002158322113857881673
+class C_0002158322113857881673 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L65{cpp_template_parameter_type}]] {
 }
-C_0000006348 <|-- C_0000005325
-C_0000006348 <|-- C_0000005357
-C_0000006348 <|-- C_0000005399
-C_0000006348 <|-- C_0000005499
-C_0000006348 <|-- C_0000005750
-C_0000006348 <|-- C_0000005764
-C_0000006348 <|-- C_0000005855
-C_0000006348 <|-- C_0000006025
-C_0000006348 <|-- C_0000006383
-C_0000006348 <|-- C_0000006418
-C_0000006348 <|-- C_0000006472
-C_0000006348 <|-- C_0000006545
-C_0000006348 <|-- C_0000006564
-C_0000006348 <|-- C_0000006623
-C_0000006348 <|-- C_0000006670
-C_0000006348 <|-- C_0000006727
+C_0001585653041236922459 <|-- C_0000601730303705395408
+C_0001585653041236922459 <|-- C_0002035785082080260407
+C_0001585653041236922459 <|-- C_0002166954434825938188
+C_0001585653041236922459 <|-- C_0001809003368459807767
+C_0001585653041236922459 <|-- C_0000507998479194737071
+C_0001585653041236922459 <|-- C_0000342846994454958214
+C_0001585653041236922459 <|-- C_0000861535705589766807
+C_0001585653041236922459 <|-- C_0000600573949475383075
+C_0001585653041236922459 <|-- C_0000026248340214462662
+C_0001585653041236922459 <|-- C_0000603633382993980808
+C_0001585653041236922459 <|-- C_0001009421424714355715
+C_0001585653041236922459 <|-- C_0001184982835175222056
+C_0001585653041236922459 <|-- C_0001347498727659770075
+C_0001585653041236922459 <|-- C_0001455852309215570565
+C_0001585653041236922459 <|-- C_0001956941679276907326
+C_0001585653041236922459 <|-- C_0002158322113857881673
 @enduml

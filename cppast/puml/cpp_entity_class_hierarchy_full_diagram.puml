@@ -1,337 +1,347 @@
 @startuml
 left to right direction
-class "cpp_file" as C_0000006252
-class C_0000006252 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_file.hpp#L27{A [cppast::cpp_entity]() modelling a file. This is the top-level entity of the AST.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_file.hpp#L30{kind}]]]
-+unmatched_comments() const : type_safe::array_ref<cpp_doc_comment const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_file.hpp#L71{\returns The unmatched documentation comments.}]]]
+abstract "cpp_entity" as C_0001854695372332280903
+abstract C_0001854695372332280903 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity.hpp#L47{The base class for all entities in the C++ AST.}]] {
++cpp_entity(const cpp_entity & ) : void
++operator=(const cpp_entity & ) : cpp_entity &
++~cpp_entity() = default : void
++kind() const : cpp_entity_kind
++name() const : const std::string &
++scope_name() const : type_safe::basic_optional<cpp_scope_name>
++parent() const : type_safe::basic_optional<const cpp_entity>
++comment() const : type_safe::basic_optional<const std::string>
++set_comment(type_safe::basic_optional<std::string> comment) : void
++attributes() const : const cpp_attribute_list &
++add_attribute(cpp_attribute attr) : void
++add_attribute(const cpp_attribute_list & list) : void
++user_data() const : void *
++set_user_data(void * data) const : void
++cpp_entity(std::string name) : void
 }
-class "cpp_class_template" as C_0000006313
-class C_0000006313 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class_template.hpp#L13{A [cppast::cpp_entity]() modelling a class template.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class_template.hpp#L16{kind}]]]
-+class_() const : cpp_class const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class_template.hpp#L26{A reference to the class that is being templated.}]]]
+class "cpp_unexposed_entity" as C_0001449857709503654826
+class C_0001449857709503654826 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity.hpp#L187{A [cppast::cpp_entity]() that isn't exposed directly. The only information available is the raw source code.}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & index, cpp_entity_id id, std::string name, cpp_token_string spelling) : std::unique_ptr<cpp_entity>
+{static} +build(cpp_token_string spelling) : std::unique_ptr<cpp_entity>
++spelling() const : const cpp_token_string &
 }
-class "cpp_class_template_specialization" as C_0000006323
-class C_0000006323 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class_template.hpp#L42{A [cppast::cpp_entity]() modelling a class template specialization.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class_template.hpp#L45{kind}]]]
-+class_() const : cpp_class const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class_template.hpp#L55{A reference to the class that is being specialized.}]]]
+class "cpp_static_assert" as C_0001035636844572508781
+class C_0001035636844572508781 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_static_assert.hpp#L12{cpp_static_assert}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(std::unique_ptr<cpp_expression> expr, std::string msg) : std::unique_ptr<cpp_static_assert>
++expression() const : const cpp_expression &
++message() const : const std::string &
 }
-class "cpp_friend" as C_0000006381
-class C_0000006381 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_friend.hpp#L19{A [cppast::cpp_entity]() representing a friend declaration. It can either declare or define a `friend` function (template), declare a `friend` class, or refer to an existing type.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_friend.hpp#L22{kind}]]]
-{static} +build(std::unique_ptr<cpp_entity> e) : std::unique_ptr<cpp_friend> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_friend.hpp#L27{\returns A newly created friend declaring the given entity as `friend`. \notes The friend declaration itself will not be registered, but the referring entity is.}]]]
-{static} +build(std::unique_ptr<cpp_type> type) : std::unique_ptr<cpp_friend> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_friend.hpp#L34{\returns A newly created friend declaring the given type as `friend`. \notes It will not be registered.}]]]
-+entity() const : type_safe::optional_ref<cpp_entity const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_friend.hpp#L40{\returns An optional reference to the entity it declares as friend, or `nullptr`.}]]]
-+type() const : type_safe::optional_ref<cpp_type const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_friend.hpp#L48{\returns An optional reference to the type it declares as friend, or `nullptr`.}]]]
+class "cpp_template" as C_0000007122300671081288
+class C_0000007122300671081288 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L61{cpp_template}]] {
++parameters() const : detail::iteratable_intrusive_list<cpp_template_parameter>
 }
-class "cpp_alias_template" as C_0000006404
-class C_0000006404 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_alias_template.hpp#L13{A [cppast::cpp_entity]() modelling a C++ alias template.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_alias_template.hpp#L16{kind}]]]
-+type_alias() const : cpp_type_alias const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_alias_template.hpp#L26{\returns A reference to the type alias that is being templated.}]]]
+class "cpp_constructor" as C_0000093026110207222749
+class C_0000093026110207222749 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L24{cpp_constructor}]] {
+{static} +kind() : cpp_entity_kind
++is_explicit() const : bool
++is_constexpr() const : bool
++is_consteval() const : bool
 }
-class "cpp_function_template" as C_0000006423
-class C_0000006423 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_template.hpp#L13{A [cppast::cpp_entity]() modelling a function template.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_template.hpp#L16{kind}]]]
-+function() const : cpp_function_base const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_template.hpp#L26{A reference to the function that is being templated.}]]]
+class "cpp_variable_base" as C_0000184600132526931259
+class C_0000184600132526931259 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L79{cpp_variable_base}]] {
++type() const : const cpp_type &
++default_value() const : type_safe::basic_optional<const cpp_expression>
 }
-class "cpp_function_template_specialization" as C_0000006433
-class C_0000006433 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_template.hpp#L42{A [cppast::cpp_entity]() modelling a function template specialization.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_template.hpp#L45{kind}]]]
-+function() const : cpp_function_base const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function_template.hpp#L59{A reference to the function that is being specialized.}]]]
+class "cpp_member_function" as C_0000204784596342006018
+class C_0000204784596342006018 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L50{cpp_member_function}]] {
+{static} +kind() : cpp_entity_kind
 }
-class "cpp_access_specifier" as C_0000006604
-class C_0000006604 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L37{A [cppast::cpp_entity]() modelling a C++ access specifier.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L40{kind}]]]
-{static} +build(cpp_access_specifier_kind kind) : std::unique_ptr<cpp_access_specifier> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L45{\returns A newly created access specifier. \notes It is not meant to be registered at the [cppast::cpp_entity_index](), as nothing can refer to it.}]]]
-+access_specifier() const : cpp_access_specifier_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L51{\returns The kind of access specifier.}]]]
+class "cpp_friend" as C_0000303046364398051951
+class C_0000303046364398051951 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L38{cpp_friend}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(std::unique_ptr<cpp_entity> e) : std::unique_ptr<cpp_friend>
+{static} +build(std::unique_ptr<cpp_type> type) : std::unique_ptr<cpp_friend>
++entity() const : type_safe::basic_optional<const cpp_entity>
++type() const : type_safe::basic_optional<const cpp_type>
 }
-class "cpp_base_class" as C_0000006615
-class C_0000006615 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L67{A [cppast::cpp_entity]() modelling a base class specifier.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L70{kind}]]]
-{static} +build(std::string name, std::unique_ptr<cpp_type> base, cpp_access_specifier_kind access, bool is_virtual) : std::unique_ptr<cpp_base_class> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L75{\returns A newly created base class specifier. \notes It is not meant to be registered at the [cppast::cpp_entity_index](), as nothing can refer to the specifier itself.}]]]
-+type() const : cpp_type const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L83{\returns The type of the base class.}]]]
-+access_specifier() const : cpp_access_specifier_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L89{\returns The access specifier of the base class.}]]]
-+is_virtual() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L95{\returns Whether or not it is a `virtual` base class.}]]]
+class "cpp_class_template" as C_0000354944277741654522
+class C_0000354944277741654522 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L21{cpp_class_template}]] {
+{static} +kind() : cpp_entity_kind
++class_() const : const cpp_class &
 }
-class "cpp_class" as C_0000006644
-class C_0000006644 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L118{A [cppast::cpp_entity]() modelling a C++ class. This can either be a definition or just a forward declaration. If it is just a forward declaration, everything except the class type will not be available.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L123{kind}]]]
-+class_kind() const : cpp_class_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L198{\returns The keyword used in the declaration of the class.}]]]
-+is_final() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L204{\returns Whether or not the class was declared `final`.}]]]
-+bases() const : detail::iteratable_intrusive_list<cpp_base_class> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_class.hpp#L210{\returns An iteratable object iterating over the [cppast::cpp_base_class]() specifiers.}]]]
+class "cpp_class" as C_0000405957729531335243
+class C_0000405957729531335243 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L20{cpp_class}]] {
+{static} +kind() : cpp_entity_kind
++class_kind() const : cpp_class_kind
++is_final() const : bool
++bases() const : detail::iteratable_intrusive_list<cpp_base_class>
 }
-class "cpp_static_assert" as C_0000006716
-class C_0000006716 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_static_assert.hpp#L12{cpp_static_assert}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_static_assert.hpp#L15{kind}]]]
-{static} +build(std::unique_ptr<cpp_expression> expr, std::string msg) : std::unique_ptr<cpp_static_assert> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_static_assert.hpp#L19{\returns A newly created `static_assert()` entity. \notes It will not be registered as nothing can refer to it.}]]]
-+expression() const : cpp_expression const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_static_assert.hpp#L27{\returns A reference to the [cppast::cpp_expression]() that is being asserted.}]]]
-+message() const : std::string const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_static_assert.hpp#L33{\returns A reference to the message of the assertion.}]]]
+class "cpp_macro_parameter" as C_0000481403470717148125
+class C_0000481403470717148125 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L49{cpp_macro_parameter}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(std::string name) : std::unique_ptr<cpp_macro_parameter>
 }
-class "cpp_variable_base" as C_0000006800
-class C_0000006800 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable_base.hpp#L16{Additional base class for all [cppast::cpp_entity]() modelling some kind of variable. Examples are [cppast::cpp_variable]() or [cppast::cpp_function_parameter](), or anything that is name/type/default-value triple.}]] {
-+type() const : cpp_type const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable_base.hpp#L20{\returns A reference to the [cppast::cpp_type]() of the variable.}]]]
-+default_value() const : type_safe::optional_ref<cpp_expression const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable_base.hpp#L26{\returns A [ts::optional_ref]() to the [cppast::cpp_expression]() that is the default value.}]]]
+class "cpp_variable_template" as C_0000528839971184410995
+class C_0000528839971184410995 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L80{cpp_variable_template}]] {
+{static} +kind() : cpp_entity_kind
++variable() const : const cpp_variable &
 }
-class "cpp_function_parameter" as C_0000006844
-class C_0000006844 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L16{A [cppast::cpp_entity]() modelling a function parameter.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L19{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def = nullptr) : std::unique_ptr<cpp_function_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L22{\returns A newly created and registered function parameter.}]]]
-{static} +build(std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def = nullptr) : std::unique_ptr<cpp_function_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L30{\returns A newly created unnamed function parameter. \notes It will not be registered, as nothing can refer to it.}]]]
+class "cpp_template_specialization" as C_0000529201356065019777
+class C_0000529201356065019777 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L66{cpp_template_specialization}]] {
++primary_template() const : cpp_template_ref
++arguments_exposed() const : bool
++arguments() const : type_safe::array_ref<const cpp_template_argument>
++unexposed_arguments() const : const cpp_token_string &
++is_full_specialization() const : bool
 }
-class "cpp_function_base" as C_0000006868
-class C_0000006868 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L68{Base class for all entities that are functions. It contains arguments and common flags.}]] {
-+parameters() const : detail::iteratable_intrusive_list<cpp_function_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L73{\returns An iteratable object iterating over the [cppast::cpp_function_parameter]() entities.}]]]
-+body_kind() const : cpp_function_body_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L80{\returns The [cppast::cpp_function_body_kind](). \notes This matches the [cppast::cpp_forward_declarable]() queries.}]]]
-+noexcept_condition() const : type_safe::optional_ref<cpp_expression const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L89{\returns A [ts::optional_ref]() to the [cppast::cpp_expression]() that is the given `noexcept` condition. \notes If this returns `nullptr`, the function has the implicit noexcept value (i.e. none, unless it is a destructor). \notes There is no way to di...}]]]
-+is_variadic() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L95{\returns Whether the function has an ellipsis.}]]]
-+signature() const : std::string [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L103{\returns The signature of the function, i.e. parameters and cv/ref-qualifiers if a member function. It has the form `(int,char,...) const`.}]]]
+class "cpp_enum_value" as C_0000569714057132864504
+class C_0000569714057132864504 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L34{cpp_enum_value}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_expression> value = nullptr) : std::unique_ptr<cpp_enum_value>
++value() const : type_safe::basic_optional<const cpp_expression>
 }
-class "cpp_function" as C_0000006910
-class C_0000006910 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L201{A [cppast::cpp_entity]() modelling a C++ function. \notes This is not a member function, use [cppast::cpp_member_function]() for that. It can be a `static` function of a class, however.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L204{kind}]]]
-+return_type() const : cpp_type const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L237{\returns A reference to the return [cppast::cpp_type]().}]]]
-+storage_class() const : cpp_storage_class_specifiers [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L245{\returns The [cppast::cpp_storage_specifiers]() of the function. \notes If it is `cpp_storage_class_static` and inside a [cppast::cpp_class](), it is a `static` class function.}]]]
-+is_constexpr() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L251{\returns Whether the function is marked `constexpr`.}]]]
-+is_consteval() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_function.hpp#L257{\returns Whether the function is marked `consteval`.}]]]
+class "cpp_using_declaration" as C_0000609158070514656735
+class C_0000609158070514656735 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L76{cpp_using_declaration}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(cpp_entity_ref target) : std::unique_ptr<cpp_using_declaration>
++target() const : const cpp_entity_ref &
 }
-class "cpp_type_alias" as C_0000007116
-class C_0000007116 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type_alias.hpp#L14{A [cppast::cpp_entity]() modelling a type alias/typedef. \notes There is no distinction between `using` and `typedef` type aliases made in the AST.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type_alias.hpp#L17{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type) : std::unique_ptr<cpp_type_alias> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type_alias.hpp#L20{\returns A newly created and registered type alias.}]]]
-{static} +build(std::string name, std::unique_ptr<cpp_type> type) : std::unique_ptr<cpp_type_alias> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type_alias.hpp#L25{\returns A newly created type alias that isn't registered. \notes This function is intendend for templated type aliases.}]]]
-+underlying_type() const : cpp_type const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_type_alias.hpp#L28{\returns A reference to the aliased [cppast::cpp_type]().}]]]
+class "cpp_access_specifier" as C_0000706843607037461153
+class C_0000706843607037461153 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L12{cpp_access_specifier}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(cpp_access_specifier_kind kind) : std::unique_ptr<cpp_access_specifier>
++access_specifier() const : cpp_access_specifier_kind
 }
-class "cpp_enum_value" as C_0000007165
-class C_0000007165 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L21{A [cppast::cpp_entity]() modelling the value of an [cppast::cpp_enum]().}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L24{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_expression> value = nullptr) : std::unique_ptr<cpp_enum_value> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L28{\returns A newly created and registered enum value. \notes `value` may be `nullptr`, in which case the enum has an implicit value.}]]]
-+value() const : type_safe::optional_ref<cpp_expression const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L34{\returns A [ts::optional_ref]() to the [cppast::cpp_expression]() that is the enum value. \notes It only has an associated expression if the value is explictly given.}]]]
+class "cpp_include_directive" as C_0000710886303767961620
+class C_0000710886303767961620 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L45{cpp_include_directive}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_file_ref & target, cpp_include_kind kind, std::string full_path) : std::unique_ptr<cpp_include_directive>
++target() const : cpp_file_ref
++include_kind() const : cpp_include_kind
++full_path() const : const std::string &
 }
-class "cpp_enum" as C_0000007183
-class C_0000007183 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L53{A [cppast::cpp_entity]() modelling a C++ enumeration. This can either be a definition or just a forward declaration. If it is just forward declared, it will not have any children.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L58{kind}]]]
-+underlying_type() const : cpp_type const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L108{\returns A reference to the underlying [cppast::cpp_type]() of the enum.}]]]
-+has_explicit_type() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L114{\returns Whether or not the underlying type is explictly given.}]]]
-+is_scoped() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_enum.hpp#L120{\returns Whether or not it is a scoped enumeration (i.e. an `enum class`).}]]]
+class "cpp_template_template_parameter" as C_0000753898560016921202
+class C_0000753898560016921202 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L67{cpp_template_template_parameter}]] {
+{static} +kind() : cpp_entity_kind
++parameters() const : detail::iteratable_intrusive_list<cpp_template_parameter>
++keyword() const : cpp_template_keyword
++default_template() const : type_safe::basic_optional<cpp_template_ref>
 }
-class "cpp_template" as C_0000007430
-class C_0000007430 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L21{Base class for all entities modelling a C++ template of some kind. It is a container of a single [cppast::cpp_entity]() that is the entity being templated.}]] {
-+parameters() const : detail::iteratable_intrusive_list<cpp_template_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L26{\returns An iteratable object iterating over the [cppast::cpp_template_parameter]() entities. \notes These may be empty for a full specialization.}]]]
+class "cpp_using_directive" as C_0000884493087412892762
+class C_0000884493087412892762 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L77{cpp_using_directive}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(cpp_namespace_ref target) : std::unique_ptr<cpp_using_directive>
++target() const : const cpp_namespace_ref &
 }
-class "cpp_template_specialization" as C_0000007484
-class C_0000007484 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L177{Base class for all entities modelling a C++ template specialization.}]] {
-+primary_template() const : cpp_template_ref [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L181{\returns A reference to the template that is being specialized.}]]]
-+arguments_exposed() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L187{\returns Whether or not the arguments are exposed.}]]]
-+arguments() const : type_safe::array_ref<cpp_template_argument const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L196{\returns An iteratable object iterating over the [cppast::cpp_template_argument]()s. \requires The arguments are exposed, i.e. `arguments_exposed()` returns `true`. \notes For function template specializations it can be empty, meaning that the arguments...}]]]
-+unexposed_arguments() const : cpp_token_string const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L206{\returns The unexposed arguments as string. \requires The arguments are not exposed, i.e. `arguments_exposed()` returns `false`. \notes For function template specializations it can be empty, meaning that the arguments are not explictly given but deduced...}]]]
-+is_full_specialization() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template.hpp#L212{\returns Whether or not the specialization is a full specialization.}]]]
+class "cpp_enum" as C_0000914084519342392608
+class C_0000914084519342392608 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L33{cpp_enum}]] {
+{static} +kind() : cpp_entity_kind
++underlying_type() const : const cpp_type &
++has_explicit_type() const : bool
++is_scoped() const : bool
 }
-class "cpp_language_linkage" as C_0000007515
-class C_0000007515 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_language_linkage.hpp#L13{A [cppast::cpp_entity]() modelling a language linkage.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_language_linkage.hpp#L17{kind}]]]
-+is_block() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_language_linkage.hpp#L50{\returns `true` if the linkage is a block, `false` otherwise.}]]]
+class "cpp_alias_template" as C_0000949738581869538757
+class C_0000949738581869538757 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L13{cpp_alias_template}]] {
+{static} +kind() : cpp_entity_kind
++type_alias() const : const cpp_type_alias &
 }
-class "cpp_macro_parameter" as C_0000007532
-class C_0000007532 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L15{A [cppast::cpp_entity]() modelling a macro parameter.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L18{kind}]]]
-{static} +build(std::string name) : std::unique_ptr<cpp_macro_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L23{\returns A newly built macro parameter. \notes It is not meant to be registered in the [cppast::cpp_entity_index]() as no other [cppast::cpp_entity]() can refer to it.}]]]
+class "cpp_concept" as C_0001015000934507811109
+class C_0001015000934507811109 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L23{cpp_concept}]] {
+{static} +kind() : cpp_entity_kind
++parameters() const : const cpp_token_string &
++constraint_expression() const : const cpp_expression &
 }
-class "cpp_macro_definition" as C_0000007536
-class C_0000007536 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L35{A [cppast::cpp_entity]() modelling a macro definition.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L38{kind}]]]
-{static} +build_object_like(std::string name, std::string replacement) : std::unique_ptr<cpp_macro_definition> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L43{\returns A newly built object like macro. \notes It is not meant to be registered in the [cppast::cpp_entity_index](), as no other [cppast::cpp_entity]() can refer to it.}]]]
-+replacement() const : std::string const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L98{\returns The replacement text of the macro.}]]]
-+is_object_like() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L104{\returns Whether or not it is an object like macro.}]]]
-+is_function_like() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L110{\returns Whether or not it is a function like macro.}]]]
-+is_variadic() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L116{\returns Whether or not it is a variadic macro.}]]]
-+parameters() const : detail::iteratable_intrusive_list<cpp_macro_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L123{\returns The parameters of the macro. \notes It has none if it is not a function like macro.}]]]
+class "cpp_function" as C_0001029800296375209800
+class C_0001029800296375209800 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L39{cpp_function}]] {
+{static} +kind() : cpp_entity_kind
++return_type() const : const cpp_type &
++storage_class() const : cpp_storage_class_specifiers
++is_constexpr() const : bool
++is_consteval() const : bool
 }
-class "cpp_include_directive" as C_0000007566
-class C_0000007566 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L154{A [cppast::cpp_entity]() modelling an `#include`.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L157{kind}]]]
-{static} +build(cpp_file_ref const& target, cpp_include_kind kind, std::string full_path) : std::unique_ptr<cpp_include_directive> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L162{\returns A newly built include directive. \notes It is not meant to be registered in the [cppast::cpp_entity_index](), as no other [cppast::cpp_entity]() can refer to it.}]]]
-+target() const : cpp_file_ref [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L171{\returns A reference to the [cppast::cpp_file]() it includes.}]]]
-+include_kind() const : cpp_include_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L177{\returns The kind of include it is.}]]]
-+full_path() const : std::string const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_preprocessor.hpp#L183{\returns The full path of the included file.}]]]
+class "cpp_bitfield" as C_0001142080746427367264
+class C_0001142080746427367264 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L18{cpp_bitfield}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, unsigned int no_bits, bool is_mutable) : std::unique_ptr<cpp_bitfield>
+{static} +build(std::unique_ptr<cpp_type> type, unsigned int no_bits, bool is_mutable) : std::unique_ptr<cpp_bitfield>
++no_bits() const : unsigned int
 }
-class "cpp_member_variable_base" as C_0000007672
-class C_0000007672 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L13{Base class for all kinds of member variables.}]] {
-+is_mutable() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L17{\returns Whether or not the member variable is declared `mutable`.}]]]
-+cpp_member_variable_base(std::string name, std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def, bool is_mutable) : void [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L22{cpp_member_variable_base}]]]
+class "cpp_template_parameter" as C_0001158442798649543268
+class C_0001158442798649543268 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L64{cpp_template_parameter}]] {
++is_variadic() const : bool
 }
-class "cpp_member_variable" as C_0000007680
-class C_0000007680 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L33{A [cppast::cpp_entity]() modelling a C++ member variable.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L36{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def, bool is_mutable) : std::unique_ptr<cpp_member_variable> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L40{\returns A newly created and registered member variable. \notes `def` may be `nullptr` in which case there is no member initializer provided.}]]]
+class "cpp_function_base" as C_0001223070325447825853
+class C_0001223070325447825853 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L40{cpp_function_base}]] {
++parameters() const : detail::iteratable_intrusive_list<cpp_function_parameter>
++body_kind() const : cpp_function_body_kind
++noexcept_condition() const : type_safe::basic_optional<const cpp_expression>
++is_variadic() const : bool
++signature() const : std::string
 }
-class "cpp_bitfield" as C_0000007692
-class C_0000007692 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L53{A [cppast::cpp_entity]() modelling a C++ bitfield.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L56{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, unsigned int no_bits, bool is_mutable) : std::unique_ptr<cpp_bitfield> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L60{\returns A newly created and registered bitfield. \notes It cannot have a member initializer, i.e. default value.}]]]
-{static} +build(std::unique_ptr<cpp_type> type, unsigned int no_bits, bool is_mutable) : std::unique_ptr<cpp_bitfield> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L66{\returns A newly created unnamed bitfield. \notes It will not be registered, as it is unnamed.}]]]
-+no_bits() const : unsigned int [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_variable.hpp#L70{\returns The number of bits of the bitfield.}]]]
+class "cpp_file" as C_0001248593507051490272
+class C_0001248593507051490272 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L36{cpp_file}]] {
+{static} +kind() : cpp_entity_kind
++unmatched_comments() const : type_safe::array_ref<const cpp_doc_comment>
 }
-class "cpp_namespace" as C_0000007726
-class C_0000007726 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L15{A [cppast::cpp_entity]() modelling a namespace.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L19{kind}]]]
-+is_inline() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L56{\returns Whether or not the namespace is an `inline namespace`.}]]]
-+is_nested() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L62{\returns Whether or not the namespace is part of a C++17 nested namespace.}]]]
-+is_anonymous() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L68{\returns Whether or not the namespace is anonymous.}]]]
+class "cpp_member_variable_base" as C_0001290905484738066347
+class C_0001290905484738066347 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L54{cpp_member_variable_base}]] {
++is_mutable() const : bool
++cpp_member_variable_base(std::string name, std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def, bool is_mutable) : void
 }
-class "cpp_namespace_alias" as C_0000007747
-class C_0000007747 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L102{A [cppast::cpp_entity]() modelling a namespace alias.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L105{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, cpp_namespace_ref target) : std::unique_ptr<cpp_namespace_alias> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L108{\returns A newly created and registered namespace alias.}]]]
-+target() const : cpp_namespace_ref const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L114{\returns The [cppast::cpp_namespace_ref]() to the aliased namespace. \notes If the namespace aliases aliases another namespace alias, the target entity will still be the namespace, not the alias.}]]]
+class "cpp_namespace" as C_0001318630691633731356
+class C_0001318630691633731356 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L55{cpp_namespace}]] {
+{static} +kind() : cpp_entity_kind
++is_inline() const : bool
++is_nested() const : bool
++is_anonymous() const : bool
 }
-class "cpp_using_directive" as C_0000007767
-class C_0000007767 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L133{A [cppast::cpp_entity]() modelling a using directive. A using directive is `using namespace std`, for example. \notes It does not have a name.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L136{kind}]]]
-{static} +build(cpp_namespace_ref target) : std::unique_ptr<cpp_using_directive> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L141{\returns A newly created using directive. \notes It is not meant to be registered at the [cppast::cpp_entity_index](), as nothing can refer to it.}]]]
-+target() const : cpp_namespace_ref const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L147{\returns The [cppast::cpp_namespace_ref]() that is being used.}]]]
+class "cpp_function_parameter" as C_0001352597003719961343
+class C_0001352597003719961343 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L41{cpp_function_parameter}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def = nullptr) : std::unique_ptr<cpp_function_parameter>
+{static} +build(std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def = nullptr) : std::unique_ptr<cpp_function_parameter>
 }
-class "cpp_using_declaration" as C_0000007783
-class C_0000007783 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L164{A [cppast::cpp_entity]() modelling a using declaration. A using declaration is `using std::vector`, for example. \notes It does not have a name.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L167{kind}]]]
-{static} +build(cpp_entity_ref target) : std::unique_ptr<cpp_using_declaration> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L172{\returns A newly created using declaration. \notes It is not meant to be registered at the [cppast::cpp_entity_index](), as nothing can refer to it.}]]]
-+target() const : cpp_entity_ref const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_namespace.hpp#L179{\returns The [cppast::cpp_entity_ref]() that is being used. \notes The name of the reference is the same as the name of this entity.}]]]
+class "cpp_language_linkage" as C_0001368865032388034918
+class C_0001368865032388034918 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L46{cpp_language_linkage}]] {
+{static} +kind() : cpp_entity_kind
++is_block() const : bool
++cpp_entity(std::string ) : void
 }
-class "cpp_variable" as C_0000007825
-class C_0000007825 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable.hpp#L18{A [cppast::cpp_entity]() modelling a C++ variable. \notes This is not a member variable, use [cppast::cpp_member_variable]() for that. But it can be `static` member variable.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable.hpp#L23{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def, cpp_storage_class_specifiers spec, bool is_constexpr) : std::unique_ptr<cpp_variable> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable.hpp#L27{\returns A newly created and registered variable. \notes The default value may be `nullptr` indicating no default value.}]]]
-{static} +build_declaration(cpp_entity_id definition_id, std::string name, std::unique_ptr<cpp_type> type, cpp_storage_class_specifiers spec, bool is_constexpr) : std::unique_ptr<cpp_variable> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable.hpp#L35{\returns A newly created variable that is a declaration. A declaration will not be registered and it does not have the default value.}]]]
-+storage_class() const : cpp_storage_class_specifiers [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable.hpp#L42{\returns The [cppast::cpp_storage_specifiers]() on that variable.}]]]
-+is_constexpr() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable.hpp#L48{\returns Whether the variable is marked `constexpr`.}]]]
+class "cpp_function_template" as C_0001450758198445278335
+class C_0001450758198445278335 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L42{cpp_function_template}]] {
+{static} +kind() : cpp_entity_kind
++function() const : const cpp_function_base &
 }
-abstract "cpp_entity" as C_0000007892
-abstract C_0000007892 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L47{The base class for all entities in the C++ AST.}]] {
-+cpp_entity(cpp_entity const& ) : void [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L50{cpp_entity}]]]
-+operator=(cpp_entity const& ) : cpp_entity& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L51{operator=}]]]
-+~cpp_entity() : void [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L53{~cpp_entity}]]]
-+kind() const : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L56{\returns The kind of the entity.}]]]
-+name() const : std::string const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L63{\returns The name of the entity. The name is the string associated with the entity's declaration.}]]]
-+scope_name() const : type_safe::optional<cpp_scope_name> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L70{\returns The name of the new scope created by the entity, if there is any.}]]]
-+parent() const : type_safe::optional_ref<cpp_entity const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L76{\returns A [ts::optional_ref]() to the parent entity in the AST.}]]]
-+comment() const : type_safe::optional_ref<std::string const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L106{\returns The documentation comment associated with that entity, if any. \notes A documentation comment can have three forms: * A C style doc comment. It is a C style comment starting with an additional `*`, i.e. `/**`. One space after the leading sequen...}]]]
-+set_comment(type_safe::optional<std::string> comment) : void [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L113{\effects Sets the associated comment. \requires The comment must not be empty, if there is one.}]]]
-+attributes() const : cpp_attribute_list const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L119{\returns The list of attributes that are specified for that entity.}]]]
-+add_attribute(cpp_attribute attr) : void [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L125{\effects Adds an attribute for that entity.}]]]
-+add_attribute(cpp_attribute_list const& list) : void [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L131{\effects Adds multiple arguments for that entity.}]]]
-+user_data() const : void* [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L137{\returns The specified user data.}]]]
-+set_user_data(void* data) const : void [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L149{\effects Sets some kind of user data. User data is just some kind of pointer, there are no requirements. The class will do no lifetime management. User data is useful if you need to store additional data for an entity without the need to maintain a regi...}]]]
-+cpp_entity(std::string name) : void [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L155{\effects Creates it giving it the the name.}]]]
+class "cpp_non_type_template_parameter" as C_0001461284658212381765
+class C_0001461284658212381765 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L56{cpp_non_type_template_parameter}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, bool is_variadic, std::unique_ptr<cpp_expression> default_value = nullptr) : std::unique_ptr<cpp_non_type_template_parameter>
 }
-class "cpp_unexposed_entity" as C_0000007918
-class C_0000007918 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L187{A [cppast::cpp_entity]() that isn't exposed directly. The only information available is the raw source code.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L190{kind}]]]
-{static} +build(cpp_entity_index const& index, cpp_entity_id id, std::string name, cpp_token_string spelling) : std::unique_ptr<cpp_entity> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L194{\returns A newly built and registered unexposed entity. \notes It will be registered as a declaration.}]]]
-{static} +build(cpp_token_string spelling) : std::unique_ptr<cpp_entity> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L199{\returns A newly built unnamed unexposed entity. It will not be registered.}]]]
-+spelling() const : cpp_token_string const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_entity.hpp#L202{\returns The spelling of that entity.}]]]
+class "cpp_base_class" as C_0001513295345096619386
+class C_0001513295345096619386 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L17{cpp_base_class}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(std::string name, std::unique_ptr<cpp_type> base, cpp_access_specifier_kind access, bool is_virtual) : std::unique_ptr<cpp_base_class>
++type() const : const cpp_type &
++access_specifier() const : cpp_access_specifier_kind
++is_virtual() const : bool
 }
-class "cpp_template_parameter" as C_0000007933
-class C_0000007933 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L17{Base class for all entities modelling a template parameter of some kind.}]] {
-+is_variadic() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L21{\returns Whether or not the parameter is variadic.}]]]
+class "cpp_destructor" as C_0001522207092676876515
+class C_0001522207092676876515 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L30{cpp_destructor}]] {
+{static} +kind() : cpp_entity_kind
++is_virtual() const : bool
++virtual_info() const : cpp_virtual
 }
-class "cpp_template_type_parameter" as C_0000007941
-class C_0000007941 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L46{A [cppast::cpp_entity]() modelling a C++ template type parameter.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L49{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, cpp_template_keyword kw, bool variadic, std::unique_ptr<cpp_type> default_type = nullptr) : std::unique_ptr<cpp_template_type_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L53{\returns A newly created and registered template type parameter. \notes The `default_type` may be `nullptr` in which case the parameter has no default.}]]]
-+default_type() const : type_safe::optional_ref<cpp_type const> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L58{\returns A [ts::optional_ref]() to the default type.}]]]
-+keyword() const : cpp_template_keyword [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L64{\returns The keyword used in the template parameter.}]]]
+class "cpp_type_alias" as C_0001652684387667767114
+class C_0001652684387667767114 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L71{cpp_type_alias}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type) : std::unique_ptr<cpp_type_alias>
+{static} +build(std::string name, std::unique_ptr<cpp_type> type) : std::unique_ptr<cpp_type_alias>
++underlying_type() const : const cpp_type &
 }
-class "cpp_non_type_template_parameter" as C_0000007980
-class C_0000007980 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L128{A [cppast::cpp_entity]() modelling a C++ non-type template parameter.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L132{kind}]]]
-{static} +build(cpp_entity_index const& idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, bool is_variadic, std::unique_ptr<cpp_expression> default_value = nullptr) : std::unique_ptr<cpp_non_type_template_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L136{\returns A newly created and registered non type template parameter. \notes The `default_value` may be `nullptr` in which case the parameter has no default.}]]]
+class "cpp_macro_definition" as C_0001660861710076468858
+class C_0001660861710076468858 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L48{cpp_macro_definition}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build_object_like(std::string name, std::string replacement) : std::unique_ptr<cpp_macro_definition>
++replacement() const : const std::string &
++is_object_like() const : bool
++is_function_like() const : bool
++is_variadic() const : bool
++parameters() const : detail::iteratable_intrusive_list<cpp_macro_parameter>
 }
-class "cpp_template_template_parameter" as C_0000007997
-class C_0000007997 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L164{A [cppast::cpp_entity]() modelling a C++ template template parameter.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L167{kind}]]]
-+parameters() const : detail::iteratable_intrusive_list<cpp_template_parameter> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L213{\returns An iteratable object containing the template parameters of the template template parameter.}]]]
-+keyword() const : cpp_template_keyword [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L219{\returns The keyword used in the template parameter.}]]]
-+default_template() const : type_safe::optional<cpp_template_ref> [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_template_parameter.hpp#L225{\returns A [ts::optional]() that is the default template.}]]]
+class "cpp_template_type_parameter" as C_0001672854013158225149
+class C_0001672854013158225149 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L68{cpp_template_type_parameter}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, cpp_template_keyword kw, bool variadic, std::unique_ptr<cpp_type> default_type = nullptr, type_safe::basic_optional<cpp_token_string> concept_constraint = type_safe::nullopt) : std::unique_ptr<cpp_template_type_parameter>
++default_type() const : type_safe::basic_optional<const cpp_type>
++keyword() const : cpp_template_keyword
++concept_constraint() const : const type_safe::basic_optional<cpp_token_string> &
 }
-class "cpp_member_function_base" as C_0000008062
-class C_0000008062 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L63{Base classes for all regular member function. The two derived classes are [cppast::cpp_member_function]() and [cppast::cpp_conversion_op]().}]] {
-+return_type() const : cpp_type const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L67{\returns The return type of the member function.}]]]
-+is_virtual() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L73{\returns Whether or not it is `virtual`.}]]]
-+virtual_info() const : cpp_virtual const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L79{\returns The `virtual`-ness of the member function.}]]]
-+cv_qualifier() const : cpp_cv [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L85{\returns The cv-qualifier on the member function.}]]]
-+ref_qualifier() const : cpp_reference [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L91{\returns The ref-qualifier on the member function.}]]]
-+is_constexpr() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L97{\returns Whether or not the member function is `constexpr`.}]]]
-+is_consteval() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L103{\returns Whether or not the member function is `consteval`.}]]]
+class "cpp_variable" as C_0001714681292788161746
+class C_0001714681292788161746 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L78{cpp_variable}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def, cpp_storage_class_specifiers spec, bool is_constexpr) : std::unique_ptr<cpp_variable>
+{static} +build_declaration(cpp_entity_id definition_id, std::string name, std::unique_ptr<cpp_type> type, cpp_storage_class_specifiers spec, bool is_constexpr) : std::unique_ptr<cpp_variable>
++storage_class() const : cpp_storage_class_specifiers
++is_constexpr() const : bool
 }
-class "cpp_member_function" as C_0000008096
-class C_0000008096 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L169{A [cppast::cpp_entity]() modelling a member function.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L172{kind}]]]
+class "cpp_conversion_op" as C_0001746973142219232442
+class C_0001746973142219232442 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L25{cpp_conversion_op}]] {
+{static} +kind() : cpp_entity_kind
++is_explicit() const : bool
 }
-class "cpp_conversion_op" as C_0000008104
-class C_0000008104 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L191{A [cppast::cpp_entity]() modelling a C++ conversion operator.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L194{kind}]]]
-+is_explicit() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L214{\returns Whether or not the conversion is `explicit`.}]]]
+class "cpp_class_template_specialization" as C_0001762684826194706908
+class C_0001762684826194706908 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L22{cpp_class_template_specialization}]] {
+{static} +kind() : cpp_entity_kind
++class_() const : const cpp_class &
 }
-class "cpp_constructor" as C_0000008114
-class C_0000008114 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L232{A [cppast::cpp_entity]() modelling a C++ constructor.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L235{kind}]]]
-+is_explicit() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L263{\returns Whether or not the constructor is `explicit`.}]]]
-+is_constexpr() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L269{\returns Whether or not the constructor is `constexpr`.}]]]
-+is_consteval() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L275{\returns Whether or not the constructor is `consteval`.}]]]
+class "cpp_member_function_base" as C_0001783488486496950492
+class C_0001783488486496950492 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L51{cpp_member_function_base}]] {
++return_type() const : const cpp_type &
++is_virtual() const : bool
++virtual_info() const : const cpp_virtual &
++cv_qualifier() const : cpp_cv
++ref_qualifier() const : cpp_reference
++is_constexpr() const : bool
++is_consteval() const : bool
 }
-class "cpp_destructor" as C_0000008122
-class C_0000008122 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L295{A [cppast::cpp_entity]() modelling a C++ destructor.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L298{kind}]]]
-+is_virtual() const : bool [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L318{\returns Whether or not it is `virtual`.}]]]
-+virtual_info() const : cpp_virtual [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_member_function.hpp#L324{\returns The `virtual`-ness of the constructor.}]]]
+class "cpp_function_template_specialization" as C_0001912174880347917630
+class C_0001912174880347917630 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L43{cpp_function_template_specialization}]] {
+{static} +kind() : cpp_entity_kind
++function() const : const cpp_function_base &
 }
-class "cpp_variable_template" as C_0000008272
-class C_0000008272 [[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable_template.hpp#L13{A [cppast::cpp_entity]() modelling a C++ alias template.}]] {
-{static} +kind() : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable_template.hpp#L16{kind}]]]
-+variable() const : cpp_variable const& [[[https://github.com/foonathan/cppast/blob/19cbc378f8a6b3fe7d04b309784a3a0920de9e75/include/cppast/cpp_variable_template.hpp#L26{\returns A reference to the type variable that is being templated.}]]]
+class "cpp_member_variable" as C_0002206472772300753495
+class C_0002206472772300753495 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_member_variable.hpp#L33{A [cppast::cpp_entity]() modelling a C++ member variable.}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> def, bool is_mutable) : std::unique_ptr<cpp_member_variable>
++cpp_member_variable_base(std::string , std::unique_ptr<cpp_type> , std::unique_ptr<cpp_expression> , bool ) : void
 }
-C_0000007892 <|-- C_0000006252
-C_0000007430 <|-- C_0000006313
-C_0000007484 <|-- C_0000006323
-C_0000007892 <|-- C_0000006381
-C_0000007430 <|-- C_0000006404
-C_0000007430 <|-- C_0000006423
-C_0000007484 <|-- C_0000006433
-C_0000007892 <|-- C_0000006604
-C_0000007892 <|-- C_0000006615
-C_0000007892 <|-- C_0000006644
-C_0000007892 <|-- C_0000006716
-C_0000007892 <|-- C_0000006844
-C_0000006800 <|-- C_0000006844
-C_0000007892 <|-- C_0000006868
-C_0000006868 <|-- C_0000006910
-C_0000007892 <|-- C_0000007116
-C_0000007892 <|-- C_0000007165
-C_0000007892 <|-- C_0000007183
-C_0000007892 <|-- C_0000007430
-C_0000007430 <|-- C_0000007484
-C_0000007892 <|-- C_0000007515
-C_0000007892 <|-- C_0000007532
-C_0000007892 <|-- C_0000007536
-C_0000007892 <|-- C_0000007566
-C_0000007892 <|-- C_0000007672
-C_0000006800 <|-- C_0000007672
-C_0000007672 <|-- C_0000007680
-C_0000007672 <|-- C_0000007692
-C_0000007892 <|-- C_0000007726
-C_0000007892 <|-- C_0000007747
-C_0000007892 <|-- C_0000007767
-C_0000007892 <|-- C_0000007783
-C_0000007892 <|-- C_0000007825
-C_0000006800 <|-- C_0000007825
-C_0000007892 <|-- C_0000007918
-C_0000007892 <|-- C_0000007933
-C_0000007933 <|-- C_0000007941
-C_0000007933 <|-- C_0000007980
-C_0000006800 <|-- C_0000007980
-C_0000007933 <|-- C_0000007997
-C_0000006868 <|-- C_0000008062
-C_0000008062 <|-- C_0000008096
-C_0000008062 <|-- C_0000008104
-C_0000006868 <|-- C_0000008114
-C_0000006868 <|-- C_0000008122
-C_0000007430 <|-- C_0000008272
+class "cpp_namespace_alias" as C_0000173412889635012893
+class C_0000173412889635012893 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_namespace.hpp#L102{A [cppast::cpp_entity]() modelling a namespace alias.}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, cpp_namespace_ref target) : std::unique_ptr<cpp_namespace_alias>
++target() const : const cpp_namespace_ref &
+}
+C_0001854695372332280903 <|-- C_0001449857709503654826
+C_0001854695372332280903 <|-- C_0001035636844572508781
+C_0001854695372332280903 <|-- C_0000007122300671081288
+C_0001223070325447825853 <|-- C_0000093026110207222749
+C_0001783488486496950492 <|-- C_0000204784596342006018
+C_0001854695372332280903 <|-- C_0000303046364398051951
+C_0000007122300671081288 <|-- C_0000354944277741654522
+C_0001854695372332280903 <|-- C_0000405957729531335243
+C_0001854695372332280903 <|-- C_0000481403470717148125
+C_0000007122300671081288 <|-- C_0000528839971184410995
+C_0000007122300671081288 <|-- C_0000529201356065019777
+C_0001854695372332280903 <|-- C_0000569714057132864504
+C_0001854695372332280903 <|-- C_0000609158070514656735
+C_0001854695372332280903 <|-- C_0000706843607037461153
+C_0001854695372332280903 <|-- C_0000710886303767961620
+C_0001158442798649543268 <|-- C_0000753898560016921202
+C_0001854695372332280903 <|-- C_0000884493087412892762
+C_0001854695372332280903 <|-- C_0000914084519342392608
+C_0000007122300671081288 <|-- C_0000949738581869538757
+C_0001854695372332280903 <|-- C_0001015000934507811109
+C_0001223070325447825853 <|-- C_0001029800296375209800
+C_0001290905484738066347 <|-- C_0001142080746427367264
+C_0001854695372332280903 <|-- C_0001158442798649543268
+C_0001854695372332280903 <|-- C_0001223070325447825853
+C_0001854695372332280903 <|-- C_0001248593507051490272
+C_0001854695372332280903 <|-- C_0001290905484738066347
+C_0000184600132526931259 <|-- C_0001290905484738066347
+C_0001854695372332280903 <|-- C_0001318630691633731356
+C_0001854695372332280903 <|-- C_0001352597003719961343
+C_0000184600132526931259 <|-- C_0001352597003719961343
+C_0001854695372332280903 <|-- C_0001368865032388034918
+C_0000007122300671081288 <|-- C_0001450758198445278335
+C_0001158442798649543268 <|-- C_0001461284658212381765
+C_0000184600132526931259 <|-- C_0001461284658212381765
+C_0001854695372332280903 <|-- C_0001513295345096619386
+C_0001223070325447825853 <|-- C_0001522207092676876515
+C_0001854695372332280903 <|-- C_0001652684387667767114
+C_0001854695372332280903 <|-- C_0001660861710076468858
+C_0001158442798649543268 <|-- C_0001672854013158225149
+C_0001854695372332280903 <|-- C_0001714681292788161746
+C_0000184600132526931259 <|-- C_0001714681292788161746
+C_0001783488486496950492 <|-- C_0001746973142219232442
+C_0000529201356065019777 <|-- C_0001762684826194706908
+C_0001223070325447825853 <|-- C_0001783488486496950492
+C_0000529201356065019777 <|-- C_0001912174880347917630
+C_0001290905484738066347 <|-- C_0002206472772300753495
+C_0001854695372332280903 <|-- C_0000173412889635012893
 @enduml
