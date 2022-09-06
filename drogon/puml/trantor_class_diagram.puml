@@ -1,44 +1,339 @@
 @startuml
-class "MpscQueue<T>" as C_0000000003
-class C_0000000003 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L30{MpscQueue}]] {
-+MpscQueue() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L33{MpscQueue}]]]
-+~MpscQueue() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L37{~MpscQueue}]]]
-+enqueue(T&& input) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L53{@brief Put a item into the queue. @param input @note This method can be called in multiple threads.}]]]
-+enqueue(T const& input) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L59{enqueue}]]]
-+dequeue(T& output) : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L73{@brief Get a item from the queue. @param output @return false if the queue is empty. @note This method must be called in a single thread.}]]]
-+empty() : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L89{empty}]]]
+class "NonCopyable" as C_0001159823987743494688
+class C_0001159823987743494688 {
 }
-class "BufferNode" as C_0000000007
-class C_0000000007 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L97{BufferNode}]] {
-+BufferNode() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L99{BufferNode}]]]
-+BufferNode(T const& data) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L100{BufferNode}]]]
-+BufferNode(T&& data) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L103{BufferNode}]]]
-+dataPtr_ : T* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L106{dataPtr_}]]]
-+next_ : std::atomic<MpscQueue::BufferNode*> [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LockFreeQueue.h#L107{next_}]]]
+class "Date" as C_0002032009232244826154
+class C_0002032009232244826154 {
++Date() : void
++Date(int64_t microSec) : void
++Date(unsigned int year, unsigned int month, unsigned int day, unsigned int hour = 0, unsigned int minute = 0, unsigned int second = 0, unsigned int microSecond = 0) : void
+{static} +date() : const Date
+{static} +now() : const Date
+{static} +timezoneOffset() : int64_t
++after(double second) const : const Date
++roundSecond() const : const Date
++roundDay() const : const Date
++~Date() : void
++operator==(const Date & date) const : bool
++operator!=(const Date & date) const : bool
++operator<(const Date & date) const : bool
++operator>(const Date & date) const : bool
++operator>=(const Date & date) const : bool
++operator<=(const Date & date) const : bool
++microSecondsSinceEpoch() const : int64_t
++secondsSinceEpoch() const : int64_t
++tmStruct() const : struct tm
++toFormattedString(bool showMicroseconds) const : std::string
++toCustomedFormattedString(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toFormattedStringLocal(bool showMicroseconds) const : std::string
++toCustomedFormattedStringLocal(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toDbStringLocal() const : std::string
++toDbString() const : std::string
+{static} +fromDbStringLocal(const std::string & datetime) : Date
+{static} +fromDbString(const std::string & datetime) : Date
++toCustomedFormattedString(const std::string & fmtStr, char * str, size_t len) const : void
++isSameSecond(const Date & date) const : bool
++swap(Date & that) : void
 }
-abstract "TaskQueue" as C_0000000020
-abstract C_0000000020 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TaskQueue.h#L28{@brief This class is a pure virtual class that can be implemented as a SerialTaskQueue or a ConcurrentTaskQueue.}]] {
-{abstract} +runTaskInQueue(std::function<void()> const& task) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TaskQueue.h#L31{runTaskInQueue}]]]
-{abstract} +runTaskInQueue(std::function<void()>&& task) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TaskQueue.h#L32{runTaskInQueue}]]]
-+getName() const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TaskQueue.h#L33{getName}]]]
-+syncTaskInQueue(std::function<void()> const& task) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TaskQueue.h#L44{@brief Run a task in the queue sychronously. This means that the task is executed before the method returns. @param task}]]]
-+~TaskQueue() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TaskQueue.h#L54{~TaskQueue}]]]
+class "AsyncFileLogger" as C_0000630185754256426097
+class C_0000630185754256426097 {
++output(const char * msg, const uint64_t len) : void
++flush() : void
++startLogging() : void
++setFileSizeLimit(uint64_t limit) : void
++setFileName(const std::string & baseName, const std::string & extName = ".log", const std::string & path = "./") : void
++~AsyncFileLogger() : void
++AsyncFileLogger() : void
 }
-class "Logger" as C_0000000025
-class C_0000000025 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L34{@brief This class implements log functions.}]] {
-+Logger(Logger::SourceFile file, int line) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L80{Logger}]]]
-+Logger(Logger::SourceFile file, int line, Logger::LogLevel level) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L81{Logger}]]]
-+Logger(Logger::SourceFile file, int line, bool isSysErr) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L82{Logger}]]]
-+Logger(Logger::SourceFile file, int line, Logger::LogLevel level, char const* func) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L83{Logger}]]]
-+~Logger() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L84{~Logger}]]]
-+setIndex(int index) : Logger& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L85{setIndex}]]]
-+stream() : LogStream& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L90{stream}]]]
-{static} +setOutputFunction(std::function<void(char const*,uint64_t const)> outputFunc, std::function<void()> flushFunc, int index = -1) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L99{@brief Set the output function. @param outputFunc The function to output a log message. @param flushFunc The function to flush. @note Logs are output to the standard output by default.}]]]
-{static} +setLogLevel(Logger::LogLevel level) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L121{@brief Set the log level. Logs below the level are not printed. @param level}]]]
-{static} +logLevel() : Logger::LogLevel [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L131{@brief Get the current log level. @return LogLevel}]]]
+class "AsyncFileLogger::LoggerFile" as C_0000923080849258138681
+class C_0000923080849258138681 {
++LoggerFile(const std::string & filePath, const std::string & fileBaseName, const std::string & fileExtName) : void
++~LoggerFile() : void
++writeLog(const StringPtr buf) : void
++getLength() : uint64_t
++operator bool() const : bool
++flush() : void
 }
-enum "LogLevel" as C_0000000038
-enum C_0000000038 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L37{LogLevel}]] {
+class "MpscQueue<T>" as C_0000912667184903365399
+class C_0000912667184903365399 {
++MpscQueue<T>() : void
++~MpscQueue<T>() : void
++enqueue(T && input) : void
++enqueue(const T & input) : void
++dequeue(T & output) : bool
++empty() : bool
+}
+class "MpscQueue<std::function<>>" as C_0000913287266699074255
+class C_0000913287266699074255 {
+}
+class "EventLoop" as C_0001390130774830223499
+class C_0001390130774830223499 {
++EventLoop() : void
++~EventLoop() : void
++loop() : void
++quit() : void
++assertInLoopThread() : void
++resetTimerQueue() : void
++resetAfterFork() : void
++isInLoopThread() const : bool
+{static} +getEventLoopOfCurrentThread() : EventLoop *
++queueInLoop(const Func & f) : void
++queueInLoop(Func && f) : void
++runAt(const Date & time, const Func & cb) : TimerId
++runAt(const Date & time, Func && cb) : TimerId
++runAfter(double delay, const Func & cb) : TimerId
++runAfter(double delay, Func && cb) : TimerId
++runAfter(const std::chrono::duration<double> & delay, const Func & cb) : TimerId
++runAfter(const std::chrono::duration<double> & delay, Func && cb) : TimerId
++runEvery(double interval, const Func & cb) : TimerId
++runEvery(double interval, Func && cb) : TimerId
++runEvery(const std::chrono::duration<double> & interval, const Func & cb) : TimerId
++runEvery(const std::chrono::duration<double> & interval, Func && cb) : TimerId
++invalidateTimer(TimerId id) : void
++moveToCurrentThread() : void
++updateChannel(Channel * chl) : void
++removeChannel(Channel * chl) : void
++index() : size_t
++setIndex(size_t index) : void
++isRunning() : bool
++isCallingFunctions() : bool
++runOnQuit(Func && cb) : void
++runOnQuit(const Func & cb) : void
++runInLoop(Functor && f) : void
+}
+class "EventLoopThread" as C_0001280612521485369958
+class C_0001280612521485369958 {
++EventLoopThread(const std::string & threadName = "EventLoopThread") : void
++~EventLoopThread() : void
++wait() : void
++getLoop() const : EventLoop *
++run() : void
+}
+class "EventLoopThreadPool" as C_0002061035340998974559
+class C_0002061035340998974559 {
++EventLoopThreadPool() : void
++EventLoopThreadPool(size_t threadNum, const std::string & name = "EventLoopThreadPool") : void
++start() : void
++wait() : void
++size() : size_t
++getNextLoop() : EventLoop *
++getLoop(size_t id) : EventLoop *
++getLoops() const : std::vector<EventLoop *>
+}
+abstract "Poller" as C_0000300034150397884642
+abstract C_0000300034150397884642 {
++Poller(EventLoop * loop) : void
++~Poller() : void
++assertInLoopThread() : void
+{abstract} +poll(int timeoutMs, ChannelList * activeChannels) = 0 : void
+{abstract} +updateChannel(Channel * channel) = 0 : void
+{abstract} +removeChannel(Channel * channel) = 0 : void
++resetAfterFork() : void
+{static} +newPoller(EventLoop * loop) : Poller *
+}
+class "TimerQueue" as C_0000607400095182694101
+class C_0000607400095182694101 {
++TimerQueue(EventLoop * loop) : void
++~TimerQueue() : void
++addTimer(const TimerCallback & cb, const TimePoint & when, const TimeInterval & interval) : TimerId
++addTimer(TimerCallback && cb, const TimePoint & when, const TimeInterval & interval) : TimerId
++addTimerInLoop(const TimerPtr & timer) : void
++invalidateTimer(TimerId id) : void
++reset() : void
+}
+class "Channel" as C_0000764690828649606524
+class C_0000764690828649606524 {
++Channel(EventLoop * loop, int fd) : void
++setReadCallback(const Channel::EventCallback & cb) : void
++setReadCallback(Channel::EventCallback && cb) : void
++setWriteCallback(const Channel::EventCallback & cb) : void
++setWriteCallback(Channel::EventCallback && cb) : void
++setCloseCallback(const Channel::EventCallback & cb) : void
++setCloseCallback(Channel::EventCallback && cb) : void
++setErrorCallback(const Channel::EventCallback & cb) : void
++setErrorCallback(Channel::EventCallback && cb) : void
++setEventCallback(const Channel::EventCallback & cb) : void
++setEventCallback(Channel::EventCallback && cb) : void
++fd() const : int
++events() const : int
++revents() const : int
++isNoneEvent() const : bool
++disableAll() : void
++remove() : void
++ownerLoop() : EventLoop *
++enableReading() : void
++disableReading() : void
++enableWriting() : void
++disableWriting() : void
++isWriting() const : bool
++isReading() const : bool
++updateEvents(int events) : void
++tie(const std::shared_ptr<void> & obj) : void
+{static} +kNoneEvent : const int
+{static} +kReadEvent : const int
+{static} +kWriteEvent : const int
+}
+class "MsgBuffer" as C_0001289495020269537351
+class C_0001289495020269537351 {
++MsgBuffer(size_t len = kBufferDefaultLength) : void
++peek() const : const char *
++beginWrite() const : const char *
++beginWrite() : char *
++peekInt8() const : uint8_t
++peekInt16() const : uint16_t
++peekInt32() const : uint32_t
++peekInt64() const : uint64_t
++read(size_t len) : std::string
++readInt8() : uint8_t
++readInt16() : uint16_t
++readInt32() : uint32_t
++readInt64() : uint64_t
++swap(MsgBuffer & buf) : void
++readableBytes() const : size_t
++writableBytes() const : size_t
++append(const MsgBuffer & buf) : void
++append(const char * buf, size_t len) : void
++append(const std::string & buf) : void
++appendInt8(const uint8_t b) : void
++appendInt16(const uint16_t s) : void
++appendInt32(const uint32_t i) : void
++appendInt64(const uint64_t l) : void
++addInFront(const char * buf, size_t len) : void
++addInFrontInt8(const uint8_t b) : void
++addInFrontInt16(const uint16_t s) : void
++addInFrontInt32(const uint32_t i) : void
++addInFrontInt64(const uint64_t l) : void
++retrieveAll() : void
++retrieve(size_t len) : void
++readFd(int fd, int * retErrno) : ssize_t
++retrieveUntil(const char * end) : void
++findCRLF() const : const char *
++ensureWritableBytes(size_t len) : void
++hasWritten(size_t len) : void
++unwrite(size_t offset) : void
++operator[](size_t offset) const : const char &
++operator[](size_t offset) : char &
++append(const char (&)[N] buf) : void
+}
+abstract "TaskQueue" as C_0000684873245997977544
+abstract C_0000684873245997977544 {
+{abstract} +runTaskInQueue(const std::function<void ()> & task) = 0 : void
+{abstract} +runTaskInQueue(std::function<void ()> && task) = 0 : void
++getName() const : std::string
++syncTaskInQueue(const std::function<void ()> & task) : void
++~TaskQueue() : void
+}
+class "SerialTaskQueue" as C_0000634031134969193198
+class C_0000634031134969193198 {
++runTaskInQueue(const std::function<void ()> & task) : void
++runTaskInQueue(std::function<void ()> && task) : void
++getName() const : std::string
++waitAllTasksFinished() : void
++SerialTaskQueue() : void
++SerialTaskQueue(const std::string & name) : void
++~SerialTaskQueue() : void
++isRuningTask() : bool
++getTaskCount() : size_t
++stop() : void
+}
+class "detail::FixedBuffer<int SIZE>" as C_0000111393647775817392
+class C_0000111393647775817392 {
++FixedBuffer<SIZE>() : void
++~FixedBuffer<SIZE>() : void
++append(const char * buf, size_t len) : bool
++data() const : const char *
++length() const : int
++current() : char *
++avail() const : int
++add(size_t len) : void
++reset() : void
++zeroBuffer() : void
++debugString() : const char *
++setCookie(void (*)() cookie) : void
++toString() const : std::string
+}
+class "detail::FixedBuffer<detail::kSmallBuffer>" as C_0000510041652600390686
+class C_0000510041652600390686 {
+}
+class "detail::FixedBuffer<4000>" as C_0001754247125147083756
+class C_0001754247125147083756 {
++FixedBuffer() : void
++~FixedBuffer() : void
++append(const char * buf, size_t len) : bool
++data() const : const char *
++length() const : int
++current() : char *
++avail() const : int
++add(size_t len) : void
++reset() : void
++zeroBuffer() : void
++debugString() : const char *
++setCookie(void (*)() cookie) : void
++toString() const : std::string
+}
+class "detail::FixedBuffer<4000000>" as C_0001042478360162272930
+class C_0001042478360162272930 {
++FixedBuffer() : void
++~FixedBuffer() : void
++append(const char * buf, size_t len) : bool
++data() const : const char *
++length() const : int
++current() : char *
++avail() const : int
++add(size_t len) : void
++reset() : void
++zeroBuffer() : void
++debugString() : const char *
++setCookie(void (*)() cookie) : void
++toString() const : std::string
+}
+class "LogStream" as C_0001930690020065325250
+class C_0001930690020065325250 {
++operator<<(bool v) : LogStream::self &
++operator<<(short ) : LogStream::self &
++operator<<(unsigned short ) : LogStream::self &
++operator<<(int ) : LogStream::self &
++operator<<(unsigned int ) : LogStream::self &
++operator<<(long ) : LogStream::self &
++operator<<(unsigned long ) : LogStream::self &
++operator<<(const long long & ) : LogStream::self &
++operator<<(const unsigned long long & ) : LogStream::self &
++operator<<(const void * ) : LogStream::self &
++operator<<(float & v) : LogStream::self &
++operator<<(const double & ) : LogStream::self &
++operator<<(const long double & v) : LogStream::self &
++operator<<(char v) : LogStream::self &
++operator<<(char * str) : LogStream::self &
++operator<<(const char * str) : LogStream::self &
++operator<<(const unsigned char * str) : LogStream::self &
++operator<<(const std::string & v) : LogStream::self &
++append(const char * data, size_t len) : void
++bufferData() const : const char *
++bufferLength() const : size_t
++resetBuffer() : void
++operator<<(const char (&)[N] buf) : LogStream::self &
+}
+class "Fmt" as C_0002131890502232898697
+class C_0002131890502232898697 {
++data() const : const char *
++length() const : int
++Fmt(const char * fmt, T val) : void
+}
+class "Logger" as C_0002053752992472264214
+class C_0002053752992472264214 {
++Logger(Logger::SourceFile file, int line) : void
++Logger(Logger::SourceFile file, int line, Logger::LogLevel level) : void
++Logger(Logger::SourceFile file, int line, bool isSysErr) : void
++Logger(Logger::SourceFile file, int line, Logger::LogLevel level, const char * func) : void
++~Logger() : void
++setIndex(int index) : Logger &
++stream() : LogStream &
+{static} +setOutputFunction(std::function<void (const char *,const uint64_t)> outputFunc, std::function<void ()> flushFunc, int index = -1) : void
+{static} +setLogLevel(Logger::LogLevel level) : void
+{static} +logLevel() : Logger::LogLevel
+}
+enum "Logger::LogLevel" as C_0001184349029950147049
+enum C_0001184349029950147049 {
 kTrace
 kDebug
 kInfo
@@ -47,494 +342,497 @@ kError
 kFatal
 kNumberOfLogLevels
 }
-class "SourceFile" as C_0000000042
-class C_0000000042 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L52{@brief Calculate of basename of source files in compile time.}]] {
-+SourceFile(char const(&)[SIZE] arr) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L56{SourceFile}]]]
-+SourceFile(char const* filename) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L67{SourceFile}]]]
-+data_ : char const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L77{data_}]]]
-+size_ : int [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L78{size_}]]]
+class "Logger::SourceFile" as C_0002198968118661318449
+class C_0002198968118661318449 {
++SourceFile(const char * filename) : void
++SourceFile(const char (&)[N] arr) : void
++data_ : const char *
++size_ : int
 }
-class "RawLogger" as C_0000000059
-class C_0000000059 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L204{RawLogger}]] {
-+~RawLogger() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L207{~RawLogger}]]]
-+setIndex(int index) : RawLogger& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L208{setIndex}]]]
-+stream() : LogStream& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Logger.h#L213{stream}]]]
+class "RawLogger" as C_0000716430590791918928
+class C_0000716430590791918928 {
++~RawLogger() : void
++setIndex(int index) : RawLogger &
++stream() : LogStream &
 }
-class "MsgBuffer" as C_0000000066
-class C_0000000066 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L38{@brief This class represents a memory buffer used for sending and receiving data.}]] {
-+MsgBuffer(size_t len = kBufferDefaultLength) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L46{@brief Construct a new message buffer instance. @param len The initial size of the buffer.}]]]
-+peek() const : char const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L53{@brief Get the beginning of the buffer. @return const char*}]]]
-+beginWrite() const : char const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L63{@brief Get the end of the buffer where new data can be written. @return const char*}]]]
-+beginWrite() : char* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L67{beginWrite}]]]
-+peekInt8() const : uint8_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L77{@brief Get a byte value from the buffer. @return uint8_t}]]]
-+peekInt16() const : uint16_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L88{@brief Get a unsigned short value from the buffer. @return uint16_t}]]]
-+peekInt32() const : uint32_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L95{@brief Get a unsigned int value from the buffer. @return uint32_t}]]]
-+peekInt64() const : uint64_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L102{@brief Get a unsigned int64 value from the buffer. @return uint64_t}]]]
-+read(size_t len) : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L110{@brief Get and remove some bytes from the buffer. @param len @return std::string}]]]
-+readInt8() : uint8_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L117{@brief Get the remove a byte value from the buffer. @return uint8_t}]]]
-+readInt16() : uint16_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L124{@brief Get and remove a unsigned short value from the buffer. @return uint16_t}]]]
-+readInt32() : uint32_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L131{@brief Get and remove a unsigned int value from the buffer. @return uint32_t}]]]
-+readInt64() : uint64_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L138{@brief Get and remove a unsigned int64 value from the buffer. @return uint64_t}]]]
-+swap(MsgBuffer& buf) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L145{@brief swap the buffer with another. @param buf}]]]
-+readableBytes() const : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L152{@brief Return the size of the data in the buffer. @return size_t}]]]
-+writableBytes() const : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L162{@brief Return the size of the empty part in the buffer @return size_t}]]]
-+append(MsgBuffer const& buf) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L171{@brief Append new data to the buffer.}]]]
-+append(char const(&)[N] buf) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L173{append}]]]
-+append(char const* buf, size_t len) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L178{append}]]]
-+append(std::string const& buf) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L179{append}]]]
-+appendInt8(uint8_t const b) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L189{@brief Append a byte value to the end of the buffer. @param b}]]]
-+appendInt16(uint16_t const s) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L199{@brief Append a unsigned short value to the end of the buffer. @param s}]]]
-+appendInt32(uint32_t const i) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L206{@brief Append a unsigned int value to the end of the buffer. @param i}]]]
-+appendInt64(uint64_t const l) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L213{@brief Appaend a unsigned int64 value to the end of the buffer. @param l}]]]
-+addInFront(char const* buf, size_t len) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L221{@brief Put new data to the beginning of the buffer. @param buf @param len}]]]
-+addInFrontInt8(uint8_t const b) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L228{@brief Put a byte value to the beginning of the buffer. @param b}]]]
-+addInFrontInt16(uint16_t const s) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L238{@brief Put a unsigned short value to the beginning of the buffer. @param s}]]]
-+addInFrontInt32(uint32_t const i) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L245{@brief Put a unsigned int value to the beginning of the buffer. @param i}]]]
-+addInFrontInt64(uint64_t const l) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L252{@brief Put a unsigned int64 value to the beginning of the buffer. @param l}]]]
-+retrieveAll() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L258{@brief Remove all data in the buffer.}]]]
-+retrieve(size_t len) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L265{@brief Remove some bytes in the buffer. @param len}]]]
-+readFd(int fd, int* retErrno) : ssize_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L275{@brief Read data from a file descriptor and put it into the buffer.˝ @param fd The file descriptor. It is usually a socket. @param retErrno The error code when reading. @return ssize_t The number of bytes read from the file descriptor. -1 is returned w...}]]]
-+retrieveUntil(char const* end) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L282{@brief Remove the data before a certain position from the buffer. @param end The position.}]]]
-+findCRLF() const : char const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L294{@brief Find the position of the buffer where the CRLF is found. @return const char*}]]]
-+ensureWritableBytes(size_t len) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L305{@brief Make sure the buffer has enough spaces to write data. @param len}]]]
-+hasWritten(size_t len) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L313{@brief Move the write pointer forward when the new data has been written to the buffer. @param len}]]]
-+unwrite(size_t offset) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L325{@brief Move the write pointer backward to remove data in the end of the buffer. @param offset}]]]
-+operator[](size_t offset) const : char const& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L337{@brief Access a byte in the buffer. @param offset @return const char&}]]]
-+operator[](size_t offset) : char& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/MsgBuffer.h#L342{operator[]}]]]
+class "ConcurrentTaskQueue" as C_0000295101274428145462
+class C_0000295101274428145462 {
++ConcurrentTaskQueue(size_t threadNum, const std::string & name) : void
++runTaskInQueue(const std::function<void ()> & task) : void
++runTaskInQueue(std::function<void ()> && task) : void
++getName() const : std::string
++getTaskCount() : size_t
++stop() : void
++~ConcurrentTaskQueue() : void
 }
-class "ConcurrentTaskQueue" as C_0000000114
-class C_0000000114 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ConcurrentTaskQueue.h#L32{@brief This class implements a task queue running in parallel. Basically this can be called a threads pool.}]] {
-+ConcurrentTaskQueue(size_t threadNum, std::string const& name) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ConcurrentTaskQueue.h#L41{@brief Construct a new concurrent task queue instance. @param threadNum The number of threads in the queue. @param name The name of the queue.}]]]
-+runTaskInQueue(std::function<void()> const& task) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ConcurrentTaskQueue.h#L48{@brief Run a task in the queue. @param task}]]]
-+runTaskInQueue(std::function<void()>&& task) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ConcurrentTaskQueue.h#L49{runTaskInQueue}]]]
-+getName() const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ConcurrentTaskQueue.h#L56{@brief Get the name of the queue. @return std::string}]]]
-+getTaskCount() : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ConcurrentTaskQueue.h#L66{@brief Get the number of tasks to be executed in the queue. @return size_t}]]]
-+stop() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ConcurrentTaskQueue.h#L72{@brief Stop all threads in the queue.}]]]
-+~ConcurrentTaskQueue() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ConcurrentTaskQueue.h#L74{~ConcurrentTaskQueue}]]]
+class "InetAddress" as C_0001897340460211641725
+class C_0001897340460211641725 {
++InetAddress(uint16_t port = 0, bool loopbackOnly = false, bool ipv6 = false) : void
++InetAddress(const std::string & ip, uint16_t port, bool ipv6 = false) : void
++InetAddress(const struct sockaddr_in & addr) : void
++InetAddress(const struct sockaddr_in6 & addr) : void
++family() const : sa_family_t
++toIp() const : std::string
++toIpPort() const : std::string
++toPort() const : uint16_t
++isIpV6() const : bool
++isIntranetIp() const : bool
++isLoopbackIp() const : bool
++getSockAddr() const : const struct sockaddr *
++setSockAddrInet6(const struct sockaddr_in6 & addr6) : void
++ipNetEndian() const : uint32_t
++ip6NetEndian() const : const uint32_t *
++portNetEndian() const : uint16_t
++setPortNetEndian(uint16_t port) : void
++isUnspecified() const : bool
 }
-class "ObjectPool<T>" as C_0000000128
-class C_0000000128 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ObjectPool.h#L31{ObjectPool}]] {
-+getObject() : std::shared_ptr<T> [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/ObjectPool.h#L35{getObject}]]]
+class "InetAddress::(anonymous_2030796)" as C_0001238571308552245455
+class C_0001238571308552245455 {
++addr_ : struct sockaddr_in
++addr6_ : struct sockaddr_in6
 }
-class "TimingWheel" as C_0000000135
-class C_0000000135 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L45{@brief This class implements a timer strategy with high performance and low accuracy. This is usually used internally.}]] {
-+TimingWheel(EventLoop* loop, size_t maxTimeout, float ticksInterval = 1.0, size_t bucketsNumPerWheel = 100) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L76{@brief Construct a new timing wheel instance. @param loop The event loop in which the timing wheel runs. @param maxTimeout The maximum timeout of the timing wheel. @param ticksInterval The internal timer tick interval.  It affects the accuracy of the ti...}]]]
-+insertEntry(size_t delay, EntryPtr entryPtr) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L81{insertEntry}]]]
-+insertEntryInloop(size_t delay, EntryPtr entryPtr) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L83{insertEntryInloop}]]]
-+getLoop() : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L85{getLoop}]]]
-+~TimingWheel() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L90{~TimingWheel}]]]
-}
-class "CallbackEntry" as C_0000000150
-class C_0000000150 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L48{CallbackEntry}]] {
-+CallbackEntry(std::function<void()> cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L51{CallbackEntry}]]]
-+~CallbackEntry() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/TimingWheel.h#L54{~CallbackEntry}]]]
-}
-class "detail::FixedBuffer<int SIZE>" as C_0000000173
-class C_0000000173 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L33{FixedBuffer}]] {
-+FixedBuffer() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L36{FixedBuffer}]]]
-+~FixedBuffer() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L41{~FixedBuffer}]]]
-+append(char const* buf, size_t len) : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L46{append}]]]
-+data() const : char const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L57{data}]]]
-+length() const : int [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L61{length}]]]
-+current() : char* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L67{current}]]]
-+avail() const : int [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L71{avail}]]]
-+add(size_t len) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L75{add}]]]
-+reset() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L80{reset}]]]
-+zeroBuffer() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L84{zeroBuffer}]]]
-+debugString() : char const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L90{debugString}]]]
-+setCookie(void(*)() cookie) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L91{setCookie}]]]
-+toString() const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L96{toString}]]]
-}
-class "detail::FixedBuffer<4000>" as C_0000000186
-class C_0000000186 {
-}
-class "LogStream" as C_0000000181
-class C_0000000181 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L119{LogStream}]] {
-+operator<<(bool v) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L126{operator<<}]]]
-+operator<<(short ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L132{operator<<}]]]
-+operator<<(unsigned short ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L133{operator<<}]]]
-+operator<<(int ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L134{operator<<}]]]
-+operator<<(unsigned int ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L135{operator<<}]]]
-+operator<<(long ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L136{operator<<}]]]
-+operator<<(unsigned long ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L137{operator<<}]]]
-+operator<<(long long const& ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L138{operator<<}]]]
-+operator<<(unsigned long long const& ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L139{operator<<}]]]
-+operator<<(void const* ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L141{operator<<}]]]
-+operator<<(float& v) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L143{operator<<}]]]
-+operator<<(double const& ) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L148{operator<<}]]]
-+operator<<(long double const& v) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L149{operator<<}]]]
-+operator<<(char v) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L151{operator<<}]]]
-+operator<<(char const(&)[SIZE] buf) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L160{operator<<}]]]
-+operator<<(char* str) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L167{operator<<}]]]
-+operator<<(char const* str) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L180{operator<<}]]]
-+operator<<(unsigned char const* str) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L193{operator<<}]]]
-+operator<<(std::string const& v) : self& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L198{operator<<}]]]
-+append(char const* data, size_t len) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L204{append}]]]
-+bufferData() const : char const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L220{bufferData}]]]
-+bufferLength() const : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L229{bufferLength}]]]
-+resetBuffer() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L237{resetBuffer}]]]
-}
-class "Fmt" as C_0000000190
-class C_0000000190 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L251{Fmt}]] {
-+Fmt(char const* fmt, T val) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L255{Fmt}]]]
-+data() const : char const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L257{data}]]]
-+length() const : int [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/LogStream.h#L261{length}]]]
-}
-class "NonCopyable" as C_0000000195
-class C_0000000195 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/NonCopyable.h#L25{@brief This class represents a non-copyable object.}]] {
-}
-class "AsyncFileLogger" as C_0000000208
-class C_0000000208 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L38{@brief This class implements utility functions for writing logs to files asynchronously.}]] {
-+output(char const* msg, uint64_t const len) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L47{@brief Write the message to the log file. @param msg @param len}]]]
-+flush() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L53{@brief Flush data from memory buffer to the log file.}]]]
-+startLogging() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L59{@brief Start writing log files.}]]]
-+setFileSizeLimit(uint64_t limit) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L67{@brief Set the size limit of log files. When the log file size reaches the limit, the log file is switched. @param limit}]]]
-+setFileName(std::string const& baseName, std::string const& extName = ".log", std::string const& path = "./") : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L79{@brief Set the log file name. @param baseName The base name of the log file. @param extName The extended name of the log file. @param path The location where the log file is stored.}]]]
-+~AsyncFileLogger() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L92{~AsyncFileLogger}]]]
-+AsyncFileLogger() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L93{AsyncFileLogger}]]]
-}
-class "LoggerFile" as C_0000000223
-class C_0000000223 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L110{LoggerFile}]] {
-+LoggerFile(std::string const& filePath, std::string const& fileBaseName, std::string const& fileExtName) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L113{LoggerFile}]]]
-+~LoggerFile() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L116{~LoggerFile}]]]
-+writeLog(StringPtr const buf) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L117{writeLog}]]]
-+getLength() : uint64_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L118{getLength}]]]
-+flush() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/AsyncFileLogger.h#L123{flush}]]]
-}
-class "Date" as C_0000000245
-class C_0000000245 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L29{@brief This class represents a time point.}]] {
-+Date() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L32{Date}]]]
-+Date(int64_t microSec) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L39{@brief Construct a new Date instance. @param microSec The microseconds from 1970-01-01 00:00:00.}]]]
-+Date(unsigned int year, unsigned int month, unsigned int day, unsigned int hour = 0, unsigned int minute = 0, unsigned int second = 0, unsigned int microSecond = 0) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L52{@brief Construct a new Date instance. @param year @param month @param day @param hour @param minute @param second @param microSecond}]]]
-{static} +date() : Date const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L65{@brief Create a Date object that represents the current time. @return const Date}]]]
-{static} +now() : Date const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L72{@brief Same as the date() method. @return const Date}]]]
-+after(double second) const : Date const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L84{@brief Return a new Date instance that represents the time after some seconds from *this. @param second @return const Date}]]]
-+roundSecond() const : Date const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L92{@brief Return a new Date instance that equals to *this, but with zero microseconds. @return const Date}]]]
-+roundDay() const : Date const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L103{@brief Return a new Date instance that equals to * this, but with zero hours, minutes, seconds and microseconds. @return const Date}]]]
-+~Date() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L105{~Date}]]]
-+operator==(Date const& date) const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L111{@brief Return true if the time point is equal to another.}]]]
-+operator!=(Date const& date) const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L120{@brief Return true if the time point is not equal to another.}]]]
-+operator<(Date const& date) const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L129{@brief Return true if the time point is earlier than another.}]]]
-+operator>(Date const& date) const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L138{@brief Return true if the time point is later than another.}]]]
-+operator>=(Date const& date) const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L147{@brief Return true if the time point is not earlier than another.}]]]
-+operator<=(Date const& date) const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L156{@brief Return true if the time point is not later than another.}]]]
-+microSecondsSinceEpoch() const : int64_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L166{@brief Get the number of milliseconds since 1970-01-01 00:00. @return int64_t}]]]
-+secondsSinceEpoch() const : int64_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L176{@brief Get the number of seconds since 1970-01-01 00:00. @return int64_t}]]]
-+tmStruct() const : tm [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L186{@brief Get the tm struct for the time point. @return struct tm}]]]
-+toFormattedString(bool showMicroseconds) const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L194{@brief Generate a UTC time string @example: 20180101 10:10:25            //If the @param showMicroseconds is false 20180101 10:10:25:102414     //If the @param showMicroseconds is true}]]]
-+toCustomedFormattedString(std::string const& fmtStr, bool showMicroseconds = false) const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L205{@brief Generate a UTC time string formated by the @param fmtStr The @param fmtStr is the format string for the function strftime() @example: 2018-01-01 10:10:25          //If the @param fmtStr is "%Y-%m-%d %H:%M:%S" and the @param showMicroseconds is fa...}]]]
-+toFormattedStringLocal(bool showMicroseconds) const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L215{@brief Generate a local time zone string, the format of the string is same as the mothed toFormattedString @param showMicroseconds @return std::string}]]]
-+toCustomedFormattedStringLocal(std::string const& fmtStr, bool showMicroseconds = false) const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L224{@brief Generate a local time zone string formated by the @param fmtStr @param fmtStr @param showMicroseconds @return std::string}]]]
-+toDbStringLocal() const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L235{@brief Generate a local time zone string for database. @example: 2018-01-01                   //If hours, minutes, seconds and microseconds are zero 2018-01-01 10:10:25          //If the microsecond is zero 2018-01-01 10:10:25:102414   //If the microsec...}]]]
-{static} +fromDbStringLocal(std::string const& datetime) : Date [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L242{@brief From DB string to trantor local time zone. Inverse of toDbStringLocal()}]]]
-+toCustomedFormattedString(std::string const& fmtStr, char* str, size_t len) const : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L251{@brief Generate a UTC time string. @param fmtStr The format string. @param str The string buffer for the generated time string. @param len The length of the string buffer.}]]]
-+isSameSecond(Date const& date) const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L262{@brief Return true if the time point is in a same second as another. @param date @return true @return false}]]]
-+swap(Date& that) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/Date.h#L273{@brief Swap the time point with another. @param that}]]]
-}
-class "SerialTaskQueue" as C_0000000270
-class C_0000000270 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L31{@brief This class represents a task queue in which all tasks are executed one by one.}]] {
-+runTaskInQueue(std::function<void()> const& task) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L39{@brief Run a task in the queue. @param task}]]]
-+runTaskInQueue(std::function<void()>&& task) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L40{runTaskInQueue}]]]
-+getName() const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L47{@brief Get the name of the queue. @return std::string}]]]
-+waitAllTasksFinished() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L56{@brief Wait until all tasks in the queue are finished.}]]]
-+SerialTaskQueue() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L58{SerialTaskQueue}]]]
-+SerialTaskQueue(std::string const& name) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L65{@brief Construct a new serail task queue instance. @param name}]]]
-+~SerialTaskQueue() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L67{~SerialTaskQueue}]]]
-+isRuningTask() : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L75{@brief Check whether a task is running in the queue. @return true @return false}]]]
-+getTaskCount() : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L87{@brief Get the number of tasks in the queue. @return size_t}]]]
-+stop() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/utils/SerialTaskQueue.h#L93{@brief Stop the queue.}]]]
-}
-class "EventLoopThreadPool" as C_0000000275
-class C_0000000275 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L28{@brief This class represents a pool of EventLoopThread objects}]] {
-+EventLoopThreadPool() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L31{EventLoopThreadPool}]]]
-+EventLoopThreadPool(size_t threadNum, std::string const& name = "EventLoopThreadPool") : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L39{@brief Construct a new event loop thread pool instance. @param threadNum The number of threads @param name The name of the EventLoopThreadPool object.}]]]
-+start() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L46{@brief Run all event loops in the pool. @note This function doesn't block the current thread.}]]]
-+wait() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L53{@brief Wait for all event loops in the pool to quit. @note This function blocks the current thread.}]]]
-+size() : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L60{@brief Return the number of the event loop. @return size_t}]]]
-+getNextLoop() : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L70{@brief Get the next event loop in the pool. @return EventLoop*}]]]
-+getLoop(size_t id) : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L79{@brief Get the event loop in the `id` position in the pool. @param id The id of the first event loop is zero. If the id >= the number of event loops, nullptr is returned. @return EventLoop*}]]]
-+getLoops() const : std::vector<EventLoop*> [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThreadPool.h#L86{@brief Get all event loops in the pool. @return std::vector<EventLoop *>}]]]
-}
-class "Connector" as C_0000000292
-class C_0000000292 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L30{Connector}]] {
-}
-class "SSLContext" as C_0000000296
-class C_0000000296 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L32{SSLContext}]] {
-}
-class "TcpClient" as C_0000000300
-class C_0000000300 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L37{@brief This class represents a TCP client.}]] {
-+TcpClient(EventLoop* loop, InetAddress const& serverAddr, std::string const& nameArg) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L48{@brief Construct a new TCP client instance. @param loop The event loop in which the client runs. @param serverAddr The address of the server. @param nameArg The name of the client.}]]]
-+~TcpClient() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L51{~TcpClient}]]]
-+connect() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L57{@brief Connect to the server.}]]]
-+disconnect() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L63{@brief Disconnect from the server.}]]]
-+stop() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L69{@brief Stop connecting to the server.}]]]
-+connection() const : TcpConnectionPtr [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L76{@brief Get the TCP connection to the server. @return TcpConnectionPtr}]]]
-+getLoop() const : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L87{@brief Get the event loop. @return EventLoop*}]]]
-+retry() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L98{@brief Check whether the client re-connect to the server. @return true @return false}]]]
-+enableRetry() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L107{@brief Enable retrying.}]]]
-+name() const : std::string const& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L117{@brief Get the name of the client. @return const std::string&}]]]
-+setConnectionCallback(ConnectionCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L128{@brief Set the connection callback. @param cb The callback is called when the connection to the server is established or closed.}]]]
-+setConnectionCallback(ConnectionCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L132{setConnectionCallback}]]]
-+setConnectionErrorCallback(ConnectionErrorCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L143{@brief Set the connection error callback. @param cb The callback is called when an error occurs during connecting to the server.}]]]
-+setMessageCallback(RecvMessageCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L154{@brief Set the message callback. @param cb The callback is called when some data is received from the server.}]]]
-+setMessageCallback(RecvMessageCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L158{setMessageCallback}]]]
-+setWriteCompleteCallback(WriteCompleteCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L171{@brief Set the write complete callback. @param cb The callback is called when data to send is written to the socket.}]]]
-+setWriteCompleteCallback(WriteCompleteCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L175{setWriteCompleteCallback}]]]
-+setSSLErrorCallback(SSLErrorCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L184{@brief Set the callback for errors of SSL @param cb The callback is called when an SSL error occurs.}]]]
-+setSSLErrorCallback(SSLErrorCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L188{setSSLErrorCallback}]]]
-+enableSSL(bool useOldTLS = false, bool validateCert = true, std::string hostname = "", std::vector<std::pair<std::string,std::string>> const& sslConfCmds = {}, std::string const& certPath = "", std::string const& keyPath = "") : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L208{@brief Enable SSL encryption. @param useOldTLS If true, the TLS 1.0 and 1.1 are supported by the client. @param validateCert If true, we try to validate if the peer's SSL cert is valid. @param hostname The server hostname for SNI. If it is empty, the SN...}]]]
-}
-class "IgnoreSigPipe" as C_0000000320
-class C_0000000320 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L240{IgnoreSigPipe}]] {
-+IgnoreSigPipe() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpClient.h#L243{IgnoreSigPipe}]]]
-}
-class "InetAddress" as C_0000000345
-class C_0000000345 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L45{@brief Wrapper of sockaddr_in. This is an POD interface class.}]] {
-+InetAddress(uint16_t port = 0, bool loopbackOnly = false, bool ipv6 = false) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L56{@brief Constructs an endpoint with given port number. Mostly used in TcpServer listening. @param port @param loopbackOnly @param ipv6}]]]
-+InetAddress(std::string const& ip, uint16_t port, bool ipv6 = false) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L67{@brief Constructs an endpoint with given ip and port. @param ip A IPv4 or IPv6 address. @param port @param ipv6}]]]
-+InetAddress(sockaddr_in const& addr) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L75{@brief Constructs an endpoint with given struct `sockaddr_in`. Mostly used when accepting new connections @param addr}]]]
-+InetAddress(sockaddr_in6 const& addr) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L86{@brief Constructs an IPv6 endpoint with given struct `sockaddr_in6`. Mostly used when accepting new connections @param addr}]]]
-+family() const : sa_family_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L96{@brief Return the sin_family of the endpoint. @return sa_family_t}]]]
-+toIp() const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L106{@brief Return the IP string of the endpoint. @return std::string}]]]
-+toIpPort() const : std::string [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L113{@brief Return the IP and port string of the endpoint. @return std::string}]]]
-+toPort() const : uint16_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L120{@brief Return the port number of the endpoint. @return uint16_t}]]]
-+isIpV6() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L128{@brief Check if the endpoint is IPv4 or IPv6. @return true @return false}]]]
-+isIntranetIp() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L139{@brief Return true if the endpoint is an intranet endpoint. @return true @return false}]]]
-+isLoopbackIp() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L147{@brief Return true if the endpoint is a loopback endpoint. @return true @return false}]]]
-+getSockAddr() const : sockaddr const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L154{@brief Get the pointer to the sockaddr struct. @return const struct sockaddr*}]]]
-+setSockAddrInet6(sockaddr_in6 const& addr6) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L164{@brief Set the sockaddr_in6 struct in the endpoint. @param addr6}]]]
-+ipNetEndian() const : uint32_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L176{@brief Return the integer value of the IP(v4) in net endian byte order. @return uint32_t}]]]
-+ip6NetEndian() const : uint32_t const* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L184{@brief Return the pointer to the integer value of the IP(v6) in net endian byte order. @return const uint32_t*}]]]
-+portNetEndian() const : uint16_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L191{@brief Return the port number in net endian byte order. @return uint16_t}]]]
-+setPortNetEndian(uint16_t port) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L201{@brief Set the port number in net endian byte order. @param port}]]]
-+isUnspecified() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L209{@brief Return true if the address is not initalized.}]]]
-}
-class "<<anonymous>>" as C_0000000353
-class C_0000000353 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/InetAddress.h#L215{}]] {
-}
-enum "SSLError" as C_0000000366
-enum C_0000000366 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/callbacks.h#L21{SSLError}]] {
+enum "SSLError" as C_0000434245188016003403
+enum C_0000434245188016003403 {
 kSSLHandshakeError
 kSSLInvalidCertificate
 }
-class "Channel" as C_0000000371
-class C_0000000371 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L32{@brief This class is used to implement reactor pattern. A Channel object manages a socket fd. Users use a Channel object to receive write or read events on the socket it manages.}]] {
-+Channel(EventLoop* loop, int fd) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L42{@brief Construct a new Channel instance. @param loop The event loop in which the channel works. @param fd The socket fd.}]]]
-+setReadCallback(Channel::EventCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L51{@brief Set the read callback. @param cb The callback is called when read event occurs on the socket. @note One should call the enableReading() method to ensure that the callback would be called when some data is received on the socket.}]]]
-+setReadCallback(Channel::EventCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L55{setReadCallback}]]]
-+setWriteCallback(Channel::EventCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L67{@brief Set the write callback. @param cb The callback is called when write event occurs on the socket. @note One should call the enableWriting() method to ensure that the callback would be called when the socket can be written.}]]]
-+setWriteCallback(Channel::EventCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L71{setWriteCallback}]]]
-+setCloseCallback(Channel::EventCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L81{@brief Set the close callback. @param cb The callback is called when the socket is closed.}]]]
-+setCloseCallback(Channel::EventCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L85{setCloseCallback}]]]
-+setErrorCallback(Channel::EventCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L95{@brief Set the error callback. @param cb The callback is called when an error occurs on the socket.}]]]
-+setErrorCallback(Channel::EventCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L99{setErrorCallback}]]]
-+setEventCallback(Channel::EventCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L111{@brief Set the event callback. @param cb The callback is called when any event occurs on the socket. @note If the event callback is set to the channel, any other callback wouldn't be called again.}]]]
-+setEventCallback(Channel::EventCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L115{setEventCallback}]]]
-+fd() const : int [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L125{@brief Return the fd of the socket. @return int}]]]
-+events() const : int [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L135{@brief Return the events enabled on the socket. @return int}]]]
-+revents() const : int [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L145{@brief Return the events that occurred on the socket. @return int}]]]
-+isNoneEvent() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L156{@brief Check whether there is no event enabled on the socket. @return true @return false}]]]
-+disableAll() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L165{@brief Disable all events on the socket.}]]]
-+remove() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L175{@brief Remove the socket from the poller in the event loop.}]]]
-+ownerLoop() : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L182{@brief Return the event loop. @return EventLoop*}]]]
-+enableReading() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L191{@brief Enable the read event on the socket.}]]]
-+disableReading() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L201{@brief Disable the read event on the socket.}]]]
-+enableWriting() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L211{@brief Enable the write event on the socket.}]]]
-+disableWriting() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L221{@brief Disable the write event on the socket.}]]]
-+isWriting() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L233{@brief Check whether the write event is enabled on the socket. @return true @return false}]]]
-+isReading() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L244{@brief Check whether the read event is enabled on the socket. @return true @return false}]]]
-+updateEvents(int events) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L254{@brief Set and update the events enabled. @param events}]]]
-+tie(std::shared_ptr<void> const& obj) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L269{@brief This method is used to ensure that the callback owner is valid when a callback is called. @param obj The callback owner. Usually, the owner is also the owner of the channel. @note The 'obj' is kept in a weak_ptr object, so this method does not ca...}]]]
-{static} +kNoneEvent : int const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L275{kNoneEvent}]]]
-{static} +kReadEvent : int const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L276{kReadEvent}]]]
-{static} +kWriteEvent : int const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Channel.h#L277{kWriteEvent}]]]
+abstract "TcpConnection" as C_0002230624932100089526
+abstract C_0002230624932100089526 {
++TcpConnection() = default : void
++~TcpConnection() : void
+{abstract} +send(const char * msg, size_t len) = 0 : void
+{abstract} +send(const void * msg, size_t len) = 0 : void
+{abstract} +send(const std::string & msg) = 0 : void
+{abstract} +send(std::string && msg) = 0 : void
+{abstract} +send(const MsgBuffer & buffer) = 0 : void
+{abstract} +send(MsgBuffer && buffer) = 0 : void
+{abstract} +send(const std::shared_ptr<std::string> & msgPtr) = 0 : void
+{abstract} +send(const std::shared_ptr<MsgBuffer> & msgPtr) = 0 : void
+{abstract} +sendFile(const char * fileName, size_t offset = 0, size_t length = 0) = 0 : void
+{abstract} +sendFile(const wchar_t * fileName, size_t offset = 0, size_t length = 0) = 0 : void
+{abstract} +sendStream(std::function<std::size_t (char *,std::size_t)> callback) = 0 : void
+{abstract} +localAddr() const = 0 : const InetAddress &
+{abstract} +peerAddr() const = 0 : const InetAddress &
+{abstract} +connected() const = 0 : bool
+{abstract} +disconnected() const = 0 : bool
+{abstract} +getRecvBuffer() = 0 : MsgBuffer *
+{abstract} +setHighWaterMarkCallback(const HighWaterMarkCallback & cb, size_t markLen) = 0 : void
+{abstract} +setTcpNoDelay(bool on) = 0 : void
+{abstract} +shutdown() = 0 : void
+{abstract} +forceClose() = 0 : void
+{abstract} +getLoop() = 0 : EventLoop *
++setContext(const std::shared_ptr<void> & context) : void
++setContext(std::shared_ptr<void> && context) : void
++hasContext() const : bool
++clearContext() : void
+{abstract} +keepAlive() = 0 : void
+{abstract} +isKeepAlive() = 0 : bool
+{abstract} +bytesSent() const = 0 : size_t
+{abstract} +bytesReceived() const = 0 : size_t
+{abstract} +isSSLConnection() const = 0 : bool
+{abstract} +startClientEncryption(std::function<void ()> callback, bool useOldTLS = false, bool validateCert = true, std::string hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
+            {}) = 0 : void
+{abstract} +startServerEncryption(const std::shared_ptr<SSLContext> & ctx, std::function<void ()> callback) = 0 : void
++getContext() : std::shared_ptr<T>
 }
-class "EventLoopThread" as C_0000000413
-class C_0000000413 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThread.h#L32{@brief This class represents an event loop thread.}]] {
-+EventLoopThread(std::string const& threadName = "EventLoopThread") : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThread.h#L35{EventLoopThread}]]]
-+~EventLoopThread() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThread.h#L36{~EventLoopThread}]]]
-+wait() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThread.h#L42{@brief Wait for the event loop to exit. @note This method blocks the current thread until the event loop exits.}]]]
-+getLoop() const : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThread.h#L49{@brief Get the pointer of the event loop of the thread. @return EventLoop*}]]]
-+run() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoopThread.h#L59{@brief Run the event loop of the thread. This method doesn't block the current thread.}]]]
+class "TcpClient" as C_0001156367011091191681
+class C_0001156367011091191681 {
++TcpClient(EventLoop * loop, const InetAddress & serverAddr, const std::string & nameArg) : void
++~TcpClient() : void
++connect() : void
++disconnect() : void
++stop() : void
++connection() const : TcpConnectionPtr
++getLoop() const : EventLoop *
++retry() const : bool
++enableRetry() : void
++name() const : const std::string &
++setConnectionCallback(const ConnectionCallback & cb) : void
++setConnectionCallback(ConnectionCallback && cb) : void
++setConnectionErrorCallback(const ConnectionErrorCallback & cb) : void
++setMessageCallback(const RecvMessageCallback & cb) : void
++setMessageCallback(RecvMessageCallback && cb) : void
++setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
++setWriteCompleteCallback(WriteCompleteCallback && cb) : void
++setSSLErrorCallback(const SSLErrorCallback & cb) : void
++setSSLErrorCallback(SSLErrorCallback && cb) : void
++enableSSL(bool useOldTLS = false, bool validateCert = true, std::string hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = = {}, const std::string & certPath = "", const std::string & keyPath = "", const std::string & caPath = "") : void
 }
-abstract "TcpConnection" as C_0000000428
-abstract C_0000000428 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L38{@brief This class represents a TCP connection.}]] {
-+TcpConnection() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L41{TcpConnection}]]]
-+~TcpConnection() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L42{~TcpConnection}]]]
-{abstract} +send(char const* msg, size_t len) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L50{@brief Send some data to the peer. @param msg @param len}]]]
-{abstract} +send(void const* msg, size_t len) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L51{send}]]]
-{abstract} +send(std::string const& msg) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L52{send}]]]
-{abstract} +send(std::string&& msg) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L53{send}]]]
-{abstract} +send(MsgBuffer const& buffer) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L54{send}]]]
-{abstract} +send(MsgBuffer&& buffer) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L55{send}]]]
-{abstract} +send(std::shared_ptr<std::string> const& msgPtr) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L56{send}]]]
-{abstract} +send(std::shared_ptr<MsgBuffer> const& msgPtr) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L57{send}]]]
-{abstract} +sendFile(char const* fileName, size_t offset = 0, size_t length = 0) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L66{@brief Send a file to the peer. @param fileName in UTF-8 @param offset @param length}]]]
-{abstract} +sendFile(wchar_t const* fileName, size_t offset = 0, size_t length = 0) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L76{@brief Send a file to the peer. @param fileName in wide string (eg. windows native UCS-2) @param offset @param length}]]]
-{abstract} +sendStream(std::function<std::size_t(char*,std::size_t)> callback) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L89{@brief Send a stream to the peer. @param callback function to retrieve the stream data (stream ends when a zero size is returned) the callback will be called with nullptr when the send is finished/interrupted, so that it cleans up any internal data (ex:...}]]]
-{abstract} +localAddr() const = 0 : InetAddress const& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L98{@brief Get the local address of the connection. @return const InetAddress&}]]]
-{abstract} +peerAddr() const = 0 : InetAddress const& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L105{@brief Get the remote address of the connection. @return const InetAddress&}]]]
-{abstract} +connected() const = 0 : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L113{@brief Return true if the connection is established. @return true @return false}]]]
-{abstract} +disconnected() const = 0 : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L121{@brief Return false if the connection is established. @return true @return false}]]]
-{abstract} +getRecvBuffer() = 0 : MsgBuffer* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L128{@brief Get the buffer in which the received data stored. @return MsgBuffer*}]]]
-{abstract} +setHighWaterMarkCallback(HighWaterMarkCallback const& cb, size_t markLen) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L137{@brief Set the high water mark callback @param cb The callback is called when the data in sending buffer is larger than the water mark. @param markLen The water mark in bytes.}]]]
-{abstract} +setTcpNoDelay(bool on) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L145{@brief Set the TCP_NODELAY option to the socket. @param on}]]]
-{abstract} +shutdown() = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L151{@brief Shutdown the connection. @note This method only closes the writing direction.}]]]
-{abstract} +forceClose() = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L157{@brief Close the connection forcefully.}]]]
-{abstract} +getLoop() = 0 : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L164{@brief Get the event loop in which the connection I/O is handled. @return EventLoop*}]]]
-+setContext(std::shared_ptr<void> const& context) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L171{@brief Set the custom data on the connection. @param context}]]]
-+setContext(std::shared_ptr<void>&& context) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L175{setContext}]]]
-+getContext() const : std::shared_ptr<T> [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L187{@brief Get the custom data from the connection. @tparam T @return std::shared_ptr<T>}]]]
-+hasContext() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L198{@brief Return true if the custom data is set by user. @return true @return false}]]]
-+clearContext() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L207{@brief Clear the custom data.}]]]
-{abstract} +keepAlive() = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L217{@brief Call this method to avoid being kicked off by TcpServer, refer to the kickoffIdleConnections method in the TcpServer class.}]]]
-{abstract} +isKeepAlive() = 0 : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L225{@brief Return true if the keepAlive() method is called. @return true @return false}]]]
-{abstract} +bytesSent() const = 0 : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L232{@brief Return the number of bytes sent @return size_t}]]]
-{abstract} +bytesReceived() const = 0 : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L239{@brief Return the number of bytes received. @return size_t}]]]
-{abstract} +isSSLConnection() const = 0 : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L247{@brief Check whether the connection is SSL encrypted. @return true @return false}]]]
-{abstract} +startClientEncryption(std::function<void()> callback, bool useOldTLS = false, bool validateCert = true, std::string hostname = "", std::vector<std::pair<std::string,std::string>> const& sslConfCmds = {}) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L259{@brief Start the SSL encryption on the connection (as a client). @param callback The callback is called when the SSL connection is established. @param hostname The server hostname for SNI. If it is empty, the SNI is not used. @param sslConfCmds The comm...}]]]
-{abstract} +startServerEncryption(std::shared_ptr<SSLContext> const& ctx, std::function<void()> callback) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpConnection.h#L274{@brief Start the SSL encryption on the connection (as a server). @param ctx The SSL context. @param callback The callback is called when the SSL connection is established.}]]]
+class "TcpClient::IgnoreSigPipe" as C_0002033458902174399063
+class C_0002033458902174399063 {
++IgnoreSigPipe() : void
 }
-abstract "Resolver" as C_0000000459
-abstract C_0000000459 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Resolver.h#L21{@brief This class represents an asynchronous DNS resolver. @note Although the c-ares library is not essential, it is recommended to install it for higher performance}]] {
-{static} +newResolver(EventLoop* loop = nullptr, size_t timeout = 60) : std::shared_ptr<Resolver> [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Resolver.h#L33{@brief Create a new DNS resolver. @param loop The event loop in which the DNS resolver runs. @param timeout The timeout in seconds for DNS. @return std::shared_ptr<Resolver>}]]]
-{abstract} +resolve(std::string const& hostname, Resolver::Callback const& callback) = 0 : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Resolver.h#L42{@brief Resolve an address asynchronously. @param hostname @param callback}]]]
-+~Resolver() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Resolver.h#L45{~Resolver}]]]
-{static} +isCAresUsed() : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/Resolver.h#L55{@brief Check whether the c-ares library is used. @return true @return false}]]]
+class "Connector" as C_0001706043459252151324
+class C_0001706043459252151324 {
++Connector(EventLoop * loop, const InetAddress & addr, bool retry = true) : void
++Connector(EventLoop * loop, InetAddress && addr, bool retry = true) : void
++setNewConnectionCallback(const Connector::NewConnectionCallback & cb) : void
++setNewConnectionCallback(Connector::NewConnectionCallback && cb) : void
++setErrorCallback(const Connector::ConnectionErrorCallback & cb) : void
++setErrorCallback(Connector::ConnectionErrorCallback && cb) : void
++serverAddress() const : const InetAddress &
++start() : void
++restart() : void
++stop() : void
 }
-class "Poller" as C_0000000470
-class C_0000000470 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L35{Poller}]] {
+enum "Connector::Status" as C_0002045450139033818398
+enum C_0002045450139033818398 {
+Disconnected
+Connecting
+Connected
 }
-class "TimerQueue" as C_0000000474
-class C_0000000474 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L36{TimerQueue}]] {
+class "TimingWheel" as C_0000964465843177067305
+class C_0000964465843177067305 {
++TimingWheel(EventLoop * loop, size_t maxTimeout, float ticksInterval = 1.0, size_t bucketsNumPerWheel = 100) : void
++insertEntry(size_t delay, EntryPtr entryPtr) : void
++insertEntryInloop(size_t delay, EntryPtr entryPtr) : void
++getLoop() : EventLoop *
++~TimingWheel() : void
 }
-class "MpscQueue<Func>" as C_0000000507
-class C_0000000507 {
+class "TimingWheel::CallbackEntry" as C_0001504852334691167098
+class C_0001504852334691167098 {
++CallbackEntry(std::function<void ()> cb) : void
++~CallbackEntry() : void
 }
-class "EventLoop" as C_0000000480
-class C_0000000480 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L55{@brief As the name implies, this class represents an event loop that runs in a perticular thread. The event loop can handle network I/O events and timers in asynchronous mode. @note An event loop object always belongs to a separate thread, and there is ...}]] {
-+EventLoop() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L58{EventLoop}]]]
-+~EventLoop() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L59{~EventLoop}]]]
-+loop() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L66{@brief Run the event loop. This method will be blocked until the event loop exits.}]]]
-+quit() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L72{@brief Let the event loop quit.}]]]
-+assertInLoopThread() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L78{@brief Assertion that the current thread is the thread to which the event loop belongs. If the assertion fails, the program aborts.}]]]
-+resetTimerQueue() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L90{@brief Make the timer queue works after calling the fork() function.}]]]
-+resetAfterFork() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L96{@brief Make the event loop works after calling the fork() function.}]]]
-+isInLoopThread() const : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L105{@brief Return true if the current thread is the thread to which the event loop belongs. @return true @return false}]]]
-{static} +getEventLoopOfCurrentThread() : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L116{@brief Get the event loop of the current thread. Return nullptr if there is no event loop in the current thread. @return EventLoop*}]]]
-+runInLoop(Functor&& f) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L126{@brief Run the function f in the thread of the event loop. @param f @note If the current thread is the thread of the event loop, the function f is executed directly before the method exiting.}]]]
-+queueInLoop(Func const& f) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L146{@brief Run the function f in the thread of the event loop. @param f @note The difference between this method and the runInLoop() method is that the function f is executed after the method exiting no matter if the current thread is the thread of the even...}]]]
-+queueInLoop(Func&& f) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L147{queueInLoop}]]]
-+runAt(Date const& time, Func const& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L156{@brief Run a function at a time point. @param time The time to run the function. @param cb The function to run. @return TimerId The ID of the timer.}]]]
-+runAt(Date const& time, Func&& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L157{runAt}]]]
-+runAfter(double delay, Func const& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L166{@brief Run a function after a period of time. @param delay Represent the period of time in seconds. @param cb The function to run. @return TimerId The ID of the timer.}]]]
-+runAfter(double delay, Func&& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L167{runAfter}]]]
-+runAfter(std::chrono::duration<double> const& delay, Func const& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L178{@brief Run a function after a period of time. @note Users could use chrono literals to represent a time duration For example: @code runAfter(5s, task); runAfter(10min, task); @endcode}]]]
-+runAfter(std::chrono::duration<double> const& delay, Func&& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L182{runAfter}]]]
-+runEvery(double interval, Func const& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L194{@brief Repeatedly run a function every period of time. @param interval The duration in seconds. @param cb The function to run. @return TimerId The ID of the timer.}]]]
-+runEvery(double interval, Func&& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L195{runEvery}]]]
-+runEvery(std::chrono::duration<double> const& interval, Func const& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L207{@brief Repeatedly run a function every period of time. Users could use chrono literals to represent a time duration For example: @code runEvery(5s, task); runEvery(10min, task); runEvery(0.1h, task); @endcode}]]]
-+runEvery(std::chrono::duration<double> const& interval, Func&& cb) : TimerId [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L212{runEvery}]]]
-+invalidateTimer(TimerId id) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L222{@brief Invalidate the timer identified by the given ID. @param id The ID of the timer.}]]]
-+moveToCurrentThread() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L229{@brief Move the EventLoop to the current thread, this method must be called before the loop is running.}]]]
-+updateChannel(Channel* chl) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L236{@brief Update channel status. This method is usually used internally. @param chl}]]]
-+removeChannel(Channel* chl) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L244{@brief Remove a channel from the event loop. This method is usually used internally. @param chl}]]]
-+index() : size_t [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L251{@brief Return the index of the event loop. @return size_t}]]]
-+setIndex(size_t index) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L261{@brief Set the index of the event loop. @param index}]]]
-+isRunning() : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L272{@brief Return true if the event loop is running. @return true @return false}]]]
-+isCallingFunctions() : bool [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L284{@brief Check if the event loop is calling a function. @return true @return false}]]]
-+runOnQuit(Func&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L295{@brief Run functions when the event loop quits @param cb the function to run @note the function runs on the thread that quits the EventLoop}]]]
-+runOnQuit(Func const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/EventLoop.h#L296{runOnQuit}]]]
+enum "SSLStatus" as C_0001515554933771522998
+enum C_0001515554933771522998 {
+Handshaking
+Connecting
+Connected
+DisConnecting
+DisConnected
 }
-class "Acceptor" as C_0000000565
-class C_0000000565 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L30{Acceptor}]] {
+class "TcpConnectionImpl" as C_0000920759514274339356
+class C_0000920759514274339356 {
++TcpConnectionImpl(EventLoop * loop, int socketfd, const InetAddress & localAddr, const InetAddress & peerAddr) : void
++TcpConnectionImpl(EventLoop * loop, int socketfd, const InetAddress & localAddr, const InetAddress & peerAddr, const std::shared_ptr<SSLContext> & ctxPtr, bool isServer = true, bool validateCert = true, const std::string & hostname = "") : void
++~TcpConnectionImpl() : void
++send(const char * msg, size_t len) : void
++send(const void * msg, size_t len) : void
++send(const std::string & msg) : void
++send(std::string && msg) : void
++send(const MsgBuffer & buffer) : void
++send(MsgBuffer && buffer) : void
++send(const std::shared_ptr<std::string> & msgPtr) : void
++send(const std::shared_ptr<MsgBuffer> & msgPtr) : void
++sendFile(const char * fileName, size_t offset = 0, size_t length = 0) : void
++sendFile(const wchar_t * fileName, size_t offset = 0, size_t length = 0) : void
++sendStream(std::function<std::size_t (char *,std::size_t)> callback) : void
++localAddr() const : const InetAddress &
++peerAddr() const : const InetAddress &
++connected() const : bool
++disconnected() const : bool
++getRecvBuffer() : MsgBuffer *
++setHighWaterMarkCallback(const HighWaterMarkCallback & cb, size_t markLen) : void
++keepAlive() : void
++isKeepAlive() : bool
++setTcpNoDelay(bool on) : void
++shutdown() : void
++forceClose() : void
++getLoop() : EventLoop *
++bytesSent() const : size_t
++bytesReceived() const : size_t
++startClientEncryption(std::function<void ()> callback, bool useOldTLS = false, bool validateCert = true, std::string hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
+            {}) : void
++startServerEncryption(const std::shared_ptr<SSLContext> & ctx, std::function<void ()> callback) : void
++isSSLConnection() const : bool
 }
-class "TcpServer" as C_0000000573
-class C_0000000573 [[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L36{@brief This class represents a TCP server.}]] {
-+TcpServer(EventLoop* loop, InetAddress const& address, std::string const& name, bool reUseAddr = true, bool reUsePort = true) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L49{@brief Construct a new TCP server instance. @param loop The event loop in which the acceptor of the server is handled. @param address The address of the server. @param name The name of the server. @param reUseAddr The SO_REUSEADDR option. @param reUsePo...}]]]
-+~TcpServer() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L54{~TcpServer}]]]
-+start() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L60{@brief Start the server.}]]]
-+stop() : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L66{@brief Stop the server.}]]]
-+setIoLoopNum(size_t num) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L74{@brief Set the number of event loops in which the I/O of connections to the server is handled. @param num}]]]
-+setIoLoopThreadPool(std::shared_ptr<EventLoopThreadPool> const& pool) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L87{@brief Set the event loops pool in which the I/O of connections to the server is handled. @param pool}]]]
-+setRecvMessageCallback(RecvMessageCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L101{@brief Set the message callback. @param cb The callback is called when some data is received on a connection to the server.}]]]
-+setRecvMessageCallback(RecvMessageCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L105{setRecvMessageCallback}]]]
-+setConnectionCallback(ConnectionCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L116{@brief Set the connection callback. @param cb The callback is called when a connection is established or closed.}]]]
-+setConnectionCallback(ConnectionCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L120{setConnectionCallback}]]]
-+setWriteCompleteCallback(WriteCompleteCallback const& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L131{@brief Set the write complete callback. @param cb The callback is called when data to send is written to the socket of a connection.}]]]
-+setWriteCompleteCallback(WriteCompleteCallback&& cb) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L135{setWriteCompleteCallback}]]]
-+name() const : std::string const& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L145{@brief Get the name of the server. @return const std::string&}]]]
-+ipPort() const : std::string const [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L155{@brief Get the IP and port string of the server. @return const std::string}]]]
-+address() const : InetAddress const& [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L162{@brief Get the address of the server. @return const trantor::InetAddress&}]]]
-+getLoop() const : EventLoop* [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L169{@brief Get the event loop of the server. @return EventLoop*}]]]
-+getIoLoops() const : std::vector<EventLoop*> [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L179{@brief Get the I/O event loops of the server. @return std::vector<EventLoop *>}]]]
-+kickoffIdleConnections(size_t timeout) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L190{@brief An idle connection is a connection that has no read or write, kick off it after timeout seconds. @param timeout}]]]
-+enableSSL(std::string const& certPath, std::string const& keyPath, bool useOldTLS = false, std::vector<std::pair<std::string,std::string>> const& sslConfCmds = {}) : void [[[https://github.com/drogonframework/drogon/blob/46c00a317f169369d416c1a4705bd561ef163d45/trantor/trantor/net/TcpServer.h#L210{@brief Enable SSL encryption. @param certPath The path of the certificate file. @param keyPath The path of the private key file. @param useOldTLS If true, the TLS 1.0 and 1.1 are supported by the server. @param sslConfCmds The commands used to call the ...}]]]
+class "TcpConnectionImpl::KickoffEntry" as C_0000054046898195558381
+class C_0000054046898195558381 {
++KickoffEntry(const std::weak_ptr<TcpConnection> & conn) : void
++reset() : void
++~KickoffEntry() : void
 }
-C_0000000195 <|-- C_0000000003
-C_0000000195 <|-- C_0000000020
-C_0000000025 <.. C_0000000059 : #<<friend>>
-C_0000000025 o-- C_0000000181 : #logStream_
-C_0000000025 o-- C_0000000245 : #date_
-C_0000000195 <|-- C_0000000025
-C_0000000038 --+ C_0000000025
-C_0000000042 --+ C_0000000025
-C_0000000059 o-- C_0000000181 : -logStream_
-C_0000000195 <|-- C_0000000059
-C_0000000020 <|-- C_0000000114
-C_0000000195 <|-- C_0000000128
-C_0000000135 ..> C_0000000480
-C_0000000135 --> C_0000000480 : -loop_
-C_0000000150 --+ C_0000000135
-C_0000000195 <|-- C_0000000173
-C_0000000186 ..|> C_0000000173
-C_0000000195 <|-- C_0000000181
-C_0000000195 <|-- C_0000000208
-C_0000000223 o-- C_0000000245 : #creationDate_
-C_0000000223 --+ C_0000000208
-C_0000000195 <|-- C_0000000223
-C_0000000270 o-- C_0000000413 : #loopThread_
-C_0000000020 <|-- C_0000000270
-C_0000000275 o-- C_0000000413 : -loopThreadVector_
-C_0000000195 <|-- C_0000000275
-C_0000000300 ..> C_0000000480
-C_0000000300 ..> C_0000000345
-C_0000000300 --> C_0000000480 : -loop_
-C_0000000300 --> C_0000000292 : -connector_
-C_0000000300 --> C_0000000296 : -sslCtxPtr_
-C_0000000195 <|-- C_0000000300
-C_0000000320 --+ C_0000000300
-C_0000000353 --+ C_0000000345
-C_0000000371 ..> C_0000000480
-C_0000000371 <.. C_0000000480 : -<<friend>>
-C_0000000371 --> C_0000000480 : -loop_
-C_0000000195 <|-- C_0000000371
-C_0000000413 --> C_0000000480 : -loop_
-C_0000000413 --> C_0000000480 : -promiseForLoopPointer_
-C_0000000195 <|-- C_0000000413
-C_0000000428 ..> C_0000000066
-C_0000000428 ..> C_0000000296
-C_0000000459 ..> C_0000000480
-C_0000000507 ..|> C_0000000003
-C_0000000480 ..> C_0000000245
-C_0000000480 ..> C_0000000371
-C_0000000480 o-- C_0000000470 : -poller_
-C_0000000480 --> C_0000000371 : -activeChannels_
-C_0000000480 --> C_0000000371 : -currentActiveChannel_
-C_0000000480 o-- C_0000000507 : -funcs_
-C_0000000480 o-- C_0000000474 : -timerQueue_
-C_0000000480 o-- C_0000000507 : -funcsOnQuit_
-C_0000000480 o-- C_0000000371 : -wakeupChannelPtr_
-C_0000000480 --> C_0000000480 : -threadLocalLoopPtr_
-C_0000000195 <|-- C_0000000480
-C_0000000573 ..> C_0000000480
-C_0000000573 ..> C_0000000345
-C_0000000573 ..> C_0000000275
-C_0000000573 --> C_0000000480 : -loop_
-C_0000000573 ..> C_0000000428
-C_0000000573 o-- C_0000000565 : -acceptorPtr_
-C_0000000573 o-- C_0000000135 : -timingWheelMap_
-C_0000000573 --> C_0000000275 : -loopPoolPtr_
-C_0000000573 --> C_0000000296 : -sslCtxPtr_
-C_0000000195 <|-- C_0000000573
+class "TcpConnectionImpl::BufferNode" as C_0000943181451128697972
+class C_0000943181451128697972 {
++isFile() const : bool
++~BufferNode() : void
++sendFd_ : int
++offset_ : off_t
++fileBytesToSend_ : ssize_t
++streamCallback_ : std::function<std::size_t (char *,std::size_t)>
++nDataWritten_ : std::size_t
++msgBuffer_ : std::shared_ptr<MsgBuffer>
+}
+enum "TcpConnectionImpl::ConnStatus" as C_0000198777833674414676
+enum C_0000198777833674414676 {
+Disconnected
+Connecting
+Connected
+Disconnecting
+}
+class "TcpConnectionImpl::SSLEncryption" as C_0001847734957165426408
+class C_0001847734957165426408 {
++statusOfSSL_ : SSLStatus
++sslCtxPtr_ : std::shared_ptr<SSLContext>
++sslPtr_ : std::unique_ptr<SSLConn>
++sendBufferPtr_ : std::unique_ptr<std::array<char,8192>>
++isServer_ : bool
++isUpgrade_ : bool
++upgradeCallback_ : std::function<void ()>
++hostname_ : std::string
+}
+class "Socket" as C_0000971024972307079851
+class C_0000971024972307079851 {
+{static} +createNonblockingSocketOrDie(int family) : int
+{static} +getSocketError(int sockfd) : int
+{static} +connect(int sockfd, const InetAddress & addr) : int
+{static} +isSelfConnect(int sockfd) : bool
++Socket(int sockfd) : void
++~Socket() : void
++bindAddress(const InetAddress & localaddr) : void
++listen() : void
++accept(InetAddress * peeraddr) : int
++closeWrite() : void
++read(char * buffer, uint64_t len) : int
++fd() : int
+{static} +getLocalAddr(int sockfd) : struct sockaddr_in6
+{static} +getPeerAddr(int sockfd) : struct sockaddr_in6
++setTcpNoDelay(bool on) : void
++setReuseAddr(bool on) : void
++setReusePort(bool on) : void
++setKeepAlive(bool on) : void
++getSocketError() : int
+{static} +setNonBlockAndCloseOnExec(int sockfd) : void
+}
+class "SSLContext" as C_0000626107303889580949
+class C_0000626107303889580949 {
+}
+class "SSLConn" as C_0001248784923817560723
+class C_0001248784923817560723 {
+}
+class "TcpServer" as C_0001423170502760786790
+class C_0001423170502760786790 {
++TcpServer(EventLoop * loop, const InetAddress & address, const std::string & name, bool reUseAddr = true, bool reUsePort = true) : void
++~TcpServer() : void
++start() : void
++stop() : void
++setIoLoopNum(size_t num) : void
++setIoLoopThreadPool(const std::shared_ptr<EventLoopThreadPool> & pool) : void
++setRecvMessageCallback(const RecvMessageCallback & cb) : void
++setRecvMessageCallback(RecvMessageCallback && cb) : void
++setConnectionCallback(const ConnectionCallback & cb) : void
++setConnectionCallback(ConnectionCallback && cb) : void
++setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
++setWriteCompleteCallback(WriteCompleteCallback && cb) : void
++name() const : const std::string &
++ipPort() const : const std::string
++address() const : const InetAddress &
++getLoop() const : EventLoop *
++getIoLoops() const : std::vector<EventLoop *>
++kickoffIdleConnections(size_t timeout) : void
++enableSSL(const std::string & certPath, const std::string & keyPath, bool useOldTLS = false, const std::vector<std::pair<std::string,std::string>> & sslConfCmds = = {}, const std::string & caPath = "") : void
+}
+class "InetAddress::(anonymous_2030836)" as C_0000741797986785144168
+class C_0000741797986785144168 {
++addr_ : struct sockaddr_in
++addr6_ : struct sockaddr_in6
+}
+class "Acceptor" as C_0000184886692180276257
+class C_0000184886692180276257 {
++Acceptor(EventLoop * loop, const InetAddress & addr, bool reUseAddr = true, bool reUsePort = true) : void
++~Acceptor() : void
++addr() const : const InetAddress &
++setNewConnectionCallback(const NewConnectionCallback & cb) : void
++listen() : void
+}
+class "TcpServer::IgnoreSigPipe" as C_0001829426703641465340
+class C_0001829426703641465340 {
++IgnoreSigPipe() : void
+}
+class "T" as C_0000394452884449343416
+class C_0000394452884449343416 {
++T(const char * str, unsigned int len) : void
++str_ : const char *
++len_ : const unsigned int
+}
+class "Timer" as C_0002026475275429760163
+class C_0002026475275429760163 {
++Timer(const TimerCallback & cb, const TimePoint & when, const TimeInterval & interval) : void
++Timer(TimerCallback && cb, const TimePoint & when, const TimeInterval & interval) : void
++~Timer() : void
++run() const : void
++restart(const TimePoint & now) : void
++operator<(const Timer & t) const : bool
++operator>(const Timer & t) const : bool
++when() const : const TimePoint &
++isRepeat() : bool
++id() : TimerId
+}
+class "TimerPtrComparer" as C_0000157340721173102239
+class C_0000157340721173102239 {
++operator()(const TimerPtr & x, const TimerPtr & y) const : bool
+}
+class "InetAddress::(anonymous_1188166)" as C_0000253546837558644771
+class C_0000253546837558644771 {
++addr_ : struct sockaddr_in
++addr6_ : struct sockaddr_in6
+}
+C_0000630185754256426097 o-- C_0000923080849258138681 : #loggerFilePtr_
+C_0001159823987743494688 <|-- C_0000630185754256426097
+C_0000923080849258138681 o-- C_0002032009232244826154 : #creationDate_
+C_0000923080849258138681 --+ C_0000630185754256426097
+C_0001159823987743494688 <|-- C_0000923080849258138681
+C_0001159823987743494688 <|-- C_0000912667184903365399
+C_0000913287266699074255 ..|> C_0000912667184903365399
+C_0001390130774830223499 ..> C_0002032009232244826154
+C_0001390130774830223499 ..> C_0000764690828649606524
+C_0001390130774830223499 o-- C_0000300034150397884642 : -poller_
+C_0001390130774830223499 --> C_0000764690828649606524 : -activeChannels_
+C_0001390130774830223499 --> C_0000764690828649606524 : -currentActiveChannel_
+C_0001390130774830223499 o-- C_0000913287266699074255 : -funcs_
+C_0001390130774830223499 o-- C_0000607400095182694101 : -timerQueue_
+C_0001390130774830223499 o-- C_0000913287266699074255 : -funcsOnQuit_
+C_0001390130774830223499 o-- C_0000764690828649606524 : -wakeupChannelPtr_
+C_0001390130774830223499 --> C_0001390130774830223499 : -threadLocalLoopPtr_
+C_0001159823987743494688 <|-- C_0001390130774830223499
+C_0001280612521485369958 --> C_0001390130774830223499 : -loop_
+C_0001280612521485369958 o-- C_0001390130774830223499 : -promiseForLoopPointer_
+C_0001159823987743494688 <|-- C_0001280612521485369958
+C_0002061035340998974559 o-- C_0001280612521485369958 : -loopThreadVector_
+C_0001159823987743494688 <|-- C_0002061035340998974559
+C_0000300034150397884642 ..> C_0001390130774830223499
+C_0000300034150397884642 ..> C_0000764690828649606524
+C_0000300034150397884642 --> C_0001390130774830223499 : -ownerLoop_
+C_0001159823987743494688 <|-- C_0000300034150397884642
+C_0000607400095182694101 ..> C_0001390130774830223499
+C_0000607400095182694101 ..> C_0002026475275429760163
+C_0000607400095182694101 --> C_0001390130774830223499 : #loop_
+C_0000607400095182694101 --> C_0000764690828649606524 : #timerfdChannelPtr_
+C_0000607400095182694101 o-- C_0002026475275429760163 : #timers_
+C_0000607400095182694101 o-- C_0000157340721173102239 : #timers_
+C_0001159823987743494688 <|-- C_0000607400095182694101
+C_0000764690828649606524 ..> C_0001390130774830223499
+C_0000764690828649606524 --> C_0001390130774830223499 : -loop_
+C_0000764690828649606524 <.. C_0001390130774830223499 : +<<friend>>
+C_0001159823987743494688 <|-- C_0000764690828649606524
+C_0001159823987743494688 <|-- C_0000684873245997977544
+C_0000634031134969193198 o-- C_0001280612521485369958 : #loopThread_
+C_0000684873245997977544 <|-- C_0000634031134969193198
+C_0001159823987743494688 <|-- C_0000111393647775817392
+C_0000510041652600390686 ..|> C_0000111393647775817392
+C_0001754247125147083756 ..|> C_0000111393647775817392
+C_0001159823987743494688 <|-- C_0001754247125147083756
+C_0001042478360162272930 ..|> C_0000111393647775817392
+C_0001159823987743494688 <|-- C_0001042478360162272930
+C_0001930690020065325250 o-- C_0000510041652600390686 : -buffer_
+C_0001159823987743494688 <|-- C_0001930690020065325250
+C_0002053752992472264214 ..> C_0002198968118661318449
+C_0002053752992472264214 ..> C_0001184349029950147049
+C_0002053752992472264214 o-- C_0001930690020065325250 : #logStream_
+C_0002053752992472264214 o-- C_0002032009232244826154 : #date_
+C_0002053752992472264214 o-- C_0002198968118661318449 : #sourceFile_
+C_0002053752992472264214 o-- C_0001184349029950147049 : #level_
+C_0002053752992472264214 <.. C_0000716430590791918928 : +<<friend>>
+C_0001159823987743494688 <|-- C_0002053752992472264214
+C_0001184349029950147049 --+ C_0002053752992472264214
+C_0002198968118661318449 --+ C_0002053752992472264214
+C_0000716430590791918928 o-- C_0001930690020065325250 : -logStream_
+C_0001159823987743494688 <|-- C_0000716430590791918928
+C_0000684873245997977544 <|-- C_0000295101274428145462
+C_0001897340460211641725 o-- C_0001238571308552245455
+C_0001238571308552245455 --+ C_0001897340460211641725
+C_0002230624932100089526 ..> C_0001289495020269537351
+C_0002230624932100089526 ..> C_0000626107303889580949
+C_0001156367011091191681 ..> C_0001390130774830223499
+C_0001156367011091191681 ..> C_0001897340460211641725
+C_0001156367011091191681 ..> C_0002230624932100089526
+C_0001156367011091191681 ..> C_0001289495020269537351
+C_0001156367011091191681 ..> C_0000434245188016003403
+C_0001156367011091191681 --> C_0001390130774830223499 : -loop_
+C_0001156367011091191681 o-- C_0001706043459252151324 : -connector_
+C_0001156367011091191681 --> C_0002230624932100089526 : -connectionCallback_
+C_0001156367011091191681 --> C_0002230624932100089526 : -messageCallback_
+C_0001156367011091191681 --> C_0001289495020269537351 : -messageCallback_
+C_0001156367011091191681 --> C_0002230624932100089526 : -writeCompleteCallback_
+C_0001156367011091191681 ..> C_0000434245188016003403 : -sslErrorCallback_
+C_0001156367011091191681 o-- C_0002230624932100089526 : -connection_
+C_0001156367011091191681 --> C_0000626107303889580949 : -sslCtxPtr_
+C_0001156367011091191681 --> C_0002033458902174399063 : -initObj
+C_0001159823987743494688 <|-- C_0001156367011091191681
+C_0002033458902174399063 --+ C_0001156367011091191681
+C_0001706043459252151324 ..> C_0001390130774830223499
+C_0001706043459252151324 ..> C_0001897340460211641725
+C_0001706043459252151324 --> C_0000764690828649606524 : -channelPtr_
+C_0001706043459252151324 --> C_0001390130774830223499 : -loop_
+C_0001706043459252151324 o-- C_0001897340460211641725 : -serverAddr_
+C_0001706043459252151324 o-- C_0002045450139033818398 : -status_
+C_0001159823987743494688 <|-- C_0001706043459252151324
+C_0002045450139033818398 --+ C_0001706043459252151324
+C_0000964465843177067305 ..> C_0001390130774830223499
+C_0000964465843177067305 --> C_0001390130774830223499 : -loop_
+C_0001504852334691167098 --+ C_0000964465843177067305
+C_0000920759514274339356 ..> C_0001390130774830223499
+C_0000920759514274339356 ..> C_0001897340460211641725
+C_0000920759514274339356 ..> C_0000626107303889580949
+C_0000920759514274339356 ..> C_0001289495020269537351
+C_0000920759514274339356 ..> C_0002230624932100089526
+C_0000920759514274339356 ..> C_0000964465843177067305
+C_0000920759514274339356 ..> C_0000434245188016003403
+C_0000920759514274339356 ..> C_0000943181451128697972
+C_0000920759514274339356 --> C_0000054046898195558381 : -kickoffEntry_
+C_0000920759514274339356 --> C_0000964465843177067305 : -timingWheelWeakPtr_
+C_0000920759514274339356 o-- C_0002032009232244826154 : -lastTimingWheelUpdateTime_
+C_0000920759514274339356 --> C_0001390130774830223499 : #loop_
+C_0000920759514274339356 o-- C_0000764690828649606524 : #ioChannelPtr_
+C_0000920759514274339356 o-- C_0000971024972307079851 : #socketPtr_
+C_0000920759514274339356 o-- C_0001289495020269537351 : #readBuffer_
+C_0000920759514274339356 o-- C_0000943181451128697972 : #writeBufferList_
+C_0000920759514274339356 o-- C_0001897340460211641725 : #localAddr_
+C_0000920759514274339356 o-- C_0001897340460211641725 : #peerAddr_
+C_0000920759514274339356 o-- C_0000198777833674414676 : #status_
+C_0000920759514274339356 --> C_0002230624932100089526 : #recvMsgCallback_
+C_0000920759514274339356 --> C_0001289495020269537351 : #recvMsgCallback_
+C_0000920759514274339356 --> C_0002230624932100089526 : #connectionCallback_
+C_0000920759514274339356 --> C_0002230624932100089526 : #closeCallback_
+C_0000920759514274339356 --> C_0002230624932100089526 : #writeCompleteCallback_
+C_0000920759514274339356 --> C_0002230624932100089526 : #highWaterMarkCallback_
+C_0000920759514274339356 ..> C_0000434245188016003403 : #sslErrorCallback_
+C_0000920759514274339356 o-- C_0001847734957165426408 : -sslEncryptionPtr_
+C_0000920759514274339356 <.. C_0001156367011091191681 : +<<friend>>
+C_0000920759514274339356 <.. C_0001423170502760786790 : +<<friend>>
+C_0002230624932100089526 <|-- C_0000920759514274339356
+C_0001159823987743494688 <|-- C_0000920759514274339356
+C_0000054046898195558381 ..> C_0002230624932100089526
+C_0000054046898195558381 --> C_0002230624932100089526 : -conn_
+C_0000054046898195558381 --+ C_0000920759514274339356
+C_0000943181451128697972 --> C_0001289495020269537351 : +msgBuffer_
+C_0000943181451128697972 --+ C_0000920759514274339356
+C_0000198777833674414676 --+ C_0000920759514274339356
+C_0001847734957165426408 o-- C_0001515554933771522998 : +statusOfSSL_
+C_0001847734957165426408 --> C_0000626107303889580949 : +sslCtxPtr_
+C_0001847734957165426408 o-- C_0001248784923817560723 : +sslPtr_
+C_0001847734957165426408 --+ C_0000920759514274339356
+C_0000971024972307079851 ..> C_0001897340460211641725
+C_0001159823987743494688 <|-- C_0000971024972307079851
+C_0001423170502760786790 ..> C_0001390130774830223499
+C_0001423170502760786790 ..> C_0001897340460211641725
+C_0001423170502760786790 ..> C_0002061035340998974559
+C_0001423170502760786790 ..> C_0002230624932100089526
+C_0001423170502760786790 ..> C_0001289495020269537351
+C_0001423170502760786790 --> C_0001390130774830223499 : -loop_
+C_0001423170502760786790 o-- C_0000184886692180276257 : -acceptorPtr_
+C_0001423170502760786790 o-- C_0002230624932100089526 : -connSet_
+C_0001423170502760786790 --> C_0002230624932100089526 : -recvMessageCallback_
+C_0001423170502760786790 --> C_0001289495020269537351 : -recvMessageCallback_
+C_0001423170502760786790 --> C_0002230624932100089526 : -connectionCallback_
+C_0001423170502760786790 --> C_0002230624932100089526 : -writeCompleteCallback_
+C_0001423170502760786790 o-- C_0000964465843177067305 : -timingWheelMap_
+C_0001423170502760786790 --> C_0002061035340998974559 : -loopPoolPtr_
+C_0001423170502760786790 o-- C_0001829426703641465340 : -initObj
+C_0001423170502760786790 --> C_0000626107303889580949 : -sslCtxPtr_
+C_0001159823987743494688 <|-- C_0001423170502760786790
+C_0000741797986785144168 --+ C_0001897340460211641725
+C_0000184886692180276257 ..> C_0001390130774830223499
+C_0000184886692180276257 ..> C_0001897340460211641725
+C_0000184886692180276257 o-- C_0000971024972307079851 : #sock_
+C_0000184886692180276257 o-- C_0001897340460211641725 : #addr_
+C_0000184886692180276257 --> C_0001390130774830223499 : #loop_
+C_0000184886692180276257 --> C_0001897340460211641725 : #newConnectionCallback_
+C_0000184886692180276257 o-- C_0000764690828649606524 : #acceptChannel_
+C_0001159823987743494688 <|-- C_0000184886692180276257
+C_0001829426703641465340 --+ C_0001423170502760786790
+C_0001159823987743494688 <|-- C_0002026475275429760163
+C_0000157340721173102239 ..> C_0002026475275429760163
+C_0000253546837558644771 --+ C_0001897340460211641725
 @enduml
