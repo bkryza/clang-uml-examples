@@ -1,0 +1,77 @@
+compilation_database_dir: _build
+output_directory: ../puml
+generate_links:
+  link: 'https://github.com/pocoproject/poco/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+  tooltip: '{% if "comment" in element %}{{ abbrv(trim(replace(element.comment, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+diagrams:
+  foundation_class_diagram:
+    type: class
+    using_namespace:
+      - Poco
+    glob:
+      - Foundation/src/*.cpp
+    include:
+      namespaces:
+        - Poco
+    exclude:
+      namespaces:
+        - Poco::detail
+  dynamic_class_diagram:
+    type: class
+    using_namespace:
+      - Poco
+    generate_packages: true
+    glob:
+      - Foundation/src/Pair.cpp
+      - Foundation/src/Struct.cpp
+      - Foundation/src/Var.cpp
+      - Foundation/src/VarHolder.cpp
+      - Foundation/src/VarIterator.cpp
+    include:
+      namespaces:
+        - Poco::Dynamic
+    exclude:
+      elements:
+        - Poco::Dynamic::Struct
+      relationships:
+        - dependency
+      access:
+        - private
+        - protected
+        - public
+    plantuml:
+      before:
+        - left to right direction
+  dynamic_class_detail_diagram:
+    type: class
+    using_namespace:
+      - Poco
+    generate_packages: true
+    glob:
+      - Foundation/src/Pair.cpp
+      - Foundation/src/Struct.cpp
+      - Foundation/src/Var.cpp
+      - Foundation/src/VarHolder.cpp
+      - Foundation/src/VarIterator.cpp
+    include:
+      namespaces:
+        - Poco::Dynamic
+    exclude:
+      relationships:
+        - dependency
+    plantuml:
+      before:
+        - left to right direction
+  json_class_diagram:
+    type: class
+    using_namespace:
+      - Poco
+    generate_packages: true
+    glob:
+      - JSON/src/**.cpp
+    include:
+      namespaces:
+        - Poco::JSON
+    plantuml:
+      before:
+        - left to right direction
