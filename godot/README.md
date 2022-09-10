@@ -16,7 +16,7 @@ mkdir puml
 #   #include "core/class_db.h"
 #
 # Run clang-uml
-clang-uml 
+clang-uml
 # Generate diagrams
 plantuml -tsvg puml/*.puml
 ```
@@ -25,6 +25,20 @@ plantuml -tsvg puml/*.puml
 
 ![puml](puml/object_class_hierarchy_diagram.svg)
 
+## 'Resource' class hierarchy
+
+![puml](puml/resource_class_hierarchy_diagram.svg)
+
+
 ## 'Object' class context
 
 ![puml](puml/object_class_context_diagram.svg)
+
+## 'Node2D' class context brief
+
+![puml](puml/node2d_class_context_diagram.svg)
+
+
+## 'Node2D' class context full
+
+![puml](puml/node2d_class_context_full_diagram.svg)
