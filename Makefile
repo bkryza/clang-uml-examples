@@ -1,8 +1,11 @@
 CLANG_UML_BINARY ?= ../clang-uml/debug/clang-uml
 
-.PHONY: cppast drogon godot yaml-cpp poco clean
+.PHONY: clang-uml cppast drogon godot yaml-cpp poco clean
 
-all: cppast drogon godot yaml-cpp poco
+all: clang-uml cppast drogon godot yaml-cpp poco
+
+clang-uml:
+		$(MAKE) -C clang-uml CLANG_UML_BINARY=../$(CLANG_UML_BINARY)
 
 cppast:
 		$(MAKE) -C cppast CLANG_UML_BINARY=../$(CLANG_UML_BINARY)
@@ -20,6 +23,7 @@ poco:
 		$(MAKE) -C poco CLANG_UML_BINARY=../$(CLANG_UML_BINARY)
 
 clean:
+		$(MAKE) -C clang-uml clean
 		$(MAKE) -C cppast clean
 		$(MAKE) -C drogon clean
 		$(MAKE) -C godot clean

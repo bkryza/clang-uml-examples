@@ -1,0 +1,623 @@
+@startuml
+title clang-uml class diagram model
+package [class_diagram] as C_0002240167036201725606 {
+package [model] as C_0000897124234964432620 {
+class "type_alias" as C_0001012510589658886782
+class C_0001012510589658886782 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/type_alias.h#L24{type_alias}]] {
++set_alias() : void
++alias() const : std::string
++set_underlying_type() : void
++underlying_type() const : std::string
+-alias_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/type_alias.h#L33{alias_}]]]
+-underlying_type_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/type_alias.h#L34{underlying_type_}]]]
+}
+class "class_element" as C_0000605866861866358037
+class C_0000605866861866358037 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_element.h#L29{class_element}]] {
++class_element() : void
++access() const : common::model::access_t
++name() const : std::string
++type() const : std::string
++context() const : inja::json
+-name_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_element.h#L43{name_}]]]
+-type_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_element.h#L44{type_}]]]
+}
+class "class_member" as C_0001796282762108527255
+class C_0001796282762108527255 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_member.h#L26{class_member}]] {
++class_member() : void
++~class_member() = default : void
++is_relationship() const : bool
++is_relationship() : void
++is_static() const : bool
++is_static() : void
+-is_relationship_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_member.h#L40{is_relationship_}]]]
+-is_static_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_member.h#L41{is_static_}]]]
+}
+class "template_parameter" as C_0001639764337680852102
+class C_0001639764337680852102 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L34{@brief Represents template parameter or template argument This class can represent both template parameter and template arguments, including variadic parameters and instantiations with nested templates}]] {
++template_parameter() : void
++template_parameter() = default : void
++set_type() : void
++type() const : std::string
++set_id() : void
++id() const : std::optional<int64_t>
++set_name() : void
++name() const : std::string
++set_default_value() : void
++default_value() const : std::string
++is_variadic() : void
++is_variadic() const : bool
++is_pack() : void
++is_pack() const : bool
++is_specialization_of() const : bool
++is_template_parameter() const : bool
++is_template_parameter() : void
++is_template_template_parameter() const : bool
++is_template_template_parameter() : void
++to_string() const : std::string
++add_template_param() : void
++add_template_param() : void
++template_params() const : const std::vector<template_parameter> &
++clear_params() : void
++find_nested_relationships() const : bool
+-type_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L105{Represents the type of non-type template parameters e.g. 'int'}]]]
+-name_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L108{The name of the parameter (e.g. 'T' or 'N')}]]]
+-default_value_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L111{Default value of the template parameter}]]]
+-is_template_parameter_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L115{Whether the template parameter is a regular template parameter When false, it is a non-type template parameter}]]]
+-is_template_template_parameter_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L119{Whether the template parameter is a template template parameter Can only be true when is_template_parameter_ is true}]]]
+-is_variadic_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L122{Whether the template parameter is variadic}]]]
+-is_pack_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L125{Whether the argument specializes argument pack from parent template}]]]
+-id_ : std::optional<int64_t> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/template_parameter.h#L130{id_}]]]
+}
+class "method_parameter" as C_0000605669033368926050
+class C_0000605669033368926050 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/method_parameter.h#L28{method_parameter}]] {
++set_type() : void
++type() const : std::string
++set_name() : void
++name() const : std::string
++set_default_value() : void
++default_value() const : std::string
++to_string() const : std::string
+-type_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/method_parameter.h#L43{type_}]]]
+-name_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/method_parameter.h#L44{name_}]]]
+-default_value_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/method_parameter.h#L45{default_value_}]]]
+}
+class "class_method" as C_0000204145716468348671
+class C_0000204145716468348671 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_method.h#L28{class_method}]] {
++class_method() : void
++~class_method() = default : void
++is_pure_virtual() const : bool
++is_pure_virtual() : void
++is_virtual() const : bool
++is_virtual() : void
++is_const() const : bool
++is_const() : void
++is_defaulted() const : bool
++is_defaulted() : void
++is_static() const : bool
++is_static() : void
++parameters() const : const std::vector<method_parameter> &
++add_parameter() : void
+-is_pure_virtual_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_method.h#L55{is_pure_virtual_}]]]
+-is_virtual_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_method.h#L56{is_virtual_}]]]
+-is_const_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_method.h#L57{is_const_}]]]
+-is_defaulted_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_method.h#L58{is_defaulted_}]]]
+-is_static_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_method.h#L59{is_static_}]]]
+}
+class "class_parent" as C_0002097158357956220758
+class C_0002097158357956220758 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_parent.h#L27{class_parent}]] {
++set_name() : void
++name() const : std::string
++id() const : common::id_t
++set_id() : void
++set_id() : void
++is_virtual() : void
++is_virtual() const : bool
++set_access() : void
++access() const : common::model::access_t
+-id_ : common::id_t [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_parent.h#L44{id_}]]]
+-name_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_parent.h#L45{name_}]]]
+-is_virtual_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class_parent.h#L46{is_virtual_}]]]
+}
+class "class_" as C_0001292034357466653182
+class C_0001292034357466653182 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class.h#L35{class_}]] {
++class_() : void
++class_() : void
++class_() : void
++operator=() : class_diagram::model::class_ &
++operator=() : class_diagram::model::class_ &
++is_struct() const : bool
++is_struct() : void
++is_template() const : bool
++is_template() : void
++is_template_instantiation() const : bool
++is_template_instantiation() : void
++add_member() : void
++add_method() : void
++add_parent() : void
++add_template() : void
++members() const : const std::vector<class_member> &
++methods() const : const std::vector<class_method> &
++parents() const : const std::vector<class_parent> &
++templates() const : const std::vector<template_parameter> &
++set_base_template() : void
++base_template() const : std::string
++add_type_alias() : void
++full_name() const : std::string
++full_name_no_ns() const : std::string
++is_abstract() const : bool
++is_alias() const : bool
++is_alias() : void
++find_relationships() : void
++calculate_template_specialization_match() const : int
+-render_template_params() const : std::ostringstream &
+-is_struct_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class.h#L92{is_struct_}]]]
+-is_template_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class.h#L93{is_template_}]]]
+-is_template_instantiation_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class.h#L94{is_template_instantiation_}]]]
+-is_alias_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class.h#L95{is_alias_}]]]
+-base_template_full_name_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class.h#L100{base_template_full_name_}]]]
+-full_name_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/class.h#L103{full_name_}]]]
+}
+class "enum_" as C_0000724392977093650506
+class C_0000724392977093650506 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/enum.h#L27{enum_}]] {
++enum_() : void
++enum_() : void
++enum_() : void
++operator=() : class_diagram::model::enum_ &
++operator=() : class_diagram::model::enum_ &
++full_name() const : std::string
++constants() : std::vector<std::string> &
++constants() const : const std::vector<std::string> &
+-constants_ : std::vector<std::string> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/enum.h#L47{constants_}]]]
+}
+class "diagram" as C_0000914432076690777687
+class C_0000914432076690777687 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/class_diagram/model/diagram.h#L34{diagram}]] {
++diagram() = default : void
++diagram() : void
++diagram() = default : void
++operator=() : class_diagram::model::diagram &
++operator=() = default : class_diagram::model::diagram &
++type() const : common::model::diagram_t
++get() const : common::optional_ref<common::model::diagram_element>
++get() const : common::optional_ref<common::model::diagram_element>
++classes() const : const common::reference_vector<class_> &
++enums() const : const common::reference_vector<enum_> &
++has_class() const : bool
++has_enum() const : bool
++get_class() const : common::optional_ref<class_>
++get_class() const : common::optional_ref<class_>
++get_enum() const : common::optional_ref<enum_>
++get_enum() const : common::optional_ref<enum_>
++add_type_alias() : void
++add_class() : bool
++add_enum() : bool
++add_package() : bool
++to_alias() const : std::string
++get_parents() const : void
++has_element() const : bool
+}
+}
+}
+package [common] as C_0000316605034920222648 {
+package [model] as C_0000083721806430512831 {
+enum "diagram_t" as C_0000911024010877522257
+enum C_0000911024010877522257 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/enums.h#L24{diagram_t}]] {
+kClass
+kSequence
+kPackage
+kInclude
+}
+enum "access_t" as C_0002077031342744882956
+enum C_0002077031342744882956 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/enums.h#L26{access_t}]] {
+kPublic
+kProtected
+kPrivate
+}
+enum "relationship_t" as C_0000229140160180072950
+enum C_0000229140160180072950 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/enums.h#L28{relationship_t}]] {
+kNone
+kExtension
+kComposition
+kAggregation
+kContainment
+kOwnership
+kAssociation
+kInstantiation
+kFriendship
+kAlias
+kDependency
+}
+enum "message_t" as C_0001623832985137466228
+enum C_0001623832985137466228 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/enums.h#L42{message_t}]] {
+kCall
+kReturn
+}
+class "decorated_element" as C_0001117102382624673118
+class C_0001117102382624673118 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/decorated_element.h#L31{decorated_element}]] {
++skip() const : bool
++skip_relationship() const : bool
++get_relationship() const : std::pair<relationship_t,std::string>
++style_spec() const : std::string
++decorators() const : const std::vector<std::shared_ptr<decorators::decorator>> &
++add_decorators() : void
++append() : void
++comment() const : std::optional<std::string>
++set_comment() : void
+-comment_ : std::optional<std::string> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/decorated_element.h#L55{comment_}]]]
+}
+class "source_location" as C_0000895261582183440230
+class C_0000895261582183440230 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/source_location.h#L24{source_location}]] {
++source_location() = default : void
++source_location() : void
++file() const : const std::string &
++set_file() : void
++line() const : unsigned int
++set_line() : void
+-file_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/source_location.h#L43{file_}]]]
+-line_ : unsigned int [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/source_location.h#L44{line_}]]]
+}
+class "path<Sep>" as C_0001932252426145029507
+class C_0001932252426145029507 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/path.h#L28{path}]] {
++path<Sep>() = default : void
++path<Sep>() : void
++path<Sep>() : void
++path<Sep>() : void
++operator=() = default : path<Sep> &
++path<Sep>() = default : void
++operator=() = default : path<Sep> &
++path<Sep>() : void
++path<Sep>() : void
++to_string() const : std::string
++is_empty() const : bool
++size() const : size_t
++operator|() const : path<Sep>
++operator|=() : void
++operator|() const : path<Sep>
++operator|=() : void
++operator[]() : std::string &
++operator[]() const : const std::string &
++append() : void
++append() : void
++pop_back() : void
++parent() const : std::optional<path<Sep>>
++starts_with() const : bool
++ends_with() const : bool
++common_path() const : path<Sep>
++relative_to() const : path<Sep>
++relative() const : std::string
++name() const : std::string
++begin() : __gnu_cxx::__normal_iterator<Sep>::container_type::iterator
++end() : __gnu_cxx::__normal_iterator<Sep>::container_type::iterator
++cbegin() const : __gnu_cxx::__normal_iterator<Sep>::container_type::const_iterator
++cend() const : __gnu_cxx::__normal_iterator<Sep>::container_type::const_iterator
++begin() const : __gnu_cxx::__normal_iterator<Sep>::container_type::const_iterator
++end() const : __gnu_cxx::__normal_iterator<Sep>::container_type::const_iterator
+-path_ : common::model::path::container_type [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/path.h#L216{path_}]]]
+}
+class "ns_path_separator" as C_0001331923285602672865
+class C_0001331923285602672865 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/namespace.h#L28{ns_path_separator}]] {
+{static} +value : const std::string_view [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/namespace.h#L29{value}]]]
+}
+class "path<clanguml::common::model::ns_path_separator>" as C_0001618725806424907966
+class C_0001618725806424907966 {
+}
+class "stylable_element" as C_0002077846075979426940
+class C_0002077846075979426940 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/stylable_element.h#L24{stylable_element}]] {
++set_style() : void
++style() const : std::string
+-style_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/stylable_element.h#L30{style_}]]]
+}
+class "relationship" as C_0002046336758797367926
+class C_0002046336758797367926 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/relationship.h#L28{relationship}]] {
++relationship() : void
++~relationship() = default : void
++set_type() : void
++type() const : common::model::relationship_t
++set_destination() : void
++destination() const : common::id_t
++set_multiplicity_source() : void
++multiplicity_source() const : std::string
++set_multiplicity_destination() : void
++multiplicity_destination() const : std::string
++set_label() : void
++label() const : std::string
++set_access() : void
++access() const : common::model::access_t
+-destination_ : int64_t [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/relationship.h#L61{destination_}]]]
+-multiplicity_source_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/relationship.h#L62{multiplicity_source_}]]]
+-multiplicity_destination_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/relationship.h#L63{multiplicity_destination_}]]]
+-label_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/relationship.h#L64{label_}]]]
+}
+class "diagram_element" as C_0001073500714379115414
+class C_0001073500714379115414 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_element.h#L33{diagram_element}]] {
++diagram_element() : void
++~diagram_element() = default : void
++id() const : common::model::diagram_element::id_t
++set_id() : void
++alias() const : std::string
++set_name() : void
++name() const : std::string
++full_name() const : std::string
++relationships() : std::vector<relationship> &
++relationships() const : const std::vector<relationship> &
++add_relationship() : void
++append() : void
++context() const : inja::json
++is_nested() const : bool
++nested() : void
++complete() const : bool
++complete() : void
+-id_ : common::model::diagram_element::id_t [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_element.h#L77{id_}]]]
+-name_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_element.h#L78{name_}]]]
+-nested_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_element.h#L80{nested_}]]]
+-complete_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_element.h#L81{complete_}]]]
+{static} -m_nextId : std::atomic_uint64_t [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_element.h#L83{m_nextId}]]]
+}
+class "nested_trait<T,Path>" as C_0000891208748219309562
+class C_0000891208748219309562 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/nested_trait.h#L28{nested_trait}]] {
++nested_trait<T, Path>() = default : void
++nested_trait<T, Path>() : void
++nested_trait<T, Path>() = default : void
++operator=() : nested_trait<T,Path> &
++operator=() = default : nested_trait<T,Path> &
++~nested_trait<T, Path>() = default : void
++has_element() const : bool
++is_empty() const : bool
++begin() : auto
++end() : auto
++cbegin() const : auto
++cend() const : auto
++begin() const : auto
++end() const : auto
++print_tree() : void
++add_element() : _Bool
++add_element() : _Bool
++get_element() : auto
++get_element_parent() : auto
++get_element() : auto
+-elements_ : std::vector<std::unique_ptr<T>> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/nested_trait.h#L171{elements_}]]]
+}
+enum "source_file_t" as C_0001490157860030300113
+enum C_0001490157860030300113 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/source_file.h#L37{source_file_t}]] {
+kDirectory
+kHeader
+kImplementation
+}
+class "fs_path_sep" as C_0000640258162892495349
+class C_0000640258162892495349 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/source_file.h#L39{fs_path_sep}]] {
+{static} +value : const std::string_view [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/source_file.h#L40{value}]]]
+}
+class "path<clanguml::common::model::fs_path_sep>" as C_0001035161069848456027
+class C_0001035161069848456027 {
+}
+class "source_file" as C_0000785714713072053129
+class C_0000785714713072053129 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/source_file.h#L45{source_file}]] {
++source_file() = default : void
++source_file() : void
++set_path() : void
++set_absolute() : void
++is_absolute() const : bool
++set_type() : void
++type() const : common::model::source_file_t
++source_file() : void
++source_file() = default : void
++operator=() : common::model::source_file &
++operator=() : common::model::source_file &
++operator==() const : bool
++path() const : const common::model::filesystem_path &
++full_name() const : std::string
++full_path() const : common::model::path<common::model::fs_path_sep>
++add_file() : void
++fs_path() const : std::filesystem::path
+-is_absolute_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/source_file.h#L120{is_absolute_}]]]
+}
+class "element" as C_0002069520381434407937
+class C_0002069520381434407937 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/element.h#L35{element}]] {
++element() : void
++~element() = default : void
++name_and_ns() const : std::string
++set_namespace() : void
++get_namespace() const : common::model::namespace_
++get_relative_namespace() const : common::model::namespace_
++path() const : const common::model::namespace_ &
++full_name() const : std::string
++full_name_no_ns() const : std::string
++set_using_namespaces() : void
++using_namespace() const : const common::model::namespace_ &
++context() const : inja::json
+}
+abstract "diagram" as C_0000197068985320835874
+abstract C_0000197068985320835874 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram.h#L34{diagram}]] {
++diagram() : void
++~diagram() : void
+{abstract} +type() const = 0 : common::model::diagram_t
+{abstract} +get() const = 0 : common::optional_ref<common::model::diagram_element>
+{abstract} +get() const = 0 : common::optional_ref<common::model::diagram_element>
++diagram() : void
++diagram() : void
++operator=() : common::model::diagram &
++operator=() : common::model::diagram &
++set_name() : void
++name() const : std::string
++set_filter() : void
++set_complete() : void
++complete() const : bool
++should_include() const : bool
++should_include() const : bool
++should_include() const : bool
++should_include() const : bool
++should_include() const : bool
++should_include() const : bool
++has_element() const : bool
++should_include() const : bool
+-name_ : std::string [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram.h#L78{name_}]]]
+-complete_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram.h#L80{complete_}]]]
+}
+class "package" as C_0002143286684830686854
+class C_0002143286684830686854 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/package.h#L34{package}]] {
++package() : void
++package() : void
++package() = default : void
++operator=() : common::model::package &
++operator=() : common::model::package &
++full_name() const : std::string
++is_deprecated() const : bool
++set_deprecated() : void
++add_package() : void
+-is_deprecated_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/package.h#L54{is_deprecated_}]]]
+}
+class "diagram_filter" as C_0002054140694270036745
+class C_0002054140694270036745 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram.h#L30{diagram_filter}]] {
++diagram_filter() : void
++add_inclusive_filter() : void
++add_exclusive_filter() : void
++should_include() const : bool
+-init_filters() : void
++should_include() : _Bool
+}
+enum "filter_t" as C_0001931666600378768700
+enum C_0001931666600378768700 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L36{filter_t}]] {
+kInclusive
+kExclusive
+}
+class "filter_visitor" as C_0000469458052685692314
+class C_0000469458052685692314 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L56{filter_visitor}]] {
++filter_visitor() : void
++~filter_visitor() = default : void
++match() const : tvl::value_t
++match() const : tvl::value_t
++match() const : tvl::value_t
++match() const : tvl::value_t
++match() const : tvl::value_t
++is_inclusive() const : bool
++is_exclusive() const : bool
++type() const : common::model::filter_t
+}
+class "anyof_filter" as C_0000605829206649563575
+class C_0000605829206649563575 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L86{anyof_filter}]] {
++anyof_filter() : void
++~anyof_filter() = default : void
++match() const : tvl::value_t
++match() const : tvl::value_t
+}
+class "namespace_filter" as C_0001816240256470820189
+class C_0001816240256470820189 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L102{namespace_filter}]] {
++namespace_filter() : void
++~namespace_filter() = default : void
++match() const : tvl::value_t
++match() const : tvl::value_t
+}
+class "element_filter" as C_0000690341236618660423
+class C_0000690341236618660423 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L115{element_filter}]] {
++element_filter() : void
++~element_filter() = default : void
++match() const : tvl::value_t
+-elements_ : std::vector<std::string> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L123{elements_}]]]
+}
+class "subclass_filter" as C_0001389919526184251760
+class C_0001389919526184251760 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L126{subclass_filter}]] {
++subclass_filter() : void
++~subclass_filter() = default : void
++match() const : tvl::value_t
+-roots_ : std::vector<std::string> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L134{roots_}]]]
+}
+class "edge_traversal_filter<DiagramT,ElementT,MatchOverrideT>" as C_0001412380775311155780
+class C_0001412380775311155780 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L139{edge_traversal_filter}]] {
++edge_traversal_filter<DiagramT, ElementT, MatchOverrideT>() : void
++~edge_traversal_filter<DiagramT, ElementT, MatchOverrideT>() = default : void
++match() const : tvl::value_t
+-add_parents() const : void
+-init() const : void
+-add_adjacent() : _Bool
+-roots_ : std::vector<std::string> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L272{roots_}]]]
+-initialized_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L274{initialized_}]]]
+-matching_elements_ : common::reference_set<ElementT> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L275{matching_elements_}]]]
+-forward_ : bool [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L276{forward_}]]]
+}
+class "relationship_filter" as C_0001195713008101262477
+class C_0001195713008101262477 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L279{relationship_filter}]] {
++relationship_filter() : void
++~relationship_filter() = default : void
++match() const : tvl::value_t
+}
+class "access_filter" as C_0001098184343448999590
+class C_0001098184343448999590 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L292{access_filter}]] {
++access_filter() : void
++~access_filter() = default : void
++match() const : tvl::value_t
+}
+class "context_filter" as C_0002078668697238559556
+class C_0002078668697238559556 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L303{context_filter}]] {
++context_filter() : void
++~context_filter() = default : void
++match() const : tvl::value_t
+-context_ : std::vector<std::string> [[[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L311{context_}]]]
+}
+class "paths_filter" as C_0000831536458766184760
+class C_0000831536458766184760 [[https://github.com/bkryza/clang-uml/blob/b3382d8f041665d83d907a47f3dd9f0fd341e837/src/common/model/diagram_filter.h#L314{paths_filter}]] {
++paths_filter() : void
++~paths_filter() = default : void
++match() const : tvl::value_t
+}
+}
+}
+C_0000605866861866358037 o-- C_0002077031342744882956 : -access_
+C_0001117102382624673118 <|-- C_0000605866861866358037
+C_0000895261582183440230 <|-- C_0000605866861866358037
+C_0000605866861866358037 <|-- C_0001796282762108527255
+C_0001639764337680852102 o-- C_0001639764337680852102 : -template_params_
+C_0001117102382624673118 <|-- C_0000605669033368926050
+C_0000204145716468348671 o-- C_0000605669033368926050 : -parameters_
+C_0000605866861866358037 <|-- C_0000204145716468348671
+C_0002097158357956220758 o-- C_0002077031342744882956 : -access_
+C_0001292034357466653182 o-- C_0001796282762108527255 : -members_
+C_0001292034357466653182 o-- C_0000204145716468348671 : -methods_
+C_0001292034357466653182 o-- C_0002097158357956220758 : -bases_
+C_0001292034357466653182 o-- C_0001639764337680852102 : -templates_
+C_0001292034357466653182 o-- C_0001012510589658886782 : -type_aliases_
+C_0002069520381434407937 <|-- C_0001292034357466653182
+C_0002077846075979426940 <|-- C_0001292034357466653182
+C_0002069520381434407937 <|-- C_0000724392977093650506
+C_0002077846075979426940 <|-- C_0000724392977093650506
+C_0000914432076690777687 o-- C_0001292034357466653182 : -classes_
+C_0000914432076690777687 o-- C_0000724392977093650506 : -enums_
+C_0000914432076690777687 o-- C_0001012510589658886782 : -type_aliases_
+C_0000197068985320835874 <|-- C_0000914432076690777687
+C_0001618725806424907966 ..|> C_0001932252426145029507
+C_0002046336758797367926 o-- C_0000229140160180072950 : -type_
+C_0002046336758797367926 o-- C_0002077031342744882956 : -access_
+C_0001117102382624673118 <|-- C_0002046336758797367926
+C_0002077846075979426940 <|-- C_0002046336758797367926
+C_0001073500714379115414 o-- C_0002046336758797367926 : -relationships_
+C_0001117102382624673118 <|-- C_0001073500714379115414
+C_0001035161069848456027 ..|> C_0001932252426145029507
+C_0000785714713072053129 o-- C_0001035161069848456027 : -path_
+C_0000785714713072053129 o-- C_0001490157860030300113 : -type_
+C_0001073500714379115414 <|-- C_0000785714713072053129
+C_0002077846075979426940 <|-- C_0000785714713072053129
+C_0000895261582183440230 <|-- C_0000785714713072053129
+C_0002069520381434407937 o-- C_0001618725806424907966 : -ns_
+C_0002069520381434407937 o-- C_0001618725806424907966 : -using_namespace_
+C_0001073500714379115414 <|-- C_0002069520381434407937
+C_0000895261582183440230 <|-- C_0002069520381434407937
+C_0000197068985320835874 o-- C_0002054140694270036745 : -filter_
+C_0002069520381434407937 <|-- C_0002143286684830686854
+C_0002077846075979426940 <|-- C_0002143286684830686854
+C_0002054140694270036745 o-- C_0000469458052685692314 : -inclusive_
+C_0002054140694270036745 o-- C_0000469458052685692314 : -exclusive_
+C_0002054140694270036745 --> C_0000197068985320835874 : -diagram_
+C_0000469458052685692314 o-- C_0001931666600378768700 : -type_
+C_0000605829206649563575 o-- C_0000469458052685692314 : -filters_
+C_0000469458052685692314 <|-- C_0000605829206649563575
+C_0001816240256470820189 o-- C_0001618725806424907966 : -namespaces_
+C_0000469458052685692314 <|-- C_0001816240256470820189
+C_0000469458052685692314 <|-- C_0000690341236618660423
+C_0000469458052685692314 <|-- C_0001389919526184251760
+C_0001412380775311155780 o-- C_0000229140160180072950 : -relationship_
+C_0000469458052685692314 <|-- C_0001412380775311155780
+C_0001195713008101262477 o-- C_0000229140160180072950 : -relationships_
+C_0000469458052685692314 <|-- C_0001195713008101262477
+C_0001098184343448999590 o-- C_0002077031342744882956 : -access_
+C_0000469458052685692314 <|-- C_0001098184343448999590
+C_0000469458052685692314 <|-- C_0002078668697238559556
+C_0000469458052685692314 <|-- C_0000831536458766184760
+@enduml
