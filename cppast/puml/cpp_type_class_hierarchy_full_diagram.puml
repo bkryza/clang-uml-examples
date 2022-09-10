@@ -1,66 +1,43 @@
 @startuml
 left to right direction
-abstract "cpp_type" as C_0001585653041236922459
-abstract C_0001585653041236922459 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L44{Base class for all C++ types.}]] {
-+cpp_type(const cpp_type & ) : void
-+operator=(const cpp_type & ) : cpp_type &
-+~cpp_type() = default : void
-+kind() const : cpp_type_kind
-+user_data() const : void *
-+set_user_data(void * data) const : void
+class "cpp_decltype_auto_type" as C_0000026248340214462662
+class C_0000026248340214462662 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L27{cpp_decltype_auto_type}]] {
+{static} +build() : std::unique_ptr<cpp_decltype_auto_type>
 }
-class "cpp_unexposed_type" as C_0000601730303705395408
-class C_0000601730303705395408 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L95{An unexposed [cppast::cpp_type](). This is one where no further information besides a name is available.}]] {
-{static} +build(std::string name) : std::unique_ptr<cpp_unexposed_type>
-+name() const : const std::string &
-}
-class "cpp_builtin_type" as C_0002035785082080260407
-class C_0002035785082080260407 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L161{A builtin [cppast::cpp_type](). This is one where there is no associated [cppast::cpp_entity]().}]] {
-{static} +build(cpp_builtin_type_kind kind) : std::unique_ptr<cpp_builtin_type>
-+builtin_type_kind() const : cpp_builtin_type_kind
-}
-class "cpp_user_defined_type" as C_0002166954434825938188
-class C_0002166954434825938188 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L202{A user-defined [cppast::cpp_type](). It has an associated [cppast::cpp_entity]().}]] {
-{static} +build(cpp_type_ref entity) : std::unique_ptr<cpp_user_defined_type>
-+entity() const : const cpp_type_ref &
-}
-class "cpp_auto_type" as C_0001809003368459807767
-class C_0001809003368459807767 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L230{A [cppast::cpp_type]() that isn't given but deduced by `auto`.}]] {
-{static} +build() : std::unique_ptr<cpp_auto_type>
+class "cpp_cv_qualified_type" as C_0000342846994454958214
+class C_0000342846994454958214 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L26{cpp_cv_qualified_type}]] {
+{static} +build(std::unique_ptr<cpp_type> type, cpp_cv cv) : std::unique_ptr<cpp_cv_qualified_type>
++type() const : const cpp_type &
++cv_qualifier() const : cpp_cv
 }
 class "cpp_dependent_type" as C_0000507998479194737071
-class C_0000507998479194737071 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L249{A [cppast::cpp_type]() that depends on another type.}]] {
+class C_0000507998479194737071 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L29{cpp_dependent_type}]] {
 {static} +build(std::string name, std::unique_ptr<cpp_template_parameter_type> dependee) : std::unique_ptr<cpp_dependent_type>
 {static} +build(std::string name, std::unique_ptr<cpp_template_instantiation_type> dependee) : std::unique_ptr<cpp_dependent_type>
 +name() const : const std::string &
 +dependee() const : const cpp_type &
 }
-class "cpp_cv_qualified_type" as C_0000342846994454958214
-class C_0000342846994454958214 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L311{A [cppast::cpp_cv]() qualified [cppast::cpp_type]().}]] {
-{static} +build(std::unique_ptr<cpp_type> type, cpp_cv cv) : std::unique_ptr<cpp_cv_qualified_type>
-+type() const : const cpp_type &
-+cv_qualifier() const : cpp_cv
-}
-class "cpp_pointer_type" as C_0000861535705589766807
-class C_0000861535705589766807 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L359{A pointer to a [cppast::cpp_type]().}]] {
-{static} +build(std::unique_ptr<cpp_type> pointee) : std::unique_ptr<cpp_pointer_type>
-+pointee() const : const cpp_type &
-}
 class "cpp_reference_type" as C_0000600573949475383075
-class C_0000600573949475383075 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_type.hpp#L394{A reference to a [cppast::cpp_type]().}]] {
+class C_0000600573949475383075 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L58{cpp_reference_type}]] {
 {static} +build(std::unique_ptr<cpp_type> type, cpp_reference ref) : std::unique_ptr<cpp_reference_type>
 +referee() const : const cpp_type &
 +reference_kind() const : cpp_reference
 }
-class "cpp_decltype_auto_type" as C_0000026248340214462662
-class C_0000026248340214462662 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L27{cpp_decltype_auto_type}]] {
-{static} +build() : std::unique_ptr<cpp_decltype_auto_type>
+class "cpp_unexposed_type" as C_0000601730303705395408
+class C_0000601730303705395408 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L74{cpp_unexposed_type}]] {
+{static} +build(std::string name) : std::unique_ptr<cpp_unexposed_type>
++name() const : const std::string &
 }
 class "cpp_member_object_type" as C_0000603633382993980808
 class C_0000603633382993980808 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L53{cpp_member_object_type}]] {
 {static} +build(std::unique_ptr<cpp_type> class_type, std::unique_ptr<cpp_type> object_type) : std::unique_ptr<cpp_member_object_type>
 +class_type() const : const cpp_type &
 +object_type() const : const cpp_type &
+}
+class "cpp_pointer_type" as C_0000861535705589766807
+class C_0000861535705589766807 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L57{cpp_pointer_type}]] {
+{static} +build(std::unique_ptr<cpp_type> pointee) : std::unique_ptr<cpp_pointer_type>
++pointee() const : const cpp_type &
 }
 class "cpp_template_instantiation_type" as C_0001009421424714355715
 class C_0001009421424714355715 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L63{cpp_template_instantiation_type}]] {
@@ -86,6 +63,19 @@ class C_0001455852309215570565 [[https://github.com/foonathan/cppast/blob/f81be8
 +parameter_types() const : detail::iteratable_intrusive_list<cpp_type>
 +is_variadic() const : bool
 }
+abstract "cpp_type" as C_0001585653041236922459
+abstract C_0001585653041236922459 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L70{cpp_type}]] {
++cpp_type(const cpp_type & ) : void
++operator=(const cpp_type & ) : cpp_type &
++~cpp_type() = default : void
++kind() const : cpp_type_kind
++user_data() const : void *
++set_user_data(void * data) const : void
+}
+class "cpp_auto_type" as C_0001809003368459807767
+class C_0001809003368459807767 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L16{cpp_auto_type}]] {
+{static} +build() : std::unique_ptr<cpp_auto_type>
+}
 class "cpp_member_function_type" as C_0001956941679276907326
 class C_0001956941679276907326 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L52{cpp_member_function_type}]] {
 +class_type() const : const cpp_type &
@@ -93,25 +83,35 @@ class C_0001956941679276907326 [[https://github.com/foonathan/cppast/blob/f81be8
 +parameter_types() const : detail::iteratable_intrusive_list<cpp_type>
 +is_variadic() const : bool
 }
+class "cpp_builtin_type" as C_0002035785082080260407
+class C_0002035785082080260407 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L19{cpp_builtin_type}]] {
+{static} +build(cpp_builtin_type_kind kind) : std::unique_ptr<cpp_builtin_type>
++builtin_type_kind() const : cpp_builtin_type_kind
+}
 class "cpp_template_parameter_type" as C_0002158322113857881673
 class C_0002158322113857881673 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L65{cpp_template_parameter_type}]] {
 {static} +build(cpp_template_type_parameter_ref parameter) : std::unique_ptr<cpp_template_parameter_type>
 +entity() const : const cpp_template_type_parameter_ref &
 }
-C_0001585653041236922459 <|-- C_0000601730303705395408
-C_0001585653041236922459 <|-- C_0002035785082080260407
-C_0001585653041236922459 <|-- C_0002166954434825938188
-C_0001585653041236922459 <|-- C_0001809003368459807767
-C_0001585653041236922459 <|-- C_0000507998479194737071
-C_0001585653041236922459 <|-- C_0000342846994454958214
-C_0001585653041236922459 <|-- C_0000861535705589766807
-C_0001585653041236922459 <|-- C_0000600573949475383075
+class "cpp_user_defined_type" as C_0002166954434825938188
+class C_0002166954434825938188 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L75{cpp_user_defined_type}]] {
+{static} +build(cpp_type_ref entity) : std::unique_ptr<cpp_user_defined_type>
++entity() const : const cpp_type_ref &
+}
 C_0001585653041236922459 <|-- C_0000026248340214462662
+C_0001585653041236922459 <|-- C_0000342846994454958214
+C_0001585653041236922459 <|-- C_0000507998479194737071
+C_0001585653041236922459 <|-- C_0000600573949475383075
+C_0001585653041236922459 <|-- C_0000601730303705395408
 C_0001585653041236922459 <|-- C_0000603633382993980808
+C_0001585653041236922459 <|-- C_0000861535705589766807
 C_0001585653041236922459 <|-- C_0001009421424714355715
 C_0001585653041236922459 <|-- C_0001184982835175222056
 C_0001585653041236922459 <|-- C_0001347498727659770075
 C_0001585653041236922459 <|-- C_0001455852309215570565
+C_0001585653041236922459 <|-- C_0001809003368459807767
 C_0001585653041236922459 <|-- C_0001956941679276907326
+C_0001585653041236922459 <|-- C_0002035785082080260407
 C_0001585653041236922459 <|-- C_0002158322113857881673
+C_0001585653041236922459 <|-- C_0002166954434825938188
 @enduml

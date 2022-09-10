@@ -12,8 +12,52 @@ class C_0000699772808699382057 [[https://github.com/godotengine/godot/blob/faf3f
 +get() const : uint32_t
 +init(uint32_t p_value = 1) : void
 }
+class "Array" as C_0000228469999635536560
+class C_0000228469999635536560 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/array.h#L41{Array}]] {
++operator[](int p_idx) : Variant &
++operator[](int p_idx) const : const Variant &
++set(int p_idx, const Variant & p_value) : void
++get(int p_idx) const : const Variant &
++size() const : int
++empty() const : bool
++clear() : void
++operator==(const Array & p_array) const : bool
++hash() const : uint32_t
++operator=(const Array & p_array) : void
++push_back(const Variant & p_value) : void
++append(const Variant & p_value) : void
++append_array(const Array & p_array) : void
++resize(int p_new_size) : Error
++insert(int p_pos, const Variant & p_value) : void
++remove(int p_pos) : void
++front() const : Variant
++back() const : Variant
++sort() : Array &
++sort_custom(Object * p_obj, const StringName & p_function) : Array &
++shuffle() : void
++bsearch(const Variant & p_value, bool p_before = true) : int
++bsearch_custom(const Variant & p_value, Object * p_obj, const StringName & p_function, bool p_before = true) : int
++invert() : Array &
++find(const Variant & p_value, int p_from = 0) const : int
++rfind(const Variant & p_value, int p_from = -1) const : int
++find_last(const Variant & p_value) const : int
++count(const Variant & p_value) const : int
++has(const Variant & p_value) const : bool
++erase(const Variant & p_value) : void
++push_front(const Variant & p_value) : void
++pop_back() : Variant
++pop_front() : Variant
++duplicate(bool p_deep = false) const : Array
++slice(int p_begin, int p_end, int p_step = 1, bool p_deep = false) const : Array
++min() const : Variant
++max() const : Variant
++id() const : const void *
++Array(const Array & p_from) : void
++Array() : void
++~Array() : void
+}
 class "String" as C_0000945411446247634027
-class C_0000945411446247634027 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/error_macros.h#L60{String}]] {
+class C_0000945411446247634027 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/ustring.h#L126{String}]] {
 +ptrw() : CharType *
 +ptr() const : const CharType *
 +remove(int p_index) : void
@@ -189,50 +233,6 @@ class C_0000945411446247634027 [[https://github.com/godotengine/godot/blob/faf3f
 +String(const StrRange & p_range) : void
 +npos : enum
 {static} +invalid_node_name_characters : const String [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/ustring.h#L345{invalid_node_name_characters}]]]
-}
-class "Array" as C_0000228469999635536560
-class C_0000228469999635536560 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/array.h#L41{Array}]] {
-+operator[](int p_idx) : Variant &
-+operator[](int p_idx) const : const Variant &
-+set(int p_idx, const Variant & p_value) : void
-+get(int p_idx) const : const Variant &
-+size() const : int
-+empty() const : bool
-+clear() : void
-+operator==(const Array & p_array) const : bool
-+hash() const : uint32_t
-+operator=(const Array & p_array) : void
-+push_back(const Variant & p_value) : void
-+append(const Variant & p_value) : void
-+append_array(const Array & p_array) : void
-+resize(int p_new_size) : Error
-+insert(int p_pos, const Variant & p_value) : void
-+remove(int p_pos) : void
-+front() const : Variant
-+back() const : Variant
-+sort() : Array &
-+sort_custom(Object * p_obj, const StringName & p_function) : Array &
-+shuffle() : void
-+bsearch(const Variant & p_value, bool p_before = true) : int
-+bsearch_custom(const Variant & p_value, Object * p_obj, const StringName & p_function, bool p_before = true) : int
-+invert() : Array &
-+find(const Variant & p_value, int p_from = 0) const : int
-+rfind(const Variant & p_value, int p_from = -1) const : int
-+find_last(const Variant & p_value) const : int
-+count(const Variant & p_value) const : int
-+has(const Variant & p_value) const : bool
-+erase(const Variant & p_value) : void
-+push_front(const Variant & p_value) : void
-+pop_back() : Variant
-+pop_front() : Variant
-+duplicate(bool p_deep = false) const : Array
-+slice(int p_begin, int p_end, int p_step = 1, bool p_deep = false) const : Array
-+min() const : Variant
-+max() const : Variant
-+id() const : const void *
-+Array(const Array & p_from) : void
-+Array() : void
-+~Array() : void
 }
 class "Dictionary" as C_0001299121424291583786
 class C_0001299121424291583786 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/dictionary.h#L42{Dictionary}]] {
@@ -755,7 +755,7 @@ class C_0000626842387047507019 [[https://github.com/godotengine/godot/blob/faf3f
 +MethodBindVarArg<T>() : void
 }
 class "MethodBind0" as C_0002161264899189627575
-class C_0002161264899189627575 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4{MethodBind0}]] {
+class C_0002161264899189627575 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4{MethodBind0}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -764,11 +764,11 @@ class C_0002161264899189627575 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind0() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L8{type_name}]]]
-+method : void (__UnexistingClass::*)() [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L9{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L8{type_name}]]]
++method : void (__UnexistingClass::*)() [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L9{method}]]]
 }
 class "MethodBind0R<R>" as C_0000514530488699023626
-class C_0000514530488699023626 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L182{MethodBind0R}]] {
+class C_0000514530488699023626 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L182{MethodBind0R}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -777,11 +777,11 @@ class C_0000514530488699023626 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind0R<R>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L186{type_name}]]]
-+method : R (__UnexistingClass::*)() [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L187{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L186{type_name}]]]
++method : R (__UnexistingClass::*)() [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L187{method}]]]
 }
 class "MethodBind0C" as C_0001500902353747816170
-class C_0001500902353747816170 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L360{MethodBind0C}]] {
+class C_0001500902353747816170 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L360{MethodBind0C}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -790,11 +790,11 @@ class C_0001500902353747816170 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind0C() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L364{type_name}]]]
-+method : void (__UnexistingClass::*)() const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L365{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L364{type_name}]]]
++method : void (__UnexistingClass::*)() const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L365{method}]]]
 }
 class "MethodBind0RC<R>" as C_0001463339540638256927
-class C_0001463339540638256927 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L538{MethodBind0RC}]] {
+class C_0001463339540638256927 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L538{MethodBind0RC}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -803,11 +803,11 @@ class C_0001463339540638256927 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind0RC<R>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L542{type_name}]]]
-+method : R (__UnexistingClass::*)() const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L543{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L542{type_name}]]]
++method : R (__UnexistingClass::*)() const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L543{method}]]]
 }
 class "MethodBind1<P1>" as C_0001770130608234301442
-class C_0001770130608234301442 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L716{MethodBind1}]] {
+class C_0001770130608234301442 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L716{MethodBind1}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -816,11 +816,11 @@ class C_0001770130608234301442 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind1<P1>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L720{type_name}]]]
-+method : void (__UnexistingClass::*)(P1) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L721{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L720{type_name}]]]
++method : void (__UnexistingClass::*)(P1) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L721{method}]]]
 }
 class "MethodBind1R<R,P1>" as C_0001227602006568872099
-class C_0001227602006568872099 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L902{MethodBind1R}]] {
+class C_0001227602006568872099 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L902{MethodBind1R}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -829,11 +829,11 @@ class C_0001227602006568872099 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind1R<R, P1>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L906{type_name}]]]
-+method : R (__UnexistingClass::*)(P1) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L907{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L906{type_name}]]]
++method : R (__UnexistingClass::*)(P1) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L907{method}]]]
 }
 class "MethodBind1C<P1>" as C_0000721345300172868993
-class C_0000721345300172868993 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1088{MethodBind1C}]] {
+class C_0000721345300172868993 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1088{MethodBind1C}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -842,11 +842,11 @@ class C_0000721345300172868993 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind1C<P1>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1092{type_name}]]]
-+method : void (__UnexistingClass::*)(P1) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1093{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1092{type_name}]]]
++method : void (__UnexistingClass::*)(P1) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1093{method}]]]
 }
 class "MethodBind1RC<R,P1>" as C_0000779559418824132960
-class C_0000779559418824132960 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1274{MethodBind1RC}]] {
+class C_0000779559418824132960 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1274{MethodBind1RC}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -855,11 +855,11 @@ class C_0000779559418824132960 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind1RC<R, P1>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1278{type_name}]]]
-+method : R (__UnexistingClass::*)(P1) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1279{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1278{type_name}]]]
++method : R (__UnexistingClass::*)(P1) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1279{method}]]]
 }
 class "MethodBind2<P1,P2>" as C_0001326581917102107425
-class C_0001326581917102107425 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1460{MethodBind2}]] {
+class C_0001326581917102107425 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1460{MethodBind2}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -868,11 +868,11 @@ class C_0001326581917102107425 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind2<P1, P2>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1464{type_name}]]]
-+method : void (__UnexistingClass::*)(P1,P2) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1465{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1464{type_name}]]]
++method : void (__UnexistingClass::*)(P1,P2) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1465{method}]]]
 }
 class "MethodBind2R<R,P1,P2>" as C_0000845455246171879191
-class C_0000845455246171879191 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1654{MethodBind2R}]] {
+class C_0000845455246171879191 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1654{MethodBind2R}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -881,11 +881,11 @@ class C_0000845455246171879191 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind2R<R, P1, P2>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1658{type_name}]]]
-+method : R (__UnexistingClass::*)(P1,P2) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1659{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1658{type_name}]]]
++method : R (__UnexistingClass::*)(P1,P2) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1659{method}]]]
 }
 class "MethodBind2C<P1,P2>" as C_0000081704011730798793
-class C_0000081704011730798793 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1848{MethodBind2C}]] {
+class C_0000081704011730798793 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1848{MethodBind2C}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -894,11 +894,11 @@ class C_0000081704011730798793 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind2C<P1, P2>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1852{type_name}]]]
-+method : void (__UnexistingClass::*)(P1,P2) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L1853{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1852{type_name}]]]
++method : void (__UnexistingClass::*)(P1,P2) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L1853{method}]]]
 }
 class "MethodBind2RC<R,P1,P2>" as C_0002027329212022555569
-class C_0002027329212022555569 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2042{MethodBind2RC}]] {
+class C_0002027329212022555569 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2042{MethodBind2RC}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -907,11 +907,11 @@ class C_0002027329212022555569 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind2RC<R, P1, P2>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2046{type_name}]]]
-+method : R (__UnexistingClass::*)(P1,P2) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2047{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2046{type_name}]]]
++method : R (__UnexistingClass::*)(P1,P2) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2047{method}]]]
 }
 class "MethodBind3<P1,P2,P3>" as C_0000512545424965820103
-class C_0000512545424965820103 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2236{MethodBind3}]] {
+class C_0000512545424965820103 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2236{MethodBind3}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -920,11 +920,11 @@ class C_0000512545424965820103 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind3<P1, P2, P3>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2240{type_name}]]]
-+method : void (__UnexistingClass::*)(P1,P2,P3) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2241{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2240{type_name}]]]
++method : void (__UnexistingClass::*)(P1,P2,P3) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2241{method}]]]
 }
 class "MethodBind3R<R,P1,P2,P3>" as C_0002087322448002339587
-class C_0002087322448002339587 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2438{MethodBind3R}]] {
+class C_0002087322448002339587 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2438{MethodBind3R}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -933,11 +933,11 @@ class C_0002087322448002339587 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind3R<R, P1, P2, P3>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2442{type_name}]]]
-+method : R (__UnexistingClass::*)(P1,P2,P3) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2443{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2442{type_name}]]]
++method : R (__UnexistingClass::*)(P1,P2,P3) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2443{method}]]]
 }
 class "MethodBind3C<P1,P2,P3>" as C_0000031906668996487033
-class C_0000031906668996487033 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2640{MethodBind3C}]] {
+class C_0000031906668996487033 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2640{MethodBind3C}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -946,11 +946,11 @@ class C_0000031906668996487033 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind3C<P1, P2, P3>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2644{type_name}]]]
-+method : void (__UnexistingClass::*)(P1,P2,P3) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2645{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2644{type_name}]]]
++method : void (__UnexistingClass::*)(P1,P2,P3) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2645{method}]]]
 }
 class "MethodBind3RC<R,P1,P2,P3>" as C_0001134043413451695381
-class C_0001134043413451695381 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2842{MethodBind3RC}]] {
+class C_0001134043413451695381 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2842{MethodBind3RC}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -959,11 +959,11 @@ class C_0001134043413451695381 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind3RC<R, P1, P2, P3>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2846{type_name}]]]
-+method : R (__UnexistingClass::*)(P1,P2,P3) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L2847{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2846{type_name}]]]
++method : R (__UnexistingClass::*)(P1,P2,P3) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L2847{method}]]]
 }
 class "MethodBind4<P1,P2,P3,P4>" as C_0001212767095252394753
-class C_0001212767095252394753 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3044{MethodBind4}]] {
+class C_0001212767095252394753 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3044{MethodBind4}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -972,11 +972,11 @@ class C_0001212767095252394753 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind4<P1, P2, P3, P4>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3048{type_name}]]]
-+method : void (__UnexistingClass::*)(P1,P2,P3,P4) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3049{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3048{type_name}]]]
++method : void (__UnexistingClass::*)(P1,P2,P3,P4) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3049{method}]]]
 }
 class "MethodBind4R<R,P1,P2,P3,P4>" as C_0001038624653636336005
-class C_0001038624653636336005 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3254{MethodBind4R}]] {
+class C_0001038624653636336005 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3254{MethodBind4R}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -985,11 +985,11 @@ class C_0001038624653636336005 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind4R<R, P1, P2, P3, P4>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3258{type_name}]]]
-+method : R (__UnexistingClass::*)(P1,P2,P3,P4) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3259{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3258{type_name}]]]
++method : R (__UnexistingClass::*)(P1,P2,P3,P4) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3259{method}]]]
 }
 class "MethodBind4C<P1,P2,P3,P4>" as C_0000375613860790632263
-class C_0000375613860790632263 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3464{MethodBind4C}]] {
+class C_0000375613860790632263 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3464{MethodBind4C}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -998,11 +998,11 @@ class C_0000375613860790632263 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind4C<P1, P2, P3, P4>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3468{type_name}]]]
-+method : void (__UnexistingClass::*)(P1,P2,P3,P4) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3469{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3468{type_name}]]]
++method : void (__UnexistingClass::*)(P1,P2,P3,P4) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3469{method}]]]
 }
 class "MethodBind4RC<R,P1,P2,P3,P4>" as C_0001053911039767528095
-class C_0001053911039767528095 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3674{MethodBind4RC}]] {
+class C_0001053911039767528095 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3674{MethodBind4RC}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -1011,11 +1011,11 @@ class C_0001053911039767528095 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind4RC<R, P1, P2, P3, P4>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3678{type_name}]]]
-+method : R (__UnexistingClass::*)(P1,P2,P3,P4) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3679{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3678{type_name}]]]
++method : R (__UnexistingClass::*)(P1,P2,P3,P4) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3679{method}]]]
 }
 class "MethodBind5<P1,P2,P3,P4,P5>" as C_0000462780498821063561
-class C_0000462780498821063561 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3884{MethodBind5}]] {
+class C_0000462780498821063561 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3884{MethodBind5}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -1024,11 +1024,11 @@ class C_0000462780498821063561 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind5<P1, P2, P3, P4, P5>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3888{type_name}]]]
-+method : void (__UnexistingClass::*)(P1,P2,P3,P4,P5) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L3889{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3888{type_name}]]]
++method : void (__UnexistingClass::*)(P1,P2,P3,P4,P5) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L3889{method}]]]
 }
 class "MethodBind5R<R,P1,P2,P3,P4,P5>" as C_0000803203155573352820
-class C_0000803203155573352820 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4102{MethodBind5R}]] {
+class C_0000803203155573352820 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4102{MethodBind5R}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -1037,11 +1037,11 @@ class C_0000803203155573352820 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind5R<R, P1, P2, P3, P4, P5>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4106{type_name}]]]
-+method : R (__UnexistingClass::*)(P1,P2,P3,P4,P5) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4107{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4106{type_name}]]]
++method : R (__UnexistingClass::*)(P1,P2,P3,P4,P5) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4107{method}]]]
 }
 class "MethodBind5C<P1,P2,P3,P4,P5>" as C_0001728875246190146863
-class C_0001728875246190146863 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4320{MethodBind5C}]] {
+class C_0001728875246190146863 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4320{MethodBind5C}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -1050,11 +1050,11 @@ class C_0001728875246190146863 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind5C<P1, P2, P3, P4, P5>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4324{type_name}]]]
-+method : void (__UnexistingClass::*)(P1,P2,P3,P4,P5) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4325{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4324{type_name}]]]
++method : void (__UnexistingClass::*)(P1,P2,P3,P4,P5) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4325{method}]]]
 }
 class "MethodBind5RC<R,P1,P2,P3,P4,P5>" as C_0000319868049196089894
-class C_0000319868049196089894 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4538{MethodBind5RC}]] {
+class C_0000319868049196089894 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4538{MethodBind5RC}]] {
 +_gen_argument_type(int p_arg) const : Variant::Type
 +get_argument_meta(int p_arg) const : GodotTypeInfo::Metadata
 +_get_argument_type(int p_argument) const : Variant::Type
@@ -1063,8 +1063,8 @@ class C_0000319868049196089894 [[https://github.com/godotengine/godot/blob/faf3f
 +call(Object * p_object, const Variant ** p_args, int p_arg_count, Variant::CallError & r_error) : Variant
 +ptrcall(Object * p_object, const void ** p_args, void * r_ret) : void
 +MethodBind5RC<R, P1, P2, P3, P4, P5>() : void
-+type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4542{type_name}]]]
-+method : R (__UnexistingClass::*)(P1,P2,P3,P4,P5) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/method_bind.gen.inc#L4543{method}]]]
++type_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4542{type_name}]]]
++method : R (__UnexistingClass::*)(P1,P2,P3,P4,P5) const [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/method_bind.gen.inc#L4543{method}]]]
 }
 class "ClassDB" as C_0000104564426296396960
 class C_0000104564426296396960 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/class_db.h#L94{ClassDB}]] {
@@ -1185,6 +1185,28 @@ class C_0001213123647052694419 [[https://github.com/godotengine/godot/blob/faf3f
 +set_obj(Object * p_object) : void
 +set_ref(const REF & p_ref) : void
 +WeakRef() : void
+}
+class "FuncRef" as C_0001699661383862634192
+class C_0001699661383862634192 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/func_ref.h#L36{FuncRef}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
++call_func(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
++call_funcv(const Array & p_args) : Variant
++set_instance(Object * p_obj) : void
++set_function(const StringName & p_func) : void
++get_function() : StringName
++is_valid() const : bool
++FuncRef() : void
 }
 class "Node" as C_0000218299049716973303
 class C_0000218299049716973303 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/variant.h#L55{Node}]] {
@@ -1391,6 +1413,23 @@ abstract C_0001735438654351294549 [[https://github.com/godotengine/godot/blob/fa
 {abstract} +get_language() = 0 : ScriptLanguage *
 +~ScriptInstance() : void
 }
+class "MessageQueue" as C_0000825523737350882091
+class C_0000825523737350882091 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/message_queue.h#L37{MessageQueue}]] {
+{static} +get_singleton() : MessageQueue *
++push_call(ObjectID p_id, const StringName & p_method, const Variant ** p_args, int p_argcount, bool p_show_error = false) : Error
++push_call(ObjectID p_id, const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : Error
++push_notification(ObjectID p_id, int p_notification) : Error
++push_set(ObjectID p_id, const StringName & p_prop, const Variant & p_value) : Error
++push_call(Object * p_object, const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : Error
++push_notification(Object * p_object, int p_notification) : Error
++push_set(Object * p_object, const StringName & p_prop, const Variant & p_value) : Error
++statistics() : void
++flush() : void
++is_flushing() const : bool
++get_max_buffer_usage() const : int
++MessageQueue() : void
++~MessageQueue() : void
+}
 class "Resource" as C_0001951177692366602790
 class C_0001951177692366602790 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/resource.h#L48{Resource}]] {
 +get_class() const : String
@@ -1439,88 +1478,6 @@ class C_0001951177692366602790 [[https://github.com/godotengine/godot/blob/faf3f
 +Resource() : void
 +~Resource() : void
 {static} +_get_local_scene_func : Node *(*)() [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/resource.h#L89{_get_local_scene_func}]]]
-}
-class "TranslationServer" as C_0001485048025194488343
-class C_0001485048025194488343 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/translation.h#L67{TranslationServer}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-{static} +get_singleton() : TranslationServer *
-+set_enabled(bool p_enabled) : void
-+is_enabled() const : bool
-+set_locale(const String & p_locale) : void
-+get_locale() const : String
-+get_locale_name(const String & p_locale) const : String
-+get_loaded_locales() const : Array
-+add_translation(const Ref<Translation> & p_translation) : void
-+remove_translation(const Ref<Translation> & p_translation) : void
-+translate(const StringName & p_message) const : StringName
-{static} +get_all_locales() : Vector<String>
-{static} +get_all_locale_names() : Vector<String>
-{static} +is_locale_valid(const String & p_locale) : bool
-{static} +standardize_locale(const String & p_locale) : String
-{static} +get_language_code(const String & p_locale) : String
-+set_tool_translation(const Ref<Translation> & p_translation) : void
-+tool_translate(const StringName & p_message) const : StringName
-+setup() : void
-+clear() : void
-+load_translations() : void
-+TranslationServer() : void
-}
-class "ProjectSettings" as C_0000066148521405667716
-class C_0000066148521405667716 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/project_settings.h#L38{ProjectSettings}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-+set_setting(const String & p_setting, const Variant & p_value) : void
-+get_setting(const String & p_setting) const : Variant
-+has_setting(String p_var) const : bool
-+localize_path(const String & p_path) const : String
-+globalize_path(const String & p_path) const : String
-+set_initial_value(const String & p_name, const Variant & p_value) : void
-+set_restart_if_changed(const String & p_name, bool p_restart) : void
-+property_can_revert(const String & p_name) : bool
-+property_get_revert(const String & p_name) : Variant
-+get_resource_path() const : String
-{static} +get_singleton() : ProjectSettings *
-+clear(const String & p_name) : void
-+get_order(const String & p_name) const : int
-+set_order(const String & p_name, int p_order) : void
-+set_builtin_order(const String & p_name) : void
-+setup(const String & p_path, const String & p_main_pack, bool p_upwards = false) : Error
-+save_custom(const String & p_path = "", const ProjectSettings::CustomMap & p_custom = CustomMap(), const Vector<String> & p_custom_features = Vector<String>(), bool p_merge_with_current = true) : Error
-+save() : Error
-+set_custom_property_info(const String & p_prop, const PropertyInfo & p_info) : void
-+get_custom_property_info() const : const Map<StringName,PropertyInfo> &
-+get_last_saved_time() : uint64_t
-+get_optimizer_presets() const : Vector<String>
-+get_input_presets() const : List<String>
-+set_disable_feature_overrides(bool p_disable) : void
-+is_using_datapack() const : bool
-+set_registering_order(bool p_enable) : void
-+has_custom_feature(const String & p_feature) const : bool
-+ProjectSettings() : void
-+~ProjectSettings() : void
-+NO_BUILTIN_ORDER_BASE : enum
-{static} +CONFIG_VERSION : const int [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/project_settings.h#L117{CONFIG_VERSION}]]]
 }
 abstract "Script" as C_0001608678623693693822
 abstract C_0001608678623693693822 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/script_language.h#L99{Script}]] {
@@ -1904,6 +1861,100 @@ abstract C_0000361490529588572420 [[https://github.com/godotengine/godot/blob/fa
 +~OS() : void
 {static} +switch_vsync_function : OS::SwitchVSyncCallbackInThread [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/os/os.h#L544{switch_vsync_function}]]]
 }
+class "TranslationServer" as C_0001485048025194488343
+class C_0001485048025194488343 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/translation.h#L67{TranslationServer}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
+{static} +get_singleton() : TranslationServer *
++set_enabled(bool p_enabled) : void
++is_enabled() const : bool
++set_locale(const String & p_locale) : void
++get_locale() const : String
++get_locale_name(const String & p_locale) const : String
++get_loaded_locales() const : Array
++add_translation(const Ref<Translation> & p_translation) : void
++remove_translation(const Ref<Translation> & p_translation) : void
++translate(const StringName & p_message) const : StringName
+{static} +get_all_locales() : Vector<String>
+{static} +get_all_locale_names() : Vector<String>
+{static} +is_locale_valid(const String & p_locale) : bool
+{static} +standardize_locale(const String & p_locale) : String
+{static} +get_language_code(const String & p_locale) : String
++set_tool_translation(const Ref<Translation> & p_translation) : void
++tool_translate(const StringName & p_message) const : StringName
++setup() : void
++clear() : void
++load_translations() : void
++TranslationServer() : void
+}
+class "_ObjectDebugLock" as C_0000132048052014479231
+class C_0000132048052014479231 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L45{_ObjectDebugLock}]] {
++_ObjectDebugLock(Object * p_obj) : void
++~_ObjectDebugLock() : void
++obj : Object * [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L47{obj}]]]
+}
+class "_ObjectSignalDisconnectData" as C_0000115801560197752094
+class C_0000115801560197752094 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L1147{_ObjectSignalDisconnectData}]] {
++signal : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L1149{signal}]]]
++target : Object * [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L1150{target}]]]
++method : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L1151{method}]]]
+}
+class "ProjectSettings" as C_0000066148521405667716
+class C_0000066148521405667716 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/project_settings.h#L38{ProjectSettings}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
++set_setting(const String & p_setting, const Variant & p_value) : void
++get_setting(const String & p_setting) const : Variant
++has_setting(String p_var) const : bool
++localize_path(const String & p_path) const : String
++globalize_path(const String & p_path) const : String
++set_initial_value(const String & p_name, const Variant & p_value) : void
++set_restart_if_changed(const String & p_name, bool p_restart) : void
++property_can_revert(const String & p_name) : bool
++property_get_revert(const String & p_name) : Variant
++get_resource_path() const : String
+{static} +get_singleton() : ProjectSettings *
++clear(const String & p_name) : void
++get_order(const String & p_name) const : int
++set_order(const String & p_name, int p_order) : void
++set_builtin_order(const String & p_name) : void
++setup(const String & p_path, const String & p_main_pack, bool p_upwards = false) : Error
++save_custom(const String & p_path = "", const ProjectSettings::CustomMap & p_custom = CustomMap(), const Vector<String> & p_custom_features = Vector<String>(), bool p_merge_with_current = true) : Error
++save() : Error
++set_custom_property_info(const String & p_prop, const PropertyInfo & p_info) : void
++get_custom_property_info() const : const Map<StringName,PropertyInfo> &
++get_last_saved_time() : uint64_t
++get_optimizer_presets() const : Vector<String>
++get_input_presets() const : List<String>
++set_disable_feature_overrides(bool p_disable) : void
++is_using_datapack() const : bool
++set_registering_order(bool p_enable) : void
++has_custom_feature(const String & p_feature) const : bool
++ProjectSettings() : void
++~ProjectSettings() : void
++NO_BUILTIN_ORDER_BASE : enum
+{static} +CONFIG_VERSION : const int [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/project_settings.h#L117{CONFIG_VERSION}]]]
+}
 abstract "IP" as C_0001191393512042218074
 abstract C_0001191393512042218074 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/io/ip.h#L39{IP}]] {
 +get_class() const : String
@@ -1933,37 +1984,8 @@ abstract C_0001191393512042218074 [[https://github.com/godotengine/godot/blob/fa
 +RESOLVER_MAX_QUERIES : enum
 +RESOLVER_INVALID_ID : enum
 }
-class "MessageQueue" as C_0000825523737350882091
-class C_0000825523737350882091 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/message_queue.h#L37{MessageQueue}]] {
-{static} +get_singleton() : MessageQueue *
-+push_call(ObjectID p_id, const StringName & p_method, const Variant ** p_args, int p_argcount, bool p_show_error = false) : Error
-+push_call(ObjectID p_id, const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : Error
-+push_notification(ObjectID p_id, int p_notification) : Error
-+push_set(ObjectID p_id, const StringName & p_prop, const Variant & p_value) : Error
-+push_call(Object * p_object, const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : Error
-+push_notification(Object * p_object, int p_notification) : Error
-+push_set(Object * p_object, const StringName & p_prop, const Variant & p_value) : Error
-+statistics() : void
-+flush() : void
-+is_flushing() const : bool
-+get_max_buffer_usage() const : int
-+MessageQueue() : void
-+~MessageQueue() : void
-}
-class "_ObjectDebugLock" as C_0000132048052014479231
-class C_0000132048052014479231 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L45{_ObjectDebugLock}]] {
-+_ObjectDebugLock(Object * p_obj) : void
-+~_ObjectDebugLock() : void
-+obj : Object * [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L47{obj}]]]
-}
-class "_ObjectSignalDisconnectData" as C_0000115801560197752094
-class C_0000115801560197752094 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L1147{_ObjectSignalDisconnectData}]] {
-+signal : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L1149{signal}]]]
-+target : Object * [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L1150{target}]]]
-+method : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/object.cpp#L1151{method}]]]
-}
-abstract "Input" as C_0000535376932101028371
-abstract C_0000535376932101028371 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/os/input.h#L38{Input}]] {
+class "Expression" as C_0000425668537377496256
+class C_0000425668537377496256 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/expression.h#L36{Expression}]] {
 +get_class() const : String
 +_get_class_namev() const : const StringName *
 {static} +get_class_ptr_static() : void *
@@ -1976,60 +1998,19 @@ abstract C_0000535376932101028371 [[https://github.com/godotengine/godot/blob/fa
 +is_class_ptr(void * p_ptr) const : bool
 {static} +get_valid_parents_static(List<String> * p_parents) : void
 {static} +initialize_class() : void
-+set_mouse_mode(Input::MouseMode p_mode) : void
-+get_mouse_mode() const : Input::MouseMode
-{static} +get_singleton() : Input *
-{abstract} +is_key_pressed(int p_scancode) const = 0 : bool
-{abstract} +is_mouse_button_pressed(int p_button) const = 0 : bool
-{abstract} +is_joy_button_pressed(int p_device, int p_button) const = 0 : bool
-{abstract} +is_action_pressed(const StringName & p_action) const = 0 : bool
-{abstract} +is_action_just_pressed(const StringName & p_action) const = 0 : bool
-{abstract} +is_action_just_released(const StringName & p_action) const = 0 : bool
-{abstract} +get_action_strength(const StringName & p_action) const = 0 : float
-{abstract} +get_joy_axis(int p_device, int p_axis) const = 0 : float
-{abstract} +get_joy_name(int p_idx) = 0 : String
-{abstract} +get_connected_joypads() = 0 : Array
-{abstract} +joy_connection_changed(int p_idx, bool p_connected, String p_name, String p_guid) = 0 : void
-{abstract} +add_joy_mapping(String p_mapping, bool p_update_existing = false) = 0 : void
-{abstract} +remove_joy_mapping(String p_guid) = 0 : void
-{abstract} +is_joy_known(int p_device) = 0 : bool
-{abstract} +get_joy_guid(int p_device) const = 0 : String
-{abstract} +get_joy_vibration_strength(int p_device) = 0 : Vector2
-{abstract} +get_joy_vibration_duration(int p_device) = 0 : float
-{abstract} +get_joy_vibration_timestamp(int p_device) = 0 : uint64_t
-{abstract} +start_joy_vibration(int p_device, float p_weak_magnitude, float p_strong_magnitude, float p_duration = 0) = 0 : void
-{abstract} +stop_joy_vibration(int p_device) = 0 : void
-{abstract} +vibrate_handheld(int p_duration_ms = 500) = 0 : void
-{abstract} +get_mouse_position() const = 0 : Point2
-{abstract} +get_last_mouse_speed() const = 0 : Point2
-{abstract} +get_mouse_button_mask() const = 0 : int
-{abstract} +warp_mouse_position(const Vector2 & p_to) = 0 : void
-{abstract} +warp_mouse_motion(const Ref<InputEventMouseMotion> & p_motion, const Rect2 & p_rect) = 0 : Point2i
-{abstract} +get_gravity() const = 0 : Vector3
-{abstract} +get_accelerometer() const = 0 : Vector3
-{abstract} +get_magnetometer() const = 0 : Vector3
-{abstract} +get_gyroscope() const = 0 : Vector3
-{abstract} +action_press(const StringName & p_action, float p_strength = 1.f) = 0 : void
-{abstract} +action_release(const StringName & p_action) = 0 : void
-+get_argument_options(const StringName & p_function, int p_idx, List<String> * r_options) const : void
-{abstract} +is_emulating_touch_from_mouse() const = 0 : bool
-{abstract} +is_emulating_mouse_from_touch() const = 0 : bool
-{abstract} +get_default_cursor_shape() const = 0 : Input::CursorShape
-{abstract} +set_default_cursor_shape(Input::CursorShape p_shape) = 0 : void
-{abstract} +get_current_cursor_shape() const = 0 : Input::CursorShape
-{abstract} +set_custom_mouse_cursor(const RES & p_cursor, Input::CursorShape p_shape = CURSOR_ARROW, const Vector2 & p_hotspot = Vector2()) = 0 : void
-{abstract} +get_joy_button_string(int p_button) = 0 : String
-{abstract} +get_joy_axis_string(int p_axis) = 0 : String
-{abstract} +get_joy_button_index_from_string(String p_button) = 0 : int
-{abstract} +get_joy_axis_index_from_string(String p_axis) = 0 : int
-{abstract} +parse_input_event(const Ref<InputEvent> & p_event) = 0 : void
-{abstract} +accumulate_input_event(const Ref<InputEvent> & p_event) = 0 : void
-{abstract} +flush_accumulated_events() = 0 : void
-{abstract} +set_use_accumulated_input(bool p_enable) = 0 : void
-+Input() : void
+{static} +get_func_argument_count(Expression::BuiltinFunc p_func) : int
+{static} +get_func_name(Expression::BuiltinFunc p_func) : String
+{static} +exec_func(Expression::BuiltinFunc p_func, const Variant ** p_inputs, Variant * r_return, Variant::CallError & r_error, String & r_error_str) : void
+{static} +find_function(const String & p_string) : Expression::BuiltinFunc
++parse(const String & p_expression, const Vector<String> & p_input_names = Vector<String>()) : Error
++execute(Array p_inputs, Object * p_base = __null, bool p_show_error = true) : Variant
++has_execute_failed() const : bool
++get_error_text() const : String
++Expression() : void
++~Expression() : void
 }
-class "InputMap" as C_0000314051240057057851
-class C_0000314051240057057851 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/input_map.h#L37{InputMap}]] {
+class "_ResourceLoader" as C_0001197720528033242618
+class C_0001197720528033242618 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L45{_ResourceLoader}]] {
 +get_class() const : String
 +_get_class_namev() const : const StringName *
 {static} +get_class_ptr_static() : void *
@@ -2042,25 +2023,406 @@ class C_0000314051240057057851 [[https://github.com/godotengine/godot/blob/faf3f
 +is_class_ptr(void * p_ptr) const : bool
 {static} +get_valid_parents_static(List<String> * p_parents) : void
 {static} +initialize_class() : void
-{static} +get_singleton() : InputMap *
-+has_action(const StringName & p_action) const : bool
-+get_actions() const : List<StringName>
-+add_action(const StringName & p_action, float p_deadzone = 0.5) : void
-+erase_action(const StringName & p_action) : void
-+action_get_deadzone(const StringName & p_action) : float
-+action_set_deadzone(const StringName & p_action, float p_deadzone) : void
-+action_add_event(const StringName & p_action, const Ref<InputEvent> & p_event) : void
-+action_has_event(const StringName & p_action, const Ref<InputEvent> & p_event) : bool
-+action_erase_event(const StringName & p_action, const Ref<InputEvent> & p_event) : void
-+action_erase_events(const StringName & p_action) : void
-+get_action_list(const StringName & p_action) : const List<Ref<InputEvent>> *
-+event_is_action(const Ref<InputEvent> & p_event, const StringName & p_action) const : bool
-+event_get_action_status(const Ref<InputEvent> & p_event, const StringName & p_action, bool * p_pressed = __null, float * p_strength = __null) const : bool
-+get_action_map() const : const Map<StringName,InputMap::Action> &
-+load_from_globals() : void
-+load_default() : void
-+InputMap() : void
-{static} +ALL_DEVICES : int [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/input_map.h#L45{A special value used to signify that a given Action can be triggered by any device}]]]
+{static} +get_singleton() : _ResourceLoader *
++load_interactive(const String & p_path, const String & p_type_hint = "") : Ref<ResourceInteractiveLoader>
++load(const String & p_path, const String & p_type_hint = "", bool p_no_cache = false) : RES
++get_recognized_extensions_for_type(const String & p_type) : PoolVector<String>
++set_abort_on_missing_resources(bool p_abort) : void
++get_dependencies(const String & p_path) : PoolStringArray
++has(const String & p_path) : bool
++has_cached(const String & p_path) : bool
++exists(const String & p_path, const String & p_type_hint = "") : bool
++_ResourceLoader() : void
+}
+class "_ResourceSaver" as C_0001130773750498288283
+class C_0001130773750498288283 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L68{_ResourceSaver}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
+{static} +get_singleton() : _ResourceSaver *
++save(const String & p_path, const RES & p_resource, _ResourceSaver::SaverFlags p_flags) : Error
++get_recognized_extensions(const RES & p_resource) : PoolVector<String>
++_ResourceSaver() : void
+}
+class "_OS" as C_0000790752023609648644
+class C_0000790752023609648644 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L99{_OS}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
++global_menu_add_item(const String & p_menu, const String & p_label, const Variant & p_signal, const Variant & p_meta) : void
++global_menu_add_separator(const String & p_menu) : void
++global_menu_remove_item(const String & p_menu, int p_idx) : void
++global_menu_clear(const String & p_menu) : void
++get_mouse_position() const : Point2
++set_window_title(const String & p_title) : void
++set_window_mouse_passthrough(const PoolVector2Array & p_region) : void
++get_mouse_button_state() const : int
++set_clipboard(const String & p_text) : void
++get_clipboard() const : String
++set_video_mode(const Size2 & p_size, bool p_fullscreen, bool p_resizeable, int p_screen = 0) : void
++get_video_mode(int p_screen = 0) const : Size2
++is_video_mode_fullscreen(int p_screen = 0) const : bool
++is_video_mode_resizable(int p_screen = 0) const : bool
++get_fullscreen_mode_list(int p_screen = 0) const : Array
++get_video_driver_count() const : int
++get_video_driver_name(_OS::VideoDriver p_driver) const : String
++get_current_video_driver() const : _OS::VideoDriver
++get_audio_driver_count() const : int
++get_audio_driver_name(int p_driver) const : String
++get_connected_midi_inputs() : PoolStringArray
++open_midi_inputs() : void
++close_midi_inputs() : void
++get_screen_count() const : int
++get_current_screen() const : int
++set_current_screen(int p_screen) : void
++get_screen_position(int p_screen = -1) const : Point2
++get_screen_size(int p_screen = -1) const : Size2
++get_screen_dpi(int p_screen = -1) const : int
++get_screen_scale(int p_screen = -1) const : float
++get_screen_max_scale() const : float
++get_window_position() const : Point2
++set_window_position(const Point2 & p_position) : void
++get_max_window_size() const : Size2
++get_min_window_size() const : Size2
++get_window_size() const : Size2
++get_real_window_size() const : Size2
++get_window_safe_area() const : Rect2
++set_max_window_size(const Size2 & p_size) : void
++set_min_window_size(const Size2 & p_size) : void
++set_window_size(const Size2 & p_size) : void
++set_window_fullscreen(bool p_enabled) : void
++is_window_fullscreen() const : bool
++set_window_resizable(bool p_enabled) : void
++is_window_resizable() const : bool
++set_window_minimized(bool p_enabled) : void
++is_window_minimized() const : bool
++set_window_maximized(bool p_enabled) : void
++is_window_maximized() const : bool
++set_window_always_on_top(bool p_enabled) : void
++is_window_always_on_top() const : bool
++is_window_focused() const : bool
++request_attention() : void
++center_window() : void
++move_window_to_foreground() : void
++get_native_handle(_OS::HandleType p_handle_type) : int64_t
++set_borderless_window(bool p_borderless) : void
++get_borderless_window() const : bool
++get_window_per_pixel_transparency_enabled() const : bool
++set_window_per_pixel_transparency_enabled(bool p_enabled) : void
++set_ime_active(const bool p_active) : void
++set_ime_position(const Point2 & p_pos) : void
++get_ime_selection() const : Point2
++get_ime_text() const : String
++native_video_play(String p_path, float p_volume, String p_audio_track, String p_subtitle_track) : Error
++native_video_is_playing() : bool
++native_video_pause() : void
++native_video_unpause() : void
++native_video_stop() : void
++set_low_processor_usage_mode(bool p_enabled) : void
++is_in_low_processor_usage_mode() const : bool
++set_low_processor_usage_mode_sleep_usec(int p_usec) : void
++get_low_processor_usage_mode_sleep_usec() const : int
++get_executable_path() const : String
++execute(const String & p_path, const Vector<String> & p_arguments, bool p_blocking = true, Array p_output = = Array(), bool p_read_stderr = false) : int
++kill(int p_pid) : Error
++shell_open(String p_uri) : Error
++get_process_id() const : int
++has_environment(const String & p_var) const : bool
++get_environment(const String & p_var) const : String
++set_environment(const String & p_var, const String & p_value) const : bool
++get_name() const : String
++get_cmdline_args() : Vector<String>
++get_locale() const : String
++get_latin_keyboard_variant() const : String
++keyboard_get_layout_count() const : int
++keyboard_get_current_layout() const : int
++keyboard_set_current_layout(int p_index) : void
++keyboard_get_layout_language(int p_index) const : String
++keyboard_get_layout_name(int p_index) const : String
++get_model_name() const : String
++dump_memory_to_file(const String & p_file) : void
++dump_resources_to_file(const String & p_file) : void
++has_virtual_keyboard() const : bool
++show_virtual_keyboard(const String & p_existing_text = "", bool p_multiline = false) : void
++hide_virtual_keyboard() : void
++get_virtual_keyboard_height() : int
++print_resources_in_use(bool p_short = false) : void
++print_all_resources(const String & p_to_file) : void
++print_all_textures_by_size() : void
++print_resources_by_type(const Vector<String> & p_types) : void
++has_touchscreen_ui_hint() const : bool
++is_debug_build() const : bool
++get_unique_id() const : String
++get_scancode_string(uint32_t p_code) const : String
++is_scancode_unicode(uint32_t p_unicode) const : bool
++find_scancode_from_string(const String & p_code) const : int
++set_use_file_access_save_and_swap(bool p_enable) : void
++set_native_icon(const String & p_filename) : void
++set_icon(const Ref<Image> & p_icon) : void
++get_exit_code() const : int
++set_exit_code(int p_code) : void
++get_date(bool utc) const : Dictionary
++get_time(bool utc) const : Dictionary
++get_datetime(bool utc) const : Dictionary
++get_datetime_from_unix_time(int64_t unix_time_val) const : Dictionary
++get_unix_time_from_datetime(Dictionary datetime) const : int64_t
++get_time_zone_info() const : Dictionary
++get_unix_time() const : uint64_t
++get_system_time_secs() const : uint64_t
++get_system_time_msecs() const : uint64_t
++get_static_memory_usage() const : uint64_t
++get_static_memory_peak_usage() const : uint64_t
++get_dynamic_memory_usage() const : uint64_t
++delay_usec(int p_usec) const : void
++delay_msec(int p_msec) const : void
++get_ticks_msec() const : uint32_t
++get_ticks_usec() const : uint64_t
++get_splash_tick_msec() const : uint32_t
++can_use_threads() const : bool
++can_draw() const : bool
++is_userfs_persistent() const : bool
++is_stdout_verbose() const : bool
++get_processor_count() const : int
++get_system_dir(_OS::SystemDir p_dir, bool p_shared_storage = true) const : String
++get_user_data_dir() const : String
++alert(const String & p_alert, const String & p_title = "ALERT!") : void
++set_screen_orientation(_OS::ScreenOrientation p_orientation) : void
++get_screen_orientation() const : _OS::ScreenOrientation
++set_keep_screen_on(bool p_enabled) : void
++is_keep_screen_on() const : bool
++is_ok_left_and_cancel_right() const : bool
++set_thread_name(const String & p_name) : Error
++get_thread_caller_id() const : Thread::ID
++set_use_vsync(bool p_enable) : void
++is_vsync_enabled() const : bool
++set_vsync_via_compositor(bool p_enable) : void
++is_vsync_via_compositor_enabled() const : bool
++get_power_state() : _OS::PowerState
++get_power_seconds_left() : int
++get_power_percent_left() : int
++has_feature(const String & p_feature) const : bool
++request_permission(const String & p_name) : bool
++request_permissions() : bool
++get_granted_permissions() const : Vector<String>
++get_tablet_driver_count() const : int
++get_tablet_driver_name(int p_driver) const : String
++get_current_tablet_driver() const : String
++set_current_tablet_driver(const String & p_driver) : void
+{static} +get_singleton() : _OS *
++_OS() : void
+}
+class "_Geometry" as C_0000897221634691489964
+class C_0000897221634691489964 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L401{_Geometry}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
+{static} +get_singleton() : _Geometry *
++build_box_planes(const Vector3 & p_extents) : PoolVector<Plane>
++build_cylinder_planes(float p_radius, float p_height, int p_sides, Vector3::Axis p_axis = Vector3::AXIS_Z) : PoolVector<Plane>
++build_capsule_planes(float p_radius, float p_height, int p_sides, int p_lats, Vector3::Axis p_axis = Vector3::AXIS_Z) : PoolVector<Plane>
++segment_intersects_segment_2d(const Vector2 & p_from_a, const Vector2 & p_to_a, const Vector2 & p_from_b, const Vector2 & p_to_b) : Variant
++line_intersects_line_2d(const Vector2 & p_from_a, const Vector2 & p_dir_a, const Vector2 & p_from_b, const Vector2 & p_dir_b) : Variant
++get_closest_points_between_segments_2d(const Vector2 & p1, const Vector2 & q1, const Vector2 & p2, const Vector2 & q2) : PoolVector<Vector2>
++get_closest_points_between_segments(const Vector3 & p1, const Vector3 & p2, const Vector3 & q1, const Vector3 & q2) : PoolVector<Vector3>
++get_closest_point_to_segment_2d(const Vector2 & p_point, const Vector2 & p_a, const Vector2 & p_b) : Vector2
++get_closest_point_to_segment(const Vector3 & p_point, const Vector3 & p_a, const Vector3 & p_b) : Vector3
++get_closest_point_to_segment_uncapped_2d(const Vector2 & p_point, const Vector2 & p_a, const Vector2 & p_b) : Vector2
++get_closest_point_to_segment_uncapped(const Vector3 & p_point, const Vector3 & p_a, const Vector3 & p_b) : Vector3
++ray_intersects_triangle(const Vector3 & p_from, const Vector3 & p_dir, const Vector3 & p_v0, const Vector3 & p_v1, const Vector3 & p_v2) : Variant
++segment_intersects_triangle(const Vector3 & p_from, const Vector3 & p_to, const Vector3 & p_v0, const Vector3 & p_v1, const Vector3 & p_v2) : Variant
++point_is_inside_triangle(const Vector2 & s, const Vector2 & a, const Vector2 & b, const Vector2 & c) const : bool
++segment_intersects_sphere(const Vector3 & p_from, const Vector3 & p_to, const Vector3 & p_sphere_pos, real_t p_sphere_radius) : PoolVector<Vector3>
++segment_intersects_cylinder(const Vector3 & p_from, const Vector3 & p_to, float p_height, float p_radius) : PoolVector<Vector3>
++segment_intersects_convex(const Vector3 & p_from, const Vector3 & p_to, const Vector<Plane> & p_planes) : PoolVector<Vector3>
++is_point_in_circle(const Vector2 & p_point, const Vector2 & p_circle_pos, real_t p_circle_radius) : bool
++segment_intersects_circle(const Vector2 & p_from, const Vector2 & p_to, const Vector2 & p_circle_pos, real_t p_circle_radius) : real_t
++get_uv84_normal_bit(const Vector3 & p_vector) : int
++is_polygon_clockwise(const Vector<Vector2> & p_polygon) : bool
++is_point_in_polygon(const Point2 & p_point, const Vector<Vector2> & p_polygon) : bool
++triangulate_polygon(const Vector<Vector2> & p_polygon) : Vector<int>
++triangulate_delaunay_2d(const Vector<Vector2> & p_points) : Vector<int>
++convex_hull_2d(const Vector<Point2> & p_points) : Vector<Point2>
++clip_polygon(const Vector<Vector3> & p_points, const Plane & p_plane) : Vector<Vector3>
++merge_polygons_2d(const Vector<Vector2> & p_polygon_a, const Vector<Vector2> & p_polygon_b) : Array
++clip_polygons_2d(const Vector<Vector2> & p_polygon_a, const Vector<Vector2> & p_polygon_b) : Array
++intersect_polygons_2d(const Vector<Vector2> & p_polygon_a, const Vector<Vector2> & p_polygon_b) : Array
++exclude_polygons_2d(const Vector<Vector2> & p_polygon_a, const Vector<Vector2> & p_polygon_b) : Array
++clip_polyline_with_polygon_2d(const Vector<Vector2> & p_polyline, const Vector<Vector2> & p_polygon) : Array
++intersect_polyline_with_polygon_2d(const Vector<Vector2> & p_polyline, const Vector<Vector2> & p_polygon) : Array
++offset_polygon_2d(const Vector<Vector2> & p_polygon, real_t p_delta, _Geometry::PolyJoinType p_join_type = JOIN_SQUARE) : Array
++offset_polyline_2d(const Vector<Vector2> & p_polygon, real_t p_delta, _Geometry::PolyJoinType p_join_type = JOIN_SQUARE, _Geometry::PolyEndType p_end_type = END_SQUARE) : Array
++make_atlas(const Vector<Size2> & p_rects) : Dictionary
++_Geometry() : void
+}
+class "_Marshalls" as C_0000135188690773659020
+class C_0000135188690773659020 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L629{_Marshalls}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
+{static} +get_singleton() : _Marshalls *
++variant_to_base64(const Variant & p_var, bool p_full_objects = false) : String
++base64_to_variant(const String & p_str, bool p_allow_objects = false) : Variant
++raw_to_base64(const PoolVector<uint8_t> & p_arr) : String
++base64_to_raw(const String & p_str) : PoolVector<uint8_t>
++utf8_to_base64(const String & p_str) : String
++base64_to_utf8(const String & p_str) : String
++_Marshalls() : void
++~_Marshalls() : void
+}
+class "_Thread" as C_0001150621116588802549
+class C_0001150621116588802549 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L679{_Thread}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
++start(Object * p_instance, const StringName & p_method, const Variant & p_userdata = Variant(), _Thread::Priority p_priority = PRIORITY_NORMAL) : Error
++get_id() const : String
++is_active() const : bool
++wait_to_finish() : Variant
++_Thread() : void
++~_Thread() : void
+}
+class "_ClassDB" as C_0001186331261774827872
+class C_0001186331261774827872 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L713{_ClassDB}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
++get_class_list() const : PoolStringArray
++get_inheriters_from_class(const StringName & p_class) const : PoolStringArray
++get_parent_class(const StringName & p_class) const : StringName
++class_exists(const StringName & p_class) const : bool
++is_parent_class(const StringName & p_class, const StringName & p_inherits) const : bool
++can_instance(const StringName & p_class) const : bool
++instance(const StringName & p_class) const : Variant
++has_signal(StringName p_class, StringName p_signal) const : bool
++get_signal(StringName p_class, StringName p_signal) const : Dictionary
++get_signal_list(StringName p_class, bool p_no_inheritance = false) const : Array
++get_property_list(StringName p_class, bool p_no_inheritance = false) const : Array
++get_property(Object * p_object, const StringName & p_property) const : Variant
++set_property(Object * p_object, const StringName & p_property, const Variant & p_value) const : Error
++has_method(StringName p_class, StringName p_method, bool p_no_inheritance = false) const : bool
++get_method_list(StringName p_class, bool p_no_inheritance = false) const : Array
++get_integer_constant_list(const StringName & p_class, bool p_no_inheritance = false) const : PoolStringArray
++has_integer_constant(const StringName & p_class, const StringName & p_name) const : bool
++get_integer_constant(const StringName & p_class, const StringName & p_name) const : int
++get_category(const StringName & p_node) const : StringName
++is_class_enabled(StringName p_class) const : bool
++_ClassDB() : void
++~_ClassDB() : void
+}
+class "_Engine" as C_0001895218672297528471
+class C_0001895218672297528471 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L752{_Engine}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
+{static} +get_singleton() : _Engine *
++set_iterations_per_second(int p_ips) : void
++get_iterations_per_second() const : int
++set_physics_jitter_fix(float p_threshold) : void
++get_physics_jitter_fix() const : float
++get_physics_interpolation_fraction() const : float
++set_target_fps(int p_fps) : void
++get_target_fps() const : int
++get_frames_per_second() const : float
++get_physics_frames() const : uint64_t
++get_idle_frames() const : uint64_t
++get_frames_drawn() : int
++set_time_scale(float p_scale) : void
++get_time_scale() : float
++get_main_loop() const : MainLoop *
++get_version_info() const : Dictionary
++get_author_info() const : Dictionary
++get_copyright_info() const : Array
++get_donor_info() const : Dictionary
++get_license_info() const : Dictionary
++get_license_text() const : String
++is_in_physics_frame() const : bool
++has_singleton(const String & p_name) const : bool
++get_singleton_object(const String & p_name) const : Object *
++set_editor_hint(bool p_enabled) : void
++is_editor_hint() const : bool
++_Engine() : void
+}
+class "_JSON" as C_0000979065355535690103
+class C_0000979065355535690103 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L833{_JSON}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
+{static} +get_singleton() : _JSON *
++print(const Variant & p_value, const String & p_indent = "", bool p_sort_keys = false) : String
++parse(const String & p_json) : Ref<JSONParseResult>
++_JSON() : void
 }
 class "CameraServer" as C_0001701907280759632930
 class C_0001701907280759632930 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./servers/camera_server.h#L49{CameraServer}]] {
@@ -3144,72 +3506,111 @@ class C_0001872058027933416994 [[https://github.com/godotengine/godot/blob/faf3f
 +~SceneTree() : void
 +NOTIFICATION_TRANSFORM_CHANGED : enum
 }
-class "UndoRedo" as C_0000096380574950611570
-class C_0000096380574950611570 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/undo_redo.h#L37{UndoRedo}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-+get_save_class() const : String
-+_add_do_method(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
-+_add_undo_method(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
-+create_action(const String & p_name = "", UndoRedo::MergeMode p_mode = MERGE_DISABLE) : void
-+add_do_method(Object * p_object, const String & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : void
-+add_undo_method(Object * p_object, const String & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : void
-+add_do_property(Object * p_object, const String & p_property, const Variant & p_value) : void
-+add_undo_property(Object * p_object, const String & p_property, const Variant & p_value) : void
-+add_do_reference(Object * p_object) : void
-+add_undo_reference(Object * p_object) : void
-+is_committing_action() const : bool
-+commit_action() : void
-+redo() : bool
-+undo() : bool
-+get_current_action_name() const : String
-+clear_history(bool p_increase_version = true) : void
-+has_undo() : bool
-+has_redo() : bool
-+get_version() const : uint64_t
-+set_commit_notify_callback(UndoRedo::CommitNotifyCallback p_callback, void * p_ud) : void
-+set_method_notify_callback(UndoRedo::MethodNotifyCallback p_method_callback, void * p_ud) : void
-+set_property_notify_callback(UndoRedo::PropertyNotifyCallback p_property_callback, void * p_ud) : void
-+UndoRedo() : void
-+~UndoRedo() : void
-}
-class "FuncRef" as C_0001699661383862634192
-class C_0001699661383862634192 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/func_ref.h#L36{FuncRef}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-+call_func(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
-+call_funcv(const Array & p_args) : Variant
-+set_instance(Object * p_obj) : void
-+set_function(const StringName & p_func) : void
-+get_function() : StringName
-+is_valid() const : bool
-+FuncRef() : void
-}
 class "_ArrayVariantSortCustom" as C_0000762417759113755306
 class C_0000762417759113755306 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/array.cpp#L298{_ArrayVariantSortCustom}]] {
 +operator()(const Variant & p_l, const Variant & p_r) const : bool
 +obj : Object * [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/array.cpp#L300{obj}]]]
 +func : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/array.cpp#L301{func}]]]
+}
+class "InputMap" as C_0000314051240057057851
+class C_0000314051240057057851 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/input_map.h#L37{InputMap}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
+{static} +get_singleton() : InputMap *
++has_action(const StringName & p_action) const : bool
++get_actions() const : List<StringName>
++add_action(const StringName & p_action, float p_deadzone = 0.5) : void
++erase_action(const StringName & p_action) : void
++action_get_deadzone(const StringName & p_action) : float
++action_set_deadzone(const StringName & p_action, float p_deadzone) : void
++action_add_event(const StringName & p_action, const Ref<InputEvent> & p_event) : void
++action_has_event(const StringName & p_action, const Ref<InputEvent> & p_event) : bool
++action_erase_event(const StringName & p_action, const Ref<InputEvent> & p_event) : void
++action_erase_events(const StringName & p_action) : void
++get_action_list(const StringName & p_action) : const List<Ref<InputEvent>> *
++event_is_action(const Ref<InputEvent> & p_event, const StringName & p_action) const : bool
++event_get_action_status(const Ref<InputEvent> & p_event, const StringName & p_action, bool * p_pressed = __null, float * p_strength = __null) const : bool
++get_action_map() const : const Map<StringName,InputMap::Action> &
++load_from_globals() : void
++load_default() : void
++InputMap() : void
+{static} +ALL_DEVICES : int [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/input_map.h#L45{A special value used to signify that a given Action can be triggered by any device}]]]
+}
+abstract "Input" as C_0000535376932101028371
+abstract C_0000535376932101028371 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/os/input.h#L38{Input}]] {
++get_class() const : String
++_get_class_namev() const : const StringName *
+{static} +get_class_ptr_static() : void *
+{static} +get_class_static() : String
+{static} +get_parent_class_static() : String
+{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
+{static} +get_category_static() : String
+{static} +inherits_static() : String
++is_class(const String & p_class) const : bool
++is_class_ptr(void * p_ptr) const : bool
+{static} +get_valid_parents_static(List<String> * p_parents) : void
+{static} +initialize_class() : void
++set_mouse_mode(Input::MouseMode p_mode) : void
++get_mouse_mode() const : Input::MouseMode
+{static} +get_singleton() : Input *
+{abstract} +is_key_pressed(int p_scancode) const = 0 : bool
+{abstract} +is_mouse_button_pressed(int p_button) const = 0 : bool
+{abstract} +is_joy_button_pressed(int p_device, int p_button) const = 0 : bool
+{abstract} +is_action_pressed(const StringName & p_action) const = 0 : bool
+{abstract} +is_action_just_pressed(const StringName & p_action) const = 0 : bool
+{abstract} +is_action_just_released(const StringName & p_action) const = 0 : bool
+{abstract} +get_action_strength(const StringName & p_action) const = 0 : float
+{abstract} +get_joy_axis(int p_device, int p_axis) const = 0 : float
+{abstract} +get_joy_name(int p_idx) = 0 : String
+{abstract} +get_connected_joypads() = 0 : Array
+{abstract} +joy_connection_changed(int p_idx, bool p_connected, String p_name, String p_guid) = 0 : void
+{abstract} +add_joy_mapping(String p_mapping, bool p_update_existing = false) = 0 : void
+{abstract} +remove_joy_mapping(String p_guid) = 0 : void
+{abstract} +is_joy_known(int p_device) = 0 : bool
+{abstract} +get_joy_guid(int p_device) const = 0 : String
+{abstract} +get_joy_vibration_strength(int p_device) = 0 : Vector2
+{abstract} +get_joy_vibration_duration(int p_device) = 0 : float
+{abstract} +get_joy_vibration_timestamp(int p_device) = 0 : uint64_t
+{abstract} +start_joy_vibration(int p_device, float p_weak_magnitude, float p_strong_magnitude, float p_duration = 0) = 0 : void
+{abstract} +stop_joy_vibration(int p_device) = 0 : void
+{abstract} +vibrate_handheld(int p_duration_ms = 500) = 0 : void
+{abstract} +get_mouse_position() const = 0 : Point2
+{abstract} +get_last_mouse_speed() const = 0 : Point2
+{abstract} +get_mouse_button_mask() const = 0 : int
+{abstract} +warp_mouse_position(const Vector2 & p_to) = 0 : void
+{abstract} +warp_mouse_motion(const Ref<InputEventMouseMotion> & p_motion, const Rect2 & p_rect) = 0 : Point2i
+{abstract} +get_gravity() const = 0 : Vector3
+{abstract} +get_accelerometer() const = 0 : Vector3
+{abstract} +get_magnetometer() const = 0 : Vector3
+{abstract} +get_gyroscope() const = 0 : Vector3
+{abstract} +action_press(const StringName & p_action, float p_strength = 1.f) = 0 : void
+{abstract} +action_release(const StringName & p_action) = 0 : void
++get_argument_options(const StringName & p_function, int p_idx, List<String> * r_options) const : void
+{abstract} +is_emulating_touch_from_mouse() const = 0 : bool
+{abstract} +is_emulating_mouse_from_touch() const = 0 : bool
+{abstract} +get_default_cursor_shape() const = 0 : Input::CursorShape
+{abstract} +set_default_cursor_shape(Input::CursorShape p_shape) = 0 : void
+{abstract} +get_current_cursor_shape() const = 0 : Input::CursorShape
+{abstract} +set_custom_mouse_cursor(const RES & p_cursor, Input::CursorShape p_shape = CURSOR_ARROW, const Vector2 & p_hotspot = Vector2()) = 0 : void
+{abstract} +get_joy_button_string(int p_button) = 0 : String
+{abstract} +get_joy_axis_string(int p_axis) = 0 : String
+{abstract} +get_joy_button_index_from_string(String p_button) = 0 : int
+{abstract} +get_joy_axis_index_from_string(String p_axis) = 0 : int
+{abstract} +parse_input_event(const Ref<InputEvent> & p_event) = 0 : void
+{abstract} +accumulate_input_event(const Ref<InputEvent> & p_event) = 0 : void
+{abstract} +flush_accumulated_events() = 0 : void
+{abstract} +set_use_accumulated_input(bool p_enable) = 0 : void
++Input() : void
 }
 class "AudioServer" as C_0001370497546359815893
 class C_0001370497546359815893 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./servers/audio_server.h#L148{AudioServer}]] {
@@ -3295,8 +3696,8 @@ class C_0001370497546359815893 [[https://github.com/godotengine/godot/blob/faf3f
 +~AudioServer() : void
 +AUDIO_DATA_INVALID_ID : enum
 }
-class "Expression" as C_0000425668537377496256
-class C_0000425668537377496256 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/core/math/expression.h#L36{Expression}]] {
+class "UndoRedo" as C_0000096380574950611570
+class C_0000096380574950611570 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/undo_redo.h#L37{UndoRedo}]] {
 +get_class() const : String
 +_get_class_namev() const : const StringName *
 {static} +get_class_ptr_static() : void *
@@ -3309,431 +3710,30 @@ class C_0000425668537377496256 [[https://github.com/godotengine/godot/blob/faf3f
 +is_class_ptr(void * p_ptr) const : bool
 {static} +get_valid_parents_static(List<String> * p_parents) : void
 {static} +initialize_class() : void
-{static} +get_func_argument_count(Expression::BuiltinFunc p_func) : int
-{static} +get_func_name(Expression::BuiltinFunc p_func) : String
-{static} +exec_func(Expression::BuiltinFunc p_func, const Variant ** p_inputs, Variant * r_return, Variant::CallError & r_error, String & r_error_str) : void
-{static} +find_function(const String & p_string) : Expression::BuiltinFunc
-+parse(const String & p_expression, const Vector<String> & p_input_names = Vector<String>()) : Error
-+execute(Array p_inputs, Object * p_base = __null, bool p_show_error = true) : Variant
-+has_execute_failed() const : bool
-+get_error_text() const : String
-+Expression() : void
-+~Expression() : void
-}
-class "_ResourceLoader" as C_0001197720528033242618
-class C_0001197720528033242618 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L45{_ResourceLoader}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-{static} +get_singleton() : _ResourceLoader *
-+load_interactive(const String & p_path, const String & p_type_hint = "") : Ref<ResourceInteractiveLoader>
-+load(const String & p_path, const String & p_type_hint = "", bool p_no_cache = false) : RES
-+get_recognized_extensions_for_type(const String & p_type) : PoolVector<String>
-+set_abort_on_missing_resources(bool p_abort) : void
-+get_dependencies(const String & p_path) : PoolStringArray
-+has(const String & p_path) : bool
-+has_cached(const String & p_path) : bool
-+exists(const String & p_path, const String & p_type_hint = "") : bool
-+_ResourceLoader() : void
-}
-class "_ResourceSaver" as C_0001130773750498288283
-class C_0001130773750498288283 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L68{_ResourceSaver}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-{static} +get_singleton() : _ResourceSaver *
-+save(const String & p_path, const RES & p_resource, _ResourceSaver::SaverFlags p_flags) : Error
-+get_recognized_extensions(const RES & p_resource) : PoolVector<String>
-+_ResourceSaver() : void
-}
-class "_OS" as C_0000790752023609648644
-class C_0000790752023609648644 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L99{_OS}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-+global_menu_add_item(const String & p_menu, const String & p_label, const Variant & p_signal, const Variant & p_meta) : void
-+global_menu_add_separator(const String & p_menu) : void
-+global_menu_remove_item(const String & p_menu, int p_idx) : void
-+global_menu_clear(const String & p_menu) : void
-+get_mouse_position() const : Point2
-+set_window_title(const String & p_title) : void
-+set_window_mouse_passthrough(const PoolVector2Array & p_region) : void
-+get_mouse_button_state() const : int
-+set_clipboard(const String & p_text) : void
-+get_clipboard() const : String
-+set_video_mode(const Size2 & p_size, bool p_fullscreen, bool p_resizeable, int p_screen = 0) : void
-+get_video_mode(int p_screen = 0) const : Size2
-+is_video_mode_fullscreen(int p_screen = 0) const : bool
-+is_video_mode_resizable(int p_screen = 0) const : bool
-+get_fullscreen_mode_list(int p_screen = 0) const : Array
-+get_video_driver_count() const : int
-+get_video_driver_name(_OS::VideoDriver p_driver) const : String
-+get_current_video_driver() const : _OS::VideoDriver
-+get_audio_driver_count() const : int
-+get_audio_driver_name(int p_driver) const : String
-+get_connected_midi_inputs() : PoolStringArray
-+open_midi_inputs() : void
-+close_midi_inputs() : void
-+get_screen_count() const : int
-+get_current_screen() const : int
-+set_current_screen(int p_screen) : void
-+get_screen_position(int p_screen = -1) const : Point2
-+get_screen_size(int p_screen = -1) const : Size2
-+get_screen_dpi(int p_screen = -1) const : int
-+get_screen_scale(int p_screen = -1) const : float
-+get_screen_max_scale() const : float
-+get_window_position() const : Point2
-+set_window_position(const Point2 & p_position) : void
-+get_max_window_size() const : Size2
-+get_min_window_size() const : Size2
-+get_window_size() const : Size2
-+get_real_window_size() const : Size2
-+get_window_safe_area() const : Rect2
-+set_max_window_size(const Size2 & p_size) : void
-+set_min_window_size(const Size2 & p_size) : void
-+set_window_size(const Size2 & p_size) : void
-+set_window_fullscreen(bool p_enabled) : void
-+is_window_fullscreen() const : bool
-+set_window_resizable(bool p_enabled) : void
-+is_window_resizable() const : bool
-+set_window_minimized(bool p_enabled) : void
-+is_window_minimized() const : bool
-+set_window_maximized(bool p_enabled) : void
-+is_window_maximized() const : bool
-+set_window_always_on_top(bool p_enabled) : void
-+is_window_always_on_top() const : bool
-+is_window_focused() const : bool
-+request_attention() : void
-+center_window() : void
-+move_window_to_foreground() : void
-+get_native_handle(_OS::HandleType p_handle_type) : int64_t
-+set_borderless_window(bool p_borderless) : void
-+get_borderless_window() const : bool
-+get_window_per_pixel_transparency_enabled() const : bool
-+set_window_per_pixel_transparency_enabled(bool p_enabled) : void
-+set_ime_active(const bool p_active) : void
-+set_ime_position(const Point2 & p_pos) : void
-+get_ime_selection() const : Point2
-+get_ime_text() const : String
-+native_video_play(String p_path, float p_volume, String p_audio_track, String p_subtitle_track) : Error
-+native_video_is_playing() : bool
-+native_video_pause() : void
-+native_video_unpause() : void
-+native_video_stop() : void
-+set_low_processor_usage_mode(bool p_enabled) : void
-+is_in_low_processor_usage_mode() const : bool
-+set_low_processor_usage_mode_sleep_usec(int p_usec) : void
-+get_low_processor_usage_mode_sleep_usec() const : int
-+get_executable_path() const : String
-+execute(const String & p_path, const Vector<String> & p_arguments, bool p_blocking = true, Array p_output = = Array(), bool p_read_stderr = false) : int
-+kill(int p_pid) : Error
-+shell_open(String p_uri) : Error
-+get_process_id() const : int
-+has_environment(const String & p_var) const : bool
-+get_environment(const String & p_var) const : String
-+set_environment(const String & p_var, const String & p_value) const : bool
-+get_name() const : String
-+get_cmdline_args() : Vector<String>
-+get_locale() const : String
-+get_latin_keyboard_variant() const : String
-+keyboard_get_layout_count() const : int
-+keyboard_get_current_layout() const : int
-+keyboard_set_current_layout(int p_index) : void
-+keyboard_get_layout_language(int p_index) const : String
-+keyboard_get_layout_name(int p_index) const : String
-+get_model_name() const : String
-+dump_memory_to_file(const String & p_file) : void
-+dump_resources_to_file(const String & p_file) : void
-+has_virtual_keyboard() const : bool
-+show_virtual_keyboard(const String & p_existing_text = "", bool p_multiline = false) : void
-+hide_virtual_keyboard() : void
-+get_virtual_keyboard_height() : int
-+print_resources_in_use(bool p_short = false) : void
-+print_all_resources(const String & p_to_file) : void
-+print_all_textures_by_size() : void
-+print_resources_by_type(const Vector<String> & p_types) : void
-+has_touchscreen_ui_hint() const : bool
-+is_debug_build() const : bool
-+get_unique_id() const : String
-+get_scancode_string(uint32_t p_code) const : String
-+is_scancode_unicode(uint32_t p_unicode) const : bool
-+find_scancode_from_string(const String & p_code) const : int
-+set_use_file_access_save_and_swap(bool p_enable) : void
-+set_native_icon(const String & p_filename) : void
-+set_icon(const Ref<Image> & p_icon) : void
-+get_exit_code() const : int
-+set_exit_code(int p_code) : void
-+get_date(bool utc) const : Dictionary
-+get_time(bool utc) const : Dictionary
-+get_datetime(bool utc) const : Dictionary
-+get_datetime_from_unix_time(int64_t unix_time_val) const : Dictionary
-+get_unix_time_from_datetime(Dictionary datetime) const : int64_t
-+get_time_zone_info() const : Dictionary
-+get_unix_time() const : uint64_t
-+get_system_time_secs() const : uint64_t
-+get_system_time_msecs() const : uint64_t
-+get_static_memory_usage() const : uint64_t
-+get_static_memory_peak_usage() const : uint64_t
-+get_dynamic_memory_usage() const : uint64_t
-+delay_usec(int p_usec) const : void
-+delay_msec(int p_msec) const : void
-+get_ticks_msec() const : uint32_t
-+get_ticks_usec() const : uint64_t
-+get_splash_tick_msec() const : uint32_t
-+can_use_threads() const : bool
-+can_draw() const : bool
-+is_userfs_persistent() const : bool
-+is_stdout_verbose() const : bool
-+get_processor_count() const : int
-+get_system_dir(_OS::SystemDir p_dir, bool p_shared_storage = true) const : String
-+get_user_data_dir() const : String
-+alert(const String & p_alert, const String & p_title = "ALERT!") : void
-+set_screen_orientation(_OS::ScreenOrientation p_orientation) : void
-+get_screen_orientation() const : _OS::ScreenOrientation
-+set_keep_screen_on(bool p_enabled) : void
-+is_keep_screen_on() const : bool
-+is_ok_left_and_cancel_right() const : bool
-+set_thread_name(const String & p_name) : Error
-+get_thread_caller_id() const : Thread::ID
-+set_use_vsync(bool p_enable) : void
-+is_vsync_enabled() const : bool
-+set_vsync_via_compositor(bool p_enable) : void
-+is_vsync_via_compositor_enabled() const : bool
-+get_power_state() : _OS::PowerState
-+get_power_seconds_left() : int
-+get_power_percent_left() : int
-+has_feature(const String & p_feature) const : bool
-+request_permission(const String & p_name) : bool
-+request_permissions() : bool
-+get_granted_permissions() const : Vector<String>
-+get_tablet_driver_count() const : int
-+get_tablet_driver_name(int p_driver) const : String
-+get_current_tablet_driver() const : String
-+set_current_tablet_driver(const String & p_driver) : void
-{static} +get_singleton() : _OS *
-+_OS() : void
-}
-class "_Geometry" as C_0000897221634691489964
-class C_0000897221634691489964 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L401{_Geometry}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-{static} +get_singleton() : _Geometry *
-+build_box_planes(const Vector3 & p_extents) : PoolVector<Plane>
-+build_cylinder_planes(float p_radius, float p_height, int p_sides, Vector3::Axis p_axis = Vector3::AXIS_Z) : PoolVector<Plane>
-+build_capsule_planes(float p_radius, float p_height, int p_sides, int p_lats, Vector3::Axis p_axis = Vector3::AXIS_Z) : PoolVector<Plane>
-+segment_intersects_segment_2d(const Vector2 & p_from_a, const Vector2 & p_to_a, const Vector2 & p_from_b, const Vector2 & p_to_b) : Variant
-+line_intersects_line_2d(const Vector2 & p_from_a, const Vector2 & p_dir_a, const Vector2 & p_from_b, const Vector2 & p_dir_b) : Variant
-+get_closest_points_between_segments_2d(const Vector2 & p1, const Vector2 & q1, const Vector2 & p2, const Vector2 & q2) : PoolVector<Vector2>
-+get_closest_points_between_segments(const Vector3 & p1, const Vector3 & p2, const Vector3 & q1, const Vector3 & q2) : PoolVector<Vector3>
-+get_closest_point_to_segment_2d(const Vector2 & p_point, const Vector2 & p_a, const Vector2 & p_b) : Vector2
-+get_closest_point_to_segment(const Vector3 & p_point, const Vector3 & p_a, const Vector3 & p_b) : Vector3
-+get_closest_point_to_segment_uncapped_2d(const Vector2 & p_point, const Vector2 & p_a, const Vector2 & p_b) : Vector2
-+get_closest_point_to_segment_uncapped(const Vector3 & p_point, const Vector3 & p_a, const Vector3 & p_b) : Vector3
-+ray_intersects_triangle(const Vector3 & p_from, const Vector3 & p_dir, const Vector3 & p_v0, const Vector3 & p_v1, const Vector3 & p_v2) : Variant
-+segment_intersects_triangle(const Vector3 & p_from, const Vector3 & p_to, const Vector3 & p_v0, const Vector3 & p_v1, const Vector3 & p_v2) : Variant
-+point_is_inside_triangle(const Vector2 & s, const Vector2 & a, const Vector2 & b, const Vector2 & c) const : bool
-+segment_intersects_sphere(const Vector3 & p_from, const Vector3 & p_to, const Vector3 & p_sphere_pos, real_t p_sphere_radius) : PoolVector<Vector3>
-+segment_intersects_cylinder(const Vector3 & p_from, const Vector3 & p_to, float p_height, float p_radius) : PoolVector<Vector3>
-+segment_intersects_convex(const Vector3 & p_from, const Vector3 & p_to, const Vector<Plane> & p_planes) : PoolVector<Vector3>
-+is_point_in_circle(const Vector2 & p_point, const Vector2 & p_circle_pos, real_t p_circle_radius) : bool
-+segment_intersects_circle(const Vector2 & p_from, const Vector2 & p_to, const Vector2 & p_circle_pos, real_t p_circle_radius) : real_t
-+get_uv84_normal_bit(const Vector3 & p_vector) : int
-+is_polygon_clockwise(const Vector<Vector2> & p_polygon) : bool
-+is_point_in_polygon(const Point2 & p_point, const Vector<Vector2> & p_polygon) : bool
-+triangulate_polygon(const Vector<Vector2> & p_polygon) : Vector<int>
-+triangulate_delaunay_2d(const Vector<Vector2> & p_points) : Vector<int>
-+convex_hull_2d(const Vector<Point2> & p_points) : Vector<Point2>
-+clip_polygon(const Vector<Vector3> & p_points, const Plane & p_plane) : Vector<Vector3>
-+merge_polygons_2d(const Vector<Vector2> & p_polygon_a, const Vector<Vector2> & p_polygon_b) : Array
-+clip_polygons_2d(const Vector<Vector2> & p_polygon_a, const Vector<Vector2> & p_polygon_b) : Array
-+intersect_polygons_2d(const Vector<Vector2> & p_polygon_a, const Vector<Vector2> & p_polygon_b) : Array
-+exclude_polygons_2d(const Vector<Vector2> & p_polygon_a, const Vector<Vector2> & p_polygon_b) : Array
-+clip_polyline_with_polygon_2d(const Vector<Vector2> & p_polyline, const Vector<Vector2> & p_polygon) : Array
-+intersect_polyline_with_polygon_2d(const Vector<Vector2> & p_polyline, const Vector<Vector2> & p_polygon) : Array
-+offset_polygon_2d(const Vector<Vector2> & p_polygon, real_t p_delta, _Geometry::PolyJoinType p_join_type = JOIN_SQUARE) : Array
-+offset_polyline_2d(const Vector<Vector2> & p_polygon, real_t p_delta, _Geometry::PolyJoinType p_join_type = JOIN_SQUARE, _Geometry::PolyEndType p_end_type = END_SQUARE) : Array
-+make_atlas(const Vector<Size2> & p_rects) : Dictionary
-+_Geometry() : void
-}
-class "_Marshalls" as C_0000135188690773659020
-class C_0000135188690773659020 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L629{_Marshalls}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-{static} +get_singleton() : _Marshalls *
-+variant_to_base64(const Variant & p_var, bool p_full_objects = false) : String
-+base64_to_variant(const String & p_str, bool p_allow_objects = false) : Variant
-+raw_to_base64(const PoolVector<uint8_t> & p_arr) : String
-+base64_to_raw(const String & p_str) : PoolVector<uint8_t>
-+utf8_to_base64(const String & p_str) : String
-+base64_to_utf8(const String & p_str) : String
-+_Marshalls() : void
-+~_Marshalls() : void
-}
-class "_Thread" as C_0001150621116588802549
-class C_0001150621116588802549 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L679{_Thread}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-+start(Object * p_instance, const StringName & p_method, const Variant & p_userdata = Variant(), _Thread::Priority p_priority = PRIORITY_NORMAL) : Error
-+get_id() const : String
-+is_active() const : bool
-+wait_to_finish() : Variant
-+_Thread() : void
-+~_Thread() : void
-}
-class "_ClassDB" as C_0001186331261774827872
-class C_0001186331261774827872 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L713{_ClassDB}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-+get_class_list() const : PoolStringArray
-+get_inheriters_from_class(const StringName & p_class) const : PoolStringArray
-+get_parent_class(const StringName & p_class) const : StringName
-+class_exists(const StringName & p_class) const : bool
-+is_parent_class(const StringName & p_class, const StringName & p_inherits) const : bool
-+can_instance(const StringName & p_class) const : bool
-+instance(const StringName & p_class) const : Variant
-+has_signal(StringName p_class, StringName p_signal) const : bool
-+get_signal(StringName p_class, StringName p_signal) const : Dictionary
-+get_signal_list(StringName p_class, bool p_no_inheritance = false) const : Array
-+get_property_list(StringName p_class, bool p_no_inheritance = false) const : Array
-+get_property(Object * p_object, const StringName & p_property) const : Variant
-+set_property(Object * p_object, const StringName & p_property, const Variant & p_value) const : Error
-+has_method(StringName p_class, StringName p_method, bool p_no_inheritance = false) const : bool
-+get_method_list(StringName p_class, bool p_no_inheritance = false) const : Array
-+get_integer_constant_list(const StringName & p_class, bool p_no_inheritance = false) const : PoolStringArray
-+has_integer_constant(const StringName & p_class, const StringName & p_name) const : bool
-+get_integer_constant(const StringName & p_class, const StringName & p_name) const : int
-+get_category(const StringName & p_node) const : StringName
-+is_class_enabled(StringName p_class) const : bool
-+_ClassDB() : void
-+~_ClassDB() : void
-}
-class "_Engine" as C_0001895218672297528471
-class C_0001895218672297528471 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L752{_Engine}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-{static} +get_singleton() : _Engine *
-+set_iterations_per_second(int p_ips) : void
-+get_iterations_per_second() const : int
-+set_physics_jitter_fix(float p_threshold) : void
-+get_physics_jitter_fix() const : float
-+get_physics_interpolation_fraction() const : float
-+set_target_fps(int p_fps) : void
-+get_target_fps() const : int
-+get_frames_per_second() const : float
-+get_physics_frames() const : uint64_t
-+get_idle_frames() const : uint64_t
-+get_frames_drawn() : int
-+set_time_scale(float p_scale) : void
-+get_time_scale() : float
-+get_main_loop() const : MainLoop *
-+get_version_info() const : Dictionary
-+get_author_info() const : Dictionary
-+get_copyright_info() const : Array
-+get_donor_info() const : Dictionary
-+get_license_info() const : Dictionary
-+get_license_text() const : String
-+is_in_physics_frame() const : bool
-+has_singleton(const String & p_name) const : bool
-+get_singleton_object(const String & p_name) const : Object *
-+set_editor_hint(bool p_enabled) : void
-+is_editor_hint() const : bool
-+_Engine() : void
-}
-class "_JSON" as C_0000979065355535690103
-class C_0000979065355535690103 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/bind/core_bind.h#L833{_JSON}]] {
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} +initialize_class() : void
-{static} +get_singleton() : _JSON *
-+print(const Variant & p_value, const String & p_indent = "", bool p_sort_keys = false) : String
-+parse(const String & p_json) : Ref<JSONParseResult>
-+_JSON() : void
++get_save_class() const : String
++_add_do_method(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
++_add_undo_method(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
++create_action(const String & p_name = "", UndoRedo::MergeMode p_mode = MERGE_DISABLE) : void
++add_do_method(Object * p_object, const String & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : void
++add_undo_method(Object * p_object, const String & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : void
++add_do_property(Object * p_object, const String & p_property, const Variant & p_value) : void
++add_undo_property(Object * p_object, const String & p_property, const Variant & p_value) : void
++add_do_reference(Object * p_object) : void
++add_undo_reference(Object * p_object) : void
++is_committing_action() const : bool
++commit_action() : void
++redo() : bool
++undo() : bool
++get_current_action_name() const : String
++clear_history(bool p_increase_version = true) : void
++has_undo() : bool
++has_redo() : bool
++get_version() const : uint64_t
++set_commit_notify_callback(UndoRedo::CommitNotifyCallback p_callback, void * p_ud) : void
++set_method_notify_callback(UndoRedo::MethodNotifyCallback p_method_callback, void * p_ud) : void
++set_property_notify_callback(UndoRedo::PropertyNotifyCallback p_property_callback, void * p_ud) : void
++UndoRedo() : void
++~UndoRedo() : void
 }
 C_0000699772808699382057 o-- C_0001357046052919104842 : -count
 C_0000945411446247634027 --> C_0000945411446247634027 : +invalid_node_name_characters
@@ -3839,11 +3839,16 @@ C_0001531814603945772616 <|-- C_0001778859257025660860
 C_0001213123647052694419 o-- C_0001858199404643284193 : -_class_name
 C_0001213123647052694419 <.. C_0000104564426296396960 : +<<friend>>
 C_0001778859257025660860 <|-- C_0001213123647052694419
+C_0001699661383862634192 o-- C_0001858199404643284193 : -_class_name
+C_0001699661383862634192 o-- C_0001858199404643284193 : -function
+C_0001699661383862634192 <.. C_0000104564426296396960 : +<<friend>>
+C_0001778859257025660860 <|-- C_0001699661383862634192
 C_0000218299049716973303 o-- C_0001858199404643284193 : -_class_name
 C_0000218299049716973303 <.. C_0001872058027933416994 : +<<friend>>
 C_0000218299049716973303 <.. C_0000104564426296396960 : +<<friend>>
 C_0001531814603945772616 <|-- C_0000218299049716973303
 C_0000933379568804427881 --> C_0001531814603945772616 : -_ptr
+C_0000825523737350882091 --> C_0000825523737350882091 : -singleton
 C_0001951177692366602790 o-- C_0001858199404643284193 : -_class_name
 C_0001951177692366602790 o-- C_0000945411446247634027 : -name
 C_0001951177692366602790 o-- C_0000945411446247634027 : -path_cache
@@ -3851,19 +3856,6 @@ C_0001951177692366602790 o-- C_0000945411446247634027 : -import_path
 C_0001951177692366602790 --> C_0000218299049716973303 : -local_scene
 C_0001951177692366602790 <.. C_0000104564426296396960 : +<<friend>>
 C_0001778859257025660860 <|-- C_0001951177692366602790
-C_0001485048025194488343 o-- C_0001858199404643284193 : -_class_name
-C_0001485048025194488343 o-- C_0000945411446247634027 : -locale
-C_0001485048025194488343 o-- C_0000945411446247634027 : -fallback
-C_0001485048025194488343 --> C_0001485048025194488343 : -singleton
-C_0001485048025194488343 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0001485048025194488343
-C_0000066148521405667716 o-- C_0001858199404643284193 : -_class_name
-C_0000066148521405667716 o-- C_0000945411446247634027 : #resource_path
-C_0000066148521405667716 o-- C_0002063845175027013341 : #input_presets
-C_0000066148521405667716 o-- C_0001682405743486361214 : #custom_features
-C_0000066148521405667716 --> C_0000066148521405667716 : #singleton
-C_0000066148521405667716 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0000066148521405667716
 C_0001608678623693693822 o-- C_0001858199404643284193 : -_class_name
 C_0001608678623693693822 <.. C_0001649884439586022807 : +<<friend>>
 C_0001608678623693693822 <.. C_0000104564426296396960 : +<<friend>>
@@ -3882,23 +3874,70 @@ C_0000361490529588572420 o-- C_0002063845175027013341 : -_cmdline
 C_0000361490529588572420 o-- C_0000945411446247634027 : -_local_clipboard
 C_0000361490529588572420 o-- C_0002063845175027013341 : -restart_commandline
 C_0000361490529588572420 --> C_0000361490529588572420 : -singleton
-C_0001191393512042218074 o-- C_0001858199404643284193 : -_class_name
-C_0001191393512042218074 --> C_0001191393512042218074 : #singleton
-C_0001191393512042218074 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0001191393512042218074
-C_0000825523737350882091 --> C_0000825523737350882091 : -singleton
+C_0001485048025194488343 o-- C_0001858199404643284193 : -_class_name
+C_0001485048025194488343 o-- C_0000945411446247634027 : -locale
+C_0001485048025194488343 o-- C_0000945411446247634027 : -fallback
+C_0001485048025194488343 --> C_0001485048025194488343 : -singleton
+C_0001485048025194488343 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0001485048025194488343
 C_0000132048052014479231 --> C_0001531814603945772616 : +obj
 C_0000115801560197752094 o-- C_0001858199404643284193 : +signal
 C_0000115801560197752094 --> C_0001531814603945772616 : +target
 C_0000115801560197752094 o-- C_0001858199404643284193 : +method
-C_0000535376932101028371 o-- C_0001858199404643284193 : -_class_name
-C_0000535376932101028371 --> C_0000535376932101028371 : -singleton
-C_0000535376932101028371 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0000535376932101028371
-C_0000314051240057057851 o-- C_0001858199404643284193 : -_class_name
-C_0000314051240057057851 --> C_0000314051240057057851 : -singleton
-C_0000314051240057057851 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0000314051240057057851
+C_0000066148521405667716 o-- C_0001858199404643284193 : -_class_name
+C_0000066148521405667716 o-- C_0000945411446247634027 : #resource_path
+C_0000066148521405667716 o-- C_0002063845175027013341 : #input_presets
+C_0000066148521405667716 o-- C_0001682405743486361214 : #custom_features
+C_0000066148521405667716 --> C_0000066148521405667716 : #singleton
+C_0000066148521405667716 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0000066148521405667716
+C_0001191393512042218074 o-- C_0001858199404643284193 : -_class_name
+C_0001191393512042218074 --> C_0001191393512042218074 : #singleton
+C_0001191393512042218074 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0001191393512042218074
+C_0000425668537377496256 o-- C_0001858199404643284193 : -_class_name
+C_0000425668537377496256 o-- C_0000945411446247634027 : -expression
+C_0000425668537377496256 o-- C_0000945411446247634027 : -error_str
+C_0000425668537377496256 <.. C_0000104564426296396960 : +<<friend>>
+C_0001778859257025660860 <|-- C_0000425668537377496256
+C_0001197720528033242618 o-- C_0001858199404643284193 : -_class_name
+C_0001197720528033242618 --> C_0001197720528033242618 : #singleton
+C_0001197720528033242618 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0001197720528033242618
+C_0001130773750498288283 o-- C_0001858199404643284193 : -_class_name
+C_0001130773750498288283 --> C_0001130773750498288283 : #singleton
+C_0001130773750498288283 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0001130773750498288283
+C_0000790752023609648644 o-- C_0001858199404643284193 : -_class_name
+C_0000790752023609648644 --> C_0000790752023609648644 : #singleton
+C_0000790752023609648644 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0000790752023609648644
+C_0000897221634691489964 o-- C_0001858199404643284193 : -_class_name
+C_0000897221634691489964 --> C_0000897221634691489964 : -singleton
+C_0000897221634691489964 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0000897221634691489964
+C_0000135188690773659020 o-- C_0001858199404643284193 : -_class_name
+C_0000135188690773659020 --> C_0000135188690773659020 : -singleton
+C_0000135188690773659020 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0000135188690773659020
+C_0001150621116588802549 o-- C_0001858199404643284193 : -_class_name
+C_0001150621116588802549 o-- C_0000210234563198599367 : #ret
+C_0001150621116588802549 o-- C_0000210234563198599367 : #userdata
+C_0001150621116588802549 --> C_0001531814603945772616 : #target_instance
+C_0001150621116588802549 o-- C_0001858199404643284193 : #target_method
+C_0001150621116588802549 <.. C_0000104564426296396960 : +<<friend>>
+C_0001778859257025660860 <|-- C_0001150621116588802549
+C_0001186331261774827872 o-- C_0001858199404643284193 : -_class_name
+C_0001186331261774827872 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0001186331261774827872
+C_0001895218672297528471 o-- C_0001858199404643284193 : -_class_name
+C_0001895218672297528471 --> C_0001895218672297528471 : #singleton
+C_0001895218672297528471 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0001895218672297528471
+C_0000979065355535690103 o-- C_0001858199404643284193 : -_class_name
+C_0000979065355535690103 --> C_0000979065355535690103 : #singleton
+C_0000979065355535690103 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0000979065355535690103
 C_0001701907280759632930 o-- C_0001858199404643284193 : -_class_name
 C_0001701907280759632930 --> C_0001701907280759632930 : #singleton
 C_0001701907280759632930 <.. C_0000104564426296396960 : +<<friend>>
@@ -3950,60 +3989,21 @@ C_0001872058027933416994 --> C_0001872058027933416994 : -singleton
 C_0001872058027933416994 <.. C_0000218299049716973303 : +<<friend>>
 C_0001872058027933416994 <.. C_0000104564426296396960 : +<<friend>>
 C_0000970940027123558604 <|-- C_0001872058027933416994
-C_0000096380574950611570 o-- C_0001858199404643284193 : -_class_name
-C_0000096380574950611570 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0000096380574950611570
-C_0001699661383862634192 o-- C_0001858199404643284193 : -_class_name
-C_0001699661383862634192 o-- C_0001858199404643284193 : -function
-C_0001699661383862634192 <.. C_0000104564426296396960 : +<<friend>>
-C_0001778859257025660860 <|-- C_0001699661383862634192
 C_0000762417759113755306 --> C_0001531814603945772616 : +obj
 C_0000762417759113755306 o-- C_0001858199404643284193 : +func
+C_0000314051240057057851 o-- C_0001858199404643284193 : -_class_name
+C_0000314051240057057851 --> C_0000314051240057057851 : -singleton
+C_0000314051240057057851 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0000314051240057057851
+C_0000535376932101028371 o-- C_0001858199404643284193 : -_class_name
+C_0000535376932101028371 --> C_0000535376932101028371 : -singleton
+C_0000535376932101028371 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0000535376932101028371
 C_0001370497546359815893 o-- C_0001858199404643284193 : -_class_name
 C_0001370497546359815893 --> C_0001370497546359815893 : -singleton
 C_0001370497546359815893 <.. C_0000104564426296396960 : +<<friend>>
 C_0001531814603945772616 <|-- C_0001370497546359815893
-C_0000425668537377496256 o-- C_0001858199404643284193 : -_class_name
-C_0000425668537377496256 o-- C_0000945411446247634027 : -expression
-C_0000425668537377496256 o-- C_0000945411446247634027 : -error_str
-C_0000425668537377496256 <.. C_0000104564426296396960 : +<<friend>>
-C_0001778859257025660860 <|-- C_0000425668537377496256
-C_0001197720528033242618 o-- C_0001858199404643284193 : -_class_name
-C_0001197720528033242618 --> C_0001197720528033242618 : #singleton
-C_0001197720528033242618 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0001197720528033242618
-C_0001130773750498288283 o-- C_0001858199404643284193 : -_class_name
-C_0001130773750498288283 --> C_0001130773750498288283 : #singleton
-C_0001130773750498288283 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0001130773750498288283
-C_0000790752023609648644 o-- C_0001858199404643284193 : -_class_name
-C_0000790752023609648644 --> C_0000790752023609648644 : #singleton
-C_0000790752023609648644 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0000790752023609648644
-C_0000897221634691489964 o-- C_0001858199404643284193 : -_class_name
-C_0000897221634691489964 --> C_0000897221634691489964 : -singleton
-C_0000897221634691489964 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0000897221634691489964
-C_0000135188690773659020 o-- C_0001858199404643284193 : -_class_name
-C_0000135188690773659020 --> C_0000135188690773659020 : -singleton
-C_0000135188690773659020 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0000135188690773659020
-C_0001150621116588802549 o-- C_0001858199404643284193 : -_class_name
-C_0001150621116588802549 o-- C_0000210234563198599367 : #ret
-C_0001150621116588802549 o-- C_0000210234563198599367 : #userdata
-C_0001150621116588802549 --> C_0001531814603945772616 : #target_instance
-C_0001150621116588802549 o-- C_0001858199404643284193 : #target_method
-C_0001150621116588802549 <.. C_0000104564426296396960 : +<<friend>>
-C_0001778859257025660860 <|-- C_0001150621116588802549
-C_0001186331261774827872 o-- C_0001858199404643284193 : -_class_name
-C_0001186331261774827872 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0001186331261774827872
-C_0001895218672297528471 o-- C_0001858199404643284193 : -_class_name
-C_0001895218672297528471 --> C_0001895218672297528471 : #singleton
-C_0001895218672297528471 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0001895218672297528471
-C_0000979065355535690103 o-- C_0001858199404643284193 : -_class_name
-C_0000979065355535690103 --> C_0000979065355535690103 : #singleton
-C_0000979065355535690103 <.. C_0000104564426296396960 : +<<friend>>
-C_0001531814603945772616 <|-- C_0000979065355535690103
+C_0000096380574950611570 o-- C_0001858199404643284193 : -_class_name
+C_0000096380574950611570 <.. C_0000104564426296396960 : +<<friend>>
+C_0001531814603945772616 <|-- C_0000096380574950611570
 @enduml

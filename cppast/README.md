@@ -3,19 +3,7 @@
 ## Generating diagrams
 
 ```bash
-# Checkout and build godot
-git clone https://github.com/foonathan/cppast
-cd cppast
-mkdir _build && cd _build
-cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCPPAST_BUILD_TEST=OFF ..
-# Copy .clang-uml config to godot root directory
-cp ../clang-uml-examples/cppast/.clang-uml .
-# Create output diagram directory
-mkdir puml
-# Run clang-uml
-clang-uml 
-# Generate diagrams
-plantuml -tsvg puml/*.puml
+make CLANG_UML_BINARY=../../clang-uml/debug/clang-uml
 ```
 
 ## 'cpp_entity' class hierarchy

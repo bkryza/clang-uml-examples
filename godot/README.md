@@ -3,22 +3,7 @@
 ## Generating diagrams
 
 ```bash
-# Checkout and build godot
-git clone https://github.com/godotengine/godot
-cd godot
-git checkout 3.3.4-stable
-scons platform=x11 -j12
-# Copy .clang-uml config to godot root directory
-cp ../clang-uml-examples/godot/.clang-uml .
-# Create output diagram directory
-mkdir puml
-# Comment out line 808 in 'core/object.h'
-#   #include "core/class_db.h"
-#
-# Run clang-uml
-clang-uml
-# Generate diagrams
-plantuml -tsvg puml/*.puml
+make CLANG_UML_BINARY=../../clang-uml/debug/clang-uml
 ```
 
 ## 'Object' class hierarchy

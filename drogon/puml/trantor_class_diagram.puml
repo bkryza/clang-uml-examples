@@ -2,177 +2,6 @@
 class "NonCopyable" as C_0001159823987743494688
 class C_0001159823987743494688 {
 }
-class "Date" as C_0002032009232244826154
-class C_0002032009232244826154 {
-+Date() : void
-+Date(int64_t microSec) : void
-+Date(unsigned int year, unsigned int month, unsigned int day, unsigned int hour = 0, unsigned int minute = 0, unsigned int second = 0, unsigned int microSecond = 0) : void
-{static} +date() : const Date
-{static} +now() : const Date
-{static} +timezoneOffset() : int64_t
-+after(double second) const : const Date
-+roundSecond() const : const Date
-+roundDay() const : const Date
-+~Date() : void
-+operator==(const Date & date) const : bool
-+operator!=(const Date & date) const : bool
-+operator<(const Date & date) const : bool
-+operator>(const Date & date) const : bool
-+operator>=(const Date & date) const : bool
-+operator<=(const Date & date) const : bool
-+microSecondsSinceEpoch() const : int64_t
-+secondsSinceEpoch() const : int64_t
-+tmStruct() const : struct tm
-+toFormattedString(bool showMicroseconds) const : std::string
-+toCustomedFormattedString(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
-+toFormattedStringLocal(bool showMicroseconds) const : std::string
-+toCustomedFormattedStringLocal(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
-+toDbStringLocal() const : std::string
-+toDbString() const : std::string
-{static} +fromDbStringLocal(const std::string & datetime) : Date
-{static} +fromDbString(const std::string & datetime) : Date
-+toCustomedFormattedString(const std::string & fmtStr, char * str, size_t len) const : void
-+isSameSecond(const Date & date) const : bool
-+swap(Date & that) : void
-}
-class "AsyncFileLogger" as C_0000630185754256426097
-class C_0000630185754256426097 {
-+output(const char * msg, const uint64_t len) : void
-+flush() : void
-+startLogging() : void
-+setFileSizeLimit(uint64_t limit) : void
-+setFileName(const std::string & baseName, const std::string & extName = ".log", const std::string & path = "./") : void
-+~AsyncFileLogger() : void
-+AsyncFileLogger() : void
-}
-class "AsyncFileLogger::LoggerFile" as C_0000923080849258138681
-class C_0000923080849258138681 {
-+LoggerFile(const std::string & filePath, const std::string & fileBaseName, const std::string & fileExtName) : void
-+~LoggerFile() : void
-+writeLog(const StringPtr buf) : void
-+getLength() : uint64_t
-+operator bool() const : bool
-+flush() : void
-}
-class "MpscQueue<T>" as C_0000912667184903365399
-class C_0000912667184903365399 {
-+MpscQueue<T>() : void
-+~MpscQueue<T>() : void
-+enqueue(T && input) : void
-+enqueue(const T & input) : void
-+dequeue(T & output) : bool
-+empty() : bool
-}
-class "MpscQueue<std::function<>>" as C_0000913287266699074255
-class C_0000913287266699074255 {
-}
-class "EventLoop" as C_0001390130774830223499
-class C_0001390130774830223499 {
-+EventLoop() : void
-+~EventLoop() : void
-+loop() : void
-+quit() : void
-+assertInLoopThread() : void
-+resetTimerQueue() : void
-+resetAfterFork() : void
-+isInLoopThread() const : bool
-{static} +getEventLoopOfCurrentThread() : EventLoop *
-+queueInLoop(const Func & f) : void
-+queueInLoop(Func && f) : void
-+runAt(const Date & time, const Func & cb) : TimerId
-+runAt(const Date & time, Func && cb) : TimerId
-+runAfter(double delay, const Func & cb) : TimerId
-+runAfter(double delay, Func && cb) : TimerId
-+runAfter(const std::chrono::duration<double> & delay, const Func & cb) : TimerId
-+runAfter(const std::chrono::duration<double> & delay, Func && cb) : TimerId
-+runEvery(double interval, const Func & cb) : TimerId
-+runEvery(double interval, Func && cb) : TimerId
-+runEvery(const std::chrono::duration<double> & interval, const Func & cb) : TimerId
-+runEvery(const std::chrono::duration<double> & interval, Func && cb) : TimerId
-+invalidateTimer(TimerId id) : void
-+moveToCurrentThread() : void
-+updateChannel(Channel * chl) : void
-+removeChannel(Channel * chl) : void
-+index() : size_t
-+setIndex(size_t index) : void
-+isRunning() : bool
-+isCallingFunctions() : bool
-+runOnQuit(Func && cb) : void
-+runOnQuit(const Func & cb) : void
-+runInLoop(Functor && f) : void
-}
-class "EventLoopThread" as C_0001280612521485369958
-class C_0001280612521485369958 {
-+EventLoopThread(const std::string & threadName = "EventLoopThread") : void
-+~EventLoopThread() : void
-+wait() : void
-+getLoop() const : EventLoop *
-+run() : void
-}
-class "EventLoopThreadPool" as C_0002061035340998974559
-class C_0002061035340998974559 {
-+EventLoopThreadPool() : void
-+EventLoopThreadPool(size_t threadNum, const std::string & name = "EventLoopThreadPool") : void
-+start() : void
-+wait() : void
-+size() : size_t
-+getNextLoop() : EventLoop *
-+getLoop(size_t id) : EventLoop *
-+getLoops() const : std::vector<EventLoop *>
-}
-abstract "Poller" as C_0000300034150397884642
-abstract C_0000300034150397884642 {
-+Poller(EventLoop * loop) : void
-+~Poller() : void
-+assertInLoopThread() : void
-{abstract} +poll(int timeoutMs, ChannelList * activeChannels) = 0 : void
-{abstract} +updateChannel(Channel * channel) = 0 : void
-{abstract} +removeChannel(Channel * channel) = 0 : void
-+resetAfterFork() : void
-{static} +newPoller(EventLoop * loop) : Poller *
-}
-class "TimerQueue" as C_0000607400095182694101
-class C_0000607400095182694101 {
-+TimerQueue(EventLoop * loop) : void
-+~TimerQueue() : void
-+addTimer(const TimerCallback & cb, const TimePoint & when, const TimeInterval & interval) : TimerId
-+addTimer(TimerCallback && cb, const TimePoint & when, const TimeInterval & interval) : TimerId
-+addTimerInLoop(const TimerPtr & timer) : void
-+invalidateTimer(TimerId id) : void
-+reset() : void
-}
-class "Channel" as C_0000764690828649606524
-class C_0000764690828649606524 {
-+Channel(EventLoop * loop, int fd) : void
-+setReadCallback(const Channel::EventCallback & cb) : void
-+setReadCallback(Channel::EventCallback && cb) : void
-+setWriteCallback(const Channel::EventCallback & cb) : void
-+setWriteCallback(Channel::EventCallback && cb) : void
-+setCloseCallback(const Channel::EventCallback & cb) : void
-+setCloseCallback(Channel::EventCallback && cb) : void
-+setErrorCallback(const Channel::EventCallback & cb) : void
-+setErrorCallback(Channel::EventCallback && cb) : void
-+setEventCallback(const Channel::EventCallback & cb) : void
-+setEventCallback(Channel::EventCallback && cb) : void
-+fd() const : int
-+events() const : int
-+revents() const : int
-+isNoneEvent() const : bool
-+disableAll() : void
-+remove() : void
-+ownerLoop() : EventLoop *
-+enableReading() : void
-+disableReading() : void
-+enableWriting() : void
-+disableWriting() : void
-+isWriting() const : bool
-+isReading() const : bool
-+updateEvents(int events) : void
-+tie(const std::shared_ptr<void> & obj) : void
-{static} +kNoneEvent : const int
-{static} +kReadEvent : const int
-{static} +kWriteEvent : const int
-}
 class "MsgBuffer" as C_0001289495020269537351
 class C_0001289495020269537351 {
 +MsgBuffer(size_t len = kBufferDefaultLength) : void
@@ -222,6 +51,102 @@ abstract C_0000684873245997977544 {
 +getName() const : std::string
 +syncTaskInQueue(const std::function<void ()> & task) : void
 +~TaskQueue() : void
+}
+class "Date" as C_0002032009232244826154
+class C_0002032009232244826154 {
++Date() : void
++Date(int64_t microSec) : void
++Date(unsigned int year, unsigned int month, unsigned int day, unsigned int hour = 0, unsigned int minute = 0, unsigned int second = 0, unsigned int microSecond = 0) : void
+{static} +date() : const Date
+{static} +now() : const Date
+{static} +timezoneOffset() : int64_t
++after(double second) const : const Date
++roundSecond() const : const Date
++roundDay() const : const Date
++~Date() : void
++operator==(const Date & date) const : bool
++operator!=(const Date & date) const : bool
++operator<(const Date & date) const : bool
++operator>(const Date & date) const : bool
++operator>=(const Date & date) const : bool
++operator<=(const Date & date) const : bool
++microSecondsSinceEpoch() const : int64_t
++secondsSinceEpoch() const : int64_t
++tmStruct() const : struct tm
++toFormattedString(bool showMicroseconds) const : std::string
++toCustomedFormattedString(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toFormattedStringLocal(bool showMicroseconds) const : std::string
++toCustomedFormattedStringLocal(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toDbStringLocal() const : std::string
++toDbString() const : std::string
+{static} +fromDbStringLocal(const std::string & datetime) : Date
+{static} +fromDbString(const std::string & datetime) : Date
++toCustomedFormattedString(const std::string & fmtStr, char * str, size_t len) const : void
++isSameSecond(const Date & date) const : bool
++swap(Date & that) : void
+}
+class "MpscQueue<T>" as C_0000912667184903365399
+class C_0000912667184903365399 {
++MpscQueue<T>() : void
++~MpscQueue<T>() : void
++enqueue(T && input) : void
++enqueue(const T & input) : void
++dequeue(T & output) : bool
++empty() : bool
+}
+class "MpscQueue<T>::BufferNode" as C_0000877413745002227038
+class C_0000877413745002227038 {
++BufferNode() = default : void
++BufferNode(const T & data) : void
++BufferNode(T && data) : void
++dataPtr_ : T *
++next_ : std::atomic<BufferNode *>
+}
+class "MpscQueue<std::function<>>" as C_0000913287266699074255
+class C_0000913287266699074255 {
+}
+class "EventLoop" as C_0001390130774830223499
+class C_0001390130774830223499 {
++EventLoop() : void
++~EventLoop() : void
++loop() : void
++quit() : void
++assertInLoopThread() : void
++resetTimerQueue() : void
++resetAfterFork() : void
++isInLoopThread() const : bool
+{static} +getEventLoopOfCurrentThread() : EventLoop *
++queueInLoop(const Func & f) : void
++queueInLoop(Func && f) : void
++runAt(const Date & time, const Func & cb) : TimerId
++runAt(const Date & time, Func && cb) : TimerId
++runAfter(double delay, const Func & cb) : TimerId
++runAfter(double delay, Func && cb) : TimerId
++runAfter(const std::chrono::duration<double> & delay, const Func & cb) : TimerId
++runAfter(const std::chrono::duration<double> & delay, Func && cb) : TimerId
++runEvery(double interval, const Func & cb) : TimerId
++runEvery(double interval, Func && cb) : TimerId
++runEvery(const std::chrono::duration<double> & interval, const Func & cb) : TimerId
++runEvery(const std::chrono::duration<double> & interval, Func && cb) : TimerId
++invalidateTimer(TimerId id) : void
++moveToCurrentThread() : void
++updateChannel(Channel * chl) : void
++removeChannel(Channel * chl) : void
++index() : size_t
++setIndex(size_t index) : void
++isRunning() : bool
++isCallingFunctions() : bool
++runOnQuit(Func && cb) : void
++runOnQuit(const Func & cb) : void
++runInLoop(Functor && f) : void
+}
+class "EventLoopThread" as C_0001280612521485369958
+class C_0001280612521485369958 {
++EventLoopThread(const std::string & threadName = "EventLoopThread") : void
++~EventLoopThread() : void
++wait() : void
++getLoop() const : EventLoop *
++run() : void
 }
 class "SerialTaskQueue" as C_0000634031134969193198
 class C_0000634031134969193198 {
@@ -332,8 +257,8 @@ class C_0002053752992472264214 {
 {static} +setLogLevel(Logger::LogLevel level) : void
 {static} +logLevel() : Logger::LogLevel
 }
-enum "Logger::LogLevel" as C_0001184349029950147049
-enum C_0001184349029950147049 {
+enum "Logger::LogLevel" as C_0002131283840621188296
+enum C_0002131283840621188296 {
 kTrace
 kDebug
 kInfo
@@ -342,8 +267,8 @@ kError
 kFatal
 kNumberOfLogLevels
 }
-class "Logger::SourceFile" as C_0002198968118661318449
-class C_0002198968118661318449 {
+class "Logger::SourceFile" as C_0000979080797342806546
+class C_0000979080797342806546 {
 +SourceFile(const char * filename) : void
 +SourceFile(const char (&)[N] arr) : void
 +data_ : const char *
@@ -354,6 +279,59 @@ class C_0000716430590791918928 {
 +~RawLogger() : void
 +setIndex(int index) : RawLogger &
 +stream() : LogStream &
+}
+abstract "Poller" as C_0000300034150397884642
+abstract C_0000300034150397884642 {
++Poller(EventLoop * loop) : void
++~Poller() : void
++assertInLoopThread() : void
+{abstract} +poll(int timeoutMs, ChannelList * activeChannels) = 0 : void
+{abstract} +updateChannel(Channel * channel) = 0 : void
+{abstract} +removeChannel(Channel * channel) = 0 : void
++resetAfterFork() : void
+{static} +newPoller(EventLoop * loop) : Poller *
+}
+class "TimerQueue" as C_0000607400095182694101
+class C_0000607400095182694101 {
++TimerQueue(EventLoop * loop) : void
++~TimerQueue() : void
++addTimer(const TimerCallback & cb, const TimePoint & when, const TimeInterval & interval) : TimerId
++addTimer(TimerCallback && cb, const TimePoint & when, const TimeInterval & interval) : TimerId
++addTimerInLoop(const TimerPtr & timer) : void
++invalidateTimer(TimerId id) : void
++reset() : void
+}
+class "Channel" as C_0000764690828649606524
+class C_0000764690828649606524 {
++Channel(EventLoop * loop, int fd) : void
++setReadCallback(const Channel::EventCallback & cb) : void
++setReadCallback(Channel::EventCallback && cb) : void
++setWriteCallback(const Channel::EventCallback & cb) : void
++setWriteCallback(Channel::EventCallback && cb) : void
++setCloseCallback(const Channel::EventCallback & cb) : void
++setCloseCallback(Channel::EventCallback && cb) : void
++setErrorCallback(const Channel::EventCallback & cb) : void
++setErrorCallback(Channel::EventCallback && cb) : void
++setEventCallback(const Channel::EventCallback & cb) : void
++setEventCallback(Channel::EventCallback && cb) : void
++fd() const : int
++events() const : int
++revents() const : int
++isNoneEvent() const : bool
++disableAll() : void
++remove() : void
++ownerLoop() : EventLoop *
++enableReading() : void
++disableReading() : void
++enableWriting() : void
++disableWriting() : void
++isWriting() const : bool
++isReading() const : bool
++updateEvents(int events) : void
++tie(const std::shared_ptr<void> & obj) : void
+{static} +kNoneEvent : const int
+{static} +kReadEvent : const int
+{static} +kWriteEvent : const int
 }
 class "ConcurrentTaskQueue" as C_0000295101274428145462
 class C_0000295101274428145462 {
@@ -386,8 +364,8 @@ class C_0001897340460211641725 {
 +setPortNetEndian(uint16_t port) : void
 +isUnspecified() const : bool
 }
-class "InetAddress::(anonymous_2030796)" as C_0001238571308552245455
-class C_0001238571308552245455 {
+class "InetAddress::()" as C_0000673025168912921705
+class C_0000673025168912921705 {
 +addr_ : struct sockaddr_in
 +addr6_ : struct sockaddr_in6
 }
@@ -458,8 +436,8 @@ class C_0001156367011091191681 {
 +setSSLErrorCallback(SSLErrorCallback && cb) : void
 +enableSSL(bool useOldTLS = false, bool validateCert = true, std::string hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = = {}, const std::string & certPath = "", const std::string & keyPath = "", const std::string & caPath = "") : void
 }
-class "TcpClient::IgnoreSigPipe" as C_0002033458902174399063
-class C_0002033458902174399063 {
+class "TcpClient::IgnoreSigPipe" as C_0001278908569830571044
+class C_0001278908569830571044 {
 +IgnoreSigPipe() : void
 }
 class "Connector" as C_0001706043459252151324
@@ -475,8 +453,8 @@ class C_0001706043459252151324 {
 +restart() : void
 +stop() : void
 }
-enum "Connector::Status" as C_0002045450139033818398
-enum C_0002045450139033818398 {
+enum "Connector::Status" as C_0000000982196670174162
+enum C_0000000982196670174162 {
 Disconnected
 Connecting
 Connected
@@ -489,8 +467,8 @@ class C_0000964465843177067305 {
 +getLoop() : EventLoop *
 +~TimingWheel() : void
 }
-class "TimingWheel::CallbackEntry" as C_0001504852334691167098
-class C_0001504852334691167098 {
+class "TimingWheel::CallbackEntry" as C_0002013739811805694444
+class C_0002013739811805694444 {
 +CallbackEntry(std::function<void ()> cb) : void
 +~CallbackEntry() : void
 }
@@ -537,14 +515,14 @@ class C_0000920759514274339356 {
 +startServerEncryption(const std::shared_ptr<SSLContext> & ctx, std::function<void ()> callback) : void
 +isSSLConnection() const : bool
 }
-class "TcpConnectionImpl::KickoffEntry" as C_0000054046898195558381
-class C_0000054046898195558381 {
+class "TcpConnectionImpl::KickoffEntry" as C_0002266895444343633259
+class C_0002266895444343633259 {
 +KickoffEntry(const std::weak_ptr<TcpConnection> & conn) : void
 +reset() : void
 +~KickoffEntry() : void
 }
-class "TcpConnectionImpl::BufferNode" as C_0000943181451128697972
-class C_0000943181451128697972 {
+class "TcpConnectionImpl::BufferNode" as C_0001029063960859366412
+class C_0001029063960859366412 {
 +isFile() const : bool
 +~BufferNode() : void
 +sendFd_ : int
@@ -554,15 +532,15 @@ class C_0000943181451128697972 {
 +nDataWritten_ : std::size_t
 +msgBuffer_ : std::shared_ptr<MsgBuffer>
 }
-enum "TcpConnectionImpl::ConnStatus" as C_0000198777833674414676
-enum C_0000198777833674414676 {
+enum "TcpConnectionImpl::ConnStatus" as C_0001727349338344491225
+enum C_0001727349338344491225 {
 Disconnected
 Connecting
 Connected
 Disconnecting
 }
-class "TcpConnectionImpl::SSLEncryption" as C_0001847734957165426408
-class C_0001847734957165426408 {
+class "TcpConnectionImpl::SSLEncryption" as C_0000469308227546933692
+class C_0000469308227546933692 {
 +statusOfSSL_ : SSLStatus
 +sslCtxPtr_ : std::shared_ptr<SSLContext>
 +sslPtr_ : std::unique_ptr<SSLConn>
@@ -623,8 +601,8 @@ class C_0001423170502760786790 {
 +kickoffIdleConnections(size_t timeout) : void
 +enableSSL(const std::string & certPath, const std::string & keyPath, bool useOldTLS = false, const std::vector<std::pair<std::string,std::string>> & sslConfCmds = = {}, const std::string & caPath = "") : void
 }
-class "InetAddress::(anonymous_2030836)" as C_0000741797986785144168
-class C_0000741797986785144168 {
+class "InetAddress::(anonymous_2030836)" as C_0000810201796859309531
+class C_0000810201796859309531 {
 +addr_ : struct sockaddr_in
 +addr6_ : struct sockaddr_in6
 }
@@ -636,8 +614,19 @@ class C_0000184886692180276257 {
 +setNewConnectionCallback(const NewConnectionCallback & cb) : void
 +listen() : void
 }
-class "TcpServer::IgnoreSigPipe" as C_0001829426703641465340
-class C_0001829426703641465340 {
+class "EventLoopThreadPool" as C_0002061035340998974559
+class C_0002061035340998974559 {
++EventLoopThreadPool() : void
++EventLoopThreadPool(size_t threadNum, const std::string & name = "EventLoopThreadPool") : void
++start() : void
++wait() : void
++size() : size_t
++getNextLoop() : EventLoop *
++getLoop(size_t id) : EventLoop *
++getLoops() const : std::vector<EventLoop *>
+}
+class "TcpServer::IgnoreSigPipe" as C_0001489562721151066050
+class C_0001489562721151066050 {
 +IgnoreSigPipe() : void
 }
 class "T" as C_0000394452884449343416
@@ -645,6 +634,11 @@ class C_0000394452884449343416 {
 +T(const char * str, unsigned int len) : void
 +str_ : const char *
 +len_ : const unsigned int
+}
+class "InetAddress::(anonymous_1188166)" as C_0001079750728717860293
+class C_0001079750728717860293 {
++addr_ : struct sockaddr_in
++addr6_ : struct sockaddr_in6
 }
 class "Timer" as C_0002026475275429760163
 class C_0002026475275429760163 {
@@ -663,17 +657,28 @@ class "TimerPtrComparer" as C_0000157340721173102239
 class C_0000157340721173102239 {
 +operator()(const TimerPtr & x, const TimerPtr & y) const : bool
 }
-class "InetAddress::(anonymous_1188166)" as C_0000253546837558644771
-class C_0000253546837558644771 {
-+addr_ : struct sockaddr_in
-+addr6_ : struct sockaddr_in6
+class "AsyncFileLogger" as C_0000630185754256426097
+class C_0000630185754256426097 {
++output(const char * msg, const uint64_t len) : void
++flush() : void
++startLogging() : void
++setFileSizeLimit(uint64_t limit) : void
++setFileName(const std::string & baseName, const std::string & extName = ".log", const std::string & path = "./") : void
++~AsyncFileLogger() : void
++AsyncFileLogger() : void
 }
-C_0000630185754256426097 o-- C_0000923080849258138681 : #loggerFilePtr_
-C_0001159823987743494688 <|-- C_0000630185754256426097
-C_0000923080849258138681 o-- C_0002032009232244826154 : #creationDate_
-C_0000923080849258138681 --+ C_0000630185754256426097
-C_0001159823987743494688 <|-- C_0000923080849258138681
+class "AsyncFileLogger::LoggerFile" as C_0001453238540802541239
+class C_0001453238540802541239 {
++LoggerFile(const std::string & filePath, const std::string & fileBaseName, const std::string & fileExtName) : void
++~LoggerFile() : void
++writeLog(const StringPtr buf) : void
++getLength() : uint64_t
++operator bool() const : bool
++flush() : void
+}
+C_0001159823987743494688 <|-- C_0000684873245997977544
 C_0001159823987743494688 <|-- C_0000912667184903365399
+C_0000877413745002227038 --+ C_0000912667184903365399
 C_0000913287266699074255 ..|> C_0000912667184903365399
 C_0001390130774830223499 ..> C_0002032009232244826154
 C_0001390130774830223499 ..> C_0000764690828649606524
@@ -689,8 +694,24 @@ C_0001159823987743494688 <|-- C_0001390130774830223499
 C_0001280612521485369958 --> C_0001390130774830223499 : -loop_
 C_0001280612521485369958 o-- C_0001390130774830223499 : -promiseForLoopPointer_
 C_0001159823987743494688 <|-- C_0001280612521485369958
-C_0002061035340998974559 o-- C_0001280612521485369958 : -loopThreadVector_
-C_0001159823987743494688 <|-- C_0002061035340998974559
+C_0000634031134969193198 o-- C_0001280612521485369958 : #loopThread_
+C_0000684873245997977544 <|-- C_0000634031134969193198
+C_0001159823987743494688 <|-- C_0000111393647775817392
+C_0000510041652600390686 ..|> C_0000111393647775817392
+C_0001754247125147083756 ..|> C_0000111393647775817392
+C_0001159823987743494688 <|-- C_0001754247125147083756
+C_0001042478360162272930 ..|> C_0000111393647775817392
+C_0001159823987743494688 <|-- C_0001042478360162272930
+C_0001930690020065325250 o-- C_0000510041652600390686 : -buffer_
+C_0001159823987743494688 <|-- C_0001930690020065325250
+C_0002053752992472264214 o-- C_0001930690020065325250 : #logStream_
+C_0002053752992472264214 o-- C_0002032009232244826154 : #date_
+C_0002053752992472264214 <.. C_0000716430590791918928 : +<<friend>>
+C_0001159823987743494688 <|-- C_0002053752992472264214
+C_0002131283840621188296 --+ C_0002053752992472264214
+C_0000979080797342806546 --+ C_0002053752992472264214
+C_0000716430590791918928 o-- C_0001930690020065325250 : -logStream_
+C_0001159823987743494688 <|-- C_0000716430590791918928
 C_0000300034150397884642 ..> C_0001390130774830223499
 C_0000300034150397884642 ..> C_0000764690828649606524
 C_0000300034150397884642 --> C_0001390130774830223499 : -ownerLoop_
@@ -706,32 +727,8 @@ C_0000764690828649606524 ..> C_0001390130774830223499
 C_0000764690828649606524 --> C_0001390130774830223499 : -loop_
 C_0000764690828649606524 <.. C_0001390130774830223499 : +<<friend>>
 C_0001159823987743494688 <|-- C_0000764690828649606524
-C_0001159823987743494688 <|-- C_0000684873245997977544
-C_0000634031134969193198 o-- C_0001280612521485369958 : #loopThread_
-C_0000684873245997977544 <|-- C_0000634031134969193198
-C_0001159823987743494688 <|-- C_0000111393647775817392
-C_0000510041652600390686 ..|> C_0000111393647775817392
-C_0001754247125147083756 ..|> C_0000111393647775817392
-C_0001159823987743494688 <|-- C_0001754247125147083756
-C_0001042478360162272930 ..|> C_0000111393647775817392
-C_0001159823987743494688 <|-- C_0001042478360162272930
-C_0001930690020065325250 o-- C_0000510041652600390686 : -buffer_
-C_0001159823987743494688 <|-- C_0001930690020065325250
-C_0002053752992472264214 ..> C_0002198968118661318449
-C_0002053752992472264214 ..> C_0001184349029950147049
-C_0002053752992472264214 o-- C_0001930690020065325250 : #logStream_
-C_0002053752992472264214 o-- C_0002032009232244826154 : #date_
-C_0002053752992472264214 o-- C_0002198968118661318449 : #sourceFile_
-C_0002053752992472264214 o-- C_0001184349029950147049 : #level_
-C_0002053752992472264214 <.. C_0000716430590791918928 : +<<friend>>
-C_0001159823987743494688 <|-- C_0002053752992472264214
-C_0001184349029950147049 --+ C_0002053752992472264214
-C_0002198968118661318449 --+ C_0002053752992472264214
-C_0000716430590791918928 o-- C_0001930690020065325250 : -logStream_
-C_0001159823987743494688 <|-- C_0000716430590791918928
 C_0000684873245997977544 <|-- C_0000295101274428145462
-C_0001897340460211641725 o-- C_0001238571308552245455
-C_0001238571308552245455 --+ C_0001897340460211641725
+C_0001897340460211641725 o-- C_0000673025168912921705
 C_0002230624932100089526 ..> C_0001289495020269537351
 C_0002230624932100089526 ..> C_0000626107303889580949
 C_0001156367011091191681 ..> C_0001390130774830223499
@@ -748,20 +745,18 @@ C_0001156367011091191681 --> C_0002230624932100089526 : -writeCompleteCallback_
 C_0001156367011091191681 ..> C_0000434245188016003403 : -sslErrorCallback_
 C_0001156367011091191681 o-- C_0002230624932100089526 : -connection_
 C_0001156367011091191681 --> C_0000626107303889580949 : -sslCtxPtr_
-C_0001156367011091191681 --> C_0002033458902174399063 : -initObj
 C_0001159823987743494688 <|-- C_0001156367011091191681
-C_0002033458902174399063 --+ C_0001156367011091191681
+C_0001278908569830571044 --+ C_0001156367011091191681
 C_0001706043459252151324 ..> C_0001390130774830223499
 C_0001706043459252151324 ..> C_0001897340460211641725
 C_0001706043459252151324 --> C_0000764690828649606524 : -channelPtr_
 C_0001706043459252151324 --> C_0001390130774830223499 : -loop_
 C_0001706043459252151324 o-- C_0001897340460211641725 : -serverAddr_
-C_0001706043459252151324 o-- C_0002045450139033818398 : -status_
 C_0001159823987743494688 <|-- C_0001706043459252151324
-C_0002045450139033818398 --+ C_0001706043459252151324
+C_0000000982196670174162 --+ C_0001706043459252151324
 C_0000964465843177067305 ..> C_0001390130774830223499
 C_0000964465843177067305 --> C_0001390130774830223499 : -loop_
-C_0001504852334691167098 --+ C_0000964465843177067305
+C_0002013739811805694444 --+ C_0000964465843177067305
 C_0000920759514274339356 ..> C_0001390130774830223499
 C_0000920759514274339356 ..> C_0001897340460211641725
 C_0000920759514274339356 ..> C_0000626107303889580949
@@ -769,18 +764,14 @@ C_0000920759514274339356 ..> C_0001289495020269537351
 C_0000920759514274339356 ..> C_0002230624932100089526
 C_0000920759514274339356 ..> C_0000964465843177067305
 C_0000920759514274339356 ..> C_0000434245188016003403
-C_0000920759514274339356 ..> C_0000943181451128697972
-C_0000920759514274339356 --> C_0000054046898195558381 : -kickoffEntry_
 C_0000920759514274339356 --> C_0000964465843177067305 : -timingWheelWeakPtr_
 C_0000920759514274339356 o-- C_0002032009232244826154 : -lastTimingWheelUpdateTime_
 C_0000920759514274339356 --> C_0001390130774830223499 : #loop_
 C_0000920759514274339356 o-- C_0000764690828649606524 : #ioChannelPtr_
 C_0000920759514274339356 o-- C_0000971024972307079851 : #socketPtr_
 C_0000920759514274339356 o-- C_0001289495020269537351 : #readBuffer_
-C_0000920759514274339356 o-- C_0000943181451128697972 : #writeBufferList_
 C_0000920759514274339356 o-- C_0001897340460211641725 : #localAddr_
 C_0000920759514274339356 o-- C_0001897340460211641725 : #peerAddr_
-C_0000920759514274339356 o-- C_0000198777833674414676 : #status_
 C_0000920759514274339356 --> C_0002230624932100089526 : #recvMsgCallback_
 C_0000920759514274339356 --> C_0001289495020269537351 : #recvMsgCallback_
 C_0000920759514274339356 --> C_0002230624932100089526 : #connectionCallback_
@@ -788,21 +779,20 @@ C_0000920759514274339356 --> C_0002230624932100089526 : #closeCallback_
 C_0000920759514274339356 --> C_0002230624932100089526 : #writeCompleteCallback_
 C_0000920759514274339356 --> C_0002230624932100089526 : #highWaterMarkCallback_
 C_0000920759514274339356 ..> C_0000434245188016003403 : #sslErrorCallback_
-C_0000920759514274339356 o-- C_0001847734957165426408 : -sslEncryptionPtr_
 C_0000920759514274339356 <.. C_0001156367011091191681 : +<<friend>>
 C_0000920759514274339356 <.. C_0001423170502760786790 : +<<friend>>
 C_0002230624932100089526 <|-- C_0000920759514274339356
 C_0001159823987743494688 <|-- C_0000920759514274339356
-C_0000054046898195558381 ..> C_0002230624932100089526
-C_0000054046898195558381 --> C_0002230624932100089526 : -conn_
-C_0000054046898195558381 --+ C_0000920759514274339356
-C_0000943181451128697972 --> C_0001289495020269537351 : +msgBuffer_
-C_0000943181451128697972 --+ C_0000920759514274339356
-C_0000198777833674414676 --+ C_0000920759514274339356
-C_0001847734957165426408 o-- C_0001515554933771522998 : +statusOfSSL_
-C_0001847734957165426408 --> C_0000626107303889580949 : +sslCtxPtr_
-C_0001847734957165426408 o-- C_0001248784923817560723 : +sslPtr_
-C_0001847734957165426408 --+ C_0000920759514274339356
+C_0002266895444343633259 --+ C_0000920759514274339356
+C_0002266895444343633259 ..> C_0002230624932100089526
+C_0002266895444343633259 --> C_0002230624932100089526 : -conn_
+C_0001029063960859366412 --+ C_0000920759514274339356
+C_0001029063960859366412 --> C_0001289495020269537351 : +msgBuffer_
+C_0001727349338344491225 --+ C_0000920759514274339356
+C_0000469308227546933692 --+ C_0000920759514274339356
+C_0000469308227546933692 o-- C_0001515554933771522998 : +statusOfSSL_
+C_0000469308227546933692 --> C_0000626107303889580949 : +sslCtxPtr_
+C_0000469308227546933692 o-- C_0001248784923817560723 : +sslPtr_
 C_0000971024972307079851 ..> C_0001897340460211641725
 C_0001159823987743494688 <|-- C_0000971024972307079851
 C_0001423170502760786790 ..> C_0001390130774830223499
@@ -819,10 +809,8 @@ C_0001423170502760786790 --> C_0002230624932100089526 : -connectionCallback_
 C_0001423170502760786790 --> C_0002230624932100089526 : -writeCompleteCallback_
 C_0001423170502760786790 o-- C_0000964465843177067305 : -timingWheelMap_
 C_0001423170502760786790 --> C_0002061035340998974559 : -loopPoolPtr_
-C_0001423170502760786790 o-- C_0001829426703641465340 : -initObj
 C_0001423170502760786790 --> C_0000626107303889580949 : -sslCtxPtr_
 C_0001159823987743494688 <|-- C_0001423170502760786790
-C_0000741797986785144168 --+ C_0001897340460211641725
 C_0000184886692180276257 ..> C_0001390130774830223499
 C_0000184886692180276257 ..> C_0001897340460211641725
 C_0000184886692180276257 o-- C_0000971024972307079851 : #sock_
@@ -831,8 +819,13 @@ C_0000184886692180276257 --> C_0001390130774830223499 : #loop_
 C_0000184886692180276257 --> C_0001897340460211641725 : #newConnectionCallback_
 C_0000184886692180276257 o-- C_0000764690828649606524 : #acceptChannel_
 C_0001159823987743494688 <|-- C_0000184886692180276257
-C_0001829426703641465340 --+ C_0001423170502760786790
+C_0002061035340998974559 o-- C_0001280612521485369958 : -loopThreadVector_
+C_0001159823987743494688 <|-- C_0002061035340998974559
+C_0001489562721151066050 --+ C_0001423170502760786790
 C_0001159823987743494688 <|-- C_0002026475275429760163
 C_0000157340721173102239 ..> C_0002026475275429760163
-C_0000253546837558644771 --+ C_0001897340460211641725
+C_0001159823987743494688 <|-- C_0000630185754256426097
+C_0001453238540802541239 --+ C_0000630185754256426097
+C_0001453238540802541239 o-- C_0002032009232244826154 : #creationDate_
+C_0001159823987743494688 <|-- C_0001453238540802541239
 @enduml

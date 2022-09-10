@@ -1,110 +1,31 @@
 @startuml
-class "Version" as C_0000916292378924332724
-class C_0000916292378924332724 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/directives.h#L14{Version}]] {
-+isDefault : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/directives.h#L15{isDefault}]]]
-+major : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/directives.h#L16{major}]]]
-+minor : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/directives.h#L16{minor}]]]
-}
-class "Directives" as C_0000019805786883680194
-class C_0000019805786883680194 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/directives.h#L19{Directives}]] {
-+Directives() : void
-+TranslateTagHandle(const std::string & handle) const : std::string
-+version : Version [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/directives.h#L24{version}]]]
-+tags : std::map<std::string,std::string> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/directives.h#L25{tags}]]]
-}
-class "Tag" as C_0000732953323034496241
-class C_0000732953323034496241 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/tag.h#L16{Tag}]] {
-+Tag(const Token & token) : void
-+Translate(const Directives & directives) : std::string
-+type : Tag::TYPE [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/tag.h#L28{type}]]]
-+handle : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/tag.h#L29{handle}]]]
-+value : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/tag.h#L29{value}]]]
-}
-enum "Tag::TYPE" as C_0000924350019152621065
-enum C_0000924350019152621065 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/tag.h#L17{Tag##TYPE}]] {
-VERBATIM
-PRIMARY_HANDLE
-SECONDARY_HANDLE
-NAMED_HANDLE
-NON_SPECIFIC
-}
-class "Mark" as C_0000995347387003540375
-class C_0000995347387003540375 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/mark.h#L13{Mark}]] {
-+Mark() : void
-{static} +null_mark() : const Mark
-+is_null() const : bool
--Mark(int pos_, int line_, int column_) : void
-+pos : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/mark.h#L20{pos}]]]
-+line : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/mark.h#L21{line}]]]
-+column : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/mark.h#L21{column}]]]
-}
-class "Token" as C_0001564552264813056718
-class C_0001564552264813056718 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L23{Token}]] {
-+Token(Token::TYPE type_, const Mark & mark_) : void
-+status : Token::STATUS [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L61{status}]]]
-+type : Token::TYPE [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L62{type}]]]
-+mark : Mark [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L63{mark}]]]
-+value : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L64{value}]]]
-+params : std::vector<std::string> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L65{params}]]]
-+data : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L66{data}]]]
-}
-enum "Token::STATUS" as C_0000477998666987427167
-enum C_0000477998666987427167 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L25{Token##STATUS}]] {
-VALID
-INVALID
-UNVERIFIED
-}
-enum "Token::TYPE" as C_0001756597841359481234
-enum C_0001756597841359481234 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/token.h#L26{Token##TYPE}]] {
-DIRECTIVE
-DOC_START
-DOC_END
-BLOCK_SEQ_START
-BLOCK_MAP_START
-BLOCK_SEQ_END
-BLOCK_MAP_END
-BLOCK_ENTRY
-FLOW_SEQ_START
-FLOW_MAP_START
-FLOW_SEQ_END
-FLOW_MAP_END
-FLOW_MAP_COMPACT
-FLOW_ENTRY
-KEY
-VALUE
-ANCHOR
-ALIAS
-TAG
-PLAIN_SCALAR
-NON_PLAIN_SCALAR
-}
 abstract "SettingChangeBase" as C_0001910171791833287068
-abstract C_0001910171791833287068 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/setting.h#L17{SettingChangeBase}]] {
+abstract C_0001910171791833287068 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/setting.h#L17{SettingChangeBase}]] {
 +~SettingChangeBase() = default : void
 {abstract} +pop() = 0 : void
 }
 class "Setting<T>" as C_0000386091791242056319
-class C_0000386091791242056319 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/setting.h#L24{Setting}]] {
+class C_0000386091791242056319 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/setting.h#L24{Setting}]] {
 +Setting<T>() : void
 +Setting<T>(const T & value) : void
 +get() const : const T
 +set(const T & value) : std::unique_ptr<SettingChangeBase>
 +restore(const Setting<T> & oldSetting) : void
--m_value : T [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/setting.h#L34{m_value}]]]
+-m_value : T [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/setting.h#L34{m_value}]]]
 }
 class "SettingChange<T>" as C_0001129082404414301689
-class C_0001129082404414301689 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/setting.h#L38{SettingChange}]] {
+class C_0001129082404414301689 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/setting.h#L38{SettingChange}]] {
 +SettingChange<T>(Setting<T> * pSetting) : void
 +SettingChange<T>(const SettingChange<T> & ) : void
 +SettingChange<T>(SettingChange<T> && ) : void
 +operator=(const SettingChange<T> & ) : SettingChange<T> &
 +operator=(SettingChange<T> && ) : SettingChange<T> &
 +pop() : void
--m_pCurSetting : Setting<T> * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/setting.h#L52{m_pCurSetting}]]]
--m_oldSetting : Setting<T> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/setting.h#L53{m_oldSetting}]]]
+-m_pCurSetting : Setting<T> * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/setting.h#L52{m_pCurSetting}]]]
+-m_oldSetting : Setting<T> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/setting.h#L53{m_oldSetting}]]]
 }
 class "SettingChanges" as C_0001428022124569049639
-class C_0001428022124569049639 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/setting.h#L63{SettingChanges}]] {
+class C_0001428022124569049639 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/setting.h#L63{SettingChanges}]] {
 +SettingChanges() : void
 +SettingChanges(const SettingChanges & ) : void
 +SettingChanges(SettingChanges && ) = default : void
@@ -114,13 +35,13 @@ class C_0001428022124569049639 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 +clear() : void
 +restore() : void
 +push(std::unique_ptr<SettingChangeBase> pSettingChange) : void
--m_settingChanges : SettingChanges::setting_changes [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/setting.h#L96{m_settingChanges}]]]
+-m_settingChanges : SettingChanges::setting_changes [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/setting.h#L96{m_settingChanges}]]]
 }
 class "EmitterNodeType" as C_0002185404550880287762
-class C_0002185404550880287762 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitterdef.h#L11{EmitterNodeType}]] {
+class C_0002185404550880287762 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitterdef.h#L11{EmitterNodeType}]] {
 }
-enum "EmitterNodeType::value" as C_0001559582064940311306
-enum C_0001559582064940311306 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitterdef.h#L12{EmitterNodeType##value}]] {
+enum "EmitterNodeType::value" as C_0000505421237145416317
+enum C_0000505421237145416317 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitterdef.h#L12{EmitterNodeType##value}]] {
 NoType
 Property
 Scalar
@@ -130,7 +51,7 @@ FlowMap
 BlockMap
 }
 enum "EMITTER_MANIP" as C_0001612458995561194904
-enum C_0001612458995561194904 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L13{EMITTER_MANIP}]] {
+enum C_0001612458995561194904 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L13{EMITTER_MANIP}]] {
 Auto
 TagByKind
 Newline
@@ -168,69 +89,69 @@ Value
 LongKey
 }
 class "_Indent" as C_0001296628838183953483
-class C_0001296628838183953483 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L72{_Indent}]] {
+class C_0001296628838183953483 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L72{_Indent}]] {
 +_Indent(int value_) : void
-+value : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L74{value}]]]
++value : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L74{value}]]]
 }
 class "_Alias" as C_0000355476410563722083
-class C_0000355476410563722083 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L79{_Alias}]] {
+class C_0000355476410563722083 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L79{_Alias}]] {
 +_Alias(const std::string & content_) : void
-+content : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L81{content}]]]
++content : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L81{content}]]]
 }
 class "_Anchor" as C_0000353126470543906866
-class C_0000353126470543906866 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L86{_Anchor}]] {
+class C_0000353126470543906866 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L86{_Anchor}]] {
 +_Anchor(const std::string & content_) : void
-+content : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L88{content}]]]
++content : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L88{content}]]]
 }
 class "_Tag" as C_0001303392760739606431
-class C_0001303392760739606431 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L93{_Tag}]] {
+class C_0001303392760739606431 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L93{_Tag}]] {
 +_Tag(const std::string & prefix_, const std::string & content_, Type::value type_) : void
-+prefix : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L101{prefix}]]]
-+content : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L102{content}]]]
-+type : Type::value [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L103{type}]]]
++prefix : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L101{prefix}]]]
++content : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L102{content}]]]
++type : Type::value [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L103{type}]]]
 }
-class "_Tag::Type" as C_0000163237362593325506
-class C_0000163237362593325506 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L94{_Tag##Type}]] {
+class "_Tag::Type" as C_0000838527847401371059
+class C_0000838527847401371059 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L94{_Tag##Type}]] {
 }
-enum "_Tag::Type::value" as C_0000652804067400117419
-enum C_0000652804067400117419 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L95{_Tag##Type##value}]] {
+enum "_Tag::Type::value" as C_0001794289575609316196
+enum C_0001794289575609316196 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L95{_Tag##Type##value}]] {
 Verbatim
 PrimaryHandle
 NamedHandle
 }
 class "_Comment" as C_0000580286262143804947
-class C_0000580286262143804947 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L122{_Comment}]] {
+class C_0000580286262143804947 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L122{_Comment}]] {
 +_Comment(const std::string & content_) : void
-+content : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L124{content}]]]
++content : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L124{content}]]]
 }
 class "_Precision" as C_0001092287104781775339
-class C_0001092287104781775339 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L129{_Precision}]] {
+class C_0001092287104781775339 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L129{_Precision}]] {
 +_Precision(int floatPrecision_, int doublePrecision_) : void
-+floatPrecision : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L133{floatPrecision}]]]
-+doublePrecision : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emittermanip.h#L134{doublePrecision}]]]
++floatPrecision : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L133{floatPrecision}]]]
++doublePrecision : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emittermanip.h#L134{doublePrecision}]]]
 }
 class "FmtScope" as C_0000827100704015978209
-class C_0000827100704015978209 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L21{FmtScope}]] {
+class C_0000827100704015978209 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L21{FmtScope}]] {
 }
-enum "FmtScope::value" as C_0000321211711562176762
-enum C_0000321211711562176762 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L22{FmtScope##value}]] {
+enum "FmtScope::value" as C_0001017585608131127078
+enum C_0001017585608131127078 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L22{FmtScope##value}]] {
 Local
 Global
 }
 class "GroupType" as C_0001701924344473797309
-class C_0001701924344473797309 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L24{GroupType}]] {
+class C_0001701924344473797309 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L24{GroupType}]] {
 }
-enum "GroupType::value" as C_0001066622375579595669
-enum C_0001066622375579595669 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L25{GroupType##value}]] {
+enum "GroupType::value" as C_0000479292529567022112
+enum C_0000479292529567022112 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L25{GroupType##value}]] {
 NoType
 Seq
 Map
 }
 class "FlowType" as C_0001141855841464630633
-class C_0001141855841464630633 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L27{FlowType}]] {
+class C_0001141855841464630633 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L27{FlowType}]] {
 }
-enum "FlowType::value" as C_0000910310210347550695
-enum C_0000910310210347550695 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L28{FlowType##value}]] {
+enum "FlowType::value" as C_0001748154192163202778
+enum C_0001748154192163202778 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L28{FlowType##value}]] {
 NoType
 Flow
 Block
@@ -242,7 +163,7 @@ class "Setting<std::size_t>" as C_0000246193646981412477
 class C_0000246193646981412477 {
 }
 class "EmitterState" as C_0001502605544403553579
-class C_0001502605544403553579 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L31{EmitterState}]] {
+class C_0001502605544403553579 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L31{EmitterState}]] {
 +EmitterState() : void
 +~EmitterState() : void
 +good() const : bool
@@ -306,175 +227,242 @@ class C_0001502605544403553579 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 +GetDoublePrecision() const : std::size_t
 -StartedNode() : void
 -_Set(Setting<T> & fmt, T value, FmtScope::value scope) : void
--m_isGood : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L131{m_isGood}]]]
--m_lastError : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L132{m_lastError}]]]
--m_charset : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L135{m_charset}]]]
--m_strFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L136{m_strFmt}]]]
--m_boolFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L137{m_boolFmt}]]]
--m_boolLengthFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L138{m_boolLengthFmt}]]]
--m_boolCaseFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L139{m_boolCaseFmt}]]]
--m_nullFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L140{m_nullFmt}]]]
--m_intFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L141{m_intFmt}]]]
--m_indent : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L142{m_indent}]]]
--m_preCommentIndent : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L143{m_preCommentIndent}]]]
--m_postCommentIndent : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L143{m_postCommentIndent}]]]
--m_seqFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L144{m_seqFmt}]]]
--m_mapFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L145{m_mapFmt}]]]
--m_mapKeyFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L146{m_mapKeyFmt}]]]
--m_floatPrecision : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L147{m_floatPrecision}]]]
--m_doublePrecision : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L148{m_doublePrecision}]]]
--m_modifiedSettings : SettingChanges [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L150{m_modifiedSettings}]]]
--m_globalModifiedSettings : SettingChanges [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L151{m_globalModifiedSettings}]]]
--m_groups : std::vector<std::unique_ptr<Group>> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L189{m_groups}]]]
--m_curIndent : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L190{m_curIndent}]]]
--m_hasAnchor : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L191{m_hasAnchor}]]]
--m_hasAlias : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L192{m_hasAlias}]]]
--m_hasTag : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L193{m_hasTag}]]]
--m_hasNonContent : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L194{m_hasNonContent}]]]
--m_docCount : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L195{m_docCount}]]]
+-m_isGood : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L131{m_isGood}]]]
+-m_lastError : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L132{m_lastError}]]]
+-m_charset : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L135{m_charset}]]]
+-m_strFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L136{m_strFmt}]]]
+-m_boolFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L137{m_boolFmt}]]]
+-m_boolLengthFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L138{m_boolLengthFmt}]]]
+-m_boolCaseFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L139{m_boolCaseFmt}]]]
+-m_nullFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L140{m_nullFmt}]]]
+-m_intFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L141{m_intFmt}]]]
+-m_indent : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L142{m_indent}]]]
+-m_preCommentIndent : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L143{m_preCommentIndent}]]]
+-m_postCommentIndent : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L143{m_postCommentIndent}]]]
+-m_seqFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L144{m_seqFmt}]]]
+-m_mapFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L145{m_mapFmt}]]]
+-m_mapKeyFmt : Setting<EMITTER_MANIP> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L146{m_mapKeyFmt}]]]
+-m_floatPrecision : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L147{m_floatPrecision}]]]
+-m_doublePrecision : Setting<std::size_t> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L148{m_doublePrecision}]]]
+-m_modifiedSettings : SettingChanges [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L150{m_modifiedSettings}]]]
+-m_globalModifiedSettings : SettingChanges [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L151{m_globalModifiedSettings}]]]
+-m_groups : std::vector<std::unique_ptr<Group>> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L189{m_groups}]]]
+-m_curIndent : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L190{m_curIndent}]]]
+-m_hasAnchor : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L191{m_hasAnchor}]]]
+-m_hasAlias : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L192{m_hasAlias}]]]
+-m_hasTag : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L193{m_hasTag}]]]
+-m_hasNonContent : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L194{m_hasNonContent}]]]
+-m_docCount : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L195{m_docCount}]]]
 }
-class "EmitterState::Group" as C_0000436487833368804459
-class C_0000436487833368804459 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L153{EmitterState##Group}]] {
+class "EmitterState::Group" as C_0001812967755753360029
+class C_0001812967755753360029 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L153{EmitterState##Group}]] {
 +Group(GroupType::value type_) : void
 +NodeType() const : EmitterNodeType::value
-+type : GroupType::value [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L162{type}]]]
-+flowType : FlowType::value [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L163{flowType}]]]
-+indent : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L164{indent}]]]
-+childCount : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L165{childCount}]]]
-+longKey : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L166{longKey}]]]
-+modifiedSettings : SettingChanges [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterstate.h#L168{modifiedSettings}]]]
++type : GroupType::value [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L162{type}]]]
++flowType : FlowType::value [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L163{flowType}]]]
++indent : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L164{indent}]]]
++childCount : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L165{childCount}]]]
++longKey : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L166{longKey}]]]
++modifiedSettings : SettingChanges [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterstate.h#L168{modifiedSettings}]]]
 }
-class "enable_if_c<_Bool,T>" as C_0001690218893999580597
-class C_0001690218893999580597 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/traits.h#L86{enable_if_c}]] {
+class "ostream_wrapper" as C_0001980140328252034694
+class C_0001980140328252034694 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/ostream_wrapper.h#L16{ostream_wrapper}]] {
++ostream_wrapper() : void
++ostream_wrapper(std::ostream & stream) : void
++ostream_wrapper(const ostream_wrapper & ) : void
++ostream_wrapper(ostream_wrapper && ) : void
++operator=(const ostream_wrapper & ) : ostream_wrapper &
++operator=(ostream_wrapper && ) : ostream_wrapper &
++~ostream_wrapper() : void
++write(const std::string & str) : void
++write(const char * str, std::size_t size) : void
++set_comment() : void
++str() const : const char *
++row() const : std::size_t
++col() const : std::size_t
++pos() const : std::size_t
++comment() const : bool
+-update_pos(char ch) : void
+-m_buffer : std::vector<char> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/ostream_wrapper.h#L49{m_buffer}]]]
+-m_pStream : std::ostream *const [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/ostream_wrapper.h#L50{m_pStream}]]]
+-m_pos : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/ostream_wrapper.h#L52{m_pos}]]]
+-m_row : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/ostream_wrapper.h#L53{m_row}]]]
+-m_col : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/ostream_wrapper.h#L53{m_col}]]]
+-m_comment : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/ostream_wrapper.h#L54{m_comment}]]]
 }
-class "enable_if_c<0,T>" as C_0000160817464522972236
-class C_0000160817464522972236 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/traits.h#L91{enable_if_c}]] {
+class "StringFormat" as C_0001153454465562479601
+class C_0001153454465562479601 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterutils.h#L23{StringFormat}]] {
 }
-class "enable_if<Cond,T>" as C_0001242999396194102320
-class C_0001242999396194102320 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/traits.h#L94{enable_if}]] {
+enum "StringFormat::value" as C_0000285964061694780226
+enum C_0000285964061694780226 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterutils.h#L24{StringFormat##value}]] {
+Plain
+SingleQuoted
+DoubleQuoted
+Literal
 }
-class "disable_if_c<_Bool,T>" as C_0002092096575045554004
-class C_0002092096575045554004 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/traits.h#L97{disable_if_c}]] {
+class "StringEscaping" as C_0000656339795039760617
+class C_0000656339795039760617 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterutils.h#L27{StringEscaping}]] {
 }
-class "disable_if_c<1,T>" as C_0000549582080259159149
-class C_0000549582080259159149 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/traits.h#L102{disable_if_c}]] {
+enum "StringEscaping::value" as C_0000487781795269888163
+enum C_0000487781795269888163 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/emitterutils.h#L28{StringEscaping##value}]] {
+None
+NonAscii
+JSON
 }
-class "disable_if<Cond,T>" as C_0000492957672946229758
-class C_0000492957672946229758 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/traits.h#L105{disable_if}]] {
+enum "REGEX_OP" as C_0000769917720959414190
+enum C_0000769917720959414190 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/regex_yaml.h#L18{REGEX_OP}]] {
+REGEX_EMPTY
+REGEX_MATCH
+REGEX_RANGE
+REGEX_OR
+REGEX_AND
+REGEX_NOT
+REGEX_SEQ
 }
-class "Exception" as C_0001806616961024762883
-class C_0001806616961024762883 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L153{Exception}]] {
-+Exception(const Mark & mark_, const std::string & msg_) : void
-+~Exception() : void
-+Exception(const Exception & ) = default : void
-{static} -build_what(const Mark & mark, const std::string & msg) : const std::string
-+mark : Mark [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L161{mark}]]]
-+msg : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L162{msg}]]]
+class "RegEx" as C_0001472068993976147503
+class C_0001472068993976147503 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/regex_yaml.h#L31{RegEx}]] {
++RegEx() : void
++RegEx(char ch) : void
++RegEx(char a, char z) : void
++RegEx(const std::string & str, REGEX_OP op = REGEX_SEQ) : void
++~RegEx() = default : void
++Matches(char ch) const : bool
++Matches(const std::string & str) const : bool
++Matches(const Stream & in) const : bool
++Match(const std::string & str) const : int
++Match(const Stream & in) const : int
+-RegEx(REGEX_OP op) : void
++Matches(const Source & source) : _Bool
++Match(const Source & source) : int
+-IsValidSource(const Source & source) : _Bool
+-MatchUnchecked(const Source & source) : int
+-MatchOpEmpty(const Source & source) : int
+-MatchOpMatch(const Source & source) : int
+-MatchOpRange(const Source & source) : int
+-MatchOpOr(const Source & source) : int
+-MatchOpAnd(const Source & source) : int
+-MatchOpNot(const Source & source) : int
+-MatchOpSeq(const Source & source) : int
+-m_op : REGEX_OP [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/regex_yaml.h#L79{m_op}]]]
+-m_a : char [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/regex_yaml.h#L80{m_a}]]]
+-m_z : char [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/regex_yaml.h#L81{m_z}]]]
+-m_params : std::vector<RegEx> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/regex_yaml.h#L82{m_params}]]]
 }
-class "ParserException" as C_0000063170026261954511
-class C_0000063170026261954511 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L178{ParserException}]] {
-+ParserException(const Mark & mark_, const std::string & msg_) : void
-+ParserException(const ParserException & ) = default : void
-+~ParserException() : void
+class "Mark" as C_0000995347387003540375
+class C_0000995347387003540375 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/mark.h#L13{Mark}]] {
++Mark() : void
+{static} +null_mark() : const Mark
++is_null() const : bool
+-Mark(int pos_, int line_, int column_) : void
++pos : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/mark.h#L20{pos}]]]
++line : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/mark.h#L21{line}]]]
++column : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/mark.h#L21{column}]]]
 }
-class "RepresentationException" as C_0002299758742766135134
-class C_0002299758742766135134 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L186{RepresentationException}]] {
-+RepresentationException(const Mark & mark_, const std::string & msg_) : void
-+RepresentationException(const RepresentationException & ) = default : void
-+~RepresentationException() : void
+class "Stream" as C_0001683248745780477581
+class C_0001683248745780477581 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L22{Stream}]] {
++Stream(std::istream & input) : void
++Stream(const Stream & ) : void
++Stream(Stream && ) : void
++operator=(const Stream & ) : Stream &
++operator=(Stream && ) : Stream &
++~Stream() : void
++operator bool() const : bool
++operator!() const : bool
++peek() const : char
++get() : char
++get(int n) : std::string
++eat(int n = 1) : void
+{static} +eof() : char
++mark() const : const Mark
++pos() const : int
++line() const : int
++column() const : int
++ResetColumn() : void
+-AdvanceCurrent() : void
+-CharAt(size_t i) const : char
+-ReadAheadTo(size_t i) const : bool
+-_ReadAheadTo(size_t i) const : bool
+-StreamInUtf8() const : void
+-StreamInUtf16() const : void
+-StreamInUtf32() const : void
+-GetNextByte() const : unsigned char
+-m_input : std::istream & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L52{m_input}]]]
+-m_mark : Mark [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L53{m_mark}]]]
+-m_charSet : Stream::CharacterSet [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L55{m_charSet}]]]
+-m_readahead : std::deque<char> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L56{m_readahead}]]]
+-m_pPrefetched : unsigned char *const [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L57{m_pPrefetched}]]]
+-m_nPrefetchedAvailable : size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L58{m_nPrefetchedAvailable}]]]
+-m_nPrefetchedUsed : size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L59{m_nPrefetchedUsed}]]]
 }
-class "InvalidScalar" as C_0000538617909603048847
-class C_0000538617909603048847 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L195{InvalidScalar}]] {
-+InvalidScalar(const Mark & mark_) : void
-+InvalidScalar(const InvalidScalar & ) = default : void
-+~InvalidScalar() : void
+enum "Stream::CharacterSet" as C_0002286195538636210064
+enum C_0002286195538636210064 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.h#L50{Stream##CharacterSet}]] {
+utf8
+utf16le
+utf16be
+utf32le
+utf32be
 }
-class "KeyNotFound" as C_0001607428935741126174
-class C_0001607428935741126174 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L203{KeyNotFound}]] {
-+KeyNotFound(const KeyNotFound & ) = default : void
-+~KeyNotFound() : void
-+KeyNotFound(const Mark & mark_, const T & key_) : void
+class "StreamCharSource" as C_0000945705104823587835
+class C_0000945705104823587835 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/streamcharsource.h#L16{StreamCharSource}]] {
++StreamCharSource(const Stream & stream) : void
++StreamCharSource(const StreamCharSource & source) = default : void
++StreamCharSource(StreamCharSource && ) = default : void
++operator=(const StreamCharSource & ) : StreamCharSource &
++operator=(StreamCharSource && ) : StreamCharSource &
++~StreamCharSource() = default : void
++operator bool() const : bool
++operator[](std::size_t i) const : char
++operator!() const : bool
++operator+(int i) const : const StreamCharSource
+-m_offset : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/streamcharsource.h#L32{m_offset}]]]
+-m_stream : const Stream & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/streamcharsource.h#L33{m_stream}]]]
 }
-class "TypedKeyNotFound<T>" as C_0000719271899312854342
-class C_0000719271899312854342 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L214{TypedKeyNotFound}]] {
-+TypedKeyNotFound<T>(const Mark & mark_, const T & key_) : void
-+~TypedKeyNotFound<T>() = default : void
-+key : T [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L220{key}]]]
+class "StringCharSource" as C_0000608952703815106471
+class C_0000608952703815106471 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stringsource.h#L13{StringCharSource}]] {
++StringCharSource(const char * str, std::size_t size) : void
++operator bool() const : bool
++operator[](std::size_t i) const : char
++operator!() const : bool
++operator+(int i) const : const StringCharSource
++operator++() : StringCharSource &
++operator+=(std::size_t offset) : StringCharSource &
+-m_str : const char * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stringsource.h#L42{m_str}]]]
+-m_size : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stringsource.h#L43{m_size}]]]
+-m_offset : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stringsource.h#L44{m_offset}]]]
 }
-class "InvalidNode" as C_0000876999995145843477
-class C_0000876999995145843477 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L229{InvalidNode}]] {
-+InvalidNode(const std::string & key) : void
-+InvalidNode(const InvalidNode & ) = default : void
-+~InvalidNode() : void
+class "Indentation" as C_0001945446126476399895
+class C_0001945446126476399895 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/indentation.h#L16{Indentation}]] {
++Indentation(std::size_t n_) : void
++n : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/indentation.h#L18{n}]]]
 }
-class "BadConversion" as C_0001845328967341282059
-class C_0001845328967341282059 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L238{BadConversion}]] {
-+BadConversion(const Mark & mark_) : void
-+BadConversion(const BadConversion & ) = default : void
-+~BadConversion() : void
+class "IndentTo" as C_0001172506744709099039
+class C_0001172506744709099039 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/indentation.h#L28{IndentTo}]] {
++IndentTo(std::size_t n_) : void
++n : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/indentation.h#L30{n}]]]
 }
-class "TypedBadConversion<T>" as C_0001280350484708093885
-class C_0001280350484708093885 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L247{TypedBadConversion}]] {
-+TypedBadConversion<T>(const Mark & mark_) : void
+class "Binary" as C_0001930889927817951945
+class C_0001930889927817951945 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/binary.h#L20{Binary}]] {
++Binary(const unsigned char * data_, std::size_t size_) : void
++Binary() : void
++Binary(const Binary & ) = default : void
++Binary(Binary && ) = default : void
++operator=(const Binary & ) = default : Binary &
++operator=(Binary && ) = default : Binary &
++owned() const : bool
++size() const : std::size_t
++data() const : const unsigned char *
++swap(std::vector<unsigned char> & rhs) : void
++operator==(const Binary & rhs) const : bool
++operator!=(const Binary & rhs) const : bool
+-m_data : std::vector<unsigned char> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/binary.h#L65{m_data}]]]
+-m_unownedData : const unsigned char * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/binary.h#L66{m_unownedData}]]]
+-m_unownedSize : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/binary.h#L67{m_unownedSize}]]]
 }
-class "BadDereference" as C_0000367186276281512337
-class C_0000367186276281512337 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L252{BadDereference}]] {
-+BadDereference() : void
-+BadDereference(const BadDereference & ) = default : void
-+~BadDereference() : void
-}
-class "BadSubscript" as C_0001657053573119450854
-class C_0001657053573119450854 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L260{BadSubscript}]] {
-+BadSubscript(const BadSubscript & ) = default : void
-+~BadSubscript() : void
-+BadSubscript(const Mark & mark_, const Key & key) : void
-}
-class "BadPushback" as C_0001176863357377831267
-class C_0001176863357377831267 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L269{BadPushback}]] {
-+BadPushback() : void
-+BadPushback(const BadPushback & ) = default : void
-+~BadPushback() : void
-}
-class "BadInsert" as C_0001675143464585039615
-class C_0001675143464585039615 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L277{BadInsert}]] {
-+BadInsert() : void
-+BadInsert(const BadInsert & ) = default : void
-+~BadInsert() : void
-}
-class "EmitterException" as C_0000055301464881407088
-class C_0000055301464881407088 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L285{EmitterException}]] {
-+EmitterException(const std::string & msg_) : void
-+EmitterException(const EmitterException & ) = default : void
-+~EmitterException() : void
-}
-class "BadFile" as C_0000893995910824076006
-class C_0000893995910824076006 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/exceptions.h#L293{BadFile}]] {
-+BadFile(const std::string & filename) : void
-+BadFile(const BadFile & ) = default : void
-+~BadFile() : void
-}
-class "EmitterStyle" as C_0001280144262925757429
-class C_0001280144262925757429 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitterstyle.h#L11{EmitterStyle}]] {
-}
-enum "EmitterStyle::value" as C_0001695151105971183290
-enum C_0001695151105971183290 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitterstyle.h#L12{EmitterStyle##value}]] {
-Default
-Block
-Flow
-}
-class "NodeType" as C_0001496395354200736353
-class C_0001496395354200736353 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/type.h#L11{NodeType}]] {
-}
-enum "NodeType::value" as C_0001184059433611629296
-enum C_0001184059433611629296 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/type.h#L12{NodeType##value}]] {
-Undefined
-Null
-Scalar
-Sequence
-Map
+class "_Null" as C_0000861594166492950058
+class C_0000861594166492950058 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/null.h#L16{_Null}]] {
 }
 class "Node" as C_0000468923953334398769
-class C_0000468923953334398769 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/node.h#L29{Node}]] {
+class C_0000468923953334398769 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/null.h#L14{Node}]] {
 +Node() : void
 +Node(NodeType::value type) : void
 +Node(const detail::iterator_value & rhs) : void
@@ -524,190 +512,26 @@ class C_0000468923953334398769 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 +remove(const Key & key) : _Bool
 +force_insert(const Key & key, const Value & value) : void
 -Assign(const T & rhs) : void
--m_isValid : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/node.h#L133{m_isValid}]]]
--m_invalidKey : std::string [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/node.h#L135{m_invalidKey}]]]
--m_pMemory : detail::shared_memory_holder [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/node.h#L136{m_pMemory}]]]
--m_pNode : detail::node * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/node.h#L137{m_pNode}]]]
+-m_isValid : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/node.h#L133{m_isValid}]]]
+-m_invalidKey : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/node.h#L135{m_invalidKey}]]]
+-m_pMemory : detail::shared_memory_holder [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/node.h#L136{m_pMemory}]]]
+-m_pNode : detail::node * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/node.h#L137{m_pNode}]]]
 }
-enum "Node::Zombie" as C_0002186017059509653364
-enum C_0002186017059509653364 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/node.h#L117{Node##Zombie}]] {
-ZombieNode
+class "Version" as C_0000916292378924332724
+class C_0000916292378924332724 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/directives.h#L14{Version}]] {
++isDefault : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/directives.h#L15{isDefault}]]]
++major : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/directives.h#L16{major}]]]
++minor : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/directives.h#L16{minor}]]]
 }
-class "as_if<T,S>" as C_0000389111401049763740
-class C_0000389111401049763740 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/node.h#L39{as_if}]] {
-}
-class "Binary" as C_0001930889927817951945
-class C_0001930889927817951945 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/binary.h#L20{Binary}]] {
-+Binary(const unsigned char * data_, std::size_t size_) : void
-+Binary() : void
-+Binary(const Binary & ) = default : void
-+Binary(Binary && ) = default : void
-+operator=(const Binary & ) = default : Binary &
-+operator=(Binary && ) = default : Binary &
-+owned() const : bool
-+size() const : std::size_t
-+data() const : const unsigned char *
-+swap(std::vector<unsigned char> & rhs) : void
-+operator==(const Binary & rhs) const : bool
-+operator!=(const Binary & rhs) const : bool
--m_data : std::vector<unsigned char> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/binary.h#L65{m_data}]]]
--m_unownedData : const unsigned char * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/binary.h#L66{m_unownedData}]]]
--m_unownedSize : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/binary.h#L67{m_unownedSize}]]]
-}
-class "as_if<std::string,S>" as C_0002071239656679953621
-class C_0002071239656679953621 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/impl.h#L108{as_if}]] {
-+as_if<std::basic_string<char>, type-parameter-0-0>(const Node & node_) : void
-+operator()(const S & fallback) const : std::string
-+node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/impl.h#L110{node}]]]
-}
-class "as_if<T,void>" as C_0001036348313496118369
-class C_0001036348313496118369 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/impl.h#L122{as_if}]] {
-+as_if<type-parameter-0-0, void>(const Node & node_) : void
-+operator()() const : T
-+node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/impl.h#L124{node}]]]
-}
-class "as_if<std::string,void>" as C_0001705845448095615258
-class C_0001705845448095615258 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/impl.h#L138{as_if}]] {
-+as_if(const Node & node_) : void
-+operator()() const : std::string
-+node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/node/impl.h#L140{node}]]]
-}
-class "_Null" as C_0000861594166492950058
-class C_0000861594166492950058 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/null.h#L16{_Null}]] {
-}
-enum "REGEX_OP" as C_0000769917720959414190
-enum C_0000769917720959414190 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/regex_yaml.h#L18{REGEX_OP}]] {
-REGEX_EMPTY
-REGEX_MATCH
-REGEX_RANGE
-REGEX_OR
-REGEX_AND
-REGEX_NOT
-REGEX_SEQ
-}
-class "RegEx" as C_0001472068993976147503
-class C_0001472068993976147503 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/regex_yaml.h#L31{RegEx}]] {
-+RegEx() : void
-+RegEx(char ch) : void
-+RegEx(char a, char z) : void
-+RegEx(const std::string & str, REGEX_OP op = REGEX_SEQ) : void
-+~RegEx() = default : void
-+Matches(char ch) const : bool
-+Matches(const std::string & str) const : bool
-+Matches(const Stream & in) const : bool
-+Match(const std::string & str) const : int
-+Match(const Stream & in) const : int
--RegEx(REGEX_OP op) : void
-+Matches(const Source & source) : _Bool
-+Match(const Source & source) : int
--IsValidSource(const Source & source) : _Bool
--MatchUnchecked(const Source & source) : int
--MatchOpEmpty(const Source & source) : int
--MatchOpMatch(const Source & source) : int
--MatchOpRange(const Source & source) : int
--MatchOpOr(const Source & source) : int
--MatchOpAnd(const Source & source) : int
--MatchOpNot(const Source & source) : int
--MatchOpSeq(const Source & source) : int
--m_op : REGEX_OP [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/regex_yaml.h#L79{m_op}]]]
--m_a : char [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/regex_yaml.h#L80{m_a}]]]
--m_z : char [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/regex_yaml.h#L81{m_z}]]]
--m_params : std::vector<RegEx> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/regex_yaml.h#L82{m_params}]]]
-}
-class "Stream" as C_0001683248745780477581
-class C_0001683248745780477581 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L22{Stream}]] {
-+Stream(std::istream & input) : void
-+Stream(const Stream & ) : void
-+Stream(Stream && ) : void
-+operator=(const Stream & ) : Stream &
-+operator=(Stream && ) : Stream &
-+~Stream() : void
-+operator bool() const : bool
-+operator!() const : bool
-+peek() const : char
-+get() : char
-+get(int n) : std::string
-+eat(int n = 1) : void
-{static} +eof() : char
-+mark() const : const Mark
-+pos() const : int
-+line() const : int
-+column() const : int
-+ResetColumn() : void
--AdvanceCurrent() : void
--CharAt(size_t i) const : char
--ReadAheadTo(size_t i) const : bool
--_ReadAheadTo(size_t i) const : bool
--StreamInUtf8() const : void
--StreamInUtf16() const : void
--StreamInUtf32() const : void
--GetNextByte() const : unsigned char
--m_input : std::istream & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L52{m_input}]]]
--m_mark : Mark [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L53{m_mark}]]]
--m_charSet : Stream::CharacterSet [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L55{m_charSet}]]]
--m_readahead : std::deque<char> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L56{m_readahead}]]]
--m_pPrefetched : unsigned char *const [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L57{m_pPrefetched}]]]
--m_nPrefetchedAvailable : size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L58{m_nPrefetchedAvailable}]]]
--m_nPrefetchedUsed : size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L59{m_nPrefetchedUsed}]]]
-}
-enum "Stream::CharacterSet" as C_0001164611139245333630
-enum C_0001164611139245333630 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.h#L50{Stream##CharacterSet}]] {
-utf8
-utf16le
-utf16be
-utf32le
-utf32be
-}
-class "StreamCharSource" as C_0000945705104823587835
-class C_0000945705104823587835 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/streamcharsource.h#L16{StreamCharSource}]] {
-+StreamCharSource(const Stream & stream) : void
-+StreamCharSource(const StreamCharSource & source) = default : void
-+StreamCharSource(StreamCharSource && ) = default : void
-+operator=(const StreamCharSource & ) : StreamCharSource &
-+operator=(StreamCharSource && ) : StreamCharSource &
-+~StreamCharSource() = default : void
-+operator bool() const : bool
-+operator[](std::size_t i) const : char
-+operator!() const : bool
-+operator+(int i) const : const StreamCharSource
--m_offset : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/streamcharsource.h#L32{m_offset}]]]
--m_stream : const Stream & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/streamcharsource.h#L33{m_stream}]]]
-}
-class "StringCharSource" as C_0000608952703815106471
-class C_0000608952703815106471 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stringsource.h#L13{StringCharSource}]] {
-+StringCharSource(const char * str, std::size_t size) : void
-+operator bool() const : bool
-+operator[](std::size_t i) const : char
-+operator!() const : bool
-+operator+(int i) const : const StringCharSource
-+operator++() : StringCharSource &
-+operator+=(std::size_t offset) : StringCharSource &
--m_str : const char * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stringsource.h#L42{m_str}]]]
--m_size : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stringsource.h#L43{m_size}]]]
--m_offset : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stringsource.h#L44{m_offset}]]]
-}
-class "CollectionType" as C_0001996976524079369519
-class C_0001996976524079369519 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/collectionstack.h#L14{CollectionType}]] {
-}
-enum "CollectionType::value" as C_0002168694159263227656
-enum C_0002168694159263227656 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/collectionstack.h#L15{CollectionType##value}]] {
-NoCollection
-BlockMap
-BlockSeq
-FlowMap
-FlowSeq
-CompactMap
-}
-class "CollectionStack" as C_0000834633934585374300
-class C_0000834633934585374300 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/collectionstack.h#L18{CollectionStack}]] {
-+CollectionStack() : void
-+GetCurCollectionType() const : CollectionType::value
-+PushCollectionType(CollectionType::value type) : void
-+PopCollectionType(CollectionType::value type) : void
--collectionStack : std::stack<CollectionType::value> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/collectionstack.h#L37{collectionStack}]]]
+class "Directives" as C_0000019805786883680194
+class C_0000019805786883680194 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/directives.h#L19{Directives}]] {
++Directives() : void
++TranslateTagHandle(const std::string & handle) const : const std::string
++version : Version [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/directives.h#L24{version}]]]
++tags : std::map<std::string,std::string> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/directives.h#L25{tags}]]]
 }
 class "ptr_vector<T>" as C_0002072964150805009912
-class C_0002072964150805009912 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/ptr_vector.h#L19{ptr_vector}]] {
+class C_0002072964150805009912 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/ptr_vector.h#L19{ptr_vector}]] {
 +ptr_vector<T>() : void
 +ptr_vector<T>(const ptr_vector<T> & ) : void
 +ptr_vector<T>(ptr_vector<T> && ) = default : void
@@ -721,13 +545,53 @@ class C_0002072964150805009912 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 +operator[](std::size_t i) const : const T &
 +back() : T &
 +back() const : const T &
--m_data : std::vector<std::unique_ptr<T>> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/ptr_vector.h#L41{m_data}]]]
+-m_data : std::vector<std::unique_ptr<T>> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/ptr_vector.h#L41{m_data}]]]
+}
+class "Token" as C_0001564552264813056718
+class C_0001564552264813056718 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L23{Token}]] {
++Token(Token::TYPE type_, const Mark & mark_) : void
++status : Token::STATUS [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L61{status}]]]
++type : Token::TYPE [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L62{type}]]]
++mark : Mark [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L63{mark}]]]
++value : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L64{value}]]]
++params : std::vector<std::string> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L65{params}]]]
++data : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L66{data}]]]
+}
+enum "Token::STATUS" as C_0000485592040653951563
+enum C_0000485592040653951563 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L25{Token##STATUS}]] {
+VALID
+INVALID
+UNVERIFIED
+}
+enum "Token::TYPE" as C_0000248922907815476606
+enum C_0000248922907815476606 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/token.h#L26{Token##TYPE}]] {
+DIRECTIVE
+DOC_START
+DOC_END
+BLOCK_SEQ_START
+BLOCK_MAP_START
+BLOCK_SEQ_END
+BLOCK_MAP_END
+BLOCK_ENTRY
+FLOW_SEQ_START
+FLOW_MAP_START
+FLOW_SEQ_END
+FLOW_MAP_END
+FLOW_MAP_COMPACT
+FLOW_ENTRY
+KEY
+VALUE
+ANCHOR
+ALIAS
+TAG
+PLAIN_SCALAR
+NON_PLAIN_SCALAR
 }
 class "ptr_vector<Scanner::IndentMarker>" as C_0002155549371089620159
 class C_0002155549371089620159 {
 }
 class "Scanner" as C_0000703998907572924569
-class C_0000703998907572924569 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L28{A scanner transforms a stream of characters into a stream of tokens.}]] {
+class C_0000703998907572924569 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L30{A scanner transforms a stream of characters into a stream of tokens.}]] {
 +Scanner(std::istream & in) : void
 +~Scanner() : void
 +empty() : bool
@@ -775,55 +639,55 @@ class C_0000703998907572924569 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 -ScanPlainScalar() : void
 -ScanQuotedScalar() : void
 -ScanBlockScalar() : void
--INPUT : Stream [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L172{INPUT}]]]
--m_tokens : std::queue<Token> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L175{m_tokens}]]]
--m_startedStream : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L178{m_startedStream}]]]
--m_endedStream : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L178{m_endedStream}]]]
--m_simpleKeyAllowed : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L179{m_simpleKeyAllowed}]]]
--m_canBeJSONFlow : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L180{m_canBeJSONFlow}]]]
--m_simpleKeys : std::stack<SimpleKey> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L181{m_simpleKeys}]]]
--m_indents : std::stack<IndentMarker *> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L182{m_indents}]]]
--m_indentRefs : ptr_vector<Scanner::IndentMarker> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L183{m_indentRefs}]]]
--m_flows : std::stack<FLOW_MARKER> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L184{m_flows}]]]
+-INPUT : Stream [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L174{INPUT}]]]
+-m_tokens : std::queue<Token> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L177{m_tokens}]]]
+-m_startedStream : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L180{m_startedStream}]]]
+-m_endedStream : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L180{m_endedStream}]]]
+-m_simpleKeyAllowed : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L181{m_simpleKeyAllowed}]]]
+-m_canBeJSONFlow : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L182{m_canBeJSONFlow}]]]
+-m_simpleKeys : std::stack<SimpleKey> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L183{m_simpleKeys}]]]
+-m_indents : std::stack<IndentMarker *> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L184{m_indents}]]]
+-m_indentRefs : ptr_vector<Scanner::IndentMarker> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L185{m_indentRefs}]]]
+-m_flows : std::stack<FLOW_MARKER> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L186{m_flows}]]]
 }
-class "Scanner::IndentMarker" as C_0000611858909851269260
-class C_0000611858909851269260 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L46{Scanner##IndentMarker}]] {
+class "Scanner::IndentMarker" as C_0001021220694770814956
+class C_0001021220694770814956 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L48{Scanner##IndentMarker}]] {
 +IndentMarker(int column_, Scanner::IndentMarker::INDENT_TYPE type_) : void
-+column : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L52{column}]]]
-+type : Scanner::IndentMarker::INDENT_TYPE [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L53{type}]]]
-+status : Scanner::IndentMarker::STATUS [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L54{status}]]]
-+pStartToken : Token * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L55{pStartToken}]]]
++column : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L54{column}]]]
++type : Scanner::IndentMarker::INDENT_TYPE [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L55{type}]]]
++status : Scanner::IndentMarker::STATUS [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L56{status}]]]
++pStartToken : Token * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L57{pStartToken}]]]
 }
-enum "Scanner::IndentMarker::INDENT_TYPE" as C_0001110637851510991639
-enum C_0001110637851510991639 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L47{Scanner##IndentMarker##INDENT_TYPE}]] {
+enum "Scanner::IndentMarker::INDENT_TYPE" as C_0000907174879985079126
+enum C_0000907174879985079126 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L49{Scanner##IndentMarker##INDENT_TYPE}]] {
 MAP
 SEQ
 NONE
 }
-enum "Scanner::IndentMarker::STATUS" as C_0001606098783747350115
-enum C_0001606098783747350115 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L48{Scanner##IndentMarker##STATUS}]] {
+enum "Scanner::IndentMarker::STATUS" as C_0001119972564326877624
+enum C_0001119972564326877624 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L50{Scanner##IndentMarker##STATUS}]] {
 VALID
 INVALID
 UNKNOWN
 }
-enum "Scanner::FLOW_MARKER" as C_0001496805413740011421
-enum C_0001496805413740011421 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L58{Scanner##FLOW_MARKER}]] {
+enum "Scanner::FLOW_MARKER" as C_0000193662147485277371
+enum C_0000193662147485277371 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L60{Scanner##FLOW_MARKER}]] {
 FLOW_MAP
 FLOW_SEQ
 }
-class "Scanner::SimpleKey" as C_0000947099705616002170
-class C_0000947099705616002170 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L139{Scanner##SimpleKey}]] {
+class "Scanner::SimpleKey" as C_0002137447788567599934
+class C_0002137447788567599934 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L141{Scanner##SimpleKey}]] {
 +SimpleKey(const Mark & mark_, std::size_t flowLevel_) : void
 +Validate() : void
 +Invalidate() : void
-+mark : Mark [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L145{mark}]]]
-+flowLevel : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L146{flowLevel}]]]
-+pIndent : Scanner::IndentMarker * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L147{pIndent}]]]
-+pMapStart : Token * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L148{pMapStart}]]]
-+pKey : Token * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanner.h#L148{pKey}]]]
++mark : Mark [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L147{mark}]]]
++flowLevel : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L148{flowLevel}]]]
++pIndent : Scanner::IndentMarker * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L149{pIndent}]]]
++pMapStart : Token * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L150{pMapStart}]]]
++pKey : Token * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanner.h#L150{pKey}]]]
 }
 class "SingleDocParser" as C_0002059291412665213837
-class C_0002059291412665213837 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/singledocparser.h#L26{SingleDocParser}]] {
+class C_0002059291412665213837 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L26{SingleDocParser}]] {
 +SingleDocParser(Scanner & scanner, const Directives & directives) : void
 +SingleDocParser(const SingleDocParser & ) : void
 +SingleDocParser(SingleDocParser && ) : void
@@ -845,191 +709,124 @@ class C_0002059291412665213837 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 -ParseAnchor(anchor_t & anchor, std::string & anchor_name) : void
 -RegisterAnchor(const std::string & name) : anchor_t
 -LookupAnchor(const Mark & mark, const std::string & name) const : anchor_t
--depth : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/singledocparser.h#L59{depth}]]]
--m_scanner : Scanner & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/singledocparser.h#L60{m_scanner}]]]
--m_directives : const Directives & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/singledocparser.h#L61{m_directives}]]]
--m_pCollectionStack : std::unique_ptr<CollectionStack> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/singledocparser.h#L62{m_pCollectionStack}]]]
--m_anchors : SingleDocParser::Anchors [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/singledocparser.h#L65{m_anchors}]]]
--m_curAnchor : anchor_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/singledocparser.h#L67{m_curAnchor}]]]
+-depth : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L59{depth}]]]
+-m_scanner : Scanner & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L60{m_scanner}]]]
+-m_directives : const Directives & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L61{m_directives}]]]
+-m_pCollectionStack : std::unique_ptr<CollectionStack> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L62{m_pCollectionStack}]]]
+-m_anchors : SingleDocParser::Anchors [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L65{m_anchors}]]]
+-m_curAnchor : anchor_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L67{m_curAnchor}]]]
 }
-class "DeepRecursion" as C_0002013520509583003092
-class C_0002013520509583003092 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/depthguard.h#L22{@brief The DeepRecursion class   An exception class which is thrown by DepthGuard. Ideally it should be  a member of DepthGuard. However, DepthGuard is a templated class which means  that any catch points would then need to know the template parameters....}]] {
-+~DeepRecursion() = default : void
-+DeepRecursion(int depth, const Mark & mark_, const std::string & msg_) : void
-+depth() const : int
--m_depth : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/depthguard.h#L34{m_depth}]]]
+class "enable_if_c<_Bool,T>" as C_0001690218893999580597
+class C_0001690218893999580597 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L86{enable_if_c}]] {
 }
-class "DepthGuard<int max_depth>" as C_0001323682514303197793
-class C_0001323682514303197793 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/depthguard.h#L49{@brief The DepthGuard class   DepthGuard takes a reference to an integer. It increments the integer upon  construction of DepthGuard and decrements the integer upon destruction.  If the integer would be incremented past max_depth, then an exception is  ...}]] {
-+DepthGuard<>(int & depth_, const Mark & mark_, const std::string & msg_) : void
-+DepthGuard<>(const DepthGuard<> & copy_ctor) : void
-+DepthGuard<>(DepthGuard<> && move_ctor) : void
-+operator=(const DepthGuard<> & copy_assign) : DepthGuard<> &
-+operator=(DepthGuard<> && move_assign) : DepthGuard<> &
-+~DepthGuard<>() : void
-+current_depth() const : int
--m_depth : int & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/depthguard.h#L72{m_depth}]]]
+class "enable_if_c<0,T>" as C_0000160817464522972236
+class C_0000160817464522972236 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L91{enable_if_c}]] {
 }
-abstract "EventHandler" as C_0001547374381768282700
-abstract C_0001547374381768282700 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/eventhandler.h#L18{EventHandler}]] {
-+~EventHandler() = default : void
-{abstract} +OnDocumentStart(const Mark & mark) = 0 : void
-{abstract} +OnDocumentEnd() = 0 : void
-{abstract} +OnNull(const Mark & mark, anchor_t anchor) = 0 : void
-{abstract} +OnAlias(const Mark & mark, anchor_t anchor) = 0 : void
-{abstract} +OnScalar(const Mark & mark, const std::string & tag, anchor_t anchor, const std::string & value) = 0 : void
-{abstract} +OnSequenceStart(const Mark & mark, const std::string & tag, anchor_t anchor, EmitterStyle::value style) = 0 : void
-{abstract} +OnSequenceEnd() = 0 : void
-{abstract} +OnMapStart(const Mark & mark, const std::string & tag, anchor_t anchor, EmitterStyle::value style) = 0 : void
-{abstract} +OnMapEnd() = 0 : void
-+OnAnchor(const Mark & , const std::string & ) : void
+class "enable_if<Cond,T>" as C_0001242999396194102320
+class C_0001242999396194102320 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L94{enable_if}]] {
 }
-class "DepthGuard<int>" as C_0001394889835041831276
-class C_0001394889835041831276 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/singledocparser.h#L18{DepthGuard}]] {
+class "disable_if_c<_Bool,T>" as C_0002092096575045554004
+class C_0002092096575045554004 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L97{disable_if_c}]] {
 }
-class "NodeBuilder" as C_0001863744054603309638
-class C_0001863744054603309638 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodebuilder.h#L27{NodeBuilder}]] {
-+NodeBuilder() : void
-+NodeBuilder(const NodeBuilder & ) : void
-+NodeBuilder(NodeBuilder && ) : void
-+operator=(const NodeBuilder & ) : NodeBuilder &
-+operator=(NodeBuilder && ) : NodeBuilder &
-+~NodeBuilder() : void
-+Root() : Node
-+OnDocumentStart(const Mark & mark) : void
-+OnDocumentEnd() : void
-+OnNull(const Mark & mark, anchor_t anchor) : void
-+OnAlias(const Mark & mark, anchor_t anchor) : void
-+OnScalar(const Mark & mark, const std::string & tag, anchor_t anchor, const std::string & value) : void
-+OnSequenceStart(const Mark & mark, const std::string & tag, anchor_t anchor, EmitterStyle::value style) : void
-+OnSequenceEnd() : void
-+OnMapStart(const Mark & mark, const std::string & tag, anchor_t anchor, EmitterStyle::value style) : void
-+OnMapEnd() : void
--Push(const Mark & mark, anchor_t anchor) : detail::node &
--Push(detail::node & node) : void
--Pop() : void
--RegisterAnchor(anchor_t anchor, detail::node & node) : void
--m_pMemory : detail::shared_memory_holder [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodebuilder.h#L61{m_pMemory}]]]
--m_pRoot : detail::node * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodebuilder.h#L62{m_pRoot}]]]
--m_stack : NodeBuilder::Nodes [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodebuilder.h#L65{m_stack}]]]
--m_anchors : NodeBuilder::Nodes [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodebuilder.h#L66{m_anchors}]]]
--m_keys : std::vector<PushedKey> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodebuilder.h#L69{m_keys}]]]
--m_mapDepth : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodebuilder.h#L70{m_mapDepth}]]]
+class "disable_if_c<1,T>" as C_0000549582080259159149
+class C_0000549582080259159149 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L102{disable_if_c}]] {
 }
-class "NodeEvents" as C_0001013507575294340870
-class C_0001013507575294340870 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodeevents.h#L26{NodeEvents}]] {
-+NodeEvents(const Node & node) : void
-+NodeEvents(const NodeEvents & ) : void
-+NodeEvents(NodeEvents && ) : void
-+operator=(const NodeEvents & ) : NodeEvents &
-+operator=(NodeEvents && ) : NodeEvents &
-+Emit(EventHandler & handler) : void
--Setup(const detail::node & node) : void
--Emit(const detail::node & node, EventHandler & handler, NodeEvents::AliasManager & am) const : void
--IsAliased(const detail::node & node) const : bool
--m_pMemory : detail::shared_memory_holder [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodeevents.h#L60{m_pMemory}]]]
--m_root : detail::node * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodeevents.h#L61{m_root}]]]
--m_refCount : NodeEvents::RefCount [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodeevents.h#L64{m_refCount}]]]
+class "disable_if<Cond,T>" as C_0000492957672946229758
+class C_0000492957672946229758 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L105{disable_if}]] {
 }
-class "NodeEvents::AliasManager" as C_0001895095658189685920
-class C_0001895095658189685920 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodeevents.h#L37{NodeEvents##AliasManager}]] {
-+AliasManager() : void
-+RegisterReference(const detail::node & node) : void
-+LookupAnchor(const detail::node & node) const : anchor_t
--_CreateNewAnchor() : anchor_t
--m_anchorByIdentity : NodeEvents::AliasManager::AnchorByIdentity [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodeevents.h#L49{m_anchorByIdentity}]]]
--m_curAnchor : anchor_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/nodeevents.h#L51{m_curAnchor}]]]
+class "Exception" as C_0001806616961024762883
+class C_0001806616961024762883 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L153{Exception}]] {
++Exception(const Mark & mark_, const std::string & msg_) : void
++~Exception() : void
++Exception(const Exception & ) = default : void
+{static} -build_what(const Mark & mark, const std::string & msg) : const std::string
++mark : Mark [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L161{mark}]]]
++msg : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L162{msg}]]]
 }
-enum "CHOMP" as C_0000702236166272555944
-enum C_0000702236166272555944 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L16{CHOMP}]] {
-STRIP
-CLIP
-KEEP
+class "ParserException" as C_0000063170026261954511
+class C_0000063170026261954511 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L178{ParserException}]] {
++ParserException(const Mark & mark_, const std::string & msg_) : void
++ParserException(const ParserException & ) = default : void
++~ParserException() : void
 }
-enum "ACTION" as C_0001254689817629400416
-enum C_0001254689817629400416 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L17{ACTION}]] {
-NONE
-BREAK
-THROW
+class "RepresentationException" as C_0002299758742766135134
+class C_0002299758742766135134 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L186{RepresentationException}]] {
++RepresentationException(const Mark & mark_, const std::string & msg_) : void
++RepresentationException(const RepresentationException & ) = default : void
++~RepresentationException() : void
 }
-enum "FOLD" as C_0000908809596684947615
-enum C_0000908809596684947615 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L18{FOLD}]] {
-DONT_FOLD
-FOLD_BLOCK
-FOLD_FLOW
+class "InvalidScalar" as C_0000538617909603048847
+class C_0000538617909603048847 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L195{InvalidScalar}]] {
++InvalidScalar(const Mark & mark_) : void
++InvalidScalar(const InvalidScalar & ) = default : void
++~InvalidScalar() : void
 }
-class "ScanScalarParams" as C_0001256742898425390121
-class C_0001256742898425390121 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L20{ScanScalarParams}]] {
-+ScanScalarParams() : void
-+end : const RegEx * [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L36{end}]]]
-+eatEnd : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L38{eatEnd}]]]
-+indent : int [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L39{indent}]]]
-+detectIndent : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L40{detectIndent}]]]
-+eatLeadingWhitespace : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L41{eatLeadingWhitespace}]]]
-+escape : char [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L43{escape}]]]
-+fold : FOLD [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L45{fold}]]]
-+trimTrailingSpaces : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L46{trimTrailingSpaces}]]]
-+chomp : CHOMP [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L48{chomp}]]]
-+onDocIndicator : ACTION [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L52{onDocIndicator}]]]
-+onTabInIndentation : ACTION [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L53{onTabInIndentation}]]]
-+leadingSpaces : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/scanscalar.h#L57{leadingSpaces}]]]
+class "KeyNotFound" as C_0001607428935741126174
+class C_0001607428935741126174 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L203{KeyNotFound}]] {
++KeyNotFound(const KeyNotFound & ) = default : void
++~KeyNotFound() : void
++KeyNotFound(const Mark & mark_, const T & key_) : void
 }
-class "ostream_wrapper" as C_0001980140328252034694
-class C_0001980140328252034694 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/ostream_wrapper.h#L16{ostream_wrapper}]] {
-+ostream_wrapper() : void
-+ostream_wrapper(std::ostream & stream) : void
-+ostream_wrapper(const ostream_wrapper & ) : void
-+ostream_wrapper(ostream_wrapper && ) : void
-+operator=(const ostream_wrapper & ) : ostream_wrapper &
-+operator=(ostream_wrapper && ) : ostream_wrapper &
-+~ostream_wrapper() : void
-+write(const std::string & str) : void
-+write(const char * str, std::size_t size) : void
-+set_comment() : void
-+str() const : const char *
-+row() const : std::size_t
-+col() const : std::size_t
-+pos() const : std::size_t
-+comment() const : bool
--update_pos(char ch) : void
--m_buffer : std::vector<char> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/ostream_wrapper.h#L49{m_buffer}]]]
--m_pStream : std::ostream *const [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/ostream_wrapper.h#L50{m_pStream}]]]
--m_pos : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/ostream_wrapper.h#L52{m_pos}]]]
--m_row : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/ostream_wrapper.h#L53{m_row}]]]
--m_col : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/ostream_wrapper.h#L53{m_col}]]]
--m_comment : bool [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/ostream_wrapper.h#L54{m_comment}]]]
+class "TypedKeyNotFound<T>" as C_0000719271899312854342
+class C_0000719271899312854342 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L214{TypedKeyNotFound}]] {
++TypedKeyNotFound<T>(const Mark & mark_, const T & key_) : void
++~TypedKeyNotFound<T>() = default : void
++key : T [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L220{key}]]]
 }
-class "StringFormat" as C_0001153454465562479601
-class C_0001153454465562479601 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterutils.h#L23{StringFormat}]] {
+class "InvalidNode" as C_0000876999995145843477
+class C_0000876999995145843477 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L229{InvalidNode}]] {
++InvalidNode(const std::string & key) : void
++InvalidNode(const InvalidNode & ) = default : void
++~InvalidNode() : void
 }
-enum "StringFormat::value" as C_0002281571217881349631
-enum C_0002281571217881349631 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterutils.h#L24{StringFormat##value}]] {
-Plain
-SingleQuoted
-DoubleQuoted
-Literal
+class "BadConversion" as C_0001845328967341282059
+class C_0001845328967341282059 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L238{BadConversion}]] {
++BadConversion(const Mark & mark_) : void
++BadConversion(const BadConversion & ) = default : void
++~BadConversion() : void
 }
-class "StringEscaping" as C_0000656339795039760617
-class C_0000656339795039760617 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterutils.h#L27{StringEscaping}]] {
+class "TypedBadConversion<T>" as C_0001280350484708093885
+class C_0001280350484708093885 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L247{TypedBadConversion}]] {
++TypedBadConversion<T>(const Mark & mark_) : void
 }
-enum "StringEscaping::value" as C_0001499188965701735609
-enum C_0001499188965701735609 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/emitterutils.h#L28{StringEscaping##value}]] {
-None
-NonAscii
-JSON
+class "BadDereference" as C_0000367186276281512337
+class C_0000367186276281512337 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L252{BadDereference}]] {
++BadDereference() : void
++BadDereference(const BadDereference & ) = default : void
++~BadDereference() : void
 }
-class "Indentation" as C_0001945446126476399895
-class C_0001945446126476399895 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/indentation.h#L16{Indentation}]] {
-+Indentation(std::size_t n_) : void
-+n : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/indentation.h#L18{n}]]]
+class "BadSubscript" as C_0001657053573119450854
+class C_0001657053573119450854 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L260{BadSubscript}]] {
++BadSubscript(const BadSubscript & ) = default : void
++~BadSubscript() : void
++BadSubscript(const Mark & mark_, const Key & key) : void
 }
-class "IndentTo" as C_0001172506744709099039
-class C_0001172506744709099039 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/indentation.h#L28{IndentTo}]] {
-+IndentTo(std::size_t n_) : void
-+n : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/indentation.h#L30{n}]]]
+class "BadPushback" as C_0001176863357377831267
+class C_0001176863357377831267 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L269{BadPushback}]] {
++BadPushback() : void
++BadPushback(const BadPushback & ) = default : void
++~BadPushback() : void
+}
+class "BadInsert" as C_0001675143464585039615
+class C_0001675143464585039615 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L277{BadInsert}]] {
++BadInsert() : void
++BadInsert(const BadInsert & ) = default : void
++~BadInsert() : void
+}
+class "EmitterException" as C_0000055301464881407088
+class C_0000055301464881407088 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L285{EmitterException}]] {
++EmitterException(const std::string & msg_) : void
++EmitterException(const EmitterException & ) = default : void
++~EmitterException() : void
+}
+class "BadFile" as C_0000893995910824076006
+class C_0000893995910824076006 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/exceptions.h#L293{BadFile}]] {
++BadFile(const std::string & filename) : void
++BadFile(const BadFile & ) = default : void
++~BadFile() : void
 }
 class "Parser" as C_0001805280762038674196
-class C_0001805280762038674196 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/parser.h#L26{A parser turns a stream of bytes into one stream of "events" per YAML  document in the input stream.}]] {
+class C_0001805280762038674196 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/parser.h#L26{A parser turns a stream of bytes into one stream of "events" per YAML  document in the input stream.}]] {
 +Parser() : void
 +Parser(const Parser & ) : void
 +Parser(Parser && ) : void
@@ -1045,11 +842,69 @@ class C_0001805280762038674196 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 -HandleDirective(const Token & token) : void
 -HandleYamlDirective(const Token & token) : void
 -HandleTagDirective(const Token & token) : void
--m_pScanner : std::unique_ptr<Scanner> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/parser.h#L85{m_pScanner}]]]
--m_pDirectives : std::unique_ptr<Directives> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/parser.h#L86{m_pDirectives}]]]
+-m_pScanner : std::unique_ptr<Scanner> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/parser.h#L85{m_pScanner}]]]
+-m_pDirectives : std::unique_ptr<Directives> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/parser.h#L86{m_pDirectives}]]]
+}
+class "CollectionStack" as C_0000834633934585374300
+class C_0000834633934585374300 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L17{CollectionStack}]] {
++CollectionStack() : void
++GetCurCollectionType() const : CollectionType::value
++PushCollectionType(CollectionType::value type) : void
++PopCollectionType(CollectionType::value type) : void
+-collectionStack : std::stack<CollectionType::value> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/collectionstack.h#L37{collectionStack}]]]
+}
+class "DepthGuard<int>" as C_0001394889835041831276
+class C_0001394889835041831276 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L18{DepthGuard}]] {
+}
+abstract "EventHandler" as C_0001547374381768282700
+abstract C_0001547374381768282700 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L19{EventHandler}]] {
++~EventHandler() = default : void
+{abstract} +OnDocumentStart(const Mark & mark) = 0 : void
+{abstract} +OnDocumentEnd() = 0 : void
+{abstract} +OnNull(const Mark & mark, anchor_t anchor) = 0 : void
+{abstract} +OnAlias(const Mark & mark, anchor_t anchor) = 0 : void
+{abstract} +OnScalar(const Mark & mark, const std::string & tag, anchor_t anchor, const std::string & value) = 0 : void
+{abstract} +OnSequenceStart(const Mark & mark, const std::string & tag, anchor_t anchor, EmitterStyle::value style) = 0 : void
+{abstract} +OnSequenceEnd() = 0 : void
+{abstract} +OnMapStart(const Mark & mark, const std::string & tag, anchor_t anchor, EmitterStyle::value style) = 0 : void
+{abstract} +OnMapEnd() = 0 : void
++OnAnchor(const Mark & , const std::string & ) : void
+}
+class "NodeEvents" as C_0001013507575294340870
+class C_0001013507575294340870 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodeevents.h#L26{NodeEvents}]] {
++NodeEvents(const Node & node) : void
++NodeEvents(const NodeEvents & ) : void
++NodeEvents(NodeEvents && ) : void
++operator=(const NodeEvents & ) : NodeEvents &
++operator=(NodeEvents && ) : NodeEvents &
++Emit(EventHandler & handler) : void
+-Setup(const detail::node & node) : void
+-Emit(const detail::node & node, EventHandler & handler, NodeEvents::AliasManager & am) const : void
+-IsAliased(const detail::node & node) const : bool
+-m_pMemory : detail::shared_memory_holder [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodeevents.h#L60{m_pMemory}]]]
+-m_root : detail::node * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodeevents.h#L61{m_root}]]]
+-m_refCount : NodeEvents::RefCount [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodeevents.h#L64{m_refCount}]]]
+}
+class "NodeEvents::AliasManager" as C_0001006122293452535922
+class C_0001006122293452535922 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodeevents.h#L37{NodeEvents##AliasManager}]] {
++AliasManager() : void
++RegisterReference(const detail::node & node) : void
++LookupAnchor(const detail::node & node) const : anchor_t
+-_CreateNewAnchor() : anchor_t
+-m_anchorByIdentity : NodeEvents::AliasManager::AnchorByIdentity [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodeevents.h#L49{m_anchorByIdentity}]]]
+-m_curAnchor : anchor_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodeevents.h#L51{m_curAnchor}]]]
+}
+class "EmitterStyle" as C_0001280144262925757429
+class C_0001280144262925757429 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitterstyle.h#L11{EmitterStyle}]] {
+}
+enum "EmitterStyle::value" as C_0001624257061140562304
+enum C_0001624257061140562304 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitterstyle.h#L12{EmitterStyle##value}]] {
+Default
+Block
+Flow
 }
 class "EmitFromEvents" as C_0000285891797770183304
-class C_0000285891797770183304 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitfromevents.h#L23{EmitFromEvents}]] {
+class C_0000285891797770183304 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitfromevents.h#L23{EmitFromEvents}]] {
 +EmitFromEvents(Emitter & emitter) : void
 +OnDocumentStart(const Mark & mark) : void
 +OnDocumentEnd() : void
@@ -1062,20 +917,20 @@ class C_0000285891797770183304 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 +OnMapEnd() : void
 -BeginNode() : void
 -EmitProps(const std::string & tag, anchor_t anchor) : void
--m_emitter : Emitter & [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitfromevents.h#L48{m_emitter}]]]
--m_stateStack : std::stack<State::value> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitfromevents.h#L53{m_stateStack}]]]
+-m_emitter : Emitter & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitfromevents.h#L48{m_emitter}]]]
+-m_stateStack : std::stack<State::value> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitfromevents.h#L53{m_stateStack}]]]
 }
-class "EmitFromEvents::State" as C_0002064133109523599545
-class C_0002064133109523599545 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitfromevents.h#L50{EmitFromEvents##State}]] {
+class "EmitFromEvents::State" as C_0000610227595964563909
+class C_0000610227595964563909 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitfromevents.h#L50{EmitFromEvents##State}]] {
 }
-enum "EmitFromEvents::State::value" as C_0000261358440067938285
-enum C_0000261358440067938285 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitfromevents.h#L51{EmitFromEvents##State##value}]] {
+enum "EmitFromEvents::State::value" as C_0001599292087672018147
+enum C_0001599292087672018147 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitfromevents.h#L51{EmitFromEvents##State##value}]] {
 WaitingForSequenceEntry
 WaitingForKey
 WaitingForValue
 }
 class "Emitter" as C_0001417445391963667672
-class C_0001417445391963667672 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitter.h#L33{Emitter}]] {
+class C_0001417445391963667672 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitter.h#L33{Emitter}]] {
 +Emitter() : void
 +Emitter(std::ostream & stream) : void
 +Emitter(const Emitter & ) : void
@@ -1144,11 +999,81 @@ class C_0001417445391963667672 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34
 +WriteIntegralType(T value) : class Emitter &
 +WriteStreamable(T value) : class Emitter &
 -SetStreamablePrecision(std::stringstream & ) : void
--m_pState : std::unique_ptr<EmitterState> [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitter.h#L132{m_pState}]]]
--m_stream : ostream_wrapper [[[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/include/yaml-cpp/emitter.h#L133{m_stream}]]]
+-m_pState : std::unique_ptr<EmitterState> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitter.h#L132{m_pState}]]]
+-m_stream : ostream_wrapper [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/emitter.h#L133{m_stream}]]]
+}
+enum "CHOMP" as C_0000702236166272555944
+enum C_0000702236166272555944 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L16{CHOMP}]] {
+STRIP
+CLIP
+KEEP
+}
+enum "ACTION" as C_0001254689817629400416
+enum C_0001254689817629400416 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L17{ACTION}]] {
+NONE
+BREAK
+THROW
+}
+enum "FOLD" as C_0000908809596684947615
+enum C_0000908809596684947615 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L18{FOLD}]] {
+DONT_FOLD
+FOLD_BLOCK
+FOLD_FLOW
+}
+class "ScanScalarParams" as C_0001256742898425390121
+class C_0001256742898425390121 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L20{ScanScalarParams}]] {
++ScanScalarParams() : void
++end : const RegEx * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L36{end}]]]
++eatEnd : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L38{eatEnd}]]]
++indent : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L39{indent}]]]
++detectIndent : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L40{detectIndent}]]]
++eatLeadingWhitespace : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L41{eatLeadingWhitespace}]]]
++escape : char [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L43{escape}]]]
++fold : FOLD [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L45{fold}]]]
++trimTrailingSpaces : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L46{trimTrailingSpaces}]]]
++chomp : CHOMP [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L48{chomp}]]]
++onDocIndicator : ACTION [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L52{onDocIndicator}]]]
++onTabInIndentation : ACTION [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L53{onTabInIndentation}]]]
++leadingSpaces : bool [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/scanscalar.h#L57{leadingSpaces}]]]
+}
+class "NodeType" as C_0001496395354200736353
+class C_0001496395354200736353 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/type.h#L11{NodeType}]] {
+}
+enum "NodeType::value" as C_0000191866117949891613
+enum C_0000191866117949891613 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/type.h#L12{NodeType##value}]] {
+Undefined
+Null
+Scalar
+Sequence
+Map
+}
+enum "Node::Zombie" as C_0000756716088463823371
+enum C_0000756716088463823371 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/node.h#L117{Node##Zombie}]] {
+ZombieNode
+}
+class "as_if<T,S>" as C_0000389111401049763740
+class C_0000389111401049763740 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/node.h#L39{as_if}]] {
+}
+class "DeepRecursion" as C_0002013520509583003092
+class C_0002013520509583003092 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/depthguard.h#L22{@brief The DeepRecursion class   An exception class which is thrown by DepthGuard. Ideally it should be  a member of DepthGuard. However, DepthGuard is a templated class which means  that any catch points would then need to know the template parameters....}]] {
++~DeepRecursion() = default : void
++DeepRecursion(int depth, const Mark & mark_, const std::string & msg_) : void
++depth() const : int
+-m_depth : int [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/depthguard.h#L34{m_depth}]]]
+}
+class "DepthGuard<int max_depth>" as C_0001323682514303197793
+class C_0001323682514303197793 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/depthguard.h#L49{@brief The DepthGuard class   DepthGuard takes a reference to an integer. It increments the integer upon  construction of DepthGuard and decrements the integer upon destruction.  If the integer would be incremented past max_depth, then an exception is  ...}]] {
++DepthGuard<max_depth>(int & depth_, const Mark & mark_, const std::string & msg_) : void
++DepthGuard<max_depth>(const DepthGuard<max_depth> & copy_ctor) : void
++DepthGuard<max_depth>(DepthGuard<max_depth> && move_ctor) : void
++operator=(const DepthGuard<max_depth> & copy_assign) : DepthGuard<max_depth> &
++operator=(DepthGuard<max_depth> && move_assign) : DepthGuard<max_depth> &
++~DepthGuard<max_depth>() : void
++current_depth() const : int
+-m_depth : int & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/depthguard.h#L72{m_depth}]]]
 }
 enum "UtfIntroState" as C_0001445640584148210516
-enum C_0001445640584148210516 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.cpp#L15{UtfIntroState}]] {
+enum C_0001445640584148210516 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.cpp#L15{UtfIntroState}]] {
 uis_start
 uis_utfbe_b1
 uis_utf32be_b2
@@ -1170,7 +1095,7 @@ uis_utf8
 uis_error
 }
 enum "UtfIntroCharType" as C_0000136545258808138729
-enum C_0000136545258808138729 [[https://github.com/jbeder/yaml-cpp/blob/c73ee34704c512ebe915b283645aefa9f424a22f/src/stream.cpp#L37{UtfIntroCharType}]] {
+enum C_0000136545258808138729 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/stream.cpp#L37{UtfIntroCharType}]] {
 uict00
 uictBB
 uictBF
@@ -1181,18 +1106,81 @@ uictAscii
 uictOther
 uictMax
 }
-C_0000019805786883680194 o-- C_0000916292378924332724 : +version
-C_0000732953323034496241 ..> C_0001564552264813056718
-C_0000732953323034496241 ..> C_0000019805786883680194
-C_0000732953323034496241 o-- C_0000924350019152621065 : +type
-C_0000924350019152621065 --+ C_0000732953323034496241
-C_0001564552264813056718 ..> C_0001756597841359481234
-C_0001564552264813056718 ..> C_0000995347387003540375
-C_0001564552264813056718 o-- C_0000477998666987427167 : +status
-C_0001564552264813056718 o-- C_0001756597841359481234 : +type
-C_0001564552264813056718 o-- C_0000995347387003540375 : +mark
-C_0000477998666987427167 --+ C_0001564552264813056718
-C_0001756597841359481234 --+ C_0001564552264813056718
+class "NodeBuilder" as C_0001863744054603309638
+class C_0001863744054603309638 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodebuilder.h#L27{NodeBuilder}]] {
++NodeBuilder() : void
++NodeBuilder(const NodeBuilder & ) : void
++NodeBuilder(NodeBuilder && ) : void
++operator=(const NodeBuilder & ) : NodeBuilder &
++operator=(NodeBuilder && ) : NodeBuilder &
++~NodeBuilder() : void
++Root() : Node
++OnDocumentStart(const Mark & mark) : void
++OnDocumentEnd() : void
++OnNull(const Mark & mark, anchor_t anchor) : void
++OnAlias(const Mark & mark, anchor_t anchor) : void
++OnScalar(const Mark & mark, const std::string & tag, anchor_t anchor, const std::string & value) : void
++OnSequenceStart(const Mark & mark, const std::string & tag, anchor_t anchor, EmitterStyle::value style) : void
++OnSequenceEnd() : void
++OnMapStart(const Mark & mark, const std::string & tag, anchor_t anchor, EmitterStyle::value style) : void
++OnMapEnd() : void
+-Push(const Mark & mark, anchor_t anchor) : detail::node &
+-Push(detail::node & node) : void
+-Pop() : void
+-RegisterAnchor(anchor_t anchor, detail::node & node) : void
+-m_pMemory : detail::shared_memory_holder [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodebuilder.h#L61{m_pMemory}]]]
+-m_pRoot : detail::node * [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodebuilder.h#L62{m_pRoot}]]]
+-m_stack : NodeBuilder::Nodes [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodebuilder.h#L65{m_stack}]]]
+-m_anchors : NodeBuilder::Nodes [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodebuilder.h#L66{m_anchors}]]]
+-m_keys : std::vector<PushedKey> [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodebuilder.h#L69{m_keys}]]]
+-m_mapDepth : std::size_t [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/nodebuilder.h#L70{m_mapDepth}]]]
+}
+class "as_if<std::string,S>" as C_0002071239656679953621
+class C_0002071239656679953621 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L108{as_if}]] {
++as_if<std::basic_string<char>, type-parameter-0-0>(const Node & node_) : void
++operator()(const S & fallback) const : std::string
++node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L110{node}]]]
+}
+class "as_if<T,void>" as C_0001036348313496118369
+class C_0001036348313496118369 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L122{as_if}]] {
++as_if<type-parameter-0-0, void>(const Node & node_) : void
++operator()() const : T
++node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L124{node}]]]
+}
+class "as_if<std::string,void>" as C_0001705845448095615258
+class C_0001705845448095615258 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L138{as_if}]] {
++as_if(const Node & node_) : void
++operator()() const : std::string
++node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L140{node}]]]
+}
+class "Tag" as C_0000732953323034496241
+class C_0000732953323034496241 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/tag.h#L16{Tag}]] {
++Tag(const Token & token) : void
++Translate(const Directives & directives) : const std::string
++type : Tag::TYPE [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/tag.h#L28{type}]]]
++handle : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/tag.h#L29{handle}]]]
++value : std::string [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/tag.h#L29{value}]]]
+}
+enum "Tag::TYPE" as C_0001240882902320864220
+enum C_0001240882902320864220 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/tag.h#L17{Tag##TYPE}]] {
+VERBATIM
+PRIMARY_HANDLE
+SECONDARY_HANDLE
+NAMED_HANDLE
+NON_SPECIFIC
+}
+class "CollectionType" as C_0001996976524079369519
+class C_0001996976524079369519 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/collectionstack.h#L14{CollectionType}]] {
+}
+enum "CollectionType::value" as C_0001528142401823641494
+enum C_0001528142401823641494 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/collectionstack.h#L15{CollectionType##value}]] {
+NoCollection
+BlockMap
+BlockSeq
+FlowMap
+FlowSeq
+CompactMap
+}
 C_0000386091791242056319 ..> C_0000386091791242056319
 C_0001129082404414301689 ..> C_0000386091791242056319
 C_0001129082404414301689 --> C_0000386091791242056319 : -m_pCurSetting
@@ -1200,20 +1188,16 @@ C_0001129082404414301689 o-- C_0000386091791242056319 : -m_oldSetting
 C_0001910171791833287068 <|-- C_0001129082404414301689
 C_0001428022124569049639 ..> C_0001910171791833287068
 C_0001428022124569049639 o-- C_0001910171791833287068 : -m_settingChanges
-C_0001559582064940311306 --+ C_0002185404550880287762
-C_0001303392760739606431 ..> C_0000652804067400117419
-C_0001303392760739606431 o-- C_0000652804067400117419 : +type
-C_0000163237362593325506 --+ C_0001303392760739606431
-C_0000652804067400117419 --+ C_0000163237362593325506
-C_0000321211711562176762 --+ C_0000827100704015978209
-C_0001066622375579595669 --+ C_0001701924344473797309
-C_0000910310210347550695 --+ C_0001141855841464630633
+C_0000505421237145416317 --+ C_0002185404550880287762
+C_0000838527847401371059 --+ C_0001303392760739606431
+C_0001794289575609316196 --+ C_0000838527847401371059
+C_0001017585608131127078 --+ C_0000827100704015978209
+C_0000479292529567022112 --+ C_0001701924344473797309
+C_0001748154192163202778 --+ C_0001141855841464630633
 C_0001633344960886461862 ..> C_0001612458995561194904
 C_0001633344960886461862 ..|> C_0000386091791242056319
 C_0000246193646981412477 ..|> C_0000386091791242056319
-C_0001502605544403553579 ..> C_0001066622375579595669
 C_0001502605544403553579 ..> C_0001612458995561194904
-C_0001502605544403553579 ..> C_0000321211711562176762
 C_0001502605544403553579 ..> C_0000386091791242056319
 C_0001502605544403553579 o-- C_0001633344960886461862 : -m_charset
 C_0001502605544403553579 o-- C_0001633344960886461862 : -m_strFmt
@@ -1232,12 +1216,47 @@ C_0001502605544403553579 o-- C_0000246193646981412477 : -m_floatPrecision
 C_0001502605544403553579 o-- C_0000246193646981412477 : -m_doublePrecision
 C_0001502605544403553579 o-- C_0001428022124569049639 : -m_modifiedSettings
 C_0001502605544403553579 o-- C_0001428022124569049639 : -m_globalModifiedSettings
-C_0001502605544403553579 o-- C_0000436487833368804459 : -m_groups
-C_0000436487833368804459 ..> C_0001066622375579595669
-C_0000436487833368804459 o-- C_0001066622375579595669 : +type
-C_0000436487833368804459 o-- C_0000910310210347550695 : +flowType
-C_0000436487833368804459 o-- C_0001428022124569049639 : +modifiedSettings
-C_0000436487833368804459 --+ C_0001502605544403553579
+C_0001812967755753360029 --+ C_0001502605544403553579
+C_0001812967755753360029 o-- C_0001428022124569049639 : +modifiedSettings
+C_0000285964061694780226 --+ C_0001153454465562479601
+C_0000487781795269888163 --+ C_0000656339795039760617
+C_0001472068993976147503 ..> C_0000769917720959414190
+C_0001472068993976147503 ..> C_0001683248745780477581
+C_0001472068993976147503 o-- C_0000769917720959414190 : -m_op
+C_0001472068993976147503 o-- C_0001472068993976147503 : -m_params
+C_0001683248745780477581 o-- C_0000995347387003540375 : -m_mark
+C_0001683248745780477581 <.. C_0000945705104823587835 : +<<friend>>
+C_0002286195538636210064 --+ C_0001683248745780477581
+C_0000945705104823587835 ..> C_0001683248745780477581
+C_0000945705104823587835 --> C_0001683248745780477581 : -m_stream
+C_0000468923953334398769 <.. C_0001013507575294340870 : +<<friend>>
+C_0000468923953334398769 <.. C_0001863744054603309638 : +<<friend>>
+C_0000019805786883680194 o-- C_0000916292378924332724 : +version
+C_0001564552264813056718 ..> C_0000995347387003540375
+C_0001564552264813056718 o-- C_0000995347387003540375 : +mark
+C_0000485592040653951563 --+ C_0001564552264813056718
+C_0000248922907815476606 --+ C_0001564552264813056718
+C_0002155549371089620159 ..|> C_0002072964150805009912
+C_0000703998907572924569 o-- C_0001683248745780477581 : -INPUT
+C_0000703998907572924569 o-- C_0001564552264813056718 : -m_tokens
+C_0000703998907572924569 o-- C_0002155549371089620159 : -m_indentRefs
+C_0001021220694770814956 --+ C_0000703998907572924569
+C_0001021220694770814956 --> C_0001564552264813056718 : +pStartToken
+C_0000907174879985079126 --+ C_0001021220694770814956
+C_0001119972564326877624 --+ C_0001021220694770814956
+C_0000193662147485277371 --+ C_0000703998907572924569
+C_0002137447788567599934 --+ C_0000703998907572924569
+C_0002137447788567599934 ..> C_0000995347387003540375
+C_0002137447788567599934 o-- C_0000995347387003540375 : +mark
+C_0002137447788567599934 --> C_0001564552264813056718 : +pMapStart
+C_0002137447788567599934 --> C_0001564552264813056718 : +pKey
+C_0002059291412665213837 ..> C_0000703998907572924569
+C_0002059291412665213837 ..> C_0000019805786883680194
+C_0002059291412665213837 ..> C_0001547374381768282700
+C_0002059291412665213837 ..> C_0000995347387003540375
+C_0002059291412665213837 --> C_0000703998907572924569 : -m_scanner
+C_0002059291412665213837 --> C_0000019805786883680194 : -m_directives
+C_0002059291412665213837 o-- C_0000834633934585374300 : -m_pCollectionStack
 C_0000160817464522972236 ..|> C_0001690218893999580597
 C_0000549582080259159149 ..|> C_0002092096575045554004
 C_0001806616961024762883 ..> C_0000995347387003540375
@@ -1264,98 +1283,21 @@ C_0002299758742766135134 <|-- C_0001176863357377831267
 C_0002299758742766135134 <|-- C_0001675143464585039615
 C_0001806616961024762883 <|-- C_0000055301464881407088
 C_0001806616961024762883 <|-- C_0000893995910824076006
-C_0001695151105971183290 --+ C_0001280144262925757429
-C_0001184059433611629296 --+ C_0001496395354200736353
-C_0000468923953334398769 ..> C_0001184059433611629296
-C_0000468923953334398769 ..> C_0001695151105971183290
-C_0000468923953334398769 ..> C_0002186017059509653364
-C_0000468923953334398769 <.. C_0001013507575294340870 : +<<friend>>
-C_0000468923953334398769 <.. C_0001863744054603309638 : +<<friend>>
-C_0002186017059509653364 --+ C_0000468923953334398769
-C_0002071239656679953621 ..> C_0000468923953334398769
-C_0002071239656679953621 --> C_0000468923953334398769 : +node
-C_0002071239656679953621 ..|> C_0000389111401049763740
-C_0001036348313496118369 ..> C_0000468923953334398769
-C_0001036348313496118369 --> C_0000468923953334398769 : +node
-C_0001036348313496118369 ..|> C_0000389111401049763740
-C_0001705845448095615258 ..> C_0000468923953334398769
-C_0001705845448095615258 --> C_0000468923953334398769 : +node
-C_0001705845448095615258 ..|> C_0000389111401049763740
-C_0001472068993976147503 ..> C_0000769917720959414190
-C_0001472068993976147503 ..> C_0001683248745780477581
-C_0001472068993976147503 o-- C_0000769917720959414190 : -m_op
-C_0001472068993976147503 o-- C_0001472068993976147503 : -m_params
-C_0001683248745780477581 o-- C_0000995347387003540375 : -m_mark
-C_0001683248745780477581 o-- C_0001164611139245333630 : -m_charSet
-C_0001683248745780477581 <.. C_0000945705104823587835 : +<<friend>>
-C_0001164611139245333630 --+ C_0001683248745780477581
-C_0000945705104823587835 ..> C_0001683248745780477581
-C_0000945705104823587835 --> C_0001683248745780477581 : -m_stream
-C_0002168694159263227656 --+ C_0001996976524079369519
-C_0000834633934585374300 ..> C_0002168694159263227656
-C_0000834633934585374300 o-- C_0002168694159263227656 : -collectionStack
-C_0002155549371089620159 ..> C_0000611858909851269260
-C_0002155549371089620159 ..|> C_0002072964150805009912
-C_0000703998907572924569 ..> C_0001756597841359481234
-C_0000703998907572924569 ..> C_0001110637851510991639
-C_0000703998907572924569 o-- C_0001683248745780477581 : -INPUT
-C_0000703998907572924569 o-- C_0001564552264813056718 : -m_tokens
-C_0000703998907572924569 o-- C_0000947099705616002170 : -m_simpleKeys
-C_0000703998907572924569 --> C_0000611858909851269260 : -m_indents
-C_0000703998907572924569 o-- C_0002155549371089620159 : -m_indentRefs
-C_0000703998907572924569 o-- C_0001496805413740011421 : -m_flows
-C_0000611858909851269260 ..> C_0001110637851510991639
-C_0000611858909851269260 o-- C_0001110637851510991639 : +type
-C_0000611858909851269260 o-- C_0001606098783747350115 : +status
-C_0000611858909851269260 --> C_0001564552264813056718 : +pStartToken
-C_0000611858909851269260 --+ C_0000703998907572924569
-C_0001110637851510991639 --+ C_0000611858909851269260
-C_0001606098783747350115 --+ C_0000611858909851269260
-C_0001496805413740011421 --+ C_0000703998907572924569
-C_0000947099705616002170 ..> C_0000995347387003540375
-C_0000947099705616002170 o-- C_0000995347387003540375 : +mark
-C_0000947099705616002170 --> C_0000611858909851269260 : +pIndent
-C_0000947099705616002170 --> C_0001564552264813056718 : +pMapStart
-C_0000947099705616002170 --> C_0001564552264813056718 : +pKey
-C_0000947099705616002170 --+ C_0000703998907572924569
-C_0002059291412665213837 ..> C_0000703998907572924569
-C_0002059291412665213837 ..> C_0000019805786883680194
-C_0002059291412665213837 ..> C_0001547374381768282700
-C_0002059291412665213837 ..> C_0000995347387003540375
-C_0002059291412665213837 --> C_0000703998907572924569 : -m_scanner
-C_0002059291412665213837 --> C_0000019805786883680194 : -m_directives
-C_0002059291412665213837 o-- C_0000834633934585374300 : -m_pCollectionStack
-C_0002013520509583003092 ..> C_0000995347387003540375
-C_0000063170026261954511 <|-- C_0002013520509583003092
-C_0001323682514303197793 ..> C_0000995347387003540375
-C_0001547374381768282700 ..> C_0000995347387003540375
-C_0001547374381768282700 ..> C_0001695151105971183290
-C_0001863744054603309638 ..> C_0000995347387003540375
-C_0001863744054603309638 ..> C_0001695151105971183290
-C_0001547374381768282700 <|-- C_0001863744054603309638
-C_0001013507575294340870 ..> C_0000468923953334398769
-C_0001013507575294340870 ..> C_0001547374381768282700
-C_0001013507575294340870 ..> C_0001895095658189685920
-C_0001895095658189685920 --+ C_0001013507575294340870
-C_0001256742898425390121 --> C_0001472068993976147503 : +end
-C_0001256742898425390121 o-- C_0000908809596684947615 : +fold
-C_0001256742898425390121 o-- C_0000702236166272555944 : +chomp
-C_0001256742898425390121 o-- C_0001254689817629400416 : +onDocIndicator
-C_0001256742898425390121 o-- C_0001254689817629400416 : +onTabInIndentation
-C_0002281571217881349631 --+ C_0001153454465562479601
-C_0001499188965701735609 --+ C_0000656339795039760617
 C_0001805280762038674196 ..> C_0001547374381768282700
 C_0001805280762038674196 ..> C_0001564552264813056718
 C_0001805280762038674196 o-- C_0000703998907572924569 : -m_pScanner
 C_0001805280762038674196 o-- C_0000019805786883680194 : -m_pDirectives
+C_0001547374381768282700 ..> C_0000995347387003540375
+C_0001013507575294340870 ..> C_0000468923953334398769
+C_0001013507575294340870 ..> C_0001547374381768282700
+C_0001006122293452535922 --+ C_0001013507575294340870
+C_0001624257061140562304 --+ C_0001280144262925757429
 C_0000285891797770183304 ..> C_0001417445391963667672
 C_0000285891797770183304 ..> C_0000995347387003540375
-C_0000285891797770183304 ..> C_0001695151105971183290
 C_0000285891797770183304 --> C_0001417445391963667672 : -m_emitter
-C_0000285891797770183304 o-- C_0000261358440067938285 : -m_stateStack
 C_0001547374381768282700 <|-- C_0000285891797770183304
-C_0002064133109523599545 --+ C_0000285891797770183304
-C_0000261358440067938285 --+ C_0002064133109523599545
+C_0000610227595964563909 --+ C_0000285891797770183304
+C_0001599292087672018147 --+ C_0000610227595964563909
 C_0001417445391963667672 ..> C_0001612458995561194904
 C_0001417445391963667672 ..> C_0001296628838183953483
 C_0001417445391963667672 ..> C_0001092287104781775339
@@ -1365,7 +1307,31 @@ C_0001417445391963667672 ..> C_0001303392760739606431
 C_0001417445391963667672 ..> C_0000580286262143804947
 C_0001417445391963667672 ..> C_0000861594166492950058
 C_0001417445391963667672 ..> C_0001930889927817951945
-C_0001417445391963667672 ..> C_0001559582064940311306
 C_0001417445391963667672 o-- C_0001502605544403553579 : -m_pState
 C_0001417445391963667672 o-- C_0001980140328252034694 : -m_stream
+C_0001256742898425390121 --> C_0001472068993976147503 : +end
+C_0001256742898425390121 o-- C_0000908809596684947615 : +fold
+C_0001256742898425390121 o-- C_0000702236166272555944 : +chomp
+C_0001256742898425390121 o-- C_0001254689817629400416 : +onDocIndicator
+C_0001256742898425390121 o-- C_0001254689817629400416 : +onTabInIndentation
+C_0000191866117949891613 --+ C_0001496395354200736353
+C_0000756716088463823371 --+ C_0000468923953334398769
+C_0002013520509583003092 ..> C_0000995347387003540375
+C_0000063170026261954511 <|-- C_0002013520509583003092
+C_0001323682514303197793 ..> C_0000995347387003540375
+C_0001863744054603309638 ..> C_0000995347387003540375
+C_0001547374381768282700 <|-- C_0001863744054603309638
+C_0002071239656679953621 ..> C_0000468923953334398769
+C_0002071239656679953621 --> C_0000468923953334398769 : +node
+C_0002071239656679953621 ..|> C_0000389111401049763740
+C_0001036348313496118369 ..> C_0000468923953334398769
+C_0001036348313496118369 --> C_0000468923953334398769 : +node
+C_0001036348313496118369 ..|> C_0000389111401049763740
+C_0001705845448095615258 ..> C_0000468923953334398769
+C_0001705845448095615258 --> C_0000468923953334398769 : +node
+C_0001705845448095615258 ..|> C_0000389111401049763740
+C_0000732953323034496241 ..> C_0001564552264813056718
+C_0000732953323034496241 ..> C_0000019805786883680194
+C_0001240882902320864220 --+ C_0000732953323034496241
+C_0001528142401823641494 --+ C_0001996976524079369519
 @enduml

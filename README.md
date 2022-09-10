@@ -7,6 +7,21 @@ This repository contains several examples of UML diagrams generated using [clang
 * [godot](./godot/README.md)
 * [yaml-cpp](./yaml-cpp/README.md)
 
+To build the example diagrams follow the following steps:
+
+```bash
+git clone https://github.com/bkryza/clang-uml
+git clone https://github.com/bkryza/clang-uml-examples
+make -C clang-uml debug
+cd clang-uml-examples
+
+# Build diagrams for all example projects:
+make CLANG_UML_BINARY=../clang-uml-libtooling/debug/clang-uml
+
+# or build diagrams for a specific project:
+make CLANG_UML_BINARY=../clang-uml-libtooling/debug/clang-uml godot
+```
+
 ## LICENSE
 
     Copyright 2021-present Bartek Kryza <bkryza@gmail.com>

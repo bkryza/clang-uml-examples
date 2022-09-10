@@ -1,37 +1,5 @@
 @startuml
 left to right direction
-abstract "cpp_entity" as C_0001854695372332280903
-abstract C_0001854695372332280903 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity.hpp#L47{The base class for all entities in the C++ AST.}]] {
-+cpp_entity(const cpp_entity & ) : void
-+operator=(const cpp_entity & ) : cpp_entity &
-+~cpp_entity() = default : void
-+kind() const : cpp_entity_kind
-+name() const : const std::string &
-+scope_name() const : type_safe::basic_optional<cpp_scope_name>
-+parent() const : type_safe::basic_optional<const cpp_entity>
-+comment() const : type_safe::basic_optional<const std::string>
-+set_comment(type_safe::basic_optional<std::string> comment) : void
-+attributes() const : const cpp_attribute_list &
-+add_attribute(cpp_attribute attr) : void
-+add_attribute(const cpp_attribute_list & list) : void
-+user_data() const : void *
-+set_user_data(void * data) const : void
-+cpp_entity(std::string name) : void
-}
-class "cpp_unexposed_entity" as C_0001449857709503654826
-class C_0001449857709503654826 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity.hpp#L187{A [cppast::cpp_entity]() that isn't exposed directly. The only information available is the raw source code.}]] {
-{static} +kind() : cpp_entity_kind
-{static} +build(const cpp_entity_index & index, cpp_entity_id id, std::string name, cpp_token_string spelling) : std::unique_ptr<cpp_entity>
-{static} +build(cpp_token_string spelling) : std::unique_ptr<cpp_entity>
-+spelling() const : const cpp_token_string &
-}
-class "cpp_static_assert" as C_0001035636844572508781
-class C_0001035636844572508781 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_static_assert.hpp#L12{cpp_static_assert}]] {
-{static} +kind() : cpp_entity_kind
-{static} +build(std::unique_ptr<cpp_expression> expr, std::string msg) : std::unique_ptr<cpp_static_assert>
-+expression() const : const cpp_expression &
-+message() const : const std::string &
-}
 class "cpp_template" as C_0000007122300671081288
 class C_0000007122300671081288 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L61{cpp_template}]] {
 +parameters() const : detail::iteratable_intrusive_list<cpp_template_parameter>
@@ -155,6 +123,13 @@ class C_0001029800296375209800 [[https://github.com/foonathan/cppast/blob/f81be8
 +is_constexpr() const : bool
 +is_consteval() const : bool
 }
+class "cpp_static_assert" as C_0001035636844572508781
+class C_0001035636844572508781 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L60{cpp_static_assert}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(std::unique_ptr<cpp_expression> expr, std::string msg) : std::unique_ptr<cpp_static_assert>
++expression() const : const cpp_expression &
++message() const : const std::string &
+}
 class "cpp_bitfield" as C_0001142080746427367264
 class C_0001142080746427367264 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L18{cpp_bitfield}]] {
 {static} +kind() : cpp_entity_kind
@@ -202,6 +177,13 @@ class C_0001368865032388034918 [[https://github.com/foonathan/cppast/blob/f81be8
 {static} +kind() : cpp_entity_kind
 +is_block() const : bool
 +cpp_entity(std::string ) : void
+}
+class "cpp_unexposed_entity" as C_0001449857709503654826
+class C_0001449857709503654826 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L72{cpp_unexposed_entity}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & index, cpp_entity_id id, std::string name, cpp_token_string spelling) : std::unique_ptr<cpp_entity>
+{static} +build(cpp_token_string spelling) : std::unique_ptr<cpp_entity>
++spelling() const : const cpp_token_string &
 }
 class "cpp_function_template" as C_0001450758198445278335
 class C_0001450758198445278335 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L42{cpp_function_template}]] {
@@ -280,6 +262,24 @@ class C_0001783488486496950492 [[https://github.com/foonathan/cppast/blob/f81be8
 +is_constexpr() const : bool
 +is_consteval() const : bool
 }
+abstract "cpp_entity" as C_0001854695372332280903
+abstract C_0001854695372332280903 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L31{cpp_entity}]] {
++cpp_entity(const cpp_entity & ) : void
++operator=(const cpp_entity & ) : cpp_entity &
++~cpp_entity() = default : void
++kind() const : cpp_entity_kind
++name() const : const std::string &
++scope_name() const : type_safe::basic_optional<cpp_scope_name>
++parent() const : type_safe::basic_optional<const cpp_entity>
++comment() const : type_safe::basic_optional<const std::string>
++set_comment(type_safe::basic_optional<std::string> comment) : void
++attributes() const : const cpp_attribute_list &
++add_attribute(cpp_attribute attr) : void
++add_attribute(const cpp_attribute_list & list) : void
++user_data() const : void *
++set_user_data(void * data) const : void
++cpp_entity(std::string name) : void
+}
 class "cpp_function_template_specialization" as C_0001912174880347917630
 class C_0001912174880347917630 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L43{cpp_function_template_specialization}]] {
 {static} +kind() : cpp_entity_kind
@@ -297,8 +297,6 @@ class C_0000173412889635012893 [[https://github.com/foonathan/cppast/blob/f81be8
 {static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, cpp_namespace_ref target) : std::unique_ptr<cpp_namespace_alias>
 +target() const : const cpp_namespace_ref &
 }
-C_0001854695372332280903 <|-- C_0001449857709503654826
-C_0001854695372332280903 <|-- C_0001035636844572508781
 C_0001854695372332280903 <|-- C_0000007122300671081288
 C_0001223070325447825853 <|-- C_0000093026110207222749
 C_0001783488486496950492 <|-- C_0000204784596342006018
@@ -318,6 +316,7 @@ C_0001854695372332280903 <|-- C_0000914084519342392608
 C_0000007122300671081288 <|-- C_0000949738581869538757
 C_0001854695372332280903 <|-- C_0001015000934507811109
 C_0001223070325447825853 <|-- C_0001029800296375209800
+C_0001854695372332280903 <|-- C_0001035636844572508781
 C_0001290905484738066347 <|-- C_0001142080746427367264
 C_0001854695372332280903 <|-- C_0001158442798649543268
 C_0001854695372332280903 <|-- C_0001223070325447825853
@@ -328,6 +327,7 @@ C_0001854695372332280903 <|-- C_0001318630691633731356
 C_0001854695372332280903 <|-- C_0001352597003719961343
 C_0000184600132526931259 <|-- C_0001352597003719961343
 C_0001854695372332280903 <|-- C_0001368865032388034918
+C_0001854695372332280903 <|-- C_0001449857709503654826
 C_0000007122300671081288 <|-- C_0001450758198445278335
 C_0001158442798649543268 <|-- C_0001461284658212381765
 C_0000184600132526931259 <|-- C_0001461284658212381765
