@@ -32,6 +32,72 @@ diagrams:
       before:
         - 'title Godot Object class hierarchy'
         - 'left to right direction'
+  resource_class_hierarchy_diagram:
+    type: class
+    generate_method_arguments: full
+    generate_packages: false
+    glob:
+      - core/*.cpp
+      - core/crypto/*.cpp
+      - core/io/*.cpp
+      - core/math/*.cpp
+      - core/os/*.cpp
+    include:
+      subclasses:
+        - Resource
+      relationships:
+        - inheritance
+    exclude:
+      namespaces:
+        - std
+      access:
+        - public
+        - protected
+        - private
+    plantuml:
+      before:
+        - 'title Godot Resource class hierarchy'
+        - 'left to right direction'
+  node2d_class_context_diagram:
+    type: class
+    generate_method_arguments: full
+    generate_packages: false
+    glob:
+      - scene/2d/node_2d.cpp
+    include:
+      context:
+        - Node2D
+    exclude:
+      namespaces:
+        - std
+      relationships:
+        - dependency
+      access:
+        - public
+        - protected
+        - private
+    plantuml:
+      before:
+        - 'title Godot Node2D class context'
+        - 'left to right direction'
+  node2d_class_context_full_diagram:
+    type: class
+    generate_method_arguments: full
+    generate_packages: false
+    glob:
+      - scene/2d/node_2d.cpp
+    include:
+      context:
+        - Node2D
+    exclude:
+      namespaces:
+        - std
+      relationships:
+        - dependency
+    plantuml:
+      before:
+        - 'title Godot Node2D class context'
+        - 'left to right direction'
   object_class_context_diagram:
     type: class
     generate_method_arguments: full
