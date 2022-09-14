@@ -1,0 +1,457 @@
+@startuml
+class "exception_wrapper" as C_0001539432614095357204
+class C_0001539432614095357204 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L161{Throwing exceptions can be a convenient way to handle errors. Storing exceptions in an `exception_ptr` makes it easy to handle exceptions in a different thread or at a later time. `exception_ptr` can also be used in a very generic result/exception wrapp...}]] {
+{static} -onNoExceptionError(const char * name) : void
+{static} -uninit_type_(const exception_wrapper * ) : const std::type_info *
+{static} -as_exception_or_null_(const std::exception & ex) : const std::exception *
+{static} -as_exception_or_null_(exception_wrapper::AnyException ) : const std::exception *
+{static} +from_exception_ptr(const std::exception_ptr & eptr) : exception_wrapper
+{static} +from_exception_ptr(std::exception_ptr && eptr) : exception_wrapper
++exception_wrapper() : void
++exception_wrapper(exception_wrapper && that) : void
++exception_wrapper(const exception_wrapper & that) : void
++operator=(exception_wrapper && that) : exception_wrapper &
++operator=(const exception_wrapper & that) : exception_wrapper &
++~exception_wrapper() : void
++exception_wrapper(std::exception_ptr ptr) : void
++swap(exception_wrapper & that) : void
++operator bool() const : bool
++operator!() const : bool
++reset() : void
++has_exception_ptr() const : bool
++get_exception() : std::exception *
++get_exception() const : const std::exception *
++to_exception_ptr() : std::exception_ptr
++to_exception_ptr() const : std::exception_ptr
+{static} +none() : const std::type_info &
+{static} +unknown() : const std::type_info &
++type() const : const std::type_info &
++what() const : fbstring
++class_name() const : fbstring
++throw_exception() const : void
+{static} -noop_(Args... ) : Ret
+-exception_wrapper(exception_wrapper::ThrownTag , in_place_type_tag<Ex> , As &&... as) : void
+-exception_wrapper(exception_wrapper::OnHeapTag , in_place_type_tag<Ex> , As &&... as) : void
+-exception_wrapper(exception_wrapper::InSituTag , in_place_type_tag<Ex> , As &&... as) : void
+{static} -handle_(std::false_type , This & this_, CatchFns &... fns) : void
+{static} -handle_(std::true_type , This & this_, CatchFns &... fns) : void
+{static} -with_exception_(This & this_, Fn fn_) : _Bool
++exception_wrapper(std::exception_ptr ptr, Ex & ex) : void
++exception_wrapper(Ex && ex) : void
++exception_wrapper(in_place_t , Ex && ex) : void
++exception_wrapper(in_place_type_tag<Ex> , As &&... as) : void
++get_exception() : Ex *
++get_exception() : const Ex *
++is_compatible_with() : _Bool
++throw_with_nested(Ex && ex) : void
++with_exception(Fn fn) : _Bool
++with_exception(Fn fn) : _Bool
++handle(CatchFns... fns) : void
++handle(CatchFns... fns) : void
+- : exception_wrapper::(anonymous union at /home/bartek/devel/clang-uml-examples/folly/folly/folly/ExceptionWrapper.h:337:3) [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L337{}]]]
+-vptr_ : const exception_wrapper::VTable * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L342{vptr_}]]]
+{static} -uninit_ : const exception_wrapper::VTable [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L205{uninit_}]]]
+}
+class "Try<T>" as C_0000135335628570802873
+class C_0000135335628570802873 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Try.h#L52{Try}]] {
++Try<T>() : void
++Try<T>(const T & v) : void
++Try<T>(T && v) : void
++Try<T>(exception_wrapper e) : void
++Try<T>(Try<T> && t) : void
++operator=(Try<T> && t) : Try<T> &
++Try<T>(const Try<T> & t) : void
++operator=(const Try<T> & t) : Try<T> &
++~Try<T>() : void
++value() : T &
++value() : T &&
++value() const : const T &
++value() const : const T &&
++throwIfFailed() const : void
++operator*() const : const T &
++operator*() : T &
++operator*() : T &&
++operator*() const : const T &&
++operator->() const : const T *
++operator->() : T *
++hasValue() const : bool
++hasException() const : bool
++exception() : exception_wrapper &
++exception() : exception_wrapper &&
++exception() const : const exception_wrapper &
++exception() const : const exception_wrapper &&
++tryGetExceptionObject() : std::exception *
++tryGetExceptionObject() const : const std::exception *
+-destroy() : void
++Try<T>(in_place_t , Args &&... args) : void
++Try<T>(typename std::enable_if<std::is_same<Unit,T2>::value,const Try<void> &>::type t) : void
++emplace(Args &&... args) : T &
++emplaceException(Args &&... args) : class exception_wrapper &
++hasException() : _Bool
++tryGetExceptionObject() : E *
++tryGetExceptionObject() : const E *
++withException(F func) : _Bool
++withException(F func) : _Bool
++withException(F func) : _Bool
++withException(F func) : _Bool
++get() : typename std::enable_if<isTry, R>::type
++get() : typename std::enable_if<!isTry, R>::type
+-contains_ : Try::Contains [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Try.h#L356{contains_}]]]
+- : Try::(anonymous union at /home/bartek/devel/clang-uml-examples/folly/folly/folly/Try.h:357:3) [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Try.h#L357{}]]]
+}
+class "futures::detail::Core<T>" as C_0000487431047047122182
+class C_0000487431047047122182 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/detail/Core.h#L504{Core}]] {
+{static} +make() : Core<T> *
+{static} +make(Try<T> && t) : Core<T> *
++getTry() : Try<T> &
++getTry() const : const Try<T> &
++setResult(Try<T> && t) : void
++setResult(Executor::KeepAlive<> && completingKA, Try<T> && t) : void
++setProxy(Core<T> * proxy) : void
+-Core<T>() : void
+-Core<T>(Try<T> && t) : void
+-~Core<T>() : void
+{static} +make(in_place_t , Args &&... args) : Core<T> *
++setCallback(F && func, std::shared_ptr<RequestContext> && context, futures::detail::InlineContinuation allowInline) : void
+-Core<T>(in_place_t , Args &&... args) : void
+}
+class "futures::detail::EmptyConstruct" as C_0001636747636195825603
+class C_0001636747636195825603 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L68{EmptyConstruct}]] {
+}
+class "futures::detail::FutureBase<T>" as C_0000725183341054102552
+class C_0000725183341054102552 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L116{FutureBase}]] {
++FutureBase<T>(const FutureBase<T> & ) : void
++FutureBase<T>(SemiFuture<T> && ) : void
++FutureBase<T>(Future<T> && ) : void
++FutureBase<T>(const Future<T> & ) : void
++FutureBase<T>(const SemiFuture<T> & ) : void
++~FutureBase<T>() : void
++valid() const : bool
++value() : T &
++value() const : const T &
++value() : T &&
++value() const : const T &&
++result() : Try<T> &
++result() const : const Try<T> &
++result() : Try<T> &&
++result() const : const Try<T> &&
++isReady() const : bool
++hasValue() const : bool
++hasException() const : bool
++poll() : Optional<Try<T>>
++raise(exception_wrapper interrupt) : void
++cancel() : void
+#getCore() : futures::detail::FutureBase::Core &
+#getCore() const : const futures::detail::FutureBase::Core &
+#getCoreTryChecked() : Try<T> &
+#getCoreTryChecked() const : const Try<T> &
+#FutureBase<T>(futures::detail::FutureBase::Core * obj) : void
+#FutureBase<T>(futures::detail::EmptyConstruct ) : void
+#detach() : void
+#throwIfInvalid() const : void
+#throwIfContinued() const : void
+#assign(FutureBase<T> && other) : void
+#getExecutor() const : Executor *
+#getDeferredExecutor() const : futures::detail::DeferredExecutor *
+#setExecutor(futures::detail::KeepAliveOrDeferred x) : void
++FutureBase<T>(T2 && val) : void
++FutureBase<T>(typename std::enable_if<std::is_same<Unit,T2>::value>::type * ) : void
++FutureBase<T>(in_place_t , Args &&... args) : void
++setCallback_(F && func, futures::detail::InlineContinuation  = InlineContinuation::forbid) : void
++raise(E && exception) : void
+{static} #getCoreImpl(Self & self) : decltype(auto)
+{static} #getCoreTryChecked(Self & self) : decltype(auto)
+#thenImplementation(F && func, R , futures::detail::InlineContinuation ) : typename std::enable_if<!R::ReturnsFuture::value, typename R::Return>::type
+#thenImplementation(F && func, R , futures::detail::InlineContinuation ) : typename std::enable_if<R::ReturnsFuture::value, typename R::Return>::type
+#core_ : futures::detail::FutureBase::Core * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L383{core_}]]]
+}
+class "futures::detail::CoreCallbackState<T,F>" as C_0001797157475442677168
+class C_0001797157475442677168 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L104{CoreCallbackState}]] {
++CoreCallbackState<T, F>(Promise<T> && promise, F && func) : void
++CoreCallbackState<T, F>(CoreCallbackState<T,F> && that) : void
++operator=(CoreCallbackState<T,F> && ) : CoreCallbackState<T,F> &
++~CoreCallbackState<T, F>() : void
++setTry(Executor::KeepAlive<> && keepAlive, Try<T> && t) : void
++setException(Executor::KeepAlive<> && keepAlive, exception_wrapper && ew) : void
++stealPromise() : Promise<T>
+-before_barrier() const : bool
++invoke(Args &&... args) : auto
++tryInvoke(Args &&... args) : auto
+- : futures::detail::CoreCallbackState::(anonymous union at /home/bartek/devel/clang-uml-examples/folly/folly/folly/futures/Future-inl.h:159:3) [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L159{}]]]
+-promise_ : Promise<T> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L162{promise_}]]]
+}
+class "Executor::KeepAlive" as C_0002242828088217415598
+class C_0002242828088217415598 {
+}
+class "Promise<T>" as C_0001778078938283944881
+class C_0001778078938283944881 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L147{Promises and futures provide a potentially nonblocking mechanism   to execute a producer/consumer operation concurrently, with   threading/pools controlled via an executor. There are multiple potential   patterns for using promises and futures including...}]] {
+{static} +makeEmpty() : Promise<T>
++Promise<T>() : void
++~Promise<T>() : void
++Promise<T>(const Promise<T> & ) : void
++operator=(const Promise<T> & ) : Promise<T> &
++Promise<T>(Promise<T> && other) : void
++operator=(Promise<T> && other) : Promise<T> &
++getSemiFuture() : SemiFuture<T>
++getFuture() : Future<T>
++setException(exception_wrapper ew) : void
++setTry(Try<T> && t) : void
++valid() const : bool
++isFulfilled() const : bool
+-getCore() : Promise::Core &
+-getCore() const : const Promise::Core &
+-setTry(Executor::KeepAlive<> && ka, Try<T> && t) : void
+-Promise<T>(futures::detail::EmptyConstruct ) : void
+-throwIfFulfilled() const : void
+-detach() : void
++setException(const E & e) : typename std::enable_if<std::is_base_of<std::exception, E>::value>::type
++setInterruptHandler(F && fn) : void
++setValue() : typename std::enable_if<std::is_same<struct Unit, B>::value, void>::type
++setValue(M && value) : void
++setWith(F && func) : void
+{static} -getCoreImpl(CoreT * core) : CoreT &
+-retrieved_ : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L418{retrieved_}]]]
+-core_ : Promise::Core * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L444{core_}]]]
+}
+abstract "DrivableExecutor" as C_0000481841646641149488
+abstract C_0000481841646641149488 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/DrivableExecutor.h#L40{DrivableExecutor}]] {
++~DrivableExecutor() = default : void
+{abstract} +drive() = 0 : void
+}
+class "TimedDrivableExecutor" as C_0000769434624932181431
+class C_0000769434624932181431 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L30{TimedDrivableExecutor}]] {
++TimedDrivableExecutor() : void
++~TimedDrivableExecutor() : void
++drive() : void
++try_drive() : bool
++add(Func ) : void
++run() : size_t
++drain() : size_t
++wait() : void
++try_wait() : bool
++try_drive_for(const std::chrono::duration<Rep,Period> & timeout) : _Bool
++try_drive_until(const std::chrono::time_point<Clock,Duration> & deadline) : _Bool
++try_wait_for(const std::chrono::duration<Rep,Period> & timeout) : _Bool
++try_wait_until(const std::chrono::time_point<Clock,Duration> & deadline) : _Bool
+-queue_ : UMPSCQueue<Func,true> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L99{queue_}]]]
+-func_ : Func [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L100{func_}]]]
+}
+class "SemiFuture<T>" as C_0000156632990802225029
+class C_0000156632990802225029 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L487{The interface (along with Future) for the consumer-side of a   producer/consumer pair. Future vs. SemiFuture: - The consumer-side should generally start with a SemiFuture, not a Future. - Example, when a library creates and returns a future, it should u...}]] {
++~SemiFuture<T>() : void
+{static} +makeEmpty() : SemiFuture<T>
++SemiFuture<T>(const SemiFuture<T> & ) : void
++SemiFuture<T>(SemiFuture<T> && ) : void
++SemiFuture<T>(Future<T> && ) : void
++operator=(const SemiFuture<T> & ) : SemiFuture<T> &
++operator=(SemiFuture<T> && ) : SemiFuture<T> &
++operator=(Future<T> && ) : SemiFuture<T> &
++get() : T
++get(HighResDuration dur) : T
++getTry() : Try<T>
++getTry(HighResDuration dur) : Try<T>
++wait() : SemiFuture<T> &
++wait() : SemiFuture<T> &&
++wait(HighResDuration dur) : bool
++via(Executor::KeepAlive<> executor) : Future<T>
++via(Executor::KeepAlive<> executor, int8_t priority) : Future<T>
++unit() : SemiFuture<Unit>
++within(HighResDuration dur, Timekeeper * tk = nullptr) : SemiFuture<T>
++delayed(HighResDuration dur, Timekeeper * tk = nullptr) : SemiFuture<T>
++toUnsafeFuture() : Future<T>
+-SemiFuture<T>(SemiFuture::Core * obj) : void
+-SemiFuture<T>(futures::detail::EmptyConstruct ) : void
+-stealDeferredExecutor() : futures::detail::DeferredWrapper
+-wait(HighResDuration dur) : SemiFuture<T> &
+{static} -releaseDeferredExecutor(SemiFuture::Core * core) : void
++SemiFuture<T>(T2 && val) : void
++SemiFuture<T>(typename std::enable_if<std::is_same<Unit,T2>::value>::type * p = nullptr) : void
++SemiFuture<T>(in_place_t , Args &&... args) : void
++defer(F && func) : SemiFuture<typename futures::detail::tryCallableResult<T, F>::value_type>
++deferExTry(F && func) : SemiFuture<typename futures::detail::tryExecutorCallableResult<T, F>::value_type>
++defer(R (&)(Args...) func) : auto
++deferValue(F && func) : SemiFuture<typename futures::detail::valueCallableResult<T, F>::value_type>
++deferExValue(F && func) : SemiFuture<typename futures::detail::valueExecutorCallableResult<T, F>::value_type>
++deferValue(R (&)(Args...) func) : auto
++deferError(tag_t<ExceptionType> , F && func) : SemiFuture<T>
++deferError(tag_t<ExceptionType> tag, R (&)(Args...) func) : SemiFuture<T>
++deferError(F && func) : SemiFuture<T>
++deferError(F && func) : SemiFuture<T>
++deferError(R (&)(Args...) func) : SemiFuture<T>
++within(HighResDuration dur, E e, Timekeeper * tk = nullptr) : SemiFuture<T>
+}
+class "Future<T>" as C_0000432533400863196245
+class C_0000432533400863196245 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L1003{The interface (along with SemiFuture) for the consumer-side of a   producer/consumer pair. Future vs. SemiFuture: - The consumer-side should generally start with a SemiFuture, not a Future. - Example, when a library creates and returns a future, it shou...}]] {
++Future<T>(const Future<T> & ) : void
++Future<T>(Future<T> && ) : void
+{static} +makeEmpty() : Future<T>
++operator=(const Future<T> & ) : Future<T> &
++operator=(Future<T> && ) : Future<T> &
++getVia(DrivableExecutor * e) : T
++getVia(TimedDrivableExecutor * e, HighResDuration dur) : T
++getTryVia(DrivableExecutor * e) : Try<T>
++getTryVia(TimedDrivableExecutor * e, HighResDuration dur) : Try<T>
++via(Executor::KeepAlive<> executor) : Future<T>
++via(Executor::KeepAlive<> executor, int8_t priority) : Future<T>
++via(Executor::KeepAlive<> executor) : Future<T>
++via(Executor::KeepAlive<> executor, int8_t priority) : Future<T>
++then() : Future<Unit>
++unit() : Future<Unit>
++within(HighResDuration dur, Timekeeper * tk = nullptr) : Future<T>
++delayed(HighResDuration , Timekeeper *  = nullptr) : Future<T>
++get() : T
++get(HighResDuration dur) : T
++getTry() : Try<T>
++getTry(HighResDuration dur) : Try<T>
++wait() : Future<T> &
++wait() : Future<T> &&
++wait(HighResDuration dur) : Future<T> &
++wait(HighResDuration dur) : Future<T> &&
++waitVia(DrivableExecutor * e) : Future<T> &
++waitVia(DrivableExecutor * e) : Future<T> &&
++waitVia(TimedDrivableExecutor * e, HighResDuration dur) : Future<T> &
++waitVia(TimedDrivableExecutor * e, HighResDuration dur) : Future<T> &&
++willEqual(Future<T> & ) : Future<bool>
++semi() : SemiFuture<T>
+#Future<T>(Future::Core * obj) : void
+#Future<T>(futures::detail::EmptyConstruct ) : void
++Future<T>(T2 && val) : void
++Future<T>(typename std::enable_if<std::is_same<Unit,T2>::value>::type * p = nullptr) : void
++Future<T>(in_place_t , Args &&... args) : void
++Future<T>(Future<T2> && other) : void
++Future<T>(Future<T2> && other) : void
++operator=(Future<T2> && other) : Future<T> &
++unwrap() : typename std::enable_if<isFuture<F>::value, Future<typename isFuture<T>::Inner> >::type
++then(F && func) : Future<typename futures::detail::tryCallableResult<T, F>::value_type>
++thenInline(F && func) : Future<typename futures::detail::tryCallableResult<T, F>::value_type>
++then(R (Caller::*)(Args...) func, Caller * instance) : Future<typename isFuture<R>::Inner>
++then(Executor::KeepAlive<> x, Arg && arg) : auto
++thenTry(F && func) : Future<typename futures::detail::tryCallableResult<T, F>::value_type>
++thenTryInline(F && func) : Future<typename futures::detail::tryCallableResult<T, F>::value_type>
++thenExTry(F && func) : Future<typename futures::detail::tryExecutorCallableResult<T, F>::value_type>
++thenExTryInline(F && func) : Future<typename futures::detail::tryExecutorCallableResult<T, F>::value_type>
++thenTry(R (&)(Args...) func) : auto
++thenTryInline(R (&)(Args...) func) : auto
++thenValue(F && func) : Future<typename futures::detail::valueCallableResult<T, F>::value_type>
++thenValueInline(F && func) : Future<typename futures::detail::valueCallableResult<T, F>::value_type>
++thenExValue(F && func) : Future<typename futures::detail::valueExecutorCallableResult<T, F>::value_type>
++thenExValueInline(F && func) : Future<typename futures::detail::valueExecutorCallableResult<T, F>::value_type>
++thenValue(R (&)(Args...) func) : auto
++thenValueInline(R (&)(Args...) func) : auto
++thenError(tag_t<ExceptionType> , F && func) : typename std::enable_if<isFutureOrSemiFuture<invoke_result_t<F, ExceptionType> >::value, Future<T> >::type
++thenError(tag_t<ExceptionType> , F && func) : typename std::enable_if<!isFutureOrSemiFuture<invoke_result_t<F, ExceptionType> >::value, Future<T> >::type
++thenError(tag_t<ExceptionType> tag, R (&)(Args...) func) : Future<T>
++thenError(F && func) : Future<T>
++thenError(F && func) : typename std::enable_if<isFutureOrSemiFuture<invoke_result_t<F, class exception_wrapper> >::value, Future<T> >::type
++thenError(F && func) : typename std::enable_if<!isFutureOrSemiFuture<invoke_result_t<F, class exception_wrapper> >::value, Future<T> >::type
++thenError(R (&)(Args...) func) : Future<T>
++onError(F && func) : typename std::enable_if<!is_invocable_v<F, class exception_wrapper> && !futures::detail::Extract<F>::ReturnsFuture::value, Future<T> >::type
++onError(F && func) : typename std::enable_if<!is_invocable_v<F, class exception_wrapper> && futures::detail::Extract<F>::ReturnsFuture::value, Future<T> >::type
++onError(F && func) : typename std::enable_if<is_invocable_v<F, class exception_wrapper> && futures::detail::Extract<F>::ReturnsFuture::value, Future<T> >::type
++onError(F && func) : typename std::enable_if<is_invocable_v<F, class exception_wrapper> && !futures::detail::Extract<F>::ReturnsFuture::value, Future<T> >::type
++onError(R (&)(Args...) func) : Future<T>
++onError(F && func) : Future<T>
++ensure(F && func) : Future<T>
++onTimeout(HighResDuration , F && func, Timekeeper *  = nullptr) : Future<T>
++within(HighResDuration dur, E exception, Timekeeper * tk = nullptr) : Future<T>
++filter(F && predicate) : Future<T>
++reduce(I && initial, F && func) : Future<I>
+}
+abstract "Timekeeper" as C_0001579326926673473295
+abstract C_0001579326926673473295 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L1973{A Timekeeper handles the details of keeping time and fulfilling delay promises. The returned Future<Unit> will either complete after the elapsed time, or in the event of some kind of exceptional error may hold an exception. These Futures respond to canc...}]] {
++~Timekeeper() = default : void
+{abstract} +after(HighResDuration dur) = 0 : SemiFuture<Unit>
++afterUnsafe(HighResDuration dur) : Future<Unit>
++at(std::chrono::time_point<Clock> when) : SemiFuture<struct Unit>
++atUnsafe(std::chrono::time_point<Clock> when) : Future<struct Unit>
+}
+class "SharedPromise::Defaulted<size_t>" as C_0000742750151299031844
+class C_0000742750151299031844 {
+}
+class "SharedPromise::Defaulted<Try<T>>" as C_0000616814101618455991
+class C_0000616814101618455991 {
+}
+class "SharedPromise<T>" as C_0000070676212088190880
+class C_0000070676212088190880 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L41{SharedPromise}]] {
++getSemiFuture() const : SemiFuture<T>
++getFuture() const : Future<T>
++size() const : size_t
++setException(exception_wrapper ew) : void
++setInterruptHandler(std::function<void (const exception_wrapper &)> ) : void
++setTry(Try<T> && t) : void
++isFulfilled() const : bool
+-hasResult() const : bool
++setException(const E & ) : typename std::enable_if<std::is_base_of<std::exception, E>::value>::type
++setValue() : typename std::enable_if<std::is_same<struct Unit, B>::value, void>::type
++setValue(M && value) : void
++setWith(F && func) : void
+-mutex_ : SharedPromise::Mutex [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L130{mutex_}]]]
+-size_ : Defaulted<size_t> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L131{size_}]]]
+-try_ : Defaulted<Try<T>> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L132{try_}]]]
+-promises_ : std::vector<Promise<T>> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L133{promises_}]]]
+-interruptHandler_ : std::function<void (const exception_wrapper &)> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L134{interruptHandler_}]]]
+}
+class "SharedPromise::Mutex" as C_0001000827240401510911
+class C_0001000827240401510911 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L104{SharedPromise##Mutex}]] {
++Mutex() = default : void
++Mutex(SharedPromise::Mutex && ) : void
++operator=(SharedPromise::Mutex && ) : SharedPromise::Mutex &
+}
+class "SharedPromise::Defaulted<V>" as C_0000764427108203128807
+class C_0000764427108203128807 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L111{SharedPromise##Defaulted}]] {
++Defaulted<V>() = default : void
++Defaulted<V>(Defaulted<V> && that) : void
++operator=(Defaulted<V> && that) : Defaulted<V> &
++value : V [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L116{value}]]]
+}
+class "FutureSplitter<T>" as C_0000913905008779572763
+class C_0000913905008779572763 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L111{FutureSplitter}]] {
+}
+C_0000135335628570802873 ..> C_0001539432614095357204
+C_0000135335628570802873 ..> C_0000135335628570802873
+C_0000487431047047122182 ..> C_0000135335628570802873
+C_0000487431047047122182 ..> C_0002242828088217415598
+C_0000725183341054102552 ..> C_0000725183341054102552
+C_0000725183341054102552 ..> C_0000156632990802225029
+C_0000725183341054102552 ..> C_0000432533400863196245
+C_0000725183341054102552 ..> C_0001539432614095357204
+C_0000725183341054102552 ..> C_0000487431047047122182
+C_0000725183341054102552 ..> C_0001636747636195825603
+C_0000725183341054102552 --> C_0000487431047047122182 : #core_
+C_0001797157475442677168 ..> C_0001778078938283944881
+C_0001797157475442677168 ..> C_0002242828088217415598
+C_0001797157475442677168 ..> C_0000135335628570802873
+C_0001797157475442677168 ..> C_0001539432614095357204
+C_0001797157475442677168 o-- C_0001778078938283944881 : -promise_
+C_0001778078938283944881 ..> C_0001778078938283944881
+C_0001778078938283944881 ..> C_0001539432614095357204
+C_0001778078938283944881 ..> C_0000135335628570802873
+C_0001778078938283944881 ..> C_0002242828088217415598
+C_0001778078938283944881 ..> C_0001636747636195825603
+C_0001778078938283944881 --> C_0000487431047047122182 : -core_
+C_0000481841646641149488 <|-- C_0000769434624932181431
+C_0000156632990802225029 ..> C_0000156632990802225029
+C_0000156632990802225029 ..> C_0000432533400863196245
+C_0000156632990802225029 ..> C_0002242828088217415598
+C_0000156632990802225029 ..> C_0001579326926673473295
+C_0000156632990802225029 ..> C_0001636747636195825603
+C_0000725183341054102552 <|-- C_0000156632990802225029
+C_0000432533400863196245 ..> C_0000432533400863196245
+C_0000432533400863196245 ..> C_0000481841646641149488
+C_0000432533400863196245 ..> C_0000769434624932181431
+C_0000432533400863196245 ..> C_0002242828088217415598
+C_0000432533400863196245 ..> C_0001579326926673473295
+C_0000432533400863196245 ..> C_0001636747636195825603
+C_0000725183341054102552 <|-- C_0000432533400863196245
+C_0000742750151299031844 ..|> C_0000764427108203128807
+C_0000616814101618455991 ..|> C_0000764427108203128807
+C_0000070676212088190880 ..> C_0001539432614095357204
+C_0000070676212088190880 ..> C_0000135335628570802873
+C_0000070676212088190880 o-- C_0000742750151299031844 : -size_
+C_0000070676212088190880 o-- C_0000616814101618455991 : -try_
+C_0000070676212088190880 ..> C_0001778078938283944881
+C_0000070676212088190880 o-- C_0001778078938283944881 : -promises_
+C_0000070676212088190880 --> C_0001539432614095357204 : -interruptHandler_
+C_0001000827240401510911 --+ C_0000070676212088190880
+C_0000764427108203128807 --+ C_0000070676212088190880
+@enduml

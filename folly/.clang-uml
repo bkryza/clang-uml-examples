@@ -1,0 +1,52 @@
+compilation_database_dir: _build
+output_directory: ../puml
+generate_links:
+  link: 'https://github.com/facebook/folly/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+  tooltip: '{% if "comment" in element %}{{ abbrv(trim(replace(element.comment, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+diagrams:
+  futures_class_diagram:
+    type: class
+    glob:
+      - folly/futures/*.cpp
+    using_namespace:
+      - folly
+    include:
+      namespaces:
+        - folly
+      context:
+        - folly::FutureBase<T>
+        - folly::Future<T>
+        - folly::SemiFuture<T>
+        - folly::Barrier
+        - folly::FutureSplitter<T>
+        - folly::Promise<T>
+        - folly::SharedPromise<T>
+        - folly::Retrying
+    exclude:
+      namespace:
+        - folly::detail
+        - folly::futures::detail
+# TODO: Enable after https://github.com/bkryza/clang-uml/issues/54 is resolved
+#    plantuml:
+#      after:
+#        - 'note left of @A(FutureBase<T>) : {{ comment("folly::FutureBase<T>") }}'
+#        - 'note left of @A(SemiFuture<T>) : {{ comment("folly::SemiFuture<T>") }}'
+#        - 'note left of @A(Future<T>) : {{ comment("folly::Future<T>") }}'
+#        - 'note left of @A(Barrier) : {{ comment("folly::Barrier") }}'
+  executors_hierarchy_class_diagram:
+    type: class
+    glob:
+      - folly/executors/*.cpp
+    using_namespace:
+      - folly
+    include:
+      namespaces:
+        - folly
+      subclasses:
+        - folly::Executor
+    exclude:
+      namespace: [folly::detail, folly::futures::detail]
+      access: [protected, private]
+    plantuml:
+      before:
+        - 'left to right direction'
