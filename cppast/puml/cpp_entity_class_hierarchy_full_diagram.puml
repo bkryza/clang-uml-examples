@@ -1,5 +1,59 @@
 @startuml
 left to right direction
+abstract "cpp_entity" as C_0001854695372332280903
+abstract C_0001854695372332280903 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity.hpp#L47{cpp_entity}]] {
++cpp_entity(const cpp_entity & ) : void
++operator=(const cpp_entity & ) : cpp_entity &
++~cpp_entity() = default : void
++kind() const : cpp_entity_kind
++name() const : const std::string &
++scope_name() const : type_safe::basic_optional<cpp_scope_name>
++parent() const : type_safe::basic_optional<const cpp_entity>
++comment() const : type_safe::basic_optional<const std::string>
++set_comment(type_safe::basic_optional<std::string> comment) : void
++attributes() const : const cpp_attribute_list &
++add_attribute(cpp_attribute attr) : void
++add_attribute(const cpp_attribute_list & list) : void
++user_data() const : void *
++set_user_data(void * data) const : void
++cpp_entity(std::string name) : void
+}
+class "cpp_unexposed_entity" as C_0001449857709503654826
+class C_0001449857709503654826 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity.hpp#L187{cpp_unexposed_entity}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & index, cpp_entity_id id, std::string name, cpp_token_string spelling) : std::unique_ptr<cpp_entity>
+{static} +build(cpp_token_string spelling) : std::unique_ptr<cpp_entity>
++spelling() const : const cpp_token_string &
+}
+class "cpp_variable_base" as C_0000184600132526931259
+class C_0000184600132526931259 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_variable_base.hpp#L16{cpp_variable_base}]] {
++type() const : const cpp_type &
++default_value() const : type_safe::basic_optional<const cpp_expression>
+}
+class "cpp_template_parameter" as C_0001158442798649543268
+class C_0001158442798649543268 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L17{cpp_template_parameter}]] {
++is_variadic() const : bool
+}
+class "cpp_template_type_parameter" as C_0001672854013158225149
+class C_0001672854013158225149 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L47{cpp_template_type_parameter}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, cpp_template_keyword kw, bool variadic, std::unique_ptr<cpp_type> default_type = nullptr, type_safe::basic_optional<cpp_token_string> concept_constraint = type_safe::nullopt) : std::unique_ptr<cpp_template_type_parameter>
++default_type() const : type_safe::basic_optional<const cpp_type>
++keyword() const : cpp_template_keyword
++concept_constraint() const : const type_safe::basic_optional<cpp_token_string> &
+}
+class "cpp_non_type_template_parameter" as C_0001461284658212381765
+class C_0001461284658212381765 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L137{cpp_non_type_template_parameter}]] {
+{static} +kind() : cpp_entity_kind
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, bool is_variadic, std::unique_ptr<cpp_expression> default_value = nullptr) : std::unique_ptr<cpp_non_type_template_parameter>
+}
+class "cpp_template_template_parameter" as C_0000753898560016921202
+class C_0000753898560016921202 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L173{cpp_template_template_parameter}]] {
+{static} +kind() : cpp_entity_kind
++parameters() const : detail::iteratable_intrusive_list<cpp_template_parameter>
++keyword() const : cpp_template_keyword
++default_template() const : type_safe::basic_optional<cpp_template_ref>
+}
 class "cpp_template" as C_0000007122300671081288
 class C_0000007122300671081288 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L61{cpp_template}]] {
 +parameters() const : detail::iteratable_intrusive_list<cpp_template_parameter>
@@ -10,11 +64,6 @@ class C_0000093026110207222749 [[https://github.com/foonathan/cppast/blob/f00df6
 +is_explicit() const : bool
 +is_constexpr() const : bool
 +is_consteval() const : bool
-}
-class "cpp_variable_base" as C_0000184600132526931259
-class C_0000184600132526931259 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L79{cpp_variable_base}]] {
-+type() const : const cpp_type &
-+default_value() const : type_safe::basic_optional<const cpp_expression>
 }
 class "cpp_member_function" as C_0000204784596342006018
 class C_0000204784596342006018 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L50{cpp_member_function}]] {
@@ -84,13 +133,6 @@ class C_0000710886303767961620 [[https://github.com/foonathan/cppast/blob/f00df6
 +include_kind() const : cpp_include_kind
 +full_path() const : const std::string &
 }
-class "cpp_template_template_parameter" as C_0000753898560016921202
-class C_0000753898560016921202 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L67{cpp_template_template_parameter}]] {
-{static} +kind() : cpp_entity_kind
-+parameters() const : detail::iteratable_intrusive_list<cpp_template_parameter>
-+keyword() const : cpp_template_keyword
-+default_template() const : type_safe::basic_optional<cpp_template_ref>
-}
 class "cpp_using_directive" as C_0000884493087412892762
 class C_0000884493087412892762 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L77{cpp_using_directive}]] {
 {static} +kind() : cpp_entity_kind
@@ -137,10 +179,6 @@ class C_0001142080746427367264 [[https://github.com/foonathan/cppast/blob/f00df6
 {static} +build(std::unique_ptr<cpp_type> type, unsigned int no_bits, bool is_mutable) : std::unique_ptr<cpp_bitfield>
 +no_bits() const : unsigned int
 }
-class "cpp_template_parameter" as C_0001158442798649543268
-class C_0001158442798649543268 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L64{cpp_template_parameter}]] {
-+is_variadic() const : bool
-}
 class "cpp_function_base" as C_0001223070325447825853
 class C_0001223070325447825853 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L40{cpp_function_base}]] {
 +parameters() const : detail::iteratable_intrusive_list<cpp_function_parameter>
@@ -178,22 +216,10 @@ class C_0001368865032388034918 [[https://github.com/foonathan/cppast/blob/f00df6
 +is_block() const : bool
 +cpp_entity(std::string ) : void
 }
-class "cpp_unexposed_entity" as C_0001449857709503654826
-class C_0001449857709503654826 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L72{cpp_unexposed_entity}]] {
-{static} +kind() : cpp_entity_kind
-{static} +build(const cpp_entity_index & index, cpp_entity_id id, std::string name, cpp_token_string spelling) : std::unique_ptr<cpp_entity>
-{static} +build(cpp_token_string spelling) : std::unique_ptr<cpp_entity>
-+spelling() const : const cpp_token_string &
-}
 class "cpp_function_template" as C_0001450758198445278335
 class C_0001450758198445278335 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L42{cpp_function_template}]] {
 {static} +kind() : cpp_entity_kind
 +function() const : const cpp_function_base &
-}
-class "cpp_non_type_template_parameter" as C_0001461284658212381765
-class C_0001461284658212381765 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L56{cpp_non_type_template_parameter}]] {
-{static} +kind() : cpp_entity_kind
-{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, std::unique_ptr<cpp_type> type, bool is_variadic, std::unique_ptr<cpp_expression> default_value = nullptr) : std::unique_ptr<cpp_non_type_template_parameter>
 }
 class "cpp_base_class" as C_0001513295345096619386
 class C_0001513295345096619386 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L17{cpp_base_class}]] {
@@ -226,14 +252,6 @@ class C_0001660861710076468858 [[https://github.com/foonathan/cppast/blob/f00df6
 +is_variadic() const : bool
 +parameters() const : detail::iteratable_intrusive_list<cpp_macro_parameter>
 }
-class "cpp_template_type_parameter" as C_0001672854013158225149
-class C_0001672854013158225149 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L68{cpp_template_type_parameter}]] {
-{static} +kind() : cpp_entity_kind
-{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, cpp_template_keyword kw, bool variadic, std::unique_ptr<cpp_type> default_type = nullptr, type_safe::basic_optional<cpp_token_string> concept_constraint = type_safe::nullopt) : std::unique_ptr<cpp_template_type_parameter>
-+default_type() const : type_safe::basic_optional<const cpp_type>
-+keyword() const : cpp_template_keyword
-+concept_constraint() const : const type_safe::basic_optional<cpp_token_string> &
-}
 class "cpp_variable" as C_0001714681292788161746
 class C_0001714681292788161746 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L78{cpp_variable}]] {
 {static} +kind() : cpp_entity_kind
@@ -262,24 +280,6 @@ class C_0001783488486496950492 [[https://github.com/foonathan/cppast/blob/f00df6
 +is_constexpr() const : bool
 +is_consteval() const : bool
 }
-abstract "cpp_entity" as C_0001854695372332280903
-abstract C_0001854695372332280903 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L31{cpp_entity}]] {
-+cpp_entity(const cpp_entity & ) : void
-+operator=(const cpp_entity & ) : cpp_entity &
-+~cpp_entity() = default : void
-+kind() const : cpp_entity_kind
-+name() const : const std::string &
-+scope_name() const : type_safe::basic_optional<cpp_scope_name>
-+parent() const : type_safe::basic_optional<const cpp_entity>
-+comment() const : type_safe::basic_optional<const std::string>
-+set_comment(type_safe::basic_optional<std::string> comment) : void
-+attributes() const : const cpp_attribute_list &
-+add_attribute(cpp_attribute attr) : void
-+add_attribute(const cpp_attribute_list & list) : void
-+user_data() const : void *
-+set_user_data(void * data) const : void
-+cpp_entity(std::string name) : void
-}
 class "cpp_function_template_specialization" as C_0001912174880347917630
 class C_0001912174880347917630 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L43{cpp_function_template_specialization}]] {
 {static} +kind() : cpp_entity_kind
@@ -297,6 +297,12 @@ class C_0000173412889635012893 [[https://github.com/foonathan/cppast/blob/f00df6
 {static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, cpp_namespace_ref target) : std::unique_ptr<cpp_namespace_alias>
 +target() const : const cpp_namespace_ref &
 }
+C_0001854695372332280903 <|-- C_0001449857709503654826
+C_0001854695372332280903 <|-- C_0001158442798649543268
+C_0001158442798649543268 <|-- C_0001672854013158225149
+C_0001158442798649543268 <|-- C_0001461284658212381765
+C_0000184600132526931259 <|-- C_0001461284658212381765
+C_0001158442798649543268 <|-- C_0000753898560016921202
 C_0001854695372332280903 <|-- C_0000007122300671081288
 C_0001223070325447825853 <|-- C_0000093026110207222749
 C_0001783488486496950492 <|-- C_0000204784596342006018
@@ -310,7 +316,6 @@ C_0001854695372332280903 <|-- C_0000569714057132864504
 C_0001854695372332280903 <|-- C_0000609158070514656735
 C_0001854695372332280903 <|-- C_0000706843607037461153
 C_0001854695372332280903 <|-- C_0000710886303767961620
-C_0001158442798649543268 <|-- C_0000753898560016921202
 C_0001854695372332280903 <|-- C_0000884493087412892762
 C_0001854695372332280903 <|-- C_0000914084519342392608
 C_0000007122300671081288 <|-- C_0000949738581869538757
@@ -318,7 +323,6 @@ C_0001854695372332280903 <|-- C_0001015000934507811109
 C_0001223070325447825853 <|-- C_0001029800296375209800
 C_0001854695372332280903 <|-- C_0001035636844572508781
 C_0001290905484738066347 <|-- C_0001142080746427367264
-C_0001854695372332280903 <|-- C_0001158442798649543268
 C_0001854695372332280903 <|-- C_0001223070325447825853
 C_0001854695372332280903 <|-- C_0001248593507051490272
 C_0001854695372332280903 <|-- C_0001290905484738066347
@@ -327,15 +331,11 @@ C_0001854695372332280903 <|-- C_0001318630691633731356
 C_0001854695372332280903 <|-- C_0001352597003719961343
 C_0000184600132526931259 <|-- C_0001352597003719961343
 C_0001854695372332280903 <|-- C_0001368865032388034918
-C_0001854695372332280903 <|-- C_0001449857709503654826
 C_0000007122300671081288 <|-- C_0001450758198445278335
-C_0001158442798649543268 <|-- C_0001461284658212381765
-C_0000184600132526931259 <|-- C_0001461284658212381765
 C_0001854695372332280903 <|-- C_0001513295345096619386
 C_0001223070325447825853 <|-- C_0001522207092676876515
 C_0001854695372332280903 <|-- C_0001652684387667767114
 C_0001854695372332280903 <|-- C_0001660861710076468858
-C_0001158442798649543268 <|-- C_0001672854013158225149
 C_0001854695372332280903 <|-- C_0001714681292788161746
 C_0000184600132526931259 <|-- C_0001714681292788161746
 C_0001783488486496950492 <|-- C_0001746973142219232442

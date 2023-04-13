@@ -13,8 +13,7 @@ build: yaml-cpp
 		cd yaml-cpp && \
 		mkdir -p _build && \
 		cd _build && \
-		cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DYAML_CPP_BUILD_TESTS=OFF .. && \
-		make -j8
+		cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DYAML_CPP_BUILD_TESTS=OFF ..
 
 diagrams: build
 		cd yaml-cpp && \

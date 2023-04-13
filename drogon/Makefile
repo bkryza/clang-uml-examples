@@ -13,8 +13,7 @@ build: drogon
 		cd drogon && \
 		mkdir -p _build && \
 		cd _build && \
-		cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DBUILD_TESTING=OFF -DBUILD_SQLITE=OFF -DBUILD_MYSQL=OFF -DBUILD_REDIS=OFF .. && \
-		make -j8
+		cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DBUILD_TESTING=OFF -DBUILD_SQLITE=OFF -DBUILD_MYSQL=OFF -DBUILD_REDIS=OFF ..
 
 diagrams: build
 		cd drogon && \

@@ -10,7 +10,7 @@ clang-uml:
 		git checkout 0.3.4
 
 build: clang-uml
-		LLVM_VERSION=15 $(MAKE) -C clang-uml debug
+		LLVM_VERSION=15 $(MAKE) -C clang-uml debug/CMakeLists.txt
 
 diagrams: build
 		cd clang-uml && \

@@ -3,7 +3,7 @@
 ## Generating diagrams
 
 ```bash
-make CLANG_UML_BINARY=../../clang-uml/debug/clang-uml
+make CLANG_UML_BINARY=../../clang-uml/debug/src/clang-uml
 ```
 
 ## 'futures' class diagram
