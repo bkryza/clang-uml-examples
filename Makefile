@@ -1,4 +1,4 @@
-CLANG_UML_BINARY ?= ../clang-uml/debug/clang-uml
+CLANG_UML_BINARY ?= ../clang-uml/debug/src/clang-uml
 
 .PHONY: clang-uml cppast drogon folly godot yaml-cpp poco clean
 

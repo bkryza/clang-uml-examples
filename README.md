@@ -18,10 +18,10 @@ make -C clang-uml debug
 cd clang-uml-examples
 
 # Build diagrams for all example projects:
-make CLANG_UML_BINARY=../clang-uml/debug/clang-uml
+make CLANG_UML_BINARY=../clang-uml/debug/src/clang-uml
 
 # or build diagrams for a specific project:
-make CLANG_UML_BINARY=../clang-uml/debug/clang-uml godot
+make CLANG_UML_BINARY=../clang-uml/debug/src/clang-uml godot
 ```
 
 ## LICENSE
