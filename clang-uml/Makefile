@@ -7,10 +7,10 @@ all: plantuml
 clang-uml:
 		git clone https://github.com/bkryza/clang-uml && \
 		cd clang-uml && \
-		git checkout 0.2.1
+		git checkout 0.3.4
 
 build: clang-uml
-		$(MAKE) -C clang-uml debug
+		LLVM_VERSION=15 $(MAKE) -C clang-uml debug
 
 diagrams: build
 		cd clang-uml && \

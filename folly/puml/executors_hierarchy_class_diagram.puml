@@ -10,19 +10,19 @@ class C_0001663594882877424244 [[https://github.com/facebook/folly/blob/c7166a67
 +add(Func func) : void
 }
 abstract "Executor" as C_0002222099135672593686
-abstract C_0002222099135672593686 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L53{An Executor accepts units of work with add(), which should be threadsafe.}]] {
+abstract C_0002222099135672593686 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L53{Executor}]] {
 +~Executor() : void
 {abstract} +add(Func ) = 0 : void
 +addWithPriority(Func , int8_t priority) : void
 +getNumPriorities() const : uint8_t
-{static} +getKeepAliveToken(ExecutorT * executor) : KeepAlive<ExecutorT>
-{static} +getKeepAliveToken(ExecutorT & executor) : KeepAlive<ExecutorT>
+{static} +getKeepAliveToken<ExecutorT>(ExecutorT * executor) : KeepAlive<ExecutorT>
+{static} +getKeepAliveToken<ExecutorT>(ExecutorT & executor) : KeepAlive<ExecutorT>
 {static} +LO_PRI : const int8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L68{LO_PRI}]]]
 {static} +MID_PRI : const int8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L69{MID_PRI}]]]
 {static} +HI_PRI : const int8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L70{HI_PRI}]]]
 }
 class "QueuedImmediateExecutor" as C_0001968432200878677255
-class C_0001968432200878677255 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/QueuedImmediateExecutor.h#L31{Runs inline like InlineExecutor, but with a queue so that any tasks added  to this executor by one of its own callbacks will be queued instead of  executed inline (nested). This is usually better behavior than Inline.}]] {
+class C_0001968432200878677255 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/QueuedImmediateExecutor.h#L31{QueuedImmediateExecutor}]] {
 {static} +instance() : QueuedImmediateExecutor &
 +add(Func callback) : void
 }
@@ -104,10 +104,10 @@ class C_0001970350906198958245 [[https://github.com/facebook/folly/blob/c7166a67
 +getVirtualEventBase() : VirtualEventBase &
 +getEventBase() : EventBase *
 {static} +getDefaultBackend() : std::unique_ptr<EventBaseBackendBase>
-+runInEventBaseThread(void (*)(T *) fn, T * arg) : void
-+runInEventBaseThreadAlwaysEnqueue(void (*)(T *) fn, T * arg) : void
-+runInEventBaseThreadAndWait(void (*)(T *) fn, T * arg) : void
-+runImmediatelyOrRunInEventBaseThreadAndWait(void (*)(T *) fn, T * arg) : void
++runInEventBaseThread<T>(void (*)(T *) fn, T * arg) : void
++runInEventBaseThreadAlwaysEnqueue<T>(void (*)(T *) fn, T * arg) : void
++runInEventBaseThreadAndWait<T>(void (*)(T *) fn, T * arg) : void
++runImmediatelyOrRunInEventBaseThreadAndWait<T>(void (*)(T *) fn, T * arg) : void
 }
 abstract "DrivableExecutor" as C_0000481841646641149488
 abstract C_0000481841646641149488 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/DrivableExecutor.h#L40{DrivableExecutor}]] {
@@ -125,10 +125,10 @@ class C_0000769434624932181431 [[https://github.com/facebook/folly/blob/c7166a67
 +drain() : size_t
 +wait() : void
 +try_wait() : bool
-+try_drive_for(const std::chrono::duration<Rep,Period> & timeout) : _Bool
-+try_drive_until(const std::chrono::time_point<Clock,Duration> & deadline) : _Bool
-+try_wait_for(const std::chrono::duration<Rep,Period> & timeout) : _Bool
-+try_wait_until(const std::chrono::time_point<Clock,Duration> & deadline) : _Bool
++try_drive_for<Rep,Period>(const std::chrono::duration<Rep,Period> & timeout) : _Bool
++try_drive_until<Clock,Duration>(const std::chrono::time_point<Clock,Duration> & deadline) : _Bool
++try_wait_for<Rep,Period>(const std::chrono::duration<Rep,Period> & timeout) : _Bool
++try_wait_until<Clock,Duration>(const std::chrono::time_point<Clock,Duration> & deadline) : _Bool
 }
 abstract "ScheduledExecutor" as C_0001218209673148292552
 abstract C_0001218209673148292552 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L28{ScheduledExecutor}]] {
@@ -140,7 +140,7 @@ abstract C_0001218209673148292552 [[https://github.com/facebook/folly/blob/c7166
 +now() : ScheduledExecutor::TimePoint
 }
 class "fibers::FiberManager" as C_0001206661724003471988
-class C_0001206661724003471988 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L80{@class FiberManager  @brief Single-threaded task execution engine.  FiberManager allows semi-parallel task execution on the same thread. Each  task can notify FiberManager that it is blocked on something (via await())  call. This will pause execution of...}]] {
+class C_0001206661724003471988 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L80{FiberManager}]] {
 +FiberManager(const fibers::FiberManager & ) : void
 +operator=(const fibers::FiberManager & ) : fibers::FiberManager &
 +FiberManager(std::unique_ptr<LoopController> loopController, fibers::FiberManager::Options options = Options()) : void
@@ -170,18 +170,18 @@ class C_0001206661724003471988 [[https://github.com/facebook/folly/blob/c7166a67
 {static} +getFiberManager() : fibers::FiberManager &
 {static} +getFiberManagerUnsafe() : fibers::FiberManager *
 +getOptions() const : const fibers::FiberManager::Options &
-+FiberManager(LocalType<LocalT> , std::unique_ptr<LoopController> loopController, fibers::FiberManager::Options options = Options()) : void
-+addTask(F && func, fibers::TaskOptions taskOptions = TaskOptions()) : void
-+addTaskFuture(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
-+addTaskEager(F && func) : void
-+addTaskEagerFuture(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
-+addTaskRemote(F && func) : void
-+addTaskRemoteFuture(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
-+addTaskFinally(F && func, G && finally) : void
-+addTaskFinallyEager(F && func, G && finally) : void
-+runInMainContext(F && func) : invoke_result_t<F>
-+local() : T &
-{static} +localThread() : T &
++FiberManager<LocalT>(LocalType<LocalT> , std::unique_ptr<LoopController> loopController, fibers::FiberManager::Options options = Options()) : void
++addTask<F>(F && func, fibers::TaskOptions taskOptions = TaskOptions()) : void
++addTaskFuture<F>(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
++addTaskEager<F>(F && func) : void
++addTaskEagerFuture<F>(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
++addTaskRemote<F>(F && func) : void
++addTaskRemoteFuture<F>(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
++addTaskFinally<F,G>(F && func, G && finally) : void
++addTaskFinallyEager<F,G>(F && func, G && finally) : void
++runInMainContext<F>(F && func) : invoke_result_t<F>
++local<T>() : T &
+{static} +localThread<T>() : T &
 }
 class "futures::detail::WaitExecutor" as C_0000346702971661703291
 class C_0000346702971661703291 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L478{WaitExecutor}]] {
@@ -192,7 +192,7 @@ class C_0000346702971661703291 [[https://github.com/facebook/folly/blob/c7166a67
 {static} +create() : Executor::KeepAlive<futures::detail::WaitExecutor>
 }
 class "InlineExecutor" as C_0001612067402701865715
-class C_0001612067402701865715 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/InlineExecutor.h#L30{When work is "queued", execute it immediately inline. Usually when you think you want this, you actually want a QueuedImmediateExecutor.}]] {
+class C_0001612067402701865715 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/InlineExecutor.h#L30{InlineExecutor}]] {
 {static} +instance() : InlineExecutor &
 +add(Func f) : void
 }
@@ -207,7 +207,7 @@ class C_0001123262130157209492 [[https://github.com/facebook/folly/blob/c7166a67
 +scheduleAt(Func && func, const ScheduledExecutor::TimePoint & t) : void
 }
 class "DefaultKeepAliveExecutor" as C_0001347291497865252100
-class C_0001347291497865252100 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L30{An Executor accepts units of work with add(), which should be threadsafe.}]] {
+class C_0001347291497865252100 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L30{DefaultKeepAliveExecutor}]] {
 +~DefaultKeepAliveExecutor() : void
 +weakRef() : Executor::KeepAlive<>
 }
@@ -241,7 +241,7 @@ abstract C_0002292058893312396804 [[https://github.com/facebook/folly/blob/c7166
 +setThreadDeathTimeout(std::chrono::milliseconds timeout) : void
 }
 class "IOThreadPoolExecutor" as C_0000260170505900481834
-class C_0000260170505900481834 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L58{A Thread Pool for IO bound tasks  @note Uses event_fd for notification, and waking an epoll loop.  There is one queue (NotificationQueue specifically) per thread/epoll.  If the thread is already running and not waiting on epoll,  we don't make any addit...}]] {
+class C_0000260170505900481834 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L58{IOThreadPoolExecutor}]] {
 +IOThreadPoolExecutor(size_t numThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("IOThreadPool"), EventBaseManager * ebm = folly::EventBaseManager::get(), bool waitForAll = false) : void
 +IOThreadPoolExecutor(size_t maxThreads, size_t minThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("IOThreadPool"), EventBaseManager * ebm = folly::EventBaseManager::get(), bool waitForAll = false) : void
 +~IOThreadPoolExecutor() : void
@@ -252,7 +252,7 @@ class C_0000260170505900481834 [[https://github.com/facebook/folly/blob/c7166a67
 +getEventBaseManager() : EventBaseManager *
 }
 class "SerialExecutor" as C_0001402712402381953994
-class C_0001402712402381953994 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L53{@class SerialExecutor  @brief Executor that guarantees serial non-concurrent execution of added      tasks  SerialExecutor is similar to boost asio's strand concept. A SerialExecutor  has a parent executor which is given at construction time (defaults t...}]] {
+class C_0001402712402381953994 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L53{SerialExecutor}]] {
 +SerialExecutor(const SerialExecutor & ) : void
 +operator=(const SerialExecutor & ) : SerialExecutor &
 +SerialExecutor(SerialExecutor && ) : void
@@ -264,7 +264,7 @@ class C_0001402712402381953994 [[https://github.com/facebook/folly/blob/c7166a67
 +getNumPriorities() const : uint8_t
 }
 class "ThreadedExecutor" as C_0000470362430235503729
-class C_0000470362430235503729 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L55{*  ThreadedExecutor  An executor for blocking tasks.  This executor runs each task in its own thread. It works well for tasks  which mostly sleep, but works poorly for tasks which mostly compute.  For each task given to the executor with `add`, the exec...}]] {
+class C_0000470362430235503729 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L55{ThreadedExecutor}]] {
 +ThreadedExecutor(std::shared_ptr<ThreadFactory> threadFactory = newDefaultThreadFactory()) : void
 +~ThreadedExecutor() : void
 +ThreadedExecutor(const ThreadedExecutor & ) : void
@@ -274,7 +274,7 @@ class C_0000470362430235503729 [[https://github.com/facebook/folly/blob/c7166a67
 +add(Func func) : void
 }
 class "CPUThreadPoolExecutor" as C_0001740134810840364719
-class C_0001740134810840364719 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L68{A Thread pool for CPU bound tasks.  @note A single queue backed by folly/LifoSem and folly/MPMC queue.  Because of this contention can be quite high,  since all the worker threads and all the producer threads hit  the same queue. MPMC queue excels in th...}]] {
+class C_0001740134810840364719 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L68{CPUThreadPoolExecutor}]] {
 +CPUThreadPoolExecutor(size_t numThreads, std::unique_ptr<BlockingQueue<CPUTask>> taskQueue, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void
 +CPUThreadPoolExecutor(std::pair<size_t,size_t> numThreads, std::unique_ptr<BlockingQueue<CPUTask>> taskQueue, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void
 +CPUThreadPoolExecutor(size_t numThreads) : void
@@ -292,7 +292,7 @@ class C_0001740134810840364719 [[https://github.com/facebook/folly/blob/c7166a67
 {static} +kDefaultMaxQueueSize : const size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L153{kDefaultMaxQueueSize}]]]
 }
 class "ManualExecutor" as C_0002235860541734359952
-class C_0002235860541734359952 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L38{A ManualExecutor only does work when you turn the crank, by calling run() or indirectly with makeProgress() or waitFor(). The clock for a manual executor starts at 0 and advances only when you ask it to. i.e. time is also under manual control. NB No att...}]] {
+class C_0002235860541734359952 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L38{ManualExecutor}]] {
 +~ManualExecutor() : void
 +add(Func ) : void
 +run() : size_t
@@ -307,7 +307,7 @@ class C_0002235860541734359952 [[https://github.com/facebook/folly/blob/c7166a67
 +clear() : std::size_t
 +keepAliveAcquire() : bool
 +keepAliveRelease() : void
-+waitFor(const F & f) : void
++waitFor<F>(const F & f) : void
 }
 class "MeteredExecutor" as C_0001956570166673420631
 class C_0001956570166673420631 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/MeteredExecutor.h#L41{MeteredExecutor}]] {
@@ -321,7 +321,7 @@ abstract "SoftRealTimeExecutor" as C_0000560396763155385774
 abstract C_0000560396763155385774 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SoftRealTimeExecutor.h#L26{SoftRealTimeExecutor}]] {
 }
 class "EDFThreadPoolExecutor" as C_0000586027154664049253
-class C_0000586027154664049253 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L34{`EDFThreadPoolExecutor` is a `SoftRealTimeExecutor` that implements  the earliest-deadline-first scheduling policy.}]] {
+class C_0000586027154664049253 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L34{EDFThreadPoolExecutor}]] {
 +EDFThreadPoolExecutor(std::size_t numThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("EDFThreadPool")) : void
 +~EDFThreadPoolExecutor() : void
 +add(Func f) : void
@@ -337,6 +337,7 @@ C_0002222099135672593686 <|-- C_0001663594882877424244
 C_0002222099135672593686 <|-- C_0001968432200878677255
 C_0002222099135672593686 <|-- C_0000155178671636628489
 C_0000155178671636628489 <|-- C_0000587962468506435170
+C_0002145523347961259416 ..> C_0001970350906198958245
 C_0002222099135672593686 <|-- C_0002145523347961259416
 C_0000481841646641149488 <|-- C_0001970350906198958245
 C_0002145523347961259416 <|-- C_0001970350906198958245
@@ -357,6 +358,7 @@ C_0001932117148827315960 ..> C_0002222099135672593686
 C_0001932117148827315960 --> C_0002222099135672593686 : -executor_
 C_0002222099135672593686 <|-- C_0001932117148827315960
 C_0001347291497865252100 <|-- C_0002292058893312396804
+C_0000260170505900481834 ..> C_0001970350906198958245
 C_0002292058893312396804 <|-- C_0000260170505900481834
 C_0002145523347961259416 <|-- C_0000260170505900481834
 C_0001402712402381953994 ..> C_0002222099135672593686

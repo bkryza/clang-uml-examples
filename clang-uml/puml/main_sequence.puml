@@ -1,0 +1,28 @@
+@startuml
+title clang-uml main function sequence diagram
+participant "src/main.cc" as C_0001980376502571817048
+[-> C_0001980376502571817048 : main()
+activate C_0001980376502571817048
+participant "cli::cli_handler" as C_0002292468283229753520 [[https://github.com/bkryza/clang-uml/blob/b74bdab7857376d2095452368a8c88870b8ee2c5/src/cli/cli_handler.h#L31{cli_handler}]]
+C_0001980376502571817048 -> C_0002292468283229753520 [[https://github.com/bkryza/clang-uml/blob/b74bdab7857376d2095452368a8c88870b8ee2c5/src/main.cc#L48{}]] : handle_options()
+activate C_0002292468283229753520
+C_0002292468283229753520 --> C_0001980376502571817048
+deactivate C_0002292468283229753520
+alt
+end
+participant "src/common/generators/generators.h" as C_0002202543726960818126
+C_0001980376502571817048 -> C_0002202543726960818126 [[https://github.com/bkryza/clang-uml/blob/b74bdab7857376d2095452368a8c88870b8ee2c5/src/main.cc#L75{}]] : find_translation_units_for_diagrams()
+activate C_0002202543726960818126
+deactivate C_0002202543726960818126
+C_0001980376502571817048 -> C_0002202543726960818126 [[https://github.com/bkryza/clang-uml/blob/b74bdab7857376d2095452368a8c88870b8ee2c5/src/main.cc#L83{}]] : adjust_compilation_database()
+activate C_0002202543726960818126
+deactivate C_0002202543726960818126
+C_0001980376502571817048 -> C_0002202543726960818126 [[https://github.com/bkryza/clang-uml/blob/b74bdab7857376d2095452368a8c88870b8ee2c5/src/main.cc#L85{}]] : generate_diagrams()
+activate C_0002202543726960818126
+deactivate C_0002202543726960818126
+[<-- C_0001980376502571817048
+deactivate C_0001980376502571817048
+
+'Generated with clang-uml, version 0.3.4-2-gc91fe43
+'LLVM version Ubuntu clang version 15.0.6
+@enduml

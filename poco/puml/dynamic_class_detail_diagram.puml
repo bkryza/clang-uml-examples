@@ -2,7 +2,7 @@
 left to right direction
 package [Dynamic] as C_0002281307121949168090 {
 abstract "VarHolder" as C_0000820091630223006238
-abstract C_0000820091630223006238 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L104{VarHolder}]] {
+abstract C_0000820091630223006238 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L104{VarHolder}]] {
 +~VarHolder() : void
 {abstract} +clone(Placeholder<Dynamic::VarHolder> * pHolder = 0) const = 0 : Dynamic::VarHolder *
 {abstract} +type() const = 0 : const std::type_info &
@@ -43,19 +43,19 @@ abstract C_0000820091630223006238 [[https://github.com/pocoproject/poco/blob/c7f
 +isUUID() const : bool
 +size() const : std::size_t
 #VarHolder() : void
-#cloneHolder(Placeholder<Dynamic::VarHolder> * pVarHolder, const T & val) : class Dynamic::VarHolder *
-#convertToSmaller(const F & from, T & to) : void
-#convertToSmallerUnsigned(const F & from, T & to) : void
-#convertSignedToUnsigned(const F & from, T & to) : void
-#convertSignedFloatToUnsigned(const F & from, T & to) : void
-#convertUnsignedToSigned(const F & from, T & to) : void
--checkUpperLimit(const F & from) : void
--checkLowerLimit(const F & from) : void
--checkUpperLimitFloat(const F & from) : void
--checkLowerLimitFloat(const F & from) : void
+#cloneHolder<T>(Placeholder<Dynamic::VarHolder> * pVarHolder, const T & val) : class Dynamic::VarHolder *
+#convertToSmaller<F,T>(const F & from, T & to) : void
+#convertToSmallerUnsigned<F,T>(const F & from, T & to) : void
+#convertSignedToUnsigned<F,T>(const F & from, T & to) : void
+#convertSignedFloatToUnsigned<F,T>(const F & from, T & to) : void
+#convertUnsignedToSigned<F,T>(const F & from, T & to) : void
+-checkUpperLimit<F,T>(const F & from) : void
+-checkLowerLimit<F,T>(const F & from) : void
+-checkUpperLimitFloat<F,T>(const F & from) : void
+-checkLowerLimitFloat<F,T>(const F & from) : void
 }
 class "VarHolderImpl<T>" as C_0001112867090784569162
-class C_0001112867090784569162 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L705{VarHolderImpl}]] {
+class C_0001112867090784569162 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L705{VarHolderImpl}]] {
 +VarHolderImpl<T>(const T & val) : void
 +~VarHolderImpl<T>() : void
 +type() const : const std::type_info &
@@ -64,773 +64,79 @@ class C_0001112867090784569162 [[https://github.com/pocoproject/poco/blob/c7f7b8
 -VarHolderImpl<T>() : void
 -VarHolderImpl<T>(const VarHolderImpl<T> & ) : void
 -operator=(const VarHolderImpl<T> & ) : VarHolderImpl<T> &
--_val : T [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L754{_val}]]]
-}
-class "VarHolderImpl" as C_0002220828280612533118
-class C_0002220828280612533118 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L759{VarHolderImpl}]] {
-+VarHolderImpl(Int8 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+convert(UTF16String & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Int8 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<Int8> & ) : void
--operator=(const Dynamic::VarHolderImpl<Int8> & ) : Dynamic::VarHolderImpl<Int8> &
--_val : Int8 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L910{_val}]]]
+-_val : T [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L754{_val}]]]
 }
 class "VarHolderImpl<signed char>" as C_0002149165824584484566
-class C_0002149165824584484566 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L759{VarHolderImpl}]] {
-+VarHolderImpl(Int8 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+convert(UTF16String & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Int8 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<Int8> & ) : void
--operator=(const Dynamic::VarHolderImpl<Int8> & ) : Dynamic::VarHolderImpl<Int8> &
--_val : Int8 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L910{_val}]]]
+class C_0002149165824584484566 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L759{VarHolderImpl}]] {
 }
 class "VarHolderImpl<short>" as C_0000198808093629002393
-class C_0000198808093629002393 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L915{VarHolderImpl}]] {
-+VarHolderImpl(Int16 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+convert(UTF16String & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Int16 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<Int16> & ) : void
--operator=(const Dynamic::VarHolderImpl<Int16> & ) : Dynamic::VarHolderImpl<Int16> &
--_val : Int16 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1063{_val}]]]
+class C_0000198808093629002393 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L915{VarHolderImpl}]] {
 }
 class "VarHolderImpl<int>" as C_0000976768452323437983
-class C_0000976768452323437983 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1068{VarHolderImpl}]] {
-+VarHolderImpl(Int32 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Int32 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<Int32> & ) : void
--operator=(const Dynamic::VarHolderImpl<Int32> & ) : Dynamic::VarHolderImpl<Int32> &
--_val : Int32 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1215{_val}]]]
+class C_0000976768452323437983 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L1068{VarHolderImpl}]] {
 }
 class "VarHolderImpl<long>" as C_0001804431617899042426
-class C_0001804431617899042426 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1220{VarHolderImpl}]] {
-+VarHolderImpl(Int64 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & dt) const : void
-+convert(LocalDateTime & ldt) const : void
-+convert(Timestamp & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Int64 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<Int64> & ) : void
--operator=(const Dynamic::VarHolderImpl<Int64> & ) : Dynamic::VarHolderImpl<Int64> &
--_val : Int64 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1382{_val}]]]
+class C_0001804431617899042426 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L1220{VarHolderImpl}]] {
 }
 class "VarHolderImpl<unsigned char>" as C_0001832009513687525374
-class C_0001832009513687525374 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1387{VarHolderImpl}]] {
-+VarHolderImpl(UInt8 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const UInt8 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<UInt8> & ) : void
--operator=(const Dynamic::VarHolderImpl<UInt8> & ) : Dynamic::VarHolderImpl<UInt8> &
--_val : UInt8 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1534{_val}]]]
+class C_0001832009513687525374 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L1387{VarHolderImpl}]] {
 }
 class "VarHolderImpl<unsigned short>" as C_0000572186414558919480
-class C_0000572186414558919480 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1539{VarHolderImpl}]] {
-+VarHolderImpl(UInt16 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const UInt16 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<UInt16> & ) : void
--operator=(const Dynamic::VarHolderImpl<UInt16> & ) : Dynamic::VarHolderImpl<UInt16> &
--_val : UInt16 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1686{_val}]]]
+class C_0000572186414558919480 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L1539{VarHolderImpl}]] {
 }
 class "VarHolderImpl<unsigned int>" as C_0000166253842255815357
-class C_0000166253842255815357 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1691{VarHolderImpl}]] {
-+VarHolderImpl(UInt32 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const UInt32 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<UInt32> & ) : void
--operator=(const Dynamic::VarHolderImpl<UInt32> & ) : Dynamic::VarHolderImpl<UInt32> &
--_val : UInt32 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1838{_val}]]]
+class C_0000166253842255815357 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L1691{VarHolderImpl}]] {
 }
 class "VarHolderImpl<unsigned long>" as C_0001459401574844645109
-class C_0001459401574844645109 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L1843{VarHolderImpl}]] {
-+VarHolderImpl(UInt64 val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & dt) const : void
-+convert(LocalDateTime & ldt) const : void
-+convert(Timestamp & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const UInt64 &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<UInt64> & ) : void
--operator=(const Dynamic::VarHolderImpl<UInt64> & ) : Dynamic::VarHolderImpl<UInt64> &
--_val : UInt64 [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2011{_val}]]]
+class C_0001459401574844645109 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L1843{VarHolderImpl}]] {
 }
 class "VarHolderImpl<bool>" as C_0000599279109574326060
-class C_0000599279109574326060 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2016{VarHolderImpl}]] {
-+VarHolderImpl(bool val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const bool &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<bool> & ) : void
--operator=(const Dynamic::VarHolderImpl<bool> & ) : Dynamic::VarHolderImpl<bool> &
--_val : bool [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2161{_val}]]]
+class C_0000599279109574326060 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L2016{VarHolderImpl}]] {
 }
 class "VarHolderImpl<float>" as C_0000384619052225252533
-class C_0000384619052225252533 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2166{VarHolderImpl}]] {
-+VarHolderImpl(float val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const float &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<float> & ) : void
--operator=(const Dynamic::VarHolderImpl<float> & ) : Dynamic::VarHolderImpl<float> &
--_val : float [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2314{_val}]]]
+class C_0000384619052225252533 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L2166{VarHolderImpl}]] {
 }
 class "VarHolderImpl<double>" as C_0002242257052791493112
-class C_0002242257052791493112 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2319{VarHolderImpl}]] {
-+VarHolderImpl(double val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const double &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<double> & ) : void
--operator=(const Dynamic::VarHolderImpl<double> & ) : Dynamic::VarHolderImpl<double> &
--_val : double [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2473{_val}]]]
+class C_0002242257052791493112 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L2319{VarHolderImpl}]] {
 }
 class "VarHolderImpl<char>" as C_0001942181379759217898
-class C_0001942181379759217898 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2478{VarHolderImpl}]] {
-+VarHolderImpl(char val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const char &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<char> & ) : void
--operator=(const Dynamic::VarHolderImpl<char> & ) : Dynamic::VarHolderImpl<char> &
--_val : char [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2623{_val}]]]
+class C_0001942181379759217898 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L2478{VarHolderImpl}]] {
 }
 class "VarHolderImpl<std::string>" as C_0002291903337356664508
-class C_0002291903337356664508 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2628{VarHolderImpl}]] {
-+VarHolderImpl(const char * pVal) : void
-+VarHolderImpl(const std::string & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+convert(UTF16String & val) const : void
-+convert(DateTime & val) const : void
-+convert(LocalDateTime & ldt) const : void
-+convert(Timestamp & ts) const : void
-+convert(UUID & uuid) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const std::string &
-+isString() const : bool
-+size() const : std::size_t
-+operator[](std::string::size_type n) : char &
-+operator[](std::string::size_type n) const : const char &
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<std::string> & ) : void
--operator=(const Dynamic::VarHolderImpl<std::string> & ) : Dynamic::VarHolderImpl<std::string> &
--_val : std::string [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2820{_val}]]]
+class C_0002291903337356664508 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L2628{VarHolderImpl}]] {
 }
-class "VarHolderImpl<std::basic_string<unsigned short,Poco::UTF16CharTraits>>" as C_0001280441251658550342
-class C_0001280441251658550342 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L2825{VarHolderImpl}]] {
-+VarHolderImpl(const char * pVal) : void
-+VarHolderImpl(const UTF16String & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(UTF16String & val) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & val) const : void
-+convert(LocalDateTime & ldt) const : void
-+convert(Timestamp & ts) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const UTF16String &
-+isString() const : bool
-+size() const : std::size_t
-+operator[](UTF16String::size_type n) : UTF16Char &
-+operator[](UTF16String::size_type n) const : const UTF16Char &
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<UTF16String> & ) : void
--operator=(const Dynamic::VarHolderImpl<UTF16String> & ) : Dynamic::VarHolderImpl<UTF16String> &
--toStdString() const : std::string
--_val : UTF16String [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3022{_val}]]]
+class "VarHolderImpl<std::basic_string<unsigned short,UTF16CharTraits>>" as C_0001280441251658550342
+class C_0001280441251658550342 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L2825{VarHolderImpl}]] {
 }
 class "VarHolderImpl<long long>" as C_0001646173285346905617
-class C_0001646173285346905617 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3309{VarHolderImpl}]] {
-+VarHolderImpl(long long val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const long long &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<long long> & ) : void
--operator=(const Dynamic::VarHolderImpl<long long> & ) : Dynamic::VarHolderImpl<long long> &
--_val : long long [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3452{_val}]]]
+class C_0001646173285346905617 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L3309{VarHolderImpl}]] {
 }
 class "VarHolderImpl<unsigned long long>" as C_0001583654034047392858
-class C_0001583654034047392858 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3457{VarHolderImpl}]] {
-+VarHolderImpl(unsigned long long val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & val) const : void
-+convert(Int16 & val) const : void
-+convert(Int32 & val) const : void
-+convert(Int64 & val) const : void
-+convert(UInt8 & val) const : void
-+convert(UInt16 & val) const : void
-+convert(UInt32 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(bool & val) const : void
-+convert(float & val) const : void
-+convert(double & val) const : void
-+convert(char & val) const : void
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const unsigned long long &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<unsigned long long> & ) : void
--operator=(const Dynamic::VarHolderImpl<unsigned long long> & ) : Dynamic::VarHolderImpl<unsigned long long> &
--_val : unsigned long long [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3600{_val}]]]
+class C_0001583654034047392858 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L3457{VarHolderImpl}]] {
 }
-class "VarHolderImpl<std::vector<type-parameter-0-0,std::allocator<type-parameter-0-0>>>" as C_0002133497947762084276
-class C_0002133497947762084276 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3608{VarHolderImpl}]] {
-+VarHolderImpl<vector<type-parameter-0-0, allocator<type-parameter-0-0> > >(const std::vector<T> & val) : void
-+~VarHolderImpl<vector<type-parameter-0-0, allocator<type-parameter-0-0> > >() : void
-+type() const : const std::type_info &
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const std::vector<T> &
-+isVector() const : bool
-+size() const : std::size_t
-+operator[](typename std::vector<T>::size_type n) : T &
-+operator[](typename std::vector<T>::size_type n) const : const T &
--VarHolderImpl<vector<type-parameter-0-0, allocator<type-parameter-0-0> > >() : void
--VarHolderImpl<vector<type-parameter-0-0, allocator<type-parameter-0-0> > >(const VarHolderImpl<vector<type-parameter-0-0,allocator<type-parameter-0-0>>> & ) : void
--operator=(const VarHolderImpl<vector<type-parameter-0-0,allocator<type-parameter-0-0>>> & ) : VarHolderImpl<vector<type-parameter-0-0,allocator<type-parameter-0-0>>> &
--_val : std::vector<T> [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3668{_val}]]]
+class "VarHolderImpl<std::vector<T,std::allocator<T>>>" as C_0001958977447667255166
+class C_0001958977447667255166 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L3608{VarHolderImpl}]] {
 }
-class "VarHolderImpl<std::list<type-parameter-0-0,std::allocator<type-parameter-0-0>>>" as C_0000249766987467623805
-class C_0000249766987467623805 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3673{VarHolderImpl}]] {
-+VarHolderImpl<list<type-parameter-0-0, allocator<type-parameter-0-0> > >(const std::list<T> & val) : void
-+~VarHolderImpl<list<type-parameter-0-0, allocator<type-parameter-0-0> > >() : void
-+type() const : const std::type_info &
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const std::list<T> &
-+isList() const : bool
-+size() const : std::size_t
-+operator[](typename std::list<T>::size_type n) : T &
-+operator[](typename std::list<T>::size_type n) const : const T &
--VarHolderImpl<list<type-parameter-0-0, allocator<type-parameter-0-0> > >() : void
--VarHolderImpl<list<type-parameter-0-0, allocator<type-parameter-0-0> > >(const VarHolderImpl<list<type-parameter-0-0,allocator<type-parameter-0-0>>> & ) : void
--operator=(const VarHolderImpl<list<type-parameter-0-0,allocator<type-parameter-0-0>>> & ) : VarHolderImpl<list<type-parameter-0-0,allocator<type-parameter-0-0>>> &
--_val : std::list<T> [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3743{_val}]]]
+class "VarHolderImpl<std::list<T,std::allocator<T>>>" as C_0000080571782585268469
+class C_0000080571782585268469 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L3673{VarHolderImpl}]] {
 }
-class "VarHolderImpl<std::deque<type-parameter-0-0,std::allocator<type-parameter-0-0>>>" as C_0000781520838380739124
-class C_0000781520838380739124 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3748{VarHolderImpl}]] {
-+VarHolderImpl<deque<type-parameter-0-0, allocator<type-parameter-0-0> > >(const std::deque<T> & val) : void
-+~VarHolderImpl<deque<type-parameter-0-0, allocator<type-parameter-0-0> > >() : void
-+type() const : const std::type_info &
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const std::deque<T> &
-+isDeque() const : bool
-+size() const : std::size_t
-+operator[](typename std::deque<T>::size_type n) : T &
-+operator[](typename std::deque<T>::size_type n) const : const T &
--VarHolderImpl<deque<type-parameter-0-0, allocator<type-parameter-0-0> > >() : void
--VarHolderImpl<deque<type-parameter-0-0, allocator<type-parameter-0-0> > >(const VarHolderImpl<deque<type-parameter-0-0,allocator<type-parameter-0-0>>> & ) : void
--operator=(const VarHolderImpl<deque<type-parameter-0-0,allocator<type-parameter-0-0>>> & ) : VarHolderImpl<deque<type-parameter-0-0,allocator<type-parameter-0-0>>> &
--_val : std::deque<T> [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3808{_val}]]]
+class "VarHolderImpl<std::deque<T,std::allocator<T>>>" as C_0001054432913031815629
+class C_0001054432913031815629 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L3748{VarHolderImpl}]] {
 }
-class "VarHolderImpl<Poco::DateTime>" as C_0000699000175415913074
-class C_0000699000175415913074 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3813{VarHolderImpl}]] {
-+VarHolderImpl(const DateTime & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & ) const : void
-+convert(Int16 & ) const : void
-+convert(Int32 & ) const : void
-+convert(Int64 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & val) const : void
-+convert(LocalDateTime & ldt) const : void
-+convert(Timestamp & ts) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const DateTime &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
-+isDate() const : bool
-+isTime() const : bool
-+isDateTime() const : bool
-+isUUID() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<DateTime> & ) : void
--operator=(const Dynamic::VarHolderImpl<DateTime> & ) : Dynamic::VarHolderImpl<DateTime> &
--_val : DateTime [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3958{_val}]]]
+class "VarHolderImpl<DateTime>" as C_0000699000175415913074
+class C_0000699000175415913074 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L3813{VarHolderImpl}]] {
 }
-class "VarHolderImpl<Poco::LocalDateTime>" as C_0001850771625416044357
-class C_0001850771625416044357 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L3963{VarHolderImpl}]] {
-+VarHolderImpl(const LocalDateTime & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int64 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & val) const : void
-+convert(LocalDateTime & ldt) const : void
-+convert(Timestamp & ts) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const LocalDateTime &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
-+isDate() const : bool
-+isTime() const : bool
-+isDateTime() const : bool
-+isUUID() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<LocalDateTime> & ) : void
--operator=(const Dynamic::VarHolderImpl<LocalDateTime> & ) : Dynamic::VarHolderImpl<LocalDateTime> &
--_val : LocalDateTime [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L4093{_val}]]]
+class "VarHolderImpl<LocalDateTime>" as C_0001850771625416044357
+class C_0001850771625416044357 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L3963{VarHolderImpl}]] {
 }
-class "VarHolderImpl<Poco::Timestamp>" as C_0001458511670125196521
-class C_0001458511670125196521 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L4098{VarHolderImpl}]] {
-+VarHolderImpl(const Timestamp & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int64 & val) const : void
-+convert(UInt64 & val) const : void
-+convert(long long & val) const : void
-+convert(unsigned long long & val) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & val) const : void
-+convert(LocalDateTime & ldt) const : void
-+convert(Timestamp & ts) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Timestamp &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
-+isDate() const : bool
-+isTime() const : bool
-+isDateTime() const : bool
-+isUUID() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<Timestamp> & ) : void
--operator=(const Dynamic::VarHolderImpl<Timestamp> & ) : Dynamic::VarHolderImpl<Timestamp> &
--_val : Timestamp [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L4228{_val}]]]
+class "VarHolderImpl<Timestamp>" as C_0001458511670125196521
+class C_0001458511670125196521 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L4098{VarHolderImpl}]] {
 }
-class "VarHolderImpl<Poco::UUID>" as C_0001286239480653274581
-class C_0001286239480653274581 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L4233{VarHolderImpl}]] {
-+VarHolderImpl(const UUID & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(std::string & val) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const UUID &
-+isArray() const : bool
-+isStruct() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isBoolean() const : bool
-+isString() const : bool
-+isDate() const : bool
-+isTime() const : bool
-+isDateTime() const : bool
-+isUUID() const : bool
--VarHolderImpl() : void
--VarHolderImpl(const Dynamic::VarHolderImpl<UUID> & ) : void
--operator=(const Dynamic::VarHolderImpl<UUID> & ) : Dynamic::VarHolderImpl<UUID> &
--_val : UUID [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarHolder.h#L4324{_val}]]]
+class "VarHolderImpl<UUID>" as C_0001286239480653274581
+class C_0001286239480653274581 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarHolder.h#L4233{VarHolderImpl}]] {
 }
 class "VarIterator" as C_0002237184725500898553
-class C_0002237184725500898553 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarIterator.h#L33{VarIterator}]] {
+class C_0002237184725500898553 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarIterator.h#L33{VarIterator}]] {
 +VarIterator(Dynamic::Var * pVar, bool positionEnd) : void
 +VarIterator(const Dynamic::VarIterator & other) : void
 +VarIterator(Dynamic::VarIterator && other) : void
@@ -852,12 +158,12 @@ class C_0002237184725500898553 [[https://github.com/pocoproject/poco/blob/c7f7b8
 -increment() const : void
 -decrement() const : void
 -setPosition(std::size_t pos) const : void
--_pVar : Dynamic::Var * [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarIterator.h#L117{Sets the iterator position. Throws RangeException if position is out of range.}]]]
--_position : std::size_t [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarIterator.h#L118{_position}]]]
-{static} +POSITION_END : const std::size_t [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/VarIterator.h#L43{POSITION_END}]]]
+-_pVar : Dynamic::Var * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarIterator.h#L117{_pVar}]]]
+-_position : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarIterator.h#L118{_position}]]]
+{static} +POSITION_END : const std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/VarIterator.h#L43{POSITION_END}]]]
 }
 class "Var" as C_0001827593751126946500
-class C_0001827593751126946500 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Var.h#L41{Var}]] {
+class C_0001827593751126946500 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/Var.h#L41{Var}]] {
 +Var() : void
 +Var(const char * pVal) : void
 +Var(const Dynamic::Var & other) : void
@@ -931,41 +237,41 @@ class C_0001827593751126946500 [[https://github.com/pocoproject/poco/blob/c7f7b8
 -destruct() : void
 -construct(const char * value) : void
 -construct(const Dynamic::Var & other) : void
-+Var(const T & val) : void
-+convert(T & val) : void
-+convert() : T
-+operator type-parameter-0-0() : T
-+extract() : const T &
-+operator=(const T & other) : class Dynamic::Var &
-+operator+(const T & other) : const class Dynamic::Var
-+operator+=(const T & other) : class Dynamic::Var &
-+operator-(const T & other) : const class Dynamic::Var
-+operator-=(const T & other) : class Dynamic::Var &
-+operator*(const T & other) : const class Dynamic::Var
-+operator*=(const T & other) : class Dynamic::Var &
-+operator/(const T & other) : const class Dynamic::Var
-+operator/=(const T & other) : class Dynamic::Var &
-+operator==(const T & other) : _Bool
-+operator!=(const T & other) : _Bool
-+operator<(const T & other) : _Bool
-+operator<=(const T & other) : _Bool
-+operator>(const T & other) : _Bool
-+operator>=(const T & other) : _Bool
-+operator||(const T & other) : _Bool
-+operator&&(const T & other) : _Bool
-+operator[](const T & n) : class Dynamic::Var &
-+operator[](const T & n) : const class Dynamic::Var &
--add(const Dynamic::Var & other) : T
--subtract(const Dynamic::Var & other) : T
--multiply(const Dynamic::Var & other) : T
--divide(const Dynamic::Var & other) : T
--holderImpl(const std::string errorMessage = "") : VarHolderImpl<T> *
--structIndexOperator(T * pStr, N n) : class Dynamic::Var &
--construct(const ValueType & value) : void
--_placeholder : Placeholder<Dynamic::VarHolder> [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Var.h#L632{_placeholder}]]]
++Var<T>(const T & val) : void
++convert<T>(T & val) : void
++convert<T>() : T
++operator type-parameter-0-0<T>() : T
++extract<T>() : const T &
++operator=<T>(const T & other) : class Dynamic::Var &
++operator+<T>(const T & other) : const class Dynamic::Var
++operator+=<T>(const T & other) : class Dynamic::Var &
++operator-<T>(const T & other) : const class Dynamic::Var
++operator-=<T>(const T & other) : class Dynamic::Var &
++operator*<T>(const T & other) : const class Dynamic::Var
++operator*=<T>(const T & other) : class Dynamic::Var &
++operator/<T>(const T & other) : const class Dynamic::Var
++operator/=<T>(const T & other) : class Dynamic::Var &
++operator==<T>(const T & other) : _Bool
++operator!=<T>(const T & other) : _Bool
++operator<<T>(const T & other) : _Bool
++operator<=<T>(const T & other) : _Bool
++operator><T>(const T & other) : _Bool
++operator>=<T>(const T & other) : _Bool
++operator||<T>(const T & other) : _Bool
++operator&&<T>(const T & other) : _Bool
++operator[]<T>(const T & n) : class Dynamic::Var &
++operator[]<T>(const T & n) : const class Dynamic::Var &
+-add<T>(const Dynamic::Var & other) : T
+-subtract<T>(const Dynamic::Var & other) : T
+-multiply<T>(const Dynamic::Var & other) : T
+-divide<T>(const Dynamic::Var & other) : T
+-holderImpl<T,E>(const std::string errorMessage = "") : VarHolderImpl<T> *
+-structIndexOperator<T,N>(T * pStr, N n) : class Dynamic::Var &
+-construct<ValueType>(const ValueType & value) : void
+-_placeholder : Placeholder<Dynamic::VarHolder> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/Var.h#L632{_placeholder}]]]
 }
-class "Struct<K,M,S>" as C_0000876644825045799418
-class C_0000876644825045799418 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Struct.h#L36{Struct}]] {
+class "Struct<K,M=std::map<K, Var>,S=std::set<K>>" as C_0000562679976742134348
+class C_0000562679976742134348 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/Struct.h#L36{Struct}]] {
 +Struct<K, M, S>() : void
 +Struct<K, M, S>(const Dynamic::Struct::Data & val) : void
 +~Struct<K, M, S>() : void
@@ -988,133 +294,27 @@ class C_0000876644825045799418 [[https://github.com/pocoproject/poco/blob/c7f7b8
 +members() const : Dynamic::Struct::NameSet
 +getVar(const K & key) const : Dynamic::Var
 +toString() const : std::string
-+Struct<K, M, S>(const std::map<K,T> & val) : void
-+Struct<K, M, S>(const ordered_map<K,T> & val) : void
-+insert(const K & key, const T & value) : Dynamic::Struct::InsRetVal
-+getVar(const K & key, const DefT & defaultValue) : class Dynamic::Var
--assignMap(const T & map) : void
--_data : Dynamic::Struct::Data [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Struct.h#L247{_data}]]]
++Struct<K, M, S><T>(const std::map<K,T> & val) : void
++Struct<K, M, S><T>(const ordered_map<K,T> & val) : void
++insert<T>(const K & key, const T & value) : Dynamic::Struct::InsRetVal
++getVar<DefT=class Poco::Dynamic::Var>(const K & key, const DefT & defaultValue) : class Dynamic::Var
+-assignMap<T>(const T & map) : void
+-_data : Dynamic::Struct::Data [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/Struct.h#L247{_data}]]]
 }
-class "Struct<std::string,std::map<std::string,Poco::Dynamic::Var>,std::set<std::string>>" as C_0000527346272489458655
-class C_0000527346272489458655 {
+class "VarHolderImpl<Dynamic::Struct<std::string>>" as C_0000069885356623718991
+class C_0000069885356623718991 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/Struct.h#L252{VarHolderImpl}]] {
 }
-class "VarHolderImpl<Poco::Dynamic::Struct<std::string>>" as C_0001079370368307575613
-class C_0001079370368307575613 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Struct.h#L252{VarHolderImpl}]] {
-+VarHolderImpl(const Dynamic::VarHolderImpl<Dynamic::Struct<std::string>>::ValueType & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & ) const : void
-+convert(Int16 & ) const : void
-+convert(Int32 & ) const : void
-+convert(Int64 & ) const : void
-+convert(UInt8 & ) const : void
-+convert(UInt16 & ) const : void
-+convert(UInt32 & ) const : void
-+convert(UInt64 & ) const : void
-+convert(bool & ) const : void
-+convert(float & ) const : void
-+convert(double & ) const : void
-+convert(char & ) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & ) const : void
-+convert(LocalDateTime & ) const : void
-+convert(Timestamp & ) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Dynamic::VarHolderImpl<Dynamic::Struct<std::string>>::ValueType &
-+isArray() const : bool
-+isStruct() const : bool
-+isOrdered() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isString() const : bool
-+size() const : std::size_t
-+operator[](const Dynamic::VarHolderImpl<Dynamic::Struct<std::string>>::KeyType & name) : Dynamic::Var &
-+operator[](const Dynamic::VarHolderImpl<Dynamic::Struct<std::string>>::KeyType & name) const : const Dynamic::Var &
--_val : Dynamic::VarHolderImpl<Dynamic::Struct<std::string>>::ValueType [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Struct.h#L433{_val}]]]
+class "VarHolderImpl<Dynamic::Struct<int>>" as C_0002033788483863182904
+class C_0002033788483863182904 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/Struct.h#L438{VarHolderImpl}]] {
 }
-class "Struct<Poco::Dynamic::VarHolderImpl<Poco::Dynamic::Struct<int>>::KeyType,std::map<Poco::Dynamic::VarHolderImpl<Poco::Dynamic::Struct<int>>::KeyType,Poco::Dynamic::Var>,std::set<Poco::Dynamic::VarHolderImpl<Poco::Dynamic::Struct<int>>::KeyType>>" as C_0001212087958231445051
-class C_0001212087958231445051 {
+class "VarHolderImpl<Dynamic::Struct<int,tsl::ordered_map<int,Dynamic::Var>>>" as C_0002153171854526901050
+class C_0002153171854526901050 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/Struct.h#L810{VarHolderImpl}]] {
 }
-class "VarHolderImpl<Poco::Dynamic::Struct<int>>" as C_0002033788483863182904
-class C_0002033788483863182904 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Struct.h#L438{VarHolderImpl}]] {
-+VarHolderImpl(const Dynamic::VarHolderImpl<Dynamic::Struct<int>>::ValueType & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & ) const : void
-+convert(Int16 & ) const : void
-+convert(Int32 & ) const : void
-+convert(Int64 & ) const : void
-+convert(UInt8 & ) const : void
-+convert(UInt16 & ) const : void
-+convert(UInt32 & ) const : void
-+convert(UInt64 & ) const : void
-+convert(bool & ) const : void
-+convert(float & ) const : void
-+convert(double & ) const : void
-+convert(char & ) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & ) const : void
-+convert(LocalDateTime & ) const : void
-+convert(Timestamp & ) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Dynamic::VarHolderImpl<Dynamic::Struct<int>>::ValueType &
-+isArray() const : bool
-+isStruct() const : bool
-+isOrdered() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isString() const : bool
-+size() const : std::size_t
-+operator[](const Dynamic::VarHolderImpl<Dynamic::Struct<int>>::KeyType & name) : Dynamic::Var &
-+operator[](const Dynamic::VarHolderImpl<Dynamic::Struct<int>>::KeyType & name) const : const Dynamic::Var &
--_val : Dynamic::VarHolderImpl<Dynamic::Struct<int>>::ValueType [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Struct.h#L619{_val}]]]
-}
-class "Struct<std::string,Poco::OrderedMap<std::string,Poco::Dynamic::Var,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<std::string,Poco::Dynamic::Var>>,std::deque<std::pair<std::string,Poco::Dynamic::Var>>>,Poco::OrderedSet<std::string,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::string>,std::deque<std::string>>>" as C_0000922731127244749220
-class C_0000922731127244749220 {
-}
-class "Struct<Poco::Dynamic::VarHolderImpl<Poco::Dynamic::Struct<int,tsl::ordered_map<int,Poco::Dynamic::Var>,tsl::ordered_set<int>>>::KeyType,Poco::OrderedMap<int,Poco::Dynamic::Var,std::hash<int>,std::equal_to<int>,std::allocator<std::pair<int,Poco::Dynamic::Var>>,std::deque<std::pair<int,Poco::Dynamic::Var>>>,Poco::OrderedSet<int,std::hash<int>,std::equal_to<int>,std::allocator<int>,std::deque<int>>>" as C_0001894636435809858910
-class C_0001894636435809858910 {
-}
-class "VarHolderImpl<Poco::Dynamic::Struct<int,tsl::ordered_map<int,Poco::Dynamic::Var>>>" as C_0002153171854526901050
-class C_0002153171854526901050 [[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Struct.h#L810{VarHolderImpl}]] {
-+VarHolderImpl(const Dynamic::VarHolderImpl<Dynamic::Struct<int,tsl::ordered_map<int,Dynamic::Var>,tsl::ordered_set<int>>>::ValueType & val) : void
-+~VarHolderImpl() : void
-+type() const : const std::type_info &
-+convert(Int8 & ) const : void
-+convert(Int16 & ) const : void
-+convert(Int32 & ) const : void
-+convert(Int64 & ) const : void
-+convert(UInt8 & ) const : void
-+convert(UInt16 & ) const : void
-+convert(UInt32 & ) const : void
-+convert(UInt64 & ) const : void
-+convert(bool & ) const : void
-+convert(float & ) const : void
-+convert(double & ) const : void
-+convert(char & ) const : void
-+convert(std::string & val) const : void
-+convert(DateTime & ) const : void
-+convert(LocalDateTime & ) const : void
-+convert(Timestamp & ) const : void
-+clone(Placeholder<Dynamic::VarHolder> * pVarHolder = 0) const : Dynamic::VarHolder *
-+value() const : const Dynamic::VarHolderImpl<Dynamic::Struct<int,tsl::ordered_map<int,Dynamic::Var>,tsl::ordered_set<int>>>::ValueType &
-+isArray() const : bool
-+isStruct() const : bool
-+isOrdered() const : bool
-+isInteger() const : bool
-+isSigned() const : bool
-+isNumeric() const : bool
-+isString() const : bool
-+size() const : std::size_t
-+operator[](const Dynamic::VarHolderImpl<Dynamic::Struct<int,tsl::ordered_map<int,Dynamic::Var>,tsl::ordered_set<int>>>::KeyType & name) : Dynamic::Var &
-+operator[](const Dynamic::VarHolderImpl<Dynamic::Struct<int,tsl::ordered_map<int,Dynamic::Var>,tsl::ordered_set<int>>>::KeyType & name) const : const Dynamic::Var &
--_val : Dynamic::VarHolderImpl<Dynamic::Struct<int,tsl::ordered_map<int,Dynamic::Var>,tsl::ordered_set<int>>>::ValueType [[[https://github.com/pocoproject/poco/blob/c7f7b8a298bcbf92d686ddbb0a3f691e449cf95e/Foundation/include/Poco/Dynamic/Struct.h#L991{_val}]]]
+class "Struct<K,M,S>" as C_0000876644825045799418
+class C_0000876644825045799418 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/Foundation/include/Poco/Dynamic/Var.h#L38{Struct}]] {
 }
 }
 C_0000820091630223006238 <|-- C_0001112867090784569162
-C_0000820091630223006238 <|-- C_0002220828280612533118
 C_0002149165824584484566 ..|> C_0001112867090784569162
 C_0000820091630223006238 <|-- C_0002149165824584484566
 C_0000198808093629002393 ..|> C_0001112867090784569162
@@ -1147,12 +347,12 @@ C_0001646173285346905617 ..|> C_0001112867090784569162
 C_0000820091630223006238 <|-- C_0001646173285346905617
 C_0001583654034047392858 ..|> C_0001112867090784569162
 C_0000820091630223006238 <|-- C_0001583654034047392858
-C_0002133497947762084276 ..|> C_0001112867090784569162
-C_0000820091630223006238 <|-- C_0002133497947762084276
-C_0000249766987467623805 ..|> C_0001112867090784569162
-C_0000820091630223006238 <|-- C_0000249766987467623805
-C_0000781520838380739124 ..|> C_0001112867090784569162
-C_0000820091630223006238 <|-- C_0000781520838380739124
+C_0001958977447667255166 ..|> C_0001112867090784569162
+C_0000820091630223006238 <|-- C_0001958977447667255166
+C_0000080571782585268469 ..|> C_0001112867090784569162
+C_0000820091630223006238 <|-- C_0000080571782585268469
+C_0001054432913031815629 ..|> C_0001112867090784569162
+C_0000820091630223006238 <|-- C_0001054432913031815629
 C_0000699000175415913074 ..|> C_0001112867090784569162
 C_0000820091630223006238 <|-- C_0000699000175415913074
 C_0001850771625416044357 ..|> C_0001112867090784569162
@@ -1164,17 +364,13 @@ C_0000820091630223006238 <|-- C_0001286239480653274581
 C_0002237184725500898553 --> C_0001827593751126946500 : -_pVar
 C_0002237184725500898553 <.. C_0001827593751126946500 : +<<friend>>
 C_0001827593751126946500 o-- C_0000820091630223006238 : -_placeholder
-C_0000527346272489458655 ..|> C_0000876644825045799418
-C_0001079370368307575613 o-- C_0000527346272489458655 : -_val
-C_0001079370368307575613 ..|> C_0001112867090784569162
-C_0000820091630223006238 <|-- C_0001079370368307575613
-C_0001212087958231445051 ..|> C_0000876644825045799418
-C_0002033788483863182904 o-- C_0001212087958231445051 : -_val
+C_0000069885356623718991 ..|> C_0001112867090784569162
+C_0000820091630223006238 <|-- C_0000069885356623718991
 C_0002033788483863182904 ..|> C_0001112867090784569162
 C_0000820091630223006238 <|-- C_0002033788483863182904
-C_0000922731127244749220 ..|> C_0000876644825045799418
-C_0001894636435809858910 ..|> C_0000876644825045799418
-C_0002153171854526901050 o-- C_0001894636435809858910 : -_val
 C_0002153171854526901050 ..|> C_0001112867090784569162
 C_0000820091630223006238 <|-- C_0002153171854526901050
+
+'Generated with clang-uml, version 0.3.4-2-gc91fe43
+'LLVM version Ubuntu clang version 15.0.6
 @enduml

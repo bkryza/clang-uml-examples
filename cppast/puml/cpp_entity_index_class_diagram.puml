@@ -1,91 +1,49 @@
 @startuml
 left to right direction
 class "cpp_entity_id" as C_0001152344551163828554
-class C_0001152344551163828554 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity_index.hpp#L38{A [ts::strong_typedef]() representing the unique id of a [cppast::cpp_entity](). It is comparable for equality.}]] {
+class C_0001152344551163828554 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity_index.hpp#L38{cpp_entity_id}]] {
 }
 class "cpp_entity_index" as C_0001989731226165037041
-class C_0001989731226165037041 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity_index.hpp#L58{An index of all [cppast::cpp_entity]() objects created. It maps [cppast::cpp_entity_id]() to references to the [cppast::cpp_entity]() objects.}]] {
+class C_0001989731226165037041 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity_index.hpp#L58{cpp_entity_index}]] {
 }
 class "cpp_entity_index::duplicate_definition_error" as C_0001989531636101477120
-class C_0001989531636101477120 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity_index.hpp#L62{Exception thrown on duplicate entity definition.}]] {
+class C_0001989531636101477120 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity_index.hpp#L62{cpp_entity_index##duplicate_definition_error}]] {
 }
 class "cpp_entity_index::hash" as C_0000634431773903245144
-class C_0000634431773903245144 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity_index.hpp#L116{cpp_entity_index##hash}]] {
+class C_0000634431773903245144 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity_index.hpp#L116{cpp_entity_index##hash}]] {
 }
 class "cpp_entity_index::value" as C_0001918458639534713763
-class C_0001918458639534713763 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity_index.hpp#L124{cpp_entity_index##value}]] {
+class C_0001918458639534713763 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity_index.hpp#L124{cpp_entity_index##value}]] {
 }
 class "cpp_attribute" as C_0000560657228528420559
-class C_0000560657228528420559 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_attribute.hpp#L42{A C++ attribute, including `alignas` specifiers. It consists of a name, an optional namespace scope and optional arguments. The scope is just a single identifier and doesn't include the `::` and can be given explicitly or via using. The arguments are as...}]] {
+class C_0000560657228528420559 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_attribute.hpp#L42{cpp_attribute}]] {
 }
 class "cpp_scope_name" as C_0001691123644971107631
-class C_0001691123644971107631 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity.hpp#L22{The name of a scope. It is a combination of a name and optional template parameters.}]] {
+class C_0001691123644971107631 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity.hpp#L22{cpp_scope_name}]] {
 }
 abstract "cpp_entity" as C_0001854695372332280903
-abstract C_0001854695372332280903 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity.hpp#L47{The base class for all entities in the C++ AST.}]] {
+abstract C_0001854695372332280903 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity.hpp#L47{cpp_entity}]] {
 }
 class "cpp_unexposed_entity" as C_0001449857709503654826
-class C_0001449857709503654826 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity.hpp#L187{A [cppast::cpp_entity]() that isn't exposed directly. The only information available is the raw source code.}]] {
-}
-class "basic_cpp_entity_ref<T,Predicate>" as C_0001879680673732685376
-class C_0001879680673732685376 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_entity_ref.hpp#L23{A basic reference to some kind of [cppast::cpp_entity](). It can either refer to a single [cppast::cpp_entity]() or multiple. In the later case it is *overloaded*.}]] {
+class C_0001449857709503654826 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_entity.hpp#L187{cpp_unexposed_entity}]] {
 }
 class "cpp_file" as C_0001248593507051490272
-class C_0001248593507051490272 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_file.hpp#L27{A [cppast::cpp_entity]() modelling a file. This is the top-level entity of the AST.}]] {
-}
-class "cpp_file::builder" as C_0000804413027846012019
-class C_0000804413027846012019 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_file.hpp#L33{Builds a [cppast::cpp_file]().}]] {
+class C_0001248593507051490272 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_file.hpp#L27{cpp_file}]] {
 }
 class "cpp_template" as C_0000007122300671081288
-class C_0000007122300671081288 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L61{cpp_template}]] {
-}
-class "cpp_template_specialization" as C_0000529201356065019777
-class C_0000529201356065019777 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L66{cpp_template_specialization}]] {
+class C_0000007122300671081288 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L61{cpp_template}]] {
 }
 abstract "code_generator" as C_0000664741342971710245
-abstract C_0000664741342971710245 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L10{code_generator}]] {
-}
-class "cpp_template_argument" as C_0000701592080768365141
-class C_0000701592080768365141 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L62{cpp_template_argument}]] {
-}
-class "cpp_template_instantiation_type" as C_0001009421424714355715
-class C_0001009421424714355715 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L63{cpp_template_instantiation_type}]] {
+abstract C_0000664741342971710245 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L10{code_generator}]] {
 }
 class "cpp_template_parameter" as C_0001158442798649543268
-class C_0001158442798649543268 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L64{cpp_template_parameter}]] {
+class C_0001158442798649543268 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L64{cpp_template_parameter}]] {
 }
 class "cpp_namespace" as C_0001318630691633731356
-class C_0001318630691633731356 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L55{cpp_namespace}]] {
-}
-class "cpp_non_type_template_parameter" as C_0001461284658212381765
-class C_0001461284658212381765 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L56{cpp_non_type_template_parameter}]] {
-}
-class "cpp_template_type_parameter" as C_0001672854013158225149
-class C_0001672854013158225149 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L68{cpp_template_type_parameter}]] {
-}
-class "cpp_user_defined_type" as C_0002166954434825938188
-class C_0002166954434825938188 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cppast_fwd.hpp#L75{cpp_user_defined_type}]] {
+class C_0001318630691633731356 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L55{cpp_namespace}]] {
 }
 class "code_generator::output" as C_0000192432743316866604
-class C_0000192432743316866604 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/code_generator.hpp#L168{Sentinel type used to output a given entity.}]] {
-}
-class "basic_cpp_entity_ref<cpp_entity,detail::cpp_type_ref_predicate>" as C_0001754391255065006254
-class C_0001754391255065006254 {
-}
-class "basic_cpp_entity_ref<cpp_entity,detail::cpp_template_ref_predicate>" as C_0001397949548864734907
-class C_0001397949548864734907 {
-}
-class "cpp_template_template_parameter::builder" as C_0002011376350760136340
-class C_0002011376350760136340 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_template_parameter.hpp#L179{Builds a [cppast::cpp_template_template_parameter]().}]] {
-}
-class "cpp_template::basic_builder<T,EntityT>" as C_0001612795213388544040
-class C_0001612795213388544040 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_template.hpp#L36{Builder class for templates. Inherit from it to provide additional setter.}]] {
-}
-class "cpp_template_instantiation_type::builder" as C_0000643437011741382402
-class C_0000643437011741382402 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_template.hpp#L97{Builds a [cppast::cpp_template_instantiation]().}]] {
-}
-class "cpp_template_specialization::specialization_builder<T,EntityT>" as C_0000577199294850900499
-class C_0000577199294850900499 [[https://github.com/foonathan/cppast/blob/f81be80b524a88533f7e5eefd96fe10dc59cc289/include/cppast/cpp_template.hpp#L223{Builder class for specializations. Inherit from it to provide additional setter.}]] {
+class C_0000192432743316866604 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/code_generator.hpp#L168{code_generator##output}]] {
 }
 C_0001989731226165037041 o-- C_0001152344551163828554 : -map_
 C_0001989731226165037041 o-- C_0001152344551163828554 : -ns_
@@ -99,28 +57,15 @@ C_0001691123644971107631 o-- C_0000007122300671081288 : -templ_
 C_0001854695372332280903 o-- C_0000560657228528420559 : -attributes_
 C_0001854695372332280903 o-- C_0001854695372332280903 : -parent_
 C_0001854695372332280903 <|-- C_0001449857709503654826
-C_0001879680673732685376 o-- C_0001152344551163828554 : -target_
 C_0001854695372332280903 <|-- C_0001248593507051490272
-C_0000804413027846012019 --+ C_0001248593507051490272
-C_0000804413027846012019 o-- C_0001248593507051490272 : -file_
 C_0000007122300671081288 o-- C_0001158442798649543268 : -parameters_
 C_0001854695372332280903 <|-- C_0000007122300671081288
-C_0000529201356065019777 o-- C_0001152344551163828554 : -templ_
-C_0000007122300671081288 <|-- C_0000529201356065019777
 C_0000664741342971710245 o-- C_0001854695372332280903 : -main_entity_
-C_0001009421424714355715 o-- C_0001397949548864734907 : -templ_
 C_0001854695372332280903 <|-- C_0001158442798649543268
-C_0001158442798649543268 <|-- C_0001461284658212381765
-C_0001158442798649543268 <|-- C_0001672854013158225149
-C_0002166954434825938188 o-- C_0001754391255065006254 : -entity_
 C_0000192432743316866604 --+ C_0000664741342971710245
 C_0000192432743316866604 o-- C_0000664741342971710245 : -gen_
 C_0000192432743316866604 o-- C_0001854695372332280903 : -e_
-C_0001754391255065006254 ..|> C_0001879680673732685376
-C_0001397949548864734907 ..|> C_0001879680673732685376
-C_0001612795213388544040 --+ C_0000007122300671081288
-C_0000643437011741382402 --+ C_0001009421424714355715
-C_0000643437011741382402 o-- C_0001009421424714355715 : -result_
-C_0000577199294850900499 --+ C_0000529201356065019777
-C_0001612795213388544040 <|-- C_0000577199294850900499
+
+'Generated with clang-uml, version 0.3.4-2-gc91fe43
+'LLVM version Ubuntu clang version 15.0.6
 @enduml

@@ -1,4 +1,4 @@
-CLANG_UML_BINARY ?= ../../clang-uml/debug/clang-uml
+CLANG_UML_BINARY ?= ../../clang-uml/debug/src/clang-uml
 
 .PHONY: clean build diagrams plantuml
 
@@ -18,7 +18,8 @@ build: folly
 
 diagrams: build
 		cd folly && \
-		../$(CLANG_UML_BINARY) --config ../.clang-uml
+		cp ../.clang-uml .clang-uml && \
+		../$(CLANG_UML_BINARY)
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml

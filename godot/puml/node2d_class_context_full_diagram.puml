@@ -1,192 +1,6 @@
 @startuml
 title Godot Node2D class context
 left to right direction
-class "String" as C_0000945411446247634027
-class C_0000945411446247634027 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/ustring.h#L126{String}]] {
--copy_from(const char * p_cstr) : void
--copy_from(const CharType * p_cstr, const int p_clip_to = -1) : void
--copy_from(const CharType & p_char) : void
--copy_from_unchecked(const CharType * p_char, const int p_length) : void
--_base_is_subsequence_of(const String & p_string, bool case_insensitive) const : bool
--_count(const String & p_string, int p_from, int p_to, bool p_case_insensitive) const : int
-+ptrw() : CharType *
-+ptr() const : const CharType *
-+remove(int p_index) : void
-+clear() : void
-+get(int p_index) const : CharType
-+set(int p_index, const CharType & p_elem) : void
-+size() const : int
-+resize(int p_size) : Error
-+operator[](int p_index) const : const CharType &
-+operator[](int p_index) : CharProxy<CharType>
-+operator==(const String & p_str) const : bool
-+operator!=(const String & p_str) const : bool
-+operator+(const String & p_str) const : String
-+operator+=(const String & ) : String &
-+operator+=(CharType p_char) : String &
-+operator+=(const char * p_str) : String &
-+operator+=(const CharType * p_str) : String &
-+operator=(const char * p_str) : void
-+operator=(const CharType * p_str) : void
-+operator==(const char * p_str) const : bool
-+operator==(const CharType * p_str) const : bool
-+operator==(const StrRange & p_str_range) const : bool
-+operator!=(const char * p_str) const : bool
-+operator!=(const CharType * p_str) const : bool
-+operator<(const CharType * p_str) const : bool
-+operator<(const char * p_str) const : bool
-+operator<(const String & p_str) const : bool
-+operator<=(const String & p_str) const : bool
-+casecmp_to(const String & p_str) const : signed char
-+nocasecmp_to(const String & p_str) const : signed char
-+naturalnocasecmp_to(const String & p_str) const : signed char
-+c_str() const : const CharType *
-+length() const : int
-+substr(int p_from, int p_chars = -1) const : String
-+find(const String & p_str, int p_from = 0) const : int
-+find(const char * p_str, int p_from = 0) const : int
-+find_char(const CharType & p_char, int p_from = 0) const : int
-+find_last(const String & p_str) const : int
-+findn(const String & p_str, int p_from = 0) const : int
-+rfind(const String & p_str, int p_from = -1) const : int
-+rfindn(const String & p_str, int p_from = -1) const : int
-+findmk(const Vector<String> & p_keys, int p_from = 0, int * r_key = __null) const : int
-+match(const String & p_wildcard) const : bool
-+matchn(const String & p_wildcard) const : bool
-+begins_with(const String & p_string) const : bool
-+begins_with(const char * p_string) const : bool
-+ends_with(const String & p_string) const : bool
-+is_enclosed_in(const String & p_string) const : bool
-+is_subsequence_of(const String & p_string) const : bool
-+is_subsequence_ofi(const String & p_string) const : bool
-+is_quoted() const : bool
-+bigrams() const : Vector<String>
-+similarity(const String & p_string) const : float
-+format(const Variant & values, String placeholder = "{_}") const : String
-+replace_first(const String & p_key, const String & p_with) const : String
-+replace(const String & p_key, const String & p_with) const : String
-+replace(const char * p_key, const char * p_with) const : String
-+replacen(const String & p_key, const String & p_with) const : String
-+repeat(int p_count) const : String
-+insert(int p_at_pos, const String & p_string) const : String
-+pad_decimals(int p_digits) const : String
-+pad_zeros(int p_digits) const : String
-+trim_prefix(const String & p_prefix) const : String
-+trim_suffix(const String & p_suffix) const : String
-+lpad(int min_length, const String & character = " ") const : String
-+rpad(int min_length, const String & character = " ") const : String
-+sprintf(const Array & values, bool * error) const : String
-+quote(String quotechar = "\"") const : String
-+unquote() const : String
-{static} +num(double p_num, int p_decimals = -1) : String
-{static} +num_scientific(double p_num) : String
-{static} +num_real(double p_num) : String
-{static} +num_int64(int64_t p_num, int base = 10, bool capitalize_hex = false) : String
-{static} +num_uint64(uint64_t p_num, int base = 10, bool capitalize_hex = false) : String
-{static} +chr(CharType p_char) : String
-{static} +md5(const uint8_t * p_md5) : String
-{static} +hex_encode_buffer(const uint8_t * p_buffer, int p_len) : String
-+is_numeric() const : bool
-+to_double() const : double
-+to_float() const : float
-+hex_to_int(bool p_with_prefix = true) const : int
-+to_int() const : int
-+hex_to_int64(bool p_with_prefix = true) const : int64_t
-+bin_to_int64(bool p_with_prefix = true) const : int64_t
-+to_int64() const : int64_t
-{static} +to_int(const char * p_str, int p_len = -1) : int
-{static} +to_double(const char * p_str) : double
-{static} +to_double(const CharType * p_str, const CharType ** r_end = __null) : double
-{static} +to_int(const CharType * p_str, int p_len = -1) : int64_t
-+capitalize() const : String
-+camelcase_to_underscore(bool lowercase = true) const : String
-+get_slice_count(String p_splitter) const : int
-+get_slice(String p_splitter, int p_slice) const : String
-+get_slicec(CharType p_splitter, int p_slice) const : String
-+split(const String & p_splitter, bool p_allow_empty = true, int p_maxsplit = 0) const : Vector<String>
-+rsplit(const String & p_splitter, bool p_allow_empty = true, int p_maxsplit = 0) const : Vector<String>
-+split_spaces() const : Vector<String>
-+split_floats(const String & p_splitter, bool p_allow_empty = true) const : Vector<float>
-+split_floats_mk(const Vector<String> & p_splitters, bool p_allow_empty = true) const : Vector<float>
-+split_ints(const String & p_splitter, bool p_allow_empty = true) const : Vector<int>
-+split_ints_mk(const Vector<String> & p_splitters, bool p_allow_empty = true) const : Vector<int>
-+join(Vector<String> parts) : String
-{static} +char_uppercase(CharType p_char) : CharType
-{static} +char_lowercase(CharType p_char) : CharType
-+to_upper() const : String
-+to_lower() const : String
-+count(const String & p_string, int p_from = 0, int p_to = 0) const : int
-+countn(const String & p_string, int p_from = 0, int p_to = 0) const : int
-+left(int p_pos) const : String
-+right(int p_pos) const : String
-+dedent() const : String
-+strip_edges(bool left = true, bool right = true) const : String
-+strip_escapes() const : String
-+lstrip(const String & p_chars) const : String
-+rstrip(const String & p_chars) const : String
-+get_extension() const : String
-+get_basename() const : String
-+plus_file(const String & p_file) const : String
-+ord_at(int p_idx) const : CharType
-+erase(int p_pos, int p_chars) : void
-+ascii(bool p_allow_extended = false) const : CharString
-+utf8() const : CharString
-+parse_utf8(const char * p_utf8, int p_len = -1) : bool
-{static} +utf8(const char * p_utf8, int p_len = -1) : String
-{static} +hash(const CharType * p_cstr, int p_len) : uint32_t
-{static} +hash(const CharType * p_cstr) : uint32_t
-{static} +hash(const char * p_cstr, int p_len) : uint32_t
-{static} +hash(const char * p_cstr) : uint32_t
-+hash() const : uint32_t
-+hash64() const : uint64_t
-+md5_text() const : String
-+sha1_text() const : String
-+sha256_text() const : String
-+md5_buffer() const : Vector<uint8_t>
-+sha1_buffer() const : Vector<uint8_t>
-+sha256_buffer() const : Vector<uint8_t>
-+empty() const : bool
-+is_abs_path() const : bool
-+is_rel_path() const : bool
-+is_resource_file() const : bool
-+path_to(const String & p_path) const : String
-+path_to_file(const String & p_path) const : String
-+get_base_dir() const : String
-+get_file() const : String
-{static} +humanize_size(uint64_t p_size) : String
-+simplify_path() const : String
-+xml_escape(bool p_escape_quotes = false) const : String
-+xml_unescape() const : String
-+http_escape() const : String
-+http_unescape() const : String
-+c_escape() const : String
-+c_escape_multiline() const : String
-+c_unescape() const : String
-+json_escape() const : String
-+word_wrap(int p_chars_per_line) const : String
-+parse_url(String & r_scheme, String & r_host, int & r_port, String & r_path) const : Error
-+percent_encode() const : String
-+percent_decode() const : String
-+property_name_encode() const : String
-+validate_node_name() const : String
-+is_valid_identifier() const : bool
-+is_valid_integer() const : bool
-+is_valid_float() const : bool
-+is_valid_hex_number(bool p_with_prefix) const : bool
-+is_valid_html_color() const : bool
-+is_valid_ip_address() const : bool
-+is_valid_filename() const : bool
-+String() : void
-+String(const String & p_str) : void
-+operator=(const String & p_str) : String
-+String(const char * p_str) : void
-+String(const CharType * p_str, int p_clip_to_len = -1) : void
-+String(const StrRange & p_range) : void
--_cowdata : CowData<CharType> [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/ustring.h#L128{_cowdata}]]]
-{static} -_null : const CharType [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/ustring.h#L129{_null}]]]
-+npos : enum
-{static} +invalid_node_name_characters : const String [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/ustring.h#L345{invalid_node_name_characters}]]]
-}
 class "Vector2" as C_0000053309527800613276
 class C_0000053309527800613276 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/vector2.h#L39{Vector2}]] {
 +operator[](int p_idx) : real_t &
@@ -250,40 +64,8 @@ class C_0000053309527800613276 [[https://github.com/godotengine/godot/blob/faf3f
 +operator String() const : String
 +Vector2(real_t p_x, real_t p_y) : void
 +Vector2() : void
-+ : Vector2::(anonymous union at ./core/math/vector2.h:46:2) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/vector2.h#L46{}]]]
-+ : Vector2::(anonymous union at ./core/math/vector2.h:50:2) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/vector2.h#L50{}]]]
-}
-class "Rect2" as C_0000300688871447362916
-class C_0000300688871447362916 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/rect2.h#L38{Rect2}]] {
-+get_position() const : const Vector2 &
-+set_position(const Vector2 & p_pos) : void
-+get_size() const : const Vector2 &
-+set_size(const Vector2 & p_size) : void
-+get_area() const : real_t
-+intersects(const Rect2 & p_rect, const bool p_include_borders = false) const : bool
-+distance_to(const Vector2 & p_point) const : real_t
-+intersects_transformed(const Transform2D & p_xform, const Rect2 & p_rect) const : bool
-+intersects_segment(const Point2 & p_from, const Point2 & p_to, Point2 * r_pos = __null, Point2 * r_normal = __null) const : bool
-+encloses(const Rect2 & p_rect) const : bool
-+has_no_area() const : bool
-+clip(const Rect2 & p_rect) const : Rect2
-+merge(const Rect2 & p_rect) const : Rect2
-+has_point(const Point2 & p_point) const : bool
-+is_equal_approx(const Rect2 & p_rect) const : bool
-+operator==(const Rect2 & p_rect) const : bool
-+operator!=(const Rect2 & p_rect) const : bool
-+grow(real_t p_by) const : Rect2
-+grow_margin(Margin p_margin, real_t p_amount) const : Rect2
-+grow_individual(real_t p_left, real_t p_top, real_t p_right, real_t p_bottom) const : Rect2
-+expand(const Vector2 & p_vector) const : Rect2
-+expand_to(const Vector2 & p_vector) : void
-+abs() const : Rect2
-+operator String() const : String
-+Rect2() : void
-+Rect2(real_t p_x, real_t p_y, real_t p_width, real_t p_height) : void
-+Rect2(const Point2 & p_pos, const Size2 & p_size) : void
-+position : Point2 [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/rect2.h#L40{position}]]]
-+size : Size2 [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/rect2.h#L41{size}]]]
++ : Vector2::(anonymous_506878) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/vector2.h#L46{}]]]
++ : Vector2::(anonymous_506983) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/vector2.h#L50{}]]]
 }
 class "Transform2D" as C_0001296138246691404804
 class C_0001296138246691404804 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/transform_2d.h#L37{Transform2D}]] {
@@ -337,39 +119,6 @@ class C_0001296138246691404804 [[https://github.com/godotengine/godot/blob/faf3f
 +Transform2D() : void
 +elements : Vector2[3] [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/math/transform_2d.h#L49{elements}]]]
 }
-class "Dictionary" as C_0001299121424291583786
-class C_0001299121424291583786 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/dictionary.h#L42{Dictionary}]] {
--_ref(const Dictionary & p_from) const : void
--_unref() const : void
-+get_key_list(List<Variant> * p_keys) const : void
-+get_key_at_index(int p_index) const : Variant
-+get_value_at_index(int p_index) const : Variant
-+operator[](const Variant & p_key) : Variant &
-+operator[](const Variant & p_key) const : const Variant &
-+getptr(const Variant & p_key) const : const Variant *
-+getptr(const Variant & p_key) : Variant *
-+get_valid(const Variant & p_key) const : Variant
-+get(const Variant & p_key, const Variant & p_default) const : Variant
-+size() const : int
-+empty() const : bool
-+clear() : void
-+has(const Variant & p_key) const : bool
-+has_all(const Array & p_keys) const : bool
-+erase(const Variant & p_key) : bool
-+operator==(const Dictionary & p_dictionary) const : bool
-+operator!=(const Dictionary & p_dictionary) const : bool
-+hash() const : uint32_t
-+operator=(const Dictionary & p_dictionary) : void
-+next(const Variant * p_key = __null) const : const Variant *
-+keys() const : Array
-+values() const : Array
-+duplicate(bool p_deep = false) const : Dictionary
-+id() const : const void *
-+Dictionary(const Dictionary & p_from) : void
-+Dictionary() : void
-+~Dictionary() : void
--_p : DictionaryPrivate * [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/dictionary.h#L44{_p}]]]
-}
 class "StringName" as C_0001858199404643284193
 class C_0001858199404643284193 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/string_name.h#L44{StringName}]] {
 -unref() : void
@@ -403,201 +152,6 @@ class C_0001858199404643284193 [[https://github.com/godotengine/godot/blob/faf3f
 {static} -_table : StringName::_Data *[4096] [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/string_name.h#L71{_table}]]]
 {static} -lock : Mutex [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/string_name.h#L85{lock}]]]
 {static} -configured : bool [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/string_name.h#L88{configured}]]]
-}
-class "List<PropertyInfo>" as C_0000788782266645010446
-class C_0000788782266645010446 {
-}
-class "Variant" as C_0000210234563198599367
-class C_0000210234563198599367 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/variant.h#L93{Variant}]] {
--_get_obj() : Variant::ObjData &
--_get_obj() const : const Variant::ObjData &
--reference(const Variant & p_variant) : void
--clear() : void
-+get_type() const : Variant::Type
-{static} +get_type_name(Variant::Type p_type) : String
-{static} +can_convert(Variant::Type p_type_from, Variant::Type p_type_to) : bool
-{static} +can_convert_strict(Variant::Type p_type_from, Variant::Type p_type_to) : bool
-+is_ref() const : bool
-+is_num() const : bool
-+is_array() const : bool
-+is_shared() const : bool
-+is_zero() const : bool
-+is_one() const : bool
-+operator bool() const : bool
-+operator int() const : int
-+operator unsigned int() const : unsigned int
-+operator short() const : short
-+operator unsigned short() const : unsigned short
-+operator signed char() const : signed char
-+operator unsigned char() const : unsigned char
-+operator long() const : int64_t
-+operator unsigned long() const : uint64_t
-+operator wchar_t() const : CharType
-+operator float() const : float
-+operator double() const : double
-+operator String() const : String
-+operator StringName() const : StringName
-+operator Vector2() const : Vector2
-+operator Rect2() const : Rect2
-+operator Vector3() const : Vector3
-+operator Plane() const : Plane
-+operator AABB() const : ::AABB
-+operator Quat() const : Quat
-+operator Basis() const : Basis
-+operator Transform() const : Transform
-+operator Transform2D() const : Transform2D
-+operator Color() const : Color
-+operator NodePath() const : NodePath
-+operator RefPtr() const : RefPtr
-+operator RID() const : RID
-+operator Object *() const : Object *
-+operator Node *() const : Node *
-+operator Control *() const : Control *
-+operator Dictionary() const : Dictionary
-+operator Array() const : Array
-+operator PoolVector() const : PoolVector<uint8_t>
-+operator PoolVector() const : PoolVector<int>
-+operator PoolVector() const : PoolVector<real_t>
-+operator PoolVector() const : PoolVector<String>
-+operator PoolVector() const : PoolVector<Vector3>
-+operator PoolVector() const : PoolVector<Color>
-+operator PoolVector() const : PoolVector<Plane>
-+operator PoolVector() const : PoolVector<Face3>
-+operator Vector() const : Vector<Variant>
-+operator Vector() const : Vector<uint8_t>
-+operator Vector() const : Vector<int>
-+operator Vector() const : Vector<real_t>
-+operator Vector() const : Vector<String>
-+operator Vector() const : Vector<StringName>
-+operator Vector() const : Vector<Vector3>
-+operator Vector() const : Vector<Color>
-+operator Vector() const : Vector<RID>
-+operator Vector() const : Vector<Vector2>
-+operator PoolVector() const : PoolVector<Vector2>
-+operator Vector() const : Vector<Plane>
-+operator Margin() const : Margin
-+operator Orientation() const : Orientation
-+operator IP_Address() const : IP_Address
-+Variant(bool p_bool) : void
-+Variant(int p_int) : void
-+Variant(unsigned int p_int) : void
-+Variant(short p_short) : void
-+Variant(unsigned short p_short) : void
-+Variant(signed char p_char) : void
-+Variant(unsigned char p_char) : void
-+Variant(int64_t p_int) : void
-+Variant(uint64_t p_int) : void
-+Variant(float p_float) : void
-+Variant(double p_double) : void
-+Variant(const String & p_string) : void
-+Variant(const StringName & p_string) : void
-+Variant(const char *const p_cstring) : void
-+Variant(const CharType * p_wstring) : void
-+Variant(const Vector2 & p_vector2) : void
-+Variant(const Rect2 & p_rect2) : void
-+Variant(const Vector3 & p_vector3) : void
-+Variant(const Plane & p_plane) : void
-+Variant(const ::AABB & p_aabb) : void
-+Variant(const Quat & p_quat) : void
-+Variant(const Basis & p_matrix) : void
-+Variant(const Transform2D & p_transform) : void
-+Variant(const Transform & p_transform) : void
-+Variant(const Color & p_color) : void
-+Variant(const NodePath & p_node_path) : void
-+Variant(const RefPtr & p_resource) : void
-+Variant(const RID & p_rid) : void
-+Variant(const Object * p_object) : void
-+Variant(const Dictionary & p_dictionary) : void
-+Variant(const Array & p_array) : void
-+Variant(const PoolVector<Plane> & p_array) : void
-+Variant(const PoolVector<uint8_t> & p_raw_array) : void
-+Variant(const PoolVector<int> & p_int_array) : void
-+Variant(const PoolVector<real_t> & p_real_array) : void
-+Variant(const PoolVector<String> & p_string_array) : void
-+Variant(const PoolVector<Vector3> & p_vector3_array) : void
-+Variant(const PoolVector<Color> & p_color_array) : void
-+Variant(const PoolVector<Face3> & p_face_array) : void
-+Variant(const Vector<Variant> & p_array) : void
-+Variant(const Vector<uint8_t> & p_array) : void
-+Variant(const Vector<int> & p_array) : void
-+Variant(const Vector<real_t> & p_array) : void
-+Variant(const Vector<String> & p_array) : void
-+Variant(const Vector<StringName> & p_array) : void
-+Variant(const Vector<Vector3> & p_array) : void
-+Variant(const Vector<Color> & p_array) : void
-+Variant(const Vector<Plane> & p_array) : void
-+Variant(const Vector<RID> & p_array) : void
-+Variant(const Vector<Vector2> & p_array) : void
-+Variant(const PoolVector<Vector2> & p_vector2_array) : void
-+Variant(const IP_Address & p_address) : void
-{static} +get_operator_name(Variant::Operator p_op) : String
-{static} +evaluate(const Variant::Operator & p_op, const Variant & p_a, const Variant & p_b, Variant & r_ret, bool & r_valid) : void
-{static} +evaluate(const Variant::Operator & p_op, const Variant & p_a, const Variant & p_b) : Variant
-+zero() : void
-+duplicate(bool deep = false) const : Variant
-{static} +blend(const Variant & a, const Variant & b, float c, Variant & r_dst) : void
-{static} +interpolate(const Variant & a, const Variant & b, float c, Variant & r_dst) : void
-+call_ptr(const StringName & p_method, const Variant ** p_args, int p_argcount, Variant * r_ret, Variant::CallError & r_error) : void
-+call(const StringName & p_method, const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
-+call(const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : Variant
-{static} +get_call_error_text(Object * p_base, const StringName & p_method, const Variant ** p_argptrs, int p_argcount, const Variant::CallError & ce) : String
-{static} +construct(const Variant::Type , const Variant ** p_args, int p_argcount, Variant::CallError & r_error, bool p_strict = true) : Variant
-+get_method_list(List<MethodInfo> * p_list) const : void
-+has_method(const StringName & p_method) const : bool
-{static} +get_method_argument_types(Variant::Type p_type, const StringName & p_method) : Vector<Variant::Type>
-{static} +get_method_default_arguments(Variant::Type p_type, const StringName & p_method) : Vector<Variant>
-{static} +get_method_return_type(Variant::Type p_type, const StringName & p_method, bool * r_has_return = __null) : Variant::Type
-{static} +get_method_argument_names(Variant::Type p_type, const StringName & p_method) : Vector<StringName>
-{static} +is_method_const(Variant::Type p_type, const StringName & p_method) : bool
-+set_named(const StringName & p_index, const Variant & p_value, bool * r_valid = __null) : void
-+get_named(const StringName & p_index, bool * r_valid = __null) const : Variant
-+set(const Variant & p_index, const Variant & p_value, bool * r_valid = __null) : void
-+get(const Variant & p_index, bool * r_valid = __null) const : Variant
-+in(const Variant & p_index, bool * r_valid = __null) const : bool
-+iter_init(Variant & r_iter, bool & r_valid) const : bool
-+iter_next(Variant & r_iter, bool & r_valid) const : bool
-+iter_get(const Variant & r_iter, bool & r_valid) const : Variant
-+get_property_list(List<PropertyInfo> * p_list) const : void
-+operator==(const Variant & p_variant) const : bool
-+operator!=(const Variant & p_variant) const : bool
-+operator<(const Variant & p_variant) const : bool
-+hash() const : uint32_t
-+hash_compare(const Variant & p_variant) const : bool
-+booleanize() const : bool
-+stringify(List<const void *> & stack) const : String
-+static_assign(const Variant & p_variant) : void
-{static} +get_constructor_list(Variant::Type p_type, List<MethodInfo> * p_list) : void
-{static} +get_constants_for_type(Variant::Type p_type, List<StringName> * p_constants) : void
-{static} +has_constant(Variant::Type p_type, const StringName & p_value) : bool
-{static} +get_constant_value(Variant::Type p_type, const StringName & p_value, bool * r_valid = __null) : Variant
-+get_construct_string() const : String
-{static} +construct_from_string(const String & p_string, Variant & r_value, Variant::ObjectConstruct p_obj_construct = __null, void * p_construct_ud = __null) : void
-+operator=(const Variant & p_variant) : void
-+Variant(const Variant & p_variant) : void
-+Variant() : void
-+~Variant() : void
--type : Variant::Type [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/variant.h#L144{type}]]]
--_data : union (unnamed union at ./core/variant.h:163:2) [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/variant.h#L173{_data}]]]
-}
-class "PropertyInfo" as C_0002153970433534458832
-class C_0002153970433534458832 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/object.h#L144{PropertyInfo}]] {
-+added_usage(int p_fl) const : PropertyInfo
-+operator Dictionary() const : Dictionary
-{static} +from_dict(const Dictionary & p_dict) : PropertyInfo
-+PropertyInfo() : void
-+PropertyInfo(Variant::Type p_type, const String p_name, PropertyHint p_hint = PROPERTY_HINT_NONE, const String & p_hint_string = "", uint32_t p_usage = PROPERTY_USAGE_DEFAULT, const StringName & p_class_name = StringName()) : void
-+PropertyInfo(const StringName & p_class_name) : void
-+operator==(const PropertyInfo & p_info) const : bool
-+operator<(const PropertyInfo & p_info) const : bool
-+type : Variant::Type [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/object.h#L146{type}]]]
-+name : String [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/object.h#L147{name}]]]
-+class_name : StringName [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/object.h#L148{class_name}]]]
-+hint : PropertyHint [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/object.h#L149{hint}]]]
-+hint_string : String [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/object.h#L150{hint_string}]]]
-+usage : uint32_t [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/object.h#L151{usage}]]]
-}
-class "List<String>" as C_0002063845175027013341
-class C_0002063845175027013341 {
 }
 class "ClassDB" as C_0000104564426296396960
 class C_0000104564426296396960 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/class_db.h#L94{ClassDB}]] {
@@ -656,22 +210,22 @@ class C_0000104564426296396960 [[https://github.com/godotengine/godot/blob/faf3f
 {static} +get_current_api() : ClassDB::APIType
 {static} +cleanup_defaults() : void
 {static} +cleanup() : void
-{static} +creator() : class Object *
-{static} +_add_class() : void
-{static} +register_class() : void
-{static} +register_virtual_class() : void
-{static} +_create_ptr_func() : class Object *
-{static} +register_custom_instance_class() : void
-{static} +bind_method(N p_method_name, M p_method) : class MethodBind *
-{static} +bind_method(N p_method_name, M p_method, const Variant & p_def1) : class MethodBind *
-{static} +bind_method(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2) : class MethodBind *
-{static} +bind_method(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3) : class MethodBind *
-{static} +bind_method(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4) : class MethodBind *
-{static} +bind_method(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4, const Variant & p_def5) : class MethodBind *
-{static} +bind_method(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4, const Variant & p_def5, const Variant & p_def6) : class MethodBind *
-{static} +bind_method(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4, const Variant & p_def5, const Variant & p_def6, const Variant & p_def7) : class MethodBind *
-{static} +bind_method(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4, const Variant & p_def5, const Variant & p_def6, const Variant & p_def7, const Variant & p_def8) : class MethodBind *
-{static} +bind_vararg_method(uint32_t p_flags, StringName p_name, M p_method, const MethodInfo & p_info = MethodInfo(), const Vector<Variant> & p_default_args = Vector<Variant>(), bool p_return_nil_is_variant = true) : class MethodBind *
+{static} +creator<T>() : class Object *
+{static} +_add_class<T>() : void
+{static} +register_class<T>() : void
+{static} +register_virtual_class<T>() : void
+{static} +_create_ptr_func<T>() : class Object *
+{static} +register_custom_instance_class<T>() : void
+{static} +bind_method<N,M>(N p_method_name, M p_method) : class MethodBind *
+{static} +bind_method<N,M>(N p_method_name, M p_method, const Variant & p_def1) : class MethodBind *
+{static} +bind_method<N,M>(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2) : class MethodBind *
+{static} +bind_method<N,M>(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3) : class MethodBind *
+{static} +bind_method<N,M>(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4) : class MethodBind *
+{static} +bind_method<N,M>(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4, const Variant & p_def5) : class MethodBind *
+{static} +bind_method<N,M>(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4, const Variant & p_def5, const Variant & p_def6) : class MethodBind *
+{static} +bind_method<N,M>(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4, const Variant & p_def5, const Variant & p_def6, const Variant & p_def7) : class MethodBind *
+{static} +bind_method<N,M>(N p_method_name, M p_method, const Variant & p_def1, const Variant & p_def2, const Variant & p_def3, const Variant & p_def4, const Variant & p_def5, const Variant & p_def6, const Variant & p_def7, const Variant & p_def8) : class MethodBind *
+{static} +bind_vararg_method<M>(uint32_t p_flags, StringName p_name, M p_method, const MethodInfo & p_info = MethodInfo(), const Vector<Variant> & p_default_args = Vector<Variant>(), bool p_return_nil_is_variant = true) : class MethodBind *
 {static} +lock : RWLock [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/class_db.h#L146{lock}]]]
 {static} +classes : HashMap<StringName,ClassDB::ClassInfo> [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/class_db.h#L147{classes}]]]
 {static} +resource_base_extensions : HashMap<StringName,StringName> [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/class_db.h#L148{resource_base_extensions}]]]
@@ -679,227 +233,6 @@ class C_0000104564426296396960 [[https://github.com/godotengine/godot/blob/faf3f
 {static} +current_api : ClassDB::APIType [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/class_db.h#L157{current_api}]]]
 {static} +default_values : HashMap<StringName,HashMap<StringName,Variant>> [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/class_db.h#L161{default_values}]]]
 {static} +default_values_cached : Set<StringName> [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./core/class_db.h#L162{default_values_cached}]]]
-}
-class "Node" as C_0000218299049716973303
-class C_0000218299049716973303 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./scene/main/node.h#L44{Node}]] {
--operator=(const Node & p_rval) : void
-+get_class() const : String
-+_get_class_namev() const : const StringName *
-{static} +get_class_ptr_static() : void *
-{static} +get_class_static() : String
-{static} +get_parent_class_static() : String
-{static} +get_inheritance_list_static(List<String> * p_inheritance_list) : void
-{static} +get_category_static() : String
-{static} +inherits_static() : String
-+is_class(const String & p_class) const : bool
-+is_class_ptr(void * p_ptr) const : bool
-{static} +get_valid_parents_static(List<String> * p_parents) : void
-{static} #_get_bind_methods() : void (*)()
-{static} +initialize_class() : void
-#_initialize_classv() : void
-#_get_get() const : bool (Object::*)(const StringName &,Variant &) const
-#_getv(const StringName & p_name, Variant & r_ret) const : bool
-#_get_set() const : bool (Object::*)(const StringName &,const Variant &)
-#_setv(const StringName & p_name, const Variant & p_property) : bool
-#_get_get_property_list() const : void (Object::*)(List<PropertyInfo> *) const
-#_get_property_listv(List<PropertyInfo> * p_list, bool p_reversed) const : void
-#_get_notification() const : void (Object::*)(int)
-#_notificationv(int p_notification, bool p_reversed) : void
-{static} #_get_category() : String
--_print_tree_pretty(const String & prefix, const bool last) : void
--_print_tree(const Node * p_node) : void
--_get_child_by_name(const StringName & p_name) const : Node *
--_replace_connections_target(Node * p_new_target) : void
--_validate_child_name(Node * p_child, bool p_force_human_readable = false) : void
--_generate_serial_child_name(const Node * p_child, StringName & name) const : void
--_propagate_reverse_notification(int p_notification) : void
--_propagate_deferred_notification(int p_notification, bool p_reverse) : void
--_propagate_enter_tree() : void
--_propagate_ready() : void
--_propagate_exit_tree() : void
--_propagate_after_exit_tree() : void
--_propagate_validate_owner() : void
--_print_stray_nodes() : void
--_propagate_pause_owner(Node * p_owner) : void
--_get_node_and_resource(const NodePath & p_path) : Array
--_duplicate_signals(const Node * p_original, Node * p_copy) const : void
--_duplicate_and_reown(Node * p_new_parent, const Map<Node *,Node *> & p_reown_map) const : void
--_duplicate(int p_flags, Map<const Node *,Node *> * r_duplimap = __null) const : Node *
--_get_children() const : Array
--_get_groups() const : Array
--_rpc_bind(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
--_rpc_unreliable_bind(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
--_rpc_id_bind(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
--_rpc_unreliable_id_bind(const Variant ** p_args, int p_argcount, Variant::CallError & r_error) : Variant
--_set_tree(SceneTree * p_tree) : void
-#_block() : void
-#_unblock() : void
-#_notification(int p_notification) : void
-#add_child_notify(Node * p_child) : void
-#remove_child_notify(Node * p_child) : void
-#move_child_notify(Node * p_child) : void
-#_propagate_replace_owner(Node * p_owner, Node * p_by_owner) : void
-{static} #_bind_methods() : void
-{static} #_get_name_num_separator() : String
-#_add_child_nocheck(Node * p_child, const StringName & p_name) : void
-#_set_owner_nocheck(Node * p_owner) : void
-#_set_name_nocheck(const StringName & p_name) : void
-+get_name() const : StringName
-+set_name(const String & p_name) : void
-+add_child(Node * p_child, bool p_legible_unique_name = false) : void
-+add_child_below_node(Node * p_node, Node * p_child, bool p_legible_unique_name = false) : void
-+remove_child(Node * p_child) : void
-+get_child_count() const : int
-+get_child(int p_index) const : Node *
-+has_node(const NodePath & p_path) const : bool
-+get_node(const NodePath & p_path) const : Node *
-+get_node_or_null(const NodePath & p_path) const : Node *
-+find_node(const String & p_mask, bool p_recursive = true, bool p_owned = true) const : Node *
-+has_node_and_resource(const NodePath & p_path) const : bool
-+get_node_and_resource(const NodePath & p_path, RES & r_res, Vector<StringName> & r_leftover_subpath, bool p_last_is_property = true) const : Node *
-+get_parent() const : Node *
-+find_parent(const String & p_mask) const : Node *
-+get_tree() const : SceneTree *
-+is_inside_tree() const : bool
-+is_a_parent_of(const Node * p_node) const : bool
-+is_greater_than(const Node * p_node) const : bool
-+get_path() const : NodePath
-+get_path_to(const Node * p_node) const : NodePath
-+find_common_parent_with(const Node * p_node) const : Node *
-+add_to_group(const StringName & p_identifier, bool p_persistent = false) : void
-+remove_from_group(const StringName & p_identifier) : void
-+is_in_group(const StringName & p_identifier) const : bool
-+get_groups(List<Node::GroupInfo> * p_groups) const : void
-+get_persistent_group_count() const : int
-+move_child(Node * p_child, int p_pos) : void
-+raise() : void
-+set_owner(Node * p_owner) : void
-+get_owner() const : Node *
-+get_owned_by(Node * p_by, List<Node *> * p_owned) : void
-+remove_and_skip() : void
-+get_index() const : int
-+print_tree() : void
-+print_tree_pretty() : void
-+set_filename(const String & p_filename) : void
-+get_filename() const : String
-+set_editor_description(const String & p_editor_description) : void
-+get_editor_description() const : String
-+set_editable_instance(Node * p_node, bool p_editable) : void
-+is_editable_instance(const Node * p_node) const : bool
-+get_deepest_editable_node(Node * start_node) const : Node *
-+propagate_notification(int p_notification) : void
-+propagate_call(const StringName & p_method, const Array & p_args = Array(), const bool p_parent_first = false) : void
-+set_physics_process(bool p_process) : void
-+get_physics_process_delta_time() const : float
-+is_physics_processing() const : bool
-+set_process(bool p_idle_process) : void
-+get_process_delta_time() const : float
-+is_processing() const : bool
-+set_physics_process_internal(bool p_process_internal) : void
-+is_physics_processing_internal() const : bool
-+set_process_internal(bool p_idle_process_internal) : void
-+is_processing_internal() const : bool
-+set_process_priority(int p_priority) : void
-+get_process_priority() const : int
-+set_process_input(bool p_enable) : void
-+is_processing_input() const : bool
-+set_process_unhandled_input(bool p_enable) : void
-+is_processing_unhandled_input() const : bool
-+set_process_unhandled_key_input(bool p_enable) : void
-+is_processing_unhandled_key_input() const : bool
-+get_position_in_parent() const : int
-+duplicate(int p_flags = DUPLICATE_GROUPS | DUPLICATE_SIGNALS | DUPLICATE_SCRIPTS) const : Node *
-+duplicate_and_reown(const Map<Node *,Node *> & p_reown_map) const : Node *
-+duplicate_from_editor(Map<const Node *,Node *> & r_duplimap) const : Node *
-+duplicate_from_editor(Map<const Node *,Node *> & r_duplimap, const Map<RES,RES> & p_resource_remap) const : Node *
-+remap_node_resources(Node * p_node, const Map<RES,RES> & p_resource_remap) const : void
-+remap_nested_resources(RES p_resource, const Map<RES,RES> & p_resource_remap) const : void
-+set_scene_instance_state(const Ref<SceneState> & p_state) : void
-+get_scene_instance_state() const : Ref<SceneState>
-+set_scene_inherited_state(const Ref<SceneState> & p_state) : void
-+get_scene_inherited_state() const : Ref<SceneState>
-+set_scene_instance_load_placeholder(bool p_enable) : void
-+get_scene_instance_load_placeholder() const : bool
-{static} +make_binds(const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : Vector<Variant>
-+replace_by(Node * p_node, bool p_keep_data = false) : void
-+set_pause_mode(Node::PauseMode p_mode) : void
-+get_pause_mode() const : Node::PauseMode
-+can_process() const : bool
-+can_process_notification(int p_what) const : bool
-+request_ready() : void
-{static} +print_stray_nodes() : void
-+validate_child_name(Node * p_child) : String
-+queue_delete() : void
-{static} +set_human_readable_collision_renaming(bool p_enabled) : void
-{static} +init_node_hrcr() : void
-+force_parent_owned() : void
-+set_import_path(const NodePath & p_import_path) : void
-+get_import_path() const : NodePath
-+is_owned_by_parent() const : bool
-+get_argument_options(const StringName & p_function, int p_idx, List<String> * r_options) const : void
-+clear_internal_tree_resource_paths() : void
-+get_viewport() const : Viewport *
-+get_configuration_warning() const : String
-+update_configuration_warning() : void
-+set_display_folded(bool p_folded) : void
-+is_displayed_folded() const : bool
-+set_network_master(int p_peer_id, bool p_recursive = true) : void
-+get_network_master() const : int
-+is_network_master() const : bool
-+rpc_config(const StringName & p_method, MultiplayerAPI::RPCMode p_mode) : void
-+rset_config(const StringName & p_property, MultiplayerAPI::RPCMode p_mode) : void
-+rpc(const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : void
-+rpc_unreliable(const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : void
-+rpc_id(int p_peer_id, const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : void
-+rpc_unreliable_id(int p_peer_id, const StringName & p_method, const Variant & p_arg1 = Variant(), const Variant & p_arg2 = Variant(), const Variant & p_arg3 = Variant(), const Variant & p_arg4 = Variant(), const Variant & p_arg5 = Variant()) : void
-+rset(const StringName & p_property, const Variant & p_value) : void
-+rset_unreliable(const StringName & p_property, const Variant & p_value) : void
-+rset_id(int p_peer_id, const StringName & p_property, const Variant & p_value) : void
-+rset_unreliable_id(int p_peer_id, const StringName & p_property, const Variant & p_value) : void
-+rpcp(int p_peer_id, bool p_unreliable, const StringName & p_method, const Variant ** p_arg, int p_argcount) : void
-+rsetp(int p_peer_id, bool p_unreliable, const StringName & p_property, const Variant & p_value) : void
-+get_multiplayer() const : Ref<MultiplayerAPI>
-+get_custom_multiplayer() const : Ref<MultiplayerAPI>
-+set_custom_multiplayer(Ref<MultiplayerAPI> p_multiplayer) : void
-+get_node_rpc_mode(const StringName & p_method) : const Map<StringName,MultiplayerAPI::RPCMode>::Element *
-+get_node_rset_mode(const StringName & p_property) : const Map<StringName,MultiplayerAPI::RPCMode>::Element *
-+Node() : void
-+~Node() : void
--_class_name : StringName
--data : struct Data [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./scene/main/node.h#L144{data}]]]
--multiplayer : Ref<MultiplayerAPI> [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./scene/main/node.h#L152{multiplayer}]]]
-{static} +orphan_node_count : int [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./scene/main/node.h#L78{orphan_node_count}]]]
-+NOTIFICATION_ENTER_TREE : enum
-+NOTIFICATION_EXIT_TREE : enum
-+NOTIFICATION_MOVED_IN_PARENT : enum
-+NOTIFICATION_READY : enum
-+NOTIFICATION_PAUSED : enum
-+NOTIFICATION_UNPAUSED : enum
-+NOTIFICATION_PHYSICS_PROCESS : enum
-+NOTIFICATION_PROCESS : enum
-+NOTIFICATION_PARENTED : enum
-+NOTIFICATION_UNPARENTED : enum
-+NOTIFICATION_INSTANCED : enum
-+NOTIFICATION_DRAG_BEGIN : enum
-+NOTIFICATION_DRAG_END : enum
-+NOTIFICATION_PATH_CHANGED : enum
-+NOTIFICATION_INTERNAL_PROCESS : enum
-+NOTIFICATION_INTERNAL_PHYSICS_PROCESS : enum
-+NOTIFICATION_POST_ENTER_TREE : enum
-+NOTIFICATION_WM_MOUSE_ENTER : enum
-+NOTIFICATION_WM_MOUSE_EXIT : enum
-+NOTIFICATION_WM_FOCUS_IN : enum
-+NOTIFICATION_WM_FOCUS_OUT : enum
-+NOTIFICATION_WM_QUIT_REQUEST : enum
-+NOTIFICATION_WM_GO_BACK_REQUEST : enum
-+NOTIFICATION_WM_UNFOCUS_REQUEST : enum
-+NOTIFICATION_OS_MEMORY_WARNING : enum
-+NOTIFICATION_TRANSLATION_CHANGED : enum
-+NOTIFICATION_WM_ABOUT : enum
-+NOTIFICATION_CRASH : enum
-+NOTIFICATION_OS_IME_UPDATE : enum
-+NOTIFICATION_APP_RESUMED : enum
-+NOTIFICATION_APP_PAUSED : enum
 }
 abstract "CanvasItem" as C_0002074383603489565895
 abstract C_0002074383603489565895 [[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/./scene/2d/canvas_item.h#L165{CanvasItem}]] {
@@ -1140,31 +473,23 @@ class C_0002289363354048605759 [[https://github.com/godotengine/godot/blob/faf3f
 -_mat : Transform2D [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/scene/2d/node_2d.h#L46{_mat}]]]
 -_xform_dirty : bool [[[https://github.com/godotengine/godot/blob/faf3f883d1a25ec8a2b7a31ecc9e3363613b2478/scene/2d/node_2d.h#L48{_xform_dirty}]]]
 }
-C_0000945411446247634027 --> C_0000945411446247634027 : +invalid_node_name_characters
-C_0000300688871447362916 o-- C_0000053309527800613276 : +position
-C_0000300688871447362916 o-- C_0000053309527800613276 : +size
 C_0001296138246691404804 o-- C_0000053309527800613276 : +elements
-C_0002153970433534458832 o-- C_0000945411446247634027 : +name
-C_0002153970433534458832 o-- C_0001858199404643284193 : +class_name
-C_0002153970433534458832 o-- C_0000945411446247634027 : +hint_string
 C_0000104564426296396960 --> C_0001858199404643284193 : +classes
 C_0000104564426296396960 --> C_0001858199404643284193 : +resource_base_extensions
 C_0000104564426296396960 --> C_0001858199404643284193 : +compat_classes
 C_0000104564426296396960 --> C_0001858199404643284193 : +default_values
-C_0000104564426296396960 --> C_0000210234563198599367 : +default_values
 C_0000104564426296396960 --> C_0001858199404643284193 : +default_values_cached
-C_0000218299049716973303 o-- C_0001858199404643284193 : -_class_name
-C_0000218299049716973303 <.. C_0000104564426296396960 : +<<friend>>
 C_0002074383603489565895 o-- C_0001858199404643284193 : -_class_name
-C_0002074383603489565895 o-- C_0000945411446247634027 : -group
 C_0002074383603489565895 o-- C_0001296138246691404804 : -global_transform
 C_0002074383603489565895 --> C_0002074383603489565895 : -current_item_drawn
 C_0002074383603489565895 <.. C_0000104564426296396960 : +<<friend>>
-C_0000218299049716973303 <|-- C_0002074383603489565895
 C_0002289363354048605759 o-- C_0001858199404643284193 : -_class_name
 C_0002289363354048605759 o-- C_0000053309527800613276 : -pos
 C_0002289363354048605759 o-- C_0000053309527800613276 : -_scale
 C_0002289363354048605759 o-- C_0001296138246691404804 : -_mat
 C_0002289363354048605759 <.. C_0000104564426296396960 : +<<friend>>
 C_0002074383603489565895 <|-- C_0002289363354048605759
+
+'Generated with clang-uml, version 0.3.4-2-gc91fe43
+'LLVM version Ubuntu clang version 15.0.6
 @enduml

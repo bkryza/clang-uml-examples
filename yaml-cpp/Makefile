@@ -18,7 +18,8 @@ build: yaml-cpp
 
 diagrams: build
 		cd yaml-cpp && \
-		../$(CLANG_UML_BINARY) --config ../.clang-uml
+		cp ../.clang-uml .clang-uml && \
+		../$(CLANG_UML_BINARY) --config .clang-uml
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml
