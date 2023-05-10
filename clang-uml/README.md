@@ -37,3 +37,8 @@ make CLANG_UML_BINARY=../../clang-uml/debug/src/clang-uml
 ## Package diagram
 
 ![puml](puml/main_package.svg)
+
+## Template builder sequence diagram
+
+![puml](puml/template_builder_sequence.svg)
+
