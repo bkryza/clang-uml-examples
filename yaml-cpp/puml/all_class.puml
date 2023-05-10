@@ -863,8 +863,8 @@ class C_0001172506744709099039 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3
 class "enable_if_c<_Bool,T=void>" as C_0000881926004239059465
 class C_0000881926004239059465 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L86{enable_if_c}]] {
 }
-class "enable_if_c<0,T>" as C_0000160817464522972236
-class C_0000160817464522972236 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L91{enable_if_c}]] {
+class "enable_if_c<false,T>" as C_0002262458683777674584
+class C_0002262458683777674584 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L91{enable_if_c}]] {
 }
 class "enable_if<Cond,T=void>" as C_0001380977276706787864
 class C_0001380977276706787864 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L94{enable_if}]] {
@@ -872,8 +872,8 @@ class C_0001380977276706787864 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3
 class "disable_if_c<_Bool,T=void>" as C_0001460950722139296564
 class C_0001460950722139296564 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L97{disable_if_c}]] {
 }
-class "disable_if_c<1,T>" as C_0000549582080259159149
-class C_0000549582080259159149 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L102{disable_if_c}]] {
+class "disable_if_c<true,T>" as C_0000231070106606635830
+class C_0000231070106606635830 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L102{disable_if_c}]] {
 }
 class "disable_if<Cond,T=void>" as C_0001160804890735795734
 class C_0001160804890735795734 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/traits.h#L105{disable_if}]] {
@@ -1024,12 +1024,21 @@ class C_0001006122293452535922 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3
 }
 class "as_if<std::string,S>" as C_0002071239656679953621
 class C_0002071239656679953621 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L108{as_if}]] {
++as_if<std::basic_string<char>, type-parameter-0-0>(const Node & node_) : void
++operator()(const S & fallback) const : std::string
++node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L110{node}]]]
 }
 class "as_if<T,void>" as C_0001036348313496118369
 class C_0001036348313496118369 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L122{as_if}]] {
++as_if<type-parameter-0-0, void>(const Node & node_) : void
++operator()() const : T
++node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L124{node}]]]
 }
 class "as_if<std::string,void>" as C_0001705845448095615258
 class C_0001705845448095615258 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L138{as_if}]] {
++as_if(const Node & node_) : void
++operator()() const : std::string
++node : const Node & [[[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/include/yaml-cpp/node/impl.h#L140{node}]]]
 }
 class "SingleDocParser" as C_0002059291412665213837
 class C_0002059291412665213837 [[https://github.com/jbeder/yaml-cpp/blob/0579ae3d976091d7d664aa9d2527e0d0cff25763/src/singledocparser.h#L26{SingleDocParser}]] {
@@ -1268,8 +1277,8 @@ C_0001812967755753360029 --+ C_0001502605544403553579
 C_0001812967755753360029 o-- C_0001428022124569049639 : +modifiedSettings
 C_0000285964061694780226 --+ C_0001153454465562479601
 C_0000487781795269888163 --+ C_0000656339795039760617
-C_0000160817464522972236 ..|> C_0000881926004239059465
-C_0000549582080259159149 ..|> C_0001460950722139296564
+C_0002262458683777674584 ..|> C_0000881926004239059465
+C_0000231070106606635830 ..|> C_0001460950722139296564
 C_0001806616961024762883 ..> C_0000995347387003540375
 C_0001806616961024762883 o-- C_0000995347387003540375 : +mark
 C_0000063170026261954511 ..> C_0000995347387003540375
@@ -1301,8 +1310,14 @@ C_0001013507575294340870 ..> C_0000468923953334398769
 C_0001013507575294340870 ..> C_0001547374381768282700
 C_0001006122293452535922 --+ C_0001013507575294340870
 C_0002071239656679953621 ..|> C_0000389111401049763740
+C_0002071239656679953621 ..> C_0000468923953334398769
+C_0002071239656679953621 --> C_0000468923953334398769 : +node
 C_0001036348313496118369 ..|> C_0000389111401049763740
-C_0001705845448095615258 ..|> C_0000389111401049763740
+C_0001036348313496118369 ..> C_0000468923953334398769
+C_0001036348313496118369 --> C_0000468923953334398769 : +node
+C_0001705845448095615258 ..|> C_0002071239656679953621
+C_0001705845448095615258 ..> C_0000468923953334398769
+C_0001705845448095615258 --> C_0000468923953334398769 : +node
 C_0002059291412665213837 ..> C_0000703998907572924569
 C_0002059291412665213837 ..> C_0000019805786883680194
 C_0002059291412665213837 ..> C_0001547374381768282700
@@ -1327,6 +1342,6 @@ C_0000063170026261954511 <|-- C_0002013520509583003092
 C_0002064043861540537043 ..> C_0000995347387003540375
 C_0001528142401823641494 --+ C_0001996976524079369519
 
-'Generated with clang-uml, version 0.3.4-2-gc91fe43
+'Generated with clang-uml, version 0.3.5-1-g9a5a152
 'LLVM version Ubuntu clang version 15.0.6
 @enduml

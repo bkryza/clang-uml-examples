@@ -1,5 +1,10 @@
 compilation_database_dir: .
 output_directory: ../puml
+add_compile_flags:
+  - -Wno-deprecated-builtins
+  - -Wno-unknown-warning-option
+  - -Wno-unused-but-set-variable
+  - -Wno-ordered-compare-function-pointers
 generate_links:
   link: 'https://github.com/godotengine/godot/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
   tooltip: '{% if existsIn(element, "comment") and existsIn(element.comment, "brief") %}{{ abbrv(trim(replace(element.comment.brief.0, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'

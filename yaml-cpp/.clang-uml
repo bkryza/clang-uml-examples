@@ -1,5 +1,7 @@
 compilation_database_dir: _build
 output_directory: ../puml
+add_compile_flags:
+  - -Wno-shadow
 generate_links:
   link: 'https://github.com/jbeder/yaml-cpp/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
   tooltip: '{% if existsIn(element, "comment") and existsIn(element.comment, "brief") %}{{ abbrv(trim(replace(element.comment.brief.0, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'

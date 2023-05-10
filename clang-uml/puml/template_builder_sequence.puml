@@ -1,0 +1,375 @@
+@startuml
+title clang-uml class_diagram::visitor::template_builder::build sequence diagram
+participant "class_diagram::visitor::template_builder" as C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.h#L37{template_builder}]]
+[-> C_0000852564358003692635 : build()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L101{}]] : using_namespace()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L209{}]] : process_template_arguments()
+activate C_0000852564358003692635
+loop
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L381{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L400{}]] : argument_process_dispatch()
+activate C_0000852564358003692635
+group switch
+else clang::class TemplateArgument::Null
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L450{}]] : process_null_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else clang::class TemplateArgument::Template
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L453{}]] : process_template_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else clang::class TemplateArgument::Type
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L456{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L605{}]] : try_as_function_prototype()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L937{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L942{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+else
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L956{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+end
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L610{}]] : try_as_member_pointer()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L820{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L827{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L837{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L853{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L865{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L875{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+end
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L615{}]] : try_as_array()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L895{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L900{}]] : process_type_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L620{}]] : try_as_template_parm_type()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1070{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1076{}]] : ensure_lambda_type_is_relative()
+activate C_0000852564358003692635
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1265{}]] : config()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+deactivate C_0000852564358003692635
+participant "src/class_diagram/visitor/template_builder.cc" as C_0001051960203080933767
+C_0000852564358003692635 -> C_0001051960203080933767 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1078{}]] : map_type_parameter_to_template_parameter_name()
+activate C_0001051960203080933767
+alt
+C_0001051960203080933767 -> C_0001051960203080933767 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L734{}]] : map_type_parameter_to_template_parameter()
+activate C_0001051960203080933767
+C_0001051960203080933767 --> C_0001051960203080933767
+deactivate C_0001051960203080933767
+end
+alt
+C_0001051960203080933767 -> C_0001051960203080933767 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L741{}]] : map_type_parameter_to_template_parameter()
+activate C_0001051960203080933767
+C_0001051960203080933767 --> C_0001051960203080933767
+deactivate C_0001051960203080933767
+end
+C_0001051960203080933767 --> C_0000852564358003692635
+deactivate C_0001051960203080933767
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L624{}]] : try_as_template_specialization_type()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L977{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1005{}]] : diagram()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else
+end
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1004{}]] : build()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1018{}]] : using_namespace()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1017{}]] : simplify_system_template()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L62{}]] : config()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1024{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1025{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else
+end
+end
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1038{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1039{}]] : diagram()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L629{}]] : try_as_lambda()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1094{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1096{}]] : ensure_lambda_type_is_relative()
+activate C_0000852564358003692635
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1265{}]] : config()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+deactivate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L633{}]] : try_as_record_type()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1114{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1127{}]] : build_from_class_template_specialization()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L303{}]] : process_template_arguments()
+activate C_0000852564358003692635
+deactivate C_0000852564358003692635
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L320{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L338{}]] : id_mapper()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+else
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L346{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L353{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+end
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1138{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1143{}]] : diagram()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+end
+else
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1149{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+end
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L638{}]] : try_as_enum_type()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1170{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L643{}]] : try_as_builtin_type()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L1196{}]] : consume_context()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else clang::class TemplateArgument::Declaration
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L462{}]] : process_nullptr_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else clang::class TemplateArgument::Integral
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L465{}]] : process_integral_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else clang::class TemplateArgument::TemplateExpansion
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L468{}]] : process_template_expansion()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else clang::class TemplateArgument::Expression
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L471{}]] : process_expression_argument()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L784{}]] : source_manager()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+else clang::class TemplateArgument::Pack
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L475{}]] : **[**process_pack_argument()**]**
+activate C_0000852564358003692635
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L801{}]] : argument_process_dispatch()
+activate C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+end
+deactivate C_0000852564358003692635
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L418{}]] : add_base_classes()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L424{}]] : using_namespace()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L423{}]] : simplify_system_template()
+activate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L62{}]] : config()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+C_0000852564358003692635 -> C_0000852564358003692635 : using_namespace()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+end
+deactivate C_0000852564358003692635
+loop
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L221{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L240{}]] : id_mapper()
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+else
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L250{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+alt
+C_0000852564358003692635 -> C_0000852564358003692635 [[https://github.com/bkryza/clang-uml/blob/e2b772d8d6ed61adcb6dcd50003f96096df02f9e/src/class_diagram/visitor/template_builder.cc#L255{}]] : **[**diagram()**]**
+activate C_0000852564358003692635
+C_0000852564358003692635 --> C_0000852564358003692635
+deactivate C_0000852564358003692635
+end
+end
+[<-- C_0000852564358003692635
+deactivate C_0000852564358003692635
+
+'Generated with clang-uml, version 0.3.5-1-g9a5a152
+'LLVM version Ubuntu clang version 15.0.6
+@enduml
