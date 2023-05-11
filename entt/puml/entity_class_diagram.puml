@@ -1,0 +1,1265 @@
+@startuml
+class "internal::edge_iterator<typename container_type::const_iterator>" as C_0002303669005198237364
+class C_0002303669005198237364 {
+}
+class "internal::dense_map_node<Key,Type>" as C_0001949040226502523653
+class C_0001949040226502523653 {
+}
+class "internal::in_place_delete<Type,=void>" as C_0001333932220003266199
+class C_0001333932220003266199 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L18{in_place_delete}]] {
+}
+class "internal::in_place_delete<Type,typename enable_if<Type::in_place_delete,void>::type>" as C_0001023231452042445274
+class C_0001023231452042445274 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L21{in_place_delete}]] {
+}
+class "internal::page_size<Type,=void>" as C_0000004170898870258369
+class C_0000004170898870258369 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L25{page_size}]] {
+}
+class "internal::page_size<Type,typename enable_if<std::is_convertible_v<decltype(Type::page_size),std::size_t>,void>::type>" as C_0000807307470263887895
+class C_0000807307470263887895 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L28{page_size}]] {
+}
+class "internal::entt_traits<Type,typename enable_if<std::is_enum_v<Type>,void>::type>" as C_0000749528529161353827
+class C_0000749528529161353827 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L23{entt_traits}]] {
+}
+class "internal::entt_traits<Type,typename enable_if<std::is_class_v<Type>,void>::type>" as C_0002017943133135312647
+class C_0002017943133135312647 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L27{entt_traits}]] {
+}
+class "internal::entt_traits<unsigned int,void>" as C_0000504583213741664906
+class C_0000504583213741664906 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L31{entt_traits}]] {
+{static} +entity_mask : const entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L35{entity_mask}]]]
+{static} +version_mask : const entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L36{version_mask}]]]
+{static} +entity_shift : const std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L37{entity_shift}]]]
+}
+class "internal::entt_traits<unsigned long,void>" as C_0001737832346279202351
+class C_0001737832346279202351 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L41{entt_traits}]] {
+{static} +entity_mask : const entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L45{entity_mask}]]]
+{static} +version_mask : const entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L46{version_mask}]]]
+{static} +entity_shift : const std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L47{entity_shift}]]]
+}
+class "internal::sparse_set_iterator<Container>" as C_0001205252965720808621
+class C_0001205252965720808621 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L28{sparse_set_iterator}]] {
++sparse_set_iterator<Container>() : void
++sparse_set_iterator<Container>(const Container & ref, const difference_type idx) : void
++operator++() : sparse_set_iterator<Container> &
++operator++(int ) : sparse_set_iterator<Container>
++operator--() : sparse_set_iterator<Container> &
++operator--(int ) : sparse_set_iterator<Container>
++operator+=(const difference_type value) : sparse_set_iterator<Container> &
++operator+(const difference_type value) const : sparse_set_iterator<Container>
++operator-=(const difference_type value) : sparse_set_iterator<Container> &
++operator-(const difference_type value) const : sparse_set_iterator<Container>
++operator[](const difference_type value) const : reference
++operator->() const : pointer
++operator*() const : reference
++index() const : difference_type
+-packed : const Container * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L96{packed}]]]
+-offset : difference_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L97{offset}]]]
+}
+class "internal::storage_iterator<Container>" as C_0001144900685391983309
+class C_0001144900685391983309 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L32{storage_iterator}]] {
++storage_iterator<Container>() = default : void
++storage_iterator<Container>(Container * ref, const difference_type idx) : void
++operator++() : storage_iterator<Container> &
++operator++(int ) : storage_iterator<Container>
++operator--() : storage_iterator<Container> &
++operator--(int ) : storage_iterator<Container>
++operator+=(const difference_type value) : storage_iterator<Container> &
++operator+(const difference_type value) const : storage_iterator<Container>
++operator-=(const difference_type value) : storage_iterator<Container> &
++operator-(const difference_type value) const : storage_iterator<Container>
++operator[](const difference_type value) const : reference
++operator->() const : pointer
++operator*() const : reference
++index() const : difference_type
++storage_iterator<Container><_Bool Const=std::is_const_v<Container>,=std::enable_if_t<Const>>(const storage_iterator<std::remove_const_t<Container>> & other) : void
+-packed : Container * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L116{packed}]]]
+-offset : difference_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L117{offset}]]]
+}
+class "internal::extended_storage_iterator<It,Other...>" as C_0002184350655899856716
+class C_0002184350655899856716 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L156{extended_storage_iterator}]] {
++extended_storage_iterator<It, Other...>() : void
++extended_storage_iterator<It, Other...>(It base, Other... other) : void
++operator++() : extended_storage_iterator<It,Other...> &
++operator++(int ) : extended_storage_iterator<It,Other...>
++operator->() const : pointer
++operator*() const : reference
++extended_storage_iterator<It, Other...><Args...,=std::enable_if_t<(!std::is_same_v<Other, Args> && ...) && (std::is_constructible_v<Other, Args> && ...)>>(const extended_storage_iterator<It,Args...> & other) : void
+-it : std::tuple<It,Other...> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L198{it}]]]
+}
+class "internal::storage_iterator<std::vector<typename alloc_traits::pointer>>" as C_0002209338957740976162
+class C_0002209338957740976162 {
+}
+class "internal::extended_storage_iterator<typename base_type::iterator,internal::storage_iterator<std::vector<typename alloc_traits::pointer>>>" as C_0000018044932043323221
+class C_0000018044932043323221 {
+}
+class "internal::extended_storage_iterator<typename base_type::const_iterator,internal::storage_iterator<std::vector<typename alloc_traits::pointer>>>" as C_0000246104228557977884
+class C_0000246104228557977884 {
+}
+class "internal::extended_storage_iterator<typename base_type::iterator>" as C_0000880421278423536144
+class C_0000880421278423536144 {
+}
+class "internal::extended_storage_iterator<typename base_type::const_iterator>" as C_0001783428072821606564
+class C_0001783428072821606564 {
+}
+class "internal::extended_group_iterator<It,type_list<Owned...>,type_list<Get...>>" as C_0000153393979582152305
+class C_0000153393979582152305 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L29{extended_group_iterator}]] {
++extended_group_iterator<type-parameter-0-0, type_list<type-parameter-0-1...>, type_list<type-parameter-0-2...> >() : void
++extended_group_iterator<type-parameter-0-0, type_list<type-parameter-0-1...>, type_list<type-parameter-0-2...> >(It from, const std::tuple<Owned *...,Get *...> & cpools) : void
++operator++() : extended_group_iterator<type-parameter-0-0,type_list<type-parameter-0-1...>,type_list<type-parameter-0-2...>> &
++operator++(int ) : extended_group_iterator<type-parameter-0-0,type_list<type-parameter-0-1...>,type_list<type-parameter-0-2...>>
++operator*() const : reference
++operator->() const : pointer
+-index_to_element<Type>(Type & cpool) : auto
+-it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L75{it}]]]
+-pools : std::tuple<Owned *...,Get *...> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L76{pools}]]]
+}
+class "internal::extended_group_iterator<basic_group<type_list<>,type_list<type-parameter-0-0...>,type_list<type-parameter-0-1...>>::iterator,owned_t,get_t<type-parameter-0-0...>>" as C_0000440103747575733986
+class C_0000440103747575733986 {
+}
+class "internal::extended_group_iterator<basic_group<type_list<type-parameter-0-0...>,type_list<type-parameter-0-1...>,type_list<type-parameter-0-2...>>::iterator,owned_t<type-parameter-0-0...>,get_t<type-parameter-0-1...>>" as C_0001062876330760904480
+class C_0001062876330760904480 {
+}
+class "internal::view_iterator<Type,std::size_t Get,std::size_t Exclude>" as C_0001139725879265604505
+class C_0001139725879265604505 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L28{view_iterator}]] {
+-valid() const : bool
++view_iterator<Type, Get, Exclude>() : void
++view_iterator<Type, Get, Exclude>(iterator_type curr, iterator_type to, std::array<const Type *,Get> all_of, std::array<const Type *,Exclude> none_of) : void
++operator++() : view_iterator<Type,Get,Exclude> &
++operator++(int ) : view_iterator<Type,Get,Exclude>
++operator->() const : pointer
++operator*() const : reference
+-it : iterator_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L82{it}]]]
+-last : iterator_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L83{last}]]]
+-pools : std::array<const Type *,Get> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L84{pools}]]]
+-filter : std::array<const Type *,Exclude> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L85{filter}]]]
+}
+class "internal::extended_view_iterator<It,Type...>" as C_0002039236681566597161
+class C_0002039236681566597161 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L99{extended_view_iterator}]] {
++extended_view_iterator<It, Type...>() : void
++extended_view_iterator<It, Type...>(It from, std::tuple<Type *...> storage) : void
++operator++() : extended_view_iterator<It,Type...> &
++operator++(int ) : extended_view_iterator<It,Type...>
++operator*() const : reference
++operator->() const : pointer
+-it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L135{it}]]]
+-pools : std::tuple<Type *...> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L136{pools}]]]
+}
+class "internal::view_iterator<std::common_type_t<typename Get::base_type...,typename Exclude::base_type...>,sizeof...(Get) - 1u,sizeof...(Exclude)>" as C_0000390675639111256783
+class C_0000390675639111256783 {
+}
+class "internal::extended_view_iterator<internal::view_iterator<std::common_type_t<typename Get::base_type...,typename Exclude::base_type...>,sizeof...(Get) - 1u,sizeof...(Exclude)>,Get...>" as C_0001780449445169454883
+class C_0001780449445169454883 {
+}
+class "internal::is_view<>" as C_0000642898023621477258
+class C_0000642898023621477258 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L26{is_view}]] {
+}
+class "internal::is_view<basic_view<Args...>>" as C_0001822587864398904128
+class C_0001822587864398904128 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L29{is_view}]] {
+}
+class "internal::unpack_type<Type,Override>" as C_0000257438482207070900
+class C_0000257438482207070900 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{unpack_type}]] {
+}
+class "internal::unpack_type<basic_registry<Args...>,type_list<Override...>>" as C_0002034860573756426782
+class C_0002034860573756426782 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L48{unpack_type}]] {
+}
+class "internal::unpack_type<basic_view<type_list<Get...>,type_list<Exclude...>,void>,type_list<Override...>>" as C_0001699276038369686358
+class C_0001699276038369686358 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L58{unpack_type}]] {
+}
+class "internal::resource_traits<type_list<Args...>,type_list<Req...>>" as C_0000322687156363303281
+class C_0000322687156363303281 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L71{resource_traits}]] {
+}
+class "internal::registry_storage_iterator<It>" as C_0000648165520939590694
+class C_0000648165520939590694 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L42{registry_storage_iterator}]] {
++registry_storage_iterator<It>() : void
++registry_storage_iterator<It>(It iter) : void
++operator++() : registry_storage_iterator<It> &
++operator++(int ) : registry_storage_iterator<It>
++operator--() : registry_storage_iterator<It> &
++operator--(int ) : registry_storage_iterator<It>
++operator+=(const difference_type value) : registry_storage_iterator<It> &
++operator+(const difference_type value) const : registry_storage_iterator<It>
++operator-=(const difference_type value) : registry_storage_iterator<It> &
++operator-(const difference_type value) const : registry_storage_iterator<It>
++operator[](const difference_type value) const : reference
++operator*() const : reference
++operator->() const : pointer
++registry_storage_iterator<It><Other,=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const registry_storage_iterator<Other> & other) : void
+-it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L123{it}]]]
+}
+class "internal::registry_context" as C_0001849345337236985902
+class C_0001849345337236985902 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L161{registry_context}]] {
++emplace_hint<Type,Args...>(const id_type id, Args &&... args) : Type &
++emplace_as<Type,Args...>(const id_type id, Args &&... args) : Type &
++emplace<Type,Args...>(Args &&... args) : Type &
++insert_or_assign<Type>(const id_type id, Type && value) : Type &
++insert_or_assign<Type>(Type && value) : Type &
++erase<Type>(const id_type id = type_id<Type>().hash()) : _Bool
++at<Type>(const id_type id = type_id<Type>().hash()) : const Type &
++at<Type>(const id_type id = type_id<Type>().hash()) : Type &
++get<Type>(const id_type id = type_id<Type>().hash()) : const Type &
++get<Type>(const id_type id = type_id<Type>().hash()) : Type &
++find<Type>(const id_type id = type_id<Type>().hash()) : const Type *
++find<Type>(const id_type id = type_id<Type>().hash()) : Type *
++contains<Type>(const id_type id = type_id<Type>().hash()) : _Bool
+-ctx : container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L237{ctx}]]]
+}
+class "internal::registry_storage_iterator<Other>" as C_0000573881619500297192
+class C_0000573881619500297192 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L44{registry_storage_iterator}]] {
+}
+class "internal::extended_group_iterator<,,>" as C_0000607976266737248130
+class C_0000607976266737248130 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L26{extended_group_iterator}]] {
+}
+class "internal::entt_traits<,=void>" as C_0000741189378537303151
+class C_0000741189378537303151 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L20{entt_traits}]] {
+}
+class "internal::extended_storage_iterator<Iter,Args...>" as C_0001028615477441312122
+class C_0001028615477441312122 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L158{extended_storage_iterator}]] {
+}
+class "internal::resource_traits<,>" as C_0001595024213646564801
+class C_0001595024213646564801 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L68{resource_traits}]] {
+}
+class "internal::runtime_view_iterator<Set>" as C_0000517671838651509415
+class C_0000517671838651509415 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L22{runtime_view_iterator}]] {
+-valid() const : bool
++runtime_view_iterator<Set>() : void
++runtime_view_iterator<Set>(const std::vector<Set *> & cpools, const std::vector<Set *> & ignore, iterator_type curr) : void
++operator++() : runtime_view_iterator<Set> &
++operator++(int ) : runtime_view_iterator<Set>
++operator--() : runtime_view_iterator<Set> &
++operator--(int ) : runtime_view_iterator<Set>
++operator->() const : pointer
++operator*() const : reference
++operator==(const runtime_view_iterator<Set> & other) const : bool
++operator!=(const runtime_view_iterator<Set> & other) const : bool
+-pools : const std::vector<Set *> * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L91{pools}]]]
+-filter : const std::vector<Set *> * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L92{filter}]]]
+-it : iterator_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L93{it}]]]
+-tombstone_check : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L94{tombstone_check}]]]
+}
+class "internal::handle_storage_iterator<It>" as C_0000604813046482983010
+class C_0000604813046482983010 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L23{handle_storage_iterator}]] {
++handle_storage_iterator<It>() : void
++handle_storage_iterator<It>(entity_type value, It from, It to) : void
++operator++() : handle_storage_iterator<It> &
++operator++(int ) : handle_storage_iterator<It>
++operator*() const : reference
++operator->() const : pointer
+-entt : entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L71{entt}]]]
+-it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L72{it}]]]
+-last : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L73{last}]]]
+}
+class "internal::handle_storage_iterator<Other>" as C_0000939311065041065826
+class C_0000939311065041065826 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L25{handle_storage_iterator}]] {
+}
+class "type_list<First,Other...>" as C_0001723716587279733623
+class C_0001723716587279733623 {
+}
+class "type_list<Other...>" as C_0000401973545844492876
+class C_0000401973545844492876 {
+}
+class "type_list<Type,Other...>" as C_0000496685335806935509
+class C_0000496685335806935509 {
+}
+class "type_list" as C_0000816653833137337534
+class C_0000816653833137337534 {
+}
+class "type_list<Type...>" as C_0000150299823092418682
+class C_0000150299823092418682 {
+}
+class "value_list<Value,Other...>" as C_0001276342508473126665
+class C_0001276342508473126665 {
+}
+class "value_list<Other...>" as C_0000669672540584988414
+class C_0000669672540584988414 {
+}
+class "value_list<Value>" as C_0000114548431562228752
+class C_0000114548431562228752 {
+}
+class "input_iterator_pointer<std::pair<internal::edge_iterator::size_type,internal::edge_iterator::size_type>>" as C_0001178396555088254037
+class C_0001178396555088254037 {
+}
+class "iota_iterator<adjacency_matrix::vertex_type>" as C_0000671828807667868418
+class C_0000671828807667868418 {
+}
+class "iterable_adaptor<iota_iterator<adjacency_matrix::vertex_type>>" as C_0001371435826418372832
+class C_0001371435826418372832 {
+}
+class "compressed_pair<std::vector<std::size_t>,dense_map::hasher>" as C_0001686486826919845415
+class C_0001686486826919845415 {
+}
+class "compressed_pair<std::vector<internal::dense_map_node<Key,Type>>,dense_map::key_equal>" as C_0000507249114974527684
+class C_0000507249114974527684 {
+}
+class "compressed_pair<std::vector<std::size_t>,dense_set::hasher>" as C_0002082989189680990643
+class C_0002082989189680990643 {
+}
+class "compressed_pair<std::vector<std::pair<std::size_t,Type>>,dense_set::key_equal>" as C_0001611725919328905677
+class C_0001611725919328905677 {
+}
+class "adjacency_matrix<directed_tag>" as C_0000873438139212187708
+class C_0000873438139212187708 {
+}
+class "compressed_pair<basic_flow::size_type,basic_flow::allocator_type>" as C_0001145956599480727346
+class C_0001145956599480727346 {
+}
+class "dense_set<id_type,identity,std::equal_to,typename alloc_traits::template rebind_alloc<id_type>>" as C_0000555193814260215022
+class C_0000555193814260215022 {
+}
+class "dense_map<id_type,std::vector<std::pair<std::size_t,bool>>,identity,std::equal_to,typename alloc_traits::template rebind_alloc<std::pair<const id_type,ro_rw_container_type>>>" as C_0001883207623685527190
+class C_0001883207623685527190 {
+}
+enum "entity" as C_0001294138133691901721
+enum C_0001294138133691901721 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L12{entity}]] {
+}
+class "storage_type<Type,Entity=entity,Allocator=std::allocator<Type>,=void>" as C_0001704918255852855539
+class C_0001704918255852855539 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L30{storage_type}]] {
+}
+class "storage_for<Type,Entity=entity,Allocator=std::allocator<std::remove_const_t<Type> >>" as C_0002005674179383930954
+class C_0002005674179383930954 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L49{storage_for}]] {
+}
+class "basic_storage<Type>" as C_0000604750336572959053
+class C_0000604750336572959053 {
+}
+class "basic_registry" as C_0002264387755278828673
+class C_0002264387755278828673 {
+}
+class "basic_handle<basic_registry,Args...>" as C_0000373210226805056699
+class C_0000373210226805056699 {
+}
+class "type_list_transform_t<Get,storage_for>" as C_0001934751505825948529
+class C_0001934751505825948529 {
+}
+class "type_list_transform_t<Exclude,storage_for>" as C_0001284155302502968847
+class C_0001284155302502968847 {
+}
+class "basic_view<type_list_transform_t<Get,storage_for>,type_list_transform_t<Exclude,storage_for>>" as C_0001034581343962934250
+class C_0001034581343962934250 {
+}
+class "type_list_transform_t<Owned,storage_for>" as C_0001818618597505735573
+class C_0001818618597505735573 {
+}
+class "basic_group<type_list_transform_t<Owned,storage_for>,type_list_transform_t<Get,storage_for>,type_list_transform_t<Exclude,storage_for>>" as C_0002026173216716894202
+class C_0002026173216716894202 {
+}
+class "component_traits<Type,=void>" as C_0002183740073464775596
+class C_0002183740073464775596 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L43{component_traits}]] {
+{static} +in_place_delete : const bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L50{in_place_delete}]]]
+{static} +page_size : const std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L52{page_size}]]]
+}
+class "entt_traits<Type>" as C_0000434760051971317467
+class C_0000434760051971317467 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L62{entt_traits}]] {
+{static} +to_integral(const value_type value) : entity_type
+{static} +to_entity(const value_type value) : entity_type
+{static} +to_version(const value_type value) : version_type
+{static} +construct(const entity_type entity, const version_type version) : value_type
+{static} +combine(const entity_type lhs, const entity_type rhs) : value_type
+{static} +reserved : const entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L73{reserved}]]]
+{static} +page_size : const int [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L75{page_size}]]]
+}
+class "null_t" as C_0000017220879097853910
+class C_0000017220879097853910 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L162{null_t}]] {
++operator==(const null_t other) const : bool
++operator!=(const null_t other) const : bool
++operator type-parameter-0-0<Entity>() : Entity
++operator==<Entity>(const Entity entity) : _Bool
++operator!=<Entity>(const Entity entity) : _Bool
+}
+class "tombstone_t" as C_0002075622672044085259
+class C_0002075622672044085259 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L241{tombstone_t}]] {
++operator==(const tombstone_t other) const : bool
++operator!=(const tombstone_t other) const : bool
++operator type-parameter-0-0<Entity>() : Entity
++operator==<Entity>(const Entity entity) : _Bool
++operator!=<Entity>(const Entity entity) : _Bool
+}
+enum "deletion_policy" as C_0000579947499599579730
+enum C_0000579947499599579730 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L143{deletion_policy}]] {
+swap_and_pop
+in_place
+}
+class "basic_any" as C_0002066456960134789731
+class C_0002066456960134789731 {
+}
+class "basic_sparse_set<Entity=entity,Allocator=std::allocator<Entity>>" as C_0002283695050907122027
+class C_0002283695050907122027 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L174{basic_sparse_set}]] {
+-sparse_ptr(const Entity entt) const : auto
+-sparse_ref(const Entity entt) const : auto &
+-assure_at_least(const Entity entt) : auto &
+-release_sparse_pages() : void
+-get_at(const std::size_t ) const : const void *
+-swap_at(const std::size_t , const std::size_t ) : void
+-move_element(const std::size_t , const std::size_t ) : void
+#swap_and_pop(const basic_iterator it) : void
+#in_place_pop(const basic_iterator it) : void
+#pop(basic_iterator first, basic_iterator last) : void
+#try_emplace(const Entity entt, const bool force_back, const void *  = nullptr) : basic_iterator
++basic_sparse_set<Entity, type-parameter-0-1>() : void
++basic_sparse_set<Entity, type-parameter-0-1>(const allocator_type & allocator) : void
++basic_sparse_set<Entity, type-parameter-0-1>(deletion_policy pol, const allocator_type & allocator = {}) : void
++basic_sparse_set<Entity, type-parameter-0-1>(const type_info & value, deletion_policy pol = deletion_policy::swap_and_pop, const allocator_type & allocator = {}) : void
++basic_sparse_set<Entity, type-parameter-0-1>(basic_sparse_set<Entity,type-parameter-0-1> && other) : void
++basic_sparse_set<Entity, type-parameter-0-1>(basic_sparse_set<Entity,type-parameter-0-1> && other, const allocator_type & allocator) : void
++~basic_sparse_set<Entity, type-parameter-0-1>() : void
++operator=(basic_sparse_set<Entity,type-parameter-0-1> && other) : basic_sparse_set<Entity,type-parameter-0-1> &
++swap(basic_sparse_set<Entity,type-parameter-0-1> & other) : void
++get_allocator() const : allocator_type
++policy() const : deletion_policy
++reserve(const size_type cap) : void
++capacity() const : size_type
++shrink_to_fit() : void
++extent() const : size_type
++size() const : size_type
++empty() const : bool
++data() const : pointer
++begin() const : const_iterator
++cbegin() const : const_iterator
++end() const : iterator
++cend() const : const_iterator
++rbegin() const : const_reverse_iterator
++crbegin() const : const_reverse_iterator
++rend() const : reverse_iterator
++crend() const : const_reverse_iterator
++find(const entity_type entt) const : iterator
++contains(const entity_type entt) const : bool
++current(const entity_type entt) const : version_type
++index(const entity_type entt) const : size_type
++at(const size_type pos) const : entity_type
++operator[](const size_type pos) const : entity_type
++get(const entity_type entt) const : const void *
++get(const entity_type entt) : void *
++emplace(const entity_type entt, const void * value = nullptr) : iterator
++bump(const entity_type entt) : void
++erase(const entity_type entt) : void
++remove(const entity_type entt) : bool
++compact() : void
++swap_elements(const entity_type lhs, const entity_type rhs) : void
++respect(const basic_sparse_set<Entity,type-parameter-0-1> & other) : void
++clear() : void
++type() const : const type_info &
++bind(any ) : void
++insert<It>(It first, It last) : iterator
++erase<It>(It first, It last) : void
++remove<It>(It first, It last) : size_type
++sort_n<Compare,Sort=std_sort,Args...>(const size_type length, Compare compare, Sort algo = Sort{}, Args &&... args) : void
++sort<Compare,Sort=std_sort,Args...>(Compare compare, Sort algo = Sort{}, Args &&... args) : void
+-sparse : sparse_container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L967{sparse}]]]
+-packed : packed_container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L968{packed}]]]
+-info : const type_info * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L969{info}]]]
+-free_list : entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L970{free_list}]]]
+-mode : deletion_policy [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/sparse_set.hpp#L971{mode}]]]
+}
+class "delegate<Ret(Args...)>" as C_0000011977380754407836
+class C_0000011977380754407836 {
+}
+class "delegate<void(void *)>" as C_0001338234208699310194
+class C_0001338234208699310194 {
+}
+class "sigh<Ret(Args...),Allocator>" as C_0001654528939521938342
+class C_0001654528939521938342 {
+}
+class "basic_registry<typename Type::entity_type,typename Type::base_type::allocator_type>" as C_0000457430710378177051
+class C_0000457430710378177051 {
+}
+class "sigh<void(basic_registry<typename Type::entity_type,typename Type::base_type::allocator_type> &,const typename Type::entity_type),typename Type::allocator_type>" as C_0001194940276112359990
+class C_0001194940276112359990 {
+}
+class "sigh_storage_mixin<Type>" as C_0000078477900740904974
+class C_0000078477900740904974 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage_mixin.hpp#L26{sigh_storage_mixin}]] {
+-pop(basic_iterator first, basic_iterator last) : void
+-try_emplace(const typename basic_registry_type::entity_type entt, const bool force_back, const void * value) : basic_iterator
++sigh_storage_mixin<Type>() : void
++sigh_storage_mixin<Type>(const allocator_type & allocator) : void
++sigh_storage_mixin<Type>(sigh_storage_mixin<Type> && other) : void
++sigh_storage_mixin<Type>(sigh_storage_mixin<Type> && other, const allocator_type & allocator) : void
++operator=(sigh_storage_mixin<Type> && other) : sigh_storage_mixin<Type> &
++swap(sigh_storage_mixin<Type> & other) : void
++on_construct() : auto
++on_update() : auto
++on_destroy() : auto
++bind(any value) : void
++emplace<Args...>(const entity_type entt, Args &&... args) : decltype(auto)
++patch<Func...>(const entity_type entt, Func &&... func) : decltype(auto)
++insert<It,Args...>(It first, It last, Args &&... args) : void
+-owner : basic_registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage_mixin.hpp#L228{owner}]]]
+-construction : sigh_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage_mixin.hpp#L229{construction}]]]
+-destruction : sigh_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage_mixin.hpp#L230{destruction}]]]
+-update : sigh_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage_mixin.hpp#L231{update}]]]
+}
+class "compressed_pair<std::vector<typename alloc_traits::pointer>,basic_storage::allocator_type>" as C_0002071883873613020951
+class C_0002071883873613020951 {
+}
+class "basic_storage<Type,Entity=entity,Allocator=std::allocator<Type>,=void>" as C_0002046992727544379813
+class C_0002046992727544379813 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L234{basic_storage}]] {
+-element_at(const std::size_t pos) const : auto &
+-assure_at_least(const std::size_t pos) : auto
+-shrink_to_size(const std::size_t sz) : void
+-get_at(const std::size_t pos) const : const void *
+-swap_at(const std::size_t lhs, const std::size_t rhs) : void
+-move_element(const std::size_t from, const std::size_t to) : void
+#pop(basic_iterator first, basic_iterator last) : void
+#try_emplace(const Entity entt, const bool force_back, const void * value) : basic_iterator
++basic_storage<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>() : void
++basic_storage<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(const allocator_type & allocator) : void
++basic_storage<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(basic_storage<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> && other) : void
++basic_storage<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(basic_storage<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> && other, const allocator_type & allocator) : void
++~basic_storage<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>() : void
++operator=(basic_storage<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> && other) : basic_storage<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &
++swap(basic_storage<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & other) : void
++get_allocator() const : allocator_type
++reserve(const size_type cap) : void
++capacity() const : size_type
++shrink_to_fit() : void
++raw() const : const_pointer
++raw() : pointer
++cbegin() const : const_iterator
++begin() const : const_iterator
++begin() : iterator
++cend() const : const_iterator
++end() const : const_iterator
++end() : iterator
++crbegin() const : const_reverse_iterator
++rbegin() const : const_reverse_iterator
++rbegin() : reverse_iterator
++crend() const : const_reverse_iterator
++rend() const : const_reverse_iterator
++rend() : reverse_iterator
++get(const entity_type entt) const : const value_type &
++get(const entity_type entt) : value_type &
++get_as_tuple(const entity_type entt) const : std::tuple<const value_type &>
++get_as_tuple(const entity_type entt) : std::tuple<value_type &>
++each() : iterable
++each() const : const_iterable
+-emplace_element<Args...>(const Entity entt, const bool force_back, Args &&... args) : auto
++emplace<Args...>(const entity_type entt, Args &&... args) : value_type &
++patch<Func...>(const entity_type entt, Func &&... func) : value_type &
++insert<It>(It first, It last, const value_type & value = {}) : void
++insert<EIt,CIt,=std::enable_if_t<std::is_same_v<typename std::iterator_traits<CIt>::value_type, value_type> >>(EIt first, EIt last, CIt from) : void
+-packed : compressed_pair<container_type,allocator_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L747{packed}]]]
+{static} -is_pinned_type_v : const bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L241{is_pinned_type_v}]]]
+}
+class "basic_storage<Type,Entity,Allocator,typename enable_if<ignore_as_empty_v<Type>,void>::type>" as C_0000152418366026693625
+class C_0000152418366026693625 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L752{basic_storage}]] {
++basic_storage<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2, typename enable_if<ignore_as_empty_v<Type>, void>::type>() : void
++basic_storage<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2, typename enable_if<ignore_as_empty_v<Type>, void>::type>(const allocator_type & allocator) : void
++basic_storage<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2, typename enable_if<ignore_as_empty_v<Type>, void>::type>(basic_storage<type-parameter-0-0,type-parameter-0-1,type-parameter-0-2,typename enable_if<ignore_as_empty_v<Type>,void>::type> && other) = default : void
++basic_storage<type-parameter-0-0, type-parameter-0-1, type-parameter-0-2, typename enable_if<ignore_as_empty_v<Type>, void>::type>(basic_storage<type-parameter-0-0,type-parameter-0-1,type-parameter-0-2,typename enable_if<ignore_as_empty_v<Type>,void>::type> && other, const allocator_type & allocator) : void
++operator=(basic_storage<type-parameter-0-0,type-parameter-0-1,type-parameter-0-2,typename enable_if<ignore_as_empty_v<Type>,void>::type> && other) = default : basic_storage<type-parameter-0-0,type-parameter-0-1,type-parameter-0-2,typename enable_if<ignore_as_empty_v<Type>,void>::type> &
++get_allocator() const : allocator_type
++get(const entity_type entt) const : void
++get_as_tuple(const entity_type entt) const : std::tuple<>
++each() : iterable
++each() const : const_iterable
++emplace<Args...>(const entity_type entt, Args &&... ) : void
++patch<Func...>(const entity_type entt, Func &&... func) : void
++insert<It,Args...>(It first, It last, Args &&... ) : void
+}
+class "type_list<Owned...>" as C_0000152445147622989908
+class C_0000152445147622989908 {
+}
+class "type_list<Get...>" as C_0001924778053637683860
+class C_0001924778053637683860 {
+}
+class "type_list<Exclude...>" as C_0000880809990211728775
+class C_0000880809990211728775 {
+}
+class "type_list<type-parameter-0-0...>" as C_0000551651351962443750
+class C_0000551651351962443750 {
+}
+class "basic_group<type_list,type_list<Get...>,type_list<Exclude...>>" as C_0000067370016728893406
+class C_0000067370016728893406 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L128{basic_group}]] {
++basic_group<entt::type_list<>, type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...> >() : void
++basic_group<entt::type_list<>, type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...> >(basic_common_type & ref, Get &... gpool) : void
++handle() const : const base_type &
++size() const : size_type
++capacity() const : size_type
++shrink_to_fit() : void
++empty() const : bool
++begin() const : iterator
++end() const : iterator
++rbegin() const : reverse_iterator
++rend() const : reverse_iterator
++front() const : entity_type
++back() const : entity_type
++find(const entity_type entt) const : iterator
++operator[](const size_type pos) const : entity_type
++operator bool() const : bool
++contains(const entity_type entt) const : bool
++each() const : iterable
++storage<Type>() : decltype(auto)
++storage<std::size_t Index>() : decltype(auto)
++get<Type...>(const entity_type entt) : decltype(auto)
++each<Func>(Func func) : void
++sort<Type...,Compare,Sort=std_sort,Args...>(Compare compare, Sort algo = Sort{}, Args &&... args) : void
++sort<Type>() : void
+-handler : base_type *const [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L488{handler}]]]
+-pools : const std::tuple<Get *...> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L489{pools}]]]
+}
+class "type_list<type-parameter-0-1...>" as C_0001445398420447762901
+class C_0001445398420447762901 {
+}
+class "basic_group<type_list<Owned...>,type_list<Get...>,type_list<Exclude...>>" as C_0001170139738456667938
+class C_0001170139738456667938 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L524{basic_group}]] {
++basic_group<type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...>, type_list<type-parameter-0-2...> >() : void
++basic_group<type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...>, type_list<type-parameter-0-2...> >(const std::size_t & extent, Owned &... opool, Get &... gpool) : void
++size() const : size_type
++empty() const : bool
++begin() const : iterator
++end() const : iterator
++rbegin() const : reverse_iterator
++rend() const : reverse_iterator
++front() const : entity_type
++back() const : entity_type
++find(const entity_type entt) const : iterator
++operator[](const size_type pos) const : entity_type
++operator bool() const : bool
++contains(const entity_type entt) const : bool
++each() const : iterable
++storage<Type>() : decltype(auto)
++storage<std::size_t Index>() : decltype(auto)
++get<Type...>(const entity_type entt) : decltype(auto)
++each<Func>(Func func) : void
++sort<Type...,Compare,Sort=std_sort,Args...>(Compare compare, Sort algo = Sort{}, Args &&... args) : void
+-pools : const std::tuple<Owned *...,Get *...> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L846{pools}]]]
+-length : const size_type *const [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L847{length}]]]
+}
+class "type_list<type-parameter-1-0...>" as C_0001581716270673090485
+class C_0001581716270673090485 {
+}
+class "type_list<type-parameter-1-1...>" as C_0000515135022708998009
+class C_0000515135022708998009 {
+}
+class "basic_view<type_list<Get...>,type_list<Exclude...>,void>" as C_0001014011280027053021
+class C_0001014011280027053021 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L189{basic_view}]] {
+-opaque_check_set() const : auto
+-filter_as_array() const : auto
+-reject(const underlying_type entt) const : auto
++basic_view<type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...>, void>() : void
++basic_view<type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...>, void>(Get &... value, Exclude &... exclude) : void
++basic_view<type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...>, void>(std::tuple<Get &...> value, std::tuple<Exclude &...> excl = {}) : void
++refresh() const : basic_view<type_list<type-parameter-0-0...>,type_list<type-parameter-0-1...>,void>
++handle() const : const base_type &
++size_hint() const : size_type
++begin() const : iterator
++end() const : iterator
++front() const : entity_type
++back() const : entity_type
++find(const entity_type entt) const : iterator
++operator[](const entity_type entt) const : decltype(auto)
++operator bool() const : bool
++contains(const entity_type entt) const : bool
++each() const : iterable
+-dispatch_get<std::size_t Curr,std::size_t Other,Args...>(const std::tuple<underlying_type,Args...> & curr) : auto
+-each<std::size_t Curr,Func,std::size_t... Index>(Func & func, std::index_sequence<Index...> ) : void
+-pick_and_each<Func,std::size_t... Index>(Func & func, std::index_sequence<Index...> seq) : void
++use<Type>() : basic_view<type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...>, void>
++use<std::size_t Index>() : basic_view<type_list<type-parameter-0-0...>, type_list<type-parameter-0-1...>, void>
++storage<Type>() : decltype(auto)
++storage<std::size_t Index>() : decltype(auto)
++get<Type...>(const entity_type entt) : decltype(auto)
++get<std::size_t First,std::size_t... Other>(const entity_type entt) : decltype(auto)
++each<Func>(Func func) : void
++operator|<OGet...,OExclude...>(const basic_view<get_t<OGet...>,exclude_t<OExclude...>> & other) : auto
+-pools : std::tuple<Get *...> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L520{pools}]]]
+-filter : std::tuple<Exclude *...> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L521{filter}]]]
+-view : const base_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L522{view}]]]
+}
+class "type_list<Get>" as C_0000546039440085833388
+class C_0000546039440085833388 {
+}
+class "basic_view<type_list<Get>,type_list,void>" as C_0002021669765409325558
+class C_0002021669765409325558 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L547{basic_view}]] {
++basic_view<type_list<type-parameter-0-0>, entt::type_list<>, void>() : void
++basic_view<type_list<type-parameter-0-0>, entt::type_list<>, void>(Get & ref) : void
++basic_view<type_list<type-parameter-0-0>, entt::type_list<>, void>(std::tuple<Get &> ref, std::tuple<>  = = {}) : void
++handle() const : const base_type &
++size() const : size_type
++empty() const : bool
++begin() const : iterator
++end() const : iterator
++rbegin() const : reverse_iterator
++rend() const : reverse_iterator
++front() const : entity_type
++back() const : entity_type
++find(const entity_type entt) const : iterator
++operator[](const size_type pos) const : entity_type
++operator[](const entity_type entt) const : decltype(auto)
++operator bool() const : bool
++contains(const entity_type entt) const : bool
++each() const : iterable
++storage<Type=typename Get::value_type>() : decltype(auto)
++storage<std::size_t Index>() : decltype(auto)
++get<Type...>(const entity_type entt) : decltype(auto)
++get<std::size_t Index>(const entity_type entt) : decltype(auto)
++each<Func>(Func func) : void
++operator|<OGet...,OExclude...>(const basic_view<get_t<OGet...>,exclude_t<OExclude...>> & other) : auto
+-pools : std::tuple<Get *> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L839{pools}]]]
+-filter : std::tuple<> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L840{filter}]]]
+}
+class "as_view<Registry>" as C_0001335190849652948716
+class C_0001335190849652948716 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L21{as_view}]] {
++as_view<Registry>(registry_type & source) : void
+-dispatch<Get...,Exclude...>(type_list<Get...> , exclude_t<Exclude...> ) : auto
++operator basic_view<type-parameter-1-0, type-parameter-1-1, void><Get,Exclude>() : basic_view<Get, Exclude>
+-reg : registry_type & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L52{reg}]]]
+}
+class "as_group<Registry>" as C_0000052697527122592859
+class C_0000052697527122592859 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L60{as_group}]] {
++as_group<Registry>(registry_type & source) : void
+-dispatch<Owned...,Get...,Exclude...>(type_list<Owned...> , type_list<Get...> , exclude_t<Exclude...> ) : auto
++operator basic_group<type-parameter-1-0, type-parameter-1-1, type-parameter-1-2><Owned,Get,Exclude>() : basic_group<Owned, Get, Exclude>
+-reg : registry_type & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L96{reg}]]]
+}
+class "basic_view<Args...>" as C_0000429642681207547186
+class C_0000429642681207547186 {
+}
+class "basic_registry<Args...>" as C_0002017079345086942945
+class C_0002017079345086942945 {
+}
+class "type_list<Override...>" as C_0001608074545841274744
+class C_0001608074545841274744 {
+}
+class "basic_view<get_t<Get...>,exclude_t<Exclude...>>" as C_0000438052941603621262
+class C_0000438052941603621262 {
+}
+class "type_list<Args...>" as C_0002069939067833684929
+class C_0002069939067833684929 {
+}
+class "type_list<Req...>" as C_0000268766698460782519
+class C_0000268766698460782519 {
+}
+class "basic_flow" as C_0000841783473954961876
+class C_0000841783473954961876 {
+}
+class "basic_organizer<Registry>" as C_0001025175558307494545
+class C_0001025175558307494545 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L108{basic_organizer}]] {
++graph() : std::vector<vertex>
++clear() : void
+{static} -extract<Type>(Registry & reg) : decltype(auto)
+{static} -to_args<Args...>(Registry & reg, type_list<Args...> ) : auto
+{static} -fill_dependencies<Type...>(type_list<Type...> , const type_info ** buffer, const std::size_t count) : std::size_t
+-track_dependencies<RO...,RW...>(std::size_t index, const bool requires_registry, type_list<RO...> , type_list<RW...> ) : void
++emplace<auto Candidate,Req...>(const char * name = nullptr) : void
++emplace<auto Candidate,Req...,Type>(Type & value_or_instance, const char * name = nullptr) : void
++emplace<Req...>(function_type * func, const void * payload = nullptr, const char * name = nullptr) : void
+-vertices : std::vector<vertex_data> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L406{vertices}]]]
+-builder : flow [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L407{builder}]]]
+}
+class "basic_organizer::vertex_data" as C_0000901028445383159851
+class C_0000901028445383159851 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L113{basic_organizer##vertex_data}]] {
++ro_count : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L114{ro_count}]]]
++rw_count : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L115{rw_count}]]]
++name : const char * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L116{name}]]]
++payload : const void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L117{payload}]]]
++callback : callback_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L118{callback}]]]
++dependency : dependency_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L119{dependency}]]]
++prepare : prepare_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L120{prepare}]]]
++info : const type_info * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L121{info}]]]
+}
+class "basic_organizer::vertex" as C_0001398024092436436804
+class C_0001398024092436436804 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L175{basic_organizer##vertex}]] {
++vertex(const bool vtype, vertex_data data, std::vector<std::size_t> edges) : void
++ro_dependency(const type_info ** buffer, const std::size_t length) const : size_type
++rw_dependency(const type_info ** buffer, const std::size_t length) const : size_type
++ro_count() const : size_type
++rw_count() const : size_type
++top_level() const : bool
++info() const : const type_info &
++name() const : const char *
++callback() const : function_type *
++data() const : const void *
++children() const : const std::vector<std::size_t> &
++prepare(registry_type & reg) const : void
+-is_top_level : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L283{is_top_level}]]]
+-node : vertex_data [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L284{node}]]]
+-reachable : std::vector<std::size_t> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L285{reachable}]]]
+}
+class "constness_as_t<typename mapped_type::element_type,std::remove_reference_t<decltype(std::declval<It>()->second)>>" as C_0001669075289880192202
+class C_0001669075289880192202 {
+}
+class "basic_any<0u>" as C_0001720362734447604481
+class C_0001720362734447604481 {
+}
+class "dense_map<internal::registry_context::key_type,basic_any<0u>,identity>" as C_0000234410286508720676
+class C_0000234410286508720676 {
+}
+class "type_list<type-parameter-1-2...>" as C_0001713344560538845956
+class C_0001713344560538845956 {
+}
+class "basic_sparse_set<Entity,Allocator>" as C_0000905480437473060417
+class C_0000905480437473060417 {
+}
+class "dense_map<id_type,std::shared_ptr<basic_sparse_set<Entity,Allocator>>,identity,std::equal_to,typename alloc_traits::template rebind_alloc<std::pair<const id_type,std::shared_ptr<base_type>>>>" as C_0001783734328370983242
+class C_0001783734328370983242 {
+}
+class "basic_registry<Entity=entity,Allocator=std::allocator<Entity>>" as C_0001215498441469765522
+class C_0001215498441469765522 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L253{basic_registry}]] {
+-generate_identifier(const std::size_t pos) : auto
+-recycle_identifier() : auto
+-release_entity(const Entity entt, const typename entity_traits::version_type version) : auto
+-rebind() : void
++basic_registry<Entity, type-parameter-0-1>() : void
++basic_registry<Entity, type-parameter-0-1>(const allocator_type & allocator) : void
++basic_registry<Entity, type-parameter-0-1>(const size_type count, const allocator_type & allocator = allocator_type{}) : void
++basic_registry<Entity, type-parameter-0-1>(basic_registry<Entity,type-parameter-0-1> && other) : void
++operator=(basic_registry<Entity,type-parameter-0-1> && other) : basic_registry<Entity,type-parameter-0-1> &
++swap(basic_registry<Entity,type-parameter-0-1> & other) : void
++get_allocator() const : allocator_type
++storage() : auto
++storage() const : auto
++storage(const id_type id) : base_type *
++storage(const id_type id) const : const base_type *
++size() const : size_type
++alive() const : size_type
++reserve(const size_type cap) : void
++capacity() const : size_type
++empty() const : bool
++data() const : const entity_type *
++released() const : entity_type
++valid(const entity_type entt) const : bool
++current(const entity_type entt) const : version_type
++create() : entity_type
++create(const entity_type hint) : entity_type
++release(const entity_type entt) : version_type
++release(const entity_type entt, const version_type version) : version_type
++destroy(const entity_type entt) : version_type
++destroy(const entity_type entt, const version_type version) : version_type
++orphan(const entity_type entt) const : bool
++ctx() : context &
++ctx() const : const context &
+-assure<Type>(const id_type id = type_hash<Type>::value()) : auto &
+-assure<Type>(const id_type id = type_hash<Type>::value()) : const auto &
++storage<Type>(const id_type id = type_hash<Type>::value()) : decltype(auto)
++storage<Type>(const id_type id = type_hash<Type>::value()) : decltype(auto)
++create<It>(It first, It last) : void
++assign<It>(It first, It last, const entity_type destroyed) : void
++release<It>(It first, It last) : void
++destroy<It>(It first, It last) : void
++emplace<Type,Args...>(const entity_type entt, Args &&... args) : decltype(auto)
++insert<Type,It>(It first, It last, const Type & value = {}) : void
++insert<Type,EIt,CIt,=std::enable_if_t<std::is_same_v<typename std::iterator_traits<CIt>::value_type, Type> >>(EIt first, EIt last, CIt from) : void
++emplace_or_replace<Type,Args...>(const entity_type entt, Args &&... args) : decltype(auto)
++patch<Type,Func...>(const entity_type entt, Func &&... func) : decltype(auto)
++replace<Type,Args...>(const entity_type entt, Args &&... args) : decltype(auto)
++remove<Type,Other...>(const entity_type entt) : size_type
++remove<Type,Other...,It>(It first, It last) : size_type
++erase<Type,Other...>(const entity_type entt) : void
++erase<Type,Other...,It>(It first, It last) : void
++compact<Type...>() : void
++all_of<Type...>(const entity_type entt) : _Bool
++any_of<Type...>(const entity_type entt) : _Bool
++get<Type...>(const entity_type entt) : decltype(auto)
++get<Type...>(const entity_type entt) : decltype(auto)
++get_or_emplace<Type,Args...>(const entity_type entt, Args &&... args) : decltype(auto)
++try_get<Type...>(const entity_type entt) : auto
++try_get<Type...>(const entity_type entt) : auto
++clear<Type...>() : void
++each<Func>(Func func) : void
++on_construct<Type>() : auto
++on_update<Type>() : auto
++on_destroy<Type>() : auto
++view<Type,Other...,Exclude...>(exclude_t<Exclude...>  = {}) : basic_view<get_t<storage_for_type<const Type>, storage_for_type<const Other>...>, exclude_t<storage_for_type<const Exclude>...> >
++view<Type,Other...,Exclude...>(exclude_t<Exclude...>  = {}) : basic_view<get_t<storage_for_type<Type>, storage_for_type<Other>...>, exclude_t<storage_for_type<Exclude>...> >
++group<Owned...,Get...,Exclude...>(type_list<Get...>  = {}, exclude_t<Exclude...>  = {}) : basic_group<owned_t<storage_for_type<Owned>...>, get_t<storage_for_type<Get>...>, exclude_t<storage_for_type<Exclude>...> >
++group_if_exists<Owned...,Get...,Exclude...>(type_list<Get...>  = {}, exclude_t<Exclude...>  = {}) : basic_group<owned_t<storage_for_type<const Owned>...>, get_t<storage_for_type<const Get>...>, exclude_t<storage_for_type<const Exclude>...> >
++owned<Type...>() : _Bool
++sortable<Owned...,Get...,Exclude...>(const basic_group<owned_t<Owned...>,get_t<Get...>,exclude_t<Exclude...>> & ) : _Bool
++sort<Type,Compare,Sort=std_sort,Args...>(Compare compare, Sort algo = Sort{}, Args &&... args) : void
++sort<To,From>() : void
+-vars : context [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L1520{vars}]]]
+-free_list : entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L1521{free_list}]]]
+-epool : std::vector<entity_type,allocator_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L1522{epool}]]]
+-pools : dense_map<id_type,std::shared_ptr<base_type>,identity,std::equal_to<id_type>,typename alloc_traits::template rebind_alloc<std::pair<const id_type,std::shared_ptr<base_type>>>> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L1524{pools}]]]
+-groups : std::vector<group_data,typename alloc_traits::template rebind_alloc<group_data>> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L1525{groups}]]]
+}
+class "basic_registry::group_handler<type_list<Exclude...>,type_list<Get...>,Owned...>" as C_0000430671255945097322
+class C_0000430671255945097322 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L266{basic_registry##group_handler}]] {
++discard_if(basic_registry<Entity,type-parameter-0-1> & owner, const Entity entt) : void
++group_handler<type_list<type-parameter-1-0...>, type_list<type-parameter-1-1...>, type-parameter-1-2...><Args...>(Args &&... args) : void
++maybe_valid_if<Type>(basic_registry<Entity,type-parameter-0-1> & owner, const Entity entt) : void
++current : value_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L270{current}]]]
+}
+class "basic_registry::group_data" as C_0001603920787590037706
+class C_0001603920787590037706 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L308{basic_registry##group_data}]] {
++size : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L309{size}]]]
++group : std::shared_ptr<void> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L310{group}]]]
++owned : bool (*)(const id_type) noexcept [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L311{owned}]]]
++get : bool (*)(const id_type) noexcept [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L312{get}]]]
++exclude : bool (*)(const id_type) noexcept [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L313{exclude}]]]
+}
+class "basic_organizer<>" as C_0000183636083630485183
+class C_0000183636083630485183 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L77{basic_organizer}]] {
+}
+class "basic_sparse_set<Entity=entity,=std::allocator<Entity>>" as C_0000369256167424479850
+class C_0000369256167424479850 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L15{basic_sparse_set}]] {
+}
+class "basic_storage<Type,=entity,=std::allocator<Type>,=void>" as C_0000403534608031430858
+class C_0000403534608031430858 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L18{basic_storage}]] {
+}
+class "basic_snapshot_loader<>" as C_0001098088788978043445
+class C_0001098088788978043445 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L86{basic_snapshot_loader}]] {
+}
+class "basic_runtime_view<Type,=std::allocator<Type *>>" as C_0001100844514234697791
+class C_0001100844514234697791 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L68{basic_runtime_view}]] {
+}
+class "basic_group<,,>" as C_0001154987446950237807
+class C_0001154987446950237807 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L71{basic_group}]] {
+}
+class "basic_handle<,>" as C_0001190075835069371168
+class C_0001190075835069371168 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L80{basic_handle}]] {
+}
+class "basic_observer<>" as C_0001281442969475002479
+class C_0001281442969475002479 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L74{basic_observer}]] {
+}
+class "basic_registry::group_handler<>" as C_0001576255257276720493
+class C_0001576255257276720493 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L263{basic_registry##group_handler}]] {
+}
+class "basic_continuous_loader<>" as C_0001663461821620293220
+class C_0001663461821620293220 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L89{basic_continuous_loader}]] {
+}
+class "basic_view<,,=void>" as C_0001766708135477841980
+class C_0001766708135477841980 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L65{basic_view}]] {
+}
+class "basic_snapshot<>" as C_0001789076930074823147
+class C_0001789076930074823147 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L83{basic_snapshot}]] {
+}
+class "basic_view<,,>" as C_0001884958457739174233
+class C_0001884958457739174233 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L194{basic_view}]] {
+}
+class "basic_registry<Entity=entity,=std::allocator<Entity>>" as C_0002118663084954648964
+class C_0002118663084954648964 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L62{basic_registry}]] {
+}
+class "basic_snapshot<Registry>" as C_0001335271256477287084
+class C_0001335271256477287084 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L32{basic_snapshot}]] {
++basic_snapshot<type-parameter-0-0>(const registry_type & source) : void
++basic_snapshot<type-parameter-0-0>(basic_snapshot<type-parameter-0-0> && ) = default : void
++operator=(basic_snapshot<type-parameter-0-0> && ) = default : basic_snapshot<type-parameter-0-0> &
+-get<Component,Archive,It>(Archive & archive, std::size_t sz, It first, It last) : void
+-component<Component...,Archive,It,std::size_t... Index>(Archive & archive, It first, It last, std::index_sequence<Index...> ) : void
++entities<Archive>(Archive & archive) : const basic_snapshot<type-parameter-0-0> &
++component<Component...,Archive>(Archive & archive) : const basic_snapshot<type-parameter-0-0> &
++component<Component...,Archive,It>(Archive & archive, It first, It last) : const basic_snapshot<type-parameter-0-0> &
+-reg : const registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L149{reg}]]]
+}
+class "basic_snapshot_loader<Registry>" as C_0000387608304403643523
+class C_0000387608304403643523 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L163{basic_snapshot_loader}]] {
++basic_snapshot_loader<type-parameter-0-0>(registry_type & source) : void
++basic_snapshot_loader<type-parameter-0-0>(basic_snapshot_loader<type-parameter-0-0> && ) = default : void
++operator=(basic_snapshot_loader<type-parameter-0-0> && ) = default : basic_snapshot_loader<type-parameter-0-0> &
++orphans() const : const basic_snapshot_loader<type-parameter-0-0> &
+-assign<Component,Archive>(Archive & archive) : void
++entities<Archive>(Archive & archive) : const basic_snapshot_loader<type-parameter-0-0> &
++component<Component...,Archive>(Archive & archive) : const basic_snapshot_loader<type-parameter-0-0> &
+-reg : registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L280{reg}]]]
+}
+class "dense_map<basic_continuous_loader::entity_type,std::pair<basic_continuous_loader::entity_type,bool>>" as C_0000549411127815504112
+class C_0000549411127815504112 {
+}
+class "basic_continuous_loader<Registry>" as C_0001773811031427846026
+class C_0001773811031427846026 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L300{basic_continuous_loader}]] {
+-destroy(typename Registry::entity_type entt) : void
+-restore(typename Registry::entity_type entt) : void
++basic_continuous_loader<type-parameter-0-0>(registry_type & source) : void
++basic_continuous_loader<type-parameter-0-0>(basic_continuous_loader<type-parameter-0-0> && ) = default : void
++operator=(basic_continuous_loader<type-parameter-0-0> && ) = default : basic_continuous_loader<type-parameter-0-0> &
++shrink() : basic_continuous_loader<type-parameter-0-0> &
++orphans() : basic_continuous_loader<type-parameter-0-0> &
++contains(entity_type entt) const : bool
++map(entity_type entt) const : entity_type
+-update<Container>(int , Container & container) : decltype(typename Container::mapped_type{} , void())
+-update<Container>(char , Container & container) : decltype(typename Container::value_type{} , void())
+-update<Component,Other,Member>(Component & instance, Member Other::* member) : void
+-remove_if_exists<Component>() : void
+-assign<Component,Archive,Other...,Member...>(Archive & archive, Member Other::*... member) : void
++entities<Archive>(Archive & archive) : basic_continuous_loader<type-parameter-0-0> &
++component<Component...,Archive,Other...,Member...>(Archive & archive, Member Other::*... member) : basic_continuous_loader<type-parameter-0-0> &
+-remloc : dense_map<entity_type,std::pair<entity_type,bool>> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L561{remloc}]]]
+-reg : registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L562{reg}]]]
+}
+class "basic_runtime_view<Type,Allocator=std::allocator<Type *>>" as C_0001944117803211747232
+class C_0001944117803211747232 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L144{basic_runtime_view}]] {
++basic_runtime_view<Type, type-parameter-0-1>() : void
++basic_runtime_view<Type, type-parameter-0-1>(const allocator_type & allocator) : void
++basic_runtime_view<Type, type-parameter-0-1>(const basic_runtime_view<Type,type-parameter-0-1> & ) = default : void
++basic_runtime_view<Type, type-parameter-0-1>(const basic_runtime_view<Type,type-parameter-0-1> & other, const allocator_type & allocator) : void
++basic_runtime_view<Type, type-parameter-0-1>(basic_runtime_view<Type,type-parameter-0-1> && ) = default : void
++basic_runtime_view<Type, type-parameter-0-1>(basic_runtime_view<Type,type-parameter-0-1> && other, const allocator_type & allocator) : void
++operator=(const basic_runtime_view<Type,type-parameter-0-1> & ) = default : basic_runtime_view<Type,type-parameter-0-1> &
++operator=(basic_runtime_view<Type,type-parameter-0-1> && ) = default : basic_runtime_view<Type,type-parameter-0-1> &
++swap(basic_runtime_view<Type,type-parameter-0-1> & other) : void
++get_allocator() const : allocator_type
++clear() : void
++iterate(base_type & base) : basic_runtime_view<Type,type-parameter-0-1> &
++exclude(base_type & base) : basic_runtime_view<Type,type-parameter-0-1> &
++size_hint() const : size_type
++begin() const : iterator
++end() const : iterator
++contains(const entity_type entt) const : bool
++each<Func>(Func func) : void
+-pools : container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L329{pools}]]]
+-filter : container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L330{filter}]]]
+}
+class "matcher<>" as C_0002074537058964849080
+class C_0002074537058964849080 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L18{matcher}]] {
+}
+class "basic_collector" as C_0000661659454964316032
+class C_0000661659454964316032 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L38{basic_collector}]] {
+{static} +group<AllOf...,NoneOf...>(exclude_t<NoneOf...>  = {}) : auto
+{static} +update<AnyOf>() : auto
+}
+class "type_list<Reject...>" as C_0001861982675625485791
+class C_0001861982675625485791 {
+}
+class "type_list<Require...>" as C_0002229792667505269549
+class C_0002229792667505269549 {
+}
+class "matcher<type_list<Reject...>,type_list<Require...>,Rule...>" as C_0000909913290692815938
+class C_0000909913290692815938 {
+}
+class "basic_collector<matcher<type_list<Reject...>,type_list<Require...>,Rule...>,Other...>" as C_0002101747912606099267
+class C_0002101747912606099267 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L70{basic_collector}]] {
+{static} +group<AllOf...,NoneOf...>(exclude_t<NoneOf...>  = {}) : auto
+{static} +update<AnyOf>() : auto
+{static} +where<AllOf...,NoneOf...>(exclude_t<NoneOf...>  = {}) : auto
+}
+class "delegate<void(basic_observer<type-parameter-0-0> &)>" as C_0001628003445838268916
+class C_0001628003445838268916 {
+}
+class "basic_observer<Registry>" as C_0001308964260795745911
+class C_0001308964260795745911 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L161{basic_observer}]] {
++basic_observer<type-parameter-0-0>() : void
++basic_observer<type-parameter-0-0>(const basic_observer<type-parameter-0-0> & ) : void
++basic_observer<type-parameter-0-0>(basic_observer<type-parameter-0-0> && ) : void
++~basic_observer<type-parameter-0-0>() = default : void
++operator=(const basic_observer<type-parameter-0-0> & ) : basic_observer<type-parameter-0-0> &
++operator=(basic_observer<type-parameter-0-0> && ) : basic_observer<type-parameter-0-0> &
++disconnect() : void
++size() const : size_type
++empty() const : bool
++data() const : const entity_type *
++begin() const : iterator
++end() const : iterator
++clear() : void
+{static} -disconnect<Matcher...>(Registry & reg, basic_observer<type-parameter-0-0> & obs) : void
+-connect<Matcher...,std::size_t... Index>(Registry & reg, std::index_sequence<Index...> ) : void
++basic_observer<type-parameter-0-0><Matcher...>(registry_type & reg, basic_collector<Matcher...> ) : void
++connect<Matcher...>(registry_type & reg, basic_collector<Matcher...> ) : void
++each<Func>(Func func) : void
++each<Func>(Func func) : void
+-release : delegate<void (basic_observer<type-parameter-0-0> &)> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L427{release}]]]
+}
+class "matcher<type_list<Reject...>,type_list<Require...>,AnyOf>" as C_0000726943438522275689
+class C_0000726943438522275689 {
+}
+class "basic_observer::matcher_handler<matcher<type_list<Reject...>,type_list<Require...>,AnyOf>>" as C_0001407250051799692515
+class C_0001407250051799692515 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L168{basic_observer##matcher_handler}]] {
+{static} +disconnect(basic_observer<type-parameter-0-0> & obs, Registry & reg) : void
+{static} +maybe_valid_if<std::size_t Index>(basic_observer<type-parameter-0-0> & obs, Registry & reg, const typename Registry::entity_type entt) : void
+{static} +discard_if<std::size_t Index>(basic_observer<type-parameter-0-0> & obs, Registry & , const typename Registry::entity_type entt) : void
+{static} +connect<std::size_t Index>(basic_observer<type-parameter-0-0> & obs, Registry & reg) : void
+}
+class "type_list<NoneOf...>" as C_0000667823532944456719
+class C_0000667823532944456719 {
+}
+class "matcher<type_list<Reject...>,type_list<Require...>,type_list<NoneOf...>,AllOf...>" as C_0000347145201463203680
+class C_0000347145201463203680 {
+}
+class "basic_observer::matcher_handler<matcher<type_list<Reject...>,type_list<Require...>,type_list<NoneOf...>,AllOf...>>" as C_0001268297008080566461
+class C_0001268297008080566461 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L204{basic_observer##matcher_handler}]] {
+{static} +disconnect(basic_observer<type-parameter-0-0> & obs, Registry & reg) : void
+{static} +maybe_valid_if<std::size_t Index,Ignore...>(basic_observer<type-parameter-0-0> & obs, Registry & reg, const typename Registry::entity_type entt) : void
+{static} +discard_if<std::size_t Index>(basic_observer<type-parameter-0-0> & obs, Registry & , const typename Registry::entity_type entt) : void
+{static} +connect<std::size_t Index>(basic_observer<type-parameter-0-0> & obs, Registry & reg) : void
+}
+class "basic_observer::matcher_handler<>" as C_0001459890320040813261
+class C_0001459890320040813261 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L165{basic_observer##matcher_handler}]] {
+}
+class "basic_collector<>" as C_0001676692569931190574
+class C_0001676692569931190574 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L27{basic_collector}]] {
+}
+class "basic_handle<Registry,Scope...>" as C_0001540240197457753692
+class C_0001540240197457753692 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L102{basic_handle}]] {
++basic_handle<type-parameter-0-0, type-parameter-0-1...>() : void
++basic_handle<type-parameter-0-0, type-parameter-0-1...>(registry_type & ref, entity_type value) : void
++storage() const : auto
++operator typename type-parameter-0-0::entity_type() const : entity_type
++operator bool() const : bool
++valid() const : bool
++registry() const : registry_type *
++entity() const : entity_type
++destroy() : void
++destroy(const version_type version) : void
++orphan() const : bool
++operator basic_handle<type-parameter-1-0, type-parameter-1-1...><Other,Args...>() : basic_handle<Other, Args...>
++emplace<Component,Args...>(Args &&... args) : decltype(auto)
++emplace_or_replace<Component,Args...>(Args &&... args) : decltype(auto)
++patch<Component,Func...>(Func &&... func) : decltype(auto)
++replace<Component,Args...>(Args &&... args) : decltype(auto)
++remove<Component...>() : size_type
++erase<Component...>() : void
++all_of<Component...>() : decltype(auto)
++any_of<Component...>() : decltype(auto)
++get<Component...>() : decltype(auto)
++get_or_emplace<Component,Args...>(Args &&... args) : decltype(auto)
++try_get<Component...>() : auto
+-reg : registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L348{reg}]]]
+-entt : entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L349{entt}]]]
+}
+C_0001949040226502523653 ..|> C_0001949040226502523653
+C_0001023231452042445274 ..|> C_0001333932220003266199
+C_0000807307470263887895 ..|> C_0000004170898870258369
+C_0000749528529161353827 ..|> C_0000741189378537303151
+C_0002017943133135312647 ..|> C_0000741189378537303151
+C_0000504583213741664906 ..|> C_0000741189378537303151
+C_0001737832346279202351 ..|> C_0000741189378537303151
+C_0002209338957740976162 ..|> C_0001144900685391983309
+C_0000018044932043323221 ..> C_0002209338957740976162
+C_0000018044932043323221 ..|> C_0002184350655899856716
+C_0000246104228557977884 ..> C_0002209338957740976162
+C_0000246104228557977884 ..|> C_0002184350655899856716
+C_0000880421278423536144 ..|> C_0002184350655899856716
+C_0001783428072821606564 ..|> C_0002184350655899856716
+C_0000153393979582152305 ..> C_0000152445147622989908
+C_0000153393979582152305 ..> C_0001924778053637683860
+C_0000153393979582152305 ..|> C_0000607976266737248130
+C_0000440103747575733986 ..> C_0000816653833137337534
+C_0000440103747575733986 ..> C_0000551651351962443750
+C_0000440103747575733986 ..|> C_0000607976266737248130
+C_0001062876330760904480 ..> C_0000551651351962443750
+C_0001062876330760904480 ..> C_0001445398420447762901
+C_0001062876330760904480 ..|> C_0000607976266737248130
+C_0000390675639111256783 ..|> C_0001139725879265604505
+C_0001780449445169454883 ..> C_0000390675639111256783
+C_0001780449445169454883 ..|> C_0002039236681566597161
+C_0001822587864398904128 ..> C_0000429642681207547186
+C_0001822587864398904128 ..|> C_0000642898023621477258
+C_0002034860573756426782 ..> C_0002017079345086942945
+C_0002034860573756426782 ..> C_0001608074545841274744
+C_0002034860573756426782 ..|> C_0000257438482207070900
+C_0001699276038369686358 ..> C_0001014011280027053021
+C_0001699276038369686358 ..> C_0001608074545841274744
+C_0001699276038369686358 ..|> C_0000257438482207070900
+C_0000322687156363303281 ..> C_0002069939067833684929
+C_0000322687156363303281 ..> C_0000268766698460782519
+C_0000322687156363303281 ..|> C_0001595024213646564801
+C_0000648165520939590694 ..> C_0000573881619500297192
+C_0001849345337236985902 o-- C_0000234410286508720676 : -ctx
+C_0001723716587279733623 ..|> C_0000150299823092418682
+C_0000401973545844492876 ..|> C_0001723716587279733623
+C_0000496685335806935509 ..|> C_0001723716587279733623
+C_0000150299823092418682 ..|> C_0001723716587279733623
+C_0001371435826418372832 ..> C_0000671828807667868418
+C_0000507249114974527684 ..> C_0001949040226502523653
+C_0002082989189680990643 ..|> C_0001686486826919845415
+C_0000604750336572959053 ..|> C_0000403534608031430858
+C_0000373210226805056699 ..> C_0002264387755278828673
+C_0000373210226805056699 ..|> C_0001190075835069371168
+C_0001284155302502968847 ..|> C_0001934751505825948529
+C_0001034581343962934250 ..> C_0001934751505825948529
+C_0001034581343962934250 ..> C_0001284155302502968847
+C_0001034581343962934250 ..|> C_0001766708135477841980
+C_0001818618597505735573 ..|> C_0001934751505825948529
+C_0002026173216716894202 ..> C_0001818618597505735573
+C_0002026173216716894202 ..> C_0001934751505825948529
+C_0002026173216716894202 ..> C_0001284155302502968847
+C_0002026173216716894202 ..|> C_0001154987446950237807
+C_0002283695050907122027 ..> C_0000579947499599579730
+C_0002283695050907122027 ..> C_0002066456960134789731
+C_0002283695050907122027 o-- C_0000579947499599579730 : -mode
+C_0001338234208699310194 ..|> C_0000011977380754407836
+C_0000457430710378177051 ..|> C_0002118663084954648964
+C_0001194940276112359990 ..> C_0000457430710378177051
+C_0001194940276112359990 ..|> C_0001654528939521938342
+C_0000078477900740904974 ..> C_0002066456960134789731
+C_0000078477900740904974 --> C_0000457430710378177051 : -owner
+C_0000078477900740904974 o-- C_0001194940276112359990 : -construction
+C_0000078477900740904974 o-- C_0001194940276112359990 : -destruction
+C_0000078477900740904974 o-- C_0001194940276112359990 : -update
+C_0002046992727544379813 ..> C_0002209338957740976162
+C_0002046992727544379813 o-- C_0002071883873613020951 : -packed
+C_0000152418366026693625 ..|> C_0002046992727544379813
+C_0000152445147622989908 ..|> C_0001723716587279733623
+C_0001924778053637683860 ..|> C_0001723716587279733623
+C_0000880809990211728775 ..|> C_0001723716587279733623
+C_0000551651351962443750 ..|> C_0001723716587279733623
+C_0000067370016728893406 ..> C_0001924778053637683860
+C_0000067370016728893406 ..> C_0000880809990211728775
+C_0000067370016728893406 ..|> C_0001154987446950237807
+C_0001445398420447762901 ..|> C_0001723716587279733623
+C_0001170139738456667938 ..> C_0000152445147622989908
+C_0001170139738456667938 ..> C_0001924778053637683860
+C_0001170139738456667938 ..> C_0000880809990211728775
+C_0001170139738456667938 ..|> C_0000067370016728893406
+C_0001581716270673090485 ..|> C_0001723716587279733623
+C_0000515135022708998009 ..|> C_0001723716587279733623
+C_0001014011280027053021 ..> C_0001924778053637683860
+C_0001014011280027053021 ..> C_0000880809990211728775
+C_0001014011280027053021 ..> C_0000390675639111256783
+C_0001014011280027053021 ..|> C_0001766708135477841980
+C_0000546039440085833388 ..|> C_0001723716587279733623
+C_0002021669765409325558 ..> C_0000546039440085833388
+C_0002021669765409325558 ..|> C_0001014011280027053021
+C_0001335190849652948716 ..> C_0000150299823092418682
+C_0001335190849652948716 ..> C_0000515135022708998009
+C_0000052697527122592859 ..> C_0000150299823092418682
+C_0000052697527122592859 ..> C_0000515135022708998009
+C_0000052697527122592859 ..> C_0001713344560538845956
+C_0000429642681207547186 ..|> C_0001766708135477841980
+C_0002017079345086942945 ..|> C_0002118663084954648964
+C_0001608074545841274744 ..|> C_0001723716587279733623
+C_0000438052941603621262 ..> C_0001924778053637683860
+C_0000438052941603621262 ..> C_0000880809990211728775
+C_0000438052941603621262 ..|> C_0000429642681207547186
+C_0002069939067833684929 ..|> C_0001723716587279733623
+C_0000268766698460782519 ..|> C_0001723716587279733623
+C_0001025175558307494545 ..> C_0002069939067833684929
+C_0001025175558307494545 ..> C_0000150299823092418682
+C_0001025175558307494545 o-- C_0000841783473954961876 : -builder
+C_0000901028445383159851 --+ C_0001025175558307494545
+C_0001398024092436436804 --+ C_0001025175558307494545
+C_0000234410286508720676 ..> C_0001720362734447604481
+C_0001713344560538845956 ..|> C_0001723716587279733623
+C_0000905480437473060417 ..|> C_0002283695050907122027
+C_0001783734328370983242 ..> C_0000905480437473060417
+C_0001215498441469765522 ..> C_0000905480437473060417
+C_0001215498441469765522 ..> C_0001849345337236985902
+C_0001215498441469765522 ..> C_0001713344560538845956
+C_0001215498441469765522 ..> C_0000515135022708998009
+C_0001215498441469765522 o-- C_0001849345337236985902 : -vars
+C_0001215498441469765522 o-- C_0001783734328370983242 : -pools
+C_0000430671255945097322 ..> C_0000880809990211728775
+C_0000430671255945097322 ..> C_0001924778053637683860
+C_0000430671255945097322 --+ C_0001215498441469765522
+C_0000430671255945097322 ..|> C_0001576255257276720493
+C_0001603920787590037706 --+ C_0001215498441469765522
+C_0001576255257276720493 --+ C_0001215498441469765522
+C_0001773811031427846026 o-- C_0000549411127815504112 : -remloc
+C_0000661659454964316032 ..> C_0001445398420447762901
+C_0000661659454964316032 ..|> C_0001676692569931190574
+C_0001861982675625485791 ..|> C_0001723716587279733623
+C_0002229792667505269549 ..|> C_0001723716587279733623
+C_0000909913290692815938 ..> C_0001861982675625485791
+C_0000909913290692815938 ..> C_0002229792667505269549
+C_0000909913290692815938 ..|> C_0002074537058964849080
+C_0002101747912606099267 ..> C_0000909913290692815938
+C_0002101747912606099267 ..> C_0000515135022708998009
+C_0002101747912606099267 ..|> C_0001676692569931190574
+C_0001628003445838268916 ..|> C_0000011977380754407836
+C_0001308964260795745911 o-- C_0001628003445838268916 : -release
+C_0000726943438522275689 ..> C_0001861982675625485791
+C_0000726943438522275689 ..> C_0002229792667505269549
+C_0000726943438522275689 ..|> C_0000909913290692815938
+C_0001407250051799692515 ..> C_0000726943438522275689
+C_0001407250051799692515 --+ C_0001308964260795745911
+C_0001407250051799692515 ..|> C_0001459890320040813261
+C_0000667823532944456719 ..|> C_0001723716587279733623
+C_0000347145201463203680 ..> C_0001861982675625485791
+C_0000347145201463203680 ..> C_0002229792667505269549
+C_0000347145201463203680 ..> C_0000667823532944456719
+C_0000347145201463203680 ..|> C_0000909913290692815938
+C_0001268297008080566461 ..> C_0000347145201463203680
+C_0001268297008080566461 --+ C_0001308964260795745911
+C_0001268297008080566461 ..|> C_0001459890320040813261
+C_0001459890320040813261 --+ C_0001308964260795745911
+
+'Generated with clang-uml, version 0.3.5-2-g7e9944c
+'LLVM version Ubuntu clang version 16.0.1 (++20230328073357+42d1b276f779-1~exp1~20230328073502.65)
+@enduml

@@ -1,0 +1,87 @@
+@startuml
+class "type_list<First,Other...>" as C_0001723716587279733623
+class C_0001723716587279733623 {
+}
+class "type_list<Other...>" as C_0000401973545844492876
+class C_0000401973545844492876 {
+}
+class "type_list<Type,Other...>" as C_0000496685335806935509
+class C_0000496685335806935509 {
+}
+class "type_list" as C_0000816653833137337534
+class C_0000816653833137337534 {
+}
+class "type_list<Type...>" as C_0000150299823092418682
+class C_0000150299823092418682 {
+}
+class "value_list<Value,Other...>" as C_0001276342508473126665
+class C_0001276342508473126665 {
+}
+class "value_list<Other...>" as C_0000669672540584988414
+class C_0000669672540584988414 {
+}
+class "value_list<Value>" as C_0000114548431562228752
+class C_0000114548431562228752 {
+}
+class "basic_poly<Concept>" as C_0002187650141235109775
+class C_0002187650141235109775 {
+}
+class "poly_inspector" as C_0000460891939233668905
+class C_0000460891939233668905 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/poly/poly.hpp#L17{poly_inspector}]] {
++operator type-parameter-0-0 &&<Type>() : Type &&
++invoke<std::size_t Member,Args...>(Args &&... args) : poly_inspector
++invoke<std::size_t Member,Args...>(Args &&... args) : poly_inspector
+}
+class "poly_vtable<Concept,std::size_t Len,std::size_t Align>" as C_0000593699980024327418
+class C_0000593699980024327418 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/poly/poly.hpp#L47{poly_vtable}]] {
+{static} -vtable_entry<Ret,Args...>(Ret (*)(inspector &,Args...) ) : Ret (*)(basic_any<Len, Align> &, Args...)
+{static} -vtable_entry<Ret,Args...>(Ret (*)(const inspector &,Args...) ) : Ret (*)(const basic_any<Len, Align> &, Args...)
+{static} -vtable_entry<Ret,Args...>(Ret (*)(Args...) ) : Ret (*)(const basic_any<Len, Align> &, Args...)
+{static} -vtable_entry<Ret,Args...>(Ret (poly_vtable::inspector::*)(Args...) ) : Ret (*)(basic_any<Len, Align> &, Args...)
+{static} -vtable_entry<Ret,Args...>(Ret (poly_vtable::inspector::*)(Args...) const ) : Ret (*)(const basic_any<Len, Align> &, Args...)
+{static} -make_vtable<auto... Candidate>(value_list<Candidate...> ) : decltype(std::make_tuple(vtable_entry(Candidate)...))
+{static} -make_vtable<Func...>(type_list<Func...> ) : auto
+{static} -fill_vtable_entry<Type,auto Candidate,Ret,Any,Args...>(Ret (*&)(Any &,Args...) entry) : void
+{static} -fill_vtable<Type,auto... Index>(std::index_sequence<Index...> ) : auto
+{static} +instance<Type>() : type
+{static} -is_mono_v : const bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/poly/poly.hpp#L99{is_mono_v}]]]
+}
+class "poly_base<Poly>" as C_0001758879837962625486
+class C_0001758879837962625486 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/poly/poly.hpp#L128{poly_base}]] {
++invoke<std::size_t Member,Args...>(const poly_base<Poly> & self, Args &&... args) : decltype(auto)
++invoke<std::size_t Member,Args...>(poly_base<Poly> & self, Args &&... args) : decltype(auto)
+}
+class "basic_any<Len,Align>" as C_0000137726632101471303
+class C_0000137726632101471303 {
+}
+class "basic_poly<Concept,std::size_t Len=sizeof(double[2]),std::size_t Align=__alignof(double[2])>" as C_0002224173078316961772
+class C_0002224173078316961772 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/poly/poly.hpp#L192{basic_poly}]] {
++basic_poly<type-parameter-0-0, Len, >() : void
++type() const : const type_info &
++data() const : const void *
++data() : void *
++reset() : void
++operator bool() const : bool
++operator->() : concept_type *
++operator->() const : const concept_type *
++as_ref() : basic_poly<type-parameter-0-0,Len,>
++as_ref() const : basic_poly<type-parameter-0-0,Len,>
++basic_poly<type-parameter-0-0, Len, ><Type,Args...>(std::in_place_type_t<Type> , Args &&... args) : void
++basic_poly<type-parameter-0-0, Len, ><Type,=std::enable_if_t<!std::is_same_v<std::remove_cv_t<std::remove_reference_t<Type> >, basic_poly<type-parameter-0-0, Len, > > >>(Type && value) : void
++emplace<Type,Args...>(Args &&... args) : void
+-storage : basic_any<Len,Align> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/poly/poly.hpp#L307{storage}]]]
+-vtable : vtable_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/poly/poly.hpp#L308{vtable}]]]
+}
+class "basic_poly<,std::size_t Len=sizeof(double[2]),std::size_t=__alignof(double[2])>" as C_0000180344646266237416
+class C_0000180344646266237416 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/poly/fwd.hpp#L9{basic_poly}]] {
+}
+C_0001723716587279733623 ..|> C_0000150299823092418682
+C_0000401973545844492876 ..|> C_0001723716587279733623
+C_0000496685335806935509 ..|> C_0001723716587279733623
+C_0000150299823092418682 ..|> C_0001723716587279733623
+C_0002187650141235109775 ..|> C_0000180344646266237416
+C_0002224173078316961772 o-- C_0000137726632101471303 : -storage
+
+'Generated with clang-uml, version 0.3.5-2-g7e9944c
+'LLVM version Ubuntu clang version 16.0.1 (++20230328073357+42d1b276f779-1~exp1~20230328073502.65)
+@enduml

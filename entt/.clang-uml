@@ -1,0 +1,129 @@
+compilation_database_dir: _build
+output_directory: ../puml
+generate_links:
+  link: 'https://github.com/skypjack/entt/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+  tooltip: '{% if existsIn(element, "comment") and existsIn(element.comment, "brief") %}{{ abbrv(trim(replace(element.comment.brief.0, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+add_compile_flags:
+  - -std=c++17
+diagrams:
+  container_class_diagram:
+    type: class
+    glob:
+      - test/entt/container/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/container
+      namespaces:
+        - entt
+  core_class_diagram:
+    type: class
+    glob:
+      - test/entt/core/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/core
+      namespaces:
+        - entt
+  entity_class_diagram:
+    type: class
+    glob:
+      - test/entt/entity/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/entity
+      namespaces:
+        - entt
+  graph_class_diagram:
+    type: class
+    glob:
+      - test/entt/graph/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/graph
+      namespaces:
+        - entt
+  locator_class_diagram:
+    type: class
+    glob:
+      - test/entt/locator/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/locator
+      namespaces:
+        - entt
+  meta_class_diagram:
+    type: class
+    glob:
+      - test/entt/meta/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/meta
+      namespaces:
+        - entt
+  platform_class_diagram:
+    type: class
+    glob:
+      - test/entt/platform/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/platform
+      namespaces:
+        - entt
+  poly_class_diagram:
+    type: class
+    glob:
+      - test/entt/poly/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/poly
+      namespaces:
+        - entt
+  process_class_diagram:
+    type: class
+    glob:
+      - test/entt/process/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/process
+      namespaces:
+        - entt
+  resource_class_diagram:
+    type: class
+    glob:
+      - test/entt/resource/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/resource
+      namespaces:
+        - entt
+  signal_class_diagram:
+    type: class
+    glob:
+      - test/entt/signal/*.cpp
+    using_namespace:
+      - entt
+    include:
+      paths:
+        - src/entt/signal
+      namespaces:
+        - entt

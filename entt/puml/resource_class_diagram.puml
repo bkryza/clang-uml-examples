@@ -1,0 +1,138 @@
+@startuml
+class "resource_loader<Type>" as C_0001841932754009175128
+class C_0001841932754009175128 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/loader.hpp#L15{resource_loader}]] {
++operator()<Args...>(Args &&... args) : result_type
+}
+class "resource_cache<Type,=resource_loader<Type>,=std::allocator<Type>>" as C_0000700879845513377090
+class C_0000700879845513377090 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/fwd.hpp#L12{resource_cache}]] {
+}
+class "resource<>" as C_0001629447885353056394
+class C_0001629447885353056394 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/fwd.hpp#L15{resource}]] {
+}
+class "resource_loader<>" as C_0001732438132059304025
+class C_0001732438132059304025 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/fwd.hpp#L9{resource_loader}]] {
+}
+class "internal::dense_map_node<Key,Type>" as C_0001949040226502523653
+class C_0001949040226502523653 {
+}
+class "internal::resource_cache_iterator<Type,It>" as C_0002256417871109640635
+class C_0002256417871109640635 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/cache.hpp#L30{resource_cache_iterator}]] {
++resource_cache_iterator<Type, It>() = default : void
++resource_cache_iterator<Type, It>(const It iter) : void
++operator++() : resource_cache_iterator<Type,It> &
++operator++(int ) : resource_cache_iterator<Type,It>
++operator--() : resource_cache_iterator<Type,It> &
++operator--(int ) : resource_cache_iterator<Type,It>
++operator+=(const difference_type value) : resource_cache_iterator<Type,It> &
++operator+(const difference_type value) const : resource_cache_iterator<Type,It>
++operator-=(const difference_type value) : resource_cache_iterator<Type,It> &
++operator-(const difference_type value) const : resource_cache_iterator<Type,It>
++operator[](const difference_type value) const : reference
++operator*() const : reference
++operator->() const : pointer
++resource_cache_iterator<Type, It><Other,=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const resource_cache_iterator<std::remove_const_t<Type>,Other> & other) : void
+-it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/cache.hpp#L108{it}]]]
+}
+class "internal::resource_cache_iterator<,>" as C_0001492901735587317400
+class C_0001492901735587317400 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/cache.hpp#L32{resource_cache_iterator}]] {
+}
+class "resource<Type>" as C_0000804320345891133867
+class C_0000804320345891133867 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/resource.hpp#L22{resource}]] {
++resource<type-parameter-0-0>() : void
++resource<type-parameter-0-0>(handle_type res) : void
++resource<type-parameter-0-0>(const resource<type-parameter-0-0> & ) = default : void
++resource<type-parameter-0-0>(resource<type-parameter-0-0> && ) = default : void
++operator=(const resource<type-parameter-0-0> & ) = default : resource<type-parameter-0-0> &
++operator=(resource<type-parameter-0-0> && ) = default : resource<type-parameter-0-0> &
++operator*() const : element_type &
++operator type-parameter-0-0 &() const : element_type &
++operator->() const : element_type *
++operator bool() const : bool
++handle() const : const handle_type &
++resource<type-parameter-0-0><Other>(const resource<Other> & other, element_type & res) : void
++resource<type-parameter-0-0><Other,=std::enable_if_t<is_acceptable_v<Other> >>(const resource<Other> & other) : void
++resource<type-parameter-0-0><Other,=std::enable_if_t<is_acceptable_v<Other> >>(resource<Other> && other) : void
++operator=<Other>(const resource<Other> & other) : std::enable_if_t<is_acceptable_v<Other>, resource<type-parameter-0-0> &>
++operator=<Other>(resource<Other> && other) : std::enable_if_t<is_acceptable_v<Other>, resource<type-parameter-0-0> &>
+-value : handle_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/resource.hpp#L161{value}]]]
+}
+class "type_list<First,Other...>" as C_0001723716587279733623
+class C_0001723716587279733623 {
+}
+class "type_list<Other...>" as C_0000401973545844492876
+class C_0000401973545844492876 {
+}
+class "type_list<Type,Other...>" as C_0000496685335806935509
+class C_0000496685335806935509 {
+}
+class "type_list" as C_0000816653833137337534
+class C_0000816653833137337534 {
+}
+class "type_list<Type...>" as C_0000150299823092418682
+class C_0000150299823092418682 {
+}
+class "value_list<Value,Other...>" as C_0001276342508473126665
+class C_0001276342508473126665 {
+}
+class "value_list<Other...>" as C_0000669672540584988414
+class C_0000669672540584988414 {
+}
+class "value_list<Value>" as C_0000114548431562228752
+class C_0000114548431562228752 {
+}
+class "compressed_pair<std::vector<std::size_t>,dense_map::hasher>" as C_0001686486826919845415
+class C_0001686486826919845415 {
+}
+class "compressed_pair<std::vector<internal::dense_map_node<Key,Type>>,dense_map::key_equal>" as C_0000507249114974527684
+class C_0000507249114974527684 {
+}
+class "dense_map<id_type,typename Loader::result_type,identity,std::equal_to,resource_cache::container_allocator>" as C_0000289298105424839048
+class C_0000289298105424839048 {
+}
+class "compressed_pair<dense_map<id_type,typename Loader::result_type,identity,std::equal_to,resource_cache::container_allocator>,resource_cache::loader_type>" as C_0000267768834583034021
+class C_0000267768834583034021 {
+}
+class "resource_cache<Type,Loader=resource_loader<Type>,Allocator=std::allocator<Type>>" as C_0000594868549633083436
+class C_0000594868549633083436 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/cache.hpp#L160{resource_cache}]] {
++resource_cache<Type, type-parameter-0-1, type-parameter-0-2>() : void
++resource_cache<Type, type-parameter-0-1, type-parameter-0-2>(const allocator_type & allocator) : void
++resource_cache<Type, type-parameter-0-1, type-parameter-0-2>(const loader_type & callable, const allocator_type & allocator = allocator_type{}) : void
++resource_cache<Type, type-parameter-0-1, type-parameter-0-2>(const resource_cache<Type,type-parameter-0-1,type-parameter-0-2> & ) = default : void
++resource_cache<Type, type-parameter-0-1, type-parameter-0-2>(const resource_cache<Type,type-parameter-0-1,type-parameter-0-2> & other, const allocator_type & allocator) : void
++resource_cache<Type, type-parameter-0-1, type-parameter-0-2>(resource_cache<Type,type-parameter-0-1,type-parameter-0-2> && ) = default : void
++resource_cache<Type, type-parameter-0-1, type-parameter-0-2>(resource_cache<Type,type-parameter-0-1,type-parameter-0-2> && other, const allocator_type & allocator) : void
++operator=(const resource_cache<Type,type-parameter-0-1,type-parameter-0-2> & ) = default : resource_cache<Type,type-parameter-0-1,type-parameter-0-2> &
++operator=(resource_cache<Type,type-parameter-0-1,type-parameter-0-2> && ) = default : resource_cache<Type,type-parameter-0-1,type-parameter-0-2> &
++get_allocator() const : allocator_type
++cbegin() const : const_iterator
++begin() const : const_iterator
++begin() : iterator
++cend() const : const_iterator
++end() const : const_iterator
++end() : iterator
++empty() const : bool
++size() const : size_type
++clear() : void
++operator[](const id_type id) const : resource<const value_type>
++operator[](const id_type id) : resource<value_type>
++contains(const id_type id) const : bool
++erase(const_iterator pos) : iterator
++erase(const_iterator first, const_iterator last) : iterator
++erase(const id_type id) : size_type
++loader() const : loader_type
++load<Args...>(const id_type id, Args &&... args) : std::pair<iterator, _Bool>
++force_load<Args...>(const id_type id, Args &&... args) : std::pair<iterator, _Bool>
+-pool : compressed_pair<container_type,loader_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/resource/cache.hpp#L418{pool}]]]
+}
+C_0001949040226502523653 ..|> C_0001949040226502523653
+C_0001723716587279733623 ..|> C_0000150299823092418682
+C_0000401973545844492876 ..|> C_0001723716587279733623
+C_0000496685335806935509 ..|> C_0001723716587279733623
+C_0000150299823092418682 ..|> C_0001723716587279733623
+C_0000507249114974527684 ..> C_0001949040226502523653
+C_0000267768834583034021 ..> C_0000289298105424839048
+C_0000594868549633083436 o-- C_0000267768834583034021 : -pool
+
+'Generated with clang-uml, version 0.3.5-2-g7e9944c
+'LLVM version Ubuntu clang version 16.0.1 (++20230328073357+42d1b276f779-1~exp1~20230328073502.65)
+@enduml

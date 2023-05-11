@@ -1,0 +1,75 @@
+@startuml
+class "process<Derived,Delta>" as C_0002250218767873034998
+class C_0002250218767873034998 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L70{process}]] {
+-next() const : void
+#succeed() : void
+#fail() : void
+#pause() : void
+#unpause() : void
++~process<Derived, Delta>() : void
++abort(const bool immediately = false) : void
++alive() const : bool
++finished() const : bool
++paused() const : bool
++rejected() const : bool
++tick(const Delta delta, void * data = nullptr) : void
+-next<Target=Derived>(std::integral_constant<state,state::uninitialized> ) : decltype(std::declval<Target>().init() , void())
+-next<Target=Derived>(std::integral_constant<state,state::running> , Delta delta, void * data) : decltype(std::declval<Target>().update(delta, data) , void())
+-next<Target=Derived>(std::integral_constant<state,state::succeeded> ) : decltype(std::declval<Target>().succeeded() , void())
+-next<Target=Derived>(std::integral_constant<state,state::failed> ) : decltype(std::declval<Target>().failed() , void())
+-next<Target=Derived>(std::integral_constant<state,state::aborted> ) : decltype(std::declval<Target>().aborted() , void())
+-current : state [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L262{current}]]]
+}
+enum "process::state" as C_0000364718339823005686
+enum C_0000364718339823005686 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L71{process##state}]] {
+uninitialized
+running
+paused
+succeeded
+failed
+aborted
+finished
+rejected
+}
+class "process_adaptor<Func,Delta>" as C_0000987817905510358710
+class C_0000987817905510358710 {
+}
+class "scheduler<Delta>" as C_0001693309150905075514
+class C_0001693309150905075514 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L41{scheduler}]] {
++scheduler<Delta>() : void
++scheduler<Delta>(scheduler<Delta> && ) = default : void
++operator=(scheduler<Delta> && ) = default : scheduler<Delta> &
++size() const : size_type
++empty() const : bool
++clear() : void
++update(const Delta delta, void * data = nullptr) : void
++abort(const bool immediately = false) : void
+{static} -update<Proc>(scheduler<Delta> & owner, std::size_t pos, const Delta delta, void * data) : _Bool
+{static} -abort<Proc>(scheduler<Delta> & owner, std::size_t pos, const bool immediately) : void
+{static} -deleter<Proc>(void * proc) : void
++attach<Proc,Args...>(Args &&... args) : auto
++attach<Func>(Func && func) : auto
+-handlers : std::vector<process_handler> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L278{handlers}]]]
+}
+class "scheduler::process_handler" as C_0000844935833660429083
+class C_0000844935833660429083 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L42{scheduler##process_handler}]] {
++instance : instance_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L48{instance}]]]
++update : update_fn_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L49{update}]]]
++abort : abort_fn_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L50{abort}]]]
++next : next_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L51{next}]]]
+}
+class "scheduler::continuation" as C_0001603671107212245628
+class C_0001603671107212245628 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L54{scheduler##continuation}]] {
++continuation(process_handler * ref) : void
++then<Proc,Args...>(Args &&... args) : continuation
++then<Func>(Func && func) : continuation
+-handler : process_handler * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L73{handler}]]]
+}
+C_0000364718339823005686 --+ C_0002250218767873034998
+C_0000987817905510358710 ..|> C_0000987817905510358710
+C_0000844935833660429083 --+ C_0001693309150905075514
+C_0001603671107212245628 --+ C_0001693309150905075514
+
+'Generated with clang-uml, version 0.3.5-2-g7e9944c
+'LLVM version Ubuntu clang version 16.0.1 (++20230328073357+42d1b276f779-1~exp1~20230328073502.65)
+@enduml

@@ -1,0 +1,168 @@
+@startuml
+class "directed_tag" as C_0002020830202082955781
+class C_0002020830202082955781 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/fwd.hpp#L11{directed_tag}]] {
+}
+class "undirected_tag" as C_0000261952894934420548
+class C_0000261952894934420548 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/fwd.hpp#L14{undirected_tag}]] {
+}
+class "internal::edge_iterator<It>" as C_0001033172316353199790
+class C_0001033172316353199790 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L24{edge_iterator}]] {
++edge_iterator<It>() : void
++edge_iterator<It>(It base, const size_type vertices, const size_type from, const size_type to, const size_type step) : void
++operator++() : edge_iterator<It> &
++operator++(int ) : edge_iterator<It>
++operator*() const : reference
++operator->() const : pointer
+-it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L72{it}]]]
+-vert : size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L73{vert}]]]
+-pos : size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L74{pos}]]]
+-last : size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L75{last}]]]
+-offset : size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L76{offset}]]]
+}
+class "internal::edge_iterator<typename container_type::const_iterator>" as C_0002303669005198237364
+class C_0002303669005198237364 {
+}
+class "internal::dense_map_node<Key,Type>" as C_0001949040226502523653
+class C_0001949040226502523653 {
+}
+class "input_iterator_pointer<std::pair<internal::edge_iterator::size_type,internal::edge_iterator::size_type>>" as C_0001178396555088254037
+class C_0001178396555088254037 {
+}
+class "iota_iterator<adjacency_matrix::vertex_type>" as C_0000671828807667868418
+class C_0000671828807667868418 {
+}
+class "iterable_adaptor<iota_iterator<adjacency_matrix::vertex_type>>" as C_0001371435826418372832
+class C_0001371435826418372832 {
+}
+class "adjacency_matrix<Category,Allocator=std::allocator<std::size_t>>" as C_0001453232910335396883
+class C_0001453232910335396883 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L102{adjacency_matrix}]] {
++adjacency_matrix<type-parameter-0-0, type-parameter-0-1>() : void
++adjacency_matrix<type-parameter-0-0, type-parameter-0-1>(const allocator_type & allocator) : void
++adjacency_matrix<type-parameter-0-0, type-parameter-0-1>(const size_type vertices, const allocator_type & allocator = allocator_type{}) : void
++adjacency_matrix<type-parameter-0-0, type-parameter-0-1>(const adjacency_matrix<type-parameter-0-0,type-parameter-0-1> & other) : void
++adjacency_matrix<type-parameter-0-0, type-parameter-0-1>(const adjacency_matrix<type-parameter-0-0,type-parameter-0-1> & other, const allocator_type & allocator) : void
++adjacency_matrix<type-parameter-0-0, type-parameter-0-1>(adjacency_matrix<type-parameter-0-0,type-parameter-0-1> && other) : void
++adjacency_matrix<type-parameter-0-0, type-parameter-0-1>(adjacency_matrix<type-parameter-0-0,type-parameter-0-1> && other, const allocator_type & allocator) : void
++operator=(const adjacency_matrix<type-parameter-0-0,type-parameter-0-1> & other) : adjacency_matrix<type-parameter-0-0,type-parameter-0-1> &
++operator=(adjacency_matrix<type-parameter-0-0,type-parameter-0-1> && other) : adjacency_matrix<type-parameter-0-0,type-parameter-0-1> &
++get_allocator() const : allocator_type
++clear() : void
++swap(adjacency_matrix<type-parameter-0-0,type-parameter-0-1> & other) : void
++size() const : size_type
++vertices() const : iterable_adaptor<vertex_iterator>
++edges() const : iterable_adaptor<edge_iterator>
++out_edges(const vertex_type vertex) const : iterable_adaptor<out_edge_iterator>
++in_edges(const vertex_type vertex) const : iterable_adaptor<in_edge_iterator>
++resize(const size_type vertices) : void
++insert(const vertex_type lhs, const vertex_type rhs) : std::pair<edge_iterator,bool>
++erase(const vertex_type lhs, const vertex_type rhs) : size_type
++contains(const vertex_type lhs, const vertex_type rhs) const : bool
+-matrix : container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L342{matrix}]]]
+-vert : size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/adjacency_matrix.hpp#L343{vert}]]]
+}
+class "basic_flow<=std::allocator<id_type>>" as C_0001128132335193611757
+class C_0001128132335193611757 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/fwd.hpp#L20{basic_flow}]] {
+}
+class "adjacency_matrix<,=std::allocator<std::size_t>>" as C_0001475577467422785422
+class C_0001475577467422785422 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/fwd.hpp#L17{adjacency_matrix}]] {
+}
+class "type_list<First,Other...>" as C_0001723716587279733623
+class C_0001723716587279733623 {
+}
+class "type_list<Other...>" as C_0000401973545844492876
+class C_0000401973545844492876 {
+}
+class "type_list<Type,Other...>" as C_0000496685335806935509
+class C_0000496685335806935509 {
+}
+class "type_list" as C_0000816653833137337534
+class C_0000816653833137337534 {
+}
+class "type_list<Type...>" as C_0000150299823092418682
+class C_0000150299823092418682 {
+}
+class "value_list<Value,Other...>" as C_0001276342508473126665
+class C_0001276342508473126665 {
+}
+class "value_list<Other...>" as C_0000669672540584988414
+class C_0000669672540584988414 {
+}
+class "value_list<Value>" as C_0000114548431562228752
+class C_0000114548431562228752 {
+}
+class "compressed_pair<std::vector<std::size_t>,dense_map::hasher>" as C_0001686486826919845415
+class C_0001686486826919845415 {
+}
+class "compressed_pair<std::vector<internal::dense_map_node<Key,Type>>,dense_map::key_equal>" as C_0000507249114974527684
+class C_0000507249114974527684 {
+}
+class "compressed_pair<std::vector<std::size_t>,dense_set::hasher>" as C_0002082989189680990643
+class C_0002082989189680990643 {
+}
+class "compressed_pair<std::vector<std::pair<std::size_t,Type>>,dense_set::key_equal>" as C_0001611725919328905677
+class C_0001611725919328905677 {
+}
+class "adjacency_matrix<directed_tag>" as C_0000873438139212187708
+class C_0000873438139212187708 {
+}
+class "compressed_pair<basic_flow::size_type,basic_flow::allocator_type>" as C_0001145956599480727346
+class C_0001145956599480727346 {
+}
+class "dense_set<id_type,identity,std::equal_to,typename alloc_traits::template rebind_alloc<id_type>>" as C_0000555193814260215022
+class C_0000555193814260215022 {
+}
+class "dense_map<id_type,std::vector<std::pair<std::size_t,bool>>,identity,std::equal_to,typename alloc_traits::template rebind_alloc<std::pair<const id_type,ro_rw_container_type>>>" as C_0001883207623685527190
+class C_0001883207623685527190 {
+}
+class "basic_flow<Allocator=std::allocator<id_type>>" as C_0000210061193389745692
+class C_0000210061193389745692 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/flow.hpp#L29{basic_flow}]] {
+-emplace(const id_type res, const bool is_rw) : void
++basic_flow<type-parameter-0-0>() : void
++basic_flow<type-parameter-0-0>(const allocator_type & allocator) : void
++basic_flow<type-parameter-0-0>(const basic_flow<type-parameter-0-0> & ) = default : void
++basic_flow<type-parameter-0-0>(const basic_flow<type-parameter-0-0> & other, const allocator_type & allocator) : void
++basic_flow<type-parameter-0-0>(basic_flow<type-parameter-0-0> && ) = default : void
++basic_flow<type-parameter-0-0>(basic_flow<type-parameter-0-0> && other, const allocator_type & allocator) : void
++operator=(const basic_flow<type-parameter-0-0> & ) = default : basic_flow<type-parameter-0-0> &
++operator=(basic_flow<type-parameter-0-0> && ) = default : basic_flow<type-parameter-0-0> &
++get_allocator() const : allocator_type
++operator[](const size_type pos) const : id_type
++clear() : void
++swap(basic_flow<type-parameter-0-0> & other) : void
++size() const : size_type
++bind(const id_type value) : basic_flow<type-parameter-0-0> &
++sync() : basic_flow<type-parameter-0-0> &
++set(const id_type res, bool is_rw = false) : basic_flow<type-parameter-0-0> &
++ro(const id_type res) : basic_flow<type-parameter-0-0> &
++rw(const id_type res) : basic_flow<type-parameter-0-0> &
++graph() const : adjacency_matrix<directed_tag>
++ro<It>(It first, It last) : std::enable_if_t<std::is_same_v<std::remove_const_t<typename std::iterator_traits<It>::value_type>, id_type>, basic_flow<type-parameter-0-0> &>
++rw<It>(It first, It last) : std::enable_if_t<std::is_same_v<std::remove_const_t<typename std::iterator_traits<It>::value_type>, id_type>, basic_flow<type-parameter-0-0> &>
+-index : compressed_pair<size_type,allocator_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/flow.hpp#L319{index}]]]
+-vertices : task_container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/flow.hpp#L320{vertices}]]]
+-deps : deps_container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/flow.hpp#L321{deps}]]]
+-sync_on : size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/graph/flow.hpp#L322{sync_on}]]]
+}
+C_0002020830202082955781 <|-- C_0000261952894934420548
+C_0001033172316353199790 ..> C_0001178396555088254037
+C_0002303669005198237364 ..|> C_0001033172316353199790
+C_0001949040226502523653 ..|> C_0001949040226502523653
+C_0001371435826418372832 ..> C_0000671828807667868418
+C_0001453232910335396883 ..> C_0001371435826418372832
+C_0001723716587279733623 ..|> C_0000150299823092418682
+C_0000401973545844492876 ..|> C_0001723716587279733623
+C_0000496685335806935509 ..|> C_0001723716587279733623
+C_0000150299823092418682 ..|> C_0001723716587279733623
+C_0000507249114974527684 ..> C_0001949040226502523653
+C_0002082989189680990643 ..|> C_0001686486826919845415
+C_0000873438139212187708 ..> C_0002020830202082955781
+C_0000873438139212187708 ..|> C_0001453232910335396883
+C_0000210061193389745692 ..> C_0002020830202082955781
+C_0000210061193389745692 ..> C_0000873438139212187708
+C_0000210061193389745692 o-- C_0001145956599480727346 : -index
+C_0000210061193389745692 o-- C_0000555193814260215022 : -vertices
+C_0000210061193389745692 o-- C_0001883207623685527190 : -deps
+
+'Generated with clang-uml, version 0.3.5-2-g7e9944c
+'LLVM version Ubuntu clang version 16.0.1 (++20230328073357+42d1b276f779-1~exp1~20230328073502.65)
+@enduml

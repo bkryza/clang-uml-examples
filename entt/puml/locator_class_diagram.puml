@@ -1,0 +1,23 @@
+@startuml
+class "locator<Service>" as C_0002057168254138054942
+class C_0002057168254138054942 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L27{locator}]] {
++locator<Service>() : void
++~locator<Service>() : void
+{static} +has_value() : bool
+{static} +value() : Service &
+{static} +handle() : node_type
+{static} +reset(const node_type & other = {}) : void
+{static} +value_or<Impl=Service,Args...>(Args &&... args) : Service &
+{static} +emplace<Impl=Service,Args...>(Args &&... args) : Service &
+{static} +allocate_emplace<Impl=Service,Allocator,Args...>(Allocator alloc, Args &&... args) : Service &
+{static} -service : std::shared_ptr<Service> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L130{service}]]]
+}
+class "locator::service_handle" as C_0002252539691859806017
+class C_0002252539691859806017 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L28{locator##service_handle}]] {
+-value : std::shared_ptr<Service> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L30{value}]]]
+}
+C_0002252539691859806017 --+ C_0002057168254138054942
+
+'Generated with clang-uml, version 0.3.5-2-g7e9944c
+'LLVM version Ubuntu clang version 16.0.1 (++20230328073357+42d1b276f779-1~exp1~20230328073502.65)
+@enduml
