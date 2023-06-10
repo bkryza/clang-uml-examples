@@ -16,7 +16,7 @@ build: godot
 diagrams: build
 		cd godot && \
 		cp ../.clang-uml .clang-uml && \
-		../$(CLANG_UML_BINARY)
+		../$(CLANG_UML_BINARY) --query-driver .
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml

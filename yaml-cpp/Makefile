@@ -18,7 +18,7 @@ build: yaml-cpp
 diagrams: build
 		cd yaml-cpp && \
 		cp ../.clang-uml .clang-uml && \
-		../$(CLANG_UML_BINARY) --remove-compile-flag -Wshadow --add-compile-flag -Wno-shadow --config .clang-uml
+		../$(CLANG_UML_BINARY) --query-driver . --remove-compile-flag -Wshadow --add-compile-flag -Wno-shadow --config .clang-uml
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml

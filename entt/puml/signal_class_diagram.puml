@@ -1,256 +1,220 @@
 @startuml
-class "type_list<First,Other...>" as C_0001723716587279733623
-class C_0001723716587279733623 {
-}
-class "type_list<Other...>" as C_0000401973545844492876
-class C_0000401973545844492876 {
-}
-class "type_list<Type,Other...>" as C_0000496685335806935509
-class C_0000496685335806935509 {
-}
-class "type_list" as C_0000816653833137337534
-class C_0000816653833137337534 {
-}
-class "type_list<Type...>" as C_0000150299823092418682
-class C_0000150299823092418682 {
-}
-class "value_list<Value,Other...>" as C_0001276342508473126665
-class C_0001276342508473126665 {
-}
-class "value_list<Other...>" as C_0000669672540584988414
-class C_0000669672540584988414 {
-}
-class "value_list<Value>" as C_0000114548431562228752
-class C_0000114548431562228752 {
-}
-class "internal::dense_map_node<Key,Type>" as C_0001949040226502523653
-class C_0001949040226502523653 {
-}
 abstract "internal::basic_dispatcher_handler" as C_0001307290238739357754
 abstract C_0001307290238739357754 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L27{basic_dispatcher_handler}]] {
 +~basic_dispatcher_handler() = default : void
+..
+{abstract} +clear() noexcept = 0 : void
+{abstract} +disconnect(void *) = 0 : void
 {abstract} +publish() = 0 : void
-{abstract} +disconnect(void * ) = 0 : void
-{abstract} +clear() = 0 : void
-{abstract} +size() const = 0 : std::size_t
+{abstract} +size() const noexcept = 0 : std::size_t
+__
 }
 class "internal::dispatcher_handler<Type,Allocator>" as C_0000948211101657221704
 class C_0000948211101657221704 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L36{dispatcher_handler}]] {
-+dispatcher_handler<Type, Allocator>(const allocator_type & allocator) : void
-+publish() : void
++dispatcher_handler(const internal::dispatcher_handler::allocator_type & allocator) : void
+..
++bucket() noexcept : auto
++clear() noexcept : void
 +disconnect(void * instance) : void
-+clear() : void
-+bucket() : auto
-+trigger(Type event) : void
-+size() const : std::size_t
 +enqueue<Args...>(Args &&... args) : void
--signal : signal_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L90{signal}]]]
--events : container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L91{events}]]]
++publish() : void
++size() const noexcept : std::size_t
++trigger(Type event) : void
+__
+-events : internal::dispatcher_handler::container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L91{events}]]]
+-signal : internal::dispatcher_handler::signal_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L90{signal}]]]
 }
 class "connect_arg_t<auto>" as C_0001142186291934866126
 class C_0001142186291934866126 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L32{connect_arg_t}]] {
-+connect_arg_t<>() = default : void
++connect_arg_t() = default : void
+__
 }
 class "delegate<Ret(Args...)>" as C_0000011977380754407836
-class C_0000011977380754407836 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/delegate.hpp#L74{delegate}]] {
-+delegate<type-parameter-0-0 (type-parameter-0-1...)>() : void
-+delegate<type-parameter-0-0 (type-parameter-0-1...)>(function_type * function, const void * payload = nullptr) : void
-+connect(function_type * function, const void * payload = nullptr) : void
-+reset() : void
-+data() const : const void *
-+operator()(Args... args) const : Ret
-+operator bool() const : bool
-+operator==(const delegate<Ret (Args...)> & other) const : bool
--wrap<auto Candidate,std::size_t... Index>(std::index_sequence<Index...> ) : auto
--wrap<auto Candidate,Type,std::size_t... Index>(Type & , std::index_sequence<Index...> ) : auto
--wrap<auto Candidate,Type,std::size_t... Index>(Type * , std::index_sequence<Index...> ) : auto
-+delegate<type-parameter-0-0 (type-parameter-0-1...)><auto Candidate,Type...>(connect_arg_t<Candidate> , Type &&... value_or_instance) : void
-+connect<auto Candidate>() : void
-+connect<auto Candidate,Type>(Type & value_or_instance) : void
-+connect<auto Candidate,Type>(Type * value_or_instance) : void
--instance : const void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/delegate.hpp#L280{instance}]]]
--fn : function_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/delegate.hpp#L281{fn}]]]
+class C_0000011977380754407836 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/delegate.hpp#L59{delegate}]] {
+__
+}
+class "connect_arg_t<Candidate>" as C_0000669731748523585054
+class C_0000669731748523585054 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L32{connect_arg_t}]] {
+__
 }
 class "scoped_connection" as C_0000084455293237423501
 class C_0000084455293237423501 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L19{scoped_connection}]] {
 +scoped_connection() = default : void
 +scoped_connection(const connection & other) : void
-+scoped_connection(const scoped_connection & ) : void
-+scoped_connection(scoped_connection && other) : void
++scoped_connection(const scoped_connection &) = deleted : void
++scoped_connection(scoped_connection && other) noexcept : void
 +~scoped_connection() : void
-+operator=(const scoped_connection & ) : scoped_connection &
-+operator=(scoped_connection && other) : scoped_connection &
+..
++operator=(const scoped_connection &) = deleted : scoped_connection &
++operator=(scoped_connection && other) noexcept : scoped_connection &
+..
 +operator=(connection other) : scoped_connection &
-+operator bool() const : bool
+..
++operator bool() const noexcept : bool
 +release() : void
+__
 -conn : connection [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L336{conn}]]]
 }
-class "sigh<Type,=std::allocator<void>>" as C_0000578097939246288599
-class C_0000578097939246288599 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L25{sigh}]] {
+class "basic_dispatcher<typename=std::allocator<void>>" as C_0000098445855838491408
+class C_0000098445855838491408 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L12{basic_dispatcher}]] {
+__
 }
-class "emitter<,=std::allocator<void>>" as C_0000719504623431813976
-class C_0000719504623431813976 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L15{emitter}]] {
+class "sink<typename>" as C_0000209413521570231267
+class C_0000209413521570231267 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L22{sink}]] {
+__
 }
-class "sink<>" as C_0001529840427713330809
-class C_0001529840427713330809 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L22{sink}]] {
+class "sigh<Type,typename=std::allocator<void>>" as C_0000397774958659844289
+class C_0000397774958659844289 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L25{sigh}]] {
+__
+}
+class "emitter<typename,typename=std::allocator<void>>" as C_0001248149390777255459
+class C_0001248149390777255459 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L15{emitter}]] {
+__
 }
 class "connection" as C_0001629008291831120506
 class C_0001629008291831120506 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L17{connection}]] {
 -connection(delegate<void (void *)> fn, void * ref) : void
 +connection() : void
-+operator bool() const : bool
+..
++operator bool() const noexcept : bool
 +release() : void
+__
 -disconnect : delegate<void (void *)> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L257{disconnect}]]]
 -signal : void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L258{signal}]]]
 }
-class "basic_dispatcher<=std::allocator<void>>" as C_0001712967867845904672
-class C_0001712967867845904672 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L12{basic_dispatcher}]] {
-}
-class "delegate<>" as C_0002073152025337867747
-class C_0002073152025337867747 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L9{delegate}]] {
+class "delegate<typename>" as C_0002122157564414146506
+class C_0002122157564414146506 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/fwd.hpp#L9{delegate}]] {
+__
 }
 class "sigh<Ret(Args...),Allocator>" as C_0001654528939521938342
 class C_0001654528939521938342 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L54{sigh}]] {
-+sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2>() : void
-+sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2>(const allocator_type & allocator) : void
-+sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2>(const sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> & other) : void
-+sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2>(const sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> & other, const allocator_type & allocator) : void
-+sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2>(sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> && other) : void
-+sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2>(sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> && other, const allocator_type & allocator) : void
-+operator=(const sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> & other) : sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> &
-+operator=(sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> && other) : sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> &
-+swap(sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> & other) : void
-+get_allocator() const : allocator_type
-+size() const : size_type
-+empty() const : bool
++sigh() noexcept : void
++sigh(allocator_type const& allocator) noexcept : void
++sigh(const sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> & other) noexcept : void
++sigh(const sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> & other, allocator_type const& allocator) noexcept : void
++sigh(sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> && other) noexcept : void
++sigh(sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> && other, allocator_type const& allocator) noexcept : void
+..
++operator=(const sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> & other) noexcept : sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> &
++operator=(sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> && other) noexcept : sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> &
+..
++collect<Func>(Func func, Args... args) const : void
++empty() const noexcept : bool
++get_allocator() constexpr const noexcept : allocator_type
 +publish(Args... args) const : void
-+collect<Func>(Func func, Args... args) : void
++size() const noexcept : size_type
++swap(sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2> & other) noexcept : void
+__
 -calls : container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L216{calls}]]]
 }
 class "delegate<void(void *)>" as C_0001338234208699310194
-class C_0001338234208699310194 {
+class C_0001338234208699310194 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/delegate.hpp#L59{delegate}]] {
+__
 }
 class "sink<sigh<Ret(Args...),Allocator>>" as C_0000122718201217191999
 class C_0000122718201217191999 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L359{sink}]] {
++sink(sigh<Ret (Args...),Allocator> & ref) noexcept : void
+..
 -before(delegate<Ret (Args...)> call) : auto
-+sink<sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2> >(sigh<Ret (Args...),Allocator> & ref) : void
-+empty() const : bool
 +before(const void * value_or_instance) : sink<sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2>>
 +before() : sink<sigh<type-parameter-0-0 (type-parameter-0-1...),type-parameter-0-2>>
-+disconnect(const void * value_or_instance) : void
-+disconnect() : void
-{static} -release<auto Candidate,Type>(Type value_or_instance, void * signal) : void
-{static} -release<auto Candidate>(void * signal) : void
 +before<auto Function>() : sink<sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2> >
 +before<auto Candidate,Type>(Type && value_or_instance) : sink<sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2> >
-+before<Type,=std::enable_if_t<!std::is_same_v<std::decay_t<std::remove_pointer_t<Type> >, void>, sink<sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2> > >>(Type & value_or_instance) : sink<sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2> >
-+connect<auto Candidate,Type...>(Type &&... value_or_instance) : connection
++before<Type,typename=std::enable_if_t<!std::is_same_v<std::decay_t<std::remove_pointer_t<Type> >, void>, sink<sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2> > >>(Type & value_or_instance) : sink<sigh<type-parameter-0-0 (type-parameter-0-1...), type-parameter-0-2> >
++connect<auto Candidate,Type...>(Type &&... value_or_instance) : class connection
++disconnect(const void * value_or_instance) : void
++disconnect() : void
 +disconnect<auto Candidate,Type...>(Type &&... value_or_instance) : void
-+disconnect<Type,=std::enable_if_t<!std::is_same_v<std::decay_t<std::remove_pointer_t<Type> >, void> >>(Type & value_or_instance) : void
++disconnect<Type,typename=std::enable_if_t<!std::is_same_v<std::decay_t<std::remove_pointer_t<Type> >, void> >>(Type & value_or_instance) : void
++empty() const noexcept : bool
+{static} -release<auto Candidate,Type>(Type value_or_instance, void * signal) : void
+{static} -release<auto Candidate>(void * signal) : void
+__
 -offset : difference_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L545{offset}]]]
 -signal : signal_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L546{signal}]]]
 }
 class "sigh<Type,Allocator=std::allocator<void>>" as C_0000168483954532210279
 class C_0000168483954532210279 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L35{sigh}]] {
+__
 }
 class "sink<Type>" as C_0001692833380939147962
 class C_0001692833380939147962 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L23{sink}]] {
-}
-class "compressed_pair<std::vector<std::size_t>,dense_map::hasher>" as C_0001686486826919845415
-class C_0001686486826919845415 {
-}
-class "compressed_pair<std::vector<internal::dense_map_node<Key,Type>>,dense_map::key_equal>" as C_0000507249114974527684
-class C_0000507249114974527684 {
+__
 }
 class "sigh<void(Type &),Allocator>" as C_0000852066601687344945
-class C_0000852066601687344945 {
-}
-class "dense_map<basic_dispatcher::key_type,std::shared_ptr<internal::basic_dispatcher_handler>,identity,std::equal_to,basic_dispatcher::container_allocator>" as C_0002210156877612052123
-class C_0002210156877612052123 {
-}
-class "compressed_pair<dense_map<basic_dispatcher::key_type,std::shared_ptr<internal::basic_dispatcher_handler>,identity,std::equal_to,basic_dispatcher::container_allocator>,basic_dispatcher::allocator_type>" as C_0001407910621438371821
-class C_0001407910621438371821 {
+class C_0000852066601687344945 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L35{sigh}]] {
+__
 }
 class "basic_dispatcher<Allocator=std::allocator<void>>" as C_0001139451768232131379
 class C_0001139451768232131379 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L116{basic_dispatcher}]] {
-+basic_dispatcher<type-parameter-0-0>() : void
-+basic_dispatcher<type-parameter-0-0>(const allocator_type & allocator) : void
-+basic_dispatcher<type-parameter-0-0>(basic_dispatcher<type-parameter-0-0> && other) : void
-+basic_dispatcher<type-parameter-0-0>(basic_dispatcher<type-parameter-0-0> && other, const allocator_type & allocator) : void
-+operator=(basic_dispatcher<type-parameter-0-0> && other) : basic_dispatcher<type-parameter-0-0> &
-+swap(basic_dispatcher<type-parameter-0-0> & other) : void
-+get_allocator() const : allocator_type
-+size() const : size_type
-+clear() : void
-+update() const : void
++basic_dispatcher() : void
++basic_dispatcher(const basic_dispatcher::allocator_type & allocator) : void
++basic_dispatcher(basic_dispatcher<type-parameter-0-0> && other) noexcept : void
++basic_dispatcher(basic_dispatcher<type-parameter-0-0> && other, const basic_dispatcher::allocator_type & allocator) noexcept : void
+..
++operator=(basic_dispatcher<type-parameter-0-0> && other) noexcept : basic_dispatcher<type-parameter-0-0> &
+..
 -assure<Type>(const id_type id) : handler_type<Type> &
--assure<Type>(const id_type id) : const handler_type<Type> *
-+size<Type>(const id_type id = type_hash<Type>::value()) : size_type
-+sink<Type>(const id_type id = type_hash<Type>::value()) : auto
-+trigger<Type>(Type && value = {}) : void
-+trigger<Type>(const id_type id, Type && value = {}) : void
+-assure<Type>(const id_type id) const : const handler_type<Type> *
++clear() noexcept : void
++clear<Type>(const id_type id = type_hash<Type>::value()) : void
++disconnect<Type>(Type * value_or_instance) : void
++disconnect<Type>(Type & value_or_instance) : void
 +enqueue<Type,Args...>(Args &&... args) : void
 +enqueue<Type>(Type && value) : void
 +enqueue_hint<Type,Args...>(const id_type id, Args &&... args) : void
 +enqueue_hint<Type>(const id_type id, Type && value) : void
-+disconnect<Type>(Type & value_or_instance) : void
-+disconnect<Type>(Type * value_or_instance) : void
-+clear<Type>(const id_type id = type_hash<Type>::value()) : void
++get_allocator() constexpr const noexcept : basic_dispatcher::allocator_type
++sink<Type>(const id_type id = type_hash<Type>::value()) : auto
++size() const noexcept : basic_dispatcher::size_type
++size<Type>(const id_type id = type_hash<Type>::value()) const noexcept : basic_dispatcher::size_type
++swap(basic_dispatcher<type-parameter-0-0> & other) : void
++trigger<Type>(Type && value = {}) : void
++trigger<Type>(const id_type id, Type && value = {}) : void
++update() const : void
 +update<Type>(const id_type id = type_hash<Type>::value()) : void
--pools : compressed_pair<container_type,allocator_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L385{pools}]]]
-}
-class "dense_map<emitter::key_type,std::function<void(void *)>,identity,std::equal_to,emitter::container_allocator>" as C_0001959787170500385555
-class C_0001959787170500385555 {
-}
-class "compressed_pair<dense_map<emitter::key_type,std::function<void(void *)>,identity,std::equal_to,emitter::container_allocator>,emitter::allocator_type>" as C_0000090972195311728335
-class C_0000090972195311728335 {
+__
+-pools : compressed_pair<basic_dispatcher::container_type,basic_dispatcher::allocator_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L385{pools}]]]
 }
 class "emitter<Derived,Allocator=std::allocator<void>>" as C_0001377312229211188154
 class C_0001377312229211188154 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/emitter.hpp#L36{emitter}]] {
-+emitter<type-parameter-0-0, type-parameter-0-1>() : void
-+emitter<type-parameter-0-0, type-parameter-0-1>(const allocator_type & allocator) : void
-+~emitter<type-parameter-0-0, type-parameter-0-1>() : void
-+emitter<type-parameter-0-0, type-parameter-0-1>(emitter<type-parameter-0-0,type-parameter-0-1> && other) : void
-+emitter<type-parameter-0-0, type-parameter-0-1>(emitter<type-parameter-0-0,type-parameter-0-1> && other, const allocator_type & allocator) : void
-+operator=(emitter<type-parameter-0-0,type-parameter-0-1> && other) : emitter<type-parameter-0-0,type-parameter-0-1> &
-+swap(emitter<type-parameter-0-0,type-parameter-0-1> & other) : void
-+get_allocator() const : allocator_type
-+clear() : void
-+empty() const : bool
-+publish<Type>(Type && value) : void
-+on<Type>(std::function<void (Type &,Derived &)> func) : void
++emitter() : void
++emitter(const emitter::allocator_type & allocator) : void
++emitter(emitter<type-parameter-0-0,type-parameter-0-1> && other) noexcept : void
++emitter(emitter<type-parameter-0-0,type-parameter-0-1> && other, const emitter::allocator_type & allocator) noexcept : void
++~emitter() noexcept : void
+..
++operator=(emitter<type-parameter-0-0,type-parameter-0-1> && other) noexcept : emitter<type-parameter-0-0,type-parameter-0-1> &
+..
++clear() noexcept : void
++contains<Type>() const : _Bool
++empty() const noexcept : bool
 +erase<Type>() : void
-+contains<Type>() : _Bool
--handlers : compressed_pair<container_type,allocator_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/emitter.hpp#L165{handlers}]]]
++get_allocator() constexpr const noexcept : emitter::allocator_type
++on<Type>(std::function<void (Type &,Derived &)> func) : void
++publish<Type>(Type && value) : void
++swap(emitter<type-parameter-0-0,type-parameter-0-1> & other) : void
+__
+-handlers : compressed_pair<emitter::container_type,emitter::allocator_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/emitter.hpp#L165{handlers}]]]
 }
-C_0001723716587279733623 ..|> C_0000150299823092418682
-C_0000401973545844492876 ..|> C_0001723716587279733623
-C_0000496685335806935509 ..|> C_0001723716587279733623
-C_0000150299823092418682 ..|> C_0001723716587279733623
-C_0001949040226502523653 ..|> C_0001949040226502523653
 C_0000948211101657221704 o-- C_0000852066601687344945 : -signal
 C_0001307290238739357754 <|-- C_0000948211101657221704
-C_0000011977380754407836 ..> C_0000011977380754407836
-C_0000011977380754407836 ..|> C_0002073152025337867747
+C_0000011977380754407836 ..|> C_0002122157564414146506
+C_0000669731748523585054 ..|> C_0001142186291934866126
 C_0000084455293237423501 ..> C_0001629008291831120506
 C_0000084455293237423501 o-- C_0001629008291831120506 : -conn
 C_0001629008291831120506 ..> C_0001338234208699310194
 C_0001629008291831120506 o-- C_0001338234208699310194 : -disconnect
-C_0001654528939521938342 ..|> C_0000578097939246288599
+C_0001654528939521938342 ..|> C_0000397774958659844289
 C_0001654528939521938342 ..> C_0000011977380754407836
 C_0001654528939521938342 o-- C_0000011977380754407836 : -calls
 C_0001338234208699310194 ..|> C_0000011977380754407836
 C_0000122718201217191999 ..> C_0001654528939521938342
-C_0000122718201217191999 ..|> C_0001529840427713330809
+C_0000122718201217191999 ..|> C_0000209413521570231267
 C_0000122718201217191999 ..> C_0000011977380754407836
 C_0000122718201217191999 --> C_0001654528939521938342 : -signal
-C_0000507249114974527684 ..> C_0001949040226502523653
 C_0000852066601687344945 ..|> C_0001654528939521938342
-C_0001407910621438371821 ..> C_0002210156877612052123
-C_0001139451768232131379 o-- C_0001407910621438371821 : -pools
-C_0000090972195311728335 ..> C_0001959787170500385555
-C_0001377312229211188154 o-- C_0000090972195311728335 : -handlers
 
-'Generated with clang-uml, version 0.3.5-2-g7e9944c
-'LLVM version Ubuntu clang version 16.0.1 (++20230328073357+42d1b276f779-1~exp1~20230328073502.65)
+'Generated with clang-uml, version 0.3.6-29-g238bfb0
+'LLVM version Ubuntu clang version 15.0.6
 @enduml

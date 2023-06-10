@@ -1,336 +1,208 @@
 @startuml
 class "exception_wrapper" as C_0001539432614095357204
 class C_0001539432614095357204 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L161{exception_wrapper}]] {
-{static} -onNoExceptionError(const char * name) : void
-{static} -uninit_type_(const exception_wrapper * ) : const std::type_info *
-{static} -as_exception_or_null_(const std::exception & ex) : const std::exception *
-{static} -as_exception_or_null_(exception_wrapper::AnyException ) : const std::exception *
-{static} +from_exception_ptr(const std::exception_ptr & eptr) : exception_wrapper
-{static} +from_exception_ptr(std::exception_ptr && eptr) : exception_wrapper
-+exception_wrapper() : void
-+exception_wrapper(exception_wrapper && that) : void
-+exception_wrapper(const exception_wrapper & that) : void
-+operator=(exception_wrapper && that) : exception_wrapper &
-+operator=(const exception_wrapper & that) : exception_wrapper &
-+~exception_wrapper() : void
-+exception_wrapper(std::exception_ptr ptr) : void
-+swap(exception_wrapper & that) : void
-+operator bool() const : bool
-+operator!() const : bool
-+reset() : void
-+has_exception_ptr() const : bool
-+get_exception() : std::exception *
-+get_exception() const : const std::exception *
-+to_exception_ptr() : std::exception_ptr
-+to_exception_ptr() const : std::exception_ptr
-{static} +none() : const std::type_info &
-{static} +unknown() : const std::type_info &
-+type() const : const std::type_info &
-+what() const : fbstring
-+class_name() const : fbstring
-+throw_exception() const : void
-{static} -noop_<Ret,Args...>(Args... ) : Ret
--exception_wrapper<Ex,As...>(exception_wrapper::ThrownTag , in_place_type_tag<Ex> , As &&... as) : void
--exception_wrapper<Ex,As...>(exception_wrapper::OnHeapTag , in_place_type_tag<Ex> , As &&... as) : void
--exception_wrapper<Ex,As...>(exception_wrapper::InSituTag , in_place_type_tag<Ex> , As &&... as) : void
-{static} -handle_<This,CatchFns...>(std::false_type , This & this_, CatchFns &... fns) : void
-{static} -handle_<This,CatchFns...>(std::true_type , This & this_, CatchFns &... fns) : void
-{static} -with_exception_<Ex,This,Fn>(This & this_, Fn fn_) : _Bool
-+exception_wrapper<Ex>(std::exception_ptr ptr, Ex & ex) : void
++exception_wrapper() noexcept : void
++exception_wrapper(exception_wrapper && that) noexcept : void
++exception_wrapper(const exception_wrapper & that) noexcept : void
++exception_wrapper(std::exception_ptr ptr) noexcept : void
+-exception_wrapper<Ex,As...>(exception_wrapper::ThrownTag, in_place_type_tag<Ex>, As &&... as) : void
+-exception_wrapper<Ex,As...>(exception_wrapper::OnHeapTag, in_place_type_tag<Ex>, As &&... as) : void
+-exception_wrapper<Ex,As...>(exception_wrapper::InSituTag, in_place_type_tag<Ex>, As &&... as) : void
++exception_wrapper<Ex>(std::exception_ptr ptr, Ex & ex) noexcept : void
 +exception_wrapper<Ex,Ex_=std::decay_t<Ex>,std::enable_if_t<static_cast<_Bool>(Conjunction<IsStdException<Ex_>, IsRegularExceptionType<Ex_> >::value), long>=435>(Ex && ex) : void
-+exception_wrapper<Ex,Ex_=std::decay_t<Ex>,std::enable_if_t<static_cast<_Bool>(IsRegularExceptionType<Ex_>::value), long>=448>(in_place_t , Ex && ex) : void
-+exception_wrapper<Ex,As...,std::enable_if_t<static_cast<_Bool>(IsRegularExceptionType<Ex>::value), long>=454>(in_place_type_tag<Ex> , As &&... as) : void
-+get_exception<Ex>() : Ex *
-+get_exception<Ex>() : const Ex *
-+is_compatible_with<Ex>() : _Bool
-+throw_with_nested<Ex>(Ex && ex) : void
-+with_exception<Ex=const void,Fn>(Fn fn) : _Bool
-+with_exception<Ex=const void,Fn>(Fn fn) : _Bool
++exception_wrapper<Ex,Ex_=std::decay_t<Ex>,std::enable_if_t<static_cast<_Bool>(IsRegularExceptionType<Ex_>::value), long>=448>(in_place_t, Ex && ex) : void
++exception_wrapper<Ex,As...,std::enable_if_t<static_cast<_Bool>(IsRegularExceptionType<Ex>::value), long>=454>(in_place_type_tag<Ex>, As &&... as) : void
++~exception_wrapper() : void
+..
++operator=(exception_wrapper && that) noexcept : exception_wrapper &
++operator=(const exception_wrapper & that) noexcept : exception_wrapper &
+..
++operator!() const noexcept : bool
+..
+{static} -as_exception_or_null_(const std::exception & ex) : const std::exception *
+{static} -as_exception_or_null_(exception_wrapper::AnyException) : const std::exception *
++class_name() const : fbstring
+{static} +from_exception_ptr(const std::exception_ptr & eptr) noexcept : exception_wrapper
+{static} +from_exception_ptr(std::exception_ptr && eptr) noexcept : exception_wrapper
++get_exception<Ex>() const noexcept : const Ex *
++get_exception<Ex>() noexcept : Ex *
++get_exception() const noexcept : const std::exception *
++get_exception() noexcept : std::exception *
++handle<CatchFns...>(CatchFns... fns) const : void
 +handle<CatchFns...>(CatchFns... fns) : void
-+handle<CatchFns...>(CatchFns... fns) : void
+{static} -handle_<This,CatchFns...>(std::false_type, This & this_, CatchFns &... fns) : void
+{static} -handle_<This,CatchFns...>(std::true_type, This & this_, CatchFns &... fns) : void
++has_exception_ptr() const noexcept : bool
++is_compatible_with<Ex>() const noexcept : _Bool
+{static} +none() noexcept : const std::type_info &
+{static} -noop_<Ret,Args...>(Args...) : Ret
+{static} -onNoExceptionError(const char * name) : void
++operator bool() const noexcept : bool
++reset() : void
++swap(exception_wrapper & that) noexcept : void
++throw_exception() const : void
++throw_with_nested<Ex>(Ex && ex) const : void
++to_exception_ptr() noexcept : std::exception_ptr
++to_exception_ptr() const noexcept : std::exception_ptr
++type() const noexcept : const std::type_info &
+{static} -uninit_type_(const exception_wrapper *) : const std::type_info *
+{static} +unknown() noexcept : const std::type_info &
++what() const : fbstring
++with_exception<Ex=const void,Fn>(Fn fn) : _Bool
++with_exception<Ex=const void,Fn>(Fn fn) const : _Bool
+{static} -with_exception_<Ex,This,Fn>(This & this_, Fn fn_) : _Bool
+__
 - : exception_wrapper::(anonymous_2613686) [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L337{}]]]
--vptr_ : const exception_wrapper::VTable * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L342{vptr_}]]]
 {static} -uninit_ : const exception_wrapper::VTable [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L205{uninit_}]]]
+-vptr_ : const exception_wrapper::VTable * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/ExceptionWrapper.h#L342{vptr_}]]]
 }
 class "Try<T>" as C_0000135335628570802873
 class C_0000135335628570802873 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Try.h#L52{Try}]] {
-+Try<T>() : void
-+Try<T>(const T & v) : void
-+Try<T>(T && v) : void
-+Try<T>(exception_wrapper e) : void
-+Try<T>(Try<T> && t) : void
-+operator=(Try<T> && t) : Try<T> &
-+Try<T>(const Try<T> & t) : void
-+operator=(const Try<T> & t) : Try<T> &
-+~Try<T>() : void
-+value() : T &
-+value() : T &&
-+value() const : const T &
-+value() const : const T &&
-+throwIfFailed() const : void
-+operator*() const : const T &
-+operator*() : T &
-+operator*() : T &&
-+operator*() const : const T &&
-+operator->() const : const T *
-+operator->() : T *
-+hasValue() const : bool
-+hasException() const : bool
-+exception() : exception_wrapper &
-+exception() : exception_wrapper &&
-+exception() const : const exception_wrapper &
-+exception() const : const exception_wrapper &&
-+tryGetExceptionObject() : std::exception *
-+tryGetExceptionObject() const : const std::exception *
--destroy() : void
-+Try<T><Args...>(in_place_t , Args &&... args) : void
-+Try<T><T2=T>(typename std::enable_if<std::is_same<Unit,T2>::value,const Try<void> &>::type t) : void
-+emplace<Args...>(Args &&... args) : T &
-+emplaceException<Args...>(Args &&... args) : class exception_wrapper &
-+hasException<Ex>() : _Bool
-+tryGetExceptionObject<E>() : E *
-+tryGetExceptionObject<E>() : const E *
-+withException<Ex,F>(F func) : _Bool
-+withException<Ex,F>(F func) : _Bool
-+withException<F>(F func) : _Bool
-+withException<F>(F func) : _Bool
-+get<_Bool isTry,R>() : typename std::enable_if<isTry, R>::type
-+get<_Bool isTry,R>() : typename std::enable_if<!isTry, R>::type
--contains_ : Try::Contains [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Try.h#L356{contains_}]]]
-- : Try::(anonymous_2784848) [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Try.h#L357{}]]]
-}
-class "futures::detail::Core<T>" as C_0000487431047047122182
-class C_0000487431047047122182 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/detail/Core.h#L504{Core}]] {
-{static} +make() : Core<T> *
-{static} +make(Try<T> && t) : Core<T> *
-+getTry() : Try<T> &
-+getTry() const : const Try<T> &
-+setResult(Try<T> && t) : void
-+setResult(Executor::KeepAlive<> && completingKA, Try<T> && t) : void
-+setProxy(Core<T> * proxy) : void
--Core<T>() : void
--Core<T>(Try<T> && t) : void
--~Core<T>() : void
-{static} +make<Args...>(in_place_t , Args &&... args) : Core<T> *
-+setCallback<F>(F && func, std::shared_ptr<RequestContext> && context, futures::detail::InlineContinuation allowInline) : void
--Core<T><Args...>(in_place_t , Args &&... args) : void
-}
-class "futures::detail::EmptyConstruct" as C_0001636747636195825603
-class C_0001636747636195825603 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L68{EmptyConstruct}]] {
-}
-class "futures::detail::FutureBase<T>" as C_0000725183341054102552
-class C_0000725183341054102552 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L116{FutureBase}]] {
-+FutureBase<T>(const FutureBase<T> & ) : void
-+FutureBase<T>(SemiFuture<T> && ) : void
-+FutureBase<T>(Future<T> && ) : void
-+FutureBase<T>(const Future<T> & ) : void
-+FutureBase<T>(const SemiFuture<T> & ) : void
-+~FutureBase<T>() : void
-+valid() const : bool
-+value() : T &
-+value() const : const T &
-+value() : T &&
-+value() const : const T &&
-+result() : Try<T> &
-+result() const : const Try<T> &
-+result() : Try<T> &&
-+result() const : const Try<T> &&
-+isReady() const : bool
-+hasValue() const : bool
-+hasException() const : bool
-+poll() : Optional<Try<T>>
-+raise(exception_wrapper interrupt) : void
-+cancel() : void
-#getCore() : futures::detail::FutureBase::Core &
-#getCore() const : const futures::detail::FutureBase::Core &
-#getCoreTryChecked() : Try<T> &
-#getCoreTryChecked() const : const Try<T> &
-#FutureBase<T>(futures::detail::FutureBase::Core * obj) : void
-#FutureBase<T>(futures::detail::EmptyConstruct ) : void
-#detach() : void
-#throwIfInvalid() const : void
-#throwIfContinued() const : void
-#assign(FutureBase<T> && other) : void
-#getExecutor() const : Executor *
-#getDeferredExecutor() const : futures::detail::DeferredExecutor *
-#setExecutor(futures::detail::KeepAliveOrDeferred x) : void
-+FutureBase<T><T2=T,=typename std::enable_if<!isFuture<typename std::decay<T2>::type>::value && !isSemiFuture<typename std::decay<T2>::type>::value && std::is_constructible<Try<T>, T2>::value>::type>(T2 && val) : void
-+FutureBase<T><T2=T>(typename std::enable_if<std::is_same<Unit,T2>::value>::type * ) : void
-+FutureBase<T><Args...,typename std::enable_if<std::is_constructible<T, Args &&...>::value, int>::type=0>(in_place_t , Args &&... args) : void
-+setCallback_<F>(F && func, futures::detail::InlineContinuation  = InlineContinuation::forbid) : void
-+raise<E>(E && exception) : void
-{static} #getCoreImpl<Self>(Self & self) : decltype(auto)
-{static} #getCoreTryChecked<Self>(Self & self) : decltype(auto)
-#thenImplementation<F,R>(F && func, R , futures::detail::InlineContinuation ) : typename std::enable_if<!R::ReturnsFuture::value, typename R::Return>::type
-#thenImplementation<F,R>(F && func, R , futures::detail::InlineContinuation ) : typename std::enable_if<R::ReturnsFuture::value, typename R::Return>::type
-#core_ : futures::detail::FutureBase::Core * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L383{core_}]]]
+__
 }
 class "futures::detail::InvokeResultWrapper<SemiFuture<T>>" as C_0000433969784032268826
 class C_0000433969784032268826 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L72{InvokeResultWrapper}]] {
+__
 }
 class "futures::detail::InvokeResultWrapper<Future<T>>" as C_0000492449436077847588
 class C_0000492449436077847588 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L75{InvokeResultWrapper}]] {
+__
 }
 class "futures::detail::CoreCallbackState<T,F>" as C_0001797157475442677168
 class C_0001797157475442677168 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L104{CoreCallbackState}]] {
-+CoreCallbackState<T, F>(Promise<T> && promise, F && func) : void
-+CoreCallbackState<T, F>(CoreCallbackState<T,F> && that) : void
-+operator=(CoreCallbackState<T,F> && ) : CoreCallbackState<T,F> &
-+~CoreCallbackState<T, F>() : void
-+setTry(Executor::KeepAlive<> && keepAlive, Try<T> && t) : void
++CoreCallbackState(Promise<T> && promise, F && func) noexcept : void
++CoreCallbackState(CoreCallbackState<T,F> && that) noexcept : void
++~CoreCallbackState() : void
+..
++operator=(CoreCallbackState<T,F> &&) = deleted : CoreCallbackState<T,F> &
+..
+-before_barrier() const noexcept : bool
++invoke<Args...>(Args &&... args) noexcept : auto
 +setException(Executor::KeepAlive<> && keepAlive, exception_wrapper && ew) : void
-+stealPromise() : Promise<T>
--before_barrier() const : bool
-+invoke<Args...>(Args &&... args) : auto
-+tryInvoke<Args...>(Args &&... args) : auto
++setTry(Executor::KeepAlive<> && keepAlive, Try<T> && t) : void
++stealPromise() noexcept : Promise<T>
++tryInvoke<Args...>(Args &&... args) noexcept : auto
+__
 - : CoreCallbackState::(anonymous_8231650) [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L159{}]]]
 -promise_ : Promise<T> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L162{promise_}]]]
 }
-class "Executor::KeepAlive" as C_0002242828088217415598
-class C_0002242828088217415598 {
-}
 class "Promise<T>" as C_0001778078938283944881
 class C_0001778078938283944881 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L147{Promise}]] {
-{static} +makeEmpty() : Promise<T>
-+Promise<T>() : void
-+~Promise<T>() : void
-+Promise<T>(const Promise<T> & ) : void
-+operator=(const Promise<T> & ) : Promise<T> &
-+Promise<T>(Promise<T> && other) : void
-+operator=(Promise<T> && other) : Promise<T> &
-+getSemiFuture() : SemiFuture<T>
-+getFuture() : Future<T>
-+setException(exception_wrapper ew) : void
-+setTry(Try<T> && t) : void
-+valid() const : bool
-+isFulfilled() const : bool
--getCore() : Promise::Core &
--getCore() const : const Promise::Core &
--setTry(Executor::KeepAlive<> && ka, Try<T> && t) : void
--Promise<T>(futures::detail::EmptyConstruct ) : void
--throwIfFulfilled() const : void
--detach() : void
-+setException<E>(const E & e) : typename std::enable_if<std::is_base_of<std::exception, E>::value>::type
-+setInterruptHandler<F>(F && fn) : void
-+setValue<B=T>() : typename std::enable_if<std::is_same<struct Unit, B>::value, void>::type
-+setValue<M>(M && value) : void
-+setWith<F>(F && func) : void
-{static} -getCoreImpl<CoreT>(CoreT * core) : CoreT &
--retrieved_ : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L418{retrieved_}]]]
--core_ : Promise::Core * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L444{core_}]]]
+__
 }
 class "SemiFuture<T>" as C_0000156632990802225029
-class C_0000156632990802225029 {
+class C_0000156632990802225029 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L58{SemiFuture}]] {
+__
+}
+class "Future<T>" as C_0000432533400863196245
+class C_0000432533400863196245 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Promise.h#L60{Future}]] {
+__
 }
 class "isSemiFuture<SemiFuture<T>>" as C_0000927697699920734713
 class C_0000927697699920734713 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-pre.h#L35{isSemiFuture}]] {
-}
-class "Future<T>" as C_0000432533400863196245
-class C_0000432533400863196245 {
+__
 }
 class "isFuture<Future<T>>" as C_0000729422988404595288
 class C_0000729422988404595288 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-pre.h#L45{isFuture}]] {
+__
 }
 class "isFutureOrSemiFuture<Future<T>>" as C_0002251174128064838303
 class C_0002251174128064838303 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-pre.h#L62{isFutureOrSemiFuture}]] {
+__
 }
 class "Future<Try<T>>" as C_0001773118382379833528
-class C_0001773118382379833528 {
+class C_0001773118382379833528 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-pre.h#L50{Future}]] {
+__
 }
 class "isFutureOrSemiFuture<SemiFuture<T>>" as C_0000292621078341661500
 class C_0000292621078341661500 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-pre.h#L74{isFutureOrSemiFuture}]] {
+__
 }
 class "SemiFuture<Try<T>>" as C_0000578240337546425866
-class C_0000578240337546425866 {
+class C_0000578240337546425866 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-pre.h#L50{SemiFuture}]] {
+__
 }
 class "SemiFuture<Unit>" as C_0000630050676637484276
-class C_0000630050676637484276 {
+class C_0000630050676637484276 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L487{SemiFuture}]] {
+__
 }
 class "Future<Unit>" as C_0000873025366658585071
-class C_0000873025366658585071 {
+class C_0000873025366658585071 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L1003{Future}]] {
+__
 }
 class "Future<bool>" as C_0000219446053632489521
-class C_0000219446053632489521 {
+class C_0000219446053632489521 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L1003{Future}]] {
+__
+}
+class "Future<T2>" as C_0000407203995172612528
+class C_0000407203995172612528 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L1003{Future}]] {
+__
 }
 class "Promise<Unit>" as C_0000436737001401312240
-class C_0000436737001401312240 {
+class C_0000436737001401312240 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-pre.h#L24{Promise}]] {
+__
 }
 class "FutureSplitter<T>" as C_0000913905008779572763
 class C_0000913905008779572763 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future.h#L111{FutureSplitter}]] {
+__
 }
 class "SharedPromise::Defaulted<size_t>" as C_0000742750151299031844
-class C_0000742750151299031844 {
+class C_0000742750151299031844 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L111{SharedPromise##Defaulted}]] {
+__
 }
 class "SharedPromise::Defaulted<Try<T>>" as C_0000616814101618455991
-class C_0000616814101618455991 {
+class C_0000616814101618455991 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L111{SharedPromise##Defaulted}]] {
+__
 }
 class "SharedPromise<T>" as C_0000070676212088190880
 class C_0000070676212088190880 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L41{SharedPromise}]] {
-+getSemiFuture() const : SemiFuture<T>
 +getFuture() const : Future<T>
-+size() const : size_t
-+setException(exception_wrapper ew) : void
-+setInterruptHandler(std::function<void (const exception_wrapper &)> ) : void
-+setTry(Try<T> && t) : void
-+isFulfilled() const : bool
++getSemiFuture() const : SemiFuture<T>
 -hasResult() const : bool
-+setException<E>(const E & ) : typename std::enable_if<std::is_base_of<std::exception, E>::value>::type
++isFulfilled() const : bool
++setException(exception_wrapper ew) : void
++setException<E>(const E &) : typename std::enable_if<std::is_base_of<std::exception, E>::value>::type
++setInterruptHandler(std::function<void (const exception_wrapper &)>) : void
++setTry(Try<T> && t) : void
 +setValue<B=T>() : typename std::enable_if<std::is_same<struct Unit, B>::value, void>::type
 +setValue<M>(M && value) : void
 +setWith<F>(F && func) : void
++size() const : size_t
+__
+-interruptHandler_ : std::function<void (const exception_wrapper &)> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L134{interruptHandler_}]]]
 -mutex_ : SharedPromise::Mutex [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L130{mutex_}]]]
+-promises_ : std::vector<Promise<T>> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L133{promises_}]]]
 -size_ : Defaulted<size_t> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L131{size_}]]]
 -try_ : Defaulted<Try<T>> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L132{try_}]]]
--promises_ : std::vector<Promise<T>> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L133{promises_}]]]
--interruptHandler_ : std::function<void (const exception_wrapper &)> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L134{interruptHandler_}]]]
 }
 class "SharedPromise::Mutex" as C_0001000827240401510911
 class C_0001000827240401510911 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L104{SharedPromise##Mutex}]] {
++operator=(SharedPromise::Mutex &&) noexcept : SharedPromise::Mutex &
+..
 +Mutex() = default : void
-+Mutex(SharedPromise::Mutex && ) : void
-+operator=(SharedPromise::Mutex && ) : SharedPromise::Mutex &
++Mutex(SharedPromise::Mutex &&) noexcept : void
+__
 }
 class "SharedPromise::Defaulted<V>" as C_0000764427108203128807
 class C_0000764427108203128807 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L111{SharedPromise##Defaulted}]] {
-+Defaulted<V>() = default : void
-+Defaulted<V>(Defaulted<V> && that) : void
-+operator=(Defaulted<V> && that) : Defaulted<V> &
++operator=(Defaulted<V> && that) noexcept : Defaulted<V> &
+..
++Defaulted() = default : void
++Defaulted(Defaulted<V> && that) noexcept : void
+__
 +value : V [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/SharedPromise.h#L116{value}]]]
 }
-class "Promise<bool>" as C_0000160616514681507440
-class C_0000160616514681507440 {
-}
-C_0000135335628570802873 ..> C_0001539432614095357204
-C_0000135335628570802873 ..> C_0000135335628570802873
-C_0000487431047047122182 ..> C_0000135335628570802873
-C_0000487431047047122182 ..> C_0002242828088217415598
-C_0000725183341054102552 ..> C_0000725183341054102552
-C_0000725183341054102552 ..> C_0000156632990802225029
-C_0000725183341054102552 ..> C_0000432533400863196245
-C_0000725183341054102552 ..> C_0000135335628570802873
-C_0000725183341054102552 ..> C_0001539432614095357204
-C_0000725183341054102552 ..> C_0000487431047047122182
-C_0000725183341054102552 ..> C_0001636747636195825603
-C_0000725183341054102552 --> C_0000487431047047122182 : #core_
+C_0000135335628570802873 ..|> C_0000135335628570802873
 C_0000433969784032268826 ..> C_0000156632990802225029
 C_0000492449436077847588 ..> C_0000432533400863196245
 C_0001797157475442677168 ..> C_0001778078938283944881
-C_0001797157475442677168 ..> C_0002242828088217415598
 C_0001797157475442677168 ..> C_0000135335628570802873
 C_0001797157475442677168 ..> C_0001539432614095357204
 C_0001797157475442677168 o-- C_0001778078938283944881 : -promise_
-C_0001778078938283944881 ..> C_0001778078938283944881
-C_0001778078938283944881 ..> C_0000156632990802225029
-C_0001778078938283944881 ..> C_0000432533400863196245
-C_0001778078938283944881 ..> C_0001539432614095357204
-C_0001778078938283944881 ..> C_0000135335628570802873
-C_0001778078938283944881 ..> C_0000487431047047122182
-C_0001778078938283944881 ..> C_0002242828088217415598
-C_0001778078938283944881 ..> C_0001636747636195825603
-C_0001778078938283944881 --> C_0000487431047047122182 : -core_
+C_0001778078938283944881 ..|> C_0001778078938283944881
 C_0000156632990802225029 ..|> C_0000156632990802225029
-C_0000927697699920734713 ..> C_0000156632990802225029
 C_0000432533400863196245 ..|> C_0000432533400863196245
+C_0000927697699920734713 ..> C_0000156632990802225029
 C_0000729422988404595288 ..> C_0000432533400863196245
 C_0002251174128064838303 ..> C_0000432533400863196245
 C_0001773118382379833528 ..> C_0000135335628570802873
@@ -341,6 +213,7 @@ C_0000578240337546425866 ..|> C_0000156632990802225029
 C_0000630050676637484276 ..|> C_0000156632990802225029
 C_0000873025366658585071 ..|> C_0000432533400863196245
 C_0000219446053632489521 ..|> C_0000432533400863196245
+C_0000407203995172612528 ..|> C_0000432533400863196245
 C_0000436737001401312240 ..|> C_0001778078938283944881
 C_0000742750151299031844 ..|> C_0000764427108203128807
 C_0000616814101618455991 ..> C_0000135335628570802873
@@ -356,8 +229,7 @@ C_0000070676212088190880 o-- C_0001778078938283944881 : -promises_
 C_0000070676212088190880 --> C_0001539432614095357204 : -interruptHandler_
 C_0001000827240401510911 --+ C_0000070676212088190880
 C_0000764427108203128807 --+ C_0000070676212088190880
-C_0000160616514681507440 ..|> C_0001778078938283944881
 
-'Generated with clang-uml, version 0.3.5-1-g9a5a152
+'Generated with clang-uml, version 0.3.6-29-g238bfb0
 'LLVM version Ubuntu clang version 15.0.6
 @enduml

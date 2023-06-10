@@ -4,33 +4,36 @@ class C_0002032009232244826154 {
 +Date() : void
 +Date(int64_t microSec) : void
 +Date(unsigned int year, unsigned int month, unsigned int day, unsigned int hour = 0, unsigned int minute = 0, unsigned int second = 0, unsigned int microSecond = 0) : void
-{static} +date() : const Date
-{static} +now() : const Date
-{static} +timezoneOffset() : int64_t
-+after(double second) const : const Date
-+roundSecond() const : const Date
-+roundDay() const : const Date
 +~Date() : void
-+operator==(const Date & date) const : bool
+..
 +operator!=(const Date & date) const : bool
 +operator<(const Date & date) const : bool
++operator<=(const Date & date) const : bool
++operator==(const Date & date) const : bool
 +operator>(const Date & date) const : bool
 +operator>=(const Date & date) const : bool
-+operator<=(const Date & date) const : bool
-+microSecondsSinceEpoch() const : int64_t
-+secondsSinceEpoch() const : int64_t
-+tmStruct() const : struct tm
-+toFormattedString(bool showMicroseconds) const : std::string
-+toCustomedFormattedString(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
-+toFormattedStringLocal(bool showMicroseconds) const : std::string
-+toCustomedFormattedStringLocal(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
-+toDbStringLocal() const : std::string
-+toDbString() const : std::string
-{static} +fromDbStringLocal(const std::string & datetime) : Date
+..
++after(double second) const : const Date
+{static} +date() : const Date
 {static} +fromDbString(const std::string & datetime) : Date
-+toCustomedFormattedString(const std::string & fmtStr, char * str, size_t len) const : void
+{static} +fromDbStringLocal(const std::string & datetime) : Date
 +isSameSecond(const Date & date) const : bool
++microSecondsSinceEpoch() const : int64_t
+{static} +now() : const Date
++roundDay() const : const Date
++roundSecond() const : const Date
++secondsSinceEpoch() const : int64_t
 +swap(Date & that) : void
+{static} +timezoneOffset() : int64_t
++tmStruct() const : struct tm
++toCustomedFormattedString(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toCustomedFormattedString(const std::string & fmtStr, char * str, size_t len) const : void
++toCustomedFormattedStringLocal(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toDbString() const : std::string
++toDbStringLocal() const : std::string
++toFormattedString(bool showMicroseconds) const : std::string
++toFormattedStringLocal(bool showMicroseconds) const : std::string
+__
 }
 class "InetAddress" as C_0001897340460211641725
 class C_0001897340460211641725 {
@@ -38,111 +41,126 @@ class C_0001897340460211641725 {
 +InetAddress(const std::string & ip, uint16_t port, bool ipv6 = false) : void
 +InetAddress(const struct sockaddr_in & addr) : void
 +InetAddress(const struct sockaddr_in6 & addr) : void
+..
 +family() const : sa_family_t
++getSockAddr() const : const struct sockaddr *
++ip6NetEndian() const : const uint32_t *
++ipNetEndian() const : uint32_t
++isIntranetIp() const : bool
++isIpV6() const : bool
++isLoopbackIp() const : bool
++isUnspecified() const : bool
++portNetEndian() const : uint16_t
++setPortNetEndian(uint16_t port) : void
++setSockAddrInet6(const struct sockaddr_in6 & addr6) : void
 +toIp() const : std::string
 +toIpPort() const : std::string
 +toPort() const : uint16_t
-+isIpV6() const : bool
-+isIntranetIp() const : bool
-+isLoopbackIp() const : bool
-+getSockAddr() const : const struct sockaddr *
-+setSockAddrInet6(const struct sockaddr_in6 & addr6) : void
-+ipNetEndian() const : uint32_t
-+ip6NetEndian() const : const uint32_t *
-+portNetEndian() const : uint16_t
-+setPortNetEndian(uint16_t port) : void
-+isUnspecified() const : bool
+__
 }
 class "InetAddress::()" as C_0000673025168912921705
 class C_0000673025168912921705 {
-+addr_ : struct sockaddr_in
+__
 +addr6_ : struct sockaddr_in6
++addr_ : struct sockaddr_in
 }
 class "NonCopyable" as C_0001159823987743494688
 class C_0001159823987743494688 {
+__
 }
 class "detail::FixedBuffer<int SIZE>" as C_0000111393647775817392
 class C_0000111393647775817392 {
-+FixedBuffer<SIZE>() : void
-+~FixedBuffer<SIZE>() : void
-+append(const char * buf, size_t len) : bool
-+data() const : const char *
-+length() const : int
-+current() : char *
-+avail() const : int
++FixedBuffer() : void
++~FixedBuffer() : void
+..
 +add(size_t len) : void
-+reset() : void
-+zeroBuffer() : void
++append(const char * buf, size_t len) : bool
++avail() const : int
++current() : char *
++data() const : const char *
 +debugString() : const char *
++length() const : int
++reset() : void
 +setCookie(void (*)() cookie) : void
 +toString() const : std::string
++zeroBuffer() : void
+__
 }
 class "detail::FixedBuffer<detail::kSmallBuffer>" as C_0000510041652600390686
 class C_0000510041652600390686 {
+__
 }
 class "detail::FixedBuffer<4000>" as C_0001754247125147083756
 class C_0001754247125147083756 {
 +FixedBuffer() : void
 +~FixedBuffer() : void
-+append(const char * buf, size_t len) : bool
-+data() const : const char *
-+length() const : int
-+current() : char *
-+avail() const : int
+..
 +add(size_t len) : void
-+reset() : void
-+zeroBuffer() : void
++append(const char * buf, size_t len) : bool
++avail() const : int
++current() : char *
++data() const : const char *
 +debugString() : const char *
++length() const : int
++reset() : void
 +setCookie(void (*)() cookie) : void
 +toString() const : std::string
++zeroBuffer() : void
+__
 }
 class "detail::FixedBuffer<4000000>" as C_0001042478360162272930
 class C_0001042478360162272930 {
 +FixedBuffer() : void
 +~FixedBuffer() : void
-+append(const char * buf, size_t len) : bool
-+data() const : const char *
-+length() const : int
-+current() : char *
-+avail() const : int
+..
 +add(size_t len) : void
-+reset() : void
-+zeroBuffer() : void
++append(const char * buf, size_t len) : bool
++avail() const : int
++current() : char *
++data() const : const char *
 +debugString() : const char *
++length() const : int
++reset() : void
 +setCookie(void (*)() cookie) : void
 +toString() const : std::string
++zeroBuffer() : void
+__
 }
 class "LogStream" as C_0001930690020065325250
 class C_0001930690020065325250 {
-+operator<<(bool v) : LogStream::self &
-+operator<<(short ) : LogStream::self &
-+operator<<(unsigned short ) : LogStream::self &
-+operator<<(int ) : LogStream::self &
-+operator<<(unsigned int ) : LogStream::self &
-+operator<<(long ) : LogStream::self &
-+operator<<(unsigned long ) : LogStream::self &
-+operator<<(const long long & ) : LogStream::self &
-+operator<<(const unsigned long long & ) : LogStream::self &
-+operator<<(const void * ) : LogStream::self &
-+operator<<(float & v) : LogStream::self &
-+operator<<(const double & ) : LogStream::self &
-+operator<<(const long double & v) : LogStream::self &
-+operator<<(char v) : LogStream::self &
-+operator<<(char * str) : LogStream::self &
-+operator<<(const char * str) : LogStream::self &
-+operator<<(const unsigned char * str) : LogStream::self &
++operator<<(const void *) : LogStream::self &
++operator<<<int N>(const char (&)[N] buf) : LogStream::self &
 +operator<<(const std::string & v) : LogStream::self &
++operator<<(const unsigned char * str) : LogStream::self &
++operator<<(const char * str) : LogStream::self &
++operator<<(char * str) : LogStream::self &
++operator<<(char v) : LogStream::self &
++operator<<(const long double & v) : LogStream::self &
++operator<<(const double &) : LogStream::self &
++operator<<(float & v) : LogStream::self &
++operator<<(bool v) : LogStream::self &
++operator<<(const unsigned long long &) : LogStream::self &
++operator<<(const long long &) : LogStream::self &
++operator<<(unsigned long) : LogStream::self &
++operator<<(long) : LogStream::self &
++operator<<(unsigned int) : LogStream::self &
++operator<<(int) : LogStream::self &
++operator<<(unsigned short) : LogStream::self &
++operator<<(short) : LogStream::self &
+..
 +append(const char * data, size_t len) : void
 +bufferData() const : const char *
 +bufferLength() const : size_t
 +resetBuffer() : void
-+operator<<<int N>(const char (&)[N] buf) : LogStream::self &
+__
 }
 class "Fmt" as C_0002131890502232898697
 class C_0002131890502232898697 {
++Fmt<T>(const char * fmt, T val) : void
+..
 +data() const : const char *
 +length() const : int
-+Fmt<T>(const char * fmt, T val) : void
+__
 }
 class "Logger" as C_0002053752992472264214
 class C_0002053752992472264214 {
@@ -154,13 +172,15 @@ class C_0002053752992472264214 {
 +Logger(Logger::LogLevel level) : void
 +Logger(bool isSysErr) : void
 +~Logger() : void
-+setIndex(int index) : Logger &
-+stream() : LogStream &
-{static} +setOutputFunction(std::function<void (const char *,const uint64_t)> outputFunc, std::function<void ()> flushFunc, int index = -1) : void
-{static} +setLogLevel(Logger::LogLevel level) : void
-{static} +logLevel() : Logger::LogLevel
+..
 {static} +displayLocalTime() : bool
+{static} +logLevel() : Logger::LogLevel
 {static} +setDisplayLocalTime(bool showLocalTime) : void
++setIndex(int index) : Logger &
+{static} +setLogLevel(Logger::LogLevel level) : void
+{static} +setOutputFunction(std::function<void (const char *,const uint64_t)> outputFunc, std::function<void ()> flushFunc, int index = -1) : void
++stream() : LogStream &
+__
 }
 enum "Logger::LogLevel" as C_0002131283840621188296
 enum C_0002131283840621188296 {
@@ -176,135 +196,152 @@ class "Logger::SourceFile" as C_0000979080797342806546
 class C_0000979080797342806546 {
 +SourceFile(const char * filename = nullptr) : void
 +SourceFile<int N>(const char (&)[N] arr) : void
+__
 +data_ : const char *
 +size_ : int
 }
 class "RawLogger" as C_0000716430590791918928
 class C_0000716430590791918928 {
 +~RawLogger() : void
+..
 +setIndex(int index) : RawLogger &
 +stream() : LogStream &
+__
 }
 class "MpscQueue<T>" as C_0000912667184903365399
 class C_0000912667184903365399 {
-+MpscQueue<T>() : void
-+~MpscQueue<T>() : void
-+enqueue(T && input) : void
-+enqueue(const T & input) : void
++MpscQueue() : void
++~MpscQueue() : void
+..
 +dequeue(T & output) : bool
 +empty() : bool
++enqueue(T && input) : void
++enqueue(const T & input) : void
+__
 }
 class "MpscQueue::BufferNode" as C_0000223701637084171141
 class C_0000223701637084171141 {
 +BufferNode() = default : void
 +BufferNode(const T & data) : void
 +BufferNode(T && data) : void
+__
 +dataPtr_ : T *
 +next_ : std::atomic<BufferNode *>
 }
 class "MpscQueue<std::function<void()>>" as C_0002185746167032660910
 class C_0002185746167032660910 {
+__
 }
 class "EventLoop" as C_0001390130774830223499
 class C_0001390130774830223499 {
 +EventLoop() : void
 +~EventLoop() : void
-+loop() : void
-+quit() : void
+..
 +assertInLoopThread() : void
-+resetTimerQueue() : void
-+resetAfterFork() : void
-+isInLoopThread() const : bool
 {static} +getEventLoopOfCurrentThread() : EventLoop *
++index() : size_t
++invalidateTimer(TimerId id) : void
++isCallingFunctions() : bool
++isInLoopThread() const : bool
++isRunning() : bool
++loop() : void
++moveToCurrentThread() : void
 +queueInLoop(const Func & f) : void
 +queueInLoop(Func && f) : void
-+runAt(const Date & time, const Func & cb) : TimerId
-+runAt(const Date & time, Func && cb) : TimerId
-+runAfter(double delay, const Func & cb) : TimerId
-+runAfter(double delay, Func && cb) : TimerId
++quit() : void
++removeChannel(Channel * chl) : void
++resetAfterFork() : void
++resetTimerQueue() : void
 +runAfter(const std::chrono::duration<double> & delay, const Func & cb) : TimerId
 +runAfter(const std::chrono::duration<double> & delay, Func && cb) : TimerId
++runAfter(double delay, Func && cb) : TimerId
++runAfter(double delay, const Func & cb) : TimerId
++runAt(const Date & time, Func && cb) : TimerId
++runAt(const Date & time, const Func & cb) : TimerId
 +runEvery(double interval, const Func & cb) : TimerId
-+runEvery(double interval, Func && cb) : TimerId
-+runEvery(const std::chrono::duration<double> & interval, const Func & cb) : TimerId
 +runEvery(const std::chrono::duration<double> & interval, Func && cb) : TimerId
-+invalidateTimer(TimerId id) : void
-+moveToCurrentThread() : void
-+updateChannel(Channel * chl) : void
-+removeChannel(Channel * chl) : void
-+index() : size_t
-+setIndex(size_t index) : void
-+isRunning() : bool
-+isCallingFunctions() : bool
++runEvery(const std::chrono::duration<double> & interval, const Func & cb) : TimerId
++runEvery(double interval, Func && cb) : TimerId
++runInLoop<Functor>(Functor && f) : void
 +runOnQuit(Func && cb) : void
 +runOnQuit(const Func & cb) : void
-+runInLoop<Functor>(Functor && f) : void
++setIndex(size_t index) : void
++updateChannel(Channel * chl) : void
+__
 }
 class "EventLoopThread" as C_0001280612521485369958
 class C_0001280612521485369958 {
 +EventLoopThread(const std::string & threadName = "EventLoopThread") : void
 +~EventLoopThread() : void
-+wait() : void
+..
 +getLoop() const : EventLoop *
 +run() : void
++wait() : void
+__
 }
 class "EventLoopThreadPool" as C_0002061035340998974559
 class C_0002061035340998974559 {
-+EventLoopThreadPool() : void
++EventLoopThreadPool() = deleted : void
 +EventLoopThreadPool(size_t threadNum, const std::string & name = "EventLoopThreadPool") : void
-+start() : void
-+wait() : void
-+size() : size_t
-+getNextLoop() : EventLoop *
+..
 +getLoop(size_t id) : EventLoop *
 +getLoops() const : std::vector<EventLoop *>
++getNextLoop() : EventLoop *
++size() : size_t
++start() : void
++wait() : void
+__
 }
 class "InetAddress::(anonymous_2577662)" as C_0001189407896771082466
 class C_0001189407896771082466 {
-+addr_ : struct sockaddr_in
+__
 +addr6_ : struct sockaddr_in6
++addr_ : struct sockaddr_in
 }
 class "MsgBuffer" as C_0001289495020269537351
 class C_0001289495020269537351 {
 +MsgBuffer(size_t len = kBufferDefaultLength) : void
-+peek() const : const char *
-+beginWrite() const : const char *
-+beginWrite() : char *
-+peekInt8() const : uint8_t
-+peekInt16() const : uint16_t
-+peekInt32() const : uint32_t
-+peekInt64() const : uint64_t
-+read(size_t len) : std::string
-+readInt8() : uint8_t
-+readInt16() : uint16_t
-+readInt32() : uint32_t
-+readInt64() : uint64_t
-+swap(MsgBuffer & buf) : void
-+readableBytes() const : size_t
-+writableBytes() const : size_t
-+append(const MsgBuffer & buf) : void
-+append(const char * buf, size_t len) : void
-+append(const std::string & buf) : void
-+appendInt8(const uint8_t b) : void
-+appendInt16(const uint16_t s) : void
-+appendInt32(const uint32_t i) : void
-+appendInt64(const uint64_t l) : void
+..
++operator[](size_t offset) const : const char &
++operator[](size_t offset) : char &
+..
 +addInFront(const char * buf, size_t len) : void
-+addInFrontInt8(const uint8_t b) : void
 +addInFrontInt16(const uint16_t s) : void
 +addInFrontInt32(const uint32_t i) : void
 +addInFrontInt64(const uint64_t l) : void
-+retrieveAll() : void
-+retrieve(size_t len) : void
-+readFd(int fd, int * retErrno) : ssize_t
-+retrieveUntil(const char * end) : void
-+findCRLF() const : const char *
-+ensureWritableBytes(size_t len) : void
-+hasWritten(size_t len) : void
-+unwrite(size_t offset) : void
-+operator[](size_t offset) const : const char &
-+operator[](size_t offset) : char &
++addInFrontInt8(const uint8_t b) : void
 +append<int N>(const char (&)[N] buf) : void
++append(const std::string & buf) : void
++append(const char * buf, size_t len) : void
++append(const MsgBuffer & buf) : void
++appendInt16(const uint16_t s) : void
++appendInt32(const uint32_t i) : void
++appendInt64(const uint64_t l) : void
++appendInt8(const uint8_t b) : void
++beginWrite() const : const char *
++beginWrite() : char *
++ensureWritableBytes(size_t len) : void
++findCRLF() const : const char *
++hasWritten(size_t len) : void
++peek() const : const char *
++peekInt16() const : uint16_t
++peekInt32() const : uint32_t
++peekInt64() const : uint64_t
++peekInt8() const : uint8_t
++read(size_t len) : std::string
++readFd(int fd, int * retErrno) : ssize_t
++readInt16() : uint16_t
++readInt32() : uint32_t
++readInt64() : uint64_t
++readInt8() : uint8_t
++readableBytes() const : size_t
++retrieve(size_t len) : void
++retrieveAll() : void
++retrieveUntil(const char * end) : void
++swap(MsgBuffer & buf) noexcept : void
++unwrite(size_t offset) : void
++writableBytes() const : size_t
+__
 }
 enum "SSLError" as C_0000434245188016003403
 enum C_0000434245188016003403 {
@@ -315,186 +352,201 @@ kSSLProtocolError
 abstract "Certificate" as C_0001660397537883119469
 abstract C_0001660397537883119469 {
 +~Certificate() = default : void
+..
+{abstract} +pem() const = 0 : std::string
 {abstract} +sha1Fingerprint() const = 0 : std::string
 {abstract} +sha256Fingerprint() const = 0 : std::string
-{abstract} +pem() const = 0 : std::string
+__
 }
 class "TLSPolicy" as C_0002100370281243872283
 class C_0002100370281243872283 {
-+setConfCmds(const std::vector<std::pair<std::string,std::string>> & sslConfCmds) : TLSPolicy &
-+setHostname(const std::string & hostname) : TLSPolicy &
-+setCertPath(const std::string & certPath) : TLSPolicy &
-+setKeyPath(const std::string & keyPath) : TLSPolicy &
-+setCaPath(const std::string & caPath) : TLSPolicy &
-+setUseOldTLS(bool useOldTLS) : TLSPolicy &
-+setAlpnProtocols(const std::vector<std::string> & alpnProtocols) : TLSPolicy &
-+setAlpnProtocols(std::vector<std::string> && alpnProtocols) : TLSPolicy &
-+setUseSystemCertStore(bool useSystemCertStore) : TLSPolicy &
-+setValidate(bool enable) : TLSPolicy &
-+setAllowBrokenChain(bool allow) : TLSPolicy &
+{static} +defaultClientPolicy(const std::string & hostname = "") : std::shared_ptr<TLSPolicy>
+{static} +defaultServerPolicy(const std::string & certPath, const std::string & keyPath) : std::shared_ptr<TLSPolicy>
++getAllowBrokenChain() const : bool
++getAlpnProtocols() : const std::vector<std::string> &
++getAlpnProtocols() const : const std::vector<std::string> &
++getCaPath() const : const std::string &
++getCertPath() const : const std::string &
 +getConfCmds() const : const std::vector<std::pair<std::string,std::string>> &
 +getHostname() const : const std::string &
-+getCertPath() const : const std::string &
 +getKeyPath() const : const std::string &
-+getCaPath() const : const std::string &
 +getUseOldTLS() const : bool
-+getValidate() const : bool
-+getAllowBrokenChain() const : bool
-+getAlpnProtocols() const : const std::vector<std::string> &
-+getAlpnProtocols() : const std::vector<std::string> &
 +getUseSystemCertStore() const : bool
-{static} +defaultServerPolicy(const std::string & certPath, const std::string & keyPath) : std::shared_ptr<TLSPolicy>
-{static} +defaultClientPolicy(const std::string & hostname = "") : std::shared_ptr<TLSPolicy>
++getValidate() const : bool
++setAllowBrokenChain(bool allow) : TLSPolicy &
++setAlpnProtocols(std::vector<std::string> && alpnProtocols) : TLSPolicy &
++setAlpnProtocols(const std::vector<std::string> & alpnProtocols) : TLSPolicy &
++setCaPath(const std::string & caPath) : TLSPolicy &
++setCertPath(const std::string & certPath) : TLSPolicy &
++setConfCmds(const std::vector<std::pair<std::string,std::string>> & sslConfCmds) : TLSPolicy &
++setHostname(const std::string & hostname) : TLSPolicy &
++setKeyPath(const std::string & keyPath) : TLSPolicy &
++setUseOldTLS(bool useOldTLS) : TLSPolicy &
++setUseSystemCertStore(bool useSystemCertStore) : TLSPolicy &
++setValidate(bool enable) : TLSPolicy &
+__
 }
 abstract "TcpConnection" as C_0002230624932100089526
 abstract C_0002230624932100089526 {
 +TcpConnection() = default : void
 +~TcpConnection() : void
-{abstract} +send(const char * msg, size_t len) = 0 : void
+..
+{abstract} +applicationProtocol() const = 0 : std::string
+{abstract} +bytesReceived() const = 0 : size_t
+{abstract} +bytesSent() const = 0 : size_t
++clearContext() : void
+{abstract} +connectDestroyed() = 0 : void
+{abstract} +connectEstablished() = 0 : void
+{abstract} +connected() const = 0 : bool
+{abstract} +disconnected() const = 0 : bool
+{abstract} +enableKickingOff(size_t timeout, const std::shared_ptr<TimingWheel> & timingWheel) = 0 : void
+{abstract} +forceClose() = 0 : void
++getContext<T>() const : std::shared_ptr<T>
+{abstract} +getLoop() = 0 : EventLoop *
+{abstract} +getRecvBuffer() = 0 : MsgBuffer *
++hasContext() const : bool
+{abstract} +isKeepAlive() = 0 : bool
+{abstract} +isSSLConnection() const = 0 : bool
+{abstract} +keepAlive() = 0 : void
+{abstract} +localAddr() const = 0 : const InetAddress &
+{abstract} +peerAddr() const = 0 : const InetAddress &
+{abstract} +peerCertificate() const = 0 : CertificatePtr
 {abstract} +send(const void * msg, size_t len) = 0 : void
-{abstract} +send(const std::string & msg) = 0 : void
-{abstract} +send(std::string && msg) = 0 : void
 {abstract} +send(const MsgBuffer & buffer) = 0 : void
+{abstract} +send(std::string && msg) = 0 : void
+{abstract} +send(const std::string & msg) = 0 : void
 {abstract} +send(MsgBuffer && buffer) = 0 : void
 {abstract} +send(const std::shared_ptr<std::string> & msgPtr) = 0 : void
 {abstract} +send(const std::shared_ptr<MsgBuffer> & msgPtr) = 0 : void
+{abstract} +send(const char * msg, size_t len) = 0 : void
 {abstract} +sendFile(const char * fileName, size_t offset = 0, size_t length = 0) = 0 : void
 {abstract} +sendFile(const wchar_t * fileName, size_t offset = 0, size_t length = 0) = 0 : void
 {abstract} +sendStream(std::function<std::size_t (char *,std::size_t)> callback) = 0 : void
-{abstract} +localAddr() const = 0 : const InetAddress &
-{abstract} +peerAddr() const = 0 : const InetAddress &
-{abstract} +connected() const = 0 : bool
-{abstract} +disconnected() const = 0 : bool
-{abstract} +setHighWaterMarkCallback(const HighWaterMarkCallback & cb, size_t markLen) = 0 : void
-{abstract} +setTcpNoDelay(bool on) = 0 : void
-{abstract} +shutdown() = 0 : void
-{abstract} +forceClose() = 0 : void
-{abstract} +getLoop() = 0 : EventLoop *
-+setContext(const std::shared_ptr<void> & context) : void
-+setContext(std::shared_ptr<void> && context) : void
-{abstract} +applicationProtocol() const = 0 : std::string
-+hasContext() const : bool
-+clearContext() : void
-{abstract} +keepAlive() = 0 : void
-{abstract} +isKeepAlive() = 0 : bool
-{abstract} +bytesSent() const = 0 : size_t
-{abstract} +bytesReceived() const = 0 : size_t
-{abstract} +isSSLConnection() const = 0 : bool
-{abstract} +getRecvBuffer() = 0 : MsgBuffer *
-{abstract} +peerCertificate() const = 0 : CertificatePtr
-{abstract} +sniName() const = 0 : std::string
-{abstract} +startEncryption(TLSPolicyPtr policy, bool isServer, std::function<void (const TcpConnectionPtr &)> upgradeCallback = nullptr) = 0 : void
-+startClientEncryption(std::function<void (const TcpConnectionPtr &)> && callback, bool useOldTLS = false, bool validateCert = true, const std::string & hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
-            {}) : void
-+setValidationPolicy(TLSPolicy && policy) : void
-+setRecvMsgCallback(const RecvMessageCallback & cb) : void
-+setRecvMsgCallback(RecvMessageCallback && cb) : void
++setCloseCallback(CloseCallback && cb) : void
++setCloseCallback(const CloseCallback & cb) : void
 +setConnectionCallback(const ConnectionCallback & cb) : void
 +setConnectionCallback(ConnectionCallback && cb) : void
-+setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
-+setWriteCompleteCallback(WriteCompleteCallback && cb) : void
-+setCloseCallback(const CloseCallback & cb) : void
-+setCloseCallback(CloseCallback && cb) : void
-+setSSLErrorCallback(const SSLErrorCallback & cb) : void
++setContext(std::shared_ptr<void> && context) : void
++setContext(const std::shared_ptr<void> & context) : void
+{abstract} +setHighWaterMarkCallback(const HighWaterMarkCallback & cb, size_t markLen) = 0 : void
++setRecvMsgCallback(const RecvMessageCallback & cb) : void
++setRecvMsgCallback(RecvMessageCallback && cb) : void
 +setSSLErrorCallback(SSLErrorCallback && cb) : void
-{abstract} +connectEstablished() = 0 : void
-{abstract} +connectDestroyed() = 0 : void
-{abstract} +enableKickingOff(size_t timeout, const std::shared_ptr<TimingWheel> & timingWheel) = 0 : void
-+getContext<T>() : std::shared_ptr<T>
++setSSLErrorCallback(const SSLErrorCallback & cb) : void
+{abstract} +setTcpNoDelay(bool on) = 0 : void
++setValidationPolicy(TLSPolicy && policy) : void
++setWriteCompleteCallback(WriteCompleteCallback && cb) : void
++setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
+{abstract} +shutdown() = 0 : void
+{abstract} +sniName() const = 0 : std::string
++startClientEncryption(std::function<void (const TcpConnectionPtr &)> && callback, bool useOldTLS = false, bool validateCert = true, const std::string & hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
+            {}) : void
+{abstract} +startEncryption(TLSPolicyPtr policy, bool isServer, std::function<void (const TcpConnectionPtr &)> upgradeCallback = nullptr) = 0 : void
+__
 }
 class "TimingWheel" as C_0000964465843177067305
 class C_0000964465843177067305 {
 +TimingWheel(EventLoop * loop, size_t maxTimeout, float ticksInterval = 1.0, size_t bucketsNumPerWheel = 100) : void
++~TimingWheel() : void
+..
++getLoop() : EventLoop *
 +insertEntry(size_t delay, EntryPtr entryPtr) : void
 +insertEntryInloop(size_t delay, EntryPtr entryPtr) : void
-+getLoop() : EventLoop *
-+~TimingWheel() : void
+__
 }
 class "TimingWheel::CallbackEntry" as C_0002013739811805694444
 class C_0002013739811805694444 {
 +CallbackEntry(std::function<void ()> cb) : void
 +~CallbackEntry() : void
+__
 }
 class "TcpServer" as C_0001423170502760786790
 class C_0001423170502760786790 {
 +TcpServer(EventLoop * loop, const InetAddress & address, std::string name, bool reUseAddr = true, bool reUsePort = true) : void
 +~TcpServer() : void
-+start() : void
-+stop() : void
+..
++address() const : const InetAddress &
++enableSSL(TLSPolicyPtr policy) : void
++enableSSL(const std::string & certPath, const std::string & keyPath, bool useOldTLS = false, const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
+            {}, const std::string & caPath = "") : void
++getIoLoops() const : std::vector<EventLoop *>
++getLoop() const : EventLoop *
++ipPort() const : std::string
++kickoffIdleConnections(size_t timeout) : void
++name() const : const std::string &
++setConnectionCallback(const ConnectionCallback & cb) : void
++setConnectionCallback(ConnectionCallback && cb) : void
 +setIoLoopNum(size_t num) : void
 +setIoLoopThreadPool(const std::shared_ptr<EventLoopThreadPool> & pool) : void
 +setIoLoops(const std::vector<EventLoop *> & ioLoops) : void
 +setRecvMessageCallback(const RecvMessageCallback & cb) : void
 +setRecvMessageCallback(RecvMessageCallback && cb) : void
-+setConnectionCallback(const ConnectionCallback & cb) : void
-+setConnectionCallback(ConnectionCallback && cb) : void
 +setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
 +setWriteCompleteCallback(WriteCompleteCallback && cb) : void
-+name() const : const std::string &
-+ipPort() const : std::string
-+address() const : const InetAddress &
-+getLoop() const : EventLoop *
-+getIoLoops() const : std::vector<EventLoop *>
-+kickoffIdleConnections(size_t timeout) : void
-+enableSSL(const std::string & certPath, const std::string & keyPath, bool useOldTLS = false, const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
-            {}, const std::string & caPath = "") : void
-+enableSSL(TLSPolicyPtr policy) : void
++start() : void
++stop() : void
+__
 }
 class "TcpServer::IgnoreSigPipe" as C_0001489562721151066050
 class C_0001489562721151066050 {
 +IgnoreSigPipe() : void
+__
 }
 class "Socket" as C_0000971024972307079851
 class C_0000971024972307079851 {
-{static} +createNonblockingSocketOrDie(int family) : int
-{static} +getSocketError(int sockfd) : int
-{static} +connect(int sockfd, const InetAddress & addr) : int
-{static} +isSelfConnect(int sockfd) : bool
 +Socket(int sockfd) : void
 +~Socket() : void
-+bindAddress(const InetAddress & localaddr) : void
-+listen() : void
+..
 +accept(InetAddress * peeraddr) : int
++bindAddress(const InetAddress & localaddr) : void
 +closeWrite() : void
-+read(char * buffer, uint64_t len) : int
+{static} +connect(int sockfd, const InetAddress & addr) : int
+{static} +createNonblockingSocketOrDie(int family) : int
 +fd() : int
 {static} +getLocalAddr(int sockfd) : struct sockaddr_in6
 {static} +getPeerAddr(int sockfd) : struct sockaddr_in6
-+setTcpNoDelay(bool on) : void
+{static} +getSocketError(int sockfd) : int
++getSocketError() : int
+{static} +isSelfConnect(int sockfd) : bool
++listen() : void
++read(char * buffer, uint64_t len) : int
++setKeepAlive(bool on) : void
+{static} +setNonBlockAndCloseOnExec(int sockfd) : void
 +setReuseAddr(bool on) : void
 +setReusePort(bool on) : void
-+setKeepAlive(bool on) : void
-+getSocketError() : int
-{static} +setNonBlockAndCloseOnExec(int sockfd) : void
++setTcpNoDelay(bool on) : void
+__
 }
 class "Channel" as C_0000764690828649606524
 class C_0000764690828649606524 {
 +Channel(EventLoop * loop, int fd) : void
-+setReadCallback(const Channel::EventCallback & cb) : void
-+setReadCallback(Channel::EventCallback && cb) : void
-+setWriteCallback(const Channel::EventCallback & cb) : void
-+setWriteCallback(Channel::EventCallback && cb) : void
-+setCloseCallback(const Channel::EventCallback & cb) : void
+..
++disableAll() : void
++disableReading() : void
++disableWriting() : void
++enableReading() : void
++enableWriting() : void
++events() const : int
++fd() const : int
++isNoneEvent() const : bool
++isReading() const : bool
++isWriting() const : bool
++ownerLoop() : EventLoop *
++remove() : void
++revents() const : int
 +setCloseCallback(Channel::EventCallback && cb) : void
-+setErrorCallback(const Channel::EventCallback & cb) : void
++setCloseCallback(const Channel::EventCallback & cb) : void
 +setErrorCallback(Channel::EventCallback && cb) : void
++setErrorCallback(const Channel::EventCallback & cb) : void
 +setEventCallback(const Channel::EventCallback & cb) : void
 +setEventCallback(Channel::EventCallback && cb) : void
-+fd() const : int
-+events() const : int
-+revents() const : int
-+isNoneEvent() const : bool
-+disableAll() : void
-+remove() : void
-+ownerLoop() : EventLoop *
-+enableReading() : void
-+disableReading() : void
-+enableWriting() : void
-+disableWriting() : void
-+isWriting() const : bool
-+isReading() const : bool
-+updateEvents(int events) : void
++setReadCallback(Channel::EventCallback && cb) : void
++setReadCallback(const Channel::EventCallback & cb) : void
++setWriteCallback(Channel::EventCallback && cb) : void
++setWriteCallback(const Channel::EventCallback & cb) : void
 +tie(const std::shared_ptr<void> & obj) : void
++updateEvents(int events) : void
+__
 {static} +kNoneEvent : const int
 {static} +kReadEvent : const int
 {static} +kWriteEvent : const int
@@ -503,86 +555,94 @@ class "Acceptor" as C_0000184886692180276257
 class C_0000184886692180276257 {
 +Acceptor(EventLoop * loop, const InetAddress & addr, bool reUseAddr = true, bool reUsePort = true) : void
 +~Acceptor() : void
+..
 +addr() const : const InetAddress &
-+setNewConnectionCallback(const NewConnectionCallback & cb) : void
 +listen() : void
++setNewConnectionCallback(const NewConnectionCallback & cb) : void
+__
 }
 abstract "TLSProvider" as C_0000464040622375950341
 abstract C_0000464040622375950341 {
 +TLSProvider(TcpConnection * conn, TLSPolicyPtr policy, SSLContextPtr ctx) : void
 +~TLSProvider() = default : void
-{abstract} +recvData(MsgBuffer * buffer) = 0 : void
-{abstract} +sendData(const char * ptr, size_t size) = 0 : ssize_t
-{abstract} +close() = 0 : void
-{abstract} +startEncryption() = 0 : void
-+sendBufferedData() : bool
-+getBufferedData() : MsgBuffer &
+..
 +appendToWriteBuffer(const char * ptr, size_t size) : void
-+setWriteCallback(TLSProvider::WriteCallback cb) : void
++applicationProtocol() const : const std::string &
+{abstract} +close() = 0 : void
++getBufferedData() : MsgBuffer &
++getRecvBuffer() : MsgBuffer &
++peerCertificate() const : const CertificatePtr &
+{abstract} +recvData(MsgBuffer * buffer) = 0 : void
++sendBufferedData() : bool
+{abstract} +sendData(const char * ptr, size_t size) = 0 : ssize_t
++setCloseCallback(TLSProvider::CloseCallback cb) : void
 +setErrorCallback(TLSProvider::ErrorCallback cb) : void
 +setHandshakeCallback(TLSProvider::HandshakeCallback cb) : void
 +setMessageCallback(TLSProvider::MessageCallback cb) : void
-+setCloseCallback(TLSProvider::CloseCallback cb) : void
-+getRecvBuffer() : MsgBuffer &
-+peerCertificate() const : const CertificatePtr &
-+applicationProtocol() const : const std::string &
++setWriteCallback(TLSProvider::WriteCallback cb) : void
 +sniName() const : const std::string &
+{abstract} +startEncryption() = 0 : void
+__
 }
 class "TcpConnectionImpl" as C_0000920759514274339356
 class C_0000920759514274339356 {
 +TcpConnectionImpl(EventLoop * loop, int socketfd, const InetAddress & localAddr, const InetAddress & peerAddr, TLSPolicyPtr policy = nullptr, SSLContextPtr ctx = nullptr) : void
 +~TcpConnectionImpl() : void
-+send(const char * msg, size_t len) : void
+..
++applicationProtocol() const : std::string
++bytesReceived() const : size_t
++bytesSent() const : size_t
++connectDestroyed() : void
++connectEstablished() : void
++connected() const : bool
++disconnected() const : bool
++enableKickingOff(size_t timeout, const std::shared_ptr<TimingWheel> & timingWheel) : void
++forceClose() : void
++getLoop() : EventLoop *
++getRecvBuffer() : MsgBuffer *
++isKeepAlive() : bool
++isSSLConnection() const : bool
++keepAlive() : void
++localAddr() const : const InetAddress &
++peerAddr() const : const InetAddress &
++peerCertificate() const : CertificatePtr
++send(const std::shared_ptr<MsgBuffer> & msgPtr) : void
 +send(const void * msg, size_t len) : void
 +send(const std::string & msg) : void
 +send(std::string && msg) : void
 +send(const MsgBuffer & buffer) : void
 +send(MsgBuffer && buffer) : void
 +send(const std::shared_ptr<std::string> & msgPtr) : void
-+send(const std::shared_ptr<MsgBuffer> & msgPtr) : void
++send(const char * msg, size_t len) : void
 +sendFile(const char * fileName, size_t offset = 0, size_t length = 0) : void
 +sendFile(const wchar_t * fileName, size_t offset = 0, size_t length = 0) : void
 +sendStream(std::function<std::size_t (char *,std::size_t)> callback) : void
-+localAddr() const : const InetAddress &
-+peerAddr() const : const InetAddress &
-+connected() const : bool
-+disconnected() const : bool
 +setHighWaterMarkCallback(const HighWaterMarkCallback & cb, size_t markLen) : void
-+keepAlive() : void
-+isKeepAlive() : bool
 +setTcpNoDelay(bool on) : void
 +shutdown() : void
-+forceClose() : void
-+getLoop() : EventLoop *
-+bytesSent() const : size_t
-+bytesReceived() const : size_t
-+isSSLConnection() const : bool
-+connectEstablished() : void
-+connectDestroyed() : void
-+getRecvBuffer() : MsgBuffer *
-+applicationProtocol() const : std::string
-+peerCertificate() const : CertificatePtr
 +sniName() const : std::string
 +startEncryption(TLSPolicyPtr policy, bool isServer, std::function<void (const TcpConnectionPtr &)> upgradeCallback = nullptr) : void
-+enableKickingOff(size_t timeout, const std::shared_ptr<TimingWheel> & timingWheel) : void
+__
 }
 class "TcpConnectionImpl::KickoffEntry" as C_0002266895444343633259
 class C_0002266895444343633259 {
 +KickoffEntry(const std::weak_ptr<TcpConnection> & conn) : void
 +reset() : void
 +~KickoffEntry() : void
+__
 }
 class "TcpConnectionImpl::BufferNode" as C_0001029063960859366412
 class C_0001029063960859366412 {
 +isFile() const : bool
 +~BufferNode() : void
-+sendFd_ : int
-+offset_ : off_t
-+fileBytesToSend_ : ssize_t
-+streamCallback_ : std::function<std::size_t (char *,std::size_t)>
-+nDataWritten_ : std::size_t
-+msgBuffer_ : std::shared_ptr<MsgBuffer>
+__
 +closeConnection_ : bool
++fileBytesToSend_ : ssize_t
++msgBuffer_ : std::shared_ptr<MsgBuffer>
++nDataWritten_ : std::size_t
++offset_ : off_t
++sendFd_ : int
++streamCallback_ : std::function<std::size_t (char *,std::size_t)>
 }
 enum "TcpConnectionImpl::ConnStatus" as C_0001727349338344491225
 enum C_0001727349338344491225 {
@@ -595,174 +655,204 @@ abstract "Poller" as C_0000300034150397884642
 abstract C_0000300034150397884642 {
 +Poller(EventLoop * loop) : void
 +~Poller() : void
+..
 +assertInLoopThread() : void
+{static} +newPoller(EventLoop * loop) : Poller *
 {abstract} +poll(int timeoutMs, ChannelList * activeChannels) = 0 : void
-{abstract} +updateChannel(Channel * channel) = 0 : void
 {abstract} +removeChannel(Channel * channel) = 0 : void
 +resetAfterFork() : void
-{static} +newPoller(EventLoop * loop) : Poller *
+{abstract} +updateChannel(Channel * channel) = 0 : void
+__
 }
 class "TimerQueue" as C_0000607400095182694101
 class C_0000607400095182694101 {
 +TimerQueue(EventLoop * loop) : void
 +~TimerQueue() : void
+..
 +addTimer(const TimerCallback & cb, const TimePoint & when, const TimeInterval & interval) : TimerId
 +addTimer(TimerCallback && cb, const TimePoint & when, const TimeInterval & interval) : TimerId
 +addTimerInLoop(const TimerPtr & timer) : void
 +invalidateTimer(TimerId id) : void
 +reset() : void
+__
 }
 class "SSLContext" as C_0000626107303889580949
 class C_0000626107303889580949 {
+__
 }
 class "T" as C_0000394452884449343416
 class C_0000394452884449343416 {
 +T(const char * str, unsigned int len) : void
-+str_ : const char *
+__
 +len_ : const unsigned int
++str_ : const char *
 }
 class "Timer" as C_0002026475275429760163
 class C_0002026475275429760163 {
 +Timer(const TimerCallback & cb, const TimePoint & when, const TimeInterval & interval) : void
 +Timer(TimerCallback && cb, const TimePoint & when, const TimeInterval & interval) : void
 +~Timer() : void
-+run() const : void
-+restart(const TimePoint & now) : void
+..
 +operator<(const Timer & t) const : bool
 +operator>(const Timer & t) const : bool
-+when() const : const TimePoint &
-+isRepeat() : bool
+..
 +id() : TimerId
++isRepeat() : bool
++restart(const TimePoint & now) : void
++run() const : void
++when() const : const TimePoint &
+__
 }
 class "TimerPtrComparer" as C_0000157340721173102239
 class C_0000157340721173102239 {
 +operator()(const TimerPtr & x, const TimerPtr & y) const : bool
+__
 }
 class "ScopeExit<F>" as C_0000026148367911088234
 class C_0000026148367911088234 {
-+ScopeExit<F>(F && f) : void
-+~ScopeExit<F>() : void
++ScopeExit(F && f) : void
++~ScopeExit() : void
+__
 +f_ : F
 }
 abstract "TaskQueue" as C_0000684873245997977544
 abstract C_0000684873245997977544 {
++~TaskQueue() : void
+..
++getName() const : std::string
 {abstract} +runTaskInQueue(const std::function<void ()> & task) = 0 : void
 {abstract} +runTaskInQueue(std::function<void ()> && task) = 0 : void
-+getName() const : std::string
 +syncTaskInQueue(const std::function<void ()> & task) : void
-+~TaskQueue() : void
+__
 }
 class "ConcurrentTaskQueue" as C_0000295101274428145462
 class C_0000295101274428145462 {
 +ConcurrentTaskQueue(size_t threadNum, const std::string & name) : void
-+runTaskInQueue(const std::function<void ()> & task) : void
-+runTaskInQueue(std::function<void ()> && task) : void
++~ConcurrentTaskQueue() : void
+..
 +getName() const : std::string
 +getTaskCount() : size_t
++runTaskInQueue(const std::function<void ()> & task) : void
++runTaskInQueue(std::function<void ()> && task) : void
 +stop() : void
-+~ConcurrentTaskQueue() : void
+__
 }
 class "AsyncFileLogger" as C_0000630185754256426097
 class C_0000630185754256426097 {
-+output(const char * msg, const uint64_t len) : void
++AsyncFileLogger() : void
++~AsyncFileLogger() : void
+..
 +flush() : void
-+startLogging() : void
++output(const char * msg, const uint64_t len) : void
++setFileName(const std::string & baseName, const std::string & extName = ".log", const std::string & path = "./") : void
 +setFileSizeLimit(uint64_t limit) : void
 +setSwitchOnLimitOnly(bool flag = true) : void
-+setFileName(const std::string & baseName, const std::string & extName = ".log", const std::string & path = "./") : void
-+~AsyncFileLogger() : void
-+AsyncFileLogger() : void
++startLogging() : void
+__
 }
 class "AsyncFileLogger::LoggerFile" as C_0001453238540802541239
 class C_0001453238540802541239 {
 +LoggerFile(const std::string & filePath, const std::string & fileBaseName, const std::string & fileExtName, bool switchOnLimitOnly = false) : void
-+~LoggerFile() : void
-+writeLog(const StringPtr buf) : void
-+open() : void
-+switchLog(bool openNewOne) : void
-+getLength() : uint64_t
-+operator bool() const : bool
 +flush() : void
++getLength() : uint64_t
++open() : void
++operator bool() const : bool
++switchLog(bool openNewOne) : void
++writeLog(const StringPtr buf) : void
++~LoggerFile() : void
+__
 }
 class "utils::Hash128" as C_0001166594284895168875
 class C_0001166594284895168875 {
+__
 +bytes : unsigned char[16]
 }
 class "utils::Hash160" as C_0001016092423778930091
 class C_0001016092423778930091 {
+__
 +bytes : unsigned char[20]
 }
 class "utils::Hash256" as C_0000080756732781028581
 class C_0000080756732781028581 {
+__
 +bytes : unsigned char[32]
 }
 class "utils::RngState" as C_0000195316585713148470
 class C_0000195316585713148470 {
-+secret : utils::Hash256
-+prev : utils::Hash256
-+time : int64_t
+__
 +counter : uint64_t
++prev : utils::Hash256
++secret : utils::Hash256
++time : int64_t
 }
 class "SerialTaskQueue" as C_0000634031134969193198
 class C_0000634031134969193198 {
-+runTaskInQueue(const std::function<void ()> & task) : void
-+runTaskInQueue(std::function<void ()> && task) : void
-+getName() const : std::string
-+waitAllTasksFinished() : void
-+SerialTaskQueue() : void
++SerialTaskQueue() = deleted : void
 +SerialTaskQueue(const std::string & name) : void
 +~SerialTaskQueue() : void
-+isRuningTask() : bool
+..
++getName() const : std::string
 +getTaskCount() : size_t
++isRuningTask() : bool
++runTaskInQueue(const std::function<void ()> & task) : void
++runTaskInQueue(std::function<void ()> && task) : void
 +stop() : void
++waitAllTasksFinished() : void
+__
 }
 class "InetAddress::(anonymous_2039330)" as C_0000089957972753266749
 class C_0000089957972753266749 {
-+addr_ : struct sockaddr_in
+__
 +addr6_ : struct sockaddr_in6
++addr_ : struct sockaddr_in
 }
 class "TcpClient" as C_0001156367011091191681
 class C_0001156367011091191681 {
 +TcpClient(EventLoop * loop, const InetAddress & serverAddr, const std::string & nameArg) : void
 +~TcpClient() : void
+..
 +connect() : void
-+disconnect() : void
-+stop() : void
 +connection() const : TcpConnectionPtr
-+getLoop() const : EventLoop *
-+retry() const : bool
++disconnect() : void
 +enableRetry() : void
++enableSSL(TLSPolicyPtr policy) : void
++enableSSL(bool useOldTLS = false, bool validateCert = true, std::string hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
+            {}, const std::string & certPath = "", const std::string & keyPath = "", const std::string & caPath = "") : void
++getLoop() const : EventLoop *
 +name() const : const std::string &
++retry() const : bool
 +setConnectionCallback(const ConnectionCallback & cb) : void
 +setConnectionCallback(ConnectionCallback && cb) : void
 +setConnectionErrorCallback(const ConnectionErrorCallback & cb) : void
 +setMessageCallback(const RecvMessageCallback & cb) : void
 +setMessageCallback(RecvMessageCallback && cb) : void
-+setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
-+setWriteCompleteCallback(WriteCompleteCallback && cb) : void
 +setSSLErrorCallback(const SSLErrorCallback & cb) : void
 +setSSLErrorCallback(SSLErrorCallback && cb) : void
-+enableSSL(bool useOldTLS = false, bool validateCert = true, std::string hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
-            {}, const std::string & certPath = "", const std::string & keyPath = "", const std::string & caPath = "") : void
-+enableSSL(TLSPolicyPtr policy) : void
++setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
++setWriteCompleteCallback(WriteCompleteCallback && cb) : void
++stop() : void
+__
 }
 class "TcpClient::IgnoreSigPipe" as C_0001278908569830571044
 class C_0001278908569830571044 {
 +IgnoreSigPipe() : void
+__
 }
 class "Connector" as C_0001706043459252151324
 class C_0001706043459252151324 {
 +Connector(EventLoop * loop, const InetAddress & addr, bool retry = true) : void
 +Connector(EventLoop * loop, InetAddress && addr, bool retry = true) : void
 +~Connector() : void
-+setNewConnectionCallback(const Connector::NewConnectionCallback & cb) : void
-+setNewConnectionCallback(Connector::NewConnectionCallback && cb) : void
+..
++restart() : void
++serverAddress() const : const InetAddress &
 +setErrorCallback(const Connector::ConnectionErrorCallback & cb) : void
 +setErrorCallback(Connector::ConnectionErrorCallback && cb) : void
-+serverAddress() const : const InetAddress &
++setNewConnectionCallback(const Connector::NewConnectionCallback & cb) : void
++setNewConnectionCallback(Connector::NewConnectionCallback && cb) : void
 +start() : void
-+restart() : void
 +stop() : void
+__
 }
 enum "Connector::Status" as C_0000000982196670174162
 enum C_0000000982196670174162 {
@@ -959,6 +1049,6 @@ C_0001706043459252151324 o-- C_0001897340460211641725 : -serverAddr_
 C_0001159823987743494688 <|-- C_0001706043459252151324
 C_0000000982196670174162 --+ C_0001706043459252151324
 
-'Generated with clang-uml, version 0.3.5-1-g9a5a152
+'Generated with clang-uml, version 0.3.6-29-g238bfb0
 'LLVM version Ubuntu clang version 15.0.6
 @enduml

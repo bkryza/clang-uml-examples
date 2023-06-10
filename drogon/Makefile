@@ -18,7 +18,7 @@ build: drogon
 diagrams: build
 		cd drogon && \
 		cp ../.clang-uml .clang-uml && \
-		../$(CLANG_UML_BINARY)
+		../$(CLANG_UML_BINARY) --query-driver clang++-15
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml

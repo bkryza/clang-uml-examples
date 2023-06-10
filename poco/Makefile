@@ -18,7 +18,7 @@ build: poco
 diagrams: build
 		cd poco && \
 		cp ../.clang-uml .clang-uml && \
-		../$(CLANG_UML_BINARY)
+		../$(CLANG_UML_BINARY) --query-driver .
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml

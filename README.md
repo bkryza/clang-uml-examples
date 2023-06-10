@@ -5,6 +5,7 @@ This repository contains several examples of UML diagrams generated using [clang
 * [clang-uml](./clang-uml/README.md)
 * [cppast](./cppast/README.md)
 * [drogon](./drogon/README.md)
+* [entt](./entt/README.md)
 * [godot](./godot/README.md)
 * [poco](./poco/README.md)
 * [yaml-cpp](./yaml-cpp/README.md)

@@ -1,296 +1,346 @@
 @startuml
-class "type_list<First,Other...>" as C_0001723716587279733623
-class C_0001723716587279733623 {
-}
-class "type_list<Other...>" as C_0000401973545844492876
-class C_0000401973545844492876 {
-}
-class "type_list<Type,Other...>" as C_0000496685335806935509
-class C_0000496685335806935509 {
-}
-class "type_list" as C_0000816653833137337534
-class C_0000816653833137337534 {
-}
-class "type_list<Type...>" as C_0000150299823092418682
-class C_0000150299823092418682 {
-}
-class "value_list<Value,Other...>" as C_0001276342508473126665
-class C_0001276342508473126665 {
-}
-class "value_list<Other...>" as C_0000669672540584988414
-class C_0000669672540584988414 {
-}
-class "value_list<Value>" as C_0000114548431562228752
-class C_0000114548431562228752 {
-}
 class "internal::dense_map_node<Key,Type>" as C_0001949040226502523653
 class C_0001949040226502523653 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L31{dense_map_node}]] {
 +dense_map_node<Key, Type><Args...>(const std::size_t pos, Args &&... args) : void
-+dense_map_node<Key, Type><Allocator,Args...>(std::allocator_arg_t , const Allocator & allocator, const std::size_t pos, Args &&... args) : void
-+dense_map_node<Key, Type><Allocator>(std::allocator_arg_t , const Allocator & allocator, const dense_map_node<Key,Type> & other) : void
-+dense_map_node<Key, Type><Allocator>(std::allocator_arg_t , const Allocator & allocator, dense_map_node<Key,Type> && other) : void
++dense_map_node<Key, Type><Allocator,Args...>(std::allocator_arg_t, const Allocator & allocator, const std::size_t pos, Args &&... args) : void
++dense_map_node<Key, Type><Allocator>(std::allocator_arg_t, const Allocator & allocator, const dense_map_node<Key,Type> & other) : void
++dense_map_node<Key, Type><Allocator>(std::allocator_arg_t, const Allocator & allocator, dense_map_node<Key,Type> && other) : void
+__
++element : internal::dense_map_node::value_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L55{element}]]]
 +next : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L54{next}]]]
-+element : value_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L55{element}]]]
+}
+class "internal::dense_map_iterator<Other>" as C_0001376588142308052157
+class C_0001376588142308052157 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L59{dense_map_iterator}]] {
+__
 }
 class "internal::dense_map_iterator<It>" as C_0000861079117123945586
 class C_0000861079117123945586 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L59{dense_map_iterator}]] {
-+dense_map_iterator<It>() : void
-+dense_map_iterator<It>(const It iter) : void
-+operator++() : dense_map_iterator<It> &
-+operator++(int ) : dense_map_iterator<It>
-+operator--() : dense_map_iterator<It> &
-+operator--(int ) : dense_map_iterator<It>
-+operator+=(const difference_type value) : dense_map_iterator<It> &
-+operator+(const difference_type value) const : dense_map_iterator<It>
-+operator-=(const difference_type value) : dense_map_iterator<It> &
-+operator-(const difference_type value) const : dense_map_iterator<It>
-+operator[](const difference_type value) const : reference
-+operator->() const : pointer
-+operator*() const : reference
-+dense_map_iterator<It><Other,=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const dense_map_iterator<Other> & other) : void
++dense_map_iterator() noexcept : void
++dense_map_iterator(const It iter) noexcept : void
++dense_map_iterator<It><Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const dense_map_iterator<Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : internal::dense_map_iterator::reference
++operator+(const internal::dense_map_iterator::difference_type value) constexpr const noexcept : dense_map_iterator<It>
++operator++() constexpr noexcept : dense_map_iterator<It> &
++operator++(int) constexpr noexcept : dense_map_iterator<It>
++operator+=(const internal::dense_map_iterator::difference_type value) constexpr noexcept : dense_map_iterator<It> &
++operator-(const internal::dense_map_iterator::difference_type value) constexpr const noexcept : dense_map_iterator<It>
++operator--() constexpr noexcept : dense_map_iterator<It> &
++operator--(int) constexpr noexcept : dense_map_iterator<It>
++operator-=(const internal::dense_map_iterator::difference_type value) constexpr noexcept : dense_map_iterator<It> &
++operator->() constexpr const noexcept : internal::dense_map_iterator::pointer
++operator[](const internal::dense_map_iterator::difference_type value) constexpr const noexcept : internal::dense_map_iterator::reference
+__
 -it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L141{it}]]]
+}
+class "internal::dense_map_local_iterator<Other>" as C_0000897312785691592656
+class C_0000897312785691592656 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L180{dense_map_local_iterator}]] {
+__
 }
 class "internal::dense_map_local_iterator<It>" as C_0002151284549161307803
 class C_0002151284549161307803 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L180{dense_map_local_iterator}]] {
-+dense_map_local_iterator<It>() : void
-+dense_map_local_iterator<It>(It iter, const std::size_t pos) : void
-+operator++() : dense_map_local_iterator<It> &
-+operator++(int ) : dense_map_local_iterator<It>
-+operator->() const : pointer
-+operator*() const : reference
-+index() const : std::size_t
-+dense_map_local_iterator<It><Other,=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const dense_map_local_iterator<Other> & other) : void
++dense_map_local_iterator() noexcept : void
++dense_map_local_iterator(It iter, const std::size_t pos) noexcept : void
++dense_map_local_iterator<It><Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const dense_map_local_iterator<Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : internal::dense_map_local_iterator::reference
++operator++() constexpr noexcept : dense_map_local_iterator<It> &
++operator++(int) constexpr noexcept : dense_map_local_iterator<It>
++operator->() constexpr const noexcept : internal::dense_map_local_iterator::pointer
+..
++index() constexpr const noexcept : std::size_t
+__
 -it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L229{it}]]]
 -offset : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L230{offset}]]]
 }
-class "internal::dense_map_iterator<>" as C_0001271452795922285914
-class C_0001271452795922285914 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L61{dense_map_iterator}]] {
+class "internal::dense_map_iterator<typename packed_container_type::const_iterator>" as C_0001653959084428336991
+class C_0001653959084428336991 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L59{dense_map_iterator}]] {
+__
 }
-class "internal::dense_map_local_iterator<>" as C_0002270315657488311861
-class C_0002270315657488311861 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L182{dense_map_local_iterator}]] {
+class "internal::dense_map_iterator<typename packed_container_type::iterator>" as C_0001467357144574951784
+class C_0001467357144574951784 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L59{dense_map_iterator}]] {
+__
+}
+class "internal::dense_map_local_iterator<typename packed_container_type::const_iterator>" as C_0001059592200633017691
+class C_0001059592200633017691 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L180{dense_map_local_iterator}]] {
+__
+}
+class "internal::dense_map_local_iterator<typename packed_container_type::iterator>" as C_0001333101687401183603
+class C_0001333101687401183603 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L180{dense_map_local_iterator}]] {
+__
+}
+class "internal::dense_map_local_iterator<typename>" as C_0001638501202125067276
+class C_0001638501202125067276 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L182{dense_map_local_iterator}]] {
+__
+}
+class "internal::dense_map_iterator<typename>" as C_0002138822504316417237
+class C_0002138822504316417237 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L61{dense_map_iterator}]] {
+__
+}
+class "internal::dense_set_iterator<Other>" as C_0000049162385221685939
+class C_0000049162385221685939 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L30{dense_set_iterator}]] {
+__
 }
 class "internal::dense_set_iterator<It>" as C_0002029187173053297188
 class C_0002029187173053297188 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L30{dense_set_iterator}]] {
-+dense_set_iterator<It>() : void
-+dense_set_iterator<It>(const It iter) : void
-+operator++() : dense_set_iterator<It> &
-+operator++(int ) : dense_set_iterator<It>
-+operator--() : dense_set_iterator<It> &
-+operator--(int ) : dense_set_iterator<It>
-+operator+=(const difference_type value) : dense_set_iterator<It> &
-+operator+(const difference_type value) const : dense_set_iterator<It>
-+operator-=(const difference_type value) : dense_set_iterator<It> &
-+operator-(const difference_type value) const : dense_set_iterator<It>
-+operator[](const difference_type value) const : reference
-+operator->() const : pointer
-+operator*() const : reference
-+dense_set_iterator<It><Other,=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const dense_set_iterator<Other> & other) : void
++dense_set_iterator() noexcept : void
++dense_set_iterator(const It iter) noexcept : void
++dense_set_iterator<It><Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const dense_set_iterator<Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : internal::dense_set_iterator::reference
++operator+(const internal::dense_set_iterator::difference_type value) constexpr const noexcept : dense_set_iterator<It>
++operator++() constexpr noexcept : dense_set_iterator<It> &
++operator++(int) constexpr noexcept : dense_set_iterator<It>
++operator+=(const internal::dense_set_iterator::difference_type value) constexpr noexcept : dense_set_iterator<It> &
++operator-(const internal::dense_set_iterator::difference_type value) constexpr const noexcept : dense_set_iterator<It>
++operator--() constexpr noexcept : dense_set_iterator<It> &
++operator--(int) constexpr noexcept : dense_set_iterator<It>
++operator-=(const internal::dense_set_iterator::difference_type value) constexpr noexcept : dense_set_iterator<It> &
++operator->() constexpr const noexcept : internal::dense_set_iterator::pointer
++operator[](const internal::dense_set_iterator::difference_type value) constexpr const noexcept : internal::dense_set_iterator::reference
+__
 -it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L109{it}]]]
+}
+class "internal::dense_set_local_iterator<Other>" as C_0000722665158129243283
+class C_0000722665158129243283 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L148{dense_set_local_iterator}]] {
+__
 }
 class "internal::dense_set_local_iterator<It>" as C_0001736854889005654369
 class C_0001736854889005654369 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L148{dense_set_local_iterator}]] {
-+dense_set_local_iterator<It>() : void
-+dense_set_local_iterator<It>(It iter, const std::size_t pos) : void
-+operator++() : dense_set_local_iterator<It> &
-+operator++(int ) : dense_set_local_iterator<It>
-+operator->() const : pointer
-+operator*() const : reference
-+index() const : std::size_t
-+dense_set_local_iterator<It><Other,=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const dense_set_local_iterator<Other> & other) : void
++dense_set_local_iterator() noexcept : void
++dense_set_local_iterator(It iter, const std::size_t pos) noexcept : void
++dense_set_local_iterator<It><Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other> >>(const dense_set_local_iterator<Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : internal::dense_set_local_iterator::reference
++operator++() constexpr noexcept : dense_set_local_iterator<It> &
++operator++(int) constexpr noexcept : dense_set_local_iterator<It>
++operator->() constexpr const noexcept : internal::dense_set_local_iterator::pointer
+..
++index() constexpr const noexcept : std::size_t
+__
 -it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L194{it}]]]
 -offset : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L195{offset}]]]
 }
-class "internal::dense_set_local_iterator<>" as C_0000377880092827030616
-class C_0000377880092827030616 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L150{dense_set_local_iterator}]] {
+class "internal::dense_set_iterator<typename packed_container_type::const_iterator>" as C_0000560377495148252911
+class C_0000560377495148252911 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L30{dense_set_iterator}]] {
+__
 }
-class "internal::dense_set_iterator<>" as C_0000515821743975700101
-class C_0000515821743975700101 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L32{dense_set_iterator}]] {
+class "internal::dense_set_iterator<typename packed_container_type::iterator>" as C_0000152036747823538986
+class C_0000152036747823538986 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L30{dense_set_iterator}]] {
+__
 }
-class "compressed_pair<std::vector<std::size_t>,dense_map::hasher>" as C_0001686486826919845415
-class C_0001686486826919845415 {
+class "internal::dense_set_local_iterator<typename packed_container_type::const_iterator>" as C_0000412176680063565687
+class C_0000412176680063565687 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L148{dense_set_local_iterator}]] {
+__
 }
-class "compressed_pair<std::vector<internal::dense_map_node<Key,Type>>,dense_map::key_equal>" as C_0000507249114974527684
-class C_0000507249114974527684 {
+class "internal::dense_set_local_iterator<typename packed_container_type::iterator>" as C_0001477017809704643123
+class C_0001477017809704643123 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L148{dense_set_local_iterator}]] {
+__
+}
+class "internal::dense_set_iterator<typename>" as C_0001565515217260524899
+class C_0001565515217260524899 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L32{dense_set_iterator}]] {
+__
+}
+class "internal::dense_set_local_iterator<typename>" as C_0001656541682645832012
+class C_0001656541682645832012 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L150{dense_set_local_iterator}]] {
+__
 }
 class "dense_map<Key,Type,Hash=std::hash<Key>,KeyEqual=std::equal_to<Key>,Allocator=std::allocator<std::pair<const Key, Type> >>" as C_0001073675684695097120
 class C_0001073675684695097120 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L264{dense_map}]] {
--move_and_pop(const std::size_t pos) : void
--rehash_if_required() : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>() : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>(const allocator_type & allocator) : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>(const size_type cnt, const allocator_type & allocator) : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>(const size_type cnt, const hasher & hash, const allocator_type & allocator) : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>(const size_type cnt, const hasher & hash = hasher{}, const key_equal & equal = key_equal{}, const allocator_type & allocator = allocator_type{}) : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & ) = default : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & other, const allocator_type & allocator) : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> && ) = default : void
-+dense_map<Key, Type, type-parameter-0-2, type-parameter-0-3, type-parameter-0-4>(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> && other, const allocator_type & allocator) : void
-+operator=(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & ) = default : dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &
-+operator=(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> && ) = default : dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &
-+get_allocator() const : allocator_type
-+cbegin() const : const_iterator
-+begin() const : const_iterator
-+begin() : iterator
-+cend() const : const_iterator
-+end() const : const_iterator
-+end() : iterator
-+empty() const : bool
-+size() const : size_type
-+max_size() const : size_type
-+clear() : void
-+insert(const value_type & value) : std::pair<iterator,bool>
-+insert(value_type && value) : std::pair<iterator,bool>
-+erase(const_iterator pos) : iterator
-+erase(const_iterator first, const_iterator last) : iterator
-+erase(const key_type & key) : size_type
-+swap(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & other) : void
-+at(const key_type & key) : mapped_type &
-+at(const key_type & key) const : const mapped_type &
-+operator[](const key_type & key) : mapped_type &
-+operator[](key_type && key) : mapped_type &
-+count(const key_type & key) const : size_type
-+find(const key_type & key) : iterator
-+find(const key_type & key) const : const_iterator
-+equal_range(const key_type & key) : std::pair<iterator,iterator>
-+equal_range(const key_type & key) const : std::pair<const_iterator,const_iterator>
-+contains(const key_type & key) const : bool
-+cbegin(const size_type index) const : const_local_iterator
-+begin(const size_type index) const : const_local_iterator
-+begin(const size_type index) : local_iterator
-+cend(const size_type index) const : const_local_iterator
-+end(const size_type index) const : const_local_iterator
-+end(const size_type index) : local_iterator
-+bucket_count() const : size_type
-+max_bucket_count() const : size_type
-+bucket_size(const size_type index) const : size_type
-+bucket(const key_type & key) const : size_type
-+load_factor() const : float
-+max_load_factor() const : float
-+max_load_factor(const float value) : void
-+rehash(const size_type cnt) : void
-+reserve(const size_type cnt) : void
-+hash_function() const : hasher
-+key_eq() const : key_equal
--key_to_bucket<Other>(const Other & key) : std::size_t
++dense_map() : void
++dense_map(const dense_map::allocator_type & allocator) : void
++dense_map(const dense_map::size_type cnt, const dense_map::allocator_type & allocator) : void
++dense_map(const dense_map::size_type cnt, const dense_map::hasher & hash, const dense_map::allocator_type & allocator) : void
++dense_map(const dense_map::size_type cnt, const dense_map::hasher & hash = hasher{}, const dense_map::key_equal & equal = key_equal{}, const dense_map::allocator_type & allocator = allocator_type{}) : void
++dense_map(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &) = default : void
++dense_map(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & other, const dense_map::allocator_type & allocator) : void
++dense_map(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &&) noexcept = default : void
++dense_map(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> && other, const dense_map::allocator_type & allocator) : void
+..
++operator=(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &) = default : dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &
++operator=(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &&) noexcept = default : dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &
+..
++operator[](const dense_map::key_type & key) : dense_map::mapped_type &
++operator[](dense_map::key_type && key) : dense_map::mapped_type &
+..
++at(const dense_map::key_type & key) const : const dense_map::mapped_type &
++at(const dense_map::key_type & key) : dense_map::mapped_type &
++begin() const noexcept : dense_map::const_iterator
++begin() noexcept : dense_map::iterator
++begin(const dense_map::size_type index) : dense_map::local_iterator
++begin(const dense_map::size_type index) const : dense_map::const_local_iterator
++bucket(const dense_map::key_type & key) const : dense_map::size_type
++bucket_count() const : dense_map::size_type
++bucket_size(const dense_map::size_type index) const : dense_map::size_type
++cbegin(const dense_map::size_type index) const : dense_map::const_local_iterator
++cbegin() const noexcept : dense_map::const_iterator
++cend(const dense_map::size_type index) const : dense_map::const_local_iterator
++cend() const noexcept : dense_map::const_iterator
++clear() noexcept : void
 -constrained_find<Other>(const Other & key, std::size_t bucket) : auto
--constrained_find<Other>(const Other & key, std::size_t bucket) : auto
+-constrained_find<Other>(const Other & key, std::size_t bucket) const : auto
++contains(const dense_map::key_type & key) const : bool
++contains<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, _Bool> >
++count<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, size_type> >
++count(const dense_map::key_type & key) const : dense_map::size_type
++emplace<Args...>(Args &&... args) : std::pair<iterator, _Bool>
++empty() const noexcept : bool
++end(const dense_map::size_type index) : dense_map::local_iterator
++end(const dense_map::size_type index) const : dense_map::const_local_iterator
++end() noexcept : dense_map::iterator
++end() const noexcept : dense_map::const_iterator
++equal_range(const dense_map::key_type & key) const : std::pair<const_iterator,const_iterator>
++equal_range(const dense_map::key_type & key) : std::pair<iterator,iterator>
++equal_range<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<const_iterator, const_iterator> > >
++equal_range<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<iterator, iterator> > >
++erase(const dense_map::key_type & key) : dense_map::size_type
++erase(dense_map::const_iterator first, dense_map::const_iterator last) : dense_map::iterator
++erase(dense_map::const_iterator pos) : dense_map::iterator
++find<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, iterator> >
++find<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, const_iterator> >
++find(const dense_map::key_type & key) : dense_map::iterator
++find(const dense_map::key_type & key) const : dense_map::const_iterator
++get_allocator() constexpr const noexcept : dense_map::allocator_type
++hash_function() const : dense_map::hasher
++insert(const dense_map::value_type & value) : std::pair<iterator,bool>
++insert(dense_map::value_type && value) : std::pair<iterator,bool>
++insert<It>(It first, It last) : void
++insert<Arg>(Arg && value) : std::enable_if_t<std::is_constructible_v<value_type, Arg &&>, std::pair<iterator, _Bool> >
++insert_or_assign<Arg>(dense_map::key_type && key, Arg && value) : std::pair<iterator, _Bool>
++insert_or_assign<Arg>(const dense_map::key_type & key, Arg && value) : std::pair<iterator, _Bool>
 -insert_or_do_nothing<Other,Args...>(Other && key, Args &&... args) : auto
 -insert_or_overwrite<Other,Arg>(Other && key, Arg && value) : auto
-+insert<Arg>(Arg && value) : std::enable_if_t<std::is_constructible_v<value_type, Arg &&>, std::pair<iterator, _Bool> >
-+insert<It>(It first, It last) : void
-+insert_or_assign<Arg>(const key_type & key, Arg && value) : std::pair<iterator, _Bool>
-+insert_or_assign<Arg>(key_type && key, Arg && value) : std::pair<iterator, _Bool>
-+emplace<Args...>(Args &&... args) : std::pair<iterator, _Bool>
-+try_emplace<Args...>(const key_type & key, Args &&... args) : std::pair<iterator, _Bool>
-+try_emplace<Args...>(key_type && key, Args &&... args) : std::pair<iterator, _Bool>
-+count<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, size_type> >
-+find<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, iterator> >
-+find<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, const_iterator> >
-+equal_range<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<iterator, iterator> > >
-+equal_range<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<const_iterator, const_iterator> > >
-+contains<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, _Bool> >
--sparse : compressed_pair<sparse_container_type,hasher> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L1035{sparse}]]]
--packed : compressed_pair<packed_container_type,key_equal> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L1036{packed}]]]
--threshold : float [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L1037{threshold}]]]
++key_eq() const : dense_map::key_equal
+-key_to_bucket<Other>(const Other & key) const noexcept : std::size_t
++load_factor() const : float
++max_bucket_count() const : dense_map::size_type
++max_load_factor(const float value) : void
++max_load_factor() const : float
++max_size() const noexcept : dense_map::size_type
+-move_and_pop(const std::size_t pos) : void
++rehash(const dense_map::size_type cnt) : void
+-rehash_if_required() : void
++reserve(const dense_map::size_type cnt) : void
++size() const noexcept : dense_map::size_type
++swap(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & other) : void
++try_emplace<Args...>(const dense_map::key_type & key, Args &&... args) : std::pair<iterator, _Bool>
++try_emplace<Args...>(dense_map::key_type && key, Args &&... args) : std::pair<iterator, _Bool>
+__
 {static} -default_threshold : const float [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L265{default_threshold}]]]
 {static} -minimum_capacity : const std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L266{minimum_capacity}]]]
+-packed : compressed_pair<dense_map::packed_container_type,dense_map::key_equal> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L1036{packed}]]]
+-sparse : compressed_pair<dense_map::sparse_container_type,dense_map::hasher> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L1035{sparse}]]]
+-threshold : float [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_map.hpp#L1037{threshold}]]]
 }
-class "dense_map<Key,Type,=std::hash<Key>,=std::equal_to<Key>,=std::allocator<std::pair<const Key, Type> >>" as C_0001503042528880026519
-class C_0001503042528880026519 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/fwd.hpp#L15{dense_map}]] {
+class "dense_set<Type,typename=std::hash<Type>,typename=std::equal_to<Type>,typename=std::allocator<Type>>" as C_0002013462517635721608
+class C_0002013462517635721608 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/fwd.hpp#L22{dense_set}]] {
+__
 }
-class "dense_set<Type,=std::hash<Type>,=std::equal_to<Type>,=std::allocator<Type>>" as C_0002296068478642625070
-class C_0002296068478642625070 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/fwd.hpp#L22{dense_set}]] {
-}
-class "compressed_pair<std::vector<std::size_t>,dense_set::hasher>" as C_0002082989189680990643
-class C_0002082989189680990643 {
-}
-class "compressed_pair<std::vector<std::pair<std::size_t,Type>>,dense_set::key_equal>" as C_0001611725919328905677
-class C_0001611725919328905677 {
+class "dense_map<Key,Type,typename=std::hash<Key>,typename=std::equal_to<Key>,typename=std::allocator<std::pair<const Key, Type> >>" as C_0002133693157975512401
+class C_0002133693157975512401 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/fwd.hpp#L15{dense_map}]] {
+__
 }
 class "dense_set<Type,Hash=std::hash<Type>,KeyEqual=std::equal_to<Type>,Allocator=std::allocator<Type>>" as C_0001428356275870265271
 class C_0001428356275870265271 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L228{dense_set}]] {
--move_and_pop(const std::size_t pos) : void
--rehash_if_required() : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>() : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(const allocator_type & allocator) : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(const size_type cnt, const allocator_type & allocator) : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(const size_type cnt, const hasher & hash, const allocator_type & allocator) : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(const size_type cnt, const hasher & hash = hasher{}, const key_equal & equal = key_equal{}, const allocator_type & allocator = allocator_type{}) : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & ) = default : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & other, const allocator_type & allocator) : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> && ) = default : void
-+dense_set<Type, type-parameter-0-1, type-parameter-0-2, type-parameter-0-3>(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> && other, const allocator_type & allocator) : void
-+operator=(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & ) = default : dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &
-+operator=(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> && ) = default : dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &
-+get_allocator() const : allocator_type
-+cbegin() const : const_iterator
-+begin() const : const_iterator
-+begin() : iterator
-+cend() const : const_iterator
-+end() const : const_iterator
-+end() : iterator
-+empty() const : bool
-+size() const : size_type
-+max_size() const : size_type
-+clear() : void
-+insert(const value_type & value) : std::pair<iterator,bool>
-+insert(value_type && value) : std::pair<iterator,bool>
-+erase(const_iterator pos) : iterator
-+erase(const_iterator first, const_iterator last) : iterator
-+erase(const value_type & value) : size_type
-+swap(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & other) : void
-+count(const value_type & key) const : size_type
-+find(const value_type & value) : iterator
-+find(const value_type & value) const : const_iterator
-+equal_range(const value_type & value) : std::pair<iterator,iterator>
-+equal_range(const value_type & value) const : std::pair<const_iterator,const_iterator>
-+contains(const value_type & value) const : bool
-+cbegin(const size_type index) const : const_local_iterator
-+begin(const size_type index) const : const_local_iterator
-+begin(const size_type index) : local_iterator
-+cend(const size_type index) const : const_local_iterator
-+end(const size_type index) const : const_local_iterator
-+end(const size_type index) : local_iterator
-+bucket_count() const : size_type
-+max_bucket_count() const : size_type
-+bucket_size(const size_type index) const : size_type
-+bucket(const value_type & value) const : size_type
-+load_factor() const : float
-+max_load_factor() const : float
-+max_load_factor(const float value) : void
-+rehash(const size_type cnt) : void
-+reserve(const size_type cnt) : void
-+hash_function() const : hasher
-+key_eq() const : key_equal
--value_to_bucket<Other>(const Other & value) : std::size_t
++dense_set() : void
++dense_set(const dense_set::allocator_type & allocator) : void
++dense_set(const dense_set::size_type cnt, const dense_set::allocator_type & allocator) : void
++dense_set(const dense_set::size_type cnt, const dense_set::hasher & hash, const dense_set::allocator_type & allocator) : void
++dense_set(const dense_set::size_type cnt, const dense_set::hasher & hash = hasher{}, const dense_set::key_equal & equal = key_equal{}, const dense_set::allocator_type & allocator = allocator_type{}) : void
++dense_set(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &) = default : void
++dense_set(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & other, const dense_set::allocator_type & allocator) : void
++dense_set(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &&) noexcept = default : void
++dense_set(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> && other, const dense_set::allocator_type & allocator) : void
+..
++operator=(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &) = default : dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &
++operator=(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &&) noexcept = default : dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &
+..
++begin() const noexcept : dense_set::const_iterator
++begin() noexcept : dense_set::iterator
++begin(const dense_set::size_type index) : dense_set::local_iterator
++begin(const dense_set::size_type index) const : dense_set::const_local_iterator
++bucket(const dense_set::value_type & value) const : dense_set::size_type
++bucket_count() const : dense_set::size_type
++bucket_size(const dense_set::size_type index) const : dense_set::size_type
++cbegin() const noexcept : dense_set::const_iterator
++cbegin(const dense_set::size_type index) const : dense_set::const_local_iterator
++cend() const noexcept : dense_set::const_iterator
++cend(const dense_set::size_type index) const : dense_set::const_local_iterator
++clear() noexcept : void
+-constrained_find<Other>(const Other & value, std::size_t bucket) const : auto
 -constrained_find<Other>(const Other & value, std::size_t bucket) : auto
--constrained_find<Other>(const Other & value, std::size_t bucket) : auto
--insert_or_do_nothing<Other>(Other && value) : auto
-+insert<It>(It first, It last) : void
++contains<Other>(const Other & value) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, _Bool> >
++contains(const dense_set::value_type & value) const : bool
++count(const dense_set::value_type & key) const : dense_set::size_type
++count<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, size_type> >
 +emplace<Args...>(Args &&... args) : std::pair<iterator, _Bool>
-+count<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, size_type> >
-+find<Other>(const Other & value) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, iterator> >
-+find<Other>(const Other & value) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, const_iterator> >
++empty() const noexcept : bool
++end() const noexcept : dense_set::const_iterator
++end() noexcept : dense_set::iterator
++end(const dense_set::size_type index) : dense_set::local_iterator
++end(const dense_set::size_type index) const : dense_set::const_local_iterator
++equal_range<Other>(const Other & value) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<const_iterator, const_iterator> > >
++equal_range(const dense_set::value_type & value) : std::pair<iterator,iterator>
++equal_range(const dense_set::value_type & value) const : std::pair<const_iterator,const_iterator>
 +equal_range<Other>(const Other & value) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<iterator, iterator> > >
-+equal_range<Other>(const Other & value) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<const_iterator, const_iterator> > >
-+contains<Other>(const Other & value) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, _Bool> >
--sparse : compressed_pair<sparse_container_type,hasher> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L888{sparse}]]]
--packed : compressed_pair<packed_container_type,key_equal> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L889{packed}]]]
--threshold : float [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L890{threshold}]]]
++erase(const dense_set::value_type & value) : dense_set::size_type
++erase(dense_set::const_iterator first, dense_set::const_iterator last) : dense_set::iterator
++erase(dense_set::const_iterator pos) : dense_set::iterator
++find<Other>(const Other & value) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, const_iterator> >
++find<Other>(const Other & value) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, iterator> >
++find(const dense_set::value_type & value) const : dense_set::const_iterator
++find(const dense_set::value_type & value) : dense_set::iterator
++get_allocator() constexpr const noexcept : dense_set::allocator_type
++hash_function() const : dense_set::hasher
++insert(const dense_set::value_type & value) : std::pair<iterator,bool>
++insert(dense_set::value_type && value) : std::pair<iterator,bool>
++insert<It>(It first, It last) : void
+-insert_or_do_nothing<Other>(Other && value) : auto
++key_eq() const : dense_set::key_equal
++load_factor() const : float
++max_bucket_count() const : dense_set::size_type
++max_load_factor(const float value) : void
++max_load_factor() const : float
++max_size() const noexcept : dense_set::size_type
+-move_and_pop(const std::size_t pos) : void
++rehash(const dense_set::size_type cnt) : void
+-rehash_if_required() : void
++reserve(const dense_set::size_type cnt) : void
++size() const noexcept : dense_set::size_type
++swap(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & other) : void
+-value_to_bucket<Other>(const Other & value) const noexcept : std::size_t
+__
 {static} -default_threshold : const float [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L229{default_threshold}]]]
 {static} -minimum_capacity : const std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L230{minimum_capacity}]]]
+-packed : compressed_pair<dense_set::packed_container_type,dense_set::key_equal> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L889{packed}]]]
+-sparse : compressed_pair<dense_set::sparse_container_type,dense_set::hasher> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L888{sparse}]]]
+-threshold : float [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/container/dense_set.hpp#L890{threshold}]]]
 }
-C_0001723716587279733623 ..|> C_0000150299823092418682
-C_0000401973545844492876 ..|> C_0001723716587279733623
-C_0000496685335806935509 ..|> C_0001723716587279733623
-C_0000150299823092418682 ..|> C_0001723716587279733623
-C_0000507249114974527684 ..> C_0001949040226502523653
-C_0001073675684695097120 o-- C_0001686486826919845415 : -sparse
-C_0001073675684695097120 o-- C_0000507249114974527684 : -packed
-C_0002082989189680990643 ..|> C_0001686486826919845415
-C_0001428356275870265271 o-- C_0002082989189680990643 : -sparse
-C_0001428356275870265271 o-- C_0001611725919328905677 : -packed
+C_0001376588142308052157 ..|> C_0000861079117123945586
+C_0000861079117123945586 ..> C_0001376588142308052157
+C_0000897312785691592656 ..|> C_0002151284549161307803
+C_0002151284549161307803 ..> C_0000897312785691592656
+C_0001653959084428336991 ..|> C_0001376588142308052157
+C_0001467357144574951784 ..|> C_0001376588142308052157
+C_0001059592200633017691 ..|> C_0000897312785691592656
+C_0001333101687401183603 ..|> C_0000897312785691592656
+C_0000049162385221685939 ..|> C_0002029187173053297188
+C_0002029187173053297188 ..> C_0000049162385221685939
+C_0000722665158129243283 ..|> C_0001736854889005654369
+C_0001736854889005654369 ..> C_0000722665158129243283
+C_0000560377495148252911 ..|> C_0000049162385221685939
+C_0000152036747823538986 ..|> C_0000049162385221685939
+C_0000412176680063565687 ..|> C_0000722665158129243283
+C_0001477017809704643123 ..|> C_0000722665158129243283
+C_0001073675684695097120 ..> C_0001653959084428336991
+C_0001073675684695097120 ..> C_0001467357144574951784
+C_0001073675684695097120 ..> C_0001059592200633017691
+C_0001073675684695097120 ..> C_0001333101687401183603
+C_0001428356275870265271 ..> C_0000560377495148252911
+C_0001428356275870265271 ..> C_0000152036747823538986
+C_0001428356275870265271 ..> C_0000412176680063565687
+C_0001428356275870265271 ..> C_0001477017809704643123
 
-'Generated with clang-uml, version 0.3.5-2-g7e9944c
-'LLVM version Ubuntu clang version 16.0.1 (++20230328073357+42d1b276f779-1~exp1~20230328073502.65)
+'Generated with clang-uml, version 0.3.6-29-g238bfb0
+'LLVM version Ubuntu clang version 15.0.6
 @enduml

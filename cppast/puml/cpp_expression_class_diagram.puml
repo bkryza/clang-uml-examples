@@ -6,45 +6,55 @@ unexposed_t
 }
 abstract "cpp_type" as C_0001585653041236922459
 abstract C_0001585653041236922459 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L44{cpp_type}]] {
-+cpp_type(const cpp_type & ) : void
-+operator=(const cpp_type & ) : cpp_type &
-+~cpp_type() = default : void
-+kind() const : cpp_type_kind
-+user_data() const : void *
-+set_user_data(void * data) const : void
-#cpp_type() : void
-{abstract} -do_get_kind() const = 0 : cpp_type_kind
--on_insert(const cpp_type & ) : void
++cpp_type(const cpp_type &) = deleted : void
+#cpp_type() noexcept : void
++~cpp_type() noexcept = default : void
+..
++operator=(const cpp_type &) = deleted : cpp_type &
+..
+{abstract} -do_get_kind() const noexcept = 0 : cpp_type_kind
++kind() const noexcept : cpp_type_kind
+-on_insert(const cpp_type &) : void
++set_user_data(void * data) const noexcept : void
++user_data() const noexcept : void *
+__
 -user_data_ : std::atomic<void *> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L85{user_data_}]]]
 }
 abstract "cpp_expression" as C_0002228471918600734475
 abstract C_0002228471918600734475 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_expression.hpp#L24{cpp_expression}]] {
-+cpp_expression(const cpp_expression & ) : void
-+operator=(const cpp_expression & ) : cpp_expression &
-+~cpp_expression() = default : void
-+kind() const : cpp_expression_kind
-+type() const : const cpp_type &
-+user_data() const : void *
-+set_user_data(void * data) const : void
++cpp_expression(const cpp_expression &) = deleted : void
 #cpp_expression(std::unique_ptr<cpp_type> type) : void
-{abstract} -do_get_kind() const = 0 : cpp_expression_kind
++~cpp_expression() noexcept = default : void
+..
++operator=(const cpp_expression &) = deleted : cpp_expression &
+..
+{abstract} -do_get_kind() const noexcept = 0 : cpp_expression_kind
++kind() const noexcept : cpp_expression_kind
++set_user_data(void * data) const noexcept : void
++type() const noexcept : const cpp_type &
++user_data() const noexcept : void *
+__
 -type_ : std::unique_ptr<cpp_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_expression.hpp#L74{type_}]]]
 -user_data_ : std::atomic<void *> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_expression.hpp#L75{user_data_}]]]
 }
 class "cpp_unexposed_expression" as C_0000978206085606851269
 class C_0000978206085606851269 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_expression.hpp#L81{cpp_unexposed_expression}]] {
-{static} +build(std::unique_ptr<cpp_type> type, cpp_token_string str) : std::unique_ptr<cpp_unexposed_expression>
-+expression() const : const cpp_token_string &
 -cpp_unexposed_expression(std::unique_ptr<cpp_type> type, cpp_token_string str) : void
--do_get_kind() const : cpp_expression_kind
+..
+{static} +build(std::unique_ptr<cpp_type> type, cpp_token_string str) : std::unique_ptr<cpp_unexposed_expression>
+-do_get_kind() const noexcept : cpp_expression_kind
++expression() const noexcept : const cpp_token_string &
+__
 -str_ : cpp_token_string [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_expression.hpp#L108{str_}]]]
 }
 class "cpp_literal_expression" as C_0001481645313438672561
 class C_0001481645313438672561 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_expression.hpp#L112{cpp_literal_expression}]] {
-{static} +build(std::unique_ptr<cpp_type> type, std::string value) : std::unique_ptr<cpp_literal_expression>
-+value() const : const std::string &
 -cpp_literal_expression(std::unique_ptr<cpp_type> type, std::string value) : void
--do_get_kind() const : cpp_expression_kind
+..
+{static} +build(std::unique_ptr<cpp_type> type, std::string value) : std::unique_ptr<cpp_literal_expression>
+-do_get_kind() const noexcept : cpp_expression_kind
++value() const noexcept : const std::string &
+__
 -value_ : std::string [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_expression.hpp#L139{value_}]]]
 }
 C_0002228471918600734475 ..> C_0000674801488983168216
@@ -57,6 +67,6 @@ C_0001481645313438672561 ..> C_0001585653041236922459
 C_0001481645313438672561 ..> C_0000674801488983168216
 C_0002228471918600734475 <|-- C_0001481645313438672561
 
-'Generated with clang-uml, version 0.3.5-1-g9a5a152
+'Generated with clang-uml, version 0.3.6-29-g238bfb0
 'LLVM version Ubuntu clang version 15.0.6
 @enduml

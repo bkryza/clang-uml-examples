@@ -5,111 +5,121 @@ class "Array" as C_0000072500838975006454
 class C_0000072500838975006454 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L35{Array}]] {
 +Array(int options = 0) : void
 +Array(const JSON::Array & copy) : void
-+Array(JSON::Array && other) : void
-+operator=(const JSON::Array & other) : JSON::Array &
-+operator=(JSON::Array && other) : JSON::Array &
++Array(JSON::Array && other) noexcept : void
 +~Array() : void
-+setEscapeUnicode(bool escape = true) : void
-+getEscapeUnicode() const : bool
+..
++operator=(const JSON::Array & other) : JSON::Array &
++operator=(JSON::Array && other) noexcept : JSON::Array &
+..
++add(const Dynamic::Var & value) : JSON::Array &
 +begin() const : ValueVec::const_iterator
++clear() : void
++empty() const : bool
 +end() const : ValueVec::const_iterator
 +get(unsigned int index) const : Dynamic::Var
 +getArray(unsigned int index) const : Array::Ptr
++getElement<T>(unsigned int index) const : T
++getEscapeUnicode() const : bool
 +getObject(unsigned int index) const : SharedPtr<JSON::Object>
-+size() const : std::size_t
-+empty() const : bool
 +isArray(unsigned int index) const : bool
 +isArray(const Dynamic::Var & value) const : bool
 +isArray(JSON::Array::ConstIterator & value) const : bool
 +isNull(unsigned int index) const : bool
 +isObject(unsigned int index) const : bool
-+isObject(const Dynamic::Var & value) const : bool
 +isObject(JSON::Array::ConstIterator & value) const : bool
-+add(const Dynamic::Var & value) : JSON::Array &
-+set(unsigned int index, const Dynamic::Var & value) : JSON::Array &
-+stringify(std::ostream & out, unsigned int indent = 0, int step = -1) const : void
-+remove(unsigned int index) : void
-+operator const std::vector<Poco::Dynamic::Var> &() const : const Dynamic::Array &
++isObject(const Dynamic::Var & value) const : bool
 {static} +makeArray(const JSON::Array::Ptr & arr) : Dynamic::Array
-+clear() : void
++operator const std::vector<Poco::Dynamic::Var> &() const : const Dynamic::Array &
++optElement<T>(unsigned int index, const T & def) const : T
++remove(unsigned int index) : void
 -resetDynArray() const : void
-+getElement<T>(unsigned int index) : T
-+optElement<T>(unsigned int index, const T & def) : T
--_values : JSON::Array::ValueVec [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L201{_values}]]]
--_pArray : JSON::Array::ArrayPtr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L202{_pArray}]]]
--_modified : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L203{_modified}]]]
++set(unsigned int index, const Dynamic::Var & value) : JSON::Array &
++setEscapeUnicode(bool escape = true) : void
++size() const : std::size_t
++stringify(std::ostream & out, unsigned int indent = 0, int step = -1) const : void
+__
 -_escapeUnicode : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L208{_escapeUnicode}]]]
+-_modified : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L203{_modified}]]]
+-_pArray : JSON::Array::ArrayPtr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L202{_pArray}]]]
+-_values : JSON::Array::ValueVec [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L201{_values}]]]
 }
 class "Stringifier" as C_0001436460347683871975
 class C_0001436460347683871975 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Stringifier.h#L31{Stringifier}]] {
 {static} +condense(const Dynamic::Var & any, std::ostream & out, int options = Poco::JSON_WRAP_STRINGS) : void
-{static} +stringify(const Dynamic::Var & any, std::ostream & out, unsigned int indent = 0, int step = -1, int options = Poco::JSON_WRAP_STRINGS) : void
 {static} +formatString(const std::string & value, std::ostream & out, int options = Poco::JSON_WRAP_STRINGS) : void
+{static} +stringify(const Dynamic::Var & any, std::ostream & out, unsigned int indent = 0, int step = -1, int options = Poco::JSON_WRAP_STRINGS) : void
+__
 }
 class "Object" as C_0000424593384549787023
 class C_0000424593384549787023 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L40{Object}]] {
 +Object(int options = 0) : void
 +Object(const JSON::Object & copy) : void
-+Object(JSON::Object && other) : void
++Object(JSON::Object && other) noexcept : void
 +~Object() : void
+..
 +operator=(const JSON::Object & other) : JSON::Object &
-+operator=(JSON::Object && other) : JSON::Object &
-+setEscapeUnicode(bool escape = true) : void
-+getEscapeUnicode() const : bool
++operator=(JSON::Object && other) noexcept : JSON::Object &
+..
 +begin() : JSON::Object::Iterator
 +begin() const : JSON::Object::ConstIterator
++clear() : void
+-doStringify<C>(const C & container, std::ostream & out, unsigned int indent, unsigned int step) const : void
 +end() : JSON::Object::Iterator
 +end() const : JSON::Object::ConstIterator
 +get(const std::string & key) const : Dynamic::Var
 +getArray(const std::string & key) const : Array::Ptr
-+getObject(const std::string & key) const : Object::Ptr
-+getNames(JSON::Object::NameList & names) const : void
++getEscapeUnicode() const : bool
+-getKey(ValueMap::const_iterator & it) const : const std::string &
+-getKey(KeyList::const_iterator & it) const : const std::string &
 +getNames() const : JSON::Object::NameList
++getNames(JSON::Object::NameList & names) const : void
++getNullableValue<T>(const std::string & key) const : Nullable<T>
++getObject(const std::string & key) const : Object::Ptr
++getValue<T>(const std::string & key) const : T
+-getValue(KeyList::const_iterator & it) const : const Dynamic::Var &
+-getValue(ValueMap::const_iterator & it) const : const Dynamic::Var &
 +has(const std::string & key) const : bool
 +isArray(const std::string & key) const : bool
 +isArray(JSON::Object::ConstIterator & it) const : bool
 +isNull(const std::string & key) const : bool
 +isObject(const std::string & key) const : bool
 +isObject(JSON::Object::ConstIterator & it) const : bool
-+size() const : std::size_t
-+set(const std::string & key, const Dynamic::Var & value) : JSON::Object &
-+stringify(std::ostream & out, unsigned int indent = 0, int step = -1) const : void
-+remove(const std::string & key) : void
-{static} +makeStruct(const Object::Ptr & obj) : DynamicStruct
 {static} +makeOrderedStruct(const Object::Ptr & obj) : OrderedDynamicStruct
-+operator const Poco::Dynamic::Struct<std::basic_string<char>, tsl::ordered_map<std::basic_string<char>, Poco::Dynamic::Var>, tsl::ordered_set<std::basic_string<char> > > &() const : const OrderedDynamicStruct &
-+operator const Poco::Dynamic::Struct<std::basic_string<char> > &() const : const DynamicStruct &
-+clear() : void
--syncKeys(const JSON::Object::KeyList & keys) : void
--getKey(ValueMap::const_iterator & it) const : const std::string &
--getValue(ValueMap::const_iterator & it) const : const Dynamic::Var &
--getKey(KeyList::const_iterator & it) const : const std::string &
--getValue(KeyList::const_iterator & it) const : const Dynamic::Var &
-+getValue<T>(const std::string & key) : T
-+getNullableValue<T>(const std::string & key) : Nullable<T>
-+optValue<T>(const std::string & key, const T & def) : T
--resetDynStruct<T>(T & pStruct) : void
--doStringify<C>(const C & container, std::ostream & out, unsigned int indent, unsigned int step) : void
+{static} +makeStruct(const Object::Ptr & obj) : DynamicStruct
 {static} -makeStructImpl<S>(const Object::Ptr & obj) : S
--_values : JSON::Object::ValueMap [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L344{_values}]]]
--_keys : JSON::Object::KeyList [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L345{_keys}]]]
--_preserveInsOrder : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L346{_preserveInsOrder}]]]
++operator const Poco::Dynamic::Struct<std::basic_string<char> > &() const : const DynamicStruct &
++operator const Poco::Dynamic::Struct<std::basic_string<char>, tsl::ordered_map<std::basic_string<char>, Poco::Dynamic::Var>, tsl::ordered_set<std::basic_string<char> > > &() const : const OrderedDynamicStruct &
++optValue<T>(const std::string & key, const T & def) const : T
++remove(const std::string & key) : void
+-resetDynStruct<T>(T & pStruct) const : void
++set(const std::string & key, const Dynamic::Var & value) : JSON::Object &
++setEscapeUnicode(bool escape = true) : void
++size() const : std::size_t
++stringify(std::ostream & out, unsigned int indent = 0, int step = -1) const : void
+-syncKeys(const JSON::Object::KeyList & keys) : void
+__
 -_escapeUnicode : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L351{_escapeUnicode}]]]
--_pStruct : JSON::Object::StructPtr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L352{_pStruct}]]]
--_pOrdStruct : JSON::Object::OrdStructPtr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L353{_pOrdStruct}]]]
+-_keys : JSON::Object::KeyList [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L345{_keys}]]]
 -_modified : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L354{_modified}]]]
+-_pOrdStruct : JSON::Object::OrdStructPtr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L353{_pOrdStruct}]]]
+-_pStruct : JSON::Object::StructPtr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L352{_pStruct}]]]
+-_preserveInsOrder : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L346{_preserveInsOrder}]]]
+-_values : JSON::Object::ValueMap [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L344{_values}]]]
 }
 abstract "Handler" as C_0002170781564733223471
 abstract C_0002170781564733223471 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L31{Handler}]] {
 +Handler() : void
 +~Handler() : void
-{abstract} +reset() = 0 : void
-{abstract} +startObject() = 0 : void
-{abstract} +endObject() = 0 : void
-{abstract} +startArray() = 0 : void
+..
++asStruct() const : DynamicStruct
++asVar() const : Dynamic::Var
 {abstract} +endArray() = 0 : void
+{abstract} +endObject() = 0 : void
 {abstract} +key(const std::string & k) = 0 : void
 {abstract} +null() = 0 : void
+{abstract} +reset() = 0 : void
+{abstract} +startArray() = 0 : void
+{abstract} +startObject() = 0 : void
 {abstract} +value(int v) = 0 : void
 {abstract} +value(unsigned int v) = 0 : void
 {abstract} +value(Int64 v) = 0 : void
@@ -117,20 +127,22 @@ abstract C_0002170781564733223471 [[https://github.com/pocoproject/poco/blob/9fc
 {abstract} +value(const std::string & value) = 0 : void
 {abstract} +value(double d) = 0 : void
 {abstract} +value(bool b) = 0 : void
-+asVar() const : Dynamic::Var
-+asStruct() const : DynamicStruct
+__
 }
 class "ParseHandler" as C_0001063058512718358175
 class C_0001063058512718358175 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L29{ParseHandler}]] {
 +ParseHandler(bool preserveObjectOrder = false) : void
 +~ParseHandler() : void
-+reset() : void
-+startObject() : void
-+endObject() : void
-+startArray() : void
-+endArray() : void
-+key(const std::string & k) : void
+..
 +asVar() const : Dynamic::Var
++endArray() : void
++endObject() : void
++key(const std::string & k) : void
++null() : void
++reset() : void
+-setValue(const Dynamic::Var & value) : void
++startArray() : void
++startObject() : void
 +value(int v) : void
 +value(unsigned int v) : void
 +value(Int64 v) : void
@@ -138,209 +150,244 @@ class C_0001063058512718358175 [[https://github.com/pocoproject/poco/blob/9fc117
 +value(const std::string & s) : void
 +value(double d) : void
 +value(bool b) : void
-+null() : void
--setValue(const Dynamic::Var & value) : void
--_stack : JSON::ParseHandler::Stack [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L99{_stack}]]]
+__
 -_key : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L100{_key}]]]
--_result : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L101{_result}]]]
 -_preserveObjectOrder : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L102{_preserveObjectOrder}]]]
+-_result : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L101{_result}]]]
+-_stack : JSON::ParseHandler::Stack [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L99{_stack}]]]
 }
 class "JSONException" as C_0002224435553795914096
-class C_0002224435553795914096 {
+class C_0002224435553795914096 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]] {
 +JSONException(int code = 0) : void
 +JSONException(const std::string & msg, int code = 0) : void
 +JSONException(const std::string & msg, const std::string & arg, int code = 0) : void
 +JSONException(const std::string & msg, const Exception & exc, int code = 0) : void
 +JSONException(const JSON::JSONException & exc) : void
-+~JSONException() : void
++~JSONException() noexcept : void
+..
 +operator=(const JSON::JSONException & exc) : JSON::JSONException &
-+name() const : const char *
-+className() const : const char *
+..
++className() const noexcept : const char *
 +clone() const : Exception *
++name() const noexcept : const char *
 +rethrow() const : void
+__
 }
 class "ParserImpl" as C_0001556582210166851441
 class C_0001556582210166851441 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L38{ParserImpl}]] {
 #ParserImpl(const Handler::Ptr & pHandler = new ParseHandler) : void
+-ParserImpl(const JSON::ParserImpl &) : void
 #~ParserImpl() : void
-#resetImpl() : void
-#setAllowCommentsImpl(bool comments) : void
-#getAllowCommentsImpl() const : bool
-#setAllowNullByteImpl(bool nullByte) : void
-#getAllowNullByteImpl() const : bool
-#setDepthImpl(std::size_t depth) : void
-#getDepthImpl() const : std::size_t
-#parseImpl(const std::string & json) : Dynamic::Var
-#parseImpl(std::istream & in) : Dynamic::Var
-#setHandlerImpl(const Handler::Ptr & pHandler) : void
-#getHandlerImpl() : const Handler::Ptr &
+..
+-operator=(const JSON::ParserImpl &) : JSON::ParserImpl &
+..
 #asVarImpl() const : Dynamic::Var
-#resultImpl() const : Dynamic::Var
--ParserImpl(const JSON::ParserImpl & ) : void
--operator=(const JSON::ParserImpl & ) : JSON::ParserImpl &
--handleArray() : void
--handleObject() : void
+-checkError() : bool
+#getAllowCommentsImpl() const : bool
+#getAllowNullByteImpl() const : bool
+#getDepthImpl() const : std::size_t
+#getHandlerImpl() : const Handler::Ptr &
 -handle() : void
 -handle(const std::string & json) : void
 -handle(std::istream & json) : void
+-handleArray() : void
+-handleObject() : void
+#parseImpl(const std::string & json) : Dynamic::Var
+#parseImpl(std::istream & in) : Dynamic::Var
+#resetImpl() : void
+#resultImpl() const : Dynamic::Var
+#setAllowCommentsImpl(bool comments) : void
+#setAllowNullByteImpl(bool nullByte) : void
+#setDepthImpl(std::size_t depth) : void
+#setHandlerImpl(const Handler::Ptr & pHandler) : void
 -stripComments(std::string & json) : void
--checkError() : bool
--_pJSON : struct json_stream * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L106{_pJSON}]]]
--_pHandler : Handler::Ptr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L107{_pHandler}]]]
--_depth : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L108{_depth}]]]
--_decimalPoint : char [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L109{_decimalPoint}]]]
--_allowNullByte : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L110{_allowNullByte}]]]
--_allowComments : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L111{_allowComments}]]]
+__
 {static} #JSON_DEFAULT_DEPTH : const std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L41{JSON_DEFAULT_DEPTH}]]]
+-_allowComments : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L111{_allowComments}]]]
+-_allowNullByte : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L110{_allowNullByte}]]]
+-_decimalPoint : char [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L109{_decimalPoint}]]]
+-_depth : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L108{_depth}]]]
+-_pHandler : Handler::Ptr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L107{_pHandler}]]]
+-_pJSON : struct json_stream * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L106{_pJSON}]]]
 }
 class "Parser" as C_0000960597239263284557
 class C_0000960597239263284557 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L36{Parser}]] {
 +Parser(const Handler::Ptr & pHandler = new ParseHandler) : void
+-Parser(const JSON::Parser &) : void
 +~Parser() : void
-+reset() : void
-+setAllowComments(bool comments) : void
+..
+-operator=(const JSON::Parser &) : JSON::Parser &
+..
++asVar() const : Dynamic::Var
 +getAllowComments() const : bool
-+setAllowNullByte(bool nullByte) : void
 +getAllowNullByte() const : bool
-+setDepth(std::size_t depth) : void
 +getDepth() const : std::size_t
++getHandler() : const Handler::Ptr &
 +parse(const std::string & json) : Dynamic::Var
 +parse(std::istream & in) : Dynamic::Var
-+setHandler(const Handler::Ptr & pHandler) : void
-+getHandler() : const Handler::Ptr &
-+asVar() const : Dynamic::Var
++reset() : void
 +result() const : Dynamic::Var
--Parser(const JSON::Parser & ) : void
--operator=(const JSON::Parser & ) : JSON::Parser &
++setAllowComments(bool comments) : void
++setAllowNullByte(bool nullByte) : void
++setDepth(std::size_t depth) : void
++setHandler(const Handler::Ptr & pHandler) : void
+__
 }
 class "JSONTemplateException" as C_0001089238346156534044
-class C_0001089238346156534044 {
+class C_0001089238346156534044 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]] {
 +JSONTemplateException(int code = 0) : void
 +JSONTemplateException(const std::string & msg, int code = 0) : void
 +JSONTemplateException(const std::string & msg, const std::string & arg, int code = 0) : void
 +JSONTemplateException(const std::string & msg, const Exception & exc, int code = 0) : void
 +JSONTemplateException(const JSON::JSONTemplateException & exc) : void
-+~JSONTemplateException() : void
++~JSONTemplateException() noexcept : void
+..
 +operator=(const JSON::JSONTemplateException & exc) : JSON::JSONTemplateException &
-+name() const : const char *
-+className() const : const char *
+..
++className() const noexcept : const char *
 +clone() const : Exception *
++name() const noexcept : const char *
 +rethrow() const : void
+__
 }
 class "Template" as C_0001224813705065694671
 class C_0001224813705065694671 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L40{Template}]] {
 +Template() : void
 +Template(const Path & templatePath) : void
 +~Template() : void
+..
 +parse() : void
 +parse(const std::string & source) : void
 +parse(std::istream & in) : void
 +parseTime() const : Timestamp
-+render(const Dynamic::Var & data, std::ostream & out) const : void
--readText(std::istream & in) : std::string
--readWord(std::istream & in) : std::string
 -readQuery(std::istream & in) : std::string
--readTemplateCommand(std::istream & in) : std::string
 -readString(std::istream & in) : std::string
+-readTemplateCommand(std::istream & in) : std::string
+-readText(std::istream & in) : std::string
 -readWhiteSpace(std::istream & in) : void
--_parts : JSON::MultiPart * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L124{_parts}]]]
--_partStack : std::stack<MultiPart *> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L125{_partStack}]]]
+-readWord(std::istream & in) : std::string
++render(const Dynamic::Var & data, std::ostream & out) const : void
+__
 -_currentPart : JSON::MultiPart * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L126{_currentPart}]]]
--_templatePath : Path [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L127{_templatePath}]]]
 -_parseTime : Timestamp [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L128{_parseTime}]]]
+-_partStack : std::stack<MultiPart *> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L125{_partStack}]]]
+-_parts : JSON::MultiPart * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L124{_parts}]]]
+-_templatePath : Path [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L127{_templatePath}]]]
 }
 class "TemplateCache" as C_0001824492576997130499
 class C_0001824492576997130499 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L34{TemplateCache}]] {
 +TemplateCache() : void
 +~TemplateCache() : void
+..
 +addPath(const Path & path) : void
 +getTemplate(const Path & path) : Template::Ptr
 {static} +instance() : JSON::TemplateCache *
+-resolvePath(const Path & path) const : Path
 +setLogger(Logger & logger) : void
 -setup() : void
--resolvePath(const Path & path) const : Path
--_includePaths : std::vector<Path> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L75{_includePaths}]]]
+__
 -_cache : std::map<std::string,Template::Ptr> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L76{_cache}]]]
--_pLogger : Logger * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L77{_pLogger}]]]
+-_includePaths : std::vector<Path> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L75{_includePaths}]]]
 {static} -_pInstance : JSON::TemplateCache * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L74{_pInstance}]]]
+-_pLogger : Logger * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L77{_pLogger}]]]
 }
 class "Query" as C_0001132051654769045510
 class C_0001132051654769045510 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Query.h#L30{Query}]] {
 +Query(const Dynamic::Var & source) : void
 +~Query() : void
-+findObject(const std::string & path) const : Object::Ptr
-+findObject(const std::string & path, JSON::Object & obj) const : JSON::Object &
+..
++find(const std::string & path) const : Dynamic::Var
 +findArray(const std::string & path) const : Array::Ptr
 +findArray(const std::string & path, JSON::Array & obj) const : JSON::Array &
-+find(const std::string & path) const : Dynamic::Var
++findObject(const std::string & path) const : Object::Ptr
++findObject(const std::string & path, JSON::Object & obj) const : JSON::Object &
 +findValue(const char * path, const char * def) const : std::string
-+findValue<T>(const std::string & path, const T & def) : T
++findValue<T>(const std::string & path, const T & def) const : T
+__
 -_source : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Query.h#L118{_source}]]]
 }
 abstract "Part" as C_0001661045479622494162
 abstract C_0001661045479622494162 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L32{Part}]] {
 +Part() : void
 +~Part() : void
+..
 {abstract} +render(const Dynamic::Var & data, std::ostream & out) const = 0 : void
+__
 }
 class "StringPart" as C_0001206706315497911607
 class C_0001206706315497911607 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L49{StringPart}]] {
 +StringPart() : void
 +StringPart(const std::string & content) : void
 +~StringPart() : void
+..
++getContent() const : std::string
 +render(const Dynamic::Var & data, std::ostream & out) const : void
 +setContent(const std::string & content) : void
-+getContent() const : std::string
+__
 -_content : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L80{_content}]]]
 }
 class "MultiPart" as C_0000410078672756013858
 class C_0000410078672756013858 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L84{MultiPart}]] {
 +MultiPart() : void
 +~MultiPart() : void
+..
 +addPart(JSON::Part * part) : void
 +render(const Dynamic::Var & data, std::ostream & out) const : void
+__
 #_parts : JSON::Part::VectorParts [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L109{_parts}]]]
 }
 class "EchoPart" as C_0000749874221541154786
 class C_0000749874221541154786 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L113{EchoPart}]] {
 +EchoPart(const std::string & query) : void
 +~EchoPart() : void
+..
 +render(const Dynamic::Var & data, std::ostream & out) const : void
+__
 -_query : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L136{_query}]]]
 }
 class "LogicQuery" as C_0001370640582341149168
 class C_0001370640582341149168 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L140{LogicQuery}]] {
 +LogicQuery(const std::string & query) : void
 +~LogicQuery() : void
+..
 +apply(const Dynamic::Var & data) const : bool
+__
 #_queryString : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L180{_queryString}]]]
 }
 class "LogicExistQuery" as C_0001021682718176057634
 class C_0001021682718176057634 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L184{LogicExistQuery}]] {
 +LogicExistQuery(const std::string & query) : void
 +~LogicExistQuery() : void
+..
 +apply(const Dynamic::Var & data) const : bool
+__
 }
 class "LogicElseQuery" as C_0000001233846647566683
 class C_0000001233846647566683 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L205{LogicElseQuery}]] {
 +LogicElseQuery() : void
 +~LogicElseQuery() : void
+..
 +apply(const Dynamic::Var & data) const : bool
+__
 }
 class "LogicPart" as C_0002218733656349858673
 class C_0002218733656349858673 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L223{LogicPart}]] {
 +LogicPart() : void
 +~LogicPart() : void
+..
 +addPart(JSON::LogicQuery * query, JSON::Part * part) : void
 +addPart(JSON::Part * part) : void
 +render(const Dynamic::Var & data, std::ostream & out) const : void
+__
 -_queries : std::vector<SharedPtr<LogicQuery>> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L260{_queries}]]]
 }
 class "LoopPart" as C_0000852402413830874124
 class C_0000852402413830874124 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L264{LoopPart}]] {
 +LoopPart(const std::string & name, const std::string & query) : void
 +~LoopPart() : void
+..
 +render(const Dynamic::Var & data, std::ostream & out) const : void
+__
 -_name : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L297{_name}]]]
 -_query : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L298{_query}]]]
 }
@@ -348,7 +395,9 @@ class "IncludePart" as C_0001886003264245305447
 class C_0001886003264245305447 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L302{IncludePart}]] {
 +IncludePart(const Path & parentPath, const Path & path) : void
 +~IncludePart() : void
+..
 +render(const Dynamic::Var & data, std::ostream & out) const : void
+__
 -_path : Path [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L346{_path}]]]
 }
 class "PrintHandler" as C_0001958330724512545479
@@ -356,34 +405,36 @@ class C_0001958330724512545479 [[https://github.com/pocoproject/poco/blob/9fc117
 +PrintHandler(unsigned int indent = 0, int options = Poco::JSON_WRAP_STRINGS) : void
 +PrintHandler(std::ostream & out, unsigned int indent = 0, int options = Poco::JSON_WRAP_STRINGS) : void
 +~PrintHandler() : void
-+reset() : void
-+startObject() : void
-+endObject() : void
-+startArray() : void
+..
+-array() const : bool
+-arrayValue() : void
++comma() : void
 +endArray() : void
+-endLine() const : const char *
++endObject() : void
+-indent() : unsigned int
 +key(const std::string & k) : void
 +null() : void
-+value(int v) : void
-+value(unsigned int v) : void
-+value(Int64 v) : void
-+value(UInt64 v) : void
-+value(const std::string & value) : void
-+value(double d) : void
-+value(bool b) : void
-+comma() : void
-+setIndent(unsigned int indent) : void
--endLine() const : const char *
--indent() : unsigned int
 -printFlat() const : bool
--arrayValue() : void
--array() const : bool
--_out : std::ostream & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L112{_out}]]]
--_indent : unsigned int [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L113{_indent}]]]
--_tab : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L114{_tab}]]]
++reset() : void
++setIndent(unsigned int indent) : void
++startArray() : void
++startObject() : void
++value(bool b) : void
++value(double d) : void
++value(const std::string & value) : void
++value(UInt64 v) : void
++value(Int64 v) : void
++value(unsigned int v) : void
++value(int v) : void
+__
+{static} +JSON_PRINT_FLAT : const unsigned int [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L39{JSON_PRINT_FLAT}]]]
 -_array : int [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L115{_array}]]]
+-_indent : unsigned int [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L113{_indent}]]]
 -_objStart : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L116{_objStart}]]]
 -_options : int [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L117{_options}]]]
-{static} +JSON_PRINT_FLAT : const unsigned int [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L39{JSON_PRINT_FLAT}]]]
+-_out : std::ostream & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L112{_out}]]]
+-_tab : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L114{_tab}]]]
 }
 }
 C_0000072500838975006454 ..> C_0000424593384549787023
@@ -416,6 +467,6 @@ C_0000410078672756013858 <|-- C_0000852402413830874124
 C_0001661045479622494162 <|-- C_0001886003264245305447
 C_0002170781564733223471 <|-- C_0001958330724512545479
 
-'Generated with clang-uml, version 0.3.5-1-g9a5a152
+'Generated with clang-uml, version 0.3.6-29-g238bfb0
 'LLVM version Ubuntu clang version 15.0.6
 @enduml
