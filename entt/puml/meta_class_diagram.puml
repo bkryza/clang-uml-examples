@@ -1,8 +1,8 @@
 @startuml
 class "internal::meta_context" as C_0000538414692726589468
 class C_0000538414692726589468 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/context.hpp#L21{meta_context}]] {
-{static} +from(meta_ctx & ctx) : internal::meta_context &
-{static} +from(const meta_ctx & ctx) : const internal::meta_context &
+{static} +from(meta_ctx & ctx) : internal::meta_context & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/context.hpp#L24{from}]]]
+{static} +from(const meta_ctx & ctx) : const internal::meta_context & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/context.hpp#L25{from}]]]
 __
 +value : dense_map<id_type,internal::meta_type_node,identity> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/context.hpp#L22{value}]]]
 }
@@ -108,20 +108,20 @@ __
 }
 class "internal::meta_range_iterator<Type,It>" as C_0001680061593450782610
 class C_0001680061593450782610 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L21{meta_range_iterator}]] {
-+meta_range_iterator() noexcept : void
-+meta_range_iterator(const meta_ctx & area, const It iter) noexcept : void
++meta_range_iterator() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L28{meta_range_iterator}]]]
++meta_range_iterator(const meta_ctx & area, const It iter) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L32{meta_range_iterator}]]]
 ..
-+operator*() constexpr const noexcept : internal::meta_range_iterator::reference
-+operator+(const internal::meta_range_iterator::difference_type value) constexpr const noexcept : meta_range_iterator<Type,It>
-+operator++() noexcept : meta_range_iterator<Type,It> &
-+operator++(int) noexcept : meta_range_iterator<Type,It>
-+operator+=(const internal::meta_range_iterator::difference_type value) constexpr noexcept : meta_range_iterator<Type,It> &
-+operator-(const internal::meta_range_iterator::difference_type value) constexpr const noexcept : meta_range_iterator<Type,It>
-+operator--() constexpr noexcept : meta_range_iterator<Type,It> &
-+operator--(int) constexpr noexcept : meta_range_iterator<Type,It>
-+operator-=(const internal::meta_range_iterator::difference_type value) constexpr noexcept : meta_range_iterator<Type,It> &
-+operator->() constexpr const noexcept : internal::meta_range_iterator::pointer
-+operator[](const internal::meta_range_iterator::difference_type value) constexpr const noexcept : internal::meta_range_iterator::reference
++operator*() constexpr const noexcept : internal::meta_range_iterator::reference [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L80{operator*}]]]
++operator+(const internal::meta_range_iterator::difference_type value) constexpr const noexcept : meta_range_iterator<Type,It> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L59{operator+}]]]
++operator++() noexcept : meta_range_iterator<Type,It> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L36{operator++}]]]
++operator++(int) noexcept : meta_range_iterator<Type,It> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L40{operator++}]]]
++operator+=(const internal::meta_range_iterator::difference_type value) constexpr noexcept : meta_range_iterator<Type,It> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L54{operator+=}]]]
++operator-(const internal::meta_range_iterator::difference_type value) constexpr const noexcept : meta_range_iterator<Type,It> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L68{operator-}]]]
++operator--() constexpr noexcept : meta_range_iterator<Type,It> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L45{operator--}]]]
++operator--(int) constexpr noexcept : meta_range_iterator<Type,It> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L49{operator--}]]]
++operator-=(const internal::meta_range_iterator::difference_type value) constexpr noexcept : meta_range_iterator<Type,It> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L64{operator-=}]]]
++operator->() constexpr const noexcept : internal::meta_range_iterator::pointer [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L76{operator->}]]]
++operator[](const internal::meta_range_iterator::difference_type value) constexpr const noexcept : internal::meta_range_iterator::reference [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L72{operator[]}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L95{ctx}]]]
 -it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/range.hpp#L94{it}]]]
@@ -160,19 +160,19 @@ __
 }
 class "internal::basic_meta_sequence_container_traits<Type>" as C_0001210939812952245161
 class C_0001210939812952245161 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L42{basic_meta_sequence_container_traits}]] {
-{static} +insert_or_erase(const meta_ctx & ctx, any & container, const any & handle, meta_any & value) : internal::basic_meta_sequence_container_traits::iterator
-{static} +iter(const meta_ctx & ctx, any & container, const bool as_end) : internal::basic_meta_sequence_container_traits::iterator
-{static} +resize(any & container, internal::basic_meta_sequence_container_traits::size_type sz) : bool
-{static} +size(const any & container) noexcept : internal::basic_meta_sequence_container_traits::size_type
+{static} +insert_or_erase(const meta_ctx & ctx, any & container, const any & handle, meta_any & value) : internal::basic_meta_sequence_container_traits::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L70{insert_or_erase}]]]
+{static} +iter(const meta_ctx & ctx, any & container, const bool as_end) : internal::basic_meta_sequence_container_traits::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L61{iter}]]]
+{static} +resize(any & container, internal::basic_meta_sequence_container_traits::size_type sz) : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L50{resize}]]]
+{static} +size(const any & container) noexcept : internal::basic_meta_sequence_container_traits::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L46{size}]]]
 __
 }
 class "internal::basic_meta_associative_container_traits<Type>" as C_0001867570166306127929
 class C_0001867570166306127929 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L98{basic_meta_associative_container_traits}]] {
-{static} +clear(any & container) : bool
-{static} +find(const meta_ctx & ctx, any & container, meta_any & key) : internal::basic_meta_associative_container_traits::iterator
-{static} +insert_or_erase(any & container, meta_any & key, meta_any & value) : internal::basic_meta_associative_container_traits::size_type
-{static} +iter(const meta_ctx & ctx, any & container, const bool as_end) : internal::basic_meta_associative_container_traits::iterator
-{static} +size(const any & container) noexcept : internal::basic_meta_associative_container_traits::size_type
+{static} +clear(any & container) : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L108{clear}]]]
+{static} +find(const meta_ctx & ctx, any & container, meta_any & key) : internal::basic_meta_associative_container_traits::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L142{find}]]]
+{static} +insert_or_erase(any & container, meta_any & key, meta_any & value) : internal::basic_meta_associative_container_traits::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L126{insert_or_erase}]]]
+{static} +iter(const meta_ctx & ctx, any & container, const bool as_end) : internal::basic_meta_associative_container_traits::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L117{iter}]]]
+{static} +size(const any & container) noexcept : internal::basic_meta_associative_container_traits::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L104{size}]]]
 __
 {static} +key_only : const auto [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/container.hpp#L102{key_only}]]]
 }
@@ -186,7 +186,7 @@ __
 }
 class "adl_meta_pointer_like<Type>" as C_0000287995227400462696
 class C_0000287995227400462696 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/adl_pointer.hpp#L22{adl_meta_pointer_like}]] {
-{static} +dereference(const Type & value) : decltype(auto)
+{static} +dereference(const Type & value) : decltype(auto) [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/adl_pointer.hpp#L28{dereference}]]]
 __
 }
 class "is_meta_pointer_like<typename>" as C_0000217238106698041634
@@ -199,20 +199,20 @@ __
 }
 class "meta_sequence_container" as C_0001417960685261049940
 class C_0001417960685261049940 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L30{meta_sequence_container}]] {
-+meta_sequence_container(const meta_ctx & area = locator<meta_ctx>::value_or()) noexcept : void
++meta_sequence_container(const meta_ctx & area = locator<meta_ctx>::value_or()) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L43{meta_sequence_container}]]]
 ..
-+operator[](const meta_sequence_container::size_type) : meta_any
++operator[](const meta_sequence_container::size_type) : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L69{operator[]}]]]
 ..
-+begin() : meta_sequence_container::iterator
-+clear() : bool
-+end() : meta_sequence_container::iterator
-+erase(meta_sequence_container::iterator) : meta_sequence_container::iterator
-+insert(meta_sequence_container::iterator, meta_any) : meta_sequence_container::iterator
-+operator bool() const noexcept : bool
++begin() : meta_sequence_container::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L65{begin}]]]
++clear() : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L64{clear}]]]
++end() : meta_sequence_container::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L66{end}]]]
++erase(meta_sequence_container::iterator) : meta_sequence_container::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L68{erase}]]]
++insert(meta_sequence_container::iterator, meta_any) : meta_sequence_container::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L67{insert}]]]
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L70{operator bool}]]]
 +rebind<Type>(any instance) noexcept : void
-+resize(const meta_sequence_container::size_type) : bool
-+size() const noexcept : meta_sequence_container::size_type
-+value_type() const noexcept : meta_type
++resize(const meta_sequence_container::size_type) : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L63{resize}]]]
++size() const noexcept : meta_sequence_container::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L62{size}]]]
++value_type() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L61{value_type}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L73{ctx}]]]
 -insert_or_erase_fn : meta_sequence_container::iterator (*)(const meta_ctx &,any &,const any &,meta_any &) [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L78{insert_or_erase_fn}]]]
@@ -224,22 +224,22 @@ __
 }
 class "meta_associative_container" as C_0000367312427546747580
 class C_0000367312427546747580 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L83{meta_associative_container}]] {
-+meta_associative_container(const meta_ctx & area = locator<meta_ctx>::value_or()) noexcept : void
++meta_associative_container(const meta_ctx & area = locator<meta_ctx>::value_or()) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L96{meta_associative_container}]]]
 ..
-+begin() : meta_associative_container::iterator
-+clear() : bool
-+end() : meta_associative_container::iterator
-+erase(meta_any) : meta_associative_container::size_type
-+find(meta_any) : meta_associative_container::iterator
-+insert(meta_any) : bool
-+insert(meta_any, meta_any) : bool
-+key_only() const noexcept : bool
-+key_type() const noexcept : meta_type
-+mapped_type() const noexcept : meta_type
-+operator bool() const noexcept : bool
++begin() : meta_associative_container::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L127{begin}]]]
++clear() : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L126{clear}]]]
++end() : meta_associative_container::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L128{end}]]]
++erase(meta_any) : meta_associative_container::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L131{erase}]]]
++find(meta_any) : meta_associative_container::iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L132{find}]]]
++insert(meta_any) : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L129{insert}]]]
++insert(meta_any, meta_any) : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L130{insert}]]]
++key_only() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L121{key_only}]]]
++key_type() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L122{key_type}]]]
++mapped_type() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L123{mapped_type}]]]
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L133{operator bool}]]]
 +rebind<Type>(any instance) noexcept : void
-+size() const noexcept : meta_associative_container::size_type
-+value_type() const noexcept : meta_type
++size() const noexcept : meta_associative_container::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L125{size}]]]
++value_type() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L124{value_type}]]]
 __
 -clear_fn : bool (*)(any &) [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L142{clear_fn}]]]
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L136{ctx}]]]
@@ -255,57 +255,57 @@ __
 }
 class "meta_any" as C_0001968309773337949765
 class C_0001968309773337949765 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L150{meta_any}]] {
--meta_any(const meta_ctx & area, const meta_any & other, any ref) noexcept : void
-+meta_any() noexcept : void
-+meta_any(meta_ctx_arg_t, const meta_ctx & area) noexcept : void
-+meta_any(const meta_ctx & area, const meta_any & other) : void
-+meta_any(const meta_ctx & area, meta_any && other) : void
-+meta_any(const meta_any & other) = default : void
-+meta_any(meta_any && other) noexcept : void
+-meta_any(const meta_ctx & area, const meta_any & other, any ref) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L202{meta_any}]]]
++meta_any() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L210{meta_any}]]]
++meta_any(meta_ctx_arg_t, const meta_ctx & area) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L217{meta_any}]]]
++meta_any(const meta_ctx & area, const meta_any & other) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L271{meta_any}]]]
++meta_any(const meta_ctx & area, meta_any && other) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L282{meta_any}]]]
++meta_any(const meta_any & other) = default : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L292{meta_any}]]]
++meta_any(meta_any && other) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L298{meta_any}]]]
 +meta_any<Type,Args...>(std::in_place_type_t<Type>, Args &&... args) : void
 +meta_any<Type,Args...>(const meta_ctx & area, std::in_place_type_t<Type>, Args &&... args) : void
 +meta_any<Type,typename=std::enable_if_t<! std::is_same_v<std::decay_t<Type>, meta_any> >>(Type && value) : void
 +meta_any<Type,typename=std::enable_if_t<! std::is_same_v<std::decay_t<Type>, meta_any> >>(const meta_ctx & area, Type && value) : void
-+~meta_any() : void
++~meta_any() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L305{~meta_any}]]]
 ..
-+operator=(const meta_any & other) : meta_any &
-+operator=(meta_any && other) noexcept : meta_any &
++operator=(const meta_any & other) : meta_any & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L314{operator=}]]]
++operator=(meta_any && other) noexcept : meta_any & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L328{operator=}]]]
 ..
-+operator!=(const meta_any & other) const noexcept : bool
-+operator*() const noexcept : meta_any
++operator!=(const meta_any & other) const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L582{operator!=}]]]
++operator*() const noexcept : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L562{operator*}]]]
 +operator=<Type>(Type && value) : std::enable_if_t<! std::is_same_v<std::decay_t<Type>, meta_any>, meta_any &>
-+operator==(const meta_any & other) const noexcept : bool
++operator==(const meta_any & other) const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L577{operator==}]]]
 ..
 +allow_cast<Type>() const : class meta_any
-+allow_cast(const meta_type & type) const : meta_any
-+allow_cast(const meta_type & type) : bool
++allow_cast(const meta_type & type) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L450{allow_cast}]]]
++allow_cast(const meta_type & type) : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L457{allow_cast}]]]
 +allow_cast<Type>() : _Bool
-+as_associative_container() noexcept : meta_associative_container
-+as_associative_container() const noexcept : meta_associative_container
-+as_ref() const noexcept : meta_any
-+as_ref() noexcept : meta_any
-+as_sequence_container() noexcept : meta_sequence_container
-+as_sequence_container() const noexcept : meta_sequence_container
-+assign(const meta_any & other) : bool
-+assign(meta_any && other) : bool
++as_associative_container() noexcept : meta_associative_container [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L542{as_associative_container}]]]
++as_associative_container() const noexcept : meta_associative_container [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L550{as_associative_container}]]]
++as_ref() const noexcept : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L592{as_ref}]]]
++as_ref() noexcept : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L587{as_ref}]]]
++as_sequence_container() noexcept : meta_sequence_container [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L523{as_sequence_container}]]]
++as_sequence_container() const noexcept : meta_sequence_container [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L531{as_sequence_container}]]]
++assign(const meta_any & other) : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L506{assign}]]]
++assign(meta_any && other) : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L509{assign}]]]
 {static} -basic_vtable<Type>(const meta_any::operation op, const any & value, void * other) : void
 +cast<Type>() const : Type
 +cast<Type>() : Type
-+data() noexcept : void *
-+data() const noexcept : const void *
++data() noexcept : void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L359{data}]]]
++data() const noexcept : const void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L354{data}]]]
 +emplace<Type,Args...>(Args &&... args) : void
-+get(const id_type id) : meta_any
-+get(const id_type id) const : meta_any
++get(const id_type id) : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L395{get}]]]
++get(const id_type id) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L392{get}]]]
 +invoke<Args...>(const id_type id, Args &&... args) const : class meta_any
 +invoke<Args...>(const id_type id, Args &&... args) : class meta_any
-+operator bool() const noexcept : bool
-+owner() const noexcept : bool
--release() : void
-+reset() : void
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L572{operator bool}]]]
++owner() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L597{owner}]]]
+-release() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L196{release}]]]
++reset() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L512{reset}]]]
 +set<Type>(const id_type id, Type && value) : _Bool
 +try_cast<Type>() const : const Type *
 +try_cast<Type>() : Type *
-+type() const noexcept : meta_type
++type() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L351{type}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L603{ctx}]]]
 -node : internal::meta_type_node [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L604{node}]]]
@@ -320,139 +320,139 @@ assoc
 }
 class "meta_handle" as C_0001434100633440438851
 class C_0001434100633440438851 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L638{meta_handle}]] {
-+meta_handle() noexcept : void
-+meta_handle(meta_ctx_arg_t, const meta_ctx & area) noexcept : void
-+meta_handle(meta_any & value) noexcept : void
-+meta_handle(const meta_any & value) noexcept : void
-+meta_handle(const meta_ctx & area, const meta_handle & other) : void
-+meta_handle(const meta_ctx & area, meta_handle && other) : void
-+meta_handle(const meta_handle &) = deleted : void
-+meta_handle(meta_handle &&) = default : void
++meta_handle() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L640{meta_handle}]]]
++meta_handle(meta_ctx_arg_t, const meta_ctx & area) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L647{meta_handle}]]]
++meta_handle(meta_any & value) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L654{meta_handle}]]]
++meta_handle(const meta_any & value) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L661{meta_handle}]]]
++meta_handle(const meta_ctx & area, const meta_handle & other) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L688{meta_handle}]]]
++meta_handle(const meta_ctx & area, meta_handle && other) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L696{meta_handle}]]]
++meta_handle(const meta_handle &) = deleted : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L700{meta_handle}]]]
++meta_handle(meta_handle &&) = default : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L703{meta_handle}]]]
 +meta_handle<Type,typename=std::enable_if_t<! std::is_same_v<std::decay_t<Type>, meta_handle> >>(const meta_ctx & ctx, Type & value) noexcept : void
 +meta_handle<Type,typename=std::enable_if_t<! std::is_same_v<std::decay_t<Type>, meta_handle> >>(Type & value) noexcept : void
 ..
-+operator=(const meta_handle &) = deleted : meta_handle &
-+operator=(meta_handle &&) = default : meta_handle &
++operator=(const meta_handle &) = deleted : meta_handle & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L709{operator=}]]]
++operator=(meta_handle &&) = default : meta_handle & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L715{operator=}]]]
 ..
-+operator->() : meta_any *
-+operator->() const : const meta_any *
++operator->() : meta_any * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L729{operator->}]]]
++operator->() const : const meta_any * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L734{operator->}]]]
 ..
-+operator bool() const noexcept : bool
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L721{operator bool}]]]
 __
 -any : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L739{any}]]]
 }
 class "meta_prop" as C_0001799673578591754172
 class C_0001799673578591754172 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L743{meta_prop}]] {
-+meta_prop() noexcept : void
-+meta_prop(const meta_ctx & area, const internal::meta_prop_node & curr) noexcept : void
++meta_prop() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L745{meta_prop}]]]
++meta_prop(const meta_ctx & area, const internal::meta_prop_node & curr) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L754{meta_prop}]]]
 ..
-+operator bool() const noexcept : bool
-+value() const : meta_any
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L770{operator bool}]]]
++value() const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L762{value}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L776{ctx}]]]
 -node : const internal::meta_prop_node * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L775{node}]]]
 }
 class "meta_data" as C_0000112740822490093753
 class C_0000112740822490093753 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L780{meta_data}]] {
-+meta_data() noexcept : void
-+meta_data(const meta_ctx & area, const internal::meta_data_node & curr) noexcept : void
++meta_data() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L785{meta_data}]]]
++meta_data(const meta_ctx & area, const internal::meta_data_node & curr) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L794{meta_data}]]]
 ..
-+arg(const meta_data::size_type index) const noexcept : meta_type
-+arity() const noexcept : meta_data::size_type
-+get(meta_handle instance) const : meta_any
-+is_const() const noexcept : bool
-+is_static() const noexcept : bool
-+operator bool() const noexcept : bool
-+prop() const noexcept : iterable_adaptor<meta_prop,typename decltype(internal::meta_data_node::prop)::const_iterator>
-+prop(const id_type key) const : meta_prop
++arg(const meta_data::size_type index) const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L851{arg}]]]
++arity() const noexcept : meta_data::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L802{arity}]]]
++get(meta_handle instance) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L842{get}]]]
++is_const() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L810{is_const}]]]
++is_static() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L818{is_static}]]]
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L875{operator bool}]]]
++prop() const noexcept : iterable_adaptor<meta_prop,typename decltype(internal::meta_data_node::prop)::const_iterator> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L857{prop}]]]
++prop(const id_type key) const : meta_prop [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L866{prop}]]]
 +set<Type>(meta_handle instance, Type && value) const : _Bool
-+type() const noexcept : meta_type
++type() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L823{type}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L881{ctx}]]]
 -node : const internal::meta_data_node * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L880{node}]]]
 }
 class "meta_func" as C_0000702095689945499751
 class C_0000702095689945499751 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L885{meta_func}]] {
-+meta_func() noexcept : void
-+meta_func(const meta_ctx & area, const internal::meta_func_node & curr) noexcept : void
++meta_func() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L890{meta_func}]]]
++meta_func(const meta_ctx & area, const internal::meta_func_node & curr) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L899{meta_func}]]]
 ..
-+arg(const meta_func::size_type index) const noexcept : meta_type
-+arity() const noexcept : meta_func::size_type
-+invoke(meta_handle instance, meta_any *const args, const meta_func::size_type sz) const : meta_any
++arg(const meta_func::size_type index) const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L938{arg}]]]
++arity() const noexcept : meta_func::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L907{arity}]]]
++invoke(meta_handle instance, meta_any *const args, const meta_func::size_type sz) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L952{invoke}]]]
 +invoke<Args...>(meta_handle instance, Args &&... args) const : class meta_any
-+is_const() const noexcept : bool
-+is_static() const noexcept : bool
-+next() const : meta_func
-+operator bool() const noexcept : bool
-+prop() const noexcept : iterable_adaptor<meta_prop,typename decltype(internal::meta_func_node::prop)::const_iterator>
-+prop(const id_type key) const : meta_prop
-+ret() const noexcept : meta_type
++is_const() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L915{is_const}]]]
++is_static() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L923{is_static}]]]
++next() const : meta_func [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L988{next}]]]
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L996{operator bool}]]]
++prop() const noexcept : iterable_adaptor<meta_prop,typename decltype(internal::meta_func_node::prop)::const_iterator> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L970{prop}]]]
++prop(const id_type key) const : meta_prop [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L979{prop}]]]
++ret() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L931{ret}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1002{ctx}]]]
 -node : const internal::meta_func_node * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1001{node}]]]
 }
 class "meta_type" as C_0001471774363206158135
 class C_0001471774363206158135 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1006{meta_type}]] {
-+meta_type() noexcept : void
-+meta_type(const meta_ctx & area, const internal::meta_type_node & curr) noexcept : void
-+meta_type(const meta_ctx & area, const internal::meta_base_node & curr) noexcept : void
++meta_type() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1063{meta_type}]]]
++meta_type(const meta_ctx & area, const internal::meta_type_node & curr) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1072{meta_type}]]]
++meta_type(const meta_ctx & area, const internal::meta_base_node & curr) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1081{meta_type}]]]
 ..
-+operator==(const meta_type & other) const noexcept : bool
++operator==(const meta_type & other) const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1474{operator==}]]]
 ..
-+base() const noexcept : iterable_adaptor<meta_type,typename decltype(internal::meta_type_descriptor::base)::const_iterator>
-+construct(meta_any *const args, const meta_type::size_type sz) const : meta_any
++base() const noexcept : iterable_adaptor<meta_type,typename decltype(internal::meta_type_descriptor::base)::const_iterator> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1238{base}]]]
++construct(meta_any *const args, const meta_type::size_type sz) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1320{construct}]]]
 +construct<Args...>(Args &&... args) const : class meta_any
-+data(const id_type id) const : meta_data
-+data() const noexcept : iterable_adaptor<meta_data,typename decltype(internal::meta_type_descriptor::data)::const_iterator>
-+from_void(const void * element) const : meta_any
-+from_void(void * element) const : meta_any
-+func(const id_type id) const : meta_func
-+func() const noexcept : iterable_adaptor<meta_func,typename decltype(internal::meta_type_descriptor::func)::const_iterator>
-+get(const id_type id, meta_handle instance) const : meta_any
-+id() const noexcept : id_type
-+info() const noexcept : const type_info &
++data(const id_type id) const : meta_data [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1257{data}]]]
++data() const noexcept : iterable_adaptor<meta_data,typename decltype(internal::meta_type_descriptor::data)::const_iterator> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1247{data}]]]
++from_void(const void * element) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1356{from_void}]]]
++from_void(void * element) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1351{from_void}]]]
++func(const id_type id) const : meta_func [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1291{func}]]]
++func() const noexcept : iterable_adaptor<meta_func,typename decltype(internal::meta_type_descriptor::func)::const_iterator> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1277{func}]]]
++get(const id_type id, meta_handle instance) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1426{get}]]]
++id() const noexcept : id_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1096{id}]]]
++info() const noexcept : const type_info & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1088{info}]]]
 +invoke<Args...>(const id_type id, meta_handle instance, Args &&... args) const : class meta_any
-+invoke(const id_type id, meta_handle instance, meta_any *const args, const meta_type::size_type sz) const : meta_any
-+is_arithmetic() const noexcept : bool
-+is_array() const noexcept : bool
-+is_associative_container() const noexcept : bool
-+is_class() const noexcept : bool
-+is_enum() const noexcept : bool
-+is_integral() const noexcept : bool
-+is_pointer() const noexcept : bool
-+is_pointer_like() const noexcept : bool
-+is_sequence_container() const noexcept : bool
-+is_signed() const noexcept : bool
-+is_template_specialization() const noexcept : bool
++invoke(const id_type id, meta_handle instance, meta_any *const args, const meta_type::size_type sz) const : meta_any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1373{invoke}]]]
++is_arithmetic() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1113{is_arithmetic}]]]
++is_array() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1137{is_array}]]]
++is_associative_container() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1195{is_associative_container}]]]
++is_class() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1153{is_class}]]]
++is_enum() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1145{is_enum}]]]
++is_integral() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1121{is_integral}]]]
++is_pointer() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1161{is_pointer}]]]
++is_pointer_like() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1179{is_pointer_like}]]]
++is_sequence_container() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1187{is_sequence_container}]]]
++is_signed() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1129{is_signed}]]]
++is_template_specialization() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1205{is_template_specialization}]]]
 -lookup<Func>(meta_any *const args, const typename internal::meta_type_node::size_type sz, bool constness, Func next) const : auto
-+operator bool() const noexcept : bool
-+prop() const noexcept : iterable_adaptor<meta_prop,typename decltype(internal::meta_type_descriptor::prop)::const_iterator>
-+prop(const id_type key) const : meta_prop
-+remove_pointer() const noexcept : meta_type
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1465{operator bool}]]]
++prop() const noexcept : iterable_adaptor<meta_prop,typename decltype(internal::meta_type_descriptor::prop)::const_iterator> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1435{prop}]]]
++prop(const id_type key) const : meta_prop [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1445{prop}]]]
++remove_pointer() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1170{remove_pointer}]]]
 +set<Type>(const id_type id, meta_handle instance, Type && value) const : _Bool
-+size_of() const noexcept : meta_type::size_type
-+template_arg(const meta_type::size_type index) const noexcept : meta_type
-+template_arity() const noexcept : meta_type::size_type
-+template_type() const noexcept : meta_type
++size_of() const noexcept : meta_type::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1104{size_of}]]]
++template_arg(const meta_type::size_type index) const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1230{template_arg}]]]
++template_arity() const noexcept : meta_type::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1213{template_arity}]]]
++template_type() const noexcept : meta_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1221{template_type}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1480{ctx}]]]
 -node : internal::meta_type_node [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1479{node}]]]
 }
 class "meta_sequence_container::meta_iterator" as C_0001348020219268859095
 class C_0001348020219268859095 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1585{meta_sequence_container##meta_iterator}]] {
-+operator!=(const meta_sequence_container::meta_iterator & other) const noexcept : bool
-+operator*() const : meta_sequence_container::meta_iterator::reference
-+operator++() noexcept : meta_sequence_container::meta_iterator &
-+operator++(int value) noexcept : meta_sequence_container::meta_iterator
-+operator--() noexcept : meta_sequence_container::meta_iterator &
-+operator--(int value) noexcept : meta_sequence_container::meta_iterator
-+operator->() const : meta_sequence_container::meta_iterator::pointer
-+operator==(const meta_sequence_container::meta_iterator & other) const noexcept : bool
++operator!=(const meta_sequence_container::meta_iterator & other) const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1667{operator!=}]]]
++operator*() const : meta_sequence_container::meta_iterator::reference [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1649{operator*}]]]
++operator++() noexcept : meta_sequence_container::meta_iterator & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1627{operator++}]]]
++operator++(int value) noexcept : meta_sequence_container::meta_iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1632{operator++}]]]
++operator--() noexcept : meta_sequence_container::meta_iterator & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1638{operator--}]]]
++operator--(int value) noexcept : meta_sequence_container::meta_iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1643{operator--}]]]
++operator->() const : meta_sequence_container::meta_iterator::pointer [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1655{operator->}]]]
++operator==(const meta_sequence_container::meta_iterator & other) const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1663{operator==}]]]
 ..
 {static} -basic_vtable<It>(const meta_sequence_container::meta_iterator::operation op, const any & value, const std::ptrdiff_t offset, meta_any * other) : void
-+meta_iterator() constexpr noexcept : void
++meta_iterator() constexpr noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1616{meta_iterator}]]]
 +meta_iterator<It>(const meta_ctx & area, It iter) noexcept : void
-+operator bool() const noexcept : bool
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1659{operator bool}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1672{ctx}]]]
 -handle : any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1674{handle}]]]
@@ -465,17 +465,17 @@ deref
 }
 class "meta_associative_container::meta_iterator" as C_0000617200052185663862
 class C_0000617200052185663862 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1677{meta_associative_container##meta_iterator}]] {
-+operator!=(const meta_associative_container::meta_iterator & other) const noexcept : bool
-+operator*() const : meta_associative_container::meta_iterator::reference
-+operator++() noexcept : meta_associative_container::meta_iterator &
-+operator++(int) noexcept : meta_associative_container::meta_iterator
-+operator->() const : meta_associative_container::meta_iterator::pointer
-+operator==(const meta_associative_container::meta_iterator & other) const noexcept : bool
++operator!=(const meta_associative_container::meta_iterator & other) const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1749{operator!=}]]]
++operator*() const : meta_associative_container::meta_iterator::reference [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1731{operator*}]]]
++operator++() noexcept : meta_associative_container::meta_iterator & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1721{operator++}]]]
++operator++(int) noexcept : meta_associative_container::meta_iterator [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1726{operator++}]]]
++operator->() const : meta_associative_container::meta_iterator::pointer [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1737{operator->}]]]
++operator==(const meta_associative_container::meta_iterator & other) const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1745{operator==}]]]
 ..
 {static} -basic_vtable<_Bool KeyOnly,It>(const meta_associative_container::meta_iterator::operation op, const any & value, std::pair<meta_any,meta_any> * other) : void
-+meta_iterator() constexpr noexcept : void
++meta_iterator() constexpr noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1710{meta_iterator}]]]
 +meta_iterator<_Bool KeyOnly,It>(const meta_ctx & area, std::integral_constant<bool,KeyOnly>, It iter) noexcept : void
-+operator bool() const noexcept : bool
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1741{operator bool}]]]
 __
 -ctx : const meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1754{ctx}]]]
 -handle : any [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/meta.hpp#L1756{handle}]]]
@@ -539,8 +539,8 @@ __
 }
 class "meta_factory<Type>" as C_0000907837021403397683
 class C_0000907837021403397683 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/factory.hpp#L91{meta_factory}]] {
-+meta_factory() noexcept : void
-+meta_factory(meta_ctx & area) noexcept : void
++meta_factory() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/factory.hpp#L115{meta_factory}]]]
++meta_factory(meta_ctx & area) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/factory.hpp#L122{meta_factory}]]]
 ..
 +base<Base>() noexcept : auto
 +conv<auto Candidate>() noexcept : auto
@@ -554,7 +554,7 @@ class C_0000907837021403397683 [[https://github.com/skypjack/entt/blob/fef921132
 +dtor<auto Func>() noexcept : auto
 +func<auto Candidate,Policy=struct entt::as_is_t>(const id_type id) noexcept : auto
 +prop<Value...>(id_type id, Value &&... value) : meta_factory<Type>
-+type(const id_type id) noexcept : auto
++type(const id_type id) noexcept : auto [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/factory.hpp#L140{type}]]]
 __
 -bucket : dense_map<id_type,internal::meta_prop_node,identity> * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/factory.hpp#L517{bucket}]]]
 -ctx : meta_ctx * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/meta/factory.hpp#L516{ctx}]]]
@@ -758,6 +758,6 @@ C_0000841356564924522328 ..|> C_0002027315653752367014
 C_0002260232230584678565 ..|> C_0000217238106698041634
 C_0000742074985782975624 ..|> C_0000217238106698041634
 
-'Generated with clang-uml, version 0.3.6-29-g238bfb0
+'Generated with clang-uml, version 0.3.7-36-g13ea67c
 'LLVM version Ubuntu clang version 15.0.6
 @enduml

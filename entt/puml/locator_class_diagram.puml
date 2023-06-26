@@ -1,15 +1,15 @@
 @startuml
 class "locator<Service>" as C_0002057168254138054942
 class C_0002057168254138054942 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L27{locator}]] {
-+locator() = deleted : void
-+~locator() = deleted : void
++locator() = deleted : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L40{locator}]]]
++~locator() = deleted : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L42{~locator}]]]
 ..
 {static} +allocate_emplace<Impl=Service,Allocator,Args...>(Allocator alloc, Args &&... args) : Service &
 {static} +emplace<Impl=Service,Args...>(Args &&... args) : Service &
-{static} +handle() noexcept : locator::node_type
-{static} +has_value() noexcept : bool
-{static} +reset(const locator::node_type & other = {}) noexcept : void
-{static} +value() noexcept : Service &
+{static} +handle() noexcept : locator::node_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L114{handle}]]]
+{static} +has_value() noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L48{has_value}]]]
+{static} +reset(const locator::node_type & other = {}) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L124{reset}]]]
+{static} +value() noexcept : Service & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L61{value}]]]
 {static} +value_or<Impl=Service,Args...>(Args &&... args) : Service &
 __
 {static} -service : std::shared_ptr<Service> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/locator/locator.hpp#L130{service}]]]
@@ -21,6 +21,6 @@ __
 }
 C_0002252539691859806017 --+ C_0002057168254138054942
 
-'Generated with clang-uml, version 0.3.6-29-g238bfb0
+'Generated with clang-uml, version 0.3.7-36-g13ea67c
 'LLVM version Ubuntu clang version 15.0.6
 @enduml

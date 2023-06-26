@@ -1,24 +1,24 @@
 @startuml
 class "process<Derived,Delta>" as C_0002250218767873034998
 class C_0002250218767873034998 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L70{process}]] {
-+~process() noexcept : void
++~process() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L168{~process}]]]
 ..
-+abort(const bool immediately = false) : void
-+alive() const noexcept : bool
-#fail() noexcept : void
-+finished() const noexcept : bool
--next() const noexcept : void
++abort(const bool immediately = false) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L180{abort}]]]
++alive() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L194{alive}]]]
+#fail() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L133{fail}]]]
++finished() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L202{finished}]]]
+-next() const noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L112{next}]]]
 -next<Target=Derived>(std::integral_constant<state,state::uninitialized>) : decltype(std::declval<Target>().init() , void())
 -next<Target=Derived>(std::integral_constant<state,state::running>, Delta delta, void * data) : decltype(std::declval<Target>().update(delta, data) , void())
 -next<Target=Derived>(std::integral_constant<state,state::succeeded>) : decltype(std::declval<Target>().succeeded() , void())
 -next<Target=Derived>(std::integral_constant<state,state::failed>) : decltype(std::declval<Target>().failed() , void())
 -next<Target=Derived>(std::integral_constant<state,state::aborted>) : decltype(std::declval<Target>().aborted() , void())
-#pause() noexcept : void
-+paused() const noexcept : bool
-+rejected() const noexcept : bool
-#succeed() noexcept : void
-+tick(const Delta delta, void * data = nullptr) : void
-#unpause() noexcept : void
+#pause() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L145{pause}]]]
++paused() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L210{paused}]]]
++rejected() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L218{rejected}]]]
+#succeed() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L121{succeed}]]]
++tick(const Delta delta, void * data = nullptr) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L227{tick}]]]
+#unpause() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L157{unpause}]]]
 __
 -current : process::state [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/process.hpp#L262{current}]]]
 }
@@ -39,20 +39,20 @@ __
 }
 class "scheduler<Delta>" as C_0001693309150905075514
 class C_0001693309150905075514 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L41{scheduler}]] {
-+scheduler() : void
-+scheduler(scheduler<Delta> &&) = default : void
++scheduler() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L111{scheduler}]]]
++scheduler(scheduler<Delta> &&) = default : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L115{scheduler}]]]
 ..
-+operator=(scheduler<Delta> &&) = default : scheduler<Delta> &
++operator=(scheduler<Delta> &&) = default : scheduler<Delta> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L118{operator=}]]]
 ..
-+abort(const bool immediately = false) : void
++abort(const bool immediately = false) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L270{abort}]]]
 {static} -abort<Proc>(scheduler<Delta> & owner, std::size_t pos, const bool immediately) : void
 +attach<Proc,Args...>(Args &&... args) : auto
 +attach<Func>(Func && func) : auto
-+clear() : void
++clear() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L142{clear}]]]
 {static} -deleter<Proc>(void * proc) : void
-+empty() const noexcept : bool
-+size() const noexcept : scheduler::size_type
-+update(const Delta delta, void * data = nullptr) : void
++empty() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L132{empty}]]]
++size() const noexcept : scheduler::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L124{size}]]]
++update(const Delta delta, void * data = nullptr) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L249{update}]]]
 {static} -update<Proc>(scheduler<Delta> & owner, std::size_t pos, const Delta delta, void * data) : _Bool
 __
 -handlers : std::vector<process_handler> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L278{handlers}]]]
@@ -67,7 +67,7 @@ __
 }
 class "scheduler::continuation" as C_0001603671107212245628
 class C_0001603671107212245628 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L54{scheduler##continuation}]] {
-+continuation(scheduler::process_handler * ref) noexcept : void
++continuation(scheduler::process_handler * ref) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/process/scheduler.hpp#L55{continuation}]]]
 +then<Proc,Args...>(Args &&... args) : struct scheduler::continuation
 +then<Func>(Func && func) : struct scheduler::continuation
 __
@@ -78,6 +78,6 @@ C_0000987817905510358710 ..|> C_0000987817905510358710
 C_0000844935833660429083 --+ C_0001693309150905075514
 C_0001603671107212245628 --+ C_0001693309150905075514
 
-'Generated with clang-uml, version 0.3.6-29-g238bfb0
+'Generated with clang-uml, version 0.3.7-36-g13ea67c
 'LLVM version Ubuntu clang version 15.0.6
 @enduml
