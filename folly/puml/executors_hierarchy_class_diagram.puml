@@ -1,26 +1,15 @@
 @startuml
+title 'executors' class hierarchy
 left to right direction
-class "detail::ExecutorWithPriorityImpl<Callback>" as C_0001663594882877424244
-class C_0001663594882877424244 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ExecutorWithPriority-inl.h#L22{ExecutorWithPriorityImpl}]] {
-+ExecutorWithPriorityImpl(const ExecutorWithPriorityImpl<Callback> &) = deleted : void
-+ExecutorWithPriorityImpl(ExecutorWithPriorityImpl<Callback> &&) = deleted : void
-..
-+operator=(const ExecutorWithPriorityImpl<Callback> &) = deleted : ExecutorWithPriorityImpl<Callback> &
-+operator=(ExecutorWithPriorityImpl<Callback> &&) = deleted : ExecutorWithPriorityImpl<Callback> &
-..
-+add(Func func) : void
-{static} +create(Executor::KeepAlive<Executor> executor, Callback && callback) : Executor::KeepAlive<ExecutorWithPriorityImpl<std::decay_t<Callback>>>
-__
-}
 abstract "Executor" as C_0002222099135672593686
 abstract C_0002222099135672593686 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L53{Executor}]] {
-+~Executor() : void
++~Executor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L56{~Executor}]]]
 ..
-{abstract} +add(Func) = 0 : void
-+addWithPriority(Func, int8_t priority) : void
+{abstract} +add(Func) = 0 : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L60{add}]]]
++addWithPriority(Func, int8_t priority) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L64{addWithPriority}]]]
 {static} +getKeepAliveToken<ExecutorT>(ExecutorT * executor) : KeepAlive<ExecutorT>
 {static} +getKeepAliveToken<ExecutorT>(ExecutorT & executor) : KeepAlive<ExecutorT>
-+getNumPriorities() const : uint8_t
++getNumPriorities() const : uint8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L66{getNumPriorities}]]]
 __
 {static} +HI_PRI : const int8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L70{HI_PRI}]]]
 {static} +LO_PRI : const int8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/Executor.h#L68{LO_PRI}]]]
@@ -28,248 +17,146 @@ __
 }
 class "QueuedImmediateExecutor" as C_0001968432200878677255
 class C_0001968432200878677255 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/QueuedImmediateExecutor.h#L31{QueuedImmediateExecutor}]] {
-+add(Func callback) : void
-{static} +instance() : QueuedImmediateExecutor &
-__
-}
-abstract "DrivableExecutor" as C_0000481841646641149488
-abstract C_0000481841646641149488 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/DrivableExecutor.h#L40{DrivableExecutor}]] {
-+~DrivableExecutor() = default : void
-..
-{abstract} +drive() = 0 : void
-__
-}
-class "TimedDrivableExecutor" as C_0000769434624932181431
-class C_0000769434624932181431 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L30{TimedDrivableExecutor}]] {
-+TimedDrivableExecutor() : void
-+~TimedDrivableExecutor() noexcept : void
-..
-+add(Func) : void
-+drain() noexcept : size_t
-+drive() noexcept : void
-+run() noexcept : size_t
-+try_drive() noexcept : bool
-+try_drive_for<Rep,Period>(const std::chrono::duration<Rep,Period> & timeout) noexcept : _Bool
-+try_drive_until<Clock,Duration>(const std::chrono::time_point<Clock,Duration> & deadline) noexcept : _Bool
-+try_wait() noexcept : bool
-+try_wait_for<Rep,Period>(const std::chrono::duration<Rep,Period> & timeout) noexcept : _Bool
-+try_wait_until<Clock,Duration>(const std::chrono::time_point<Clock,Duration> & deadline) noexcept : _Bool
-+wait() noexcept : void
-__
-}
-abstract "IOExecutor" as C_0002145523347961259416
-abstract C_0002145523347961259416 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOExecutor.h#L40{IOExecutor}]] {
-+~IOExecutor() = default : void
-..
-{abstract} +getEventBase() = 0 : EventBase *
-__
-}
-class "DefaultKeepAliveExecutor" as C_0001347291497865252100
-class C_0001347291497865252100 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L30{DefaultKeepAliveExecutor}]] {
-+~DefaultKeepAliveExecutor() : void
-..
-+weakRef() : Executor::KeepAlive<>
-__
-}
-class "DefaultKeepAliveExecutor::WeakRef" as C_0001932117148827315960
-class C_0001932117148827315960 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L59{DefaultKeepAliveExecutor##WeakRef}]] {
-+add(Func f) : void
-+addWithPriority(Func f, int8_t priority) : void
-{static} +create(std::shared_ptr<ControlBlock> controlBlock, Executor * executor) : Executor::KeepAlive<>
-+getNumPriorities() const : uint8_t
-__
-}
-abstract "ThreadPoolExecutor" as C_0002292058893312396804
-abstract C_0002292058893312396804 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L67{ThreadPoolExecutor}]] {
-+ThreadPoolExecutor(size_t maxThreads, size_t minThreads, std::shared_ptr<ThreadFactory> threadFactory, bool isWaitForAll = false) : void
-+~ThreadPoolExecutor() : void
-..
-+add(Func func, std::chrono::milliseconds expiration, Func expireCallback) : void
-{abstract} +add(Func func) = 0 : void
-+addObserver(std::shared_ptr<Observer>) : void
-+getName() const : const std::string &
-+getPendingTaskCount() const : size_t
-+getPoolStats() const : ThreadPoolExecutor::PoolStats
-+getThreadFactory() const : std::shared_ptr<ThreadFactory>
-+join() : void
-+numActiveThreads() const : size_t
-+numThreads() const : size_t
-+removeObserver(std::shared_ptr<Observer>) : void
-+setNumThreads(size_t numThreads) : void
-+setThreadDeathTimeout(std::chrono::milliseconds timeout) : void
-+setThreadFactory(std::shared_ptr<ThreadFactory> threadFactory) : void
-+stop() : void
-+subscribeToTaskStats(ThreadPoolExecutor::TaskStatsCallback cb) : void
-{static} +withAll(FunctionRef<void (ThreadPoolExecutor &)> f) : void
-__
-}
-class "CPUThreadPoolExecutor" as C_0001740134810840364719
-class C_0001740134810840364719 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L68{CPUThreadPoolExecutor}]] {
-+CPUThreadPoolExecutor(size_t numThreads, std::unique_ptr<BlockingQueue<CPUTask>> taskQueue, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void
-+CPUThreadPoolExecutor(std::pair<size_t,size_t> numThreads, std::unique_ptr<BlockingQueue<CPUTask>> taskQueue, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void
-+CPUThreadPoolExecutor(size_t numThreads) : void
-+CPUThreadPoolExecutor(size_t numThreads, std::shared_ptr<ThreadFactory> threadFactory) : void
-+CPUThreadPoolExecutor(std::pair<size_t,size_t> numThreads, std::shared_ptr<ThreadFactory> threadFactory) : void
-+CPUThreadPoolExecutor(size_t numThreads, int8_t numPriorities, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void
-+CPUThreadPoolExecutor(size_t numThreads, int8_t numPriorities, size_t maxQueueSize, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void
-+~CPUThreadPoolExecutor() : void
-..
-+add(Func func) : void
-+add(Func func, std::chrono::milliseconds expiration, Func expireCallback = nullptr) : void
-+add(Func func, int8_t priority, std::chrono::milliseconds expiration, Func expireCallback = nullptr) : void
-+addWithPriority(Func func, int8_t priority) : void
-+getNumPriorities() const : uint8_t
-+getTaskQueueSize() const : size_t
-__
-{static} +kDefaultMaxQueueSize : const size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L153{kDefaultMaxQueueSize}]]]
-}
-abstract "ScheduledExecutor" as C_0001218209673148292552
-abstract C_0001218209673148292552 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L28{ScheduledExecutor}]] {
-+~ScheduledExecutor() = default : void
-..
-{abstract} +add(Func) = 0 : void
-+now() : ScheduledExecutor::TimePoint
-+schedule(Func && a) : void
-+schedule(Func && a, const ScheduledExecutor::Duration & dur) : void
-+scheduleAt(Func &&, const ScheduledExecutor::TimePoint &) : void
++add(Func callback) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/QueuedImmediateExecutor.h#L35{add}]]]
+{static} +instance() : QueuedImmediateExecutor & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/QueuedImmediateExecutor.h#L33{instance}]]]
 __
 }
 class "SequencedExecutor" as C_0000155178671636628489
 class C_0000155178671636628489 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SequencedExecutor.h#L27{SequencedExecutor}]] {
-+~SequencedExecutor() : void
-__
-}
-class "EventBase" as C_0001970350906198958245
-class C_0001970350906198958245 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L135{EventBase}]] {
-+EventBase(std::chrono::milliseconds tickInterval) : void
-+EventBase() : void
-+EventBase(bool enableTimeMeasurement) : void
-+EventBase(const EventBase &) = deleted : void
-+EventBase(event_base * evb, bool enableTimeMeasurement = true) : void
-+EventBase(EventBase::Options options) : void
-+~EventBase() : void
-..
-+operator=(const EventBase &) = deleted : EventBase &
-..
-+add(Cob fn) : void
-+attachTimeoutManager(AsyncTimeout * obj, TimeoutManager::InternalEnum internal) : void
-+bumpHandlingTime() : void
-+cancelTimeout(AsyncTimeout * obj) : void
-+checkIsInEventBaseThread() const : void
-+dcheckIsInEventBaseThread() const : void
-+detachTimeoutManager(AsyncTimeout * obj) : void
-+drive() : void
-+getAvgLoopTime() const : double
-+getBackend() : EventBaseBackendBase *
-{static} +getDefaultBackend() : std::unique_ptr<EventBaseBackendBase>
-+getEventBase() : EventBase *
-+getExecutionObserver() : ExecutionObserver *
-+getLibeventBase() const : event_base *
-{static} +getLibeventMethod() : const char *
-{static} +getLibeventVersion() : const char *
-+getName() : const std::string &
-+getNotificationQueueSize() const : size_t
-+getObserver() : const std::shared_ptr<EventBaseObserver> &
-+getVirtualEventBase() : VirtualEventBase &
-+inRunningEventBaseThread() const : bool
-+isInEventBaseThread() const : bool
-+isInTimeoutManagerThread() : bool
-+isRunning() const : bool
-+loop() : bool
-+loopForever() : void
-+loopIgnoreKeepAlive() : bool
-+loopOnce(int flags = 0) : bool
-+resetLoadAvg(double value = 0.0) : void
-+runBeforeLoop(EventBase::LoopCallback * callback) : void
-+runImmediatelyOrRunInEventBaseThreadAndWait<T>(void (*)(T *) fn, T * arg) noexcept : void
-+runImmediatelyOrRunInEventBaseThreadAndWait(EventBase::Func fn) noexcept : void
-+runInEventBaseThread<T>(void (*)(T *) fn, T * arg) noexcept : void
-+runInEventBaseThread(EventBase::Func fn) noexcept : void
-+runInEventBaseThreadAlwaysEnqueue(EventBase::Func fn) noexcept : void
-+runInEventBaseThreadAlwaysEnqueue<T>(void (*)(T *) fn, T * arg) noexcept : void
-+runInEventBaseThreadAndWait<T>(void (*)(T *) fn, T * arg) noexcept : void
-+runInEventBaseThreadAndWait(EventBase::Func fn) noexcept : void
-+runInLoop(EventBase::Func c, bool thisIteration = false) : void
-+runInLoop(EventBase::LoopCallback * callback, bool thisIteration = false, std::shared_ptr<RequestContext> rctx = RequestContext::saveContext()) : void
-+runOnDestruction(EventBase::Func f) : void
-+runOnDestruction(EventBase::OnDestructionCallback & callback) : void
-+scheduleAt(EventBase::Func && fn, const ScheduledExecutor::TimePoint & timeout) : void
-+scheduleTimeout(AsyncTimeout * obj, TimeoutManager::timeout_type timeout) : bool
-+setExecutionObserver(ExecutionObserver * observer) : void
-+setLoadAvgMsec(std::chrono::milliseconds ms) : void
-+setMaxLatency(std::chrono::microseconds maxLatency, EventBase::Func maxLatencyCob) : void
-+setMaxReadAtOnce(uint32_t maxAtOnce) : void
-+setName(const std::string & name) : void
-+setObserver(const std::shared_ptr<EventBaseObserver> & observer) : void
-+terminateLoopSoon() : void
-+timer() : HHWheelTimer &
-+waitUntilRunning() : void
-__
-}
-class "IOThreadPoolExecutor" as C_0000260170505900481834
-class C_0000260170505900481834 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L58{IOThreadPoolExecutor}]] {
-+IOThreadPoolExecutor(size_t numThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("IOThreadPool"), EventBaseManager * ebm = folly::EventBaseManager::get(), bool waitForAll = false) : void
-+IOThreadPoolExecutor(size_t maxThreads, size_t minThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("IOThreadPool"), EventBaseManager * ebm = folly::EventBaseManager::get(), bool waitForAll = false) : void
-+~IOThreadPoolExecutor() : void
-..
-+add(Func func) : void
-+add(Func func, std::chrono::milliseconds expiration, Func expireCallback = nullptr) : void
-+getEventBase() : EventBase *
-{static} +getEventBase(ThreadPoolExecutor::ThreadHandle *) : EventBase *
-+getEventBaseManager() : EventBaseManager *
-__
-}
-class "ManualExecutor" as C_0002235860541734359952
-class C_0002235860541734359952 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L38{ManualExecutor}]] {
-+~ManualExecutor() : void
-..
-+add(Func) : void
-+advance(const ScheduledExecutor::Duration & dur) : void
-+advanceTo(const ScheduledExecutor::TimePoint & t) : void
-+clear() : std::size_t
-+drain() : size_t
-+drive() : void
-+keepAliveAcquire() noexcept : bool
-+keepAliveRelease() noexcept : void
-+makeProgress() : void
-+now() : ScheduledExecutor::TimePoint
-+run() : size_t
-+scheduleAt(Func && f, const ScheduledExecutor::TimePoint & t) : void
-+wait() : void
-+waitFor<F>(const F & f) : void
-__
-}
-class "MeteredExecutor" as C_0001956570166673420631
-class C_0001956570166673420631 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/MeteredExecutor.h#L41{MeteredExecutor}]] {
-+MeteredExecutor(std::unique_ptr<Executor> exe) : void
-+MeteredExecutor(MeteredExecutor::KeepAlive keepAlive) : void
-+~MeteredExecutor() : void
-..
-+add(Func func) : void
-+setMaxReadAtOnce(uint32_t maxAtOnce) : void
++~SequencedExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SequencedExecutor.h#L29{~SequencedExecutor}]]]
 __
 }
 class "StrandExecutor" as C_0000587962468506435170
 class C_0000587962468506435170 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/StrandExecutor.h#L122{StrandExecutor}]] {
-+add(Func f) : void
-+addWithPriority(Func f, int8_t priority) : void
-{static} +create() : Executor::KeepAlive<StrandExecutor>
-{static} +create(std::shared_ptr<StrandContext> context) : Executor::KeepAlive<StrandExecutor>
-{static} +create(Executor::KeepAlive<> parentExecutor) : Executor::KeepAlive<StrandExecutor>
-{static} +create(std::shared_ptr<StrandContext> context, Executor::KeepAlive<> parentExecutor) : Executor::KeepAlive<StrandExecutor>
-+getNumPriorities() const : uint8_t
++add(Func f) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/StrandExecutor.h#L152{add}]]]
++addWithPriority(Func f, int8_t priority) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/StrandExecutor.h#L154{addWithPriority}]]]
+{static} +create() : Executor::KeepAlive<StrandExecutor> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/StrandExecutor.h#L129{create}]]]
+{static} +create(std::shared_ptr<StrandContext> context) : Executor::KeepAlive<StrandExecutor> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/StrandExecutor.h#L137{create}]]]
+{static} +create(Executor::KeepAlive<> parentExecutor) : Executor::KeepAlive<StrandExecutor> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/StrandExecutor.h#L142{create}]]]
+{static} +create(std::shared_ptr<StrandContext> context, Executor::KeepAlive<> parentExecutor) : Executor::KeepAlive<StrandExecutor> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/StrandExecutor.h#L148{create}]]]
++getNumPriorities() const : uint8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/StrandExecutor.h#L155{getNumPriorities}]]]
+__
+}
+abstract "IOExecutor" as C_0002145523347961259416
+abstract C_0002145523347961259416 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOExecutor.h#L40{IOExecutor}]] {
++~IOExecutor() = default : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOExecutor.h#L42{~IOExecutor}]]]
+..
+{abstract} +getEventBase() = 0 : EventBase * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOExecutor.h#L43{getEventBase}]]]
+__
+}
+class "EventBase" as C_0001970350906198958245
+class C_0001970350906198958245 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOExecutor.h#L22{EventBase}]] {
++EventBase(std::chrono::milliseconds tickInterval) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L328{EventBase}]]]
++EventBase() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L335{EventBase}]]]
++EventBase(bool enableTimeMeasurement) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L346{EventBase}]]]
++EventBase(const EventBase &) = deleted : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L348{EventBase}]]]
++EventBase(event_base * evb, bool enableTimeMeasurement = true) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L364{EventBase}]]]
++EventBase(EventBase::Options options) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L366{EventBase}]]]
++~EventBase() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L367{~EventBase}]]]
+..
++operator=(const EventBase &) = deleted : EventBase & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L349{operator=}]]]
+..
++add(Cob fn) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L799{add}]]]
++attachTimeoutManager(AsyncTimeout * obj, TimeoutManager::InternalEnum internal) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L812{attachTimeoutManager}]]]
++bumpHandlingTime() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L732{bumpHandlingTime}]]]
++cancelTimeout(AsyncTimeout * obj) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L821{cancelTimeout}]]]
++checkIsInEventBaseThread() const : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L700{checkIsInEventBaseThread}]]]
++dcheckIsInEventBaseThread() const : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L701{dcheckIsInEventBaseThread}]]]
++detachTimeoutManager(AsyncTimeout * obj) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L816{detachTimeoutManager}]]]
++drive() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L802{drive}]]]
++getAvgLoopTime() const : double [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L660{getAvgLoopTime}]]]
++getBackend() : EventBaseBackendBase * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L714{getBackend}]]]
+{static} +getDefaultBackend() : std::unique_ptr<EventBaseBackendBase> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L837{getDefaultBackend}]]]
++getEventBase() : EventBase * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L835{getEventBase}]]]
++getExecutionObserver() : ExecutionObserver * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L786{getExecutionObserver}]]]
++getLibeventBase() const : event_base * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L719{getLibeventBase}]]]
+{static} +getLibeventMethod() : const char * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L722{getLibeventMethod}]]]
+{static} +getLibeventVersion() : const char * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L721{getLibeventVersion}]]]
++getName() : const std::string & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L796{getName}]]]
++getNotificationQueueSize() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L677{getNotificationQueueSize}]]]
++getObserver() : const std::shared_ptr<EventBaseObserver> & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L771{getObserver}]]]
++getVirtualEventBase() : VirtualEventBase & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L832{getVirtualEventBase}]]]
++inRunningEventBaseThread() const : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L690{inRunningEventBaseThread}]]]
++isInEventBaseThread() const : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L685{isInEventBaseThread}]]]
++isInTimeoutManagerThread() : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L823{isInTimeoutManagerThread}]]]
++isRunning() const : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L668{isRunning}]]]
++loop() : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L384{loop}]]]
++loopForever() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L420{loopForever}]]]
++loopIgnoreKeepAlive() : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L390{loopIgnoreKeepAlive}]]]
++loopOnce(int flags = 0) : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L402{loopOnce}]]]
++resetLoadAvg(double value = 0.0) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L655{resetLoadAvg}]]]
++runBeforeLoop(EventBase::LoopCallback * callback) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L519{runBeforeLoop}]]]
++runImmediatelyOrRunInEventBaseThreadAndWait<T>(void (*)(T *) fn, T * arg) noexcept : void
++runImmediatelyOrRunInEventBaseThreadAndWait(EventBase::Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L633{runImmediatelyOrRunInEventBaseThreadAndWait}]]]
++runInEventBaseThread<T>(void (*)(T *) fn, T * arg) noexcept : void
++runInEventBaseThread(EventBase::Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L561{runInEventBaseThread}]]]
++runInEventBaseThreadAlwaysEnqueue(EventBase::Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L605{runInEventBaseThreadAlwaysEnqueue}]]]
++runInEventBaseThreadAlwaysEnqueue<T>(void (*)(T *) fn, T * arg) noexcept : void
++runInEventBaseThreadAndWait<T>(void (*)(T *) fn, T * arg) noexcept : void
++runInEventBaseThreadAndWait(EventBase::Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L618{runInEventBaseThreadAndWait}]]]
++runInLoop(EventBase::Func c, bool thisIteration = false) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L494{runInLoop}]]]
++runInLoop(EventBase::LoopCallback * callback, bool thisIteration = false, std::shared_ptr<RequestContext> rctx = RequestContext::saveContext()) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L475{runInLoop}]]]
++runOnDestruction(EventBase::Func f) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L512{runOnDestruction}]]]
++runOnDestruction(EventBase::OnDestructionCallback & callback) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L506{runOnDestruction}]]]
++scheduleAt(EventBase::Func && fn, const ScheduledExecutor::TimePoint & timeout) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L809{scheduleAt}]]]
++scheduleTimeout(AsyncTimeout * obj, TimeoutManager::timeout_type timeout) : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L818{scheduleTimeout}]]]
++setExecutionObserver(ExecutionObserver * observer) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L779{setExecutionObserver}]]]
++setLoadAvgMsec(std::chrono::milliseconds ms) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L650{setLoadAvgMsec}]]]
++setMaxLatency(std::chrono::microseconds maxLatency, EventBase::Func maxLatencyCob) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L640{setMaxLatency}]]]
++setMaxReadAtOnce(uint32_t maxAtOnce) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L679{setMaxReadAtOnce}]]]
++setName(const std::string & name) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L791{setName}]]]
++setObserver(const std::shared_ptr<EventBaseObserver> & observer) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L766{setObserver}]]]
++terminateLoopSoon() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L448{terminateLoopSoon}]]]
++timer() : HHWheelTimer & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L707{timer}]]]
++waitUntilRunning() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/io/async/EventBase.h#L675{waitUntilRunning}]]]
+__
+}
+abstract "DrivableExecutor" as C_0000481841646641149488
+abstract C_0000481841646641149488 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/DrivableExecutor.h#L40{DrivableExecutor}]] {
++~DrivableExecutor() = default : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/DrivableExecutor.h#L42{~DrivableExecutor}]]]
+..
+{abstract} +drive() = 0 : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/DrivableExecutor.h#L52{drive}]]]
+__
+}
+class "TimedDrivableExecutor" as C_0000769434624932181431
+class C_0000769434624932181431 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L30{TimedDrivableExecutor}]] {
++TimedDrivableExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L32{TimedDrivableExecutor}]]]
++~TimedDrivableExecutor() noexcept : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L33{~TimedDrivableExecutor}]]]
+..
++add(Func) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L60{add}]]]
++drain() noexcept : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L76{drain}]]]
++drive() noexcept : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L36{drive}]]]
++run() noexcept : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L68{run}]]]
++try_drive() noexcept : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L40{try_drive}]]]
++try_drive_for<Rep,Period>(const std::chrono::duration<Rep,Period> & timeout) noexcept : _Bool
++try_drive_until<Clock,Duration>(const std::chrono::time_point<Clock,Duration> & deadline) noexcept : _Bool
++try_wait() noexcept : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L82{try_wait}]]]
++try_wait_for<Rep,Period>(const std::chrono::duration<Rep,Period> & timeout) noexcept : _Bool
++try_wait_until<Clock,Duration>(const std::chrono::time_point<Clock,Duration> & deadline) noexcept : _Bool
++wait() noexcept : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimedDrivableExecutor.h#L79{wait}]]]
+__
+}
+abstract "ScheduledExecutor" as C_0001218209673148292552
+abstract C_0001218209673148292552 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L28{ScheduledExecutor}]] {
++~ScheduledExecutor() = default : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L35{~ScheduledExecutor}]]]
+..
+{abstract} +add(Func) = 0 : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L37{add}]]]
++now() : ScheduledExecutor::TimePoint [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L55{now}]]]
++schedule(Func && a) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L40{schedule}]]]
++schedule(Func && a, const ScheduledExecutor::Duration & dur) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L44{schedule}]]]
++scheduleAt(Func &&, const ScheduledExecutor::TimePoint &) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ScheduledExecutor.h#L50{scheduleAt}]]]
 __
 }
 class "fibers::FiberManager" as C_0001206661724003471988
 class C_0001206661724003471988 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L80{FiberManager}]] {
-+FiberManager(const fibers::FiberManager &) = deleted : void
-+FiberManager(std::unique_ptr<LoopController> loopController, fibers::FiberManager::Options options = Options()) : void
++FiberManager(const fibers::FiberManager &) = deleted : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L163{FiberManager}]]]
++FiberManager(std::unique_ptr<LoopController> loopController, fibers::FiberManager::Options options = Options()) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L172{FiberManager}]]]
 +FiberManager<LocalT>(LocalType<LocalT>, std::unique_ptr<LoopController> loopController, fibers::FiberManager::Options options = Options()) : void
-+~FiberManager() : void
++~FiberManager() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L190{~FiberManager}]]]
 ..
-+operator=(const fibers::FiberManager &) = deleted : fibers::FiberManager &
++operator=(const fibers::FiberManager &) = deleted : fibers::FiberManager & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L164{operator=}]]]
 ..
-+add(Func f) : void
++add(Func f) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L309{add}]]]
 +addTask<F>(F && func, fibers::TaskOptions taskOptions = TaskOptions()) : void
 +addTaskEager<F>(F && func) : void
 +addTaskEagerFuture<F>(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
@@ -278,89 +165,182 @@ class C_0001206661724003471988 [[https://github.com/facebook/folly/blob/c7166a67
 +addTaskFuture<F>(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
 +addTaskRemote<F>(F && func) : void
 +addTaskRemoteFuture<F>(F && func) : Future<lift_unit_t<invoke_result_t<F> > >
-+currentFiber() const : fibers::Fiber *
-+fibersAllocated() const : size_t
-+fibersPoolSize() const : size_t
-+getCurrentTaskRunningTime() const : Optional<std::chrono::nanoseconds>
-{static} +getFiberManager() : fibers::FiberManager &
-{static} +getFiberManagerUnsafe() : fibers::FiberManager *
-+getObserver() : ExecutionObserver *
-+getOptions() const : const fibers::FiberManager::Options &
-+hasActiveFiber() const : bool
-+hasReadyTasks() const : bool
-+hasTasks() const : bool
++currentFiber() const : fibers::Fiber * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L387{currentFiber}]]]
++fibersAllocated() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L363{fibersAllocated}]]]
++fibersPoolSize() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L369{fibersPoolSize}]]]
++getCurrentTaskRunningTime() const : Optional<std::chrono::nanoseconds> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L382{getCurrentTaskRunningTime}]]]
+{static} +getFiberManager() : fibers::FiberManager & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L429{getFiberManager}]]]
+{static} +getFiberManagerUnsafe() : fibers::FiberManager * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L430{getFiberManagerUnsafe}]]]
++getObserver() : ExecutionObserver * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L414{getObserver}]]]
++getOptions() const : const fibers::FiberManager::Options & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L432{getOptions}]]]
++hasActiveFiber() const : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L374{hasActiveFiber}]]]
++hasReadyTasks() const : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L233{hasReadyTasks}]]]
++hasTasks() const : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L221{hasTasks}]]]
 +local<T>() : T &
 {static} +localThread<T>() : T &
-+loopController() const : const fibers::LoopController &
-+loopController() : fibers::LoopController &
-+loopUntilNoReady() : void
-+loopUntilNoReadyImpl() : void
-+numActiveTasks() const noexcept : size_t
-+runEagerFiberImpl(fibers::Fiber *) : void
++loopController() const : const fibers::LoopController & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L196{loopController}]]]
++loopController() : fibers::LoopController & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L195{loopController}]]]
++loopUntilNoReady() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L201{loopUntilNoReady}]]]
++loopUntilNoReadyImpl() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L206{loopUntilNoReadyImpl}]]]
++numActiveTasks() const noexcept : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L228{numActiveTasks}]]]
++runEagerFiberImpl(fibers::Fiber *) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L211{runEagerFiberImpl}]]]
 +runInMainContext<F>(F && func) : invoke_result_t<F>
-+runQueueSize() const : size_t
-+setExceptionCallback(fibers::FiberManager::ExceptionCallback ec) : void
-+setObserver(ExecutionObserver * observer) : void
-+setPreemptRunner(fibers::InlineFunctionRunner * preemptRunner) : void
-+shouldRunLoopRemote() : bool
-+stackHighWatermark() const : size_t
-+yield() : void
-__
-}
-class "futures::detail::WaitExecutor" as C_0000346702971661703291
-class C_0000346702971661703291 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/futures/Future-inl.h#L478{WaitExecutor}]] {
-+add(Func func) : void
-{static} +create() : Executor::KeepAlive<futures::detail::WaitExecutor>
-+detach() : void
-+drive() : void
-+driveUntil(Clock::time_point deadline) : bool
++runQueueSize() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L425{runQueueSize}]]]
++setExceptionCallback(fibers::FiberManager::ExceptionCallback ec) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L241{setExceptionCallback}]]]
++setObserver(ExecutionObserver * observer) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L408{setObserver}]]]
++setPreemptRunner(fibers::InlineFunctionRunner * preemptRunner) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L419{setPreemptRunner}]]]
++shouldRunLoopRemote() : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L216{shouldRunLoopRemote}]]]
++stackHighWatermark() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L392{stackHighWatermark}]]]
++yield() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/fibers/FiberManagerInternal.h#L400{yield}]]]
 __
 }
 class "InlineExecutor" as C_0001612067402701865715
 class C_0001612067402701865715 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/InlineExecutor.h#L30{InlineExecutor}]] {
-+add(Func f) : void
-{static} +instance() noexcept : InlineExecutor &
++add(Func f) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/InlineExecutor.h#L37{add}]]]
+{static} +instance() noexcept : InlineExecutor & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/InlineExecutor.h#L32{instance}]]]
 __
 }
 class "TimekeeperScheduledExecutor" as C_0001123262130157209492
 class C_0001123262130157209492 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimekeeperScheduledExecutor.h#L35{TimekeeperScheduledExecutor}]] {
-+TimekeeperScheduledExecutor(const TimekeeperScheduledExecutor &) = deleted : void
-+TimekeeperScheduledExecutor(TimekeeperScheduledExecutor &&) = deleted : void
++TimekeeperScheduledExecutor(const TimekeeperScheduledExecutor &) = deleted : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimekeeperScheduledExecutor.h#L37{TimekeeperScheduledExecutor}]]]
++TimekeeperScheduledExecutor(TimekeeperScheduledExecutor &&) = deleted : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimekeeperScheduledExecutor.h#L40{TimekeeperScheduledExecutor}]]]
 ..
-+operator=(const TimekeeperScheduledExecutor &) = deleted : TimekeeperScheduledExecutor &
-+operator=(TimekeeperScheduledExecutor &&) = deleted : TimekeeperScheduledExecutor &
++operator=(const TimekeeperScheduledExecutor &) = deleted : TimekeeperScheduledExecutor & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimekeeperScheduledExecutor.h#L38{operator=}]]]
++operator=(TimekeeperScheduledExecutor &&) = deleted : TimekeeperScheduledExecutor & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimekeeperScheduledExecutor.h#L41{operator=}]]]
 ..
-+add(Func func) : void
-{static} +create(Executor::KeepAlive<> parent, Function<std::shared_ptr<Timekeeper> ()> getTimekeeper = detail::getTimekeeperSingleton) : Executor::KeepAlive<TimekeeperScheduledExecutor>
-+scheduleAt(Func && func, const ScheduledExecutor::TimePoint & t) : void
++add(Func func) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimekeeperScheduledExecutor.h#L49{add}]]]
+{static} +create(Executor::KeepAlive<> parent, Function<std::shared_ptr<Timekeeper> ()> getTimekeeper = detail::getTimekeeperSingleton) : Executor::KeepAlive<TimekeeperScheduledExecutor> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimekeeperScheduledExecutor.h#L44{create}]]]
++scheduleAt(Func && func, const ScheduledExecutor::TimePoint & t) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/TimekeeperScheduledExecutor.h#L51{scheduleAt}]]]
+__
+}
+class "DefaultKeepAliveExecutor" as C_0001347291497865252100
+class C_0001347291497865252100 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L30{DefaultKeepAliveExecutor}]] {
++~DefaultKeepAliveExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L32{~DefaultKeepAliveExecutor}]]]
+..
++weakRef() : Executor::KeepAlive<> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L34{weakRef}]]]
+__
+}
+class "DefaultKeepAliveExecutor::WeakRef" as C_0001932117148827315960
+class C_0001932117148827315960 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L59{DefaultKeepAliveExecutor##WeakRef}]] {
++add(Func f) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L67{add}]]]
++addWithPriority(Func f, int8_t priority) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L73{addWithPriority}]]]
+{static} +create(std::shared_ptr<ControlBlock> controlBlock, Executor * executor) : Executor::KeepAlive<> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L61{create}]]]
++getNumPriorities() const : uint8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/DefaultKeepAliveExecutor.h#L79{getNumPriorities}]]]
+__
+}
+abstract "ThreadPoolExecutor" as C_0002292058893312396804
+abstract C_0002292058893312396804 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L67{ThreadPoolExecutor}]] {
++ThreadPoolExecutor(size_t maxThreads, size_t minThreads, std::shared_ptr<ThreadFactory> threadFactory, bool isWaitForAll = false) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L69{ThreadPoolExecutor}]]]
++~ThreadPoolExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L75{~ThreadPoolExecutor}]]]
+..
++add(Func func, std::chrono::milliseconds expiration, Func expireCallback) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L79{add}]]]
+{abstract} +add(Func func) = 0 : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L77{add}]]]
++addObserver(std::shared_ptr<Observer>) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L165{addObserver}]]]
++getName() const : const std::string & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L127{getName}]]]
++getPendingTaskCount() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L126{getPendingTaskCount}]]]
++getPoolStats() const : ThreadPoolExecutor::PoolStats [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L125{getPoolStats}]]]
++getThreadFactory() const : std::shared_ptr<ThreadFactory> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L87{getThreadFactory}]]]
++join() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L104{join}]]]
++numActiveThreads() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L96{numActiveThreads}]]]
++numThreads() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L91{numThreads}]]]
++removeObserver(std::shared_ptr<Observer>) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L166{removeObserver}]]]
++setNumThreads(size_t numThreads) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L92{setNumThreads}]]]
++setThreadDeathTimeout(std::chrono::milliseconds timeout) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L168{setThreadDeathTimeout}]]]
++setThreadFactory(std::shared_ptr<ThreadFactory> threadFactory) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L81{setThreadFactory}]]]
++stop() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L103{stop}]]]
++subscribeToTaskStats(ThreadPoolExecutor::TaskStatsCallback cb) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L139{subscribeToTaskStats}]]]
+{static} +withAll(FunctionRef<void (ThreadPoolExecutor &)> f) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadPoolExecutor.h#L110{withAll}]]]
+__
+}
+class "IOThreadPoolExecutor" as C_0000260170505900481834
+class C_0000260170505900481834 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L58{IOThreadPoolExecutor}]] {
++IOThreadPoolExecutor(size_t numThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("IOThreadPool"), EventBaseManager * ebm = folly::EventBaseManager::get(), bool waitForAll = false) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L60{IOThreadPoolExecutor}]]]
++IOThreadPoolExecutor(size_t maxThreads, size_t minThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("IOThreadPool"), EventBaseManager * ebm = folly::EventBaseManager::get(), bool waitForAll = false) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L67{IOThreadPoolExecutor}]]]
++~IOThreadPoolExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L75{~IOThreadPoolExecutor}]]]
+..
++add(Func func) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L77{add}]]]
++add(Func func, std::chrono::milliseconds expiration, Func expireCallback = nullptr) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L78{add}]]]
++getEventBase() : EventBase * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L83{getEventBase}]]]
+{static} +getEventBase(ThreadPoolExecutor::ThreadHandle *) : EventBase * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L85{getEventBase}]]]
++getEventBaseManager() : EventBaseManager * [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/IOThreadPoolExecutor.h#L87{getEventBaseManager}]]]
 __
 }
 class "SerialExecutor" as C_0001402712402381953994
 class C_0001402712402381953994 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L53{SerialExecutor}]] {
-+SerialExecutor(const SerialExecutor &) = deleted : void
-+SerialExecutor(SerialExecutor &&) = deleted : void
++SerialExecutor(const SerialExecutor &) = deleted : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L55{SerialExecutor}]]]
++SerialExecutor(SerialExecutor &&) = deleted : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L57{SerialExecutor}]]]
 ..
-+operator=(const SerialExecutor &) = deleted : SerialExecutor &
-+operator=(SerialExecutor &&) = deleted : SerialExecutor &
++operator=(const SerialExecutor &) = deleted : SerialExecutor & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L56{operator=}]]]
++operator=(SerialExecutor &&) = deleted : SerialExecutor & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L58{operator=}]]]
 ..
-+add(Func func) : void
-+addWithPriority(Func func, int8_t priority) : void
-{static} +create(Executor::KeepAlive<Executor> parent = getKeepAliveToken(getCPUExecutor().get())) : Executor::KeepAlive<SerialExecutor>
-{static} +createUnique(std::shared_ptr<Executor> parent = getCPUExecutor()) : SerialExecutor::UniquePtr
-+getNumPriorities() const : uint8_t
++add(Func func) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L84{add}]]]
++addWithPriority(Func func, int8_t priority) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L96{addWithPriority}]]]
+{static} +create(Executor::KeepAlive<Executor> parent = getKeepAliveToken(getCPUExecutor().get())) : Executor::KeepAlive<SerialExecutor> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L60{create}]]]
+{static} +createUnique(std::shared_ptr<Executor> parent = getCPUExecutor()) : SerialExecutor::UniquePtr [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L78{createUnique}]]]
++getNumPriorities() const : uint8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/SerialExecutor.h#L97{getNumPriorities}]]]
 __
 }
 class "ThreadedExecutor" as C_0000470362430235503729
 class C_0000470362430235503729 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L55{ThreadedExecutor}]] {
-+ThreadedExecutor(std::shared_ptr<ThreadFactory> threadFactory = newDefaultThreadFactory()) : void
-+ThreadedExecutor(const ThreadedExecutor &) = deleted : void
-+ThreadedExecutor(ThreadedExecutor &&) = deleted : void
-+~ThreadedExecutor() : void
++ThreadedExecutor(std::shared_ptr<ThreadFactory> threadFactory = newDefaultThreadFactory()) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L57{ThreadedExecutor}]]]
++ThreadedExecutor(const ThreadedExecutor &) = deleted : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L61{ThreadedExecutor}]]]
++ThreadedExecutor(ThreadedExecutor &&) = deleted : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L62{ThreadedExecutor}]]]
++~ThreadedExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L59{~ThreadedExecutor}]]]
 ..
-+operator=(const ThreadedExecutor &) = deleted : ThreadedExecutor &
-+operator=(ThreadedExecutor &&) = deleted : ThreadedExecutor &
++operator=(const ThreadedExecutor &) = deleted : ThreadedExecutor & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L64{operator=}]]]
++operator=(ThreadedExecutor &&) = deleted : ThreadedExecutor & [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L65{operator=}]]]
 ..
-+add(Func func) : void
++add(Func func) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ThreadedExecutor.h#L67{add}]]]
+__
+}
+class "CPUThreadPoolExecutor" as C_0001740134810840364719
+class C_0001740134810840364719 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L68{CPUThreadPoolExecutor}]] {
++CPUThreadPoolExecutor(size_t numThreads, std::unique_ptr<BlockingQueue<CPUTask>> taskQueue, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L72{CPUThreadPoolExecutor}]]]
++CPUThreadPoolExecutor(std::pair<size_t,size_t> numThreads, std::unique_ptr<BlockingQueue<CPUTask>> taskQueue, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L78{CPUThreadPoolExecutor}]]]
++CPUThreadPoolExecutor(size_t numThreads) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L84{CPUThreadPoolExecutor}]]]
++CPUThreadPoolExecutor(size_t numThreads, std::shared_ptr<ThreadFactory> threadFactory) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L86{CPUThreadPoolExecutor}]]]
++CPUThreadPoolExecutor(std::pair<size_t,size_t> numThreads, std::shared_ptr<ThreadFactory> threadFactory) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L90{CPUThreadPoolExecutor}]]]
++CPUThreadPoolExecutor(size_t numThreads, int8_t numPriorities, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L94{CPUThreadPoolExecutor}]]]
++CPUThreadPoolExecutor(size_t numThreads, int8_t numPriorities, size_t maxQueueSize, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("CPUThreadPool")) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L100{CPUThreadPoolExecutor}]]]
++~CPUThreadPoolExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L107{~CPUThreadPoolExecutor}]]]
+..
++add(Func func) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L109{add}]]]
++add(Func func, std::chrono::milliseconds expiration, Func expireCallback = nullptr) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L110{add}]]]
++add(Func func, int8_t priority, std::chrono::milliseconds expiration, Func expireCallback = nullptr) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L116{add}]]]
++addWithPriority(Func func, int8_t priority) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L115{addWithPriority}]]]
++getNumPriorities() const : uint8_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L124{getNumPriorities}]]]
++getTaskQueueSize() const : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L122{getTaskQueueSize}]]]
+__
+{static} +kDefaultMaxQueueSize : const size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/CPUThreadPoolExecutor.h#L153{kDefaultMaxQueueSize}]]]
+}
+class "ManualExecutor" as C_0002235860541734359952
+class C_0002235860541734359952 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L38{ManualExecutor}]] {
++~ManualExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L42{~ManualExecutor}]]]
+..
++add(Func) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L44{add}]]]
++advance(const ScheduledExecutor::Duration & dur) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L98{advance}]]]
++advanceTo(const ScheduledExecutor::TimePoint & t) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L102{advanceTo}]]]
++clear() : std::size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L108{clear}]]]
++drain() : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L60{drain}]]]
++drive() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L72{drive}]]]
++keepAliveAcquire() noexcept : bool [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L121{keepAliveAcquire}]]]
++keepAliveRelease() noexcept : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L126{keepAliveRelease}]]]
++makeProgress() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L66{makeProgress}]]]
++now() : ScheduledExecutor::TimePoint [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L104{now}]]]
++run() : size_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L52{run}]]]
++scheduleAt(Func && f, const ScheduledExecutor::TimePoint & t) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L88{scheduleAt}]]]
++wait() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/ManualExecutor.h#L63{wait}]]]
++waitFor<F>(const F & f) : void
+__
+}
+class "MeteredExecutor" as C_0001956570166673420631
+class C_0001956570166673420631 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/MeteredExecutor.h#L41{MeteredExecutor}]] {
++MeteredExecutor(std::unique_ptr<Executor> exe) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/MeteredExecutor.h#L45{MeteredExecutor}]]]
++MeteredExecutor(MeteredExecutor::KeepAlive keepAlive) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/MeteredExecutor.h#L47{MeteredExecutor}]]]
++~MeteredExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/MeteredExecutor.h#L48{~MeteredExecutor}]]]
+..
++add(Func func) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/MeteredExecutor.h#L52{add}]]]
++setMaxReadAtOnce(uint32_t maxAtOnce) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/MeteredExecutor.h#L50{setMaxReadAtOnce}]]]
 __
 }
 class "SoftRealTimeExecutor" as C_0000560396763155385774
@@ -369,61 +349,56 @@ __
 }
 class "EDFThreadPoolExecutor" as C_0000586027154664049253
 class C_0000586027154664049253 [[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L34{EDFThreadPoolExecutor}]] {
-+EDFThreadPoolExecutor(std::size_t numThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("EDFThreadPool")) : void
-+~EDFThreadPoolExecutor() : void
++EDFThreadPoolExecutor(std::size_t numThreads, std::shared_ptr<ThreadFactory> threadFactory = std::make_shared<NamedThreadFactory>("EDFThreadPool")) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L44{EDFThreadPoolExecutor}]]]
++~EDFThreadPoolExecutor() : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L49{~EDFThreadPoolExecutor}]]]
 ..
-+add(Func f) : void
-+add(Func f, uint64_t deadline) : void
-+add(Func f, std::size_t total, uint64_t deadline) : void
-+add(std::vector<Func> fs, uint64_t deadline) : void
-+deadlineExecutor(uint64_t deadline) : Executor::KeepAlive<>
++add(Func f) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L53{add}]]]
++add(Func f, uint64_t deadline) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L54{add}]]]
++add(Func f, std::size_t total, uint64_t deadline) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L55{add}]]]
++add(std::vector<Func> fs, uint64_t deadline) : void [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L56{add}]]]
++deadlineExecutor(uint64_t deadline) : Executor::KeepAlive<> [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L58{deadlineExecutor}]]]
 __
 {static} +kEarliestDeadline : const uint64_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L40{kEarliestDeadline}]]]
 {static} +kLatestDeadline : const uint64_t [[[https://github.com/facebook/folly/blob/c7166a677d17ff0a52cb14e02a84ad0a75821ca7/folly/executors/EDFThreadPoolExecutor.h#L41{kLatestDeadline}]]]
 }
-C_0001663594882877424244 ..> C_0002222099135672593686
-C_0002222099135672593686 <|-- C_0001663594882877424244
 C_0002222099135672593686 <|-- C_0001968432200878677255
-C_0002222099135672593686 <|-- C_0000481841646641149488
-C_0000481841646641149488 <|-- C_0000769434624932181431
+C_0002222099135672593686 <|-- C_0000155178671636628489
+C_0000155178671636628489 <|-- C_0000587962468506435170
 C_0002145523347961259416 ..> C_0001970350906198958245
 C_0002222099135672593686 <|-- C_0002145523347961259416
-C_0002222099135672593686 <|-- C_0001347291497865252100
-C_0001932117148827315960 --+ C_0001347291497865252100
-C_0001932117148827315960 ..> C_0002222099135672593686
-C_0001932117148827315960 --> C_0002222099135672593686 : -executor_
-C_0002222099135672593686 <|-- C_0001932117148827315960
-C_0001347291497865252100 <|-- C_0002292058893312396804
-C_0002292058893312396804 <|-- C_0001740134810840364719
-C_0002222099135672593686 <|-- C_0001218209673148292552
-C_0002222099135672593686 <|-- C_0000155178671636628489
 C_0000481841646641149488 <|-- C_0001970350906198958245
 C_0002145523347961259416 <|-- C_0001970350906198958245
 C_0000155178671636628489 <|-- C_0001970350906198958245
 C_0001218209673148292552 <|-- C_0001970350906198958245
-C_0000260170505900481834 ..> C_0001970350906198958245
-C_0002292058893312396804 <|-- C_0000260170505900481834
-C_0002145523347961259416 <|-- C_0000260170505900481834
-C_0000481841646641149488 <|-- C_0002235860541734359952
-C_0001218209673148292552 <|-- C_0002235860541734359952
-C_0000155178671636628489 <|-- C_0002235860541734359952
-C_0001956570166673420631 ..> C_0002222099135672593686
-C_0001956570166673420631 o-- C_0002222099135672593686 : -ownedExecutor_
-C_0001347291497865252100 <|-- C_0001956570166673420631
-C_0000155178671636628489 <|-- C_0000587962468506435170
+C_0002222099135672593686 <|-- C_0000481841646641149488
+C_0000481841646641149488 <|-- C_0000769434624932181431
+C_0002222099135672593686 <|-- C_0001218209673148292552
 C_0002222099135672593686 <|-- C_0001206661724003471988
-C_0002222099135672593686 <|-- C_0000346702971661703291
 C_0001612067402701865715 --> C_0001612067402701865715 : -cache
 C_0002222099135672593686 <|-- C_0001612067402701865715
 C_0001123262130157209492 ..> C_0002222099135672593686
 C_0001218209673148292552 <|-- C_0001123262130157209492
+C_0002222099135672593686 <|-- C_0001347291497865252100
+C_0001932117148827315960 --+ C_0001347291497865252100
+C_0001932117148827315960 --> C_0002222099135672593686 : -executor_
+C_0002222099135672593686 <|-- C_0001932117148827315960
+C_0001347291497865252100 <|-- C_0002292058893312396804
+C_0000260170505900481834 ..> C_0001970350906198958245
+C_0002292058893312396804 <|-- C_0000260170505900481834
+C_0002145523347961259416 <|-- C_0000260170505900481834
 C_0001402712402381953994 ..> C_0002222099135672593686
 C_0000155178671636628489 <|-- C_0001402712402381953994
 C_0002222099135672593686 <|-- C_0000470362430235503729
+C_0002292058893312396804 <|-- C_0001740134810840364719
+C_0000481841646641149488 <|-- C_0002235860541734359952
+C_0001218209673148292552 <|-- C_0002235860541734359952
+C_0000155178671636628489 <|-- C_0002235860541734359952
+C_0001956570166673420631 o-- C_0002222099135672593686 : -ownedExecutor_
+C_0001347291497865252100 <|-- C_0001956570166673420631
 C_0002222099135672593686 <|-- C_0000560396763155385774
 C_0000560396763155385774 <|-- C_0000586027154664049253
 C_0002292058893312396804 <|-- C_0000586027154664049253
 
-'Generated with clang-uml, version 0.3.6-29-g238bfb0
-'LLVM version Ubuntu clang version 15.0.6
+'Generated with clang-uml, version 0.4.0-9-gc398c6f
+'LLVM version Ubuntu clang version 15.0.7
 @enduml

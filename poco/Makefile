@@ -22,6 +22,7 @@ diagrams: build
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml
+		python3 ../generate_readme.py poco
 
 clean:
 		rm -rf poco

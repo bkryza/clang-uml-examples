@@ -1,81 +1,77 @@
 @startuml
-title clang-uml decorators model
+title Diagram element decorators model
 class "decorator_toks" as C_0000532301235174338361
-class C_0000532301235174338361 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L29{decorator_toks}]] {
+class C_0000532301235174338361 [[structclanguml_1_1decorators_1_1decorator__toks.html{decorator_toks}]] {
 __
-+diagrams : std::vector<std::string> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L31{diagrams}]]]
-+label : std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L30{label}]]]
-+param : std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L32{param}]]]
-+text : std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L33{text}]]]
++diagrams : std::vector<std::string> [[[{diagrams}]]]
++label : std::string [[[{label}]]]
++param : std::string [[[{param}]]]
++text : std::string [[[{text}]]]
 }
 class "decorator" as C_0001039481254924641333
-class C_0001039481254924641333 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L36{decorator}]] {
-+~decorator() = default : void [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L39{~decorator}]]]
+class C_0001039481254924641333 [[structclanguml_1_1decorators_1_1decorator.html{Base class for clang-uml comment tags}]] {
++~decorator() = default : void [[[{~decorator}]]]
 ..
-+applies_to_diagram(const std::string & name) : bool [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L43{applies_to_diagram}]]]
-{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L41{from_string}]]]
-#tokenize(const std::string & label, std::string_view c) : decorator_toks [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L46{tokenize}]]]
++applies_to_diagram(const std::string & name) : bool [[[{Check if decorator applies to a specific diagram.}]]]
+{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[{Create decorator of specific type based on it's string         representation.}]]]
+#tokenize(const std::string & label, std::string_view c) : decorator_toks [[[{tokenize}]]]
 __
-+diagrams : std::vector<std::string> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L37{diagrams}]]]
++diagrams : std::vector<std::string> [[[{diagrams}]]]
 }
 class "note" as C_0001347272482812804274
-class C_0001347272482812804274 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L49{note}]] {
-{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L55{from_string}]]]
+class C_0001347272482812804274 [[structclanguml_1_1decorators_1_1note.html{Represents a note diagram element}]] {
+{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[{from_string}]]]
 __
-{static} +label : const std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L50{label}]]]
-+position : std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L52{position}]]]
-+text : std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L53{text}]]]
+{static} +label : const std::string [[[{label}]]]
++position : std::string [[[{position}]]]
++text : std::string [[[{text}]]]
 }
 class "skip" as C_0001462474947254948682
-class C_0001462474947254948682 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L58{skip}]] {
-{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L61{from_string}]]]
+class C_0001462474947254948682 [[structclanguml_1_1decorators_1_1skip.html{Whether a decorated element should be skipped from a diagram}]] {
+{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[{from_string}]]]
 __
-{static} +label : const std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L59{label}]]]
+{static} +label : const std::string [[[{label}]]]
 }
 class "skip_relationship" as C_0000685427930366073750
-class C_0000685427930366073750 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L64{skip_relationship}]] {
-{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L67{from_string}]]]
+class C_0000685427930366073750 [[structclanguml_1_1decorators_1_1skip__relationship.html{Whether a decorated relationships should be skipped from a diagram}]] {
+{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[{from_string}]]]
 __
-{static} +label : const std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L65{label}]]]
+{static} +label : const std::string [[[{label}]]]
 }
 class "style" as C_0000116269747867995555
-class C_0000116269747867995555 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L70{style}]] {
-{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L74{from_string}]]]
+class C_0000116269747867995555 [[structclanguml_1_1decorators_1_1style.html{Apply specific style to a decorated diagram element}]] {
+{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[{from_string}]]]
 __
-{static} +label : const std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L71{label}]]]
-+spec : std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L73{spec}]]]
+{static} +label : const std::string [[[{label}]]]
++spec : std::string [[[{spec}]]]
 }
 class "relationship" as C_0001576276283144132872
-class C_0001576276283144132872 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L77{relationship}]] {
+class C_0001576276283144132872 [[structclanguml_1_1decorators_1_1relationship.html{Base class for decorators overriding default relationship types}]] {
 __
-+multiplicity : std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L78{multiplicity}]]]
++multiplicity : std::string [[[{multiplicity}]]]
 }
 class "aggregation" as C_0000175979950567138488
-class C_0000175979950567138488 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L81{aggregation}]] {
-{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L84{from_string}]]]
+class C_0000175979950567138488 [[structclanguml_1_1decorators_1_1aggregation.html{Make a member an aggregation relationship}]] {
+{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[{from_string}]]]
 __
-{static} +label : const std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L82{label}]]]
+{static} +label : const std::string [[[{label}]]]
 }
 class "composition" as C_0001028911016492067053
-class C_0001028911016492067053 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L87{composition}]] {
-{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L90{from_string}]]]
+class C_0001028911016492067053 [[structclanguml_1_1decorators_1_1composition.html{Make a member a composition relationship}]] {
+{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[{from_string}]]]
 __
-{static} +label : const std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L88{label}]]]
+{static} +label : const std::string [[[{label}]]]
 }
 class "association" as C_0001534243399456949265
-class C_0001534243399456949265 [[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L93{association}]] {
-{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L96{from_string}]]]
+class C_0001534243399456949265 [[structclanguml_1_1decorators_1_1association.html{Make a member an association relationship}]] {
+{static} +from_string(std::string_view c) : std::shared_ptr<decorator> [[[{from_string}]]]
 __
-{static} +label : const std::string [[[https://github.com/bkryza/clang-uml/blob/3d8a0ce428ce6b5e1e0585247ac90a82960dee8e/src/decorators/decorators.h#L94{label}]]]
+{static} +label : const std::string [[[{label}]]]
 }
 C_0001039481254924641333 ..> C_0000532301235174338361
-C_0001347272482812804274 ..> C_0001039481254924641333
 C_0001039481254924641333 <|-- C_0001347272482812804274
-C_0001462474947254948682 ..> C_0001039481254924641333
 C_0001039481254924641333 <|-- C_0001462474947254948682
-C_0000685427930366073750 ..> C_0001039481254924641333
 C_0001039481254924641333 <|-- C_0000685427930366073750
-C_0000116269747867995555 ..> C_0001039481254924641333
 C_0001039481254924641333 <|-- C_0000116269747867995555
 C_0001039481254924641333 <|-- C_0001576276283144132872
 C_0000175979950567138488 ..> C_0001039481254924641333
@@ -85,6 +81,6 @@ C_0001576276283144132872 <|-- C_0001028911016492067053
 C_0001534243399456949265 ..> C_0001039481254924641333
 C_0001576276283144132872 <|-- C_0001534243399456949265
 
-'Generated with clang-uml, version 0.3.7-36-g13ea67c
-'LLVM version Ubuntu clang version 15.0.6
+'Generated with clang-uml, version 0.4.0-7-g8a6b497
+'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
 @enduml

@@ -1,77 +1,37 @@
 @startuml
+title 'cpp_type' class hierarchy diagram with public members
 left to right direction
-class "cpp_type" as C_0001585653041236922459
-class C_0001585653041236922459 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L44{cpp_type}]] {
-+cpp_type(const cpp_type &) = deleted : void [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L47{cpp_type}]]]
-+~cpp_type() noexcept = default : void [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L50{~cpp_type}]]]
-..
-+operator=(const cpp_type &) = deleted : cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L48{operator=}]]]
-..
-+kind() const noexcept : cpp_type_kind [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L53{kind}]]]
-+set_user_data(void * data) const noexcept : void [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L71{set_user_data}]]]
-+user_data() const noexcept : void * [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L59{user_data}]]]
+class "cpp_decltype_auto_type" as C_0000026248340214462662
+class C_0000026248340214462662 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L27{cpp_decltype_auto_type}]] {
+{static} +build() : std::unique_ptr<cpp_decltype_auto_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_decltype_type.hpp#L44{build}]]]
 __
 }
-class "cpp_unexposed_type" as C_0000601730303705395408
-class C_0000601730303705395408 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L95{cpp_unexposed_type}]] {
-{static} +build(std::string name) : std::unique_ptr<cpp_unexposed_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L99{build}]]]
-+name() const noexcept : const std::string & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L105{name}]]]
-__
-}
-class "cpp_builtin_type" as C_0002035785082080260407
-class C_0002035785082080260407 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L161{cpp_builtin_type}]] {
-{static} +build(cpp_builtin_type_kind kind) : std::unique_ptr<cpp_builtin_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L165{build}]]]
-+builtin_type_kind() const noexcept : cpp_builtin_type_kind [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L171{builtin_type_kind}]]]
-__
-}
-class "cpp_user_defined_type" as C_0002166954434825938188
-class C_0002166954434825938188 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L202{cpp_user_defined_type}]] {
-{static} +build(cpp_type_ref entity) : std::unique_ptr<cpp_user_defined_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L206{build}]]]
-+entity() const noexcept : const cpp_type_ref & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L213{entity}]]]
-__
-}
-class "cpp_auto_type" as C_0001809003368459807767
-class C_0001809003368459807767 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L230{cpp_auto_type}]] {
-{static} +build() : std::unique_ptr<cpp_auto_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L234{build}]]]
+class "cpp_cv_qualified_type" as C_0000342846994454958214
+class C_0000342846994454958214 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L26{cpp_cv_qualified_type}]] {
+{static} +build(std::unique_ptr<cpp_type> type, cpp_cv cv) : std::unique_ptr<cpp_cv_qualified_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L316{build}]]]
++cv_qualifier() const noexcept : cpp_cv [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L330{cv_qualifier}]]]
++type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L324{type}]]]
 __
 }
 class "cpp_dependent_type" as C_0000507998479194737071
-class C_0000507998479194737071 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L249{cpp_dependent_type}]] {
+class C_0000507998479194737071 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L29{cpp_dependent_type}]] {
 {static} +build(std::string name, std::unique_ptr<cpp_template_parameter_type> dependee) : std::unique_ptr<cpp_dependent_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L253{build}]]]
 {static} +build(std::string name, std::unique_ptr<cpp_template_instantiation_type> dependee) : std::unique_ptr<cpp_dependent_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L257{build}]]]
 +dependee() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L270{dependee}]]]
 +name() const noexcept : const std::string & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L262{name}]]]
 __
 }
-class "cpp_cv_qualified_type" as C_0000342846994454958214
-class C_0000342846994454958214 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L311{cpp_cv_qualified_type}]] {
-{static} +build(std::unique_ptr<cpp_type> type, cpp_cv cv) : std::unique_ptr<cpp_cv_qualified_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L316{build}]]]
-+cv_qualifier() const noexcept : cpp_cv [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L330{cv_qualifier}]]]
-+type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L324{type}]]]
-__
-}
-class "cpp_pointer_type" as C_0000861535705589766807
-class C_0000861535705589766807 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L359{cpp_pointer_type}]] {
-{static} +build(std::unique_ptr<cpp_type> pointee) : std::unique_ptr<cpp_pointer_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L363{build}]]]
-+pointee() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L369{pointee}]]]
-__
-}
 class "cpp_reference_type" as C_0000600573949475383075
-class C_0000600573949475383075 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L394{cpp_reference_type}]] {
+class C_0000600573949475383075 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L58{cpp_reference_type}]] {
 {static} +build(std::unique_ptr<cpp_type> type, cpp_reference ref) : std::unique_ptr<cpp_reference_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L399{build}]]]
 +referee() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L407{referee}]]]
 +reference_kind() const noexcept : cpp_reference [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L413{reference_kind}]]]
 __
 }
-class "cpp_template_parameter_type" as C_0002158322113857881673
-class C_0002158322113857881673 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L106{cpp_template_parameter_type}]] {
-{static} +build(cpp_template_type_parameter_ref parameter) : std::unique_ptr<cpp_template_parameter_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L110{build}]]]
-+entity() const noexcept : const cpp_template_type_parameter_ref & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L118{entity}]]]
-__
-}
-class "cpp_decltype_auto_type" as C_0000026248340214462662
-class C_0000026248340214462662 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L27{cpp_decltype_auto_type}]] {
-{static} +build() : std::unique_ptr<cpp_decltype_auto_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_decltype_type.hpp#L44{build}]]]
+class "cpp_unexposed_type" as C_0000601730303705395408
+class C_0000601730303705395408 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L74{cpp_unexposed_type}]] {
+{static} +build(std::string name) : std::unique_ptr<cpp_unexposed_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L99{build}]]]
++name() const noexcept : const std::string & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L105{name}]]]
 __
 }
 class "cpp_member_object_type" as C_0000603633382993980808
@@ -79,6 +39,12 @@ class C_0000603633382993980808 [[https://github.com/foonathan/cppast/blob/f00df6
 {static} +build(std::unique_ptr<cpp_type> class_type, std::unique_ptr<cpp_type> object_type) : std::unique_ptr<cpp_member_object_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_function_type.hpp#L168{build}]]]
 +class_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_function_type.hpp#L176{class_type}]]]
 +object_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_function_type.hpp#L182{object_type}]]]
+__
+}
+class "cpp_pointer_type" as C_0000861535705589766807
+class C_0000861535705589766807 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L57{cpp_pointer_type}]] {
+{static} +build(std::unique_ptr<cpp_type> pointee) : std::unique_ptr<cpp_pointer_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L363{build}]]]
++pointee() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L369{pointee}]]]
 __
 }
 class "cpp_template_instantiation_type" as C_0001009421424714355715
@@ -109,6 +75,23 @@ class C_0001455852309215570565 [[https://github.com/foonathan/cppast/blob/f00df6
 +return_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_function_type.hpp#L49{return_type}]]]
 __
 }
+class "cpp_type" as C_0001585653041236922459
+class C_0001585653041236922459 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L70{cpp_type}]] {
++cpp_type(const cpp_type &) = deleted : void [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L47{cpp_type}]]]
++~cpp_type() noexcept = default : void [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L50{~cpp_type}]]]
+..
++operator=(const cpp_type &) = deleted : cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L48{operator=}]]]
+..
++kind() const noexcept : cpp_type_kind [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L53{kind}]]]
++set_user_data(void * data) const noexcept : void [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L71{set_user_data}]]]
++user_data() const noexcept : void * [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L59{user_data}]]]
+__
+}
+class "cpp_auto_type" as C_0001809003368459807767
+class C_0001809003368459807767 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L16{cpp_auto_type}]] {
+{static} +build() : std::unique_ptr<cpp_auto_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L234{build}]]]
+__
+}
 class "cpp_member_function_type" as C_0001956941679276907326
 class C_0001956941679276907326 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L52{cpp_member_function_type}]] {
 +class_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_function_type.hpp#L122{class_type}]]]
@@ -117,23 +100,41 @@ class C_0001956941679276907326 [[https://github.com/foonathan/cppast/blob/f00df6
 +return_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_function_type.hpp#L128{return_type}]]]
 __
 }
-C_0001585653041236922459 <|-- C_0000601730303705395408
-C_0001585653041236922459 <|-- C_0002035785082080260407
-C_0001585653041236922459 <|-- C_0002166954434825938188
-C_0001585653041236922459 <|-- C_0001809003368459807767
-C_0001585653041236922459 <|-- C_0000507998479194737071
-C_0001585653041236922459 <|-- C_0000342846994454958214
-C_0001585653041236922459 <|-- C_0000861535705589766807
-C_0001585653041236922459 <|-- C_0000600573949475383075
-C_0001585653041236922459 <|-- C_0002158322113857881673
+class "cpp_builtin_type" as C_0002035785082080260407
+class C_0002035785082080260407 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L19{cpp_builtin_type}]] {
+{static} +build(cpp_builtin_type_kind kind) : std::unique_ptr<cpp_builtin_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L165{build}]]]
++builtin_type_kind() const noexcept : cpp_builtin_type_kind [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L171{builtin_type_kind}]]]
+__
+}
+class "cpp_template_parameter_type" as C_0002158322113857881673
+class C_0002158322113857881673 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L65{cpp_template_parameter_type}]] {
+{static} +build(cpp_template_type_parameter_ref parameter) : std::unique_ptr<cpp_template_parameter_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L110{build}]]]
++entity() const noexcept : const cpp_template_type_parameter_ref & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_template_parameter.hpp#L118{entity}]]]
+__
+}
+class "cpp_user_defined_type" as C_0002166954434825938188
+class C_0002166954434825938188 [[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cppast_fwd.hpp#L75{cpp_user_defined_type}]] {
+{static} +build(cpp_type_ref entity) : std::unique_ptr<cpp_user_defined_type> [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L206{build}]]]
++entity() const noexcept : const cpp_type_ref & [[[https://github.com/foonathan/cppast/blob/f00df6675d87c6983033d270728c57a55cd3db22/include/cppast/cpp_type.hpp#L213{entity}]]]
+__
+}
 C_0001585653041236922459 <|-- C_0000026248340214462662
+C_0001585653041236922459 <|-- C_0000342846994454958214
+C_0001585653041236922459 <|-- C_0000507998479194737071
+C_0001585653041236922459 <|-- C_0000600573949475383075
+C_0001585653041236922459 <|-- C_0000601730303705395408
 C_0001585653041236922459 <|-- C_0000603633382993980808
+C_0001585653041236922459 <|-- C_0000861535705589766807
 C_0001585653041236922459 <|-- C_0001009421424714355715
 C_0001585653041236922459 <|-- C_0001184982835175222056
 C_0001585653041236922459 <|-- C_0001347498727659770075
 C_0001585653041236922459 <|-- C_0001455852309215570565
+C_0001585653041236922459 <|-- C_0001809003368459807767
 C_0001585653041236922459 <|-- C_0001956941679276907326
+C_0001585653041236922459 <|-- C_0002035785082080260407
+C_0001585653041236922459 <|-- C_0002158322113857881673
+C_0001585653041236922459 <|-- C_0002166954434825938188
 
-'Generated with clang-uml, version 0.3.7-36-g13ea67c
-'LLVM version Ubuntu clang version 15.0.6
+'Generated with clang-uml, version 0.4.0-7-g8a6b497
+'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
 @enduml

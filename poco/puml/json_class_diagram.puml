@@ -1,6 +1,82 @@
 @startuml
+title 'JSON' class diagram
 left to right direction
 package [JSON] as C_0000719235354874533729 {
+class "JSONException" as C_0002224435553795914096
+class C_0002224435553795914096 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]] {
++JSONException(int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
++JSONException(const std::string & msg, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
++JSONException(const std::string & msg, const std::string & arg, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
++JSONException(const std::string & msg, const Exception & exc, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
++JSONException(const JSON::JSONException & exc) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
++~JSONException() noexcept : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{~JSONException}]]]
+..
++operator=(const JSON::JSONException & exc) : JSON::JSONException & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{operator=}]]]
+..
++className() const noexcept : const char * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{className}]]]
++clone() const : Exception * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{clone}]]]
++name() const noexcept : const char * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{name}]]]
++rethrow() const : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{rethrow}]]]
+__
+}
+class "JSONTemplateException" as C_0001089238346156534044
+class C_0001089238346156534044 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]] {
++JSONTemplateException(int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
++JSONTemplateException(const std::string & msg, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
++JSONTemplateException(const std::string & msg, const std::string & arg, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
++JSONTemplateException(const std::string & msg, const Exception & exc, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
++JSONTemplateException(const JSON::JSONTemplateException & exc) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
++~JSONTemplateException() noexcept : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{~JSONTemplateException}]]]
+..
++operator=(const JSON::JSONTemplateException & exc) : JSON::JSONTemplateException & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{operator=}]]]
+..
++className() const noexcept : const char * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{className}]]]
++clone() const : Exception * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{clone}]]]
++name() const noexcept : const char * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{name}]]]
++rethrow() const : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{rethrow}]]]
+__
+}
+class "Template" as C_0001224813705065694671
+class C_0001224813705065694671 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L40{Template}]] {
++Template() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L92{Template}]]]
++Template(const Path & templatePath) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L95{Template}]]]
++~Template() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L98{~Template}]]]
+..
++parse() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L101{parse}]]]
++parse(const std::string & source) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L104{parse}]]]
++parse(std::istream & in) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L107{parse}]]]
++parseTime() const : Timestamp [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L110{parseTime}]]]
+-readQuery(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L119{readQuery}]]]
+-readString(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L121{readString}]]]
+-readTemplateCommand(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L120{readTemplateCommand}]]]
+-readText(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L117{readText}]]]
+-readWhiteSpace(std::istream & in) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L122{readWhiteSpace}]]]
+-readWord(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L118{readWord}]]]
++render(const Dynamic::Var & data, std::ostream & out) const : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L113{render}]]]
+__
+-_currentPart : JSON::MultiPart * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L126{_currentPart}]]]
+-_parseTime : Timestamp [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L128{_parseTime}]]]
+-_partStack : std::stack<MultiPart *> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L125{_partStack}]]]
+-_parts : JSON::MultiPart * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L124{_parts}]]]
+-_templatePath : Path [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L127{_templatePath}]]]
+}
+class "TemplateCache" as C_0001824492576997130499
+class C_0001824492576997130499 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L34{TemplateCache}]] {
++TemplateCache() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L42{TemplateCache}]]]
++~TemplateCache() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L48{~TemplateCache}]]]
+..
++addPath(const Path & path) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L51{addPath}]]]
++getTemplate(const Path & path) : Template::Ptr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L55{getTemplate}]]]
+{static} +instance() : JSON::TemplateCache * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L64{instance}]]]
+-resolvePath(const Path & path) const : Path [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L72{resolvePath}]]]
++setLogger(Logger & logger) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L67{setLogger}]]]
+-setup() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L71{setup}]]]
+__
+-_cache : std::map<std::string,Template::Ptr> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L76{_cache}]]]
+-_includePaths : std::vector<Path> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L75{_includePaths}]]]
+{static} -_pInstance : JSON::TemplateCache * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L74{_pInstance}]]]
+-_pLogger : Logger * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L77{_pLogger}]]]
+}
 class "Array" as C_0000072500838975006454
 class C_0000072500838975006454 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L35{Array}]] {
 +Array(int options = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Array.h#L66{Array}]]]
@@ -105,191 +181,6 @@ __
 -_pStruct : JSON::Object::StructPtr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L352{_pStruct}]]]
 -_preserveInsOrder : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L346{_preserveInsOrder}]]]
 -_values : JSON::Object::ValueMap [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Object.h#L344{_values}]]]
-}
-abstract "Handler" as C_0002170781564733223471
-abstract C_0002170781564733223471 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L31{Handler}]] {
-+Handler() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L41{Handler}]]]
-+~Handler() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L44{~Handler}]]]
-..
-+asStruct() const : DynamicStruct [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L97{asStruct}]]]
-+asVar() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L93{asVar}]]]
-{abstract} +endArray() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L59{endArray}]]]
-{abstract} +endObject() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L53{endObject}]]]
-{abstract} +key(const std::string & k) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L62{key}]]]
-{abstract} +null() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L65{null}]]]
-{abstract} +reset() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L47{reset}]]]
-{abstract} +startArray() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L56{startArray}]]]
-{abstract} +startObject() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L50{startObject}]]]
-{abstract} +value(int v) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L68{value}]]]
-{abstract} +value(unsigned int v) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L71{value}]]]
-{abstract} +value(Int64 v) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L76{value}]]]
-{abstract} +value(UInt64 v) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L79{value}]]]
-{abstract} +value(const std::string & value) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L84{value}]]]
-{abstract} +value(double d) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L87{value}]]]
-{abstract} +value(bool b) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L90{value}]]]
-__
-}
-class "ParseHandler" as C_0001063058512718358175
-class C_0001063058512718358175 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L29{ParseHandler}]] {
-+ParseHandler(bool preserveObjectOrder = false) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L36{ParseHandler}]]]
-+~ParseHandler() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L43{~ParseHandler}]]]
-..
-+asVar() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L64{asVar}]]]
-+endArray() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L58{endArray}]]]
-+endObject() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L52{endObject}]]]
-+key(const std::string & k) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L61{key}]]]
-+null() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L92{null}]]]
-+reset() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L46{reset}]]]
--setValue(const Dynamic::Var & value) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L96{setValue}]]]
-+startArray() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L55{startArray}]]]
-+startObject() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L49{startObject}]]]
-+value(int v) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L67{value}]]]
-+value(unsigned int v) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L70{value}]]]
-+value(Int64 v) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L75{value}]]]
-+value(UInt64 v) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L78{value}]]]
-+value(const std::string & s) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L83{value}]]]
-+value(double d) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L86{value}]]]
-+value(bool b) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L89{value}]]]
-__
--_key : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L100{_key}]]]
--_preserveObjectOrder : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L102{_preserveObjectOrder}]]]
--_result : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L101{_result}]]]
--_stack : JSON::ParseHandler::Stack [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L99{_stack}]]]
-}
-class "JSONException" as C_0002224435553795914096
-class C_0002224435553795914096 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]] {
-+JSONException(int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
-+JSONException(const std::string & msg, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
-+JSONException(const std::string & msg, const std::string & arg, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
-+JSONException(const std::string & msg, const Exception & exc, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
-+JSONException(const JSON::JSONException & exc) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{JSONException}]]]
-+~JSONException() noexcept : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{~JSONException}]]]
-..
-+operator=(const JSON::JSONException & exc) : JSON::JSONException & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{operator=}]]]
-..
-+className() const noexcept : const char * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{className}]]]
-+clone() const : Exception * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{clone}]]]
-+name() const noexcept : const char * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{name}]]]
-+rethrow() const : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/JSONException.h#L29{rethrow}]]]
-__
-}
-class "ParserImpl" as C_0001556582210166851441
-class C_0001556582210166851441 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L38{ParserImpl}]] {
-#ParserImpl(const Handler::Ptr & pHandler = new ParseHandler) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L43{ParserImpl}]]]
--ParserImpl(const JSON::ParserImpl &) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L95{ParserImpl}]]]
-#~ParserImpl() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L46{~ParserImpl}]]]
-..
--operator=(const JSON::ParserImpl &) : JSON::ParserImpl & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L96{operator=}]]]
-..
-#asVarImpl() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L88{asVarImpl}]]]
--checkError() : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L104{checkError}]]]
-#getAllowCommentsImpl() const : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L55{getAllowCommentsImpl}]]]
-#getAllowNullByteImpl() const : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L65{getAllowNullByteImpl}]]]
-#getDepthImpl() const : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L73{getDepthImpl}]]]
-#getHandlerImpl() : const Handler::Ptr & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L85{getHandlerImpl}]]]
--handle() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L100{handle}]]]
--handle(const std::string & json) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L101{handle}]]]
--handle(std::istream & json) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L102{handle}]]]
--handleArray() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L98{handleArray}]]]
--handleObject() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L99{handleObject}]]]
-#parseImpl(const std::string & json) : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L76{parseImpl}]]]
-#parseImpl(std::istream & in) : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L79{parseImpl}]]]
-#resetImpl() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L49{resetImpl}]]]
-#resultImpl() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L91{resultImpl}]]]
-#setAllowCommentsImpl(bool comments) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L52{setAllowCommentsImpl}]]]
-#setAllowNullByteImpl(bool nullByte) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L60{setAllowNullByteImpl}]]]
-#setDepthImpl(std::size_t depth) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L70{setDepthImpl}]]]
-#setHandlerImpl(const Handler::Ptr & pHandler) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L82{setHandlerImpl}]]]
--stripComments(std::string & json) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L103{stripComments}]]]
-__
-{static} #JSON_DEFAULT_DEPTH : const std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L41{JSON_DEFAULT_DEPTH}]]]
--_allowComments : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L111{_allowComments}]]]
--_allowNullByte : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L110{_allowNullByte}]]]
--_decimalPoint : char [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L109{_decimalPoint}]]]
--_depth : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L108{_depth}]]]
--_pHandler : Handler::Ptr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L107{_pHandler}]]]
--_pJSON : struct json_stream * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L106{_pJSON}]]]
-}
-class "Parser" as C_0000960597239263284557
-class C_0000960597239263284557 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L36{Parser}]] {
-+Parser(const Handler::Ptr & pHandler = new ParseHandler) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L68{Parser}]]]
--Parser(const JSON::Parser &) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L132{Parser}]]]
-+~Parser() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L71{~Parser}]]]
-..
--operator=(const JSON::Parser &) : JSON::Parser & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L133{operator=}]]]
-..
-+asVar() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L125{asVar}]]]
-+getAllowComments() const : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L84{getAllowComments}]]]
-+getAllowNullByte() const : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L98{getAllowNullByte}]]]
-+getDepth() const : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L110{getDepth}]]]
-+getHandler() : const Handler::Ptr & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L122{getHandler}]]]
-+parse(const std::string & json) : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L113{parse}]]]
-+parse(std::istream & in) : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L116{parse}]]]
-+reset() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L74{reset}]]]
-+result() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L128{result}]]]
-+setAllowComments(bool comments) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L77{setAllowComments}]]]
-+setAllowNullByte(bool nullByte) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L89{setAllowNullByte}]]]
-+setDepth(std::size_t depth) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L103{setDepth}]]]
-+setHandler(const Handler::Ptr & pHandler) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L119{setHandler}]]]
-__
-}
-class "JSONTemplateException" as C_0001089238346156534044
-class C_0001089238346156534044 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]] {
-+JSONTemplateException(int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
-+JSONTemplateException(const std::string & msg, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
-+JSONTemplateException(const std::string & msg, const std::string & arg, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
-+JSONTemplateException(const std::string & msg, const Exception & exc, int code = 0) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
-+JSONTemplateException(const JSON::JSONTemplateException & exc) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{JSONTemplateException}]]]
-+~JSONTemplateException() noexcept : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{~JSONTemplateException}]]]
-..
-+operator=(const JSON::JSONTemplateException & exc) : JSON::JSONTemplateException & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{operator=}]]]
-..
-+className() const noexcept : const char * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{className}]]]
-+clone() const : Exception * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{clone}]]]
-+name() const noexcept : const char * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{name}]]]
-+rethrow() const : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L37{rethrow}]]]
-__
-}
-class "Template" as C_0001224813705065694671
-class C_0001224813705065694671 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L40{Template}]] {
-+Template() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L92{Template}]]]
-+Template(const Path & templatePath) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L95{Template}]]]
-+~Template() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L98{~Template}]]]
-..
-+parse() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L101{parse}]]]
-+parse(const std::string & source) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L104{parse}]]]
-+parse(std::istream & in) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L107{parse}]]]
-+parseTime() const : Timestamp [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L110{parseTime}]]]
--readQuery(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L119{readQuery}]]]
--readString(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L121{readString}]]]
--readTemplateCommand(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L120{readTemplateCommand}]]]
--readText(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L117{readText}]]]
--readWhiteSpace(std::istream & in) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L122{readWhiteSpace}]]]
--readWord(std::istream & in) : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L118{readWord}]]]
-+render(const Dynamic::Var & data, std::ostream & out) const : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L113{render}]]]
-__
--_currentPart : JSON::MultiPart * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L126{_currentPart}]]]
--_parseTime : Timestamp [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L128{_parseTime}]]]
--_partStack : std::stack<MultiPart *> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L125{_partStack}]]]
--_parts : JSON::MultiPart * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L124{_parts}]]]
--_templatePath : Path [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Template.h#L127{_templatePath}]]]
-}
-class "TemplateCache" as C_0001824492576997130499
-class C_0001824492576997130499 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L34{TemplateCache}]] {
-+TemplateCache() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L42{TemplateCache}]]]
-+~TemplateCache() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L48{~TemplateCache}]]]
-..
-+addPath(const Path & path) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L51{addPath}]]]
-+getTemplate(const Path & path) : Template::Ptr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L55{getTemplate}]]]
-{static} +instance() : JSON::TemplateCache * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L64{instance}]]]
--resolvePath(const Path & path) const : Path [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L72{resolvePath}]]]
-+setLogger(Logger & logger) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L67{setLogger}]]]
--setup() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L71{setup}]]]
-__
--_cache : std::map<std::string,Template::Ptr> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L76{_cache}]]]
--_includePaths : std::vector<Path> [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L75{_includePaths}]]]
-{static} -_pInstance : JSON::TemplateCache * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L74{_pInstance}]]]
--_pLogger : Logger * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/TemplateCache.h#L77{_pLogger}]]]
 }
 class "Query" as C_0001132051654769045510
 class C_0001132051654769045510 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Query.h#L30{Query}]] {
@@ -400,6 +291,116 @@ class C_0001886003264245305447 [[https://github.com/pocoproject/poco/blob/9fc117
 __
 -_path : Path [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/src/Template.cpp#L346{_path}]]]
 }
+abstract "Handler" as C_0002170781564733223471
+abstract C_0002170781564733223471 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L31{Handler}]] {
++Handler() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L41{Handler}]]]
++~Handler() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L44{~Handler}]]]
+..
++asStruct() const : DynamicStruct [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L97{asStruct}]]]
++asVar() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L93{asVar}]]]
+{abstract} +endArray() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L59{endArray}]]]
+{abstract} +endObject() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L53{endObject}]]]
+{abstract} +key(const std::string & k) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L62{key}]]]
+{abstract} +null() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L65{null}]]]
+{abstract} +reset() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L47{reset}]]]
+{abstract} +startArray() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L56{startArray}]]]
+{abstract} +startObject() = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L50{startObject}]]]
+{abstract} +value(int v) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L68{value}]]]
+{abstract} +value(unsigned int v) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L71{value}]]]
+{abstract} +value(Int64 v) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L76{value}]]]
+{abstract} +value(UInt64 v) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L79{value}]]]
+{abstract} +value(const std::string & value) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L84{value}]]]
+{abstract} +value(double d) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L87{value}]]]
+{abstract} +value(bool b) = 0 : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Handler.h#L90{value}]]]
+__
+}
+class "ParseHandler" as C_0001063058512718358175
+class C_0001063058512718358175 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L29{ParseHandler}]] {
++ParseHandler(bool preserveObjectOrder = false) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L36{ParseHandler}]]]
++~ParseHandler() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L43{~ParseHandler}]]]
+..
++asVar() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L64{asVar}]]]
++endArray() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L58{endArray}]]]
++endObject() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L52{endObject}]]]
++key(const std::string & k) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L61{key}]]]
++null() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L92{null}]]]
++reset() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L46{reset}]]]
+-setValue(const Dynamic::Var & value) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L96{setValue}]]]
++startArray() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L55{startArray}]]]
++startObject() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L49{startObject}]]]
++value(int v) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L67{value}]]]
++value(unsigned int v) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L70{value}]]]
++value(Int64 v) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L75{value}]]]
++value(UInt64 v) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L78{value}]]]
++value(const std::string & s) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L83{value}]]]
++value(double d) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L86{value}]]]
++value(bool b) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L89{value}]]]
+__
+-_key : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L100{_key}]]]
+-_preserveObjectOrder : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L102{_preserveObjectOrder}]]]
+-_result : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L101{_result}]]]
+-_stack : JSON::ParseHandler::Stack [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParseHandler.h#L99{_stack}]]]
+}
+class "ParserImpl" as C_0001556582210166851441
+class C_0001556582210166851441 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L38{ParserImpl}]] {
+#ParserImpl(const Handler::Ptr & pHandler = new ParseHandler) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L43{ParserImpl}]]]
+-ParserImpl(const JSON::ParserImpl &) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L95{ParserImpl}]]]
+#~ParserImpl() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L46{~ParserImpl}]]]
+..
+-operator=(const JSON::ParserImpl &) : JSON::ParserImpl & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L96{operator=}]]]
+..
+#asVarImpl() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L88{asVarImpl}]]]
+-checkError() : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L104{checkError}]]]
+#getAllowCommentsImpl() const : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L55{getAllowCommentsImpl}]]]
+#getAllowNullByteImpl() const : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L65{getAllowNullByteImpl}]]]
+#getDepthImpl() const : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L73{getDepthImpl}]]]
+#getHandlerImpl() : const Handler::Ptr & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L85{getHandlerImpl}]]]
+-handle() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L100{handle}]]]
+-handle(const std::string & json) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L101{handle}]]]
+-handle(std::istream & json) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L102{handle}]]]
+-handleArray() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L98{handleArray}]]]
+-handleObject() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L99{handleObject}]]]
+#parseImpl(const std::string & json) : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L76{parseImpl}]]]
+#parseImpl(std::istream & in) : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L79{parseImpl}]]]
+#resetImpl() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L49{resetImpl}]]]
+#resultImpl() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L91{resultImpl}]]]
+#setAllowCommentsImpl(bool comments) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L52{setAllowCommentsImpl}]]]
+#setAllowNullByteImpl(bool nullByte) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L60{setAllowNullByteImpl}]]]
+#setDepthImpl(std::size_t depth) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L70{setDepthImpl}]]]
+#setHandlerImpl(const Handler::Ptr & pHandler) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L82{setHandlerImpl}]]]
+-stripComments(std::string & json) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L103{stripComments}]]]
+__
+{static} #JSON_DEFAULT_DEPTH : const std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L41{JSON_DEFAULT_DEPTH}]]]
+-_allowComments : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L111{_allowComments}]]]
+-_allowNullByte : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L110{_allowNullByte}]]]
+-_decimalPoint : char [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L109{_decimalPoint}]]]
+-_depth : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L108{_depth}]]]
+-_pHandler : Handler::Ptr [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L107{_pHandler}]]]
+-_pJSON : struct json_stream * [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/ParserImpl.h#L106{_pJSON}]]]
+}
+class "Parser" as C_0000960597239263284557
+class C_0000960597239263284557 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L36{Parser}]] {
++Parser(const Handler::Ptr & pHandler = new ParseHandler) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L68{Parser}]]]
+-Parser(const JSON::Parser &) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L132{Parser}]]]
++~Parser() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L71{~Parser}]]]
+..
+-operator=(const JSON::Parser &) : JSON::Parser & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L133{operator=}]]]
+..
++asVar() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L125{asVar}]]]
++getAllowComments() const : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L84{getAllowComments}]]]
++getAllowNullByte() const : bool [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L98{getAllowNullByte}]]]
++getDepth() const : std::size_t [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L110{getDepth}]]]
++getHandler() : const Handler::Ptr & [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L122{getHandler}]]]
++parse(const std::string & json) : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L113{parse}]]]
++parse(std::istream & in) : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L116{parse}]]]
++reset() : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L74{reset}]]]
++result() const : Dynamic::Var [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L128{result}]]]
++setAllowComments(bool comments) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L77{setAllowComments}]]]
++setAllowNullByte(bool nullByte) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L89{setAllowNullByte}]]]
++setDepth(std::size_t depth) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L103{setDepth}]]]
++setHandler(const Handler::Ptr & pHandler) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/Parser.h#L119{setHandler}]]]
+__
+}
 class "PrintHandler" as C_0001958330724512545479
 class C_0001958330724512545479 [[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L30{PrintHandler}]] {
 +PrintHandler(unsigned int indent = 0, int options = Poco::JSON_WRAP_STRINGS) : void [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L41{PrintHandler}]]]
@@ -437,35 +438,32 @@ __
 -_tab : std::string [[[https://github.com/pocoproject/poco/blob/9fc117d585e552ae3327b56900df9cc40653d574/JSON/include/Poco/JSON/PrintHandler.h#L114{_tab}]]]
 }
 }
-C_0000072500838975006454 ..> C_0000424593384549787023
-C_0000424593384549787023 ..> C_0000072500838975006454
-C_0002170781564733223471 <|-- C_0001063058512718358175
-C_0001556582210166851441 ..> C_0002170781564733223471
-C_0000960597239263284557 ..> C_0002170781564733223471
-C_0001556582210166851441 <|-- C_0000960597239263284557
 C_0001224813705065694671 --> C_0000410078672756013858 : -_parts
 C_0001224813705065694671 --> C_0000410078672756013858 : -_partStack
 C_0001224813705065694671 --> C_0000410078672756013858 : -_currentPart
-C_0001824492576997130499 ..> C_0001224813705065694671
 C_0001824492576997130499 o-- C_0001224813705065694671 : -_cache
 C_0001824492576997130499 --> C_0001824492576997130499 : -_pInstance
+C_0000072500838975006454 ..> C_0000424593384549787023
+C_0000424593384549787023 ..> C_0000072500838975006454
 C_0001132051654769045510 ..> C_0000424593384549787023
 C_0001132051654769045510 ..> C_0000072500838975006454
 C_0001661045479622494162 <|-- C_0001206706315497911607
-C_0000410078672756013858 ..> C_0001661045479622494162
 C_0000410078672756013858 o-- C_0001661045479622494162 : #_parts
 C_0001661045479622494162 <|-- C_0000410078672756013858
 C_0001661045479622494162 <|-- C_0000749874221541154786
 C_0001370640582341149168 <|-- C_0001021682718176057634
 C_0001370640582341149168 <|-- C_0000001233846647566683
-C_0002218733656349858673 ..> C_0001370640582341149168
 C_0002218733656349858673 ..> C_0001661045479622494162
 C_0002218733656349858673 o-- C_0001370640582341149168 : -_queries
 C_0000410078672756013858 <|-- C_0002218733656349858673
 C_0000410078672756013858 <|-- C_0000852402413830874124
 C_0001661045479622494162 <|-- C_0001886003264245305447
+C_0002170781564733223471 <|-- C_0001063058512718358175
+C_0001556582210166851441 ..> C_0002170781564733223471
+C_0000960597239263284557 ..> C_0002170781564733223471
+C_0001556582210166851441 <|-- C_0000960597239263284557
 C_0002170781564733223471 <|-- C_0001958330724512545479
 
-'Generated with clang-uml, version 0.3.7-36-g13ea67c
-'LLVM version Ubuntu clang version 15.0.6
+'Generated with clang-uml, version 0.4.0-9-gc398c6f
+'LLVM version Ubuntu clang version 15.0.7
 @enduml

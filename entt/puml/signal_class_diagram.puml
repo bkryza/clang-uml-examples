@@ -1,4 +1,5 @@
 @startuml
+title 'signal' class diagram
 abstract "internal::basic_dispatcher_handler" as C_0001307290238739357754
 abstract C_0001307290238739357754 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L27{basic_dispatcher_handler}]] {
 +~basic_dispatcher_handler() = default : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L28{~basic_dispatcher_handler}]]]
@@ -133,14 +134,6 @@ __
 -offset : difference_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L545{offset}]]]
 -signal : signal_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L546{signal}]]]
 }
-class "sigh<Type,Allocator=std::allocator<void>>" as C_0000168483954532210279
-class C_0000168483954532210279 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L35{sigh}]] {
-__
-}
-class "sink<Type>" as C_0001692833380939147962
-class C_0001692833380939147962 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L23{sink}]] {
-__
-}
 class "sigh<void(Type &),Allocator>" as C_0000852066601687344945
 class C_0000852066601687344945 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L35{sigh}]] {
 __
@@ -176,6 +169,14 @@ class C_0001139451768232131379 [[https://github.com/skypjack/entt/blob/fef921132
 __
 -pools : compressed_pair<basic_dispatcher::container_type,basic_dispatcher::allocator_type> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/dispatcher.hpp#L385{pools}]]]
 }
+class "sigh<Type,Allocator=std::allocator<void>>" as C_0000168483954532210279
+class C_0000168483954532210279 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L35{sigh}]] {
+__
+}
+class "sink<Type>" as C_0001692833380939147962
+class C_0001692833380939147962 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/sigh.hpp#L23{sink}]] {
+__
+}
 class "emitter<Derived,Allocator=std::allocator<void>>" as C_0001377312229211188154
 class C_0001377312229211188154 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/emitter.hpp#L36{emitter}]] {
 +emitter() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/signal/emitter.hpp#L51{emitter}]]]
@@ -201,20 +202,16 @@ C_0000948211101657221704 o-- C_0000852066601687344945 : -signal
 C_0001307290238739357754 <|-- C_0000948211101657221704
 C_0000011977380754407836 ..|> C_0002122157564414146506
 C_0000669731748523585054 ..|> C_0001142186291934866126
-C_0000084455293237423501 ..> C_0001629008291831120506
 C_0000084455293237423501 o-- C_0001629008291831120506 : -conn
-C_0001629008291831120506 ..> C_0001338234208699310194
 C_0001629008291831120506 o-- C_0001338234208699310194 : -disconnect
 C_0001654528939521938342 ..|> C_0000397774958659844289
-C_0001654528939521938342 ..> C_0000011977380754407836
 C_0001654528939521938342 o-- C_0000011977380754407836 : -calls
 C_0001338234208699310194 ..|> C_0000011977380754407836
-C_0000122718201217191999 ..> C_0001654528939521938342
 C_0000122718201217191999 ..|> C_0000209413521570231267
 C_0000122718201217191999 ..> C_0000011977380754407836
 C_0000122718201217191999 --> C_0001654528939521938342 : -signal
 C_0000852066601687344945 ..|> C_0001654528939521938342
 
-'Generated with clang-uml, version 0.3.7-36-g13ea67c
-'LLVM version Ubuntu clang version 15.0.6
+'Generated with clang-uml, version 0.4.0-9-gc398c6f
+'LLVM version Ubuntu clang version 15.0.7
 @enduml

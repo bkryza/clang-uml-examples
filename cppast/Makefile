@@ -16,10 +16,11 @@ build: cppast
 diagrams: build
 		cd cppast && \
 		cp ../.clang-uml .clang-uml && \
-		../$(CLANG_UML_BINARY) --query-driver .
+		../$(CLANG_UML_BINARY) -p --query-driver .
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml
+		python3 ../generate_readme.py cppast
 
 clean:
 		rm -rf cppast

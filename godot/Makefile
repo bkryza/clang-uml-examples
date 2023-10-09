@@ -20,6 +20,7 @@ diagrams: build
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml
+		python3 ../generate_readme.py godot
 
 clean:
 		rm -rf godot

@@ -1,4 +1,5 @@
 @startuml
+title 'entity' class diagram
 class "internal::in_place_delete<Type,typename=void>" as C_0001742108773560133843
 class C_0001742108773560133843 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L18{in_place_delete}]] {
 __
@@ -164,38 +165,6 @@ class "internal::view_iterator<std::common_type_t<typename Get::base_type...,typ
 class C_0000390675639111256783 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L28{view_iterator}]] {
 __
 }
-class "internal::is_view<typename>" as C_0001324416713680309578
-class C_0001324416713680309578 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L26{is_view}]] {
-__
-}
-class "internal::is_view<basic_view<Args...>>" as C_0001822587864398904128
-class C_0001822587864398904128 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L29{is_view}]] {
-__
-}
-class "internal::unpack_type<Type,Override>" as C_0000257438482207070900
-class C_0000257438482207070900 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{unpack_type}]] {
-__
-}
-class "internal::unpack_type<basic_registry<Args...>,type_list<Override...>>" as C_0002034860573756426782
-class C_0002034860573756426782 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L48{unpack_type}]] {
-__
-}
-class "internal::unpack_type<basic_registry<Args...> const,type_list<Override...>>" as C_0002109478910354638446
-class C_0002109478910354638446 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L54{unpack_type}]] {
-__
-}
-class "internal::unpack_type<basic_view<type_list<Get...>,type_list<Exclude...>,void>,type_list<Override...>>" as C_0001699276038369686358
-class C_0001699276038369686358 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L58{unpack_type}]] {
-__
-}
-class "internal::unpack_type<basic_view<type_list<Get...>,type_list<Exclude...>,void> const,type_list<Override...>>" as C_0000908089688521931445
-class C_0000908089688521931445 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L64{unpack_type}]] {
-__
-}
-class "internal::resource_traits<type_list<Args...>,type_list<Req...>>" as C_0000322687156363303281
-class C_0000322687156363303281 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L71{resource_traits}]] {
-__
-}
 class "internal::registry_storage_iterator<Other>" as C_0000573881619500297192
 class C_0000573881619500297192 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L42{registry_storage_iterator}]] {
 __
@@ -238,10 +207,6 @@ class C_0001849345337236985902 [[https://github.com/skypjack/entt/blob/fef921132
 __
 -ctx : internal::registry_context::container_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/registry.hpp#L237{ctx}]]]
 }
-class "internal::resource_traits<typename,typename>" as C_0000598829140343999181
-class C_0000598829140343999181 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L68{resource_traits}]] {
-__
-}
 class "internal::extended_storage_iterator<Iter,Args...>" as C_0001028615477441312122
 class C_0001028615477441312122 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/storage.hpp#L158{extended_storage_iterator}]] {
 __
@@ -252,6 +217,60 @@ __
 }
 class "internal::entt_traits<typename,typename=void>" as C_0001973779623646655323
 class C_0001973779623646655323 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L20{entt_traits}]] {
+__
+}
+class "internal::handle_storage_iterator<It>" as C_0000604813046482983010
+class C_0000604813046482983010 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L23{handle_storage_iterator}]] {
++handle_storage_iterator() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L37{handle_storage_iterator}]]]
++handle_storage_iterator(internal::handle_storage_iterator::entity_type value, It from, It to) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L42{handle_storage_iterator}]]]
+..
++operator*() constexpr const noexcept : internal::handle_storage_iterator::reference [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L59{operator*}]]]
++operator++() constexpr noexcept : handle_storage_iterator<It> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L49{operator++}]]]
++operator++(int) constexpr noexcept : handle_storage_iterator<It> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L54{operator++}]]]
++operator->() constexpr const noexcept : internal::handle_storage_iterator::pointer [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L63{operator->}]]]
+__
+-entt : internal::handle_storage_iterator::entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L71{entt}]]]
+-it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L72{it}]]]
+-last : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L73{last}]]]
+}
+class "internal::handle_storage_iterator<Other>" as C_0000939311065041065826
+class C_0000939311065041065826 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L25{handle_storage_iterator}]] {
+__
+}
+class "internal::is_view<typename>" as C_0001324416713680309578
+class C_0001324416713680309578 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L26{is_view}]] {
+__
+}
+class "internal::is_view<basic_view<Args...>>" as C_0001822587864398904128
+class C_0001822587864398904128 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L29{is_view}]] {
+__
+}
+class "internal::unpack_type<Type,Override>" as C_0000257438482207070900
+class C_0000257438482207070900 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{unpack_type}]] {
+__
+}
+class "internal::unpack_type<basic_registry<Args...>,type_list<Override...>>" as C_0002034860573756426782
+class C_0002034860573756426782 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L48{unpack_type}]] {
+__
+}
+class "internal::unpack_type<basic_registry<Args...> const,type_list<Override...>>" as C_0002109478910354638446
+class C_0002109478910354638446 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L54{unpack_type}]] {
+__
+}
+class "internal::unpack_type<basic_view<type_list<Get...>,type_list<Exclude...>,void>,type_list<Override...>>" as C_0001699276038369686358
+class C_0001699276038369686358 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L58{unpack_type}]] {
+__
+}
+class "internal::unpack_type<basic_view<type_list<Get...>,type_list<Exclude...>,void> const,type_list<Override...>>" as C_0000908089688521931445
+class C_0000908089688521931445 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L64{unpack_type}]] {
+__
+}
+class "internal::resource_traits<type_list<Args...>,type_list<Req...>>" as C_0000322687156363303281
+class C_0000322687156363303281 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L71{resource_traits}]] {
+__
+}
+class "internal::resource_traits<typename,typename>" as C_0000598829140343999181
+class C_0000598829140343999181 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L68{resource_traits}]] {
 __
 }
 class "internal::runtime_view_iterator<Set>" as C_0000517671838651509415
@@ -279,23 +298,11 @@ class "internal::runtime_view_iterator<basic_runtime_view::base_type>" as C_0001
 class C_0001941777226568215386 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L22{runtime_view_iterator}]] {
 __
 }
-class "internal::handle_storage_iterator<It>" as C_0000604813046482983010
-class C_0000604813046482983010 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L23{handle_storage_iterator}]] {
-+handle_storage_iterator() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L37{handle_storage_iterator}]]]
-+handle_storage_iterator(internal::handle_storage_iterator::entity_type value, It from, It to) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L42{handle_storage_iterator}]]]
-..
-+operator*() constexpr const noexcept : internal::handle_storage_iterator::reference [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L59{operator*}]]]
-+operator++() constexpr noexcept : handle_storage_iterator<It> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L49{operator++}]]]
-+operator++(int) constexpr noexcept : handle_storage_iterator<It> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L54{operator++}]]]
-+operator->() constexpr const noexcept : internal::handle_storage_iterator::pointer [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L63{operator->}]]]
+class "component_traits<Type,typename=void>" as C_0000796061425668032977
+class C_0000796061425668032977 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L43{component_traits}]] {
 __
--entt : internal::handle_storage_iterator::entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L71{entt}]]]
--it : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L72{it}]]]
--last : It [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L73{last}]]]
-}
-class "internal::handle_storage_iterator<Other>" as C_0000939311065041065826
-class C_0000939311065041065826 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L25{handle_storage_iterator}]] {
-__
+{static} +in_place_delete : const bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L50{in_place_delete}]]]
+{static} +page_size : const std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L52{page_size}]]]
 }
 enum "entity" as C_0001294138133691901721
 enum C_0001294138133691901721 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L12{entity}]] {
@@ -343,12 +350,6 @@ __
 class "basic_group<type_list_transform_t<Owned,storage_for>,type_list_transform_t<Get,storage_for>,type_list_transform_t<Exclude,storage_for>>" as C_0002026173216716894202
 class C_0002026173216716894202 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L71{basic_group}]] {
 __
-}
-class "component_traits<Type,typename=void>" as C_0000796061425668032977
-class C_0000796061425668032977 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L43{component_traits}]] {
-__
-{static} +in_place_delete : const bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L50{in_place_delete}]]]
-{static} +page_size : const std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/component.hpp#L52{page_size}]]]
 }
 class "entt_traits<Type>" as C_0000434760051971317467
 class C_0000434760051971317467 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/entity.hpp#L62{entt_traits}]] {
@@ -728,94 +729,6 @@ __
 -filter : std::tuple<> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L840{filter}]]]
 -pools : std::tuple<Get *> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/view.hpp#L839{pools}]]]
 }
-class "as_view<Registry>" as C_0001335190849652948716
-class C_0001335190849652948716 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L21{as_view}]] {
-+as_view(as_view::registry_type & source) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L37{as_view}]]]
-..
--dispatch<Get...,Exclude...>(type_list<Get...>, exclude_t<Exclude...>) const : auto
-+operator basic_view<type-parameter-1-0, type-parameter-1-1, void><Get,Exclude>() const : basic_view<Get, Exclude>
-__
--reg : as_view::registry_type & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L52{reg}]]]
-}
-class "as_group<Registry>" as C_0000052697527122592859
-class C_0000052697527122592859 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L60{as_group}]] {
-+as_group(as_group::registry_type & source) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L80{as_group}]]]
-..
--dispatch<Owned...,Get...,Exclude...>(type_list<Owned...>, type_list<Get...>, exclude_t<Exclude...>) const : auto
-+operator basic_group<type-parameter-1-0, type-parameter-1-1, type-parameter-1-2><Owned,Get,Exclude>() const : basic_group<Owned, Get, Exclude>
-__
--reg : as_group::registry_type & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L96{reg}]]]
-}
-class "basic_view<Args...>" as C_0000429642681207547186
-class C_0000429642681207547186 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L26{basic_view}]] {
-__
-}
-class "basic_registry<Args...>" as C_0002017079345086942945
-class C_0002017079345086942945 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{basic_registry}]] {
-__
-}
-class "type_list<Override...>" as C_0001608074545841274744
-class C_0001608074545841274744 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{type_list}]] {
-__
-}
-class "basic_view<get_t<Get...>,exclude_t<Exclude...>>" as C_0000438052941603621262
-class C_0000438052941603621262 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{basic_view}]] {
-__
-}
-class "type_list<Args...>" as C_0002069939067833684929
-class C_0002069939067833684929 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L68{type_list}]] {
-__
-}
-class "type_list<Req...>" as C_0000268766698460782519
-class C_0000268766698460782519 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L68{type_list}]] {
-__
-}
-class "basic_organizer<Registry>" as C_0001025175558307494545
-class C_0001025175558307494545 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L108{basic_organizer}]] {
-+clear() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L400{clear}]]]
-+emplace<auto Candidate,Req...>(const char * name = nullptr) : void
-+emplace<auto Candidate,Req...,Type>(Type & value_or_instance, const char * name = nullptr) : void
-+emplace<Req...>(basic_organizer::function_type * func, const void * payload = nullptr, const char * name = nullptr) : void
-{static} -extract<Type>(Registry & reg) : decltype(auto)
-{static} -fill_dependencies<Type...>(type_list<Type...>, const type_info ** buffer, const std::size_t count) : std::size_t
-+graph() : std::vector<vertex> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L380{graph}]]]
-{static} -to_args<Args...>(Registry & reg, type_list<Args...>) : auto
--track_dependencies<RO...,RW...>(std::size_t index, const bool requires_registry, type_list<RO...>, type_list<RW...>) : void
-__
--builder : flow [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L407{builder}]]]
--vertices : std::vector<vertex_data> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L406{vertices}]]]
-}
-class "basic_organizer::vertex_data" as C_0000901028445383159851
-class C_0000901028445383159851 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L113{basic_organizer##vertex_data}]] {
-__
-+callback : basic_organizer::callback_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L118{callback}]]]
-+dependency : basic_organizer::dependency_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L119{dependency}]]]
-+info : const type_info * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L121{info}]]]
-+name : const char * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L116{name}]]]
-+payload : const void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L117{payload}]]]
-+prepare : basic_organizer::prepare_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L120{prepare}]]]
-+ro_count : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L114{ro_count}]]]
-+rw_count : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L115{rw_count}]]]
-}
-class "basic_organizer::vertex" as C_0001398024092436436804
-class C_0001398024092436436804 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L175{basic_organizer##vertex}]] {
-+callback() const noexcept : basic_organizer::function_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L253{callback}]]]
-+children() const noexcept : const std::vector<std::size_t> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L269{children}]]]
-+data() const noexcept : const void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L261{data}]]]
-+info() const noexcept : const type_info & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L237{info}]]]
-+name() const noexcept : const char * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L245{name}]]]
-+prepare(basic_organizer::registry_type & reg) const : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L278{prepare}]]]
-+ro_count() const noexcept : basic_organizer::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L213{ro_count}]]]
-+ro_dependency(const type_info ** buffer, const std::size_t length) const noexcept : basic_organizer::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L194{ro_dependency}]]]
-+rw_count() const noexcept : basic_organizer::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L221{rw_count}]]]
-+rw_dependency(const type_info ** buffer, const std::size_t length) const noexcept : basic_organizer::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L205{rw_dependency}]]]
-+top_level() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L229{top_level}]]]
-+vertex(const bool vtype, basic_organizer::vertex_data data, std::vector<std::size_t> edges) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L182{vertex}]]]
-__
--is_top_level : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L283{is_top_level}]]]
--node : basic_organizer::vertex_data [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L284{node}]]]
--reachable : std::vector<std::size_t> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L285{reachable}]]]
-}
 class "basic_group<owned_t<type-parameter-1-0...>,get_t<type-parameter-1-1...>,exclude_t<type-parameter-1-2...>>" as C_0001203390869743334884
 class C_0001203390869743334884 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/group.hpp#L103{basic_group}]] {
 __
@@ -976,6 +889,54 @@ class "basic_view<typename,typename,typename=void>" as C_0002274584525843147105
 class C_0002274584525843147105 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/fwd.hpp#L65{basic_view}]] {
 __
 }
+class "as_view<Registry>" as C_0001335190849652948716
+class C_0001335190849652948716 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L21{as_view}]] {
++as_view(as_view::registry_type & source) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L37{as_view}]]]
+..
+-dispatch<Get...,Exclude...>(type_list<Get...>, exclude_t<Exclude...>) const : auto
++operator basic_view<type-parameter-1-0, type-parameter-1-1, void><Get,Exclude>() const : basic_view<Get, Exclude>
+__
+-reg : as_view::registry_type & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L52{reg}]]]
+}
+class "as_group<Registry>" as C_0000052697527122592859
+class C_0000052697527122592859 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L60{as_group}]] {
++as_group(as_group::registry_type & source) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L80{as_group}]]]
+..
+-dispatch<Owned...,Get...,Exclude...>(type_list<Owned...>, type_list<Get...>, exclude_t<Exclude...>) const : auto
++operator basic_group<type-parameter-1-0, type-parameter-1-1, type-parameter-1-2><Owned,Get,Exclude>() const : basic_group<Owned, Get, Exclude>
+__
+-reg : as_group::registry_type & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/helper.hpp#L96{reg}]]]
+}
+class "basic_handle<Registry,Scope...>" as C_0001540240197457753692
+class C_0001540240197457753692 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L102{basic_handle}]] {
++basic_handle() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L113{basic_handle}]]]
++basic_handle(basic_handle::registry_type & ref, basic_handle::entity_type value) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L122{basic_handle}]]]
+..
++all_of<Component...>() const : decltype(auto)
++any_of<Component...>() const : decltype(auto)
++destroy() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L198{destroy}]]]
++destroy(const basic_handle::version_type version) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L206{destroy}]]]
++emplace<Component,Args...>(Args &&... args) const : decltype(auto)
++emplace_or_replace<Component,Args...>(Args &&... args) const : decltype(auto)
++entity() const noexcept : basic_handle::entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L193{entity}]]]
++erase<Component...>() const : void
++get<Component...>() const : decltype(auto)
++get_or_emplace<Component,Args...>(Args &&... args) const : decltype(auto)
++operator basic_handle<type-parameter-1-0, type-parameter-1-1...><Other,Args...>() const noexcept : basic_handle<Other, Args...>
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L169{operator bool}]]]
++operator typename type-parameter-0-0::entity_type() const noexcept : basic_handle::entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L161{operator typename type-parameter-0-0::entity_type}]]]
++orphan() const : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L343{orphan}]]]
++patch<Component,Func...>(Func &&... func) const : decltype(auto)
++registry() const noexcept : basic_handle::registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L185{registry}]]]
++remove<Component...>() const : basic_handle::size_type
++replace<Component,Args...>(Args &&... args) const : decltype(auto)
++storage() const noexcept : auto [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L136{storage}]]]
++try_get<Component...>() const : auto
++valid() const : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L177{valid}]]]
+__
+-entt : basic_handle::entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L349{entt}]]]
+-reg : basic_handle::registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L348{reg}]]]
+}
 class "basic_snapshot<Registry>" as C_0001335271256477287084
 class C_0001335271256477287084 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L32{basic_snapshot}]] {
 +basic_snapshot(const basic_snapshot::registry_type & source) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L72{basic_snapshot}]]]
@@ -1028,6 +989,76 @@ class C_0001773811031427846026 [[https://github.com/skypjack/entt/blob/fef921132
 __
 -reg : basic_continuous_loader::registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L562{reg}]]]
 -remloc : dense_map<basic_continuous_loader::entity_type,std::pair<entity_type,bool>> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/snapshot.hpp#L561{remloc}]]]
+}
+class "basic_view<Args...>" as C_0000429642681207547186
+class C_0000429642681207547186 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L26{basic_view}]] {
+__
+}
+class "basic_registry<Args...>" as C_0002017079345086942945
+class C_0002017079345086942945 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{basic_registry}]] {
+__
+}
+class "type_list<Override...>" as C_0001608074545841274744
+class C_0001608074545841274744 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{type_list}]] {
+__
+}
+class "basic_view<get_t<Get...>,exclude_t<Exclude...>>" as C_0000438052941603621262
+class C_0000438052941603621262 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L35{basic_view}]] {
+__
+}
+class "type_list<Args...>" as C_0002069939067833684929
+class C_0002069939067833684929 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L68{type_list}]] {
+__
+}
+class "type_list<Req...>" as C_0000268766698460782519
+class C_0000268766698460782519 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L68{type_list}]] {
+__
+}
+class "basic_organizer<Registry>" as C_0001025175558307494545
+class C_0001025175558307494545 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L108{basic_organizer}]] {
++clear() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L400{clear}]]]
++emplace<auto Candidate,Req...>(const char * name = nullptr) : void
++emplace<auto Candidate,Req...,Type>(Type & value_or_instance, const char * name = nullptr) : void
++emplace<Req...>(basic_organizer::function_type * func, const void * payload = nullptr, const char * name = nullptr) : void
+{static} -extract<Type>(Registry & reg) : decltype(auto)
+{static} -fill_dependencies<Type...>(type_list<Type...>, const type_info ** buffer, const std::size_t count) : std::size_t
++graph() : std::vector<vertex> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L380{graph}]]]
+{static} -to_args<Args...>(Registry & reg, type_list<Args...>) : auto
+-track_dependencies<RO...,RW...>(std::size_t index, const bool requires_registry, type_list<RO...>, type_list<RW...>) : void
+__
+-builder : flow [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L407{builder}]]]
+-vertices : std::vector<vertex_data> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L406{vertices}]]]
+}
+class "basic_organizer::vertex_data" as C_0000901028445383159851
+class C_0000901028445383159851 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L113{basic_organizer##vertex_data}]] {
+__
++callback : basic_organizer::callback_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L118{callback}]]]
++dependency : basic_organizer::dependency_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L119{dependency}]]]
++info : const type_info * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L121{info}]]]
++name : const char * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L116{name}]]]
++payload : const void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L117{payload}]]]
++prepare : basic_organizer::prepare_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L120{prepare}]]]
++ro_count : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L114{ro_count}]]]
++rw_count : std::size_t [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L115{rw_count}]]]
+}
+class "basic_organizer::vertex" as C_0001398024092436436804
+class C_0001398024092436436804 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L175{basic_organizer##vertex}]] {
++callback() const noexcept : basic_organizer::function_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L253{callback}]]]
++children() const noexcept : const std::vector<std::size_t> & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L269{children}]]]
++data() const noexcept : const void * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L261{data}]]]
++info() const noexcept : const type_info & [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L237{info}]]]
++name() const noexcept : const char * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L245{name}]]]
++prepare(basic_organizer::registry_type & reg) const : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L278{prepare}]]]
++ro_count() const noexcept : basic_organizer::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L213{ro_count}]]]
++ro_dependency(const type_info ** buffer, const std::size_t length) const noexcept : basic_organizer::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L194{ro_dependency}]]]
++rw_count() const noexcept : basic_organizer::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L221{rw_count}]]]
++rw_dependency(const type_info ** buffer, const std::size_t length) const noexcept : basic_organizer::size_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L205{rw_dependency}]]]
++top_level() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L229{top_level}]]]
++vertex(const bool vtype, basic_organizer::vertex_data data, std::vector<std::size_t> edges) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L182{vertex}]]]
+__
+-is_top_level : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L283{is_top_level}]]]
+-node : basic_organizer::vertex_data [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L284{node}]]]
+-reachable : std::vector<std::size_t> [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/organizer.hpp#L285{reachable}]]]
 }
 class "basic_runtime_view<Type,Allocator=std::allocator<Type *>>" as C_0001944117803211747232
 class C_0001944117803211747232 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/runtime_view.hpp#L144{basic_runtime_view}]] {
@@ -1150,36 +1181,6 @@ class "basic_collector<typename...>" as C_0002104209837825440464
 class C_0002104209837825440464 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/observer.hpp#L27{basic_collector}]] {
 __
 }
-class "basic_handle<Registry,Scope...>" as C_0001540240197457753692
-class C_0001540240197457753692 [[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L102{basic_handle}]] {
-+basic_handle() noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L113{basic_handle}]]]
-+basic_handle(basic_handle::registry_type & ref, basic_handle::entity_type value) noexcept : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L122{basic_handle}]]]
-..
-+all_of<Component...>() const : decltype(auto)
-+any_of<Component...>() const : decltype(auto)
-+destroy() : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L198{destroy}]]]
-+destroy(const basic_handle::version_type version) : void [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L206{destroy}]]]
-+emplace<Component,Args...>(Args &&... args) const : decltype(auto)
-+emplace_or_replace<Component,Args...>(Args &&... args) const : decltype(auto)
-+entity() const noexcept : basic_handle::entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L193{entity}]]]
-+erase<Component...>() const : void
-+get<Component...>() const : decltype(auto)
-+get_or_emplace<Component,Args...>(Args &&... args) const : decltype(auto)
-+operator basic_handle<type-parameter-1-0, type-parameter-1-1...><Other,Args...>() const noexcept : basic_handle<Other, Args...>
-+operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L169{operator bool}]]]
-+operator typename type-parameter-0-0::entity_type() const noexcept : basic_handle::entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L161{operator typename type-parameter-0-0::entity_type}]]]
-+orphan() const : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L343{orphan}]]]
-+patch<Component,Func...>(Func &&... func) const : decltype(auto)
-+registry() const noexcept : basic_handle::registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L185{registry}]]]
-+remove<Component...>() const : basic_handle::size_type
-+replace<Component,Args...>(Args &&... args) const : decltype(auto)
-+storage() const noexcept : auto [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L136{storage}]]]
-+try_get<Component...>() const : auto
-+valid() const : bool [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L177{valid}]]]
-__
--entt : basic_handle::entity_type [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L349{entt}]]]
--reg : basic_handle::registry_type * [[[https://github.com/skypjack/entt/blob/fef921132cae7588213d0f9bcd2fb9c8ffd8b7fc/src/entt/entity/handle.hpp#L348{reg}]]]
-}
 C_0001023231452042445274 ..|> C_0001742108773560133843
 C_0000807307470263887895 ..|> C_0001972621482196141886
 C_0000749528529161353827 ..|> C_0001973779623646655323
@@ -1197,6 +1198,8 @@ C_0000153393979582152305 ..> C_0000152445147622989908
 C_0000153393979582152305 ..> C_0001924778053637683860
 C_0000153393979582152305 ..|> C_0001693826536256092052
 C_0000390675639111256783 ..|> C_0001139725879265604505
+C_0000573881619500297192 ..|> C_0000648165520939590694
+C_0000648165520939590694 ..> C_0000573881619500297192
 C_0001822587864398904128 ..> C_0000429642681207547186
 C_0001822587864398904128 ..|> C_0001324416713680309578
 C_0002034860573756426782 ..> C_0002017079345086942945
@@ -1215,8 +1218,6 @@ C_0000908089688521931445 ..|> C_0001699276038369686358
 C_0000322687156363303281 ..> C_0002069939067833684929
 C_0000322687156363303281 ..> C_0000268766698460782519
 C_0000322687156363303281 ..|> C_0000598829140343999181
-C_0000573881619500297192 ..|> C_0000648165520939590694
-C_0000648165520939590694 ..> C_0000573881619500297192
 C_0001941777226568215386 ..|> C_0000517671838651509415
 C_0000604750336572959053 ..|> C_0000739798412567590941
 C_0000373210226805056699 ..> C_0002264387755278828673
@@ -1233,7 +1234,6 @@ C_0002026173216716894202 ..> C_0001934751505825948529
 C_0002026173216716894202 ..> C_0001284155302502968847
 C_0002026173216716894202 ..|> C_0000026692260064612272
 C_0000705890877425381110 ..> C_0000245195320405093070
-C_0000705890877425381110 ..> C_0000579947499599579730
 C_0000705890877425381110 o-- C_0000579947499599579730 : -mode
 C_0000457430710378177051 ..|> C_0000230202056082109818
 C_0000078477900740904974 --> C_0000457430710378177051 : -owner
@@ -1265,6 +1265,18 @@ C_0000546039440085833388 ..|> C_0000152445147622989908
 C_0002021669765409325558 ..> C_0000546039440085833388
 C_0002021669765409325558 ..|> C_0001014011280027053021
 C_0002021669765409325558 ..> C_0002042225346940580991
+C_0001203390869743334884 ..> C_0001581716270673090485
+C_0001203390869743334884 ..> C_0000515135022708998009
+C_0001203390869743334884 ..|> C_0000026692260064612272
+C_0000679108825640586272 ..> C_0000515135022708998009
+C_0000679108825640586272 ..> C_0001203390869743334884
+C_0000679108825640586272 o-- C_0001849345337236985902 : -vars
+C_0000430671255945097322 ..> C_0000880809990211728775
+C_0000430671255945097322 ..> C_0001924778053637683860
+C_0000430671255945097322 --+ C_0000679108825640586272
+C_0000430671255945097322 ..|> C_0001956351800631169524
+C_0001603920787590037706 --+ C_0000679108825640586272
+C_0001956351800631169524 --+ C_0000679108825640586272
 C_0001335190849652948716 ..> C_0000515135022708998009
 C_0000052697527122592859 ..> C_0000515135022708998009
 C_0000429642681207547186 ..|> C_0002274584525843147105
@@ -1278,19 +1290,6 @@ C_0000268766698460782519 ..|> C_0000152445147622989908
 C_0001025175558307494545 ..> C_0002069939067833684929
 C_0000901028445383159851 --+ C_0001025175558307494545
 C_0001398024092436436804 --+ C_0001025175558307494545
-C_0001203390869743334884 ..> C_0001581716270673090485
-C_0001203390869743334884 ..> C_0000515135022708998009
-C_0001203390869743334884 ..|> C_0000026692260064612272
-C_0000679108825640586272 ..> C_0001849345337236985902
-C_0000679108825640586272 ..> C_0000515135022708998009
-C_0000679108825640586272 ..> C_0001203390869743334884
-C_0000679108825640586272 o-- C_0001849345337236985902 : -vars
-C_0000430671255945097322 ..> C_0000880809990211728775
-C_0000430671255945097322 ..> C_0001924778053637683860
-C_0000430671255945097322 --+ C_0000679108825640586272
-C_0000430671255945097322 ..|> C_0001956351800631169524
-C_0001603920787590037706 --+ C_0000679108825640586272
-C_0001956351800631169524 --+ C_0000679108825640586272
 C_0001944117803211747232 ..> C_0001941777226568215386
 C_0000661659454964316032 ..> C_0001445398420447762901
 C_0000661659454964316032 ..|> C_0002104209837825440464
@@ -1320,6 +1319,6 @@ C_0001268297008080566461 --+ C_0001308964260795745911
 C_0001268297008080566461 ..|> C_0000643299285757852613
 C_0000643299285757852613 --+ C_0001308964260795745911
 
-'Generated with clang-uml, version 0.3.7-36-g13ea67c
-'LLVM version Ubuntu clang version 15.0.6
+'Generated with clang-uml, version 0.4.0-9-gc398c6f
+'LLVM version Ubuntu clang version 15.0.7
 @enduml

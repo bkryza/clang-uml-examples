@@ -1,0 +1,103 @@
+@startuml
+title Translation unit AST visitors
+title clang-uml top level architecture - AST visitors
+package [clanguml] as C_0002174271399507040339 {
+package [common] as C_0000316605034920222648 {
+package [model] as C_0000083721806430512831 {
+class "diagram" as C_0000197068985320835874
+class C_0000197068985320835874 [[classclanguml_1_1common_1_1model_1_1diagram.html{Base class for all diagram models}]] {
+__
+}
+}
+package [visitor] as C_0002059309769421024048 {
+class "translation_unit_visitor" as C_0000116368705153207296
+class C_0000116368705153207296 [[classclanguml_1_1common_1_1visitor_1_1translation__unit__visitor.html{Diagram translation unit visitor base class}]] {
+__
+}
+}
+package [generators] as C_0001127696046613471321 {
+}
+}
+package [class_diagram] as C_0002240167036201725606 {
+package [model] as C_0000897124234964432620 {
+class "diagram" as C_0000914432076690777687
+class C_0000914432076690777687 [[classclanguml_1_1class__diagram_1_1model_1_1diagram.html{Class representing a class diagram.}]] {
+__
+}
+}
+package [visitor] as C_0001862217944346803827 {
+class "translation_unit_visitor" as C_0001741760762642742451
+class C_0001741760762642742451 [[classclanguml_1_1class__diagram_1_1visitor_1_1translation__unit__visitor.html{Class diagram translation unit visitor}]] {
+__
+}
+}
+}
+package [config] as C_0000111389493058790497 {
+}
+package [cli] as C_0001260703306241669209 {
+}
+package [include_diagram] as C_0002289677368446195616 {
+package [model] as C_0000545328881104248214 {
+class "diagram" as C_0000308380398356948374
+class C_0000308380398356948374 [[classclanguml_1_1include__diagram_1_1model_1_1diagram.html{Class representing an include diagram model.}]] {
+__
+}
+}
+package [visitor] as C_0000299757823634161563 {
+class "translation_unit_visitor" as C_0001957392097002977756
+class C_0001957392097002977756 [[classclanguml_1_1include__diagram_1_1visitor_1_1translation__unit__visitor.html{Include diagram translation unit visitor wrapper}]] {
+__
+}
+class "translation_unit_visitor::include_visitor" as C_0000070935554513618182
+class C_0000070935554513618182 [[classclanguml_1_1include__diagram_1_1visitor_1_1translation__unit__visitor_1_1include__visitor.html{translation_unit_visitor##include_visitor}]] {
+__
+}
+}
+}
+package [package_diagram] as C_0001176715616702819073 {
+package [model] as C_0001569810617781744082 {
+class "diagram" as C_0000148537001046167478
+class C_0000148537001046167478 [[classclanguml_1_1package__diagram_1_1model_1_1diagram.html{Package diagram model.}]] {
+__
+}
+}
+package [visitor] as C_0000183895282854293183 {
+class "translation_unit_visitor" as C_0001286342034490329345
+class C_0001286342034490329345 [[classclanguml_1_1package__diagram_1_1visitor_1_1translation__unit__visitor.html{Package diagram translation unit visitor}]] {
+__
+}
+}
+}
+package [sequence_diagram] as C_0001521862840957629236 {
+package [model] as C_0002206969880830639264 {
+class "diagram" as C_0000924044572035510976
+class C_0000924044572035510976 [[classclanguml_1_1sequence__diagram_1_1model_1_1diagram.html{Model of a sequence diagram}]] {
+__
+}
+}
+package [visitor] as C_0000351520758190157237 {
+class "translation_unit_visitor" as C_0001229352445421790185
+class C_0001229352445421790185 [[classclanguml_1_1sequence__diagram_1_1visitor_1_1translation__unit__visitor.html{Sequence diagram translation unit visitor}]] {
+__
+}
+}
+}
+}
+C_0000197068985320835874 <|-- C_0000914432076690777687
+C_0001741760762642742451 --> C_0000914432076690777687 : -diagram_
+C_0000116368705153207296 <|-- C_0001741760762642742451
+C_0000197068985320835874 <|-- C_0000308380398356948374
+C_0001957392097002977756 --> C_0000308380398356948374 : -diagram_
+C_0000070935554513618182 --+ C_0001957392097002977756
+C_0000070935554513618182 --> C_0000308380398356948374 : -diagram_
+C_0000116368705153207296 <|-- C_0000070935554513618182
+C_0000197068985320835874 <|-- C_0000148537001046167478
+C_0001286342034490329345 --> C_0000148537001046167478 : -diagram_
+C_0000116368705153207296 <|-- C_0001286342034490329345
+C_0000197068985320835874 <|-- C_0000924044572035510976
+C_0001229352445421790185 --> C_0000924044572035510976 : -diagram_
+C_0000116368705153207296 <|-- C_0001229352445421790185
+
+'Generated with clang-uml, version 0.4.0-7-g8a6b497
+'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
+@enduml

@@ -1,0 +1,81 @@
+@startuml
+title Diagram filter context model
+abstract "common::model::diagram" as C_0000197068985320835874
+abstract C_0000197068985320835874 [[classclanguml_1_1common_1_1model_1_1diagram.html{Base class for all diagram models}]] {
++complete() const : bool [[[{Whether the diagram is complete.}]]]
+{abstract} +context() const = 0 : inja::json [[[{context}]]]
++filter() const : const diagram_filter & [[[{filter}]]]
++finalize() : void [[[{Once the diagram is complete, run any final processing.}]]]
+{abstract} +get(const std::string & full_name) const = 0 : common::optional_ref<common::model::diagram_element> [[[{get}]]]
+{abstract} +get(diagram_element::id_t id) const = 0 : common::optional_ref<common::model::diagram_element> [[[{get}]]]
++get_with_namespace(const std::string & name, const namespace_ & ns) const : common::optional_ref<common::model::diagram_element> [[[{get_with_namespace}]]]
++has_element(const diagram_element::id_t) const : bool [[[{has_element}]]]
++name() const : std::string [[[{name}]]]
++set_complete(bool complete) : void [[[{Set diagram in a complete state.}]]]
++set_filter(std::unique_ptr<diagram_filter> filter) : void [[[{set_filter}]]]
++set_name(const std::string & name) : void [[[{set_name}]]]
++should_include(const element & e) const : bool [[[{should_include}]]]
++should_include(const namespace_ & ns) const : bool [[[{should_include}]]]
++should_include(const source_file & path) const : bool [[[{should_include}]]]
++should_include(relationship r) const : bool [[[{should_include}]]]
++should_include(relationship_t r) const : bool [[[{should_include}]]]
++should_include(access_t s) const : bool [[[{should_include}]]]
++should_include(const std::string & s) const = deleted : bool [[[{should_include}]]]
++should_include(const namespace_ & ns, const std::string & name) const : bool [[[{should_include}]]]
+{abstract} +type() const = 0 : diagram_t [[[{Return type of the diagram.}]]]
+__
+-complete_ : bool [[[{complete_}]]]
+-filter_ : std::unique_ptr<diagram_filter> [[[{filter_}]]]
+-name_ : std::string [[[{name_}]]]
+}
+class "common::model::filter_visitor" as C_0000469458052685692314
+class C_0000469458052685692314 [[classclanguml_1_1common_1_1model_1_1filter__visitor.html{Base class for any diagram filter.}]] {
++is_exclusive() const : bool [[[{is_exclusive}]]]
++is_inclusive() const : bool [[[{is_inclusive}]]]
++match(const diagram & d, const common::model::element & e) const : tvl::value_t [[[{match}]]]
++match(const diagram & d, const common::model::relationship_t & r) const : tvl::value_t [[[{match}]]]
++match(const diagram & d, const common::model::access_t & a) const : tvl::value_t [[[{match}]]]
++match(const diagram & d, const common::model::namespace_ & ns) const : tvl::value_t [[[{match}]]]
++match(const diagram & d, const common::model::source_file & f) const : tvl::value_t [[[{match}]]]
++match(const diagram & d, const common::model::source_location & f) const : tvl::value_t [[[{match}]]]
++match(const diagram & d, const class_diagram::model::class_method & m) const : tvl::value_t [[[{match}]]]
++match(const diagram & d, const class_diagram::model::class_member & m) const : tvl::value_t [[[{match}]]]
++match(const diagram & d, const sequence_diagram::model::participant & p) const : tvl::value_t [[[{match}]]]
++type() const : filter_t [[[{type}]]]
+__
+-type_ : filter_t [[[{type_}]]]
+}
+class "common::model::diagram_filter" as C_0002054140694270036745
+class C_0002054140694270036745 [[classclanguml_1_1common_1_1model_1_1diagram__filter.html{Composite of all diagrams filters.}]] {
++add_exclusive_filter(std::unique_ptr<filter_visitor> fv) : void [[[{add_exclusive_filter}]]]
++add_inclusive_filter(std::unique_ptr<filter_visitor> fv) : void [[[{add_inclusive_filter}]]]
+-init_filters(const config::diagram & c) : void [[[{Initialize filters.}]]]
++should_include(const namespace_ & ns, const std::string & name) const : bool [[[{should_include}]]]
++should_include<T>(const T & e) const : _Bool
+__
+-diagram_ : const common::model::diagram & [[[{diagram_}]]]
+-exclusive_ : std::vector<std::unique_ptr<filter_visitor>> [[[{exclusive_}]]]
+-inclusive_ : std::vector<std::unique_ptr<filter_visitor>> [[[{inclusive_}]]]
+}
+abstract "config::diagram" as C_0000400244097365422548
+abstract C_0000400244097365422548 [[structclanguml_1_1config_1_1diagram.html{Common diagram configuration type}]] {
++get_together_group(const std::string & full_name) const : std::optional<std::string> [[[{get_together_group}]]]
++get_translation_units() const : std::vector<std::string> [[[{Returns list of translation unit paths}]]]
++initialize_type_aliases() : void [[[{Initialize predefined set of C++ type aliases}]]]
++make_path_relative(const std::filesystem::path & p) const : std::filesystem::path [[[{Make path relative to the `relative_to` config option}]]]
++root_directory() const : std::filesystem::path [[[{Returns absolute path of the `relative_to` option}]]]
+{abstract} +type() const = 0 : common::model::diagram_t [[[{type}]]]
+__
++name : std::string [[[{name}]]]
++title : option<std::string> [[[{title}]]]
+}
+C_0000197068985320835874 o-- C_0002054140694270036745 : -filter_
+C_0000469458052685692314 ..> C_0000197068985320835874
+C_0002054140694270036745 ..> C_0000400244097365422548
+C_0002054140694270036745 o-- C_0000469458052685692314 : -inclusive_
+C_0002054140694270036745 o-- C_0000469458052685692314 : -exclusive_
+C_0002054140694270036745 --> C_0000197068985320835874 : -diagram_
+
+'Generated with clang-uml, version 0.4.0-7-g8a6b497
+'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
+@enduml
