@@ -1,0 +1,218 @@
+@startuml
+title App::ExtensionContainer context
+package [Base] as C_0000701777446892506059 {
+class "Type" as C_0001299587473968259399
+class C_0001299587473968259399 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L80{Type}]] {
++Type(const Base::Type & type) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L84{Type}]]]
++Type() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L85{Type}]]]
++~Type() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L87{~Type}]]]
+..
++operator=(const Base::Type type) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L114{operator=}]]]
+..
++operator!=(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L116{operator!=}]]]
++operator<(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L118{operator<}]]]
++operator<=(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L119{operator<=}]]]
++operator==(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L115{operator==}]]]
++operator>(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L121{operator>}]]]
++operator>=(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L120{operator>=}]]]
+..
+{static} +badType() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L123{badType}]]]
++createInstance() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L90{createInstance}]]]
+{static} +createInstanceByName(const char * TypeName, bool bLoadModule = false) : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L92{createInstanceByName}]]]
+{static} +createType(const Base::Type parent, const char * name, Base::Type::instantiationMethod method = nullptr) : const Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L109{createType}]]]
+{static} +destruct() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L125{destruct}]]]
+{static} +fromKey(unsigned int key) : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L98{fromKey}]]]
+{static} +fromName(const char * name) : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L97{fromName}]]]
+{static} +getAllDerivedFrom(const Base::Type type, std::vector<Type> & List) : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L103{getAllDerivedFrom}]]]
++getKey() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L111{getKey}]]]
+{static} #getModuleName(const char * ClassName) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L128{getModuleName}]]]
++getName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L99{getName}]]]
+{static} +getNumTypes() : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L107{getNumTypes}]]]
++getParent() const : const Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L100{getParent}]]]
+{static} +getTypeIfDerivedFrom(const char * name, const Base::Type parent, bool bLoadModule = false) : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L105{getTypeIfDerivedFrom}]]]
+{static} +importModule(const char * TypeName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L93{importModule}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L124{init}]]]
++isBad() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L112{isBad}]]]
++isDerivedFrom(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L101{isDerivedFrom}]]]
+__
+-index : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L134{index}]]]
+{static} -loadModuleSet : std::set<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L140{loadModuleSet}]]]
+{static} -typedata : std::vector<TypeData *> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L138{typedata}]]]
+{static} -typemap : std::map<std::string,unsigned int> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L137{typemap}]]]
+}
+}
+package [App] as C_0002285326295477687690 {
+class "PropertyContainer" as C_0001429340431885784815
+class C_0001429340431885784815 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L141{PropertyContainer}]] {
++PropertyContainer() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L151{PropertyContainer}]]]
+-PropertyContainer(const App::PropertyContainer &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L253{PropertyContainer}]]]
++~PropertyContainer() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L157{~PropertyContainer}]]]
+..
+-operator=(const App::PropertyContainer &) : App::PropertyContainer & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L254{operator=}]]]
+..
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L222{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L221{Save}]]]
++addDynamicProperty(const char * type, const char * name = nullptr, const char * group = nullptr, const char * doc = nullptr, short attr = 0, bool ro = false, bool hidden = false) : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L196{addDynamicProperty}]]]
++changeDynamicProperty(const App::Property * prop, const char * group, const char * doc) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L205{changeDynamicProperty}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L144{create}]]]
++editProperty(const char *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L224{editProperty}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L144{getClassTypeId}]]]
++getDynamicPropertyByName(const char * name) const : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L215{getDynamicPropertyByName}]]]
++getDynamicPropertyData(const App::Property * prop) const : DynamicProperty::PropData [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L201{getDynamicPropertyData}]]]
++getDynamicPropertyNames() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L212{getDynamicPropertyNames}]]]
++getFullName() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L161{getFullName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L159{getMemSize}]]]
++getPropertyByName(const char * name) const : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L164{getPropertyByName}]]]
+#getPropertyData() const : const App::PropertyData & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L246{getPropertyData}]]]
+{static} #getPropertyDataPtr() : const App::PropertyData * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L245{getPropertyDataPtr}]]]
++getPropertyDocumentation(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L185{getPropertyDocumentation}]]]
++getPropertyDocumentation(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L187{getPropertyDocumentation}]]]
++getPropertyGroup(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L181{getPropertyGroup}]]]
++getPropertyGroup(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L183{getPropertyGroup}]]]
++getPropertyList(std::vector<Property *> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L170{getPropertyList}]]]
++getPropertyMap(std::map<std::string,Property *> & Map) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L168{getPropertyMap}]]]
++getPropertyName(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L166{getPropertyName}]]]
++getPropertyNamedList(std::vector<std::pair<const char *,Property *>> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L172{getPropertyNamedList}]]]
++getPropertyPrefix() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L226{getPropertyPrefix}]]]
++getPropertyType(const char * name) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L179{getPropertyType}]]]
++getPropertyType(const App::Property * prop) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L177{getPropertyType}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L144{getTypeId}]]]
+#handleChangedPropertyName(Base::XMLReader & reader, const char * TypeName, const char * PropName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L248{handleChangedPropertyName}]]]
+#handleChangedPropertyType(Base::XMLReader & reader, const char * TypeName, App::Property * prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L249{handleChangedPropertyType}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L144{init}]]]
++isHidden(const char * name) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L195{isHidden}]]]
++isHidden(const App::Property * prop) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L193{isHidden}]]]
++isReadOnly(const char * name) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L191{isReadOnly}]]]
++isReadOnly(const App::Property * prop) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L189{isReadOnly}]]]
+#onBeforeChange(const App::Property *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L242{onBeforeChange}]]]
+#onChanged(const App::Property *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L240{onChanged}]]]
++onPropertyStatusChanged(const App::Property & prop, unsigned long oldStatus) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L219{onPropertyStatusChanged}]]]
++removeDynamicProperty(const char * name) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L209{removeDynamicProperty}]]]
++setPropertyPrefix(const char * prefix) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L230{setPropertyPrefix}]]]
++setPropertyStatus(unsigned char bit, bool value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L174{setPropertyStatus}]]]
+__
+-_propertyPrefix : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L260{_propertyPrefix}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L144{classTypeId}]]]
+#dynamicProps : App::DynamicProperty [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L257{dynamicProps}]]]
+{static} -propertyData : App::PropertyData [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyContainer.h#L261{propertyData}]]]
+}
+class "ExtensionContainer" as C_0000679410891240475874
+class C_0000679410891240475874 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L110{ExtensionContainer}]] {
++ExtensionContainer() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L119{ExtensionContainer}]]]
++~ExtensionContainer() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L120{~ExtensionContainer}]]]
+..
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L179{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L178{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L113{create}]]]
++extensionBegin() : App::ExtensionContainer::ExtensionIterator [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L147{extensionBegin}]]]
++extensionEnd() : App::ExtensionContainer::ExtensionIterator [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L148{extensionEnd}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L113{getClassTypeId}]]]
++getExtension(Base::Type, bool derived = true, bool no_except = false) const : App::Extension * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L126{getExtension}]]]
++getExtension(const std::string & name) const : App::Extension * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L127{getExtension}]]]
++getExtensionByType<ExtensionT>(bool no_except = false, bool derived = true) const : ExtensionT *
++getExtensionsDerivedFrom(Base::Type type) const : std::vector<Extension *> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L136{getExtensionsDerivedFrom}]]]
++getExtensionsDerivedFromType<ExtensionT>() const : std::vector<ExtensionT *>
++getPropertyByName(const char * name) const : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L154{getPropertyByName}]]]
++getPropertyDocumentation(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L171{getPropertyDocumentation}]]]
++getPropertyDocumentation(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L173{getPropertyDocumentation}]]]
++getPropertyGroup(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L169{getPropertyGroup}]]]
++getPropertyGroup(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L167{getPropertyGroup}]]]
++getPropertyList(std::vector<Property *> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L160{getPropertyList}]]]
++getPropertyMap(std::map<std::string,Property *> & Map) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L158{getPropertyMap}]]]
++getPropertyName(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L156{getPropertyName}]]]
++getPropertyType(const App::Property * prop) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L163{getPropertyType}]]]
++getPropertyType(const char * name) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L165{getPropertyType}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L113{getTypeId}]]]
++handleChangedPropertyName(Base::XMLReader & reader, const char * TypeName, const char * PropName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L193{handleChangedPropertyName}]]]
++handleChangedPropertyType(Base::XMLReader & reader, const char * TypeName, App::Property * prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L201{handleChangedPropertyType}]]]
++hasExtension(const std::string & name) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L124{hasExtension}]]]
++hasExtension(Base::Type, bool derived = true) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L123{hasExtension}]]]
++hasExtensions() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L125{hasExtensions}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L113{init}]]]
++onChanged(const App::Property *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L176{onChanged}]]]
++registerExtension(Base::Type extension, App::Extension * ext) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L122{registerExtension}]]]
++restoreExtensions(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L184{restoreExtensions}]]]
++saveExtensions(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L183{saveExtensions}]]]
+__
+-_extensions : std::map<Base::Type,App::Extension *> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L205{_extensions}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ExtensionContainer.h#L113{classTypeId}]]]
+}
+class "TransactionalObject" as C_0000203998662590140804
+class C_0000203998662590140804 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L37{TransactionalObject}]] {
++TransactionalObject() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L43{TransactionalObject}]]]
++~TransactionalObject() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L44{~TransactionalObject}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L39{create}]]]
++detachFromDocument() : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L46{detachFromDocument}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L39{getClassTypeId}]]]
+#getPropertyData() const : const App::PropertyData & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L39{getPropertyData}]]]
+{static} #getPropertyDataPtr() : const App::PropertyData * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L39{getPropertyDataPtr}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L39{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L39{init}]]]
++isAttachedToDocument() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L45{isAttachedToDocument}]]]
+#onBeforeChangeProperty(App::Document * doc, const App::Property * prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L48{onBeforeChangeProperty}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L39{classTypeId}]]]
+{static} -propertyData : App::PropertyData [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/TransactionalObject.h#L39{propertyData}]]]
+}
+class "Extension" as C_0001794001296406087163
+class C_0001794001296406087163 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L222{Extension}]] {
++Extension() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L231{Extension}]]]
++~Extension() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L232{~Extension}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L227{create}]]]
++extensionGetPropertyByName(const char * name) const : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L250{extensionGetPropertyByName}]]]
+#extensionGetPropertyData() const : const App::PropertyData & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L227{extensionGetPropertyData}]]]
+{static} #extensionGetPropertyDataPtr() : const App::PropertyData * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L227{extensionGetPropertyDataPtr}]]]
++extensionGetPropertyDocumentation(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L269{extensionGetPropertyDocumentation}]]]
++extensionGetPropertyDocumentation(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L267{extensionGetPropertyDocumentation}]]]
++extensionGetPropertyGroup(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L265{extensionGetPropertyGroup}]]]
++extensionGetPropertyGroup(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L263{extensionGetPropertyGroup}]]]
++extensionGetPropertyList(std::vector<Property *> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L256{extensionGetPropertyList}]]]
++extensionGetPropertyMap(std::map<std::string,Property *> & Map) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L254{extensionGetPropertyMap}]]]
++extensionGetPropertyName(const App::Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L252{extensionGetPropertyName}]]]
++extensionGetPropertyType(const char * name) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L261{extensionGetPropertyType}]]]
++extensionGetPropertyType(const App::Property * prop) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L259{extensionGetPropertyType}]]]
+#extensionHandleChangedPropertyName(Base::XMLReader & reader, const char * TypeName, const char * PropName) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L289{extensionHandleChangedPropertyName}]]]
+#extensionHandleChangedPropertyType(Base::XMLReader & reader, const char * TypeName, App::Property * prop) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L291{extensionHandleChangedPropertyType}]]]
++extensionIsDerivedFrom(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L280{extensionIsDerivedFrom}]]]
+#extensionOnChanged(const App::Property * p) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L286{extensionOnChanged}]]]
++extensionRestore(Base::XMLReader &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L275{extensionRestore}]]]
++extensionSave(Base::Writer &) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L274{extensionSave}]]]
++getExtendedContainer() const : const App::ExtensionContainer * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L237{getExtendedContainer}]]]
++getExtendedContainer() : App::ExtensionContainer * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L236{getExtendedContainer}]]]
+{static} +getExtensionClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L227{getExtensionClassTypeId}]]]
++getExtensionPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L244{getExtensionPyObject}]]]
++getExtensionTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L227{getExtensionTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L227{init}]]]
++initExtension(App::ExtensionContainer * obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L234{initExtension}]]]
+{static} #initExtensionSubclass(Base::Type & toInit, const char * ClassName, const char * ParentName, Base::Type::instantiationMethod method = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L282{initExtensionSubclass}]]]
+#initExtensionType(Base::Type type) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L296{initExtensionType}]]]
++isPythonExtension() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L242{isPythonExtension}]]]
++name() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L240{name}]]]
+__
+#ExtensionPythonObject : Py::SmartPtr [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L298{ExtensionPythonObject}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L227{classTypeId}]]]
+-m_base : App::ExtensionContainer * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L302{m_base}]]]
+-m_extensionType : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L301{m_extensionType}]]]
+#m_isPythonExtension : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L297{m_isPythonExtension}]]]
+{static} -propertyData : App::PropertyData [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Extension.h#L227{propertyData}]]]
+}
+package [ExpressionParser] as C_0000905861183269213715 {
+}
+package [Meta] as C_0002283864520314866053 {
+}
+}
+C_0001429340431885784815 --> C_0001299587473968259399 : -classTypeId
+C_0000679410891240475874 --> C_0001299587473968259399 : -classTypeId
+C_0001429340431885784815 <|-- C_0000679410891240475874
+C_0000203998662590140804 --> C_0001299587473968259399 : -classTypeId
+C_0000679410891240475874 <|-- C_0000203998662590140804
+C_0001794001296406087163 o-- C_0001299587473968259399 : -m_extensionType
+C_0001794001296406087163 --> C_0000679410891240475874 : -m_base
+C_0001794001296406087163 --> C_0001299587473968259399 : -classTypeId
+C_0001794001296406087163 <.. C_0000679410891240475874 : +<<friend>>
+
+'Generated with clang-uml, version 0.4.0-14-g26abb71
+'LLVM version Ubuntu clang version 15.0.7
+@enduml

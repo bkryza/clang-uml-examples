@@ -1,0 +1,42 @@
+@startuml
+title App::Range context
+package [App] as C_0002285326295477687690 {
+class "Range" as C_0002022805225353447244
+class C_0002022805225353447244 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L118{Range}]] {
++Range(const char * range, bool normalize = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L120{Range}]]]
++Range(int _row_begin, int _col_begin, int _row_end, int _col_end, bool normalize = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L122{Range}]]]
++Range(const App::CellAddress & from, const App::CellAddress & to, bool normalize = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L124{Range}]]]
+..
++operator*() const : App::CellAddress [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L163{operator*}]]]
++operator<(const App::Range & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L165{operator<}]]]
+..
++address() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L156{address}]]]
++colCount() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L141{colCount}]]]
++column() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L135{column}]]]
++from() const : App::CellAddress [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L144{from}]]]
++fromCellString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L150{fromCellString}]]]
++next() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L126{next}]]]
++normalize() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L129{normalize}]]]
++rangeString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L159{rangeString}]]]
++row() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L132{row}]]]
++rowCount() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L138{rowCount}]]]
++size() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L174{size}]]]
++to() const : App::CellAddress [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L147{to}]]]
++toCellString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L153{toCellString}]]]
+__
+-col_begin : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L178{col_begin}]]]
+-col_curr : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L177{col_curr}]]]
+-col_end : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L179{col_end}]]]
+-row_begin : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L178{row_begin}]]]
+-row_curr : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L177{row_curr}]]]
+-row_end : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Range.h#L179{row_end}]]]
+}
+package [ExpressionParser] as C_0000905861183269213715 {
+}
+package [Meta] as C_0002283864520314866053 {
+}
+}
+
+'Generated with clang-uml, version 0.4.0-14-g26abb71
+'LLVM version Ubuntu clang version 15.0.7
+@enduml

@@ -1,0 +1,90 @@
+@startuml
+title Data::ElementMap context
+package [Base] as C_0000701777446892506059 {
+class "Reference<App::StringHasher>" as C_0001331318764029167146
+class C_0001331318764029167146 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L44{Reference}]] {
+__
+}
+}
+package [Data] as C_0000993002797833335293 {
+class "ElementMap" as C_0000813869082752328264
+class C_0000813869082752328264 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L56{ElementMap}]] {
++ElementMap() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L63{ElementMap}]]]
+..
++addChildElements(long masterTag, const std::vector<MappedChildElements> & children) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L178{addChildElements}]]]
+-addName(Data::MappedName & name, const Data::IndexedName & idx, const Data::ElementIDRefs & sids, bool overwrite, Data::IndexedName * existing) : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L216{addName}]]]
+{static} -addPostfix(const QByteArray & postfix, std::map<QByteArray,int> & postfixMap, std::vector<QByteArray> & postfixes) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L222{addPostfix}]]]
++beforeSave(const ::App::StringHasherRef & hasherRef) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L72{beforeSave}]]]
+-collectChildMaps(std::map<const ElementMap *,int> & childMapSet, std::vector<const ElementMap *> & childMaps, std::map<QByteArray,int> & postfixMap, std::vector<QByteArray> & postfixes) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L248{collectChildMaps}]]]
+-dehashElementName(const Data::MappedName & name) const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L240{dehashElementName}]]]
++empty() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L137{empty}]]]
++encodeElementName(char element_type, Data::MappedName & name, std::ostringstream & ss, Data::ElementIDRefs * sids, long masterTag, const char * postfix = 0, long tag = 0, bool forceTag = false) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L120{encodeElementName}]]]
++erase(const Data::MappedName & name) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L130{erase}]]]
++erase(const Data::IndexedName & idx) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L133{erase}]]]
++find(const Data::MappedName & name, Data::ElementIDRefs * sids = nullptr) const : Data::IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L139{find}]]]
++find(const Data::IndexedName & idx, Data::ElementIDRefs * sids = nullptr) const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L141{find}]]]
++findAll(const Data::IndexedName & idx) const : std::vector<std::pair<MappedName,ElementIDRefs>> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L143{findAll}]]]
+-findMappedRef(const Data::IndexedName & idx) const : const Data::MappedNameRef * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L243{findMappedRef}]]]
+-findMappedRef(const Data::IndexedName & idx) : Data::MappedNameRef * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L244{findMappedRef}]]]
++getAll() const : std::vector<MappedElement> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L182{getAll}]]]
++getChildElements() const : std::vector<MappedChildElements> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L180{getChildElements}]]]
++getElementHistory(const Data::MappedName & name, long masterTag, Data::MappedName * original = 0, std::vector<MappedName> * history = 0) const : long [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L184{getElementHistory}]]]
++hasChildElementMap() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L153{hasChildElementMap}]]]
++hashChildMaps(long masterTag) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L161{hashChildMaps}]]]
+-hashElementName(const Data::MappedName & name, Data::ElementIDRefs & sids) const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L237{hashElementName}]]]
+-init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L284{init}]]]
+-mappedRef(const Data::IndexedName & idx) : Data::MappedNameRef & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L246{mappedRef}]]]
+-renameDuplicateElement(int index, const Data::IndexedName & element, const Data::IndexedName & element2, const Data::MappedName & name, Data::ElementIDRefs & sids, long masterTag) const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L227{renameDuplicateElement}]]]
+-restore(App::StringHasherRef hasherRef, std::istream & stream, std::vector<ElementMapPtr> & childMaps, const std::vector<std::string> & postfixes) : Data::ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L203{restore}]]]
++restore(App::StringHasherRef hasherRef, std::istream & stream) : Data::ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L86{restore}]]]
+-save(std::ostream & stream, int index, const std::map<const ElementMap *,int> & childMapSet, const std::map<QByteArray,int> & postfixMap) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L194{save}]]]
++save(std::ostream & stream) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L78{save}]]]
++setElementName(const Data::IndexedName & element, const Data::MappedName & name, long masterTag, const Data::ElementIDRefs * sid = nullptr, bool overwrite = false) : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L107{setElementName}]]]
++size() const : unsigned long [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L135{size}]]]
+__
+-_id : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L282{_id}]]]
+-childElementSize : std::size_t [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L280{childElementSize}]]]
+-childElements : QHash<QByteArray,Data::ElementMap::ChildMapInfo> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L279{childElements}]]]
++hasher : App::StringHasherRef [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L288{hasher}]]]
+-indexedNames : std::map<const char *,IndexedElements,CStringComp> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L268{indexedNames}]]]
+-mappedNames : std::map<MappedName,IndexedName,std::less<MappedName>> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L270{mappedNames}]]]
+}
+class "ElementMap::MappedChildElements" as C_0000598355840241227871
+class C_0000598355840241227871 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L163{ElementMap##MappedChildElements}]] {
+__
++count : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L166{count}]]]
++elementMap : Data::ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L169{elementMap}]]]
++indexedName : Data::IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L165{indexedName}]]]
++offset : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L167{offset}]]]
++postfix : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L170{postfix}]]]
++sids : Data::ElementIDRefs [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L171{sids}]]]
++tag : long [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L168{tag}]]]
+}
+class "ElementMap::CStringComp" as C_0000747563301332696228
+class C_0000747563301332696228 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L253{ElementMap##CStringComp}]] {
++operator()(const char * str1, const char * str2) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L256{operator()}]]]
+__
+}
+class "ElementMap::IndexedElements" as C_0002292958742651041788
+class C_0002292958742651041788 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L262{ElementMap##IndexedElements}]] {
+__
++children : std::map<int,MappedChildElements> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L265{children}]]]
++names : std::deque<MappedNameRef> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L264{names}]]]
+}
+class "ElementMap::ChildMapInfo" as C_0000333224414252893114
+class C_0000333224414252893114 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L272{ElementMap##ChildMapInfo}]] {
+__
++childMap : Data::ElementMap::MappedChildElements * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L275{childMap}]]]
++index : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L274{index}]]]
++mapIndices : std::map<ElementMap *,int> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/ElementMap.h#L276{mapIndices}]]]
+}
+}
+C_0000813869082752328264 o-- C_0001331318764029167146 : +hasher
+C_0000598355840241227871 --+ C_0000813869082752328264
+C_0000747563301332696228 --+ C_0000813869082752328264
+C_0002292958742651041788 --+ C_0000813869082752328264
+C_0000333224414252893114 --+ C_0000813869082752328264
+
+'Generated with clang-uml, version 0.4.0-14-g26abb71
+'LLVM version Ubuntu clang version 15.0.7
+@enduml

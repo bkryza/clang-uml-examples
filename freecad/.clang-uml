@@ -1,0 +1,1100 @@
+compilation_database_dir: _build
+output_directory: ../puml
+generate_links:
+  link: https://github.com/FreeCAD/FreeCAD/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}
+  tooltip: "{% if existsIn(element, \"comment\") and existsIn(element.comment, \"brief\") %}{{ abbrv(trim(replace(element.comment.brief.0, \"\\n+\", \" \")), 256) }}{% else %}{{ element.name }}{% endif %}"
+diagram_templates:
+  app_base_class_context_tmpl:
+    description: Generate class context diagrams
+    type: class
+    template: "app_{{ class_name }}:\n  type: class\n  title: App::{{ class_name }} context\n  generate_packages: true\n  relative_to: src\n  glob:\n    - Base/*.cpp\n    - App/*.cpp\n  include:\n    context:\n      - App::{{ class_name }}\n    paths:\n      - .\n  exclude:\n    relationships:\n      - dependency\n"
+diagrams:
+  package_namespace_diagram:
+    type: package
+    title: Main namespaces package diagram
+    glob:
+      - src/App/*.cpp
+      - src/Base/*.cpp
+      - src/Gui/*.cpp
+      - src/Gui/**/*.cpp
+      - src/Main/*.cpp
+    include:
+      paths:
+        - src
+    exclude:
+      namespaces:
+        - std
+  package_directory_diagram:
+    type: package
+    title: Directory structure package diagram
+    package_type: directory
+    relative_to: src
+    glob:
+      - App/*.cpp
+      - Base/*.cpp
+      - Gui/*.cpp
+      - Gui/**/*.cpp
+      - Main/*.cpp
+    include:
+      paths:
+        - .
+  base_class_diagram:
+    type: class
+    title: Base classes
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+    include:
+      paths:
+        - Base
+    exclude:
+      access: [public, protected, private]
+      relationships:
+        - dependency
+      elements:
+        - Base::Quantity
+    plantuml:
+      before:
+        - left to right direction
+  nodeitem_hierarchy_diagram:
+    type: class
+    title: NodeItem class hierarchy
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+    include:
+      paths:
+        - Base
+        - App
+      subclasses:
+        - Base::NodeItem
+      relationships:
+        - inheritance
+    exclude:
+      access: [public, protected, private]
+    plantuml:
+      before:
+        - left to right direction
+  baseclass_hierarchy_diagram:
+    type: class
+    title: BaseClass class hierarchy
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      paths:
+        - Base
+        - App
+      subclasses:
+        - Base::BaseClass
+      relationships:
+        - inheritance
+    exclude:
+      access: [public, protected, private]
+    plantuml:
+      before:
+        - left to right direction
+  app_Annotation:
+    type: class
+    title: App::Annotation context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Annotation
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_FeatureTest:
+    type: class
+    title: App::FeatureTest context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::FeatureTest
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Range:
+    type: class
+    title: App::Range context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Range
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Link:
+    type: class
+    title: App::Link context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Link
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Color:
+    type: class
+    title: App::Color context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Color
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_OriginFeature:
+    type: class
+    title: App::OriginFeature context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::OriginFeature
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_PropertyLinks:
+    type: class
+    title: App::PropertyLinks context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::PropertyLinkBase
+        - App::ScopedLink
+        - App::PropertyLinkList
+        - App::PropertyLinkSubList
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Document:
+    type: class
+    title: App::Document context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Document
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_GeoFeatureGroupExtension:
+    type: class
+    title: App::GeoFeatureGroupExtension context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::GeoFeatureGroupExtension
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Property:
+    type: class
+    title: App::Property context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Property
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Part:
+    type: class
+    title: App::Part context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Part
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_private/DocumentP:
+    type: class
+    title: App::private/DocumentP context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::private/DocumentP
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Metadata:
+    type: class
+    title: App::Metadata context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Metadata
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ExtensionPython:
+    type: class
+    title: App::ExtensionPython context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::ExtensionPythonT<ExtensionT>
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_DocumentObjectExtension:
+    type: class
+    title: App::DocumentObjectExtension context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::DocumentObjectExtension
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_PropertyPythonObject:
+    type: class
+    title: App::PropertyPythonObject context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::PropertyPythonObject
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Enumeration:
+    type: class
+    title: App::Enumeration context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Enumeration
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_DocumentObject:
+    type: class
+    title: App::DocumentObject context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::DocumentObject
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Expression:
+    type: class
+    title: App::Expression context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Expression
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ObjectIdentifier:
+    type: class
+    title: App::ObjectIdentifier context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::ObjectIdentifier
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ColorModel:
+    type: class
+    title: App::ColorModel context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::ColorModel
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Origin:
+    type: class
+    title: App::Origin context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Origin
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_DynamicProperty:
+    type: class
+    title: App::DynamicProperty context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::DynamicProperty
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_MappedName:
+    type: class
+    title: Data::MappedName context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - Data::MappedName
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Material:
+    type: class
+    title: App::Material context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Material
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_PropertyQuantity:
+    type: class
+    title: App::PropertyQuantity context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::PropertyQuantity
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Transactions:
+    type: class
+    title: App Transactions context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Transaction
+        - App::TransactionObject
+        - App::TransactionDocumentObject
+        - App::TransactionProducer
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ExpressionTokenizer:
+    type: class
+    title: App::ExpressionTokenizer context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::ExpressionTokenizer
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ComplexGeoData:
+    type: class
+    title: App::ComplexGeoData context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - Data::ComplexGeoData
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_PropertyFile:
+    type: class
+    title: App::PropertyFile context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::PropertyFile
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ExtensionContainer:
+    type: class
+    title: App::ExtensionContainer context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::ExtensionContainer
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_PropertyGeo:
+    type: class
+    title: App::PropertyGeo context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Property
+        - App::PropertyVector
+      paths:
+        - App/PropertyGeo.h
+    exclude:
+      relationships:
+        - dependency
+  app_AutoTransaction:
+    type: class
+    title: App::AutoTransaction context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::AutoTransaction
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_DocumentObserver:
+    type: class
+    title: App::DocumentObserver context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::DocumentObserver
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Branding:
+    type: class
+    title: App::Branding context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Branding
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_FeaturePython:
+    type: class
+    title: App::FeaturePython context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::FeaturePythonT<FeatureT>
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_DocumentObjectFileIncluded:
+    type: class
+    title: App::DocumentObjectFileIncluded context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::DocumentObjectFileIncluded
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_MeasureDistance:
+    type: class
+    title: App::MeasureDistance context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::MeasureDistance
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ElementMap:
+    type: class
+    title: Data::ElementMap context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - Data::ElementMap
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_GroupExtension:
+    type: class
+    title: App::GroupExtension context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::GroupExtension
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_DocumentObjectGroup:
+    type: class
+    title: App::DocumentObjectGroup context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::DocumentObjectGroup
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_IndexedName:
+    type: class
+    title: Data::IndexedName context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - Data::IndexedName
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_MappedElement:
+    type: class
+    title: Data::MappedElement context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - Data::MappedElement
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Path:
+    type: class
+    title: App::Path context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Path
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_TextDocument:
+    type: class
+    title: App::TextDocument context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::TextDocument
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_MergeDocuments:
+    type: class
+    title: App::MergeDocuments context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::MergeDocuments
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Application:
+    type: class
+    title: App::Application context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Application
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_InventorObject:
+    type: class
+    title: App::InventorObject context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::InventorObject
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_TransactionalObject:
+    type: class
+    title: App::TransactionalObject context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::TransactionalObject
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ExpressionModifier:
+    type: class
+    title: App::ExpressionModifier context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::ExpressionModifier<P>
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Extension:
+    type: class
+    title: App::Extension context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Extension
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_OriginGroupExtension:
+    type: class
+    title: App::OriginGroupExtension context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::OriginGroupExtension
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_MaterialObject:
+    type: class
+    title: App::MaterialObject context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::MaterialObject
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_StringHasher:
+    type: class
+    title: App::StringHasher context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::StringHasher
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_PropertyContainer:
+    type: class
+    title: App::PropertyContainer context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::PropertyContainer
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_DocumentObserverPython:
+    type: class
+    title: App::DocumentObserverPython context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::DocumentObserverPython
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_VRMLObject:
+    type: class
+    title: App::VRMLObject context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::VRMLObject
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_Placement:
+    type: class
+    title: App::Placement context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::Placement
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_PropertyExpressionEngine:
+    type: class
+    title: App::PropertyExpressionEngine context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::PropertyExpressionEngine
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_PropertyStandard:
+    type: class
+    title: App::PropertyStandard context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::PropertyInteger
+        - App::Property
+      paths:
+        - App/PropertyStandard.h
+    exclude:
+      relationships:
+        - dependency
+  app_GeoFeature:
+    type: class
+    title: App::GeoFeature context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - App::GeoFeature
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency
+  app_ImagePlane:
+    type: class
+    title: Image::ImagePlane context
+    generate_packages: true
+    relative_to: src
+    glob:
+      - Base/*.cpp
+      - App/*.cpp
+    include:
+      context:
+        - Image::ImagePlane
+      paths:
+        - .
+    exclude:
+      relationships:
+        - dependency

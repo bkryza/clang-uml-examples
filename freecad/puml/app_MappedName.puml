@@ -1,0 +1,127 @@
+@startuml
+title Data::MappedName context
+package [Data] as C_0000993002797833335293 {
+class "MappedName" as C_0000905428477291737110
+class C_0000905428477291737110 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L53{MappedName}]] {
++MappedName(const char * name, int size = -1) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L62{MappedName}]]]
++MappedName(const std::string & nameString) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L79{MappedName}]]]
++MappedName(const Data::IndexedName & element) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L94{MappedName}]]]
++MappedName(const App::StringIDRef & sid) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L105{MappedName}]]]
++MappedName() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L111{MappedName}]]]
++MappedName(const Data::MappedName & other) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L115{MappedName}]]]
++MappedName(const Data::MappedName & other, int startPosition, int size = -1) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L123{MappedName}]]]
++MappedName(const Data::MappedName & other, const char * postfix) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L133{MappedName}]]]
++MappedName(Data::MappedName && other) noexcept : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L140{MappedName}]]]
++~MappedName() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L146{~MappedName}]]]
+..
++operator=(const Data::MappedName & other) = default : Data::MappedName & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L222{operator=}]]]
++operator=(Data::MappedName && other) noexcept : Data::MappedName & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L240{operator=}]]]
+..
++operator!=(const Data::MappedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L289{operator!=}]]]
++operator+(const Data::MappedName & other) const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L296{operator+}]]]
++operator+(const char * other) const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L305{operator+}]]]
++operator+(const std::string & other) const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L314{operator+}]]]
++operator+(const QByteArray & other) const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L323{operator+}]]]
++operator+=(const char * other) : Data::MappedName & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L332{operator+=}]]]
++operator+=(const std::string & other) : Data::MappedName & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L341{operator+=}]]]
++operator+=(const QByteArray & other) : Data::MappedName & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L353{operator+=}]]]
++operator+=(const Data::MappedName & other) : Data::MappedName & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L362{operator+=}]]]
++operator<(const Data::MappedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L669{operator<}]]]
++operator=(const std::string & other) : Data::MappedName & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L225{operator=}]]]
++operator=(const char * other) : Data::MappedName & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L232{operator=}]]]
++operator==(const Data::MappedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L259{operator==}]]]
++operator[](int index) const : char [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L676{operator[]}]]]
+..
++append(const char * dataToAppend, int size = -1) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L373{append}]]]
++append(const Data::MappedName & other, int startPosition = 0, int size = -1) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L402{append}]]]
++appendToBuffer(std::string & buffer, int startPosition = 0, int len = -1) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L488{appendToBuffer}]]]
++appendToBufferWithPrefix(std::string & buf) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L632{appendToBufferWithPrefix}]]]
++clear() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L737{clear}]]]
++compact() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L727{compact}]]]
++compare(const Data::MappedName & other) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L645{compare}]]]
++constPostfix() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L581{constPostfix}]]]
++copy() const : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L715{copy}]]]
++dataBytes() const : const QByteArray & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L569{dataBytes}]]]
++empty() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L699{empty}]]]
++endsWith(const char * searchTarget) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L828{endsWith}]]]
++endsWith(const std::string & searchTarget) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L842{endsWith}]]]
++find(const std::string & searchTarget, int startPosition = 0) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L781{find}]]]
++find(const char * searchTarget, int startPosition = 0) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L750{find}]]]
++findTagInElementName(long * tagOut = nullptr, int * lenOut = nullptr, std::string * postfixOut = nullptr, char * typeOut = nullptr, bool negative = false, bool recursive = true) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L912{findTagInElementName}]]]
+{static} +fromRawData(const char * name, int size = -1) : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L154{fromRawData}]]]
+{static} +fromRawData(const Data::MappedName & other, int startPosition, int size = -1) : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L184{fromRawData}]]]
+{static} +fromRawData(const QByteArray & data) : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L169{fromRawData}]]]
++hash() const : std::size_t [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L917{hash}]]]
++isRaw() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L707{isRaw}]]]
++operator bool() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L731{operator bool}]]]
++postfixBytes() const : const QByteArray & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L575{postfixBytes}]]]
++rfind(const char * searchTarget, int startPosition = -1) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L794{rfind}]]]
++rfind(const std::string & searchTarget, int startPosition = -1) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L820{rfind}]]]
++size() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L692{size}]]]
++startsWith(const QByteArray & searchTarget, int offset = 0) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L854{startsWith}]]]
++startsWith(const char * searchTarget, int offset = 0) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L876{startsWith}]]]
++startsWith(const std::string & searchTarget, int offset = 0) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L892{startsWith}]]]
++toBytes() const : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L592{toBytes}]]]
++toConstString(int offset, int & size) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L516{toConstString}]]]
++toIndexedName() const : Data::IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L610{toIndexedName}]]]
++toPrefixedString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L620{toPrefixedString}]]]
++toRawBytes(int offset = 0, int size = -1) const : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L544{toRawBytes}]]]
++toString(int startPosition = 0, int len = -1) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L471{toString}]]]
+__
+-data : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L923{data}]]]
+-postfix : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L924{postfix}]]]
+-raw : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L925{raw}]]]
+}
+class "MappedNameRef" as C_0001558274074616384461
+class C_0001558274074616384461 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L931{MappedNameRef}]] {
++MappedNameRef() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L937{MappedNameRef}]]]
++MappedNameRef(Data::MappedName name, Data::ElementIDRefs sids = ElementIDRefs()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L941{MappedNameRef}]]]
++MappedNameRef(const Data::MappedNameRef & other) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L948{MappedNameRef}]]]
++MappedNameRef(Data::MappedNameRef && other) noexcept : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L953{MappedNameRef}]]]
++~MappedNameRef() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L939{~MappedNameRef}]]]
+..
++operator=(const Data::MappedNameRef & other) noexcept : Data::MappedNameRef & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L959{operator=}]]]
++operator=(Data::MappedNameRef && other) noexcept : Data::MappedNameRef & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L966{operator=}]]]
+..
++append(const Data::MappedName & _name, const Data::ElementIDRefs _sids = ElementIDRefs()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L979{append}]]]
++clear() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L1034{clear}]]]
++compact() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L1000{compact}]]]
++erase(const Data::MappedName & _name) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L1008{erase}]]]
++operator bool() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L974{operator bool}]]]
+__
++name : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L933{name}]]]
++next : std::unique_ptr<MappedNameRef> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L935{next}]]]
++sids : Data::ElementIDRefs [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedName.h#L934{sids}]]]
+}
+class "MappedElement" as C_0000738412529544393656
+class C_0000738412529544393656 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L40{MappedElement}]] {
++MappedElement() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L45{MappedElement}]]]
++MappedElement(const Data::IndexedName & idx, Data::MappedName n) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L47{MappedElement}]]]
++MappedElement(Data::MappedName n, const Data::IndexedName & idx) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L52{MappedElement}]]]
++MappedElement(const Data::MappedElement & other) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L59{MappedElement}]]]
++MappedElement(Data::MappedElement && other) noexcept : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L61{MappedElement}]]]
++~MappedElement() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L57{~MappedElement}]]]
+..
++operator=(Data::MappedElement && other) noexcept : Data::MappedElement & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L66{operator=}]]]
++operator=(const Data::MappedElement & other) = default : Data::MappedElement & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L73{operator=}]]]
+..
++operator!=(const Data::MappedElement & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L80{operator!=}]]]
++operator<(const Data::MappedElement & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L88{operator<}]]]
++operator==(const Data::MappedElement & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L75{operator==}]]]
+__
++index : Data::IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L42{index}]]]
++name : Data::MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/MappedElement.h#L43{name}]]]
+}
+}
+class "QByteArray" as C_0000030672651158506550
+class C_0000030672651158506550 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Stream.h#L38{QByteArray}]] {
+__
+}
+C_0000905428477291737110 o-- C_0000030672651158506550 : -data
+C_0000905428477291737110 o-- C_0000030672651158506550 : -postfix
+C_0001558274074616384461 o-- C_0000905428477291737110 : +name
+C_0000738412529544393656 o-- C_0000905428477291737110 : +name
+
+'Generated with clang-uml, version 0.4.0-14-g26abb71
+'LLVM version Ubuntu clang version 15.0.7
+@enduml

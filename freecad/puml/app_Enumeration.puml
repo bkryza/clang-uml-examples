@@ -1,0 +1,97 @@
+@startuml
+title App::Enumeration context
+package [App] as C_0002285326295477687690 {
+class "Enumeration" as C_0000929721878041534550
+class C_0000929721878041534550 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L52{Enumeration}]] {
++Enumeration() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L65{Enumeration}]]]
++Enumeration(const App::Enumeration & other) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L68{Enumeration}]]]
++Enumeration(const char * valStr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L71{Enumeration}]]]
++Enumeration(const char ** list, const char * valStr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L74{Enumeration}]]]
++~Enumeration() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L77{~Enumeration}]]]
+..
++operator=(const App::Enumeration & other) : App::Enumeration & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L158{operator=}]]]
+..
++operator==(const App::Enumeration & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L164{operator==}]]]
++operator==(const char * other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L170{operator==}]]]
+..
++contains(const char * value) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L125{contains}]]]
+#countItems() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L174{countItems}]]]
++getCStr() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L131{getCStr}]]]
++getEnumVector() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L140{getEnumVector}]]]
++getInt() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L137{getInt}]]]
++hasEnums() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L143{hasEnums}]]]
++isCustom() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L155{isCustom}]]]
++isValid() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L146{isValid}]]]
++isValue(const char * value) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L122{isValue}]]]
++maxValue() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L152{maxValue}]]]
++setEnums(const char ** plEnums) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L91{setEnums}]]]
++setEnums(const std::vector<std::string> & values) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L104{setEnums}]]]
++setValue(const char * value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L107{setValue}]]]
++setValue(const std::string & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L110{setValue}]]]
++setValue(long value, bool checkRange = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L119{setValue}]]]
+__
+-_index : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L186{_index}]]]
+-enumArray : std::vector<ObjectPtr> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L179{enumArray}]]]
+}
+abstract "Enumeration::Object" as C_0000790415586796558109
+abstract C_0000790415586796558109 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L55{Enumeration##Object}]] {
+{abstract} +data() const = 0 : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L58{data}]]]
+{abstract} +isCustom() const = 0 : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L60{isCustom}]]]
+{abstract} +isEqual(const char *) const = 0 : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L59{isEqual}]]]
++~Object() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/Enumeration.h#L57{~Object}]]]
+__
+}
+class "PropertyEnumeration" as C_0000619167421672770185
+class C_0000619167421672770185 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L142{PropertyEnumeration}]] {
++PropertyEnumeration() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L148{PropertyEnumeration}]]]
++PropertyEnumeration(const App::Enumeration & e) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L151{PropertyEnumeration}]]]
++~PropertyEnumeration() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L154{~PropertyEnumeration}]]]
+..
++Copy() const : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L224{Copy}]]]
++Paste(const App::Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L225{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L222{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L221{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L144{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L144{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L215{getEditorName}]]]
++getEnum() const : const App::Enumeration & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L201{getEnum}]]]
++getEnumVector() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L204{getEnumVector}]]]
++getPathValue(const App::ObjectIdentifier &) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L229{getPathValue}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L218{getPyObject}]]]
++getPyPathValue(const App::ObjectIdentifier & path, Py::Object & r) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L230{getPyPathValue}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L144{getTypeId}]]]
++getValue() const : long [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L189{getValue}]]]
++getValueAsString() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L198{getValueAsString}]]]
++hasEnums() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L209{hasEnums}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L144{init}]]]
++isPartOf(const char * value) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L195{isPartOf}]]]
++isSame(const App::Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L232{isSame}]]]
++isValid() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L212{isValid}]]]
++isValue(const char * value) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L192{isValue}]]]
++setEditorName(const char * name) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L216{setEditorName}]]]
++setEnumVector(const std::vector<std::string> &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L207{setEnumVector}]]]
++setEnums(const std::vector<std::string> & Enums) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L172{setEnums}]]]
++setEnums(const char ** plEnums) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L167{setEnums}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L227{setPathValue}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L219{setPyObject}]]]
++setPyPathValue(const App::ObjectIdentifier & path, const Py::Object & value) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L228{setPyPathValue}]]]
++setValue(const App::Enumeration & source) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L186{setValue}]]]
++setValue(long) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L183{setValue}]]]
++setValue(const char * value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L177{setValue}]]]
+__
+-_editorTypeName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L241{_editorTypeName}]]]
+-_enum : App::Enumeration [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L240{_enum}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/PropertyStandard.h#L144{classTypeId}]]]
+}
+package [ExpressionParser] as C_0000905861183269213715 {
+}
+package [Meta] as C_0002283864520314866053 {
+}
+}
+C_0000929721878041534550 <.. C_0000619167421672770185 : +<<friend>>
+C_0000790415586796558109 --+ C_0000929721878041534550
+C_0000619167421672770185 o-- C_0000929721878041534550 : -_enum
+
+'Generated with clang-uml, version 0.4.0-14-g26abb71
+'LLVM version Ubuntu clang version 15.0.7
+@enduml

@@ -1,0 +1,253 @@
+@startuml
+title App::StringHasher context
+package [Base] as C_0000701777446892506059 {
+class "Type" as C_0001299587473968259399
+class C_0001299587473968259399 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L80{Type}]] {
++Type(const Base::Type & type) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L84{Type}]]]
++Type() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L85{Type}]]]
++~Type() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L87{~Type}]]]
+..
++operator=(const Base::Type type) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L114{operator=}]]]
+..
++operator!=(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L116{operator!=}]]]
++operator<(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L118{operator<}]]]
++operator<=(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L119{operator<=}]]]
++operator==(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L115{operator==}]]]
++operator>(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L121{operator>}]]]
++operator>=(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L120{operator>=}]]]
+..
+{static} +badType() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L123{badType}]]]
++createInstance() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L90{createInstance}]]]
+{static} +createInstanceByName(const char * TypeName, bool bLoadModule = false) : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L92{createInstanceByName}]]]
+{static} +createType(const Base::Type parent, const char * name, Base::Type::instantiationMethod method = nullptr) : const Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L109{createType}]]]
+{static} +destruct() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L125{destruct}]]]
+{static} +fromKey(unsigned int key) : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L98{fromKey}]]]
+{static} +fromName(const char * name) : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L97{fromName}]]]
+{static} +getAllDerivedFrom(const Base::Type type, std::vector<Type> & List) : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L103{getAllDerivedFrom}]]]
++getKey() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L111{getKey}]]]
+{static} #getModuleName(const char * ClassName) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L128{getModuleName}]]]
++getName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L99{getName}]]]
+{static} +getNumTypes() : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L107{getNumTypes}]]]
++getParent() const : const Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L100{getParent}]]]
+{static} +getTypeIfDerivedFrom(const char * name, const Base::Type parent, bool bLoadModule = false) : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L105{getTypeIfDerivedFrom}]]]
+{static} +importModule(const char * TypeName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L93{importModule}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L124{init}]]]
++isBad() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L112{isBad}]]]
++isDerivedFrom(const Base::Type type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L101{isDerivedFrom}]]]
+__
+-index : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L134{index}]]]
+{static} -loadModuleSet : std::set<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L140{loadModuleSet}]]]
+{static} -typedata : std::vector<TypeData *> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L138{typedata}]]]
+{static} -typemap : std::map<std::string,unsigned int> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Type.h#L137{typemap}]]]
+}
+abstract "Persistence" as C_0001441097518118859586
+abstract C_0001441097518118859586 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L36{Persistence}]] {
+{abstract} +Restore(Base::XMLReader &) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L79{Restore}]]]
++RestoreDocFile(Base::Reader &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L143{RestoreDocFile}]]]
+{abstract} +Save(Base::Writer &) const = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L63{Save}]]]
++SaveDocFile(Base::Writer &) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L113{SaveDocFile}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L39{create}]]]
++dumpToStream(std::ostream & stream, int compression) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L148{dumpToStream}]]]
+{static} +encodeAttribute(const std::string &) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L145{encodeAttribute}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L39{getClassTypeId}]]]
+{abstract} +getMemSize() const = 0 : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L46{getMemSize}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L39{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L39{init}]]]
+-restoreFinished() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L159{restoreFinished}]]]
++restoreFromStream(std::istream & stream) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L151{restoreFromStream}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Persistence.h#L39{classTypeId}]]]
+}
+class "Handled" as C_0001877203087156647552
+class C_0001877203087156647552 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L145{Handled}]] {
++Handled() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L148{Handled}]]]
+-Handled(const Base::Handled &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L159{Handled}]]]
++~Handled() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L149{~Handled}]]]
+..
++operator=(const Base::Handled &) : const Base::Handled & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L156{operator=}]]]
+..
++getRefCount() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L155{getRefCount}]]]
++ref() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L151{ref}]]]
++unref() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L152{unref}]]]
++unrefNoDelete() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L153{unrefNoDelete}]]]
+__
+-_lRefCount : QAtomicInt * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/Base/Handle.h#L162{_lRefCount}]]]
+}
+}
+package [App] as C_0002285326295477687690 {
+class "StringID" as C_0001700713458685993577
+class C_0001700713458685993577 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L77{StringID}]] {
++StringID(long id, QByteArray data, const App::StringID::Flags & flags = Flag::None) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L121{StringID}]]]
++StringID() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L128{StringID}]]]
++StringID(const App::StringID & other) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L133{StringID}]]]
++StringID(App::StringID && other) noexcept = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L134{StringID}]]]
++~StringID() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L138{~StringID}]]]
+..
++operator=(const App::StringID & rhs) = deleted : App::StringID & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L135{operator=}]]]
++operator=(App::StringID && rhs) noexcept = deleted : App::StringID & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L136{operator=}]]]
+..
++operator<(const App::StringID & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L283{operator<}]]]
+..
++compare(const App::StringID & other) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L292{compare}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L79{create}]]]
++data() const : const QByteArray & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L178{data}]]]
++dataToBytes(int index = 0) const : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L265{dataToBytes}]]]
++dataToText(int index = 0) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L260{dataToText}]]]
+{static} +fromString(const QByteArray & bytes, bool eof = true) : App::StringID::IndexID [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L250{fromString}]]]
+{static} +fromString(const char * name, bool eof = true, int size = -1) : App::StringID::IndexID [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L239{fromString}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L79{getClassTypeId}]]]
++getHasher() const : App::StringHasherRef [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L172{getHasher}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L195{getPyObject}]]]
++getPyObjectWithIndex(int index) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L197{getPyObjectWithIndex}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L79{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L79{init}]]]
++isBinary() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L154{isBinary}]]]
++isFromSameHasher(const App::StringHasherRef & hasher) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L166{isFromSameHasher}]]]
++isHashed() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L155{isHashed}]]]
++isIndexed() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L158{isIndexed}]]]
++isMarked() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L161{isMarked}]]]
++isPersistent() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L162{isPersistent}]]]
++isPostfixEncoded() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L157{isPostfixEncoded}]]]
++isPostfixed() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L156{isPostfixed}]]]
++isPrefixID() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L159{isPrefixID}]]]
++isPrefixIDIndex() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L160{isPrefixIDIndex}]]]
++mark() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L278{mark}]]]
++postfix() const : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L184{postfix}]]]
++relatedIDs() const : const QVector<App::StringIDRef> & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L147{relatedIDs}]]]
++setPersistent(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L281{setPersistent}]]]
++setPostfix(QByteArray postfix) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L190{setPostfix}]]]
++toString(int index = 0) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L205{toString}]]]
++value() const : long [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L141{value}]]]
+__
+-_data : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L313{_data}]]]
+-_flags : App::StringID::Flags [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L316{_flags}]]]
+-_hasher : App::StringHasher * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L315{_hasher}]]]
+-_id : long [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L312{_id}]]]
+-_postfix : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L314{_postfix}]]]
+-_sids : QVector<App::StringIDRef> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L317{_sids}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L79{classTypeId}]]]
+}
+class "StringIDRef" as C_0000636701921888848768
+class C_0000636701921888848768 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L324{StringIDRef}]] {
++StringIDRef() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L329{StringIDRef}]]]
++StringIDRef(App::StringID * stringID, int index = 0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L339{StringIDRef}]]]
++StringIDRef(const App::StringIDRef & other) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L349{StringIDRef}]]]
++StringIDRef(App::StringIDRef && other) noexcept : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L360{StringIDRef}]]]
++StringIDRef(const App::StringIDRef & other, int index) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L367{StringIDRef}]]]
++~StringIDRef() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L376{~StringIDRef}]]]
+..
++operator=(const App::StringIDRef & stringID) : App::StringIDRef & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L419{operator=}]]]
++operator=(App::StringIDRef && stringID) noexcept : App::StringIDRef & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L437{operator=}]]]
+..
++operator!=(const App::StringIDRef & stringID) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L476{operator!=}]]]
++operator<(const App::StringIDRef & stringID) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L450{operator<}]]]
++operator=(App::StringID * stringID) : App::StringIDRef & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L403{operator=}]]]
++operator==(const App::StringIDRef & stringID) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L468{operator==}]]]
+..
++constData() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L512{constData}]]]
++dataToText() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L502{dataToText}]]]
++deref() const : const App::StringID & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L522{deref}]]]
++getHasher() const : App::StringHasherRef [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L593{getHasher}]]]
++getIndex() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L610{getIndex}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L567{getPyObject}]]]
++getRefCount() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L486{getRefCount}]]]
++isBinary() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L543{isBinary}]]]
++isFromSameHasher(const App::StringHasherRef & hasher) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L588{isFromSameHasher}]]]
++isHashed() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L551{isHashed}]]]
++isMarked() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L583{isMarked}]]]
++mark() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L576{mark}]]]
++operator bool() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L481{operator bool}]]]
++relatedIDs() const : QVector<App::StringIDRef> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L535{relatedIDs}]]]
++reset(const App::StringIDRef & stringID = StringIDRef()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L383{reset}]]]
++reset(const App::StringIDRef & stringID, int index) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L388{reset}]]]
++setPersistent(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L601{setPersistent}]]]
++swap(App::StringIDRef & stringID) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L394{swap}]]]
++toBytes(QByteArray & bytes) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L559{toBytes}]]]
++toString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L494{toString}]]]
++value() const : long [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L527{value}]]]
+__
+-_index : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L619{_index}]]]
+-_sid : App::StringID * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L618{_sid}]]]
+}
+class "StringHasher" as C_0002222563646335366762
+class C_0002222563646335366762 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L633{StringHasher}]] {
++StringHasher() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L639{StringHasher}]]]
++StringHasher(const App::StringHasher &) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L642{StringHasher}]]]
++StringHasher(App::StringHasher &&) noexcept = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L643{StringHasher}]]]
++~StringHasher() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L640{~StringHasher}]]]
+..
++operator=(App::StringHasher & other) = deleted : App::StringHasher & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L644{operator=}]]]
++operator=(App::StringHasher && other) noexcept = deleted : App::StringHasher & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L645{operator=}]]]
+..
++Restore(Base::XMLReader &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L649{Restore}]]]
++RestoreDocFile(Base::Reader &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L651{RestoreDocFile}]]]
++Save(Base::Writer &) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L648{Save}]]]
++SaveDocFile(Base::Writer &) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L650{SaveDocFile}]]]
++clear() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L734{clear}]]]
++clearMarks() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L765{clearMarks}]]]
++compact() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L768{compact}]]]
++count() const : size_t [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L740{count}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L636{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L636{getClassTypeId}]]]
++getID(const char * text, int len = -1, bool hashable = false) : App::StringIDRef [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L674{getID}]]]
++getID(const StringID::IndexID & id) const : App::StringIDRef [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L726{getID}]]]
++getID(long id, int index = 0) const : App::StringIDRef [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L719{getID}]]]
++getID(const Data::MappedName & name, const QVector<App::StringIDRef> & sids) : App::StringIDRef [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L707{getID}]]]
++getID(const QByteArray & data, App::StringHasher::Options options = Option::Hashable) : App::StringIDRef [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L704{getID}]]]
++getIDMap() const : std::map<long,StringIDRef> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L731{getIDMap}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L647{getMemSize}]]]
++getPersistenceFileName() const : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L653{getPersistenceFileName}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L742{getPyObject}]]]
++getSaveAll() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L750{getSaveAll}]]]
++getThreshold() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L758{getThreshold}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L636{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L636{init}]]]
+#insert(const App::StringIDRef & sid) : App::StringID * [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L774{insert}]]]
+#lastID() const : long [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L775{lastID}]]]
+#restoreStream(std::istream & stream, std::size_t count) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L777{restoreStream}]]]
+#restoreStreamNew(std::istream & stream, std::size_t count) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L778{restoreStreamNew}]]]
+#saveStream(std::ostream & stream) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L776{saveStream}]]]
++setPersistenceFileName(const char * name) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L652{setPersistenceFileName}]]]
++setSaveAll(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L749{setSaveAll}]]]
++setThreshold(int threshold) : void [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L757{setThreshold}]]]
++size() const : size_t [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L737{size}]]]
+__
+-_filename : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L782{_filename}]]]
+-_hashes : std::unique_ptr<HashMap> [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L781{_hashes}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L636{classTypeId}]]]
+}
+enum "StringHasher##Option" as C_0001504720727927851150
+enum C_0001504720727927851150 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L677{StringHasher##Option}]] {
+None
+Binary
+Hashable
+NoCopy
+}
+class "StringHasher::HashMap" as C_0000649109652277618974
+class C_0000649109652277618974 [[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.h#L770{StringHasher##HashMap}]] {
+__
++SaveAll : bool [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.cpp#L83{SaveAll}]]]
++Threshold : int [[[https://github.com/FreeCAD/FreeCAD/blob/f6708547a9bb3f71a4aaade12109f511a72c207c/src/App/StringHasher.cpp#L84{Threshold}]]]
+}
+package [ExpressionParser] as C_0000905861183269213715 {
+}
+package [Meta] as C_0002283864520314866053 {
+}
+}
+C_0001441097518118859586 --> C_0001299587473968259399 : -classTypeId
+C_0001700713458685993577 --> C_0002222563646335366762 : -_hasher
+C_0001700713458685993577 --> C_0001299587473968259399 : -classTypeId
+C_0001700713458685993577 <.. C_0002222563646335366762 : +<<friend>>
+C_0001877203087156647552 <|-- C_0001700713458685993577
+C_0000636701921888848768 --> C_0001700713458685993577 : -_sid
+C_0000636701921888848768 <.. C_0002222563646335366762 : +<<friend>>
+C_0002222563646335366762 --> C_0001299587473968259399 : -classTypeId
+C_0002222563646335366762 <.. C_0001700713458685993577 : +<<friend>>
+C_0001441097518118859586 <|-- C_0002222563646335366762
+C_0001877203087156647552 <|-- C_0002222563646335366762
+C_0001504720727927851150 --+ C_0002222563646335366762
+C_0000649109652277618974 --+ C_0002222563646335366762
+
+'Generated with clang-uml, version 0.4.0-14-g26abb71
+'LLVM version Ubuntu clang version 15.0.7
+@enduml

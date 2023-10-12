@@ -9,6 +9,7 @@ This repository contains several examples of UML diagrams generated using [clang
 * [godot](./godot/README.md)
 * [poco](./poco/README.md)
 * [yaml-cpp](./yaml-cpp/README.md)
+* [FreeCAD](./freecad/README.md)
 
 To build the example diagrams follow the following steps:
 
