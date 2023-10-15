@@ -1,4 +1,13 @@
 # drogon UML diagrams
+
+<!-- toc -->
+
+* [drogon class hierarchy](#drogon-class-hierarchy)
+* ['drobjectbase' class hierarchy](#drobjectbase-class-hierarchy)
+* [trantor class diagram](#trantor-class-diagram)
+
+<!-- tocstop -->
+
 ## drogon class hierarchy
 ![puml](puml/all_classes_diagram.svg)
 

@@ -1,4 +1,42 @@
 # clang-uml UML diagrams
+
+<!-- toc -->
+
+* [Translation unit AST visitors](#translation-unit-ast-visitors)
+* [Configuration model](#configuration-model)
+* [clanguml::config::config context diagram](#clangumlconfigconfig-context-diagram)
+* [Compilation database context diagram](#compilation-database-context-diagram)
+* [Configuration model inheritable options context](#configuration-model-inheritable-options-context)
+* [Configuration model class hierarchy](#configuration-model-class-hierarchy)
+* [Diagram type class hierarchy](#diagram-type-class-hierarchy)
+* [Decorated diagram element class hierarchy](#decorated-diagram-element-class-hierarchy)
+* [Stylable diagram element class hierarchy](#stylable-diagram-element-class-hierarchy)
+* [Source location model class hierarchy](#source-location-model-class-hierarchy)
+* [Diagram filter visitor class hierarchy](#diagram-filter-visitor-class-hierarchy)
+* [Diagram filter context model](#diagram-filter-context-model)
+* [Nested trait model class hierarchy](#nested-trait-model-class-hierarchy)
+* [Package diagram class hierarchy](#package-diagram-class-hierarchy)
+* [Source file model class hierarchy](#source-file-model-class-hierarchy)
+* [Template trait diagram element model class hierarchy](#template-trait-diagram-element-model-class-hierarchy)
+* [Comment visitor class hierarchy](#comment-visitor-class-hierarchy)
+* [Diagram element decorators model](#diagram-element-decorators-model)
+* [Relationship model context](#relationship-model-context)
+* [Common diagram model](#common-diagram-model)
+* [Class diagram model](#class-diagram-model)
+* [Diagram element class hierarchy](#diagram-element-class-hierarchy)
+* [Sequence diagram model](#sequence-diagram-model)
+* [Package diagram model](#package-diagram-model)
+* [main() function sequence diagram](#main-function-sequence-diagram)
+* [Configuration file loading sequence diagram](#configuration-file-loading-sequence-diagram)
+* [CLI options handling sequence diagram](#cli-options-handling-sequence-diagram)
+* [Common sequence diagram generator sequence diagram](#common-sequence-diagram-generator-sequence-diagram)
+* [PlantUML diagram generator sequence diagram](#plantuml-diagram-generator-sequence-diagram)
+* [Diagram element template builder sequence diagram](#diagram-element-template-builder-sequence-diagram)
+* [High-level namespace dependencies in clang-uml](#high-level-namespace-dependencies-in-clang-uml)
+* [Include graph](#include-graph)
+
+<!-- tocstop -->
+
 ## Translation unit AST visitors
 ![puml](puml/architecture_visitors_class.svg)
 

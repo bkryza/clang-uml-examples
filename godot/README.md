@@ -1,4 +1,15 @@
 # godot UML diagrams
+
+<!-- toc -->
+
+* [Godot Object class hierarchy](#godot-object-class-hierarchy)
+* [Godot Resource class hierarchy](#godot-resource-class-hierarchy)
+* [Godot Node2D class context](#godot-node2d-class-context)
+* [Godot Node2D class context](#godot-node2d-class-context-1)
+* [Godot Object class hierarchy](#godot-object-class-hierarchy-1)
+
+<!-- tocstop -->
+
 ## Godot Object class hierarchy
 ![puml](puml/object_class_hierarchy_diagram.svg)
 

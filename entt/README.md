@@ -1,4 +1,21 @@
 # entt UML diagrams
+
+<!-- toc -->
+
+* ['container' class diagram](#container-class-diagram)
+* ['core' class diagram](#core-class-diagram)
+* ['entity' class diagram](#entity-class-diagram)
+* ['graph' class diagram](#graph-class-diagram)
+* ['locator' class diagram](#locator-class-diagram)
+* ['meta' class diagram](#meta-class-diagram)
+* ['platform' class diagram](#platform-class-diagram)
+* ['poly' class diagram](#poly-class-diagram)
+* ['process' class diagram](#process-class-diagram)
+* ['resource' class diagram](#resource-class-diagram)
+* ['signal' class diagram](#signal-class-diagram)
+
+<!-- tocstop -->
+
 ## 'container' class diagram
 ![puml](puml/container_class_diagram.svg)
 

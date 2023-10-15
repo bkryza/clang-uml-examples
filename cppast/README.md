@@ -1,4 +1,18 @@
 # cppast UML diagrams
+
+<!-- toc -->
+
+* ['cpp_expression' class diagram](#cpp_expression-class-diagram)
+* ['cpp_type' class diagram](#cpp_type-class-diagram)
+* ['cpp_entity_index' class diagram](#cpp_entity_index-class-diagram)
+* ['cpp_entity' class hierarchy](#cpp_entity-class-hierarchy)
+* ['cpp_entity' class hierarchy with public members](#cpp_entity-class-hierarchy-with-public-members)
+* ['cpp_type' class hierarchy diagram](#cpp_type-class-hierarchy-diagram)
+* ['cpp_type' class hierarchy diagram with public members](#cpp_type-class-hierarchy-diagram-with-public-members)
+* [Include graph diagram](#include-graph-diagram)
+
+<!-- tocstop -->
+
 ## 'cpp_expression' class diagram
 ![puml](puml/cpp_expression_class_diagram.svg)
 

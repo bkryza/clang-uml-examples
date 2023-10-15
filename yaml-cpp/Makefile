@@ -22,6 +22,8 @@ diagrams: build
 
 plantuml: diagrams
 		plantuml -tsvg puml/*.puml
+		python3 ../generate_readme.py yaml-cpp
+		markdown-toc  --bullets "*" -i README.md
 
 clean:
 		rm -rf yaml-cpp
