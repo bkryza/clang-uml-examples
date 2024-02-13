@@ -1,0 +1,124 @@
+@startuml
+title 'FTP' class diagram
+class "pingpong" as C_0002207462568950078434
+class C_0002207462568950078434 [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L49{pingpong}]] {
+__
++endofresp : _Bool (*)(struct Curl_easy *,struct connectdata *,char *,size_t,int *) [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L71{endofresp}]]]
++nfinal : size_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L64{nfinal}]]]
++nread_resp : size_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L50{nread_resp}]]]
++overflow : size_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L63{overflow}]]]
++pending_resp : _Bool [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L51{pending_resp}]]]
++recvbuf : struct dynbuf [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L62{recvbuf}]]]
++response : struct curltime [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L57{response}]]]
++response_time : timediff_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L59{response_time}]]]
++sendbuf : struct dynbuf [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L61{sendbuf}]]]
++sendleft : size_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L55{sendleft}]]]
++sendsize : size_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L56{sendsize}]]]
++sendthis : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L54{sendthis}]]]
++statemachine : CURLcode (*)(struct Curl_easy *,struct connectdata *) [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/pingpong.h#L70{statemachine}]]]
+}
+class "ftp_wc" as C_0000766231174526764217
+class C_0000766231174526764217 [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L88{ftp_wc}]] {
+__
++backup : ftp_wc::(anonymous_135736) [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L94{backup}]]]
++parser : struct ftp_parselist_data * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L89{parser}]]]
+}
+class "ftp_wc::(backup)" as C_0001993365287056783127
+class C_0001993365287056783127 [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L91{ftp_wc##(backup)}]] {
+__
++file_descriptor : FILE * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L93{file_descriptor}]]]
++write_function : curl_write_callback [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L92{write_function}]]]
+}
+class "FTP" as C_0000553547560001408592
+class C_0000553547560001408592 [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L108{FTP}]] {
+__
++downloadsize : curl_off_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L115{downloadsize}]]]
++path : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L109{path}]]]
++pathalloc : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L110{pathalloc}]]]
++transfer : curl_pp_transfer [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L114{transfer}]]]
+}
+class "ftp_conn" as C_0000515029739361633464
+class C_0000515029739361633464 [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L121{ftp_conn}]] {
+__
++account : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L123{account}]]]
++alternative_to_user : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L124{alternative_to_user}]]]
++ccc : unsigned char [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L150{ccc}]]]
++count1 : int [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L139{count1}]]]
++count2 : int [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L140{count2}]]]
++count3 : int [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L141{count3}]]]
++ctl_valid : bit [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L155{ctl_valid}]]]
++cwdcount : int [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L138{cwdcount}]]]
++cwddone : bit [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L158{cwddone}]]]
++cwdfail : bit [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L160{cwdfail}]]]
++dirdepth : int [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L137{dirdepth}]]]
++dirs : char ** [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L127{dirs}]]]
++dont_check : bit [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L152{dont_check}]]]
++entrypath : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L125{entrypath}]]]
++file : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L126{file}]]]
++ftp_trying_alternative : bit [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L151{ftp_trying_alternative}]]]
++known_filesize : curl_off_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L134{known_filesize}]]]
++newhost : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L128{newhost}]]]
++newport : unsigned short [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L144{newport}]]]
++pp : struct pingpong [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L122{pp}]]]
++prevpath : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L129{prevpath}]]]
++retr_size_saved : curl_off_t [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L132{retr_size_saved}]]]
++server_os : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L133{server_os}]]]
++state : ftpstate [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L145{state}]]]
++state_saved : ftpstate [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L146{state_saved}]]]
++transfertype : char [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L130{transfertype}]]]
++use_ssl : unsigned char [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L148{use_ssl}]]]
++wait_data_conn : bit [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L162{wait_data_conn}]]]
+}
+class "WildcardData" as C_0001802892946476642248
+class C_0001802892946476642248 [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftplistparser.h#L59{WildcardData}]] {
+__
++dtor : wildcard_dtor [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftplistparser.h#L64{dtor}]]]
++filelist : struct Curl_llist [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftplistparser.h#L62{filelist}]]]
++ftpwc : struct ftp_wc * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftplistparser.h#L63{ftpwc}]]]
++path : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftplistparser.h#L60{path}]]]
++pattern : char * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftplistparser.h#L61{pattern}]]]
++state : unsigned char [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftplistparser.h#L65{state}]]]
+}
+class "SingleRequest::(p)" as C_0001779263015019569388
+class C_0001779263015019569388 <<union>> [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L708{SingleRequest##(p)}]] {
+__
++file : struct FILEPROTO * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L709{file}]]]
++ftp : struct FTP * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L710{ftp}]]]
++http : struct HTTP * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L711{http}]]]
++imap : struct IMAP * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L712{imap}]]]
++ldap : struct ldapreqinfo * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L713{ldap}]]]
++mqtt : struct MQTT * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L714{mqtt}]]]
++pop3 : struct POP3 * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L715{pop3}]]]
++rtsp : struct RTSP * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L716{rtsp}]]]
++smb : struct smb_request * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L717{smb}]]]
++smtp : struct SMTP * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L718{smtp}]]]
++ssh : struct SSHPROTO * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L719{ssh}]]]
++telnet : struct TELNET * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L720{telnet}]]]
+}
+class "connectdata::(proto)" as C_0001901686412072335200
+class C_0001901686412072335200 <<union>> [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1024{connectdata##(proto)}]] {
+__
++ftpc : struct ftp_conn [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1026{ftpc}]]]
++imapc : struct imap_conn [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1035{imapc}]]]
++mqtt : struct mqtt_conn [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1056{mqtt}]]]
++pop3c : struct pop3_conn [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1038{pop3c}]]]
++rtspc : struct rtsp_conn [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1044{rtspc}]]]
++smbc : struct smb_conn [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1047{smbc}]]]
++smtpc : struct smtp_conn [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1041{smtpc}]]]
++tftpc : struct tftp_state_data * [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1032{tftpc}]]]
++unused : unsigned int [[[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/urldata.h#L1061{unused}]]]
+}
+class "ftp_parselist_data" as C_0002219168999048510385
+class C_0002219168999048510385 [[https://github.com/curl/curl/blob/5691a6cf363242da38bd7e469b13a2e741a295c6/lib/ftp.h#L86{ftp_parselist_data}]] {
+__
+}
+C_0000766231174526764217 --> C_0002219168999048510385 : +parser
+C_0000766231174526764217 o-- C_0001993365287056783127 : +backup
+C_0000515029739361633464 o-- C_0002207462568950078434 : +pp
+C_0001802892946476642248 --> C_0000766231174526764217 : +ftpwc
+C_0001779263015019569388 --> C_0000553547560001408592 : +ftp
+C_0001901686412072335200 o-- C_0000515029739361633464 : +ftpc
+
+'Generated with clang-uml, version 0.5.0-6-gd305902
+'LLVM version Ubuntu clang version 17.0.6 (++20231209124227+6009708b4367-1~exp1~20231209124336.77)
+@enduml

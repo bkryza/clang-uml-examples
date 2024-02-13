@@ -1,8 +1,8 @@
 CLANG_UML_BINARY ?= ../clang-uml/debug/src/clang-uml
 
-.PHONY: clang-uml cppast drogon folly godot yaml-cpp poco entt freecad clean
+.PHONY: clang-uml cppast drogon folly godot yaml-cpp poco entt freecad curl clean
 
-all: clang-uml cppast drogon godot yaml-cpp poco entt freecad
+all: clang-uml cppast drogon godot yaml-cpp poco entt freecad curl
 
 clang-uml:
 		$(MAKE) -C clang-uml CLANG_UML_BINARY=../$(CLANG_UML_BINARY)
@@ -31,6 +31,9 @@ entt:
 freecad:
 		$(MAKE) -C freecad CLANG_UML_BINARY=../$(CLANG_UML_BINARY)
 
+curl:
+		$(MAKE) -C curl CLANG_UML_BINARY=../$(CLANG_UML_BINARY)
+
 clean:
 		$(MAKE) -C clang-uml clean
 		$(MAKE) -C cppast clean
@@ -40,4 +43,5 @@ clean:
 		$(MAKE) -C poco clean
 		$(MAKE) -C entt clean
 		$(MAKE) -C freecad clean
+		$(MAKE) -C curl clean
 

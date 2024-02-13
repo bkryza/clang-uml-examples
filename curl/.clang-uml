@@ -1,0 +1,90 @@
+compilation_database_dir: _build
+output_directory: ../puml
+add_compile_flags:
+  - -fparse-all-comments
+  - -Wno-unknown-warning-option
+  - -DUSE_THREADS_POSIX
+remove_compile_flags:
+  - -ftree-vrp
+generate_links:
+  link: 'https://github.com/curl/curl/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+  tooltip: '{% if existsIn(element, "comment") and existsIn(element.comment, "brief") %}{{ abbrv(trim(replace(element.comment.brief.0, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+diagrams:
+  cookies:
+    type: class
+    title: "'Cookie' class diagram"
+    glob: [lib/cookie.c]
+    include:
+      context: [Cookie]
+      paths: [lib/]
+  ftp:
+    type: class
+    title: "'FTP' class diagram"
+    glob: [ lib/ftp.c ]
+    include:
+      context: [ FTP, ftp_conn, ftp_wc ]
+      paths: [ lib/ ]
+  mime:
+    type: class
+    title: "'MIME' class diagram"
+    glob: [ lib/mime.c ]
+    include:
+      context: [curl_mime, curl_mimepart, mime_state]
+    exclude:
+      elements:
+        - UserDefined
+        - UrlState
+  easy_include:
+    type: include
+    title: "easy.c include graph diagram"
+    glob: [lib/easy.c]
+    include:
+      paths: [lib/, include/curl/]
+  curl_easy_init:
+    type: sequence
+    title: "'curl_easy_init' sequence diagram"
+    glob: [ lib/easy.c, lib/connect.c ]
+    include:
+      paths: [ lib/, include/curl ]
+    combine_free_functions_into_file_participants: true
+    generate_message_comments: true
+    message_comment_width: 50
+    generate_condition_statements: true
+    from:
+      - function: "curl_easy_init()"
+  curl_easy_getinfo:
+    type: sequence
+    title: "'curl_easy_getinfo' sequence diagram"
+    glob: [ lib/easy.c, lib/connect.c ]
+    include:
+      paths: [ lib/, include/curl ]
+    combine_free_functions_into_file_participants: true
+    generate_message_comments: true
+    message_comment_width: 50
+    generate_condition_statements: true
+    from:
+      - function: "curl_easy_getinfo(struct Curl_easy *,CURLINFO)"
+  curl_easy_send:
+    type: sequence
+    title: "'curl_easy_send' sequence diagram"
+    glob: [ lib/easy.c, lib/connect.c ]
+    include:
+      paths: [ lib/, include/curl ]
+    combine_free_functions_into_file_participants: true
+    generate_message_comments: true
+    message_comment_width: 50
+    generate_condition_statements: true
+    from:
+      - function: "curl_easy_send(struct Curl_easy *,const void *,size_t,size_t *)"
+  curl_easy_recv:
+    type: sequence
+    title: "'curl_easy_recv' sequence diagram"
+    glob: [ lib/easy.c, lib/connect.c ]
+    include:
+      paths: [ lib/, include/curl ]
+    combine_free_functions_into_file_participants: true
+    generate_message_comments: true
+    message_comment_width: 50
+    generate_condition_statements: true
+    from:
+      - function: "curl_easy_recv(struct Curl_easy *,void *,size_t,size_t *)"
