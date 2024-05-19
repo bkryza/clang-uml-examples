@@ -1,0 +1,13 @@
+diff --git a/lib/easy_lock.h b/lib/easy_lock.h
+index 4f6764d42..15b16ae07 100644
+--- a/lib/easy_lock.h
++++ b/lib/easy_lock.h
+@@ -42,7 +42,7 @@
+ #define curl_simple_lock_lock(m) AcquireSRWLockExclusive(m)
+ #define curl_simple_lock_unlock(m) ReleaseSRWLockExclusive(m)
+ 
+-#elif defined(HAVE_ATOMIC) && defined(HAVE_STDATOMIC_H)
++#elif defined(HAVE_ATOMIC) && defined(HAVE_STDATOMIC_H) && !defined(__clang__)
+ #include <stdatomic.h>
+ #if defined(HAVE_SCHED_YIELD)
+ #include <sched.h>

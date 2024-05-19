@@ -1,13 +1,23 @@
 CLANG_UML_BINARY ?= ../../clang-uml/debug/src/clang-uml
 
-.PHONY: clean build diagrams plantuml
+.PHONY: patch clean build diagrams plantuml
 
 all: plantuml
+
+.PHONY: patch
 
 curl:
 		git clone https://github.com/curl/curl
 
-build: curl
+patch: curl
+	cd curl && \
+	if patch -R --force -p1 --dry-run --silent < ../disable_easy_locks.patch; then \
+		echo "Patch already applied."; \
+	else \
+		patch --force -p1 < ../disable_easy_locks.patch && echo "Patch applied successfully."; \
+	fi
+
+build: patch
 		cd curl && \
 		mkdir -p _build && \
 		cd _build && \
