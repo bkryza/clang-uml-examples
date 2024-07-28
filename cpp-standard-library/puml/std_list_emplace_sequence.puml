@@ -1,0 +1,136 @@
+@startuml
+title std::list emplace() sequence diagram
+participant "clanguml_examples::list::emplace()" as C_0016263699868639456484 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/src/list.cc#L4{emplace}]]
+activate C_0016263699868639456484
+participant "std::list<int,std::allocator<int>>" as C_0012688964058898021606 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L557{}]]
+C_0016263699868639456484 -> C_0012688964058898021606 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/src/list.cc#L5{}]] : list()
+activate C_0012688964058898021606
+deactivate C_0012688964058898021606
+C_0016263699868639456484 -> C_0012688964058898021606 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/src/list.cc#L6{}]] : end()
+activate C_0012688964058898021606
+participant "std::_List_iterator<int>" as C_0015791400372507591026 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L186{}]]
+C_0012688964058898021606 -> C_0015791400372507591026 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L965{}]] : _List_iterator(__detail::_List_node_base *)
+activate C_0015791400372507591026
+deactivate C_0015791400372507591026
+C_0012688964058898021606 --> C_0016263699868639456484
+deactivate C_0012688964058898021606
+participant "std::_List_const_iterator<int>" as C_0016481197395156723564 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L267{}]]
+C_0016263699868639456484 -> C_0016481197395156723564 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/src/list.cc#L6{}]] : _List_const_iterator(const iterator &)
+activate C_0016481197395156723564
+deactivate C_0016481197395156723564
+C_0016263699868639456484 -> C_0012688964058898021606 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/src/list.cc#L6{}]] : emplace(const_iterator,int &&)
+activate C_0012688964058898021606
+C_0012688964058898021606 -> C_0012688964058898021606 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/list.tcc#L92{}]] : _M_create_node(int &&)
+activate C_0012688964058898021606
+participant "std::_List_base<int,std::allocator<int>>" as C_0008221085376594923905 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L350{}]]
+C_0012688964058898021606 -> C_0008221085376594923905 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L635{}]] : _M_get_node()
+activate C_0008221085376594923905
+participant "std::allocator_traits<std::allocator<std::_List_node<int>>>" as C_0001551730410201807116 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/alloc_traits.h#L411{}]]
+C_0008221085376594923905 -> C_0001551730410201807116 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L443{}]] : __allocate(allocator_type &,size_type)__
+activate C_0001551730410201807116
+participant "__gnu_cxx::new_allocator<std::_List_node<int>>" as C_0011094973049152741561 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/new_allocator.h#L55{}]]
+C_0001551730410201807116 -> C_0011094973049152741561 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/alloc_traits.h#L464{}]] : allocate(size_type,const void *)
+activate C_0011094973049152741561
+alt
+C_0011094973049152741561 -> C_0011094973049152741561 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/new_allocator.h#L111{}]] : **[**_M_max_size() const**]**
+activate C_0011094973049152741561
+C_0011094973049152741561 --> C_0011094973049152741561
+deactivate C_0011094973049152741561
+note over C_0011094973049152741561
+_GLIBCXX_RESOLVE_LIB_DEFECTS
+3190. allocator::allocate
+sometimes returns too little
+storage
+end note
+alt
+participant "std::__throw_bad_array_new_length()" as C_0017195084916193522427 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/functexcept.h#L55{}]]
+C_0011094973049152741561 -> C_0017195084916193522427 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/new_allocator.h#L116{}]] : 
+activate C_0017195084916193522427
+deactivate C_0017195084916193522427
+end
+participant "std::__throw_bad_alloc()" as C_0013352003183979330430 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/functexcept.h#L52{}]]
+C_0011094973049152741561 -> C_0013352003183979330430 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/new_allocator.h#L117{}]] : 
+activate C_0013352003183979330430
+deactivate C_0013352003183979330430
+end
+alt
+participant "operator new(std::size_t,std::align_val_t)" as C_0011963844479920458001 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/new#L149{}]]
+C_0011094973049152741561 -> C_0011963844479920458001 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/new_allocator.h#L124{}]] : 
+activate C_0011963844479920458001
+C_0011963844479920458001 --> C_0011094973049152741561
+deactivate C_0011963844479920458001
+end
+participant "operator new(std::size_t)" as C_0004706041140325739473 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/new#L126{}]]
+C_0011094973049152741561 -> C_0004706041140325739473 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/new_allocator.h#L127{}]] : 
+activate C_0004706041140325739473
+C_0004706041140325739473 --> C_0011094973049152741561
+deactivate C_0004706041140325739473
+C_0011094973049152741561 --> C_0001551730410201807116
+deactivate C_0011094973049152741561
+C_0001551730410201807116 --> C_0008221085376594923905
+deactivate C_0001551730410201807116
+C_0008221085376594923905 --> C_0012688964058898021606
+deactivate C_0008221085376594923905
+C_0012688964058898021606 -> C_0008221085376594923905 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L636{}]] : _M_get_Node_allocator()
+activate C_0008221085376594923905
+C_0008221085376594923905 --> C_0012688964058898021606
+deactivate C_0008221085376594923905
+participant "std::__allocated_ptr<std::allocator<std::_List_node<int>>>" as C_0001989690290086399833 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/allocated_ptr.h#L47{}]]
+C_0012688964058898021606 -> C_0001989690290086399833 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L637{}]] : __allocated_ptr(std::allocator<std::_List_node<int>> &,pointer)
+activate C_0001989690290086399833
+participant "std::__addressof<std::allocator<std::_List_node<int>>>(std::allocator<std::_List_node<int>> &)" as C_0001314452755804900396 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/move.h#L49{}]]
+C_0001989690290086399833 -> C_0001314452755804900396 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/allocated_ptr.h#L54{}]] : 
+activate C_0001314452755804900396
+C_0001314452755804900396 --> C_0001989690290086399833
+deactivate C_0001314452755804900396
+deactivate C_0001989690290086399833
+participant "std::_List_node<int>" as C_0011620124836104627274 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L167{}]]
+C_0012688964058898021606 -> C_0011620124836104627274 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L638{}]] : _M_valptr()
+activate C_0011620124836104627274
+participant "__gnu_cxx::__aligned_membuf<int>" as C_0001386050265178105811 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/aligned_buffer.h#L47{}]]
+C_0011620124836104627274 -> C_0001386050265178105811 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L171{}]] : _M_ptr()
+activate C_0001386050265178105811
+C_0001386050265178105811 -> C_0001386050265178105811 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/aligned_buffer.h#L73{}]] : _M_addr()
+activate C_0001386050265178105811
+C_0001386050265178105811 --> C_0001386050265178105811
+deactivate C_0001386050265178105811
+C_0001386050265178105811 --> C_0011620124836104627274
+deactivate C_0001386050265178105811
+C_0011620124836104627274 --> C_0012688964058898021606
+deactivate C_0011620124836104627274
+C_0012688964058898021606 -> C_0001551730410201807116 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L638{}]] : __construct(allocator_type &,int *,int &&)__
+activate C_0001551730410201807116
+C_0001551730410201807116 -> C_0011094973049152741561 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/alloc_traits.h#L516{}]] : construct(int *,int &&)
+activate C_0011094973049152741561
+deactivate C_0011094973049152741561
+deactivate C_0001551730410201807116
+C_0012688964058898021606 -> C_0001989690290086399833 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L640{}]] : operator=(std::nullptr_t)
+activate C_0001989690290086399833
+C_0001989690290086399833 --> C_0012688964058898021606
+deactivate C_0001989690290086399833
+C_0012688964058898021606 --> C_0012688964058898021606
+deactivate C_0012688964058898021606
+C_0012688964058898021606 -> C_0016481197395156723564 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/list.tcc#L93{}]] : _M_const_cast() const
+activate C_0016481197395156723564
+C_0016481197395156723564 -> C_0015791400372507591026 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L292{}]] : _List_iterator(__detail::_List_node_base *)
+activate C_0015791400372507591026
+deactivate C_0015791400372507591026
+C_0016481197395156723564 --> C_0012688964058898021606
+deactivate C_0016481197395156723564
+participant "std::__detail::_List_node_base" as C_0003061237274580542436 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L81{}]]
+C_0012688964058898021606 -> C_0003061237274580542436 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/list.tcc#L93{}]] : _M_hook(_List_node_base *const)
+activate C_0003061237274580542436
+deactivate C_0003061237274580542436
+C_0012688964058898021606 -> C_0008221085376594923905 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/list.tcc#L94{}]] : _M_inc_size(size_t)
+activate C_0008221085376594923905
+deactivate C_0008221085376594923905
+C_0012688964058898021606 -> C_0015791400372507591026 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/list.tcc#L95{}]] : _List_iterator(__detail::_List_node_base *)
+activate C_0015791400372507591026
+deactivate C_0015791400372507591026
+C_0012688964058898021606 --> C_0016263699868639456484
+deactivate C_0012688964058898021606
+deactivate C_0016263699868639456484
+
+'Generated with clang-uml, version 0.5.3-16-gf97d420
+'LLVM version Ubuntu clang version 17.0.6 (++20231209124227+6009708b4367-1~exp1~20231209124336.77)
+@enduml

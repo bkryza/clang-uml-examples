@@ -1,0 +1,125 @@
+compilation_database_dir: _build
+output_directory: puml
+add_compile_flags:
+  - -fparse-all-comments
+  - -fretain-comments-from-system-headers
+generate_links:
+    link:
+      ".": 'https://github.com/bkryza/clang-uml-examples/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+      "/usr/include/c++/11": 'https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/{{ element.source.path }}#L{{ element.source.line }}'
+    tooltip:
+      ".": '{% if "comment" in element %}{{ abbrv(trim(replace(element.comment.formatted, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+      "/usr/include/c++/11": ''
+diagrams:
+  std_map_emplace_sequence:
+    title: "std::map emplace() sequence diagram"
+    type: sequence
+    glob:
+      - src/map.cc
+    include_system_headers: true
+    include:
+      elements:
+        - r: "std::_Rb_tree.*"
+        - r: "std::map.*"
+    exclude:
+      elements:
+        - r: "std::forward.*"
+    generate_message_comments: true
+    from:
+      - function: "clanguml_examples::map::emplace()"
+  std_vector_emplace_sequence:
+    title: "std::vector emplace() sequence diagram"
+    type: sequence
+    glob:
+      - src/vector.cc
+    include_system_headers: true
+    exclude:
+      namespaces:
+        - __gnu_cxx
+      elements:
+        - r: "std::forward.*"
+    generate_message_comments: true
+    from:
+      - function: "clanguml_examples::vector::emplace()"
+  std_list_emplace_sequence:
+    title: "std::list emplace() sequence diagram"
+    type: sequence
+    glob:
+      - src/list.cc
+    include_system_headers: true
+    exclude:
+      elements:
+        - r: "std::forward.*"
+    generate_message_comments: true
+    from:
+      - function: "clanguml_examples::list::emplace()"
+  std_map_context_class:
+    title: "std::map context class diagram"
+    type: class
+    glob:
+      - src/map.cc
+    comment_parser: clang
+    include_system_headers: true
+    include:
+      context:
+        - match:
+            radius: 4
+            pattern:
+              r: "std::map<.+>"
+    exclude: &common_excludes
+      relationships:
+        - dependency
+      access:
+        - public
+        - protected
+        - private
+    using_namespace: std
+    plantuml:
+      before:
+        - left to right direction
+      after: &plantuml_comments
+        - >
+          {% for e in diagram.elements %}
+          {% if existsIn(e, "comment") and existsIn(e.comment, "text") %}
+          {% if e.type == "class" %}
+          note top of {{ e.alias }}
+             {% set c=e.comment %} {{ abbrv(trim(c.text), 100) }}
+          end note
+
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+  std_vector_context_class:
+    title: "std::vector context class diagram"
+    type: class
+    glob:
+      - src/vector.cc
+    comment_parser: clang
+    include_system_headers: true
+    include:
+      context:
+        - match:
+            radius: 10
+            pattern:
+              r: "std::vector<.+>"
+    exclude: *common_excludes
+    using_namespace: std
+    plantuml:
+      after: *plantuml_comments
+  std_list_context_class:
+    title: "std::list context class diagram"
+    type: class
+    glob:
+      - src/list.cc
+    comment_parser: clang
+    include_system_headers: true
+    include:
+      context:
+        - match:
+            radius: 10
+            pattern:
+              r: "std::list<.+>"
+    exclude: *common_excludes
+    using_namespace: std
+    plantuml:
+      after: *plantuml_comments

@@ -1,0 +1,224 @@
+@startuml
+title std::map emplace() sequence diagram
+participant "clanguml_examples::map::emplace()" as C_0001111819803469952404 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/cpp-standard-library/src/map.cc#L4{emplace}]]
+activate C_0001111819803469952404
+participant "std::map<int,int,std::less<int>,std::allocator<std::pair<const int const,int>>>" as C_0010080905303082966837 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_map.h#L100{}]]
+C_0001111819803469952404 -> C_0010080905303082966837 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/cpp-standard-library/src/map.cc#L5{}]] : map()
+activate C_0010080905303082966837
+deactivate C_0010080905303082966837
+C_0001111819803469952404 -> C_0010080905303082966837 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/cpp-standard-library/src/map.cc#L6{}]] : emplace(int &&,int &&)
+activate C_0010080905303082966837
+participant "std::_Rb_tree<int,std::pair<const int const,int>,std::_Select1st<std::pair<const int const,int>>,std::less<int>,std::allocator<std::pair<const int const,int>>>" as C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L425{}]]
+C_0010080905303082966837 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_map.h#L577{}]] : _M_emplace_unique(int &&,int &&)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2384{}]] : _M_create_node(int &&,int &&)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L611{}]] : _M_get_node()
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L561{}]] : _M_get_Node_allocator()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L612{}]] : _M_construct_node(_Link_type,int &&,int &&)
+activate C_0017917587883431480807
+group try
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L595{}]] : _M_get_Node_allocator()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+participant "std::_Rb_tree_node<std::pair<const int const,int>>" as C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L216{}]]
+C_0017917587883431480807 -> C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L596{}]] : _M_valptr()
+activate C_0015337463230526776753
+C_0015337463230526776753 --> C_0017917587883431480807
+deactivate C_0015337463230526776753
+else ...
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L602{}]] : _M_put_node(_Link_type)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L565{}]] : _M_get_Node_allocator()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+deactivate C_0017917587883431480807
+end
+deactivate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+group try
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2389{}]] : ___S_key(_Const_Link_type)__
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L775{}]] : _M_valptr() const
+activate C_0015337463230526776753
+C_0015337463230526776753 --> C_0017917587883431480807
+deactivate C_0015337463230526776753
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2389{}]] : _M_get_insert_unique_pos(const key_type &)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2065{}]] : _M_begin()
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L739{}]] : _M_mbegin() const
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2066{}]] : _M_end()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+loop
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2071{}]] : ___S_key(_Const_Link_type)__
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L775{}]] : _M_valptr() const
+activate C_0015337463230526776753
+C_0015337463230526776753 --> C_0017917587883431480807
+deactivate C_0015337463230526776753
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+alt
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2072{}]] : ___S_left(_Base_ptr)__
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+else
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2072{}]] : ___S_right(_Base_ptr)__
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+end
+end
+participant "std::_Rb_tree_iterator<std::pair<const int const,int>>" as C_0007813936169228893730 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L256{}]]
+C_0017917587883431480807 -> C_0007813936169228893730 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2074{}]] : _Rb_tree_iterator(_Base_ptr)
+activate C_0007813936169228893730
+deactivate C_0007813936169228893730
+alt
+alt
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2077{}]] : **[**begin()**]**
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0007813936169228893730 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L996{}]] : _Rb_tree_iterator(_Base_ptr)
+activate C_0007813936169228893730
+deactivate C_0007813936169228893730
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0007813936169228893730 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2080{}]] : operator--()
+activate C_0007813936169228893730
+participant "std::_Rb_tree_decrement(_Rb_tree_node_base *)" as C_0013015925553853416735 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L250{}]]
+C_0007813936169228893730 -> C_0013015925553853416735 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L302{}]] : 
+activate C_0013015925553853416735
+C_0013015925553853416735 --> C_0007813936169228893730
+deactivate C_0013015925553853416735
+C_0007813936169228893730 --> C_0017917587883431480807
+deactivate C_0007813936169228893730
+end
+end
+alt
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2082{}]] : **[**___S_key(_Const_Base_ptr)__**]**
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L796{}]] : ___S_key(_Const_Link_type)__
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L775{}]] : _M_valptr() const
+activate C_0015337463230526776753
+C_0015337463230526776753 --> C_0017917587883431480807
+deactivate C_0015337463230526776753
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+end
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+alt
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2391{}]] : _M_insert_node(_Base_ptr,_Base_ptr,_Link_type)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2333{}]] : _M_end()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2334{}]] : ___S_key(_Const_Link_type)__
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L775{}]] : _M_valptr() const
+activate C_0015337463230526776753
+C_0015337463230526776753 --> C_0017917587883431480807
+deactivate C_0015337463230526776753
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2335{}]] : ___S_key(_Const_Base_ptr)__
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L796{}]] : ___S_key(_Const_Link_type)__
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L775{}]] : _M_valptr() const
+activate C_0015337463230526776753
+C_0015337463230526776753 --> C_0017917587883431480807
+deactivate C_0015337463230526776753
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+participant "std::_Rb_tree_insert_and_rebalance(const bool,_Rb_tree_node_base *,_Rb_tree_node_base *,_Rb_tree_node_base &)" as C_0002990227919232655584 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L409{}]]
+C_0017917587883431480807 -> C_0002990227919232655584 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2337{}]] : 
+activate C_0002990227919232655584
+deactivate C_0002990227919232655584
+C_0017917587883431480807 -> C_0007813936169228893730 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2340{}]] : _Rb_tree_iterator(_Base_ptr)
+activate C_0007813936169228893730
+deactivate C_0007813936169228893730
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+end
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2393{}]] : _M_drop_node(_Link_type)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L631{}]] : _M_destroy_node(_Link_type)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L623{}]] : _M_get_Node_allocator()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L623{}]] : _M_valptr()
+activate C_0015337463230526776753
+C_0015337463230526776753 --> C_0017917587883431480807
+deactivate C_0015337463230526776753
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L632{}]] : _M_put_node(_Link_type)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L565{}]] : _M_get_Node_allocator()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+deactivate C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0007813936169228893730 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2394{}]] : _Rb_tree_iterator(_Base_ptr)
+activate C_0007813936169228893730
+deactivate C_0007813936169228893730
+else ...
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L2398{}]] : _M_drop_node(_Link_type)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L631{}]] : _M_destroy_node(_Link_type)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L623{}]] : _M_get_Node_allocator()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0015337463230526776753 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L623{}]] : _M_valptr()
+activate C_0015337463230526776753
+C_0015337463230526776753 --> C_0017917587883431480807
+deactivate C_0015337463230526776753
+deactivate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L632{}]] : _M_put_node(_Link_type)
+activate C_0017917587883431480807
+C_0017917587883431480807 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L565{}]] : _M_get_Node_allocator()
+activate C_0017917587883431480807
+C_0017917587883431480807 --> C_0017917587883431480807
+deactivate C_0017917587883431480807
+deactivate C_0017917587883431480807
+deactivate C_0017917587883431480807
+end
+C_0017917587883431480807 --> C_0010080905303082966837
+deactivate C_0017917587883431480807
+C_0010080905303082966837 --> C_0001111819803469952404
+deactivate C_0010080905303082966837
+deactivate C_0001111819803469952404
+
+'Generated with clang-uml, version 0.5.3-16-gf97d420
+'LLVM version Ubuntu clang version 17.0.6 (++20231209124227+6009708b4367-1~exp1~20231209124336.77)
+@enduml
