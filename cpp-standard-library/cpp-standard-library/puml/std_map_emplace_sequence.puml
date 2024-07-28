@@ -1,12 +1,12 @@
 @startuml
 title std::map emplace() sequence diagram
-participant "clanguml_examples::map::emplace()" as C_0001111819803469952404 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/cpp-standard-library/src/map.cc#L4{emplace}]]
+participant "clanguml_examples::map::emplace()" as C_0001111819803469952404 [[https://github.com/bkryza/clang-uml-examples/blob/7752b3fa47693973db6d17290af8efee7c76423a/cpp-standard-library/cpp-standard-library/src/map.cc#L4{emplace}]]
 activate C_0001111819803469952404
 participant "std::map<int,int,std::less<int>,std::allocator<std::pair<const int const,int>>>" as C_0010080905303082966837 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_map.h#L100{}]]
-C_0001111819803469952404 -> C_0010080905303082966837 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/cpp-standard-library/src/map.cc#L5{}]] : map()
+C_0001111819803469952404 -> C_0010080905303082966837 [[https://github.com/bkryza/clang-uml-examples/blob/7752b3fa47693973db6d17290af8efee7c76423a/cpp-standard-library/cpp-standard-library/src/map.cc#L5{}]] : map()
 activate C_0010080905303082966837
 deactivate C_0010080905303082966837
-C_0001111819803469952404 -> C_0010080905303082966837 [[https://github.com/bkryza/clang-uml-examples/blob/4db47111d5e311d6f44aebda99e419b7ffd8b7d2/cpp-standard-library/cpp-standard-library/src/map.cc#L6{}]] : emplace(int &&,int &&)
+C_0001111819803469952404 -> C_0010080905303082966837 [[https://github.com/bkryza/clang-uml-examples/blob/7752b3fa47693973db6d17290af8efee7c76423a/cpp-standard-library/cpp-standard-library/src/map.cc#L6{}]] : emplace(int &&,int &&)
 activate C_0010080905303082966837
 participant "std::_Rb_tree<int,std::pair<const int const,int>,std::_Select1st<std::pair<const int const,int>>,std::less<int>,std::allocator<std::pair<const int const,int>>>" as C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_tree.h#L425{}]]
 C_0010080905303082966837 -> C_0017917587883431480807 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_map.h#L577{}]] : _M_emplace_unique(int &&,int &&)
