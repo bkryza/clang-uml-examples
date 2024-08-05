@@ -23,8 +23,11 @@ import os
 import sys
 
 
-def load_clanguml_config(name):
-    clanguml_config_path = os.path.join(name, '.clang-uml')
+def load_clanguml_config(name, path):
+    if path is None:
+        clanguml_config_path = os.path.join(name, '.clang-uml')
+    else:
+        clanguml_config_path = path
 
     with open(clanguml_config_path, 'r') as f:
         config = yaml.full_load(f)
@@ -54,6 +57,9 @@ def generate_readme(config, name):
 
 if __name__ == "__main__":
     name = sys.argv[1]
-    config = load_clanguml_config(name)
+    path = None
+    if len(sys.argv) > 2:
+        path = sys.argv[2]
+    config = load_clanguml_config(name, path)
     generate_readme(config, name)
 

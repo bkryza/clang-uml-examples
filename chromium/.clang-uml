@@ -1,0 +1,128 @@
+relative_to: ../..
+compilation_database_dir: .
+output_directory: ../../puml
+add_compile_flags:
+  - -Wno-unknown-warning-option
+  - -Wno-unknown-pragmas
+remove_compile_flags:
+  - -Werror
+  - -Wunknown-pragmas
+generate_packages: true
+package_type: directory
+generate_links:
+  link: 'https://github.com/chromium/chromium/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+  tooltip: '{% if "comment" in element %}{{ abbrv(trim(replace(element.comment.formatted, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+diagrams:
+  media_audio_class_diagram:
+    type: class
+    title: "media/audio class diagram"
+    glob:
+      - media/audio/*.cc
+    include:
+      namespaces:
+        - media
+      paths:
+        - media
+        - base
+      context:
+        - media::AudioParameters
+        - media::AudioThreadHangMonitor
+        - media::AudioManager
+        - media::AudioManagerBase
+        - media::AudioEncoder
+    exclude:
+      namespaces:
+        - r: ".*internal.*"
+      elements:
+        - r: ".*_Test"
+      element_types:
+        - enum
+      relationships:
+        - dependency
+      access:
+        - public
+        - private
+        - protected
+    plantuml:
+      before:
+        - left to right direction
+  ui_ozone_class_diagram:
+    type: class
+    title: "ui/ozone class diagram"
+    glob:
+      - ui/ozone/common/*.cc
+      - ui/ozone/platform/*.cc
+      - ui/ozone/public/*.cc
+      - ui/ozone/platform_selection.cc
+    include:
+      namespaces:
+        - ui
+      paths:
+        - ui
+        - base
+    exclude:
+      namespaces:
+        - r: ".*internal.*"
+      elements:
+        - r: ".*_Test"
+      relationships:
+        - dependency
+      element_types:
+        - enum
+      access:
+        - public
+        - private
+        - protected
+  ui_platform_window_class_diagram:
+    type: class
+    title: "ui/platform_window class diagram"
+    glob:
+      - ui/platform_window/*.cc
+      - ui/platform_window/common/*.cc
+      - ui/platform_window/extensions/*.cc
+      - ui/platform_window/fuchsia/*.cc
+      - ui/platform_window/wm/*.cc
+    include:
+      namespaces:
+        - ui
+      paths:
+        - ../../ui
+        - ../../base
+    exclude:
+      namespaces:
+        - r: ".*internal.*"
+      elements:
+        - r: ".*_Test"
+      element_types:
+        - enum
+      access:
+        - public
+        - private
+        - protected
+  ui_platform_window_context_diagram:
+    type: class
+    title: "ui::PlatformWindow context class diagram"
+    glob:
+      - ui/platform_window/*.cc
+      - ui/platform_window/**/*.cc
+    include:
+      namespaces:
+        - ui
+      paths:
+        - ui
+        - base
+      context:
+        - match:
+            radius: 2
+            pattern: "ui::PlatformWindow"
+    exclude:
+      namespaces:
+        - r: ".*internal.*"
+      elements:
+        - r: ".*_Test"
+      element_types:
+        - enum
+      access:
+        - protected
+        - private
+

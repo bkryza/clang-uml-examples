@@ -1,0 +1,333 @@
+@startuml
+title ui::PlatformWindow context class diagram
+package [ui] as C_0006015631303731670575 {
+package [platform_window] as C_0014170237458596549576 {
+abstract "PlatformWindowDelegate" as C_0004133948817376201184
+abstract C_0004133948817376201184 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L80{PlatformWindowDelegate}]] {
++PlatformWindowDelegate() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L163{PlatformWindowDelegate}]]]
++~PlatformWindowDelegate() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L164{~PlatformWindowDelegate}]]]
+..
++CalculateInsetsInDIP(PlatformWindowState window_state) const : gfx::Insets [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L167{CalculateInsetsInDIP}]]]
++CanFullscreen() const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L230{CanFullscreen}]]]
++CanMaximize() const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L229{CanMaximize}]]]
++ConvertInsetsToPixels(const gfx::Insets & insets_dip) const : gfx::Insets [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L292{ConvertInsetsToPixels}]]]
++ConvertRectToDIP(const gfx::Rect & rect_in_pixels) const : gfx::Rect [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L284{ConvertRectToDIP}]]]
++ConvertRectToPixels(const gfx::Rect & rect_in_dp) const : gfx::Rect [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L283{ConvertRectToPixels}]]]
++ConvertScreenPointToLocalDIP(const gfx::Point & screen_in_pixels) const : gfx::PointF [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L288{ConvertScreenPointToLocalDIP}]]]
++DisableNativeWindowOcclusion() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L296{DisableNativeWindowOcclusion}]]]
+{abstract} +DispatchEvent(Event * event) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L176{DispatchEvent}]]]
++GetMaximumSizeForWindow() const : std::optional<gfx::Size> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L227{GetMaximumSizeForWindow}]]]
++GetMinimumSizeForWindow() const : std::optional<gfx::Size> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L226{GetMinimumSizeForWindow}]]]
++GetOwnedWindowAnchorAndRectInDIP() : std::optional<OwnedWindowAnchor> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L269{GetOwnedWindowAnchorAndRectInDIP}]]]
++GetWindowMaskForWindowShapeInPixels() : SkPath [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L235{GetWindowMaskForWindowShapeInPixels}]]]
+{abstract} +OnAcceleratedWidgetAvailable(gfx::AcceleratedWidget widget) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L213{OnAcceleratedWidgetAvailable}]]]
+{abstract} +OnAcceleratedWidgetDestroyed() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L221{OnAcceleratedWidgetDestroyed}]]]
+{abstract} +OnActivationChanged(bool active) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L223{OnActivationChanged}]]]
+{abstract} +OnBoundsChanged(const BoundsChange & change) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L170{OnBoundsChanged}]]]
+{abstract} +OnCloseRequest() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L178{OnCloseRequest}]]]
+{abstract} +OnClosed() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L179{OnClosed}]]]
+{abstract} +OnDamageRect(const gfx::Rect & damaged_region) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L174{OnDamageRect}]]]
+{abstract} +OnLostCapture() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L211{OnLostCapture}]]]
+{abstract} +OnMouseEnter() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L247{OnMouseEnter}]]]
++OnOcclusionStateChanged(PlatformWindowOcclusionState occlusion_state) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L251{OnOcclusionStateChanged}]]]
++OnRotateFocus(RotateDirection direction, bool reset) : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L209{OnRotateFocus}]]]
++OnStateUpdate(const State & old, const State & latest) : int64_t [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L263{OnStateUpdate}]]]
++OnSurfaceFrameLockingChanged(bool lock) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L242{OnSurfaceFrameLockingChanged}]]]
++OnTooltipHiddenOnServer() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L280{OnTooltipHiddenOnServer}]]]
++OnTooltipShownOnServer(const std::u16string & text, const gfx::Rect & bounds) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L276{OnTooltipShownOnServer}]]]
+{abstract} +OnWillDestroyAcceleratedWidget() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L216{OnWillDestroyAcceleratedWidget}]]]
+{abstract} +OnWindowStateChanged(PlatformWindowState old_state, PlatformWindowState new_state) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L181{OnWindowStateChanged}]]]
++OnWindowTiledStateChanged(WindowTiledEdges new_tiled_edges) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L186{OnWindowTiledStateChanged}]]]
++SetFrameRateThrottleEnabled(bool enabled) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L272{SetFrameRateThrottleEnabled}]]]
+__
+}
+class "PlatformWindowDelegate::State" as C_0004818591307195361075
+class C_0004818591307195361075 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L114{PlatformWindowDelegate##State}]] {
++operator==(const State & rhs) const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L115{operator==}]]]
+..
++ToString() const : std::string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L160{ToString}]]]
++WillProduceFrameOnUpdateFrom(const State & old) const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L158{WillProduceFrameOnUpdateFrom}]]]
+__
++bounds_dip : gfx::Rect [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L140{bounds_dip}]]]
++occlusion_state : PlatformWindowOcclusionState [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L153{occlusion_state}]]]
++raster_scale : float [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L150{raster_scale}]]]
++size_px : gfx::Size [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L144{size_px}]]]
++window_scale : float [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L147{window_scale}]]]
++window_state : PlatformWindowState [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_delegate.h#L131{window_state}]]]
+}
+abstract "PlatformWindow" as C_0014641466677610233161
+abstract C_0014641466677610233161 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L33{PlatformWindow}]] {
++PlatformWindow() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L36{PlatformWindow}]]]
++~PlatformWindow() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L37{~PlatformWindow}]]]
+..
+{abstract} +Activate() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L85{Activate}]]]
++CanSetDecorationInsets() const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L177{CanSetDecorationInsets}]]]
+{abstract} +Close() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L44{Close}]]]
+{abstract} +ConfineCursorToBounds(const gfx::Rect & bounds) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L107{ConfineCursorToBounds}]]]
+{abstract} +Deactivate() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L86{Deactivate}]]]
++FlashFrame(bool flash_frame) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L140{FlashFrame}]]]
+{abstract} +GetBoundsInDIP() const = 0 : gfx::Rect [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L65{GetBoundsInDIP}]]]
+{abstract} +GetBoundsInPixels() const = 0 : gfx::Rect [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L58{GetBoundsInPixels}]]]
+{abstract} +GetPlatformWindowState() const = 0 : PlatformWindowState [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L83{GetPlatformWindowState}]]]
+{abstract} +GetRestoredBoundsInDIP() const = 0 : gfx::Rect [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L111{GetRestoredBoundsInDIP}]]]
++GetWindowUniqueId() const : std::string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L167{GetWindowUniqueId}]]]
++GetZOrderLevel() const : ZOrderLevel [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L131{GetZOrderLevel}]]]
+{abstract} +HasCapture() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L71{HasCapture}]]]
+{abstract} +Hide() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L43{Hide}]]]
++HideTooltip() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L212{HideTooltip}]]]
++IsAnimatingClosed() const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L156{IsAnimatingClosed}]]]
++IsClientControlledWindowMovementSupported() const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L193{IsClientControlledWindowMovementSupported}]]]
+{abstract} +IsVisible() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L46{IsVisible}]]]
+{abstract} +Maximize() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L80{Maximize}]]]
+{abstract} +Minimize() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L81{Minimize}]]]
+{abstract} +MoveCursorTo(const gfx::Point & location) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L103{MoveCursorTo}]]]
++NotifyStartupComplete(const std::string & startup_id) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L197{NotifyStartupComplete}]]]
+{abstract} +PrepareForShutdown() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L51{PrepareForShutdown}]]]
+{abstract} +ReleaseCapture() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L70{ReleaseCapture}]]]
+{abstract} +Restore() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L82{Restore}]]]
++SetAspectRatio(const gfx::SizeF & aspect_ratio) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L152{SetAspectRatio}]]]
+{abstract} +SetBoundsInDIP(const gfx::Rect & bounds) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L64{SetBoundsInDIP}]]]
+{abstract} +SetBoundsInPixels(const gfx::Rect & bounds) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L57{SetBoundsInPixels}]]]
+{abstract} +SetCapture() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L69{SetCapture}]]]
+{abstract} +SetCursor(scoped_refptr<PlatformCursor> cursor) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L100{SetCursor}]]]
+{abstract} +SetFullscreen(bool fullscreen, int64_t target_display_id) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L79{SetFullscreen}]]]
++SetInputRegion(std::optional<std::vector<gfx::Rect>> region_px) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L188{SetInputRegion}]]]
++SetOpacity(float opacity) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L159{SetOpacity}]]]
++SetOpaqueRegion(std::optional<std::vector<gfx::Rect>> region_px) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L182{SetOpaqueRegion}]]]
+{abstract} +SetRestoredBoundsInDIP(const gfx::Rect & bounds) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L110{SetRestoredBoundsInDIP}]]]
++SetShape(std::unique_ptr<ShapeRects> native_shape, const gfx::Transform & transform) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L145{SetShape}]]]
+{abstract} +SetTitle(const std::u16string & title) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L67{SetTitle}]]]
+{abstract} +SetUseNativeFrame(bool use_native_frame) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L92{SetUseNativeFrame}]]]
++SetVisibilityChangedAnimationsEnabled(bool enabled) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L163{SetVisibilityChangedAnimationsEnabled}]]]
+{abstract} +SetWindowIcons(const gfx::ImageSkia & window_icon, const gfx::ImageSkia & app_icon) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L116{SetWindowIcons}]]]
++SetZOrderLevel(ZOrderLevel order) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L130{SetZOrderLevel}]]]
++ShouldUpdateWindowShape() const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L172{ShouldUpdateWindowShape}]]]
+{abstract} +ShouldUseNativeFrame() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L93{ShouldUseNativeFrame}]]]
++ShouldWindowContentsBeTransparent() const : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L125{ShouldWindowContentsBeTransparent}]]]
+{abstract} +Show(bool inactive = false) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L42{Show}]]]
++ShowTooltip(const std::u16string & text, const gfx::Point & position, const PlatformWindowTooltipTrigger trigger, const base::TimeDelta show_delay, const base::TimeDelta hide_delay) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L205{ShowTooltip}]]]
+{abstract} +SizeConstraintsChanged() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L121{SizeConstraintsChanged}]]]
++StackAbove(gfx::AcceleratedWidget widget) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L134{StackAbove}]]]
++StackAtTop() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L135{StackAtTop}]]]
+__
+}
+class "PlatformCursor" as C_0017737036712140491157
+class C_0017737036712140491157 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window.h#L30{PlatformCursor}]] {
+__
+}
+package [extensions] as C_0004569983799121240272 {
+abstract "X11Extension" as C_0001098074681709332547
+abstract C_0001098074681709332547 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L20{X11Extension}]] {
+{abstract} +CanResetOverrideRedirect() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L45{CanResetOverrideRedirect}]]]
+{abstract} +GetXRootWindowOuterBounds() const = 0 : gfx::Rect [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L34{GetXRootWindowOuterBounds}]]]
+{abstract} +IsSyncExtensionAvailable() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L23{IsSyncExtensionAvailable}]]]
+{abstract} +IsWmTiling() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L27{IsWmTiling}]]]
+{abstract} +LowerXWindow() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L38{LowerXWindow}]]]
+{abstract} +OnCompleteSwapAfterResize() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L30{OnCompleteSwapAfterResize}]]]
+{abstract} +SetOverrideRedirect(bool override_redirect) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L42{SetOverrideRedirect}]]]
+{abstract} +SetX11ExtensionDelegate(X11ExtensionDelegate * delegate) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L47{SetX11ExtensionDelegate}]]]
+__
+}
+class "X11ExtensionDelegate" as C_0005456790814334145396
+class C_0005456790814334145396 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/x11_extension.h#L14{X11ExtensionDelegate}]] {
+__
+}
+abstract "WorkspaceExtension" as C_0016482784505912265703
+abstract C_0016482784505912265703 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/workspace_extension.h#L22{WorkspaceExtension}]] {
+{abstract} +GetWorkspace() const = 0 : std::string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/workspace_extension.h#L25{GetWorkspace}]]]
+{abstract} +IsVisibleOnAllWorkspaces() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/workspace_extension.h#L32{IsVisibleOnAllWorkspaces}]]]
+{abstract} +SetVisibleOnAllWorkspaces(bool always_visible) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/workspace_extension.h#L28{SetVisibleOnAllWorkspaces}]]]
+{abstract} +SetWorkspaceExtensionDelegate(WorkspaceExtensionDelegate * delegate) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/workspace_extension.h#L36{SetWorkspaceExtensionDelegate}]]]
+__
+}
+class "WorkspaceExtensionDelegate" as C_0000339074417896446261
+class C_0000339074417896446261 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/workspace_extension.h#L15{WorkspaceExtensionDelegate}]] {
+__
+}
+abstract "PinnedModeExtension" as C_0018273440868827664267
+abstract C_0018273440868827664267 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/pinned_mode_extension.h#L16{PinnedModeExtension}]] {
+{abstract} +Pin(bool trusted) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/pinned_mode_extension.h#L21{Pin}]]]
+{abstract} +SupportsConfigurePinnedState() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/pinned_mode_extension.h#L28{SupportsConfigurePinnedState}]]]
+{abstract} +Unpin() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/pinned_mode_extension.h#L24{Unpin}]]]
+__
+}
+abstract "WaylandExtension" as C_0007331596878444806860
+abstract C_0007331596878444806860 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L43{WaylandExtension}]] {
+{abstract} +GetVizSequenceIdForAppliedState() const = 0 : int64_t [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L53{GetVizSequenceIdForAppliedState}]]]
+{abstract} +GetVizSequenceIdForLatchedState() const = 0 : int64_t [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L56{GetVizSequenceIdForLatchedState}]]]
+{abstract} +HasInFlightRequestsForState() const = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L50{HasInFlightRequestsForState}]]]
+{abstract} +RoundTripQueue() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L47{RoundTripQueue}]]]
+{abstract} +SetLatchImmediately(bool latch_immediately) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L61{SetLatchImmediately}]]]
+__
+}
+abstract "WaylandToplevelExtension" as C_0006049113229815869742
+abstract C_0006049113229815869742 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L73{WaylandToplevelExtension}]] {
+{abstract} +CommitSnap(WaylandWindowSnapDirection snap, float snap_ratio) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L116{CommitSnap}]]]
+{abstract} +GetTabletMode() = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L137{GetTabletMode}]]]
+{abstract} +Lock(WaylandOrientationLockType lock_Type) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L133{Lock}]]]
+{abstract} +LockPointer(bool enabled) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L130{LockPointer}]]]
+{abstract} +SetCanGoBack(bool value) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L122{SetCanGoBack}]]]
+{abstract} +SetFloatToLocation(WaylandFloatStartLocation float_start_location) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L141{SetFloatToLocation}]]]
+{abstract} +SetPip() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L126{SetPip}]]]
+{abstract} +ShowSnapPreview(WaylandWindowSnapDirection snap, bool allow_haptic_feedback) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L109{ShowSnapPreview}]]]
+{abstract} +StartWindowDraggingSessionIfNeeded(ui::mojom::DragEventSource event_source, bool allow_system_drag) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L81{StartWindowDraggingSessionIfNeeded}]]]
+{abstract} +SupportsPointerLock() = 0 : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L129{SupportsPointerLock}]]]
+{abstract} +UnSetFloat() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L143{UnSetFloat}]]]
+{abstract} +Unlock() = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/wayland_extension.h#L134{Unlock}]]]
+__
+}
+abstract "DeskExtension" as C_0010199932588831105898
+abstract C_0010199932588831105898 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/desk_extension.h#L21{DeskExtension}]] {
+{abstract} +GetActiveDeskIndex() const = 0 : int [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/desk_extension.h#L27{GetActiveDeskIndex}]]]
+{abstract} +GetDeskName(int index) const = 0 : std::u16string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/desk_extension.h#L30{GetDeskName}]]]
+{abstract} +GetNumberOfDesks() const = 0 : int [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/desk_extension.h#L24{GetNumberOfDesks}]]]
+{abstract} +SendToDeskAtIndex(int index) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/desk_extension.h#L34{SendToDeskAtIndex}]]]
+__
+}
+abstract "SystemModalExtension" as C_0015456905396135118800
+abstract C_0015456905396135118800 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/system_modal_extension.h#L14{SystemModalExtension}]] {
+{abstract} +SetSystemModal(bool modal) = 0 : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/extensions/system_modal_extension.h#L16{SetSystemModal}]]]
+__
+}
+}
+class "PlatformWindowInitProperties" as C_0007048084360952612282
+class C_0007048084360952612282 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L65{PlatformWindowInitProperties}]] {
++PlatformWindowInitProperties() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L66{PlatformWindowInitProperties}]]]
++PlatformWindowInitProperties(const gfx::Rect & bounds) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L69{PlatformWindowInitProperties}]]]
++PlatformWindowInitProperties(PlatformWindowInitProperties && props) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L71{PlatformWindowInitProperties}]]]
++~PlatformWindowInitProperties() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L74{~PlatformWindowInitProperties}]]]
+..
++operator=(PlatformWindowInitProperties &&) : PlatformWindowInitProperties & [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L72{operator=}]]]
+__
++accept_events : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L110{accept_events}]]]
++activatable : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L111{activatable}]]]
++background_color : std::optional<SkColor> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L127{background_color}]]]
++bounds : gfx::Rect [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L79{bounds}]]]
++compositor_memory_limit_mb : size_t [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L164{compositor_memory_limit_mb}]]]
++display_id : std::optional<int64_t> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L153{display_id}]]]
++enable_compositing_based_throttling : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L162{enable_compositing_based_throttling}]]]
++force_show_in_taskbar : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L112{force_show_in_taskbar}]]]
++icon : raw_ptr<gfx::ImageSkia> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L126{icon}]]]
++inhibit_keyboard_shortcuts : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L159{inhibit_keyboard_shortcuts}]]]
++is_security_surface : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L114{is_security_surface}]]]
++keep_on_top : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L113{keep_on_top}]]]
++opacity : PlatformWindowOpacity [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L85{opacity}]]]
++parent_widget : gfx::AcceleratedWidget [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L82{parent_widget}]]]
++persistable : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L150{persistable}]]]
++prefer_dark_theme : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L125{prefer_dark_theme}]]]
++remove_standard_frame : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L116{remove_standard_frame}]]]
++restore_session_id : int32_t [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L143{restore_session_id}]]]
++restore_window_id : std::optional<int32_t> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L144{restore_window_id}]]]
++restore_window_id_source : std::optional<std::string> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L147{restore_window_id_source}]]]
++shadow_type : PlatformWindowShadowType [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L122{shadow_type}]]]
++type : PlatformWindowType [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L77{type}]]]
++visible_on_all_workspaces : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L115{visible_on_all_workspaces}]]]
++wayland_app_id : std::string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L140{wayland_app_id}]]]
++wm_class_class : std::string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L134{wm_class_class}]]]
++wm_class_name : std::string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L133{wm_class_name}]]]
++wm_role_name : std::string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L132{wm_role_name}]]]
++workspace : std::string [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L117{workspace}]]]
++workspace_extension_delegate : raw_ptr<WorkspaceExtensionDelegate> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L120{workspace_extension_delegate}]]]
++x11_extension_delegate : raw_ptr<X11ExtensionDelegate> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L136{x11_extension_delegate}]]]
++z_order : ZOrderLevel [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L118{z_order}]]]
+}
+class "WorkspaceExtensionDelegate" as C_0000339074417896446261
+class C_0000339074417896446261 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L53{WorkspaceExtensionDelegate}]] {
+__
+}
+class "X11ExtensionDelegate" as C_0005456790814334145396
+class C_0005456790814334145396 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/platform_window_init_properties.h#L60{X11ExtensionDelegate}]] {
+__
+}
+package [stub] as C_0003191740928308983728 {
+class "StubWindow" as C_0007618783177371271244
+class C_0007618783177371271244 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/stub/stub_window.h#L18{StubWindow}]] {
++StubWindow(PlatformWindowDelegate * delegate, bool use_default_accelerated_widget = true, const gfx::Rect & bounds = gfx::Rect()) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/stub/stub_window.h#L20{StubWindow}]]]
++StubWindow(const gfx::Rect & bounds) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/stub/stub_window.h#L23{StubWindow}]]]
++StubWindow(const StubWindow &) = deleted : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/stub/stub_window.h#L24{StubWindow}]]]
++~StubWindow() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/stub/stub_window.h#L27{~StubWindow}]]]
+..
++operator=(const StubWindow &) = deleted : StubWindow & [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/stub/stub_window.h#L25{operator=}]]]
+..
++InitDelegate(PlatformWindowDelegate * delegate, bool use_default_accelerated_widget = true) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/stub/stub_window.h#L29{InitDelegate}]]]
++InitDelegateWithWidget(PlatformWindowDelegate * delegate, gfx::AcceleratedWidget widget) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/platform_window/stub/stub_window.h#L31{InitDelegateWithWidget}]]]
+__
+}
+}
+}
+package [base] as C_0008075717290354590995 {
+class "ClassProperty<T>" as C_0003560248179536117537
+class C_0003560248179536117537 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L70{ClassProperty}]] {
+__
++cascading : bool [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L73{cascading}]]]
++deallocator : PropertyDeallocator [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L74{deallocator}]]]
++default_value : T [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L71{default_value}]]]
++name : const char * [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L72{name}]]]
+}
+class "PropertyHandler" as C_0014123125489500529321
+class C_0014123125489500529321 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L83{PropertyHandler}]] {
++PropertyHandler() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L85{PropertyHandler}]]]
++PropertyHandler(PropertyHandler && other) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L86{PropertyHandler}]]]
++~PropertyHandler() : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L87{~PropertyHandler}]]]
+..
++operator=(PropertyHandler && rhs) = default : PropertyHandler & [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L88{operator=}]]]
+..
++AcquireAllPropertiesFrom(PropertyHandler && other) : void [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L93{AcquireAllPropertiesFrom}]]]
++ClearProperty<T>(const ClassProperty<T> * property) : void
++GetAllPropertyKeys() const : std::set<const void *> [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L137{GetAllPropertyKeys}]]]
++GetProperty<T>(const ClassProperty<T> * property) const : T
++SetProperty<T>(const ClassProperty<T> * property, T value) : void
++SetProperty<T>(const ClassProperty<T *> * property, const T & value) : void
++SetProperty<T>(const ClassProperty<T *> * property, T && value) : void
++SetProperty<T>(const ClassProperty<T *> * property, std::unique_ptr<T> value) : T *
+__
+}
+class "PropertyHandler::Value" as C_0002029433289759059245
+class C_0002029433289759059245 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L167{PropertyHandler##Value}]] {
+__
++deallocator : PropertyDeallocator [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L170{deallocator}]]]
++name : const char * [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L168{name}]]]
++value : int64_t [[[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L169{value}]]]
+}
+class "PropertyHelper" as C_0010720617258079439186
+class C_0010720617258079439186 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/class_property.h#L215{PropertyHelper}]] {
+{static} +Clear<T>(ui::PropertyHandler * handler, const ::ui::ClassProperty<T> * property) : void
+{static} +Get<T>(const ::ui::PropertyHandler * handler, const ::ui::ClassProperty<T> * property, bool allow_cascade) : T
+{static} +Set<T>(ui::PropertyHandler * handler, const ::ui::ClassProperty<T> * property, T value) : void
+__
+}
+package [cursor] as C_0015354997639924044815 {
+class "PlatformCursor" as C_0017737036712140491157
+class C_0017737036712140491157 [[https://github.com/chromium/chromium/blob/83a7a90b87f5e2e225d9d1127dc12e20e33b7eca/ui/base/cursor/platform_cursor.h#L24{PlatformCursor}]] {
+__
+}
+}
+}
+}
+C_0004133948817376201184 ..> C_0004818591307195361075
+C_0004818591307195361075 --+ C_0004133948817376201184
+C_0014641466677610233161 ..> C_0017737036712140491157
+C_0014123125489500529321 <|-- C_0014641466677610233161
+C_0001098074681709332547 ..> C_0005456790814334145396
+C_0001098074681709332547 ..> C_0014641466677610233161
+C_0016482784505912265703 ..> C_0000339074417896446261
+C_0016482784505912265703 ..> C_0014641466677610233161
+C_0018273440868827664267 ..> C_0014641466677610233161
+C_0007331596878444806860 ..> C_0014641466677610233161
+C_0006049113229815869742 ..> C_0014641466677610233161
+C_0010199932588831105898 ..> C_0014641466677610233161
+C_0015456905396135118800 ..> C_0014641466677610233161
+C_0007048084360952612282 o-- C_0000339074417896446261 : +workspace_extension_delegate
+C_0007048084360952612282 o-- C_0005456790814334145396 : +x11_extension_delegate
+C_0007618783177371271244 ..> C_0017737036712140491157
+C_0007618783177371271244 o-- C_0004133948817376201184 : -delegate_
+C_0014641466677610233161 <|-- C_0007618783177371271244
+C_0014123125489500529321 ..> C_0003560248179536117537
+C_0014123125489500529321 <.. C_0010720617258079439186 : +<<friend>>
+C_0002029433289759059245 --+ C_0014123125489500529321
+C_0010720617258079439186 ..> C_0014123125489500529321
+C_0010720617258079439186 ..> C_0003560248179536117537
+
+'Generated with clang-uml, version 0.5.3-16-gf97d420
+'LLVM version Ubuntu clang version 18.1.8 (++20240731024944+3b5b5c1ec4a3-1~exp1~20240731145000.144)
+@enduml
