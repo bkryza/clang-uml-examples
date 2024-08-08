@@ -1,0 +1,81 @@
+# Change to directory where compile_commands.json is
+compilation_database_dir: .
+# Change to directory where diagram should be written
+output_directory: ../puml
+add_compile_flags:
+  - -Wno-duplicate-decl-specifier
+  - -Wno-gnu-variable-sized-type-not-at-end
+  - -Wno-unknown-warning-option
+  - -fparse-all-comments
+remove_compile_flags:
+  - '-mpreferred-stack-boundary=3'
+  - '-mindirect-branch=thunk-extern'
+  - '-mindirect-branch-register'
+  - '-fno-allow-store-data-races'
+  - '-fconserve-stack'
+  - '-falign-jumps=1'
+  - '-mrecord-mcount'
+  - '-fsanitize=bounds-strict'
+generate_links:
+  link: 'https://github.com/torvalds/linux/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+  tooltip: '{% if "comment" in element %}{{ abbrv(trim(replace(element.comment.formatted, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+diagrams:
+  task_struct_context_diagram:
+    type: class
+    title: task_struct context diagram
+    glob:
+      - kernel/sched/core.c
+      - kernel/sched/fair.c
+    include:
+      context:
+        - task_struct
+      paths:
+        - kernel/sched
+        - kernel/locking
+    exclude:
+      elements:
+        - list_head
+      element_types:
+        - enum
+      access:
+        - public
+    plantuml:
+      before:
+        - left to right direction
+  rq_context_diagram:
+    type: class
+    title: rq struct context diagram
+    glob:
+      - kernel/sched/core.c
+      - kernel/sched/fair.c
+    include:
+      context:
+        - rq
+      paths:
+        - kernel/sched
+        - kernel/locking
+    exclude:
+      elements:
+        - list_head
+      element_types:
+        - enum
+      access:
+        - public
+    plantuml:
+      before:
+        - left to right direction
+  ext4_readdir_sequence_diagram:
+    type: sequence
+    title: ext4_readdir() sequence diagram
+    glob:
+      - fs/ext4/dir.c
+    generate_message_comments: true
+    generate_condition_statements: true
+    combine_free_functions_into_file_participants: true
+    include:
+      paths:
+        - fs/
+        - include/linux/fs*.h
+    from:
+      - function: 'ext4_readdir(struct file *,struct dir_context *)'
+

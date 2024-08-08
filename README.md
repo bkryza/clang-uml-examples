@@ -13,6 +13,7 @@ This repository contains several examples of UML diagrams generated using [clang
 * [curl](./curl/README.md)
 * [C++ Standard Library](./cpp-standard-library/README.md)
 * [chromium](./chromium/README.md)
+* [linux](./linux/README.md)
 
 To build the example diagrams follow the following steps:
 

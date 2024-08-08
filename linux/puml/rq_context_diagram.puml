@@ -1,0 +1,122 @@
+@startuml
+title rq struct context diagram
+left to right direction
+class "cfs_rq" as C_0009371104448029711161
+class C_0009371104448029711161 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L587{CFS-related fields in a runqueue}]] {
+__
+}
+class "rt_rq" as C_0014515208731558767524
+class C_0014515208731558767524 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L705{Real-Time classes' related field in a runqueue:}]] {
+__
+}
+class "dl_rq" as C_0015676061878373635824
+class C_0015676061878373635824 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L744{Deadline class' related fields in a runqueue}]] {
+__
+}
+class "root_domain" as C_0017007075483513821849
+class C_0017007075483513821849 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L863{We add the notion of a root-domain which will be used to define per-domain  variables. Each exclusive cpuset essentially defines an island domain by  fully partitioning the member CPUs from any other cpuset. Whenever a new  exclusive cpuset is created, ...}]] {
+__
+}
+class "uclamp_rq" as C_0004095957555449292468
+class C_0004095957555449292468 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L983{struct uclamp_rq - rq's utilization clamp  @value: currently active clamp values for a rq  @bucket: utilization clamp buckets affecting a rq  Keep track of RUNNABLE tasks on a rq to aggregate their clamp values.  A clamp value is affecting a rq when the...}]] {
+__
+}
+class "balance_callback" as C_0009415204538954564998
+class C_0009415204538954564998 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L992{balance_callback}]] {
+__
+}
+class "rq" as C_0003618054735090668884
+class C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1004{This is the main, per-CPU runqueue data structure.  Locking rule: those places that want to lock multiple runqueues  (such as the load balancing or the thread migration code), lock  acquire operations must be ordered by ascending &runqueue.}]] {
+__
+}
+class "class_task_rq_lock_t" as C_0017938875088097095711
+class C_0017938875088097095711 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1678{class_task_rq_lock_t}]] {
+__
+}
+class "class_rq_lock_t" as C_0001319075620346567495
+class C_0001319075620346567495 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1731{class_rq_lock_t}]] {
+__
+}
+class "class_rq_lock_irq_t" as C_0004330289671567408826
+class C_0004330289671567408826 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1736{class_rq_lock_irq_t}]] {
+__
+}
+class "class_rq_lock_irqsave_t" as C_0004076450942424583539
+class C_0004076450942424583539 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1741{class_rq_lock_irqsave_t}]] {
+__
+}
+class "class_double_rq_lock_t" as C_0005415114945752328500
+class C_0005415114945752328500 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L2866{class_double_rq_lock_t}]] {
+__
+}
+class "mm_struct" as C_0003044054845010947696
+class C_0003044054845010947696 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/arch/x86/include/asm/pgtable_64.h#L54{mm_struct}]] {
+__
+}
+class "hrtimer" as C_0011525659871170572233
+class C_0011525659871170572233 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/timer.h#L206{hrtimer}]] {
+__
+}
+class "cpuidle_state" as C_0012298945312873513847
+class C_0012298945312873513847 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L94{cpuidle_state}]] {
+__
+}
+class "cpumask" as C_0012699191346127703564
+class C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/net/netns/core.h#L9{cpumask}]] {
+__
+}
+class "task_struct" as C_0015917873333235073396
+class C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/swait.h#L41{Simple waitqueues are semantically very different to regular wait queues  (wait.h). The most important difference is that the simple waitqueue allows  for deterministic behaviour -- IOW it has strictly bounded IRQ and lock hold  times.  Mainly, this is ...}]] {
+__
+}
+class "lb_env" as C_0010373236854052220188
+class C_0010373236854052220188 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/fair.c#L8851{lb_env}]] {
+__
+}
+C_0009371104448029711161 --> C_0003618054735090668884 : +rq
+C_0017007075483513821849 --> C_0012699191346127703564 : +span
+C_0017007075483513821849 --> C_0012699191346127703564 : +online
+C_0017007075483513821849 --> C_0012699191346127703564 : +dlo_mask
+C_0017007075483513821849 --> C_0012699191346127703564 : +rto_mask
+C_0009415204538954564998 --> C_0009415204538954564998 : +next
+C_0003618054735090668884 o-- "2" C_0004095957555449292468 : +uclamp
+C_0003618054735090668884 o-- C_0009371104448029711161 : +cfs
+C_0003618054735090668884 o-- C_0014515208731558767524 : +rt
+C_0003618054735090668884 o-- C_0015676061878373635824 : +dl
+C_0003618054735090668884 --> C_0015917873333235073396 : +curr
+C_0003618054735090668884 --> C_0015917873333235073396 : +idle
+C_0003618054735090668884 --> C_0015917873333235073396 : +stop
+C_0003618054735090668884 --> C_0003044054845010947696 : +prev_mm
+C_0003618054735090668884 --> C_0017007075483513821849 : +rd
+C_0003618054735090668884 --> C_0009415204538954564998 : +balance_callback
+C_0003618054735090668884 o-- C_0011525659871170572233 : +hrtick_timer
+C_0003618054735090668884 --> C_0012298945312873513847 : +idle_state
+C_0003618054735090668884 --> C_0003618054735090668884 : +core
+C_0003618054735090668884 --> C_0015917873333235073396 : +core_pick
+C_0003618054735090668884 --> C_0012699191346127703564 : +scratch_mask
+C_0017938875088097095711 --> C_0015917873333235073396 : +lock
+C_0017938875088097095711 --> C_0003618054735090668884 : +rq
+C_0001319075620346567495 --> C_0003618054735090668884 : +lock
+C_0004330289671567408826 --> C_0003618054735090668884 : +lock
+C_0004076450942424583539 --> C_0003618054735090668884 : +lock
+C_0005415114945752328500 --> C_0003618054735090668884 : +lock
+C_0005415114945752328500 --> C_0003618054735090668884 : +lock2
+C_0015917873333235073396 --> C_0015917873333235073396 : +last_wakee
+C_0015917873333235073396 --> C_0012699191346127703564 : +cpus_ptr
+C_0015917873333235073396 --> C_0012699191346127703564 : +user_cpus_ptr
+C_0015917873333235073396 o-- C_0012699191346127703564 : +cpus_mask
+C_0015917873333235073396 --> C_0003044054845010947696 : +mm
+C_0015917873333235073396 --> C_0003044054845010947696 : +active_mm
+C_0015917873333235073396 --> C_0015917873333235073396 : +real_parent
+C_0015917873333235073396 --> C_0015917873333235073396 : +parent
+C_0015917873333235073396 --> C_0015917873333235073396 : +group_leader
+C_0015917873333235073396 --> C_0015917873333235073396 : +pi_top_task
+C_0015917873333235073396 --> C_0015917873333235073396 : +oom_reaper_list
+C_0010373236854052220188 --> C_0003618054735090668884 : +src_rq
+C_0010373236854052220188 --> C_0003618054735090668884 : +dst_rq
+C_0010373236854052220188 --> C_0012699191346127703564 : +dst_grpmask
+C_0010373236854052220188 --> C_0012699191346127703564 : +cpus
+
+'Generated with clang-uml, version 0.5.3-18-ga4180de
+'LLVM version Ubuntu clang version 18.1.8 (++20240731024944+3b5b5c1ec4a3-1~exp1~20240731145000.144)
+@enduml
