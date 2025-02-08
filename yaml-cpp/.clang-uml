@@ -1,5 +1,5 @@
 compilation_database_dir: _build
-output_directory: ../puml
+output_directory: ../diagrams
 add_compile_flags:
   - -Wno-shadow
 generate_links:
@@ -17,12 +17,20 @@ diagrams:
       namespaces:
         - YAML
     exclude:
+      access:
+        - public
+        - private
+        - protected
       elements:
-        - YAML::convert
-        - YAML::is_numeric
+        - r: "YAML::convert.*"
+        - r: "YAML::is_numeric.*"
       namespaces:
+        - YAML::jkj
         - YAML::detail
         - YAML::enable_if
         - YAML::disable_if
         # This class is deprecated
         - YAML::ptr_vector
+    plantuml:
+      before:
+        - left to right direction
