@@ -1,0 +1,114 @@
+@startuml
+title Configuration model
+class "inheritable_diagram_options" as C_0000120779063265662583
+class C_0000120779063265662583 [[structclanguml_1_1config_1_1inheritable__diagram__options.html{Represents subset of inheritable configuration options}]] {
++~inheritable_diagram_options() = default : void [[[{~inheritable_diagram_options}]]]
+..
++inherit(const inheritable_diagram_options & parent) : void [[[{inherit}]]]
++simplify_template_type(std::string full_name) const : std::string [[[{simplify_template_type}]]]
+__
++base_directory : option<std::filesystem::path> [[[{base_directory}]]]
++combine_free_functions_into_file_participants : option<bool> [[[{combine_free_functions_into_file_participants}]]]
++comment_parser : option<comment_parser_t> [[[{comment_parser}]]]
++debug_mode : option<bool> [[[{debug_mode}]]]
++exclude : option<filter> [[[{exclude}]]]
++generate_condition_statements : option<bool> [[[{generate_condition_statements}]]]
++generate_links : option<generate_links_config> [[[{generate_links}]]]
++generate_metadata : option<bool> [[[{generate_metadata}]]]
++generate_method_arguments : option<method_arguments> [[[{generate_method_arguments}]]]
++generate_packages : option<bool> [[[{generate_packages}]]]
++generate_return_types : option<bool> [[[{generate_return_types}]]]
++generate_system_headers : option<bool> [[[{generate_system_headers}]]]
++generate_template_argument_dependencies : option<bool> [[[{generate_template_argument_dependencies}]]]
++git : option<git_config> [[[{git}]]]
++glob : option<std::vector<std::string>> [[[{glob}]]]
++group_methods : option<bool> [[[{group_methods}]]]
++include : option<filter> [[[{include}]]]
++include_relations_also_as_members : option<bool> [[[{include_relations_also_as_members}]]]
++layout : option<layout_hints> [[[{layout}]]]
++member_order : option<member_order_t> [[[{member_order}]]]
++mermaid : option<struct mermaid> [[[{mermaid}]]]
++package_type : option<package_type_t> [[[{package_type}]]]
++participants_order : option<std::vector<std::string>> [[[{participants_order}]]]
++puml : option<plantuml> [[[{puml}]]]
++relationship_hints : option<relationship_hints_t> [[[{relationship_hints}]]]
++relative_to : option<std::filesystem::path> [[[{relative_to}]]]
++skip_redundant_dependencies : option<bool> [[[{skip_redundant_dependencies}]]]
++type_aliases : option<type_aliases_t> [[[{type_aliases}]]]
++using_namespace : option<common::model::namespace_> [[[{using_namespace}]]]
+}
+abstract "diagram" as C_0000400244097365422548
+abstract C_0000400244097365422548 [[structclanguml_1_1config_1_1diagram.html{Common diagram configuration type}]] {
++~diagram() = default : void [[[{~diagram}]]]
+..
++get_together_group(const std::string & full_name) const : std::optional<std::string> [[[{get_together_group}]]]
++get_translation_units() const : std::vector<std::string> [[[{Returns list of translation unit paths}]]]
++initialize_type_aliases() : void [[[{Initialize predefined set of C++ type aliases}]]]
++make_path_relative(const std::filesystem::path & p) const : std::filesystem::path [[[{Make path relative to the `relative_to` config option}]]]
++root_directory() const : std::filesystem::path [[[{Returns absolute path of the `relative_to` option}]]]
+{abstract} +type() const = 0 : common::model::diagram_t [[[{type}]]]
+__
++name : std::string [[[{name}]]]
++title : option<std::string> [[[{title}]]]
+}
+class "class_diagram" as C_0000315821915147252995
+class C_0000315821915147252995 [[structclanguml_1_1config_1_1class__diagram.html{Class diagram configuration}]] {
++~class_diagram() = default : void [[[{~class_diagram}]]]
+..
++initialize_relationship_hints() : void [[[{initialize_relationship_hints}]]]
++type() const : common::model::diagram_t [[[{type}]]]
+__
+}
+class "sequence_diagram" as C_0002069553655160139136
+class C_0002069553655160139136 [[structclanguml_1_1config_1_1sequence__diagram.html{Sequence diagram configuration}]] {
++~sequence_diagram() = default : void [[[{~sequence_diagram}]]]
+..
++type() const : common::model::diagram_t [[[{type}]]]
+__
++from : option<std::vector<source_location>> [[[{from}]]]
++from_to : option<std::vector<std::vector<source_location>>> [[[{from_to}]]]
++to : option<std::vector<source_location>> [[[{to}]]]
+}
+class "package_diagram" as C_0002030177163277970590
+class C_0002030177163277970590 [[structclanguml_1_1config_1_1package__diagram.html{Package diagram configuration}]] {
++~package_diagram() = default : void [[[{~package_diagram}]]]
+..
++type() const : common::model::diagram_t [[[{type}]]]
+__
+}
+class "include_diagram" as C_0000509333813868966475
+class C_0000509333813868966475 [[structclanguml_1_1config_1_1include__diagram.html{Include diagram configuration}]] {
++~include_diagram() = default : void [[[{~include_diagram}]]]
+..
++type() const : common::model::diagram_t [[[{type}]]]
+__
+}
+class "config" as C_0000893743909513410599
+class C_0000893743909513410599 [[structclanguml_1_1config_1_1config.html{Represents entire configuration file}]] {
++initialize_diagram_templates() : void [[[{initialize_diagram_templates}]]]
+__
++add_compile_flags : option<std::vector<std::string>> [[[{add_compile_flags}]]]
++compilation_database_dir : option<std::string> [[[{compilation_database_dir}]]]
++diagram_templates : option<std::map<std::string,diagram_template>> [[[{diagram_templates}]]]
++diagrams : std::map<std::string,std::shared_ptr<diagram>> [[[{diagrams}]]]
++output_directory : option<std::string> [[[{output_directory}]]]
++query_driver : option<std::string> [[[{query_driver}]]]
++remove_compile_flags : option<std::vector<std::string>> [[[{remove_compile_flags}]]]
+}
+C_0000120779063265662583 <|-- C_0000400244097365422548
+C_0000400244097365422548 <|-- C_0000315821915147252995
+C_0000400244097365422548 <|-- C_0002069553655160139136
+C_0000400244097365422548 <|-- C_0002030177163277970590
+C_0000400244097365422548 <|-- C_0000509333813868966475
+C_0000893743909513410599 o-- C_0000400244097365422548 : +diagrams
+C_0000120779063265662583 <|-- C_0000893743909513410599
+note left of C_0000120779063265662583: Options common to all diagram types.
+note right of C_0000893743909513410599: General options not used by diagrams.
+note bottom of C_0000315821915147252995: Options for specific class diagrams
+note bottom of C_0002069553655160139136: Options for specific sequence diagrams
+note bottom of C_0002030177163277970590: Options for specific package diagrams
+note bottom of C_0000509333813868966475: Options for specific include diagrams
+
+'Generated with clang-uml, version 0.4.0-7-g8a6b497
+'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
+@enduml

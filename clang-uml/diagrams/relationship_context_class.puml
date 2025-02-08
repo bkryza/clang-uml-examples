@@ -1,0 +1,116 @@
+@startuml
+title Relationship model context
+package [common] as C_0000316605034920222648 {
+package [model] as C_0000083721806430512831 {
+enum "access_t" as C_0002077031342744882956
+enum C_0002077031342744882956 [[enumclanguml_1_1common_1_1model_1_1access__t.html{access_t}]] {
+kPublic
+kProtected
+kPrivate
+kNone
+}
+enum "relationship_t" as C_0000229140160180072950
+enum C_0000229140160180072950 [[enumclanguml_1_1common_1_1model_1_1relationship__t.html{relationship_t}]] {
+kNone
+kExtension
+kComposition
+kAggregation
+kContainment
+kOwnership
+kAssociation
+kInstantiation
+kFriendship
+kAlias
+kDependency
+kConstraint
+}
+class "decorated_element" as C_0001117102382624673118
+class C_0001117102382624673118 [[classclanguml_1_1common_1_1model_1_1decorated__element.html{Base class for decorated diagram elements}]] {
++~decorated_element() = default : void [[[{~decorated_element}]]]
+..
++add_decorators(const std::vector<std::shared_ptr<decorators::decorator>> & decorators) : void [[[{add_decorators}]]]
++append(const decorated_element & de) : void [[[{append}]]]
++comment() const : std::optional<comment_t> [[[{comment}]]]
++decorators() const : const std::vector<std::shared_ptr<decorators::decorator>> & [[[{decorators}]]]
++doxygen_link() const : std::optional<std::string> [[[{doxygen_link}]]]
++get_relationship() const : std::pair<relationship_t,std::string> [[[{get_relationship}]]]
++set_comment(const comment_t & c) : void [[[{set_comment}]]]
++skip() const : bool [[[{skip}]]]
++skip_relationship() const : bool [[[{skip_relationship}]]]
++style_spec() const : std::string [[[{style_spec}]]]
+__
+-comment_ : std::optional<comment_t> [[[{comment_}]]]
+-decorators_ : std::vector<std::shared_ptr<decorators::decorator>> [[[{decorators_}]]]
+}
+class "stylable_element" as C_0002077846075979426940
+class C_0002077846075979426940 [[classclanguml_1_1common_1_1model_1_1stylable__element.html{Diagram elements to which style can be applied.}]] {
++set_style(const std::string & style) : void [[[{set_style}]]]
++style() const : std::string [[[{style}]]]
+__
+-style_ : std::string [[[{style_}]]]
+}
+class "relationship" as C_0002046336758797367926
+class C_0002046336758797367926 [[classclanguml_1_1common_1_1model_1_1relationship.html{Class representing any relationship other than inheritance}]] {
++relationship(relationship_t type, int64_t destination, access_t access = access_t::kPublic, std::string label = "", std::string multiplicity_source = "", std::string multiplicity_destination = "") : void [[[{relationship}]]]
++~relationship() = default : void [[[{~relationship}]]]
+..
++access() const noexcept : access_t [[[{access}]]]
++destination() const : common::id_t [[[{destination}]]]
++label() const : std::string [[[{label}]]]
++multiplicity_destination() const : std::string [[[{multiplicity_destination}]]]
++multiplicity_source() const : std::string [[[{multiplicity_source}]]]
++set_access(access_t scope) noexcept : void [[[{set_access}]]]
++set_destination(int64_t destination) : void [[[{set_destination}]]]
++set_label(const std::string & label) : void [[[{set_label}]]]
++set_multiplicity_destination(const std::string & multiplicity_destination) : void [[[{set_multiplicity_destination}]]]
++set_multiplicity_source(const std::string & multiplicity_source) : void [[[{set_multiplicity_source}]]]
++set_type(relationship_t type) noexcept : void [[[{set_type}]]]
++type() const noexcept : relationship_t [[[{type}]]]
+__
+-access_ : access_t [[[{access_}]]]
+-destination_ : int64_t [[[{destination_}]]]
+-label_ : std::string [[[{label_}]]]
+-multiplicity_destination_ : std::string [[[{multiplicity_destination_}]]]
+-multiplicity_source_ : std::string [[[{multiplicity_source_}]]]
+-type_ : relationship_t [[[{type_}]]]
+}
+class "diagram_element" as C_0001073500714379115414
+class C_0001073500714379115414 [[classclanguml_1_1common_1_1model_1_1diagram__element.html{Base class for standalone diagram elements.}]] {
++diagram_element() : void [[[{diagram_element}]]]
++~diagram_element() = default : void [[[{~diagram_element}]]]
+..
++add_relationship(relationship && cr) : void [[[{add_relationship}]]]
++alias() const : std::string [[[{Return elements' diagram alias.}]]]
++append(const decorated_element & e) : void [[[{append}]]]
++complete() const : bool [[[{complete}]]]
++complete(bool completed) : void [[[{complete}]]]
++context() const : inja::json [[[{context}]]]
++full_name(bool) const : std::string [[[{Return the elements fully qualified name.}]]]
++id() const : id_t [[[{Returns diagram element id.}]]]
++is_nested() const : bool [[[{is_nested}]]]
++name() const : std::string [[[{name}]]]
++nested(bool nested) : void [[[{nested}]]]
++relationships() : std::vector<relationship> & [[[{relationships}]]]
++relationships() const : const std::vector<relationship> & [[[{relationships}]]]
++set_id(id_t id) : void [[[{set_id}]]]
++set_name(const std::string & name) : void [[[{set_name}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+-complete_ : bool [[[{complete_}]]]
+-id_ : id_t [[[{id_}]]]
+-name_ : std::string [[[{name_}]]]
+-nested_ : bool [[[{nested_}]]]
+-relationships_ : std::vector<relationship> [[[{relationships_}]]]
+}
+}
+}
+C_0002046336758797367926 o-- C_0000229140160180072950 : -type_
+C_0002046336758797367926 o-- C_0002077031342744882956 : -access_
+C_0001117102382624673118 <|-- C_0002046336758797367926
+C_0002077846075979426940 <|-- C_0002046336758797367926
+C_0001073500714379115414 o-- C_0002046336758797367926 : -relationships_
+C_0001117102382624673118 <|-- C_0001073500714379115414
+
+'Generated with clang-uml, version 0.4.0-7-g8a6b497
+'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
+@enduml
