@@ -1,0 +1,59 @@
+@startuml
+title 'cpp_entity' class hierarchy with public members
+left to right direction
+class "cpp_entity" as C_0014837562978658247224
+class C_0014837562978658247224 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L47{cpp_entity}]] {
++cpp_entity(const cpp_entity &) = deleted : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L50{cpp_entity}]]]
++cpp_entity(std::string name) : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L155{cpp_entity}]]]
++~cpp_entity() noexcept = default : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L53{~cpp_entity}]]]
+..
++operator=(const cpp_entity &) = deleted : cpp_entity & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L51{operator=}]]]
+..
++add_attribute(cpp_attribute attr) noexcept : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L125{add_attribute}]]]
++add_attribute(const cpp_attribute_list & list) noexcept : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L131{add_attribute}]]]
++attributes() const noexcept : const cpp_attribute_list & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L119{attributes}]]]
++comment() const noexcept : type_safe::basic_optional<const std::string> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L106{comment}]]]
++kind() const noexcept : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L56{kind}]]]
++name() const noexcept : const std::string & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L63{name}]]]
++parent() const noexcept : type_safe::basic_optional<const cpp_entity> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L76{parent}]]]
++scope_name() const : type_safe::basic_optional<cpp_scope_name> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L70{scope_name}]]]
++set_comment(type_safe::basic_optional<std::string> comment) noexcept : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L113{set_comment}]]]
++set_user_data(void * data) const noexcept : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L149{set_user_data}]]]
++user_data() const noexcept : void * [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L137{user_data}]]]
+__
+}
+class "cpp_unexposed_entity" as C_0011598861676029238614
+class C_0011598861676029238614 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L187{cpp_unexposed_entity}]] {
+{static} +build(const cpp_entity_index & index, cpp_entity_id id, std::string name, cpp_token_string spelling) : std::unique_ptr<cpp_entity> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L194{build}]]]
+{static} +build(cpp_token_string spelling) : std::unique_ptr<cpp_entity> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L199{build}]]]
+{static} +kind() noexcept : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L190{kind}]]]
++spelling() const noexcept : const cpp_token_string & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_entity.hpp#L202{spelling}]]]
+__
+}
+class "cpp_friend" as C_0002424370915184415608
+class C_0002424370915184415608 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_friend.hpp#L19{cpp_friend}]] {
+{static} +build(std::unique_ptr<cpp_entity> e) : std::unique_ptr<cpp_friend> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_friend.hpp#L27{build}]]]
+{static} +build(std::unique_ptr<cpp_type> type) : std::unique_ptr<cpp_friend> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_friend.hpp#L34{build}]]]
++entity() const noexcept : type_safe::basic_optional<const cpp_entity> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_friend.hpp#L40{entity}]]]
+{static} +kind() noexcept : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_friend.hpp#L22{kind}]]]
++type() const noexcept : type_safe::basic_optional<const cpp_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_friend.hpp#L48{type}]]]
+__
+}
+class "cpp_variable_base" as C_0001476801060215450073
+class C_0001476801060215450073 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cppast_fwd.hpp#L79{cpp_variable_base}]] {
+__
+}
+class "cpp_namespace_alias" as C_0001387303117080103145
+class C_0001387303117080103145 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_namespace.hpp#L102{cpp_namespace_alias}]] {
+{static} +build(const cpp_entity_index & idx, cpp_entity_id id, std::string name, cpp_namespace_ref target) : std::unique_ptr<cpp_namespace_alias> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_namespace.hpp#L108{build}]]]
+{static} +kind() noexcept : cpp_entity_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_namespace.hpp#L105{kind}]]]
++target() const noexcept : const cpp_namespace_ref & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_namespace.hpp#L114{target}]]]
+__
+}
+C_0014837562978658247224 <|-- C_0011598861676029238614
+C_0014837562978658247224 <|-- C_0002424370915184415608
+C_0014837562978658247224 <|-- C_0001387303117080103145
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml
