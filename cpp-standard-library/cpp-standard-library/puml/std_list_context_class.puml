@@ -1,53 +1,69 @@
 @startuml
 title std::list context class diagram
-class "__gnu_cxx::__aligned_membuf<_Tp>" as C_0001780373788828611506
-class C_0001780373788828611506 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/aligned_buffer.h#L47{}]] {
+class "::__gnu_cxx::__aligned_membuf<_Tp>" as C_0001780373788828611506
+class C_0001780373788828611506 {
 __
 }
-class "__gnu_cxx::__aligned_membuf::_Tp2" as C_0000363944907545484744
-class C_0000363944907545484744 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/ext/aligned_buffer.h#L54{}]] {
+class "::__gnu_cxx::__aligned_membuf::_Tp2" as C_0000363944907545484744
+class C_0000363944907545484744 {
 __
 }
 class "__detail::_List_node_base" as C_0003061237274580542436
-class C_0003061237274580542436 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L81{}]] {
+class C_0003061237274580542436 {
 __
 }
 class "__detail::_List_node_header" as C_0000986537528964488307
-class C_0000986537528964488307 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L104{}]] {
+class C_0000986537528964488307 {
+__
+}
+class "__detail::_Scratch_list" as C_0004159494573713602284
+class C_0004159494573713602284 {
+__
+}
+class "__detail::_Scratch_list::_Ptr_cmp<_Iter,_Cmp>" as C_0006153939857710835498
+class C_0006153939857710835498 {
+__
+}
+class "__detail::_Scratch_list::_Ptr_cmp<_Iter,void>" as C_0002765096334040588708
+class C_0002765096334040588708 {
 __
 }
 class "_List_node<_Tp>" as C_0016581430309674106927
-class C_0016581430309674106927 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L167{}]] {
+class C_0016581430309674106927 {
 __
 }
 class "_List_iterator<_Tp>" as C_0010079646352454332341
-class C_0010079646352454332341 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L186{}]] {
+class C_0010079646352454332341 {
 __
 }
 class "_List_base<_Tp,_Alloc>" as C_0017268439787651424876
-class C_0017268439787651424876 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L350{}]] {
+class C_0017268439787651424876 {
 __
 }
 class "_List_base::_List_impl" as C_0009730025766701730813
-class C_0009730025766701730813 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L375{}]] {
+class C_0009730025766701730813 {
 __
 }
 class "list<_Tp,_Alloc=allocator<_Tp>>" as C_0015609426756015090359
-class C_0015609426756015090359 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L557{}]] {
+class C_0015609426756015090359 {
 __
 }
 class "list::_Finalize_merge" as C_0008831140152225074072
-class C_0008831140152225074072 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/bits/stl_list.h#L1973{}]] {
+class C_0008831140152225074072 {
 __
 }
 class "list<_Tp,pmr::polymorphic_allocator<_Tp>>" as C_0005440126081384335850
-class C_0005440126081384335850 [[https://github.com/gcc-mirror/gcc/blob/releases/gcc-11.4.0/libstdc++-v3/include/list#L78{}]] {
+class C_0005440126081384335850 {
 __
 }
 C_0000363944907545484744 --+ C_0001780373788828611506
 C_0003061237274580542436 --> C_0003061237274580542436 : +_M_next
 C_0003061237274580542436 --> C_0003061237274580542436 : +_M_prev
 C_0003061237274580542436 <|-- C_0000986537528964488307
+C_0003061237274580542436 <|-- C_0004159494573713602284
+C_0006153939857710835498 --+ C_0004159494573713602284
+C_0002765096334040588708 --+ C_0004159494573713602284
+C_0002765096334040588708 ..|> C_0006153939857710835498
 C_0016581430309674106927 o-- C_0001780373788828611506 : +_M_storage
 C_0003061237274580542436 <|-- C_0016581430309674106927
 C_0017268439787651424876 o-- C_0009730025766701730813 : #_M_impl
@@ -71,7 +87,10 @@ end note
      note top of C_0000986537528964488307
     The %list node header.
 end note
-     note top of C_0016581430309674106927
+     note top of C_0004159494573713602284
+    Used by list::sort to hold nodes being sorted.
+end note
+         note top of C_0016581430309674106927
     An actual node in the %list.
 end note
        note top of C_0017268439787651424876
@@ -94,6 +113,6 @@ end note
     
 
 
-'Generated with clang-uml, version 0.5.3-16-gf97d420
-'LLVM version Ubuntu clang version 17.0.6 (++20231209124227+6009708b4367-1~exp1~20231209124336.77)
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
