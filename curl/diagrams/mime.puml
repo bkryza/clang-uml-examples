@@ -1,0 +1,116 @@
+@startuml
+title 'MIME' class diagram
+class "curl_slist" as C_0016423763818086013192
+class C_0016423763818086013192 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/include/curl/curl.h#L2763{curl_slist}]] {
+__
++data : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/include/curl/curl.h#L2764{data}]]]
++next : struct curl_slist * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/include/curl/curl.h#L2765{next}]]]
+}
+enum "mimekind" as C_0008736377183021364258
+enum C_0008736377183021364258 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L44{mimekind}]] {
+MIMEKIND_NONE
+MIMEKIND_DATA
+MIMEKIND_FILE
+MIMEKIND_CALLBACK
+MIMEKIND_MULTIPART
+MIMEKIND_LAST
+}
+enum "mimestate" as C_0015938715698416598115
+enum C_0015938715698416598115 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L54{mimestate}]] {
+MIMESTATE_BEGIN
+MIMESTATE_CURLHEADERS
+MIMESTATE_USERHEADERS
+MIMESTATE_EOH
+MIMESTATE_BODY
+MIMESTATE_BOUNDARY1
+MIMESTATE_BOUNDARY2
+MIMESTATE_CONTENT
+MIMESTATE_END
+MIMESTATE_LAST
+}
+class "mime_encoder" as C_0001854610224586061291
+class C_0001854610224586061291 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L75{mime_encoder}]] {
+__
++encodefunc : size_t (*)(char *,size_t,_Bool,curl_mimepart *) [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L77{encodefunc}]]]
++name : const char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L76{name}]]]
++sizefunc : curl_off_t (*)(curl_mimepart *) [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L79{sizefunc}]]]
+}
+class "mime_encoder_state" as C_0016608484790603525332
+class C_0016608484790603525332 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L83{mime_encoder_state}]] {
+__
++buf : char[256] [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L87{buf}]]]
++bufbeg : size_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L85{bufbeg}]]]
++bufend : size_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L86{bufend}]]]
++pos : size_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L84{pos}]]]
+}
+class "mime_state" as C_0003201730988684764223
+class C_0003201730988684764223 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L91{mime_state}]] {
+__
++offset : curl_off_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L94{offset}]]]
++ptr : void * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L93{ptr}]]]
++state : enum mimestate [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L92{state}]]]
+}
+class "curl_mime" as C_0018444577604279996283
+class C_0018444577604279996283 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L101{curl_mime}]] {
+__
++boundary : char[47] [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L105{boundary}]]]
++firstpart : curl_mimepart * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L103{firstpart}]]]
++lastpart : curl_mimepart * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L104{lastpart}]]]
++parent : curl_mimepart * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L102{parent}]]]
++state : struct mime_state [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L106{state}]]]
+}
+class "curl_mimepart" as C_0011680469396464142521
+class C_0011680469396464142521 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L110{curl_mimepart}]] {
+__
++arg : void * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L119{arg}]]]
++curlheaders : struct curl_slist * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L121{curlheaders}]]]
++data : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L115{data}]]]
++datasize : curl_off_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L126{datasize}]]]
++encoder : const struct mime_encoder * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L128{encoder}]]]
++encstate : struct mime_encoder_state [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L129{encstate}]]]
++filename : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L124{filename}]]]
++flags : unsigned int [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L114{flags}]]]
++fp : FILE * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L120{fp}]]]
++freefunc : curl_free_callback [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L118{freefunc}]]]
++kind : enum mimekind [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L113{kind}]]]
++lastreadstatus : size_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L130{lastreadstatus}]]]
++mimetype : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L123{mimetype}]]]
++name : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L125{name}]]]
++nextpart : curl_mimepart * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L112{nextpart}]]]
++parent : curl_mime * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L111{parent}]]]
++readfunc : curl_read_callback [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L116{readfunc}]]]
++seekfunc : curl_seek_callback [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L117{seekfunc}]]]
++state : struct mime_state [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L127{state}]]]
++userheaders : struct curl_slist * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L122{userheaders}]]]
+}
+class "cr_mime_ctx" as C_0008441530805657926633
+class C_0008441530805657926633 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1931{cr_mime_ctx}]] {
+__
++error_result : CURLcode [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1936{error_result}]]]
++errored : bit [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1939{errored}]]]
++part : curl_mimepart * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1933{part}]]]
++read_len : curl_off_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1935{read_len}]]]
++seen_eos : bit [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1938{seen_eos}]]]
++super : struct Curl_creader [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1932{super}]]]
++tmpbuf : struct bufq [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1937{tmpbuf}]]]
++total_len : curl_off_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1934{total_len}]]]
+}
+C_0016423763818086013192 --> C_0016423763818086013192 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/include/curl/curl.h#L2765{next}]] : +next
+C_0003201730988684764223 o-- C_0015938715698416598115 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L92{state}]] : +state
+C_0018444577604279996283 --> C_0011680469396464142521 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L102{parent}]] : +parent
+C_0018444577604279996283 --> C_0011680469396464142521 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L103{firstpart}]] : +firstpart
+C_0018444577604279996283 --> C_0011680469396464142521 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L104{lastpart}]] : +lastpart
+C_0018444577604279996283 o-- C_0003201730988684764223 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L106{state}]] : +state
+C_0011680469396464142521 --> C_0018444577604279996283 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L111{parent}]] : +parent
+C_0011680469396464142521 --> C_0011680469396464142521 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L112{nextpart}]] : +nextpart
+C_0011680469396464142521 o-- C_0008736377183021364258 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L113{kind}]] : +kind
+C_0011680469396464142521 --> C_0016423763818086013192 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L121{curlheaders}]] : +curlheaders
+C_0011680469396464142521 --> C_0016423763818086013192 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L122{userheaders}]] : +userheaders
+C_0011680469396464142521 o-- C_0003201730988684764223 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L127{state}]] : +state
+C_0011680469396464142521 --> C_0001854610224586061291 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L128{encoder}]] : +encoder
+C_0011680469396464142521 o-- C_0016608484790603525332 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.h#L129{encstate}]] : +encstate
+C_0008441530805657926633 --> C_0011680469396464142521 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/mime.c#L1933{part}]] : +part
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+title 'Cookie' class diagram
+class "Curl_llist_node" as C_0003064747438711625992
+class C_0003064747438711625992 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/llist.h#L45{Curl_llist_node}]] {
+__
++_list : struct Curl_llist * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/llist.h#L46{_list}]]]
++_next : struct Curl_llist_node * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/llist.h#L49{_next}]]]
++_prev : struct Curl_llist_node * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/llist.h#L48{_prev}]]]
++_ptr : void * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/llist.h#L47{_ptr}]]]
+}
+class "Cookie" as C_0002565775727757867751
+class C_0002565775727757867751 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L32{Cookie}]] {
+__
++creationtime : unsigned int [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L41{creationtime}]]]
++domain : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L39{domain}]]]
++expires : curl_off_t [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L40{expires}]]]
++getnode : struct Curl_llist_node [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L34{getnode}]]]
++httponly : bit [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L45{httponly}]]]
++livecookie : bit [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L44{livecookie}]]]
++name : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L35{name}]]]
++node : struct Curl_llist_node [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L33{node}]]]
++path : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L37{path}]]]
++prefix_host : bit [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L47{prefix_host}]]]
++prefix_secure : bit [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L46{prefix_secure}]]]
++secure : bit [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L43{secure}]]]
++spath : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L38{spath}]]]
++tailmatch : bit [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L42{tailmatch}]]]
++value : char * [[[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L36{value}]]]
+}
+C_0003064747438711625992 --> C_0003064747438711625992 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/llist.h#L48{_prev}]] : +_prev
+C_0003064747438711625992 --> C_0003064747438711625992 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/llist.h#L49{_next}]] : +_next
+C_0002565775727757867751 o-- C_0003064747438711625992 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L33{node}]] : +node
+C_0002565775727757867751 o-- C_0003064747438711625992 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/cookie.h#L34{getnode}]] : +getnode
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

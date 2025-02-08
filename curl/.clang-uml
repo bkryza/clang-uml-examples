@@ -1,5 +1,5 @@
 compilation_database_dir: _build
-output_directory: ../puml
+output_directory: ../diagrams
 add_compile_flags:
   - -fparse-all-comments
   - -Wno-unknown-warning-option
@@ -63,7 +63,8 @@ diagrams:
     message_comment_width: 50
     generate_condition_statements: true
     from:
-      - function: "curl_easy_getinfo(struct Curl_easy *,CURLINFO)"
+      - function:
+          r: "curl_easy_getinfo.*"
   curl_easy_send:
     type: sequence
     title: "'curl_easy_send' sequence diagram"
@@ -75,7 +76,8 @@ diagrams:
     message_comment_width: 50
     generate_condition_statements: true
     from:
-      - function: "curl_easy_send(struct Curl_easy *,const void *,size_t,size_t *)"
+      - function:
+          r: "curl_easy_send.*"
   curl_easy_recv:
     type: sequence
     title: "'curl_easy_recv' sequence diagram"
@@ -87,4 +89,5 @@ diagrams:
     message_comment_width: 50
     generate_condition_statements: true
     from:
-      - function: "curl_easy_recv(struct Curl_easy *,void *,size_t,size_t *)"
+      - function:
+          r: "curl_easy_recv.*"

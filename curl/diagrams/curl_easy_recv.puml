@@ -1,0 +1,68 @@
+@startuml
+title 'curl_easy_recv' sequence diagram
+participant "lib/easy.c" as C_0013686580212228222516
+[-> C_0013686580212228222516 : curl_easy_recv(CURL *,void *,size_t,size_t *)
+activate C_0013686580212228222516
+alt Curl_is_in_callback(data)
+participant "lib/multiif.h" as C_0015404815212323728686
+C_0013686580212228222516 -> C_0015404815212323728686 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L1248{}]] : **[**Curl_is_in_callback(struct Curl_easy *)**]**
+activate C_0015404815212323728686
+C_0015404815212323728686 --> C_0013686580212228222516
+deactivate C_0015404815212323728686
+end
+C_0013686580212228222516 -> C_0013686580212228222516 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L1251{}]] : easy_connection(struct Curl_easy *,struct connectdata **)
+activate C_0013686580212228222516
+note over C_0013686580212228222516
+only allow these to be called on handles with CURLOPT_CONNECT_ONLY
+end note
+alt !data->set.connect_only
+participant "lib/curl_trc.h" as C_0000898269797836910488
+C_0013686580212228222516 -> C_0000898269797836910488 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/curl_trc.h#L63{}]] : Curl_failf(struct Curl_easy *,const char *,...)
+activate C_0000898269797836910488
+deactivate C_0000898269797836910488
+end
+participant "lib/connect.h" as C_0005794032207080335183
+C_0013686580212228222516 -> C_0005794032207080335183 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L1226{}]] : Curl_getconnectinfo(struct Curl_easy *,struct connectdata **)
+activate C_0005794032207080335183
+note over C_0005794032207080335183
+this works for an easy handle: - that has been used
+for curl_easy_perform() - that is associated with
+a multi handle, and whose connection was detached
+with CURLOPT_CONNECT_ONLY
+end note
+alt data->state.lastconnect_id != -1
+participant "lib/conncache.h" as C_0004378690360541439362
+C_0005794032207080335183 -> C_0004378690360541439362 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/connect.c#L331{}]] : Curl_cpool_get_conn(struct Curl_easy *,curl_off_t)
+activate C_0004378690360541439362
+C_0004378690360541439362 --> C_0005794032207080335183
+deactivate C_0004378690360541439362
+end
+C_0005794032207080335183 --> C_0013686580212228222516
+deactivate C_0005794032207080335183
+alt sfd == CURL_SOCKET_BAD
+C_0013686580212228222516 -> C_0000898269797836910488 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/curl_trc.h#L63{}]] : Curl_failf(struct Curl_easy *,const char *,...)
+activate C_0000898269797836910488
+deactivate C_0000898269797836910488
+end
+C_0013686580212228222516 --> C_0013686580212228222516
+deactivate C_0013686580212228222516
+alt !data->conn
+note over C_0013686580212228222516
+on first invoke, the transfer has been detached from
+the connection and needs to be reattached
+end note
+C_0013686580212228222516 -> C_0015404815212323728686 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L1258{}]] : Curl_attach_connection(struct Curl_easy *,struct connectdata *)
+activate C_0015404815212323728686
+deactivate C_0015404815212323728686
+end
+participant "lib/cfilters.h" as C_0007743543124327386475
+C_0013686580212228222516 -> C_0007743543124327386475 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L1261{}]] : Curl_conn_recv(struct Curl_easy *,int,char *,size_t,ssize_t *)
+activate C_0007743543124327386475
+C_0007743543124327386475 --> C_0013686580212228222516
+deactivate C_0007743543124327386475
+[<-- C_0013686580212228222516
+deactivate C_0013686580212228222516
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml
