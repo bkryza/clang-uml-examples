@@ -1,0 +1,984 @@
+@startuml
+title trantor class diagram
+class "NonCopyable" as C_0009278591901947957509
+class C_0009278591901947957509 {
+__
+}
+class "Date" as C_0016256073857958609234
+class C_0016256073857958609234 {
++Date() : void
++Date(int64_t microSec) : void
++Date(unsigned int year, unsigned int month, unsigned int day, unsigned int hour = 0, unsigned int minute = 0, unsigned int second = 0, unsigned int microSecond = 0) : void
++~Date() : void
+..
++operator!=(const Date & date) const : bool
++operator<(const Date & date) const : bool
++operator<=(const Date & date) const : bool
++operator==(const Date & date) const : bool
++operator>(const Date & date) const : bool
++operator>=(const Date & date) const : bool
+..
++after(double second) const : const Date
+{static} +date() : const Date
+{static} +fromDbString(const std::string & datetime) : Date
+{static} +fromDbStringLocal(const std::string & datetime) : Date
++isSameSecond(const Date & date) const : bool
++microSecondsSinceEpoch() const : int64_t
+{static} +now() : const Date
++roundDay() const : const Date
++roundSecond() const : const Date
++secondsSinceEpoch() const : int64_t
++swap(Date & that) : void
+{static} +timezoneOffset() : int64_t
++tmStruct() const : struct tm
++toCustomFormattedString(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toCustomFormattedString(const std::string & fmtStr, char * str, size_t len) const : void
++toCustomFormattedStringLocal(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toCustomedFormattedString(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toCustomedFormattedString(const std::string & fmtStr, char * str, size_t len) const : void
++toCustomedFormattedStringLocal(const std::string & fmtStr, bool showMicroseconds = false) const : std::string
++toDbString() const : std::string
++toDbStringLocal() const : std::string
++toFormattedString(bool showMicroseconds) const : std::string
++toFormattedStringLocal(bool showMicroseconds) const : std::string
+__
+}
+class "MpscQueue<T>" as C_0007301337479226923192
+class C_0007301337479226923192 {
++MpscQueue() : void
++~MpscQueue() : void
+..
++dequeue(T & output) : bool
++empty() : bool
++enqueue(T && input) : void
++enqueue(const T & input) : void
+__
+}
+class "MpscQueue::BufferNode" as C_0001789613096673369130
+class C_0001789613096673369130 {
++BufferNode() = default : void
++BufferNode(const T & data) : void
++BufferNode(T && data) : void
+__
++dataPtr_ : T *
++next_ : std::atomic<BufferNode *>
+}
+class "MpscQueue<std::function<void()>>" as C_0017485969336261287282
+class C_0017485969336261287282 {
+__
+}
+class "EventLoop" as C_0011121046198641787995
+class C_0011121046198641787995 {
++EventLoop() : void
++~EventLoop() : void
+..
++assertInLoopThread() : void
+{static} +getEventLoopOfCurrentThread() : EventLoop *
++index() : size_t
++invalidateTimer(TimerId id) : void
++isCallingFunctions() : bool
++isInLoopThread() const : bool
++isRunning() : bool
++loop() : void
++moveToCurrentThread() : void
++queueInLoop(const Func & f) : void
++queueInLoop(Func && f) : void
++quit() : void
++removeChannel(Channel * chl) : void
++resetAfterFork() : void
++resetTimerQueue() : void
++runAfter(const std::chrono::duration<double> & delay, const Func & cb) : TimerId
++runAfter(const std::chrono::duration<double> & delay, Func && cb) : TimerId
++runAfter(double delay, Func && cb) : TimerId
++runAfter(double delay, const Func & cb) : TimerId
++runAt(const Date & time, Func && cb) : TimerId
++runAt(const Date & time, const Func & cb) : TimerId
++runEvery(double interval, const Func & cb) : TimerId
++runEvery(const std::chrono::duration<double> & interval, Func && cb) : TimerId
++runEvery(const std::chrono::duration<double> & interval, const Func & cb) : TimerId
++runEvery(double interval, Func && cb) : TimerId
++runInLoop<Functor>(Functor && f) : void
++runOnQuit(Func && cb) : void
++runOnQuit(const Func & cb) : void
++setIndex(size_t index) : void
++updateChannel(Channel * chl) : void
+__
+}
+class "detail::FixedBuffer<int SIZE>" as C_0000891149182206539142
+class C_0000891149182206539142 {
++FixedBuffer() : void
++~FixedBuffer() : void
+..
++add(size_t len) : void
++append(const char * buf, size_t len) : bool
++avail() const : int
++current() : char *
++data() const : const char *
++debugString() : const char *
++length() const : int
++reset() : void
++setCookie(void (*)() cookie) : void
++toString() const : std::string
++zeroBuffer() : void
+__
+}
+class "detail::FixedBuffer<detail::kSmallBuffer>" as C_0004080333220803125488
+class C_0004080333220803125488 {
+__
+}
+class "detail::FixedBuffer<4000>" as C_0014033977001176670049
+class C_0014033977001176670049 {
++FixedBuffer() : void
++~FixedBuffer() : void
+..
++add(size_t len) : void
++append(const char * buf, size_t len) : bool
++avail() const : int
++current() : char *
++data() const : const char *
++debugString() : const char *
++length() const : int
++reset() : void
++setCookie(void (*)() cookie) : void
++toString() const : std::string
++zeroBuffer() : void
+__
+}
+class "detail::FixedBuffer<4000000>" as C_0008339826881298183446
+class C_0008339826881298183446 {
++FixedBuffer() : void
++~FixedBuffer() : void
+..
++add(size_t len) : void
++append(const char * buf, size_t len) : bool
++avail() const : int
++current() : char *
++data() const : const char *
++debugString() : const char *
++length() const : int
++reset() : void
++setCookie(void (*)() cookie) : void
++toString() const : std::string
++zeroBuffer() : void
+__
+}
+class "LogStream" as C_0015445520160522602000
+class C_0015445520160522602000 {
++operator<int N>(const char (&)[N] buf) : self &
++operator<<(const void *) : self &
++operator<<(const std::string & v) : self &
++operator<<(const unsigned char * str) : self &
++operator<<(const char * str) : self &
++operator<<(char * str) : self &
++operator<<(char v) : self &
++operator<<(const long double & v) : self &
++operator<<(const double &) : self &
++operator<<(float & v) : self &
++operator<<(bool v) : self &
++operator<<(const unsigned long long &) : self &
++operator<<(const long long &) : self &
++operator<<(unsigned long) : self &
++operator<<(long) : self &
++operator<<(unsigned int) : self &
++operator<<(int) : self &
++operator<<(unsigned short) : self &
++operator<<(short) : self &
+..
++append(const char * data, size_t len) : void
++bufferData() const : const char *
++bufferLength() const : size_t
++resetBuffer() : void
+__
+}
+class "Fmt" as C_0017055124017863189579
+class C_0017055124017863189579 {
++Fmt<T>(const char * fmt, T val) : void
+..
++data() const : const char *
++length() const : int
+__
+}
+class "Logger" as C_0016430023939778113715
+class C_0016430023939778113715 {
++Logger(SourceFile file, int line) : void
++Logger(SourceFile file, int line, LogLevel level) : void
++Logger(SourceFile file, int line, bool isSysErr) : void
++Logger(SourceFile file, int line, LogLevel level, const char * func) : void
++Logger() : void
++Logger(LogLevel level) : void
++Logger(bool isSysErr) : void
++~Logger() : void
+..
+{static} +disableSpdLog(int index) : void
+{static} +disableSpdLog() : void
+{static} +displayLocalTime() : bool
+{static} +enableSpdLog(int index, std::shared_ptr<spdlog::logger> logger = = {}) : void
+{static} +enableSpdLog(std::shared_ptr<spdlog::logger> logger = = {}) : void
+{static} +getDefaultSpdLogger(int index) : std::shared_ptr<spdlog::logger>
+{static} +getSpdLogger(int index = -1) : std::shared_ptr<spdlog::logger>
+{static} +hasSpdLogSupport() : bool
+{static} +logLevel() : LogLevel
+{static} +setDisplayLocalTime(bool showLocalTime) : void
++setIndex(int index) : Logger &
+{static} +setLogLevel(LogLevel level) : void
+{static} +setOutputFunction(std::function<void (const char *,const uint64_t)> outputFunc, std::function<void ()> flushFunc, int index = -1) : void
++stream() : LogStream &
+__
+}
+enum "Logger::LogLevel" as C_0017050270724969506368
+enum C_0017050270724969506368 {
+kTrace
+kDebug
+kInfo
+kWarn
+kError
+kFatal
+kNumberOfLogLevels
+}
+class "Logger::SourceFile" as C_0007832646378742452368
+class C_0007832646378742452368 {
++SourceFile(const char * filename = nullptr) : void
++SourceFile<int N>(const char (&)[N] arr) : void
+__
++data_ : const char *
++size_ : int
+}
+class "RawLogger" as C_0005731444726335351425
+class C_0005731444726335351425 {
++~RawLogger() : void
+..
++setIndex(int index) : RawLogger &
++stream() : LogStream &
+__
+}
+class "TimingWheel" as C_0007715726745416538447
+class C_0007715726745416538447 {
++TimingWheel(EventLoop * loop, size_t maxTimeout, float ticksInterval = 1.0, size_t bucketsNumPerWheel = 100) : void
++~TimingWheel() : void
+..
++getLoop() : EventLoop *
++insertEntry(size_t delay, EntryPtr entryPtr) : void
++insertEntryInloop(size_t delay, EntryPtr entryPtr) : void
+__
+}
+class "TimingWheel::CallbackEntry" as C_0016109918494445555553
+class C_0016109918494445555553 {
++CallbackEntry(std::function<void ()> cb) : void
++~CallbackEntry() : void
+__
+}
+class "Poller" as C_0002400273203183077136
+class C_0002400273203183077136 {
+__
+}
+class "TimerQueue" as C_0004859200761461552810
+class C_0004859200761461552810 {
+__
+}
+class "Channel" as C_0006117526629196852195
+class C_0006117526629196852195 {
+__
+}
+abstract "TaskQueue" as C_0005478985967983820353
+abstract C_0005478985967983820353 {
++~TaskQueue() : void
+..
++getName() const : std::string
+{abstract} +runTaskInQueue(const std::function<void ()> & task) = 0 : void
+{abstract} +runTaskInQueue(std::function<void ()> && task) = 0 : void
++syncTaskInQueue(const std::function<void ()> & task) : void
+__
+}
+class "EventLoopThread" as C_0010244900171882959669
+class C_0010244900171882959669 {
++EventLoopThread(const std::string & threadName = "EventLoopThread") : void
++~EventLoopThread() : void
+..
++getLoop() const : EventLoop *
++run() : void
++wait() : void
+__
+}
+class "SerialTaskQueue" as C_0005072249079753545589
+class C_0005072249079753545589 {
++SerialTaskQueue() = deleted : void
++SerialTaskQueue(const std::string & name) : void
++~SerialTaskQueue() : void
+..
++getName() const : std::string
++getTaskCount() : size_t
++isRuningTask() : bool
++isRunningTask() : bool
++runTaskInQueue(const std::function<void ()> & task) : void
++runTaskInQueue(std::function<void ()> && task) : void
++stop() : void
++waitAllTasksFinished() : void
+__
+}
+class "T" as C_0003155623075594747331
+class C_0003155623075594747331 {
++T(const char * str, unsigned int len) : void
+__
++len_ : const unsigned int
++str_ : const char *
+}
+class "AsyncFileLogger" as C_0005041486034051408782
+class C_0005041486034051408782 {
++AsyncFileLogger() : void
++~AsyncFileLogger() : void
+..
++flush() : void
++output(const char * msg, const uint64_t len) : void
++setFileName(const std::string & baseName, const std::string & extName = ".log", const std::string & path = "./") : void
++setFileSizeLimit(uint64_t limit) : void
++setMaxFiles(size_t maxFiles) : void
++setSwitchOnLimitOnly(bool flag = true) : void
++startLogging() : void
+__
+}
+class "AsyncFileLogger::LoggerFile" as C_0011625908326420329916
+class C_0011625908326420329916 {
++LoggerFile(const std::string & filePath, const std::string & fileBaseName, const std::string & fileExtName, bool switchOnLimitOnly = false, size_t maxFiles = 0) : void
++flush() : void
++getLength() : uint64_t
++open() : void
++operator bool() const : bool
++switchLog(bool openNewOne) : void
++writeLog(const StringPtr buf) : void
++~LoggerFile() : void
+__
+}
+class "utils::Hash128" as C_0009332754279161351007
+class C_0009332754279161351007 {
+__
++bytes : unsigned char[16]
+}
+class "utils::Hash160" as C_0008128739390231440735
+class C_0008128739390231440735 {
+__
++bytes : unsigned char[20]
+}
+class "utils::Hash256" as C_0000646053862248228653
+class C_0000646053862248228653 {
+__
++bytes : unsigned char[32]
+}
+class "utils::RngState" as C_0001562532685705187761
+class C_0001562532685705187761 {
+__
++counter : uint64_t
++prev : Hash256
++secret : Hash256
++time : int64_t
+}
+class "ConcurrentTaskQueue" as C_0002360810195425163699
+class C_0002360810195425163699 {
++ConcurrentTaskQueue(size_t threadNum, const std::string & name) : void
++~ConcurrentTaskQueue() : void
+..
++getName() const : std::string
++getTaskCount() : size_t
++runTaskInQueue(const std::function<void ()> & task) : void
++runTaskInQueue(std::function<void ()> && task) : void
++stop() : void
+__
+}
+class "MsgBuffer" as C_0010315960162156298814
+class C_0010315960162156298814 {
++MsgBuffer(size_t len = kBufferDefaultLength) : void
+..
++operator[](size_t offset) const : const char &
++operator[](size_t offset) : char &
+..
++addInFront(const char * buf, size_t len) : void
++addInFrontInt16(const uint16_t s) : void
++addInFrontInt32(const uint32_t i) : void
++addInFrontInt64(const uint64_t l) : void
++addInFrontInt8(const uint8_t b) : void
++append<int N>(const char (&)[N] buf) : void
++append(const std::string & buf) : void
++append(const char * buf, size_t len) : void
++append(const MsgBuffer & buf) : void
++appendInt16(const uint16_t s) : void
++appendInt32(const uint32_t i) : void
++appendInt64(const uint64_t l) : void
++appendInt8(const uint8_t b) : void
++beginWrite() const : const char *
++beginWrite() : char *
++ensureWritableBytes(size_t len) : void
++findCRLF() const : const char *
++hasWritten(size_t len) : void
++peek() const : const char *
++peekInt16() const : uint16_t
++peekInt32() const : uint32_t
++peekInt64() const : uint64_t
++peekInt8() const : uint8_t
++read(size_t len) : std::string
++readFd(int fd, int * retErrno) : ssize_t
++readInt16() : uint16_t
++readInt32() : uint32_t
++readInt64() : uint64_t
++readInt8() : uint8_t
++readableBytes() const : size_t
++retrieve(size_t len) : void
++retrieveAll() : void
++retrieveUntil(const char * end) : void
++swap(MsgBuffer & buf) noexcept : void
++unwrite(size_t offset) : void
++writableBytes() const : size_t
+__
+}
+class "EventLoopThreadPool" as C_0016488282727991796474
+class C_0016488282727991796474 {
++EventLoopThreadPool() = deleted : void
++EventLoopThreadPool(size_t threadNum, const std::string & name = "EventLoopThreadPool") : void
+..
++getLoop(size_t id) : EventLoop *
++getLoops() const : std::vector<EventLoop *>
++getNextLoop() : EventLoop *
++size() : size_t
++start() : void
++wait() : void
+__
+}
+class "InetAddress" as C_0015178723681693133804
+class C_0015178723681693133804 {
++InetAddress(uint16_t port = 0, bool loopbackOnly = false, bool ipv6 = false) : void
++InetAddress(const std::string & ip, uint16_t port, bool ipv6 = false) : void
++InetAddress(const struct sockaddr_in & addr) : void
++InetAddress(const struct sockaddr_in6 & addr) : void
+..
++family() const : sa_family_t
++getSockAddr() const : const struct sockaddr *
++ip6NetEndian() const : const uint32_t *
++ipNetEndian() const : uint32_t
++isIntranetIp() const : bool
++isIpV6() const : bool
++isLoopbackIp() const : bool
++isUnspecified() const : bool
++portNetEndian() const : uint16_t
++setPortNetEndian(uint16_t port) : void
++setSockAddrInet6(const struct sockaddr_in6 & addr6) : void
++toIp() const : std::string
++toIpNetEndian() const : std::string
++toIpPort() const : std::string
++toIpPortNetEndian() const : std::string
++toPort() const : uint16_t
+__
+}
+class "InetAddress::()" as C_0005384201351303373641
+class C_0005384201351303373641 {
+__
++addr6_ : struct sockaddr_in6
++addr_ : struct sockaddr_in
+}
+enum "SSLError" as C_0003473961504128027226
+enum C_0003473961504128027226 {
+kSSLHandshakeError
+kSSLInvalidCertificate
+kSSLProtocolError
+}
+abstract "Certificate" as C_0013283180303064955754
+abstract C_0013283180303064955754 {
++~Certificate() = default : void
+..
+{abstract} +pem() const = 0 : std::string
+{abstract} +sha1Fingerprint() const = 0 : std::string
+{abstract} +sha256Fingerprint() const = 0 : std::string
+__
+}
+class "TLSPolicy" as C_0016802962249950978267
+class C_0016802962249950978267 {
+{static} +defaultClientPolicy(const std::string & hostname = "") : std::shared_ptr<TLSPolicy>
+{static} +defaultServerPolicy(const std::string & certPath, const std::string & keyPath) : std::shared_ptr<TLSPolicy>
++getAllowBrokenChain() const : bool
++getAlpnProtocols() : const std::vector<std::string> &
++getAlpnProtocols() const : const std::vector<std::string> &
++getCaPath() const : const std::string &
++getCertPath() const : const std::string &
++getConfCmds() const : const std::vector<std::pair<std::string,std::string>> &
++getHostname() const : const std::string &
++getKeyPath() const : const std::string &
++getUseOldTLS() const : bool
++getUseSystemCertStore() const : bool
++getValidate() const : bool
++setAllowBrokenChain(bool allow) : TLSPolicy &
++setAlpnProtocols(std::vector<std::string> && alpnProtocols) : TLSPolicy &
++setAlpnProtocols(const std::vector<std::string> & alpnProtocols) : TLSPolicy &
++setCaPath(const std::string & caPath) : TLSPolicy &
++setCertPath(const std::string & certPath) : TLSPolicy &
++setConfCmds(const std::vector<std::pair<std::string,std::string>> & sslConfCmds) : TLSPolicy &
++setHostname(const std::string & hostname) : TLSPolicy &
++setKeyPath(const std::string & keyPath) : TLSPolicy &
++setUseOldTLS(bool useOldTLS) : TLSPolicy &
++setUseSystemCertStore(bool useSystemCertStore) : TLSPolicy &
++setValidate(bool enable) : TLSPolicy &
+__
+}
+abstract "AsyncStream" as C_0015660495714344065853
+abstract C_0015660495714344065853 {
++~AsyncStream() = default : void
+..
+{abstract} +close() = 0 : void
+{abstract} +send(const char * data, size_t len) = 0 : bool
++send(const std::string & data) : bool
+__
+}
+abstract "TcpConnection" as C_0017844999456800716210
+abstract C_0017844999456800716210 {
++TcpConnection() = default : void
++~TcpConnection() : void
+..
+{abstract} +applicationProtocol() const = 0 : std::string
+{abstract} +bytesReceived() const = 0 : size_t
+{abstract} +bytesSent() const = 0 : size_t
++clearContext() : void
+{abstract} +connectDestroyed() = 0 : void
+{abstract} +connectEstablished() = 0 : void
+{abstract} +connected() const = 0 : bool
+{abstract} +disconnected() const = 0 : bool
+{abstract} +enableKickingOff(size_t timeout, const std::shared_ptr<TimingWheel> & timingWheel) = 0 : void
+{abstract} +forceClose() = 0 : void
++getContext<T>() const : std::shared_ptr<T>
+{abstract} +getLoop() = 0 : EventLoop *
+{abstract} +getRecvBuffer() = 0 : MsgBuffer *
++hasContext() const : bool
+{abstract} +isKeepAlive() = 0 : bool
+{abstract} +isSSLConnection() const = 0 : bool
+{abstract} +keepAlive() = 0 : void
+{abstract} +localAddr() const = 0 : const InetAddress &
+{abstract} +peerAddr() const = 0 : const InetAddress &
+{abstract} +peerCertificate() const = 0 : CertificatePtr
+{abstract} +send(const char * msg, size_t len) = 0 : void
+{abstract} +send(const void * msg, size_t len) = 0 : void
+{abstract} +send(const std::string & msg) = 0 : void
+{abstract} +send(std::string && msg) = 0 : void
+{abstract} +send(const std::shared_ptr<MsgBuffer> & msgPtr) = 0 : void
+{abstract} +send(const std::shared_ptr<std::string> & msgPtr) = 0 : void
+{abstract} +send(MsgBuffer && buffer) = 0 : void
+{abstract} +send(const MsgBuffer & buffer) = 0 : void
+{abstract} +sendAsyncStream(bool disableKickoff = false) = 0 : AsyncStreamPtr
+{abstract} +sendFile(const char * fileName, long long offset = 0, long long length = 0) = 0 : void
+{abstract} +sendFile(const wchar_t * fileName, long long offset = 0, long long length = 0) = 0 : void
+{abstract} +sendStream(std::function<std::size_t (char *,std::size_t)> callback) = 0 : void
++setCloseCallback(CloseCallback && cb) : void
++setCloseCallback(const CloseCallback & cb) : void
++setConnectionCallback(ConnectionCallback && cb) : void
++setConnectionCallback(const ConnectionCallback & cb) : void
++setContext(std::shared_ptr<void> && context) : void
++setContext(const std::shared_ptr<void> & context) : void
+{abstract} +setHighWaterMarkCallback(const HighWaterMarkCallback & cb, size_t markLen) = 0 : void
++setRecvMsgCallback(const RecvMessageCallback & cb) : void
++setRecvMsgCallback(RecvMessageCallback && cb) : void
++setSSLErrorCallback(const SSLErrorCallback & cb) : void
++setSSLErrorCallback(SSLErrorCallback && cb) : void
+{abstract} +setTcpNoDelay(bool on) = 0 : void
++setValidationPolicy(TLSPolicy && policy) : void
++setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
++setWriteCompleteCallback(WriteCompleteCallback && cb) : void
+{abstract} +shutdown() = 0 : void
+{abstract} +sniName() const = 0 : std::string
++startClientEncryption(std::function<void (const TcpConnectionPtr &)> && callback, bool useOldTLS = false, bool validateCert = true, const std::string & hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
+            {}) : void
+{abstract} +startEncryption(TLSPolicyPtr policy, bool isServer, std::function<void (const TcpConnectionPtr &)> upgradeCallback = nullptr) = 0 : void
+__
+}
+class "TcpServer" as C_0011385364022086294320
+class C_0011385364022086294320 {
++TcpServer(EventLoop * loop, const InetAddress & address, std::string name, bool reUseAddr = true, bool reUsePort = true) : void
++~TcpServer() : void
+..
++address() const : const InetAddress &
++enableSSL(TLSPolicyPtr policy) : void
++enableSSL(const std::string & certPath, const std::string & keyPath, bool useOldTLS = false, const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
+            {}, const std::string & caPath = "") : void
++getIoLoops() const : std::vector<EventLoop *>
++getLoop() const : EventLoop *
++ipPort() const : std::string
++kickoffIdleConnections(size_t timeout) : void
++name() const : const std::string &
++reloadSSL() : void
++setAfterAcceptSockOptCallback(SockOptCallback cb) : void
++setBeforeListenSockOptCallback(SockOptCallback cb) : void
++setConnectionCallback(ConnectionCallback && cb) : void
++setConnectionCallback(const ConnectionCallback & cb) : void
++setIoLoopNum(size_t num) : void
++setIoLoopThreadPool(const std::shared_ptr<EventLoopThreadPool> & pool) : void
++setIoLoops(const std::vector<EventLoop *> & ioLoops) : void
++setRecvMessageCallback(RecvMessageCallback && cb) : void
++setRecvMessageCallback(const RecvMessageCallback & cb) : void
++setWriteCompleteCallback(WriteCompleteCallback && cb) : void
++setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
++start() : void
++stop() : void
+__
+}
+class "TcpServer::IgnoreSigPipe" as C_0011916501769208528402
+class C_0011916501769208528402 {
++IgnoreSigPipe() : void
+__
+}
+class "Socket" as C_0007768199778456638812
+class C_0007768199778456638812 {
++Socket(int sockfd) : void
++~Socket() : void
+..
++accept(InetAddress * peeraddr) : int
++bindAddress(const InetAddress & localaddr) : void
++closeWrite() : void
+{static} +connect(int sockfd, const InetAddress & addr) : int
+{static} +createNonblockingSocketOrDie(int family) : int
++fd() : int
+{static} +getLocalAddr(int sockfd) : struct sockaddr_in6
+{static} +getPeerAddr(int sockfd) : struct sockaddr_in6
+{static} +getSocketError(int sockfd) : int
++getSocketError() : int
+{static} +isSelfConnect(int sockfd) : bool
++listen() : void
++read(char * buffer, uint64_t len) : int
++setKeepAlive(bool on) : void
+{static} +setNonBlockAndCloseOnExec(int sockfd) : void
++setReuseAddr(bool on) : void
++setReusePort(bool on) : void
++setTcpNoDelay(bool on) : void
+__
+}
+class "Acceptor" as C_0001479093537442210058
+class C_0001479093537442210058 {
++Acceptor(EventLoop * loop, const InetAddress & addr, bool reUseAddr = true, bool reUsePort = true) : void
++~Acceptor() : void
+..
++addr() const : const InetAddress &
++listen() : void
++setAfterAcceptSockOptCallback(AcceptorSockOptCallback cb) : void
++setBeforeListenSockOptCallback(AcceptorSockOptCallback cb) : void
++setNewConnectionCallback(const NewConnectionCallback & cb) : void
+__
+}
+abstract "TLSProvider" as C_0003712324979007602731
+abstract C_0003712324979007602731 {
++TLSProvider(TcpConnection * conn, TLSPolicyPtr policy, SSLContextPtr ctx) : void
++~TLSProvider() = default : void
+..
++appendToWriteBuffer(const char * ptr, size_t size) : void
++applicationProtocol() const : const std::string &
+{abstract} +close() = 0 : void
++getBufferedData() : MsgBuffer &
++getRecvBuffer() : MsgBuffer &
++peerCertificate() const : const CertificatePtr &
+{abstract} +recvData(MsgBuffer * buffer) = 0 : void
++sendBufferedData() : bool
+{abstract} +sendData(const char * ptr, size_t size) = 0 : ssize_t
++setCloseCallback(CloseCallback cb) : void
++setErrorCallback(ErrorCallback cb) : void
++setHandshakeCallback(HandshakeCallback cb) : void
++setMessageCallback(MessageCallback cb) : void
++setWriteCallback(WriteCallback cb) : void
++sniName() const : const std::string &
+{abstract} +startEncryption() = 0 : void
+__
+}
+abstract "BufferNode" as C_0000484423459025193826
+abstract C_0000484423459025193826 {
++~BufferNode() = default : void
+..
++append(const char *, size_t) : void
++available() const : bool
++done() : void
+{abstract} +getData(const char *& data, size_t & len) = 0 : void
++getFd() const : int
++isAsync() const : bool
++isFile() const : bool
++isStream() const : bool
+{static} +newAsyncStreamBufferNode() : BufferNodePtr
+{static} +newFileBufferNode(const char * fileName, long long offset, long long length) : BufferNodePtr
+{static} +newMemBufferNode() : BufferNodePtr
+{static} +newStreamBufferNode(StreamCallback && cb) : BufferNodePtr
+{abstract} +remainingBytes() const = 0 : long long
+{abstract} +retrieve(size_t len) = 0 : void
+__
+}
+class "TcpConnectionImpl" as C_0007366076114194714852
+class C_0007366076114194714852 {
++TcpConnectionImpl(EventLoop * loop, int socketfd, const InetAddress & localAddr, const InetAddress & peerAddr, TLSPolicyPtr policy = nullptr, SSLContextPtr ctx = nullptr) : void
++~TcpConnectionImpl() : void
+..
++applicationProtocol() const : std::string
++bytesReceived() const : size_t
++bytesSent() const : size_t
++connectDestroyed() : void
++connectEstablished() : void
++connected() const : bool
++disconnected() const : bool
++enableKickingOff(size_t timeout, const std::shared_ptr<TimingWheel> & timingWheel) : void
++forceClose() : void
++getLoop() : EventLoop *
++getRecvBuffer() : MsgBuffer *
++isKeepAlive() : bool
++isSSLConnection() const : bool
++keepAlive() : void
++localAddr() const : const InetAddress &
++peerAddr() const : const InetAddress &
++peerCertificate() const : CertificatePtr
++send(const void * msg, size_t len) : void
++send(const std::string & msg) : void
++send(std::string && msg) : void
++send(const MsgBuffer & buffer) : void
++send(MsgBuffer && buffer) : void
++send(const std::shared_ptr<std::string> & msgPtr) : void
++send(const std::shared_ptr<MsgBuffer> & msgPtr) : void
++send(const char * msg, size_t len) : void
++sendAsyncStream(bool disableKickoff) : AsyncStreamPtr
++sendFile(const char * fileName, long long offset, long long length) : void
++sendFile(const wchar_t * fileName, long long offset, long long length) : void
++sendStream(std::function<std::size_t (char *,std::size_t)> callback) : void
++setHighWaterMarkCallback(const HighWaterMarkCallback & cb, size_t markLen) : void
++setTcpNoDelay(bool on) : void
++shutdown() : void
++sniName() const : std::string
++startEncryption(TLSPolicyPtr policy, bool isServer, std::function<void (const TcpConnectionPtr &)> upgradeCallback) : void
+__
+}
+class "TcpConnectionImpl::KickoffEntry" as C_0018135163554749066073
+class C_0018135163554749066073 {
++KickoffEntry(const std::weak_ptr<TcpConnection> & conn) : void
++reset() : void
++~KickoffEntry() : void
+__
+}
+enum "TcpConnectionImpl::ConnStatus" as C_0013818794706755929803
+enum C_0013818794706755929803 {
+Disconnected
+Connecting
+Connected
+Disconnecting
+}
+class "EpollPoller" as C_0002358328527430634934
+class C_0002358328527430634934 {
+__
+}
+class "SSLContext" as C_0005008858431116647593
+class C_0005008858431116647593 {
+__
+}
+class "PollPoller" as C_0005296074009893140189
+class C_0005296074009893140189 {
+__
+}
+class "TcpClient" as C_0009250936088729533450
+class C_0009250936088729533450 {
+__
+}
+class "KQueue" as C_0012237386715174947101
+class C_0012237386715174947101 {
+__
+}
+class "InetAddress::(anonymous_2158751)" as C_0002527570584807094232
+class C_0002527570584807094232 {
+__
++addr6_ : struct sockaddr_in6
++addr_ : struct sockaddr_in
+}
+class "TcpClient::IgnoreSigPipe" as C_0010231268558644568352
+class C_0010231268558644568352 {
++IgnoreSigPipe() : void
+__
+}
+class "Connector" as C_0013648347674017210592
+class C_0013648347674017210592 {
++Connector(EventLoop * loop, const InetAddress & addr, bool retry = true) : void
++Connector(EventLoop * loop, InetAddress && addr, bool retry = true) : void
++~Connector() : void
+..
++restart() : void
++serverAddress() const : const InetAddress &
++setErrorCallback(const ConnectionErrorCallback & cb) : void
++setErrorCallback(ConnectionErrorCallback && cb) : void
++setNewConnectionCallback(const NewConnectionCallback & cb) : void
++setNewConnectionCallback(NewConnectionCallback && cb) : void
++setSockOptCallback(const SockOptCallback & cb) : void
++setSockOptCallback(SockOptCallback && cb) : void
++start() : void
++stop() : void
+__
+}
+enum "Connector::Status" as C_0000007857573361393299
+enum C_0000007857573361393299 {
+Disconnected
+Connecting
+Connected
+}
+class "Timer" as C_0016211802203438081308
+class C_0016211802203438081308 {
++Timer(const TimerCallback & cb, const TimePoint & when, const TimeInterval & interval) : void
++Timer(TimerCallback && cb, const TimePoint & when, const TimeInterval & interval) : void
++~Timer() : void
+..
++operator<(const Timer & t) const : bool
++operator>(const Timer & t) const : bool
+..
++id() : TimerId
++isRepeat() : bool
++restart(const TimePoint & now) : void
++run() const : void
++when() const : const TimePoint &
+__
+}
+class "TimerPtrComparer" as C_0001258725769384817912
+class C_0001258725769384817912 {
++operator()(const TimerPtr & x, const TimerPtr & y) const : bool
+__
+}
+class "ScopeExit<F>" as C_0000209186943288705876
+class C_0000209186943288705876 {
++ScopeExit(F && f) : void
++~ScopeExit() : void
+__
++f_ : F
+}
+class "InetAddress::(anonymous_1256941)" as C_0012331862126654308233
+class C_0012331862126654308233 {
+__
++addr6_ : struct sockaddr_in6
++addr_ : struct sockaddr_in
+}
+C_0007301337479226923192 --> C_0001789613096673369130 : -head_
+C_0007301337479226923192 --> C_0001789613096673369130 : -tail_
+C_0009278591901947957509 <|-- C_0007301337479226923192
+C_0001789613096673369130 --+ C_0007301337479226923192
+C_0001789613096673369130 --> C_0001789613096673369130 : +next_
+C_0017485969336261287282 ..|> C_0007301337479226923192
+C_0011121046198641787995 ..> C_0016256073857958609234
+C_0011121046198641787995 o-- C_0002400273203183077136 : -poller_
+C_0011121046198641787995 --> C_0006117526629196852195 : -activeChannels_
+C_0011121046198641787995 --> C_0006117526629196852195 : -currentActiveChannel_
+C_0011121046198641787995 o-- C_0017485969336261287282 : -funcs_
+C_0011121046198641787995 o-- C_0004859200761461552810 : -timerQueue_
+C_0011121046198641787995 o-- C_0017485969336261287282 : -funcsOnQuit_
+C_0011121046198641787995 o-- C_0006117526629196852195 : -wakeupChannelPtr_
+C_0011121046198641787995 --> C_0011121046198641787995 : -threadLocalLoopPtr_
+C_0009278591901947957509 <|-- C_0011121046198641787995
+C_0009278591901947957509 <|-- C_0000891149182206539142
+C_0004080333220803125488 ..|> C_0000891149182206539142
+C_0009278591901947957509 <|-- C_0014033977001176670049
+C_0014033977001176670049 ..|> C_0000891149182206539142
+C_0009278591901947957509 <|-- C_0008339826881298183446
+C_0008339826881298183446 ..|> C_0000891149182206539142
+C_0015445520160522602000 o-- C_0004080333220803125488 : -buffer_
+C_0009278591901947957509 <|-- C_0015445520160522602000
+C_0016430023939778113715 o-- C_0015445520160522602000 : #logStream_
+C_0016430023939778113715 o-- C_0016256073857958609234 : #date_
+C_0016430023939778113715 o-- C_0007832646378742452368 : #sourceFile_
+C_0016430023939778113715 o-- C_0017050270724969506368 : #level_
+C_0016430023939778113715 <.. C_0005731444726335351425 : +<<friend>>
+C_0009278591901947957509 <|-- C_0016430023939778113715
+C_0017050270724969506368 --+ C_0016430023939778113715
+C_0007832646378742452368 --+ C_0016430023939778113715
+C_0005731444726335351425 o-- C_0015445520160522602000 : -logStream_
+C_0009278591901947957509 <|-- C_0005731444726335351425
+C_0007715726745416538447 --> C_0011121046198641787995 : -loop_
+C_0016109918494445555553 --+ C_0007715726745416538447
+C_0009278591901947957509 <|-- C_0005478985967983820353
+C_0010244900171882959669 --> C_0011121046198641787995 : -loop_
+C_0010244900171882959669 o-- C_0011121046198641787995 : -promiseForLoopPointer_
+C_0009278591901947957509 <|-- C_0010244900171882959669
+C_0005072249079753545589 o-- C_0010244900171882959669 : #loopThread_
+C_0005478985967983820353 <|-- C_0005072249079753545589
+C_0009278591901947957509 <|-- C_0005041486034051408782
+C_0011625908326420329916 --+ C_0005041486034051408782
+C_0011625908326420329916 o-- C_0016256073857958609234 : #creationDate_
+C_0009278591901947957509 <|-- C_0011625908326420329916
+C_0001562532685705187761 o-- C_0000646053862248228653 : +secret
+C_0001562532685705187761 o-- C_0000646053862248228653 : +prev
+C_0005478985967983820353 <|-- C_0002360810195425163699
+C_0016488282727991796474 ..> C_0011121046198641787995
+C_0016488282727991796474 o-- C_0010244900171882959669 : -loopThreadVector_
+C_0009278591901947957509 <|-- C_0016488282727991796474
+C_0015178723681693133804 o-- C_0005384201351303373641
+C_0009278591901947957509 <|-- C_0015660495714344065853
+C_0017844999456800716210 ..> C_0015660495714344065853
+C_0017844999456800716210 ..> C_0015178723681693133804
+C_0017844999456800716210 ..> C_0011121046198641787995
+C_0017844999456800716210 ..> C_0013283180303064955754
+C_0017844999456800716210 ..> C_0003473961504128027226
+C_0017844999456800716210 ..> C_0007715726745416538447
+C_0017844999456800716210 --> C_0017844999456800716210 : #recvMsgCallback_
+C_0017844999456800716210 --> C_0010315960162156298814 : #recvMsgCallback_
+C_0017844999456800716210 --> C_0017844999456800716210 : #connectionCallback_
+C_0017844999456800716210 --> C_0017844999456800716210 : #closeCallback_
+C_0017844999456800716210 --> C_0017844999456800716210 : #writeCompleteCallback_
+C_0017844999456800716210 --> C_0017844999456800716210 : #highWaterMarkCallback_
+C_0017844999456800716210 ..> C_0003473961504128027226 : #sslErrorCallback_
+C_0017844999456800716210 o-- C_0016802962249950978267 : #tlsPolicy_
+C_0017844999456800716210 <.. C_0009250936088729533450 : +<<friend>>
+C_0017844999456800716210 <.. C_0007366076114194714852 : +<<friend>>
+C_0017844999456800716210 <.. C_0011385364022086294320 : +<<friend>>
+C_0011385364022086294320 ..> C_0015178723681693133804
+C_0011385364022086294320 --> C_0011121046198641787995 : -loop_
+C_0011385364022086294320 o-- C_0001479093537442210058 : -acceptorPtr_
+C_0011385364022086294320 o-- C_0017844999456800716210 : -connSet_
+C_0011385364022086294320 --> C_0017844999456800716210 : -recvMessageCallback_
+C_0011385364022086294320 --> C_0010315960162156298814 : -recvMessageCallback_
+C_0011385364022086294320 --> C_0017844999456800716210 : -connectionCallback_
+C_0011385364022086294320 --> C_0017844999456800716210 : -writeCompleteCallback_
+C_0011385364022086294320 o-- C_0007715726745416538447 : -timingWheelMap_
+C_0011385364022086294320 --> C_0016488282727991796474 : -loopPoolPtr_
+C_0011385364022086294320 --> C_0011121046198641787995 : -ioLoops_
+C_0011385364022086294320 o-- C_0011916501769208528402 : -initObj
+C_0011385364022086294320 o-- C_0016802962249950978267 : -policyPtr_
+C_0011385364022086294320 o-- C_0005008858431116647593 : -sslContextPtr_
+C_0009278591901947957509 <|-- C_0011385364022086294320
+C_0011916501769208528402 --+ C_0011385364022086294320
+C_0007768199778456638812 ..> C_0015178723681693133804
+C_0009278591901947957509 <|-- C_0007768199778456638812
+C_0001479093537442210058 o-- C_0007768199778456638812 : #sock_
+C_0001479093537442210058 o-- C_0015178723681693133804 : #addr_
+C_0001479093537442210058 --> C_0011121046198641787995 : #loop_
+C_0001479093537442210058 --> C_0015178723681693133804 : #newConnectionCallback_
+C_0001479093537442210058 o-- C_0006117526629196852195 : #acceptChannel_
+C_0009278591901947957509 <|-- C_0001479093537442210058
+C_0003712324979007602731 --> C_0017844999456800716210 : #conn_
+C_0003712324979007602731 o-- C_0016802962249950978267 : #policyPtr_
+C_0003712324979007602731 o-- C_0005008858431116647593 : #contextPtr_
+C_0003712324979007602731 o-- C_0010315960162156298814 : #recvBuffer_
+C_0003712324979007602731 --> C_0011121046198641787995 : #loop_
+C_0003712324979007602731 o-- C_0013283180303064955754 : #peerCertificate_
+C_0003712324979007602731 o-- C_0010315960162156298814 : #writeBuffer_
+C_0009278591901947957509 <|-- C_0000484423459025193826
+C_0007366076114194714852 ..> C_0016802962249950978267
+C_0007366076114194714852 ..> C_0005008858431116647593
+C_0007366076114194714852 ..> C_0013283180303064955754
+C_0007366076114194714852 ..> C_0015660495714344065853
+C_0007366076114194714852 ..> C_0003473961504128027226
+C_0007366076114194714852 --> C_0018135163554749066073 : -kickoffEntry_
+C_0007366076114194714852 --> C_0007715726745416538447 : -timingWheelWeakPtr_
+C_0007366076114194714852 o-- C_0016256073857958609234 : -lastTimingWheelUpdateTime_
+C_0007366076114194714852 --> C_0011121046198641787995 : #loop_
+C_0007366076114194714852 o-- C_0006117526629196852195 : #ioChannelPtr_
+C_0007366076114194714852 o-- C_0007768199778456638812 : #socketPtr_
+C_0007366076114194714852 o-- C_0010315960162156298814 : #readBuffer_
+C_0007366076114194714852 o-- C_0000484423459025193826 : #writeBufferList_
+C_0007366076114194714852 o-- C_0015178723681693133804 : #localAddr_
+C_0007366076114194714852 o-- C_0015178723681693133804 : #peerAddr_
+C_0007366076114194714852 o-- C_0013818794706755929803 : #status_
+C_0007366076114194714852 --> C_0003712324979007602731 : #tlsProviderPtr_
+C_0007366076114194714852 --> C_0017844999456800716210 : #upgradeCallback_
+C_0007366076114194714852 <.. C_0009250936088729533450 : +<<friend>>
+C_0007366076114194714852 <.. C_0011385364022086294320 : +<<friend>>
+C_0017844999456800716210 <|-- C_0007366076114194714852
+C_0009278591901947957509 <|-- C_0007366076114194714852
+C_0018135163554749066073 --+ C_0007366076114194714852
+C_0018135163554749066073 --> C_0017844999456800716210 : -conn_
+C_0013818794706755929803 --+ C_0007366076114194714852
+C_0010231268558644568352 --+ C_0009250936088729533450
+C_0013648347674017210592 --> C_0006117526629196852195 : -channelPtr_
+C_0013648347674017210592 --> C_0011121046198641787995 : -loop_
+C_0013648347674017210592 o-- C_0015178723681693133804 : -serverAddr_
+C_0009278591901947957509 <|-- C_0013648347674017210592
+C_0000007857573361393299 --+ C_0013648347674017210592
+C_0009278591901947957509 <|-- C_0016211802203438081308
+C_0001258725769384817912 ..> C_0016211802203438081308
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml
