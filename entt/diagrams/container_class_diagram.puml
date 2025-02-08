@@ -1,0 +1,468 @@
+@startuml
+title 'container' class diagram
+class "internal::dense_map_node<Key,Type>" as C_0015592321812020189230
+class C_0015592321812020189230 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L28{dense_map_node}]] {
++dense_map_node<Args...>(const std::size_t pos, Args &&... args) : void
++dense_map_node<Allocator,Args...>(std::allocator_arg_t, const Allocator & allocator, const std::size_t pos, Args &&... args) : void
++dense_map_node<Allocator>(std::allocator_arg_t, const Allocator & allocator, const dense_map_node<Key,Type> & other) : void
++dense_map_node<Allocator>(std::allocator_arg_t, const Allocator & allocator, dense_map_node<Key,Type> && other) : void
+__
++element : value_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L52{element}]]]
++next : std::size_t [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L51{next}]]]
+}
+class "internal::dense_map_iterator<Other>" as C_0011012705138464417260
+class C_0011012705138464417260 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L56{dense_map_iterator}]] {
+__
+}
+class "internal::dense_map_iterator<It>" as C_0006888632936991564690
+class C_0006888632936991564690 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L56{dense_map_iterator}]] {
++dense_map_iterator() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L71{dense_map_iterator}]]]
++dense_map_iterator(const It iter) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L74{dense_map_iterator}]]]
++dense_map_iterator<Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other>>>(const dense_map_iterator<Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L125{operator*}]]]
++operator+(const difference_type value) constexpr const noexcept : dense_map_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L104{operator+}]]]
++operator++() constexpr noexcept : dense_map_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L81{operator++}]]]
++operator++(int) constexpr noexcept : dense_map_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L85{operator++}]]]
++operator+=(const difference_type value) constexpr noexcept : dense_map_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L99{operator+=}]]]
++operator-(const difference_type value) constexpr const noexcept : dense_map_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L113{operator-}]]]
++operator--() constexpr noexcept : dense_map_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L90{operator--}]]]
++operator--(int) constexpr noexcept : dense_map_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L94{operator--}]]]
++operator-=(const difference_type value) constexpr noexcept : dense_map_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L109{operator-=}]]]
++operator->() constexpr const noexcept : pointer [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L121{operator->}]]]
++operator[](const difference_type value) constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L117{operator[]}]]]
+__
+-it : It [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L139{it}]]]
+}
+class "internal::dense_map_local_iterator<Other>" as C_0007178502285532741255
+class C_0007178502285532741255 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L178{dense_map_local_iterator}]] {
+__
+}
+class "internal::dense_map_local_iterator<It>" as C_0017210276393290462429
+class C_0017210276393290462429 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L178{dense_map_local_iterator}]] {
++dense_map_local_iterator() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L193{dense_map_local_iterator}]]]
++dense_map_local_iterator(It iter, const std::size_t pos) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L197{dense_map_local_iterator}]]]
++dense_map_local_iterator<Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other>>>(const dense_map_local_iterator<Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L219{operator*}]]]
++operator++() constexpr noexcept : dense_map_local_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L206{operator++}]]]
++operator++(int) constexpr noexcept : dense_map_local_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L210{operator++}]]]
++operator->() constexpr const noexcept : pointer [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L215{operator->}]]]
+..
++index() constexpr const noexcept : std::size_t [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L223{index}]]]
+__
+-it : It [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L228{it}]]]
+-offset : std::size_t [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L229{offset}]]]
+}
+class "internal::dense_map_iterator<typename packed_container_type::const_iterator>" as C_0013231672675426695932
+class C_0013231672675426695932 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L56{dense_map_iterator}]] {
+__
+}
+class "internal::dense_map_iterator<typename packed_container_type::iterator>" as C_0011738857156599614272
+class C_0011738857156599614272 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L56{dense_map_iterator}]] {
+__
+}
+class "internal::dense_map_local_iterator<typename packed_container_type::const_iterator>" as C_0008476737605064141530
+class C_0008476737605064141530 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L178{dense_map_local_iterator}]] {
+__
+}
+class "internal::dense_map_local_iterator<typename packed_container_type::iterator>" as C_0010664813499209468827
+class C_0010664813499209468827 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L178{dense_map_local_iterator}]] {
+__
+}
+class "internal::dense_map_local_iterator<typename>" as C_0013108009617000538214
+class C_0013108009617000538214 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L180{dense_map_local_iterator}]] {
+__
+}
+class "internal::dense_map_iterator<typename>" as C_0017110580034531337898
+class C_0017110580034531337898 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L58{dense_map_iterator}]] {
+__
+}
+class "internal::table_iterator<Other...>" as C_0017950527097990927630
+class C_0017950527097990927630 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L19{table_iterator}]] {
+__
+}
+class "internal::table_iterator<It...>" as C_0018012732330420618640
+class C_0018012732330420618640 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L19{table_iterator}]] {
++table_iterator() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L31{table_iterator}]]]
++table_iterator(It... from) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L34{table_iterator}]]]
++table_iterator<Other...,typename=std::enable_if_t<(std::is_constructible_v<It, Other> && ...)>>(const table_iterator<Other...> & other) noexcept : void
+..
++operator*() constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L84{operator*}]]]
++operator+(const difference_type value) constexpr const noexcept : table_iterator<It...> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L63{operator+}]]]
++operator++() constexpr noexcept : table_iterator<It...> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L41{operator++}]]]
++operator++(int) constexpr noexcept : table_iterator<It...> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L45{operator++}]]]
++operator+=(const difference_type value) constexpr noexcept : table_iterator<It...> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L59{operator+=}]]]
++operator-(const difference_type value) constexpr const noexcept : table_iterator<It...> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L72{operator-}]]]
++operator--() constexpr noexcept : table_iterator<It...> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L50{operator--}]]]
++operator--(int) constexpr noexcept : table_iterator<It...> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L54{operator--}]]]
++operator-=(const difference_type value) constexpr noexcept : table_iterator<It...> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L68{operator-=}]]]
++operator->() constexpr const noexcept : pointer [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L80{operator->}]]]
++operator[](const difference_type value) constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L76{operator[]}]]]
+__
+-it : std::tuple<It...> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L98{it}]]]
+}
+class "internal::table_iterator<typename Container::const_iterator...>" as C_0014485174730983555390
+class C_0014485174730983555390 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L19{table_iterator}]] {
+__
+}
+class "internal::table_iterator<typename Container::iterator...>" as C_0014855856204753052481
+class C_0014855856204753052481 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L19{table_iterator}]] {
+__
+}
+class "internal::table_iterator<typename Container::const_reverse_iterator...>" as C_0008787826246122898082
+class C_0008787826246122898082 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L19{table_iterator}]] {
+__
+}
+class "internal::table_iterator<typename Container::reverse_iterator...>" as C_0010587882492322343873
+class C_0010587882492322343873 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L19{table_iterator}]] {
+__
+}
+class "internal::table_iterator<typename...>" as C_0016703900414000445470
+class C_0016703900414000445470 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L21{table_iterator}]] {
+__
+}
+class "internal::dense_set_iterator<Other>" as C_0000393299081773487514
+class C_0000393299081773487514 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L26{dense_set_iterator}]] {
+__
+}
+class "internal::dense_set_iterator<It>" as C_0016233497384426377511
+class C_0016233497384426377511 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L26{dense_set_iterator}]] {
++dense_set_iterator() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L37{dense_set_iterator}]]]
++dense_set_iterator(const It iter) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L40{dense_set_iterator}]]]
++dense_set_iterator<Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other>>>(const dense_set_iterator<Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L91{operator*}]]]
++operator+(const difference_type value) constexpr const noexcept : dense_set_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L70{operator+}]]]
++operator++() constexpr noexcept : dense_set_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L47{operator++}]]]
++operator++(int) constexpr noexcept : dense_set_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L51{operator++}]]]
++operator+=(const difference_type value) constexpr noexcept : dense_set_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L65{operator+=}]]]
++operator-(const difference_type value) constexpr const noexcept : dense_set_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L79{operator-}]]]
++operator--() constexpr noexcept : dense_set_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L56{operator--}]]]
++operator--(int) constexpr noexcept : dense_set_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L60{operator--}]]]
++operator-=(const difference_type value) constexpr noexcept : dense_set_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L75{operator-=}]]]
++operator->() constexpr const noexcept : pointer [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L87{operator->}]]]
++operator[](const difference_type value) constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L83{operator[]}]]]
+__
+-it : It [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L105{it}]]]
+}
+class "internal::dense_set_local_iterator<Other>" as C_0005781321265033946271
+class C_0005781321265033946271 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L144{dense_set_local_iterator}]] {
+__
+}
+class "internal::dense_set_local_iterator<It>" as C_0013894839112045234953
+class C_0013894839112045234953 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L144{dense_set_local_iterator}]] {
++dense_set_local_iterator() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L155{dense_set_local_iterator}]]]
++dense_set_local_iterator(It iter, const std::size_t pos) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L159{dense_set_local_iterator}]]]
++dense_set_local_iterator<Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other>>>(const dense_set_local_iterator<Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L181{operator*}]]]
++operator++() constexpr noexcept : dense_set_local_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L168{operator++}]]]
++operator++(int) constexpr noexcept : dense_set_local_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L172{operator++}]]]
++operator->() constexpr const noexcept : pointer [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L177{operator->}]]]
+..
++index() constexpr const noexcept : std::size_t [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L185{index}]]]
+__
+-it : It [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L190{it}]]]
+-offset : std::size_t [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L191{offset}]]]
+}
+class "internal::dense_set_iterator<typename packed_container_type::const_iterator>" as C_0004483019961186023289
+class C_0004483019961186023289 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L26{dense_set_iterator}]] {
+__
+}
+class "internal::dense_set_iterator<typename packed_container_type::iterator>" as C_0001216293982588311888
+class C_0001216293982588311888 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L26{dense_set_iterator}]] {
+__
+}
+class "internal::dense_set_local_iterator<typename packed_container_type::const_iterator>" as C_0003297413440508525503
+class C_0003297413440508525503 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L144{dense_set_local_iterator}]] {
+__
+}
+class "internal::dense_set_local_iterator<typename packed_container_type::iterator>" as C_0011816142477637144989
+class C_0011816142477637144989 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L144{dense_set_local_iterator}]] {
+__
+}
+class "internal::dense_set_iterator<typename>" as C_0012524121738084199192
+class C_0012524121738084199192 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L28{dense_set_iterator}]] {
+__
+}
+class "internal::dense_set_local_iterator<typename>" as C_0013252333461166656098
+class C_0013252333461166656098 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L146{dense_set_local_iterator}]] {
+__
+}
+class "basic_table<std::vector<Type>...>" as C_0014252894030714588865
+class C_0014252894030714588865 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/fwd.hpp#L34{basic_table}]] {
+__
+}
+class "dense_map<Key,Type,Hash=std::hash<Key>,KeyEqual=std::equal_to<>,Allocator=std::allocator<std::pair<const Key, Type>>>" as C_0016875628798870607113
+class C_0016875628798870607113 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L259{dense_map}]] {
++dense_map() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L370{dense_map}]]]
++dense_map(const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L377{dense_map}]]]
++dense_map(const size_type cnt, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L386{dense_map}]]]
++dense_map(const size_type cnt, const hasher & hash, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L396{dense_map}]]]
++dense_map(const size_type cnt, const hasher & hash = hasher{}, const key_equal & equal = key_equal{}, const allocator_type & allocator = allocator_type{}) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L407{dense_map}]]]
++dense_map(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &) = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L414{dense_map}]]]
++dense_map(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L421{dense_map}]]]
++dense_map(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &&) noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L427{dense_map}]]]
++dense_map(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> && other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L434{dense_map}]]]
++~dense_map() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L440{~dense_map}]]]
+..
++operator=(const dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &) = default : dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L446{operator=}]]]
++operator=(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> &&) noexcept = default : dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L452{operator=}]]]
+..
++operator[](const key_type & key) : mapped_type & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L730{operator[]}]]]
++operator[](key_type && key) : mapped_type & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L739{operator[]}]]]
+..
++at(const key_type & key) const : const mapped_type & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L719{at}]]]
++at(const key_type & key) : mapped_type & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L712{at}]]]
++begin() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L474{begin}]]]
++begin() noexcept : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L479{begin}]]]
++begin(const size_type index) : local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L885{begin}]]]
++begin(const size_type index) const : const_local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L876{begin}]]]
++bucket(const key_type & key) const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L946{bucket}]]]
++bucket_count() const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L920{bucket_count}]]]
++bucket_size(const size_type index) const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L937{bucket_size}]]]
++cbegin(const size_type index) const : const_local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L867{cbegin}]]]
++cbegin() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L469{cbegin}]]]
++cend(const size_type index) const : const_local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L894{cend}]]]
++cend() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L488{cend}]]]
++clear() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L527{clear}]]]
+-constrained_find<Other>(const Other & key, std::size_t bucket) : auto
+-constrained_find<Other>(const Other & key, std::size_t bucket) const : auto
++contains(const key_type & key) const : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L845{contains}]]]
++contains<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, _Bool> >
++count<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, size_type> >
++count(const key_type & key) const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L748{count}]]]
++emplace<Args...>(Args &&... args) : std::pair<iterator, _Bool>
++empty() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L506{empty}]]]
++end(const size_type index) : local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L912{end}]]]
++end(const size_type index) const : const_local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L903{end}]]]
++end() noexcept : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L498{end}]]]
++end() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L493{end}]]]
++equal_range(const key_type & key) const : std::pair<const_iterator,const_iterator> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L812{equal_range}]]]
++equal_range(const key_type & key) : std::pair<iterator,iterator> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L806{equal_range}]]]
++equal_range<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<const_iterator, const_iterator> > >
++equal_range<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<iterator, iterator> > >
++erase(const key_type & key) : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L683{erase}]]]
++erase(const_iterator first, const_iterator last) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L668{erase}]]]
++erase(const_iterator pos) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L656{erase}]]]
++find<Other>(const Other & key) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, iterator> >
++find<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, const_iterator> >
++find(const key_type & key) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L770{find}]]]
++find(const key_type & key) const : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L775{find}]]]
++get_allocator() constexpr const noexcept : allocator_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L458{get_allocator}]]]
++hash_function() const : hasher [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L1014{hash_function}]]]
++insert(const value_type & value) : std::pair<iterator,bool> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L540{insert}]]]
++insert(value_type && value) : std::pair<iterator,bool> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L545{insert}]]]
++insert<It>(It first, It last) : void
++insert<Arg>(Arg && value) : std::enable_if_t<std::is_constructible_v<value_type, Arg &&>, std::pair<iterator, _Bool> >
++insert_or_assign<Arg>(key_type && key, Arg && value) : std::pair<iterator, _Bool>
++insert_or_assign<Arg>(const key_type & key, Arg && value) : std::pair<iterator, _Bool>
+-insert_or_do_nothing<Other,Args...>(Other && key, Args &&... args) : auto
+-insert_or_overwrite<Other,Arg>(Other && key, Arg && value) : auto
++key_eq() const : key_equal [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L1022{key_eq}]]]
+-key_to_bucket<Other>(const Other & key) const noexcept : std::size_t
++load_factor() const : float [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L954{load_factor}]]]
++max_bucket_count() const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L928{max_bucket_count}]]]
++max_load_factor(const float value) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L970{max_load_factor}]]]
++max_load_factor() const : float [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L962{max_load_factor}]]]
++max_size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L522{max_size}]]]
+-move_and_pop(const std::size_t pos) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L328{move_and_pop}]]]
++rehash(const size_type cnt) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L981{rehash}]]]
+-rehash_if_required() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L339{rehash_if_required}]]]
++reserve(const size_type cnt) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L1005{reserve}]]]
++size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L514{size}]]]
++swap(dense_map<Key,Type,type-parameter-0-2,type-parameter-0-3,type-parameter-0-4> & other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L700{swap}]]]
++try_emplace<Args...>(const key_type & key, Args &&... args) : std::pair<iterator, _Bool>
++try_emplace<Args...>(key_type && key, Args &&... args) : std::pair<iterator, _Bool>
+__
+{static} -default_threshold : const float [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L260{default_threshold}]]]
+{static} -minimum_capacity : const std::size_t [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L261{minimum_capacity}]]]
+-packed : compressed_pair<packed_container_type,key_equal> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L1028{packed}]]]
+-sparse : compressed_pair<sparse_container_type,hasher> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L1027{sparse}]]]
+-threshold : float [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L1029{threshold}]]]
+}
+class "dense_set<Type,typename=std::hash<Type>,typename=std::equal_to<>,typename=std::allocator<Type>>" as C_0000505642796196212020
+class C_0000505642796196212020 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/fwd.hpp#L24{dense_set}]] {
+__
+}
+class "basic_table<typename...>" as C_0009954352257162803994
+class C_0009954352257162803994 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/fwd.hpp#L27{basic_table}]] {
+__
+}
+class "dense_map<Key,Type,typename=std::hash<Key>,typename=std::equal_to<>,typename=std::allocator<std::pair<const Key, Type>>>" as C_0016550376603891016830
+class C_0016550376603891016830 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/fwd.hpp#L17{dense_map}]] {
+__
+}
+class "basic_table<Container...>" as C_0003851368739737527466
+class C_0003851368739737527466 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L149{basic_table}]] {
++basic_table() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L165{basic_table}]]]
++basic_table(const Container &... container) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L173{basic_table}]]]
++basic_table(Container &&... container) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L182{basic_table}]]]
++basic_table(const basic_table<type-parameter-0-0...> &) = deleted : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L188{basic_table}]]]
++basic_table(basic_table<type-parameter-0-0...> && other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L194{basic_table}]]]
++basic_table<Allocator>(const Allocator & allocator) : void
++basic_table<Allocator>(const Container &... container, const Allocator & allocator) noexcept : void
++basic_table<Allocator>(Container &&... container, const Allocator & allocator) noexcept : void
++basic_table<Allocator>(basic_table<type-parameter-0-0...> && other, const Allocator & allocator) : void
++~basic_table() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L241{~basic_table}]]]
+..
++operator=(const basic_table<type-parameter-0-0...> &) = deleted : basic_table<type-parameter-0-0...> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L247{operator=}]]]
++operator=(basic_table<type-parameter-0-0...> && other) noexcept : basic_table<type-parameter-0-0...> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L254{operator=}]]]
+..
++operator[](const size_type pos) const : std::tuple<const typename Container::value_type &...> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L428{operator[]}]]]
++operator[](const size_type pos) : std::tuple<typename Container::value_type &...> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L434{operator[]}]]]
+..
++begin() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L322{begin}]]]
++begin() noexcept : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L327{begin}]]]
++capacity() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L285{capacity}]]]
++cbegin() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L317{cbegin}]]]
++cend() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L335{cend}]]]
++clear() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L440{clear}]]]
++crbegin() const noexcept : const_reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L356{crbegin}]]]
++crend() const noexcept : const_reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L375{crend}]]]
++emplace<Args...>(Args &&... args) : std::tuple<typename Container::value_type &...>
++empty() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L306{empty}]]]
++end() noexcept : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L345{end}]]]
++end() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L340{end}]]]
++erase(const_iterator pos) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L409{erase}]]]
++erase(const size_type pos) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L418{erase}]]]
++rbegin() const noexcept : const_reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L361{rbegin}]]]
++rbegin() noexcept : reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L366{rbegin}]]]
++rend() const noexcept : const_reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L380{rend}]]]
++rend() noexcept : reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L385{rend}]]]
++reserve(const size_type cap) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L276{reserve}]]]
++shrink_to_fit() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L290{shrink_to_fit}]]]
++size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L298{size}]]]
++swap(basic_table<type-parameter-0-0...> & other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L263{swap}]]]
+__
+-payload : container_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L445{payload}]]]
+}
+class "dense_set<Type,Hash=std::hash<Type>,KeyEqual=std::equal_to<>,Allocator=std::allocator<Type>>" as C_0000266095910150525127
+class C_0000266095910150525127 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L220{dense_set}]] {
++dense_set() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L316{dense_set}]]]
++dense_set(const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L323{dense_set}]]]
++dense_set(const size_type cnt, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L332{dense_set}]]]
++dense_set(const size_type cnt, const hasher & hash, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L342{dense_set}]]]
++dense_set(const size_type cnt, const hasher & hash = hasher{}, const key_equal & equal = key_equal{}, const allocator_type & allocator = allocator_type{}) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L353{dense_set}]]]
++dense_set(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &) = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L360{dense_set}]]]
++dense_set(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L367{dense_set}]]]
++dense_set(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &&) noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L373{dense_set}]]]
++dense_set(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> && other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L380{dense_set}]]]
++~dense_set() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L386{~dense_set}]]]
+..
++operator=(const dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &) = default : dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L392{operator=}]]]
++operator=(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> &&) noexcept = default : dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L398{operator=}]]]
+..
++begin() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L420{begin}]]]
++begin() noexcept : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L425{begin}]]]
++begin(const size_type index) : local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L778{begin}]]]
++begin(const size_type index) const : const_local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L769{begin}]]]
++bucket(const value_type & value) const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L839{bucket}]]]
++bucket_count() const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L813{bucket_count}]]]
++bucket_size(const size_type index) const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L830{bucket_size}]]]
++cbegin() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L415{cbegin}]]]
++cbegin(const size_type index) const : const_local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L760{cbegin}]]]
++cend() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L434{cend}]]]
++cend(const size_type index) const : const_local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L787{cend}]]]
++clear() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L513{clear}]]]
+-constrained_find<Other>(const Other & value, std::size_t bucket) const : auto
+-constrained_find<Other>(const Other & value, std::size_t bucket) : auto
++contains(const value_type & value) const : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L738{contains}]]]
++contains<Other>(const Other & value) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, _Bool> >
++count<Other>(const Other & key) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, size_type> >
++count(const value_type & key) const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L642{count}]]]
++crbegin() const noexcept : const_reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L455{crbegin}]]]
++crend() const noexcept : const_reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L474{crend}]]]
++emplace<Args...>(Args &&... args) : std::pair<iterator, _Bool>
++empty() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L492{empty}]]]
++end() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L439{end}]]]
++end() noexcept : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L444{end}]]]
++end(const size_type index) : local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L805{end}]]]
++end(const size_type index) const : const_local_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L796{end}]]]
++equal_range(const value_type & value) : std::pair<iterator,iterator> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L699{equal_range}]]]
++equal_range(const value_type & value) const : std::pair<const_iterator,const_iterator> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L705{equal_range}]]]
++equal_range<Other>(const Other & value) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<iterator, iterator> > >
++equal_range<Other>(const Other & value) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, std::pair<const_iterator, const_iterator> > >
++erase(const value_type & value) : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L613{erase}]]]
++erase(const_iterator first, const_iterator last) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L598{erase}]]]
++erase(const_iterator pos) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L586{erase}]]]
++find(const value_type & value) const : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L669{find}]]]
++find<Other>(const Other & value) const : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, const_iterator> >
++find<Other>(const Other & value) : std::enable_if_t<is_transparent_v<hasher> && is_transparent_v<key_equal>, std::conditional_t<false, Other, iterator> >
++find(const value_type & value) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L664{find}]]]
++get_allocator() constexpr const noexcept : allocator_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L404{get_allocator}]]]
++hash_function() const : hasher [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L907{hash_function}]]]
++insert<It>(It first, It last) : void
++insert(const value_type & value) : std::pair<iterator,bool> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L526{insert}]]]
++insert(value_type && value) : std::pair<iterator,bool> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L531{insert}]]]
+-insert_or_do_nothing<Other>(Other && value) : auto
++key_eq() const : key_equal [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L915{key_eq}]]]
++load_factor() const : float [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L847{load_factor}]]]
++max_bucket_count() const : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L821{max_bucket_count}]]]
++max_load_factor() const : float [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L855{max_load_factor}]]]
++max_load_factor(const float value) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L863{max_load_factor}]]]
++max_size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L508{max_size}]]]
+-move_and_pop(const std::size_t pos) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L272{move_and_pop}]]]
++rbegin() const noexcept : const_reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L460{rbegin}]]]
++rbegin() noexcept : reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L465{rbegin}]]]
++rehash(const size_type cnt) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L874{rehash}]]]
+-rehash_if_required() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L283{rehash_if_required}]]]
++rend() const noexcept : const_reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L479{rend}]]]
++rend() noexcept : reverse_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L484{rend}]]]
++reserve(const size_type cnt) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L898{reserve}]]]
++size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L500{size}]]]
++swap(dense_set<Type,type-parameter-0-1,type-parameter-0-2,type-parameter-0-3> & other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L630{swap}]]]
+-value_to_bucket<Other>(const Other & value) const noexcept : std::size_t
+__
+{static} -default_threshold : const float [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L221{default_threshold}]]]
+{static} -minimum_capacity : const std::size_t [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L222{minimum_capacity}]]]
+-packed : compressed_pair<packed_container_type,key_equal> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L921{packed}]]]
+-sparse : compressed_pair<sparse_container_type,hasher> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L920{sparse}]]]
+-threshold : float [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L922{threshold}]]]
+}
+C_0011012705138464417260 ..|> C_0006888632936991564690
+C_0006888632936991564690 ..> C_0011012705138464417260 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L78{}]]
+C_0007178502285532741255 ..|> C_0017210276393290462429
+C_0017210276393290462429 ..> C_0007178502285532741255 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L202{}]]
+C_0013231672675426695932 ..|> C_0011012705138464417260
+C_0011738857156599614272 ..|> C_0011012705138464417260
+C_0008476737605064141530 ..|> C_0007178502285532741255
+C_0010664813499209468827 ..|> C_0007178502285532741255
+C_0017950527097990927630 ..|> C_0018012732330420618640
+C_0018012732330420618640 ..> C_0017950527097990927630 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L38{}]]
+C_0014485174730983555390 ..|> C_0017950527097990927630
+C_0014855856204753052481 ..|> C_0017950527097990927630
+C_0008787826246122898082 ..|> C_0017950527097990927630
+C_0010587882492322343873 ..|> C_0017950527097990927630
+C_0000393299081773487514 ..|> C_0016233497384426377511
+C_0016233497384426377511 ..> C_0000393299081773487514 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L44{}]]
+C_0005781321265033946271 ..|> C_0013894839112045234953
+C_0013894839112045234953 ..> C_0005781321265033946271 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L164{}]]
+C_0004483019961186023289 ..|> C_0000393299081773487514
+C_0001216293982588311888 ..|> C_0000393299081773487514
+C_0003297413440508525503 ..|> C_0005781321265033946271
+C_0011816142477637144989 ..|> C_0005781321265033946271
+C_0014252894030714588865 ..|> C_0009954352257162803994
+C_0016875628798870607113 ..> C_0013231672675426695932 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L469{}]]
+C_0016875628798870607113 ..> C_0006888632936991564690 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L469{}]]
+C_0016875628798870607113 ..> C_0011738857156599614272 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L479{}]]
+C_0016875628798870607113 ..> C_0008476737605064141530 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L867{}]]
+C_0016875628798870607113 ..> C_0017210276393290462429 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L867{}]]
+C_0016875628798870607113 ..> C_0010664813499209468827 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L885{}]]
+C_0016875628798870607113 o-- C_0015592321812020189230 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_map.hpp#L1028{packed}]] : -packed
+C_0003851368739737527466 ..> C_0014485174730983555390 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L317{}]]
+C_0003851368739737527466 ..> C_0018012732330420618640 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L317{}]]
+C_0003851368739737527466 ..> C_0014855856204753052481 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L327{}]]
+C_0003851368739737527466 ..> C_0008787826246122898082 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L356{}]]
+C_0003851368739737527466 ..> C_0010587882492322343873 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/table.hpp#L366{}]]
+C_0000266095910150525127 ..> C_0004483019961186023289 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L415{}]]
+C_0000266095910150525127 ..> C_0016233497384426377511 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L415{}]]
+C_0000266095910150525127 ..> C_0001216293982588311888 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L425{}]]
+C_0000266095910150525127 ..> C_0003297413440508525503 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L760{}]]
+C_0000266095910150525127 ..> C_0013894839112045234953 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L760{}]]
+C_0000266095910150525127 ..> C_0011816142477637144989 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/container/dense_set.hpp#L778{}]]
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

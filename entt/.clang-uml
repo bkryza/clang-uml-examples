@@ -1,5 +1,5 @@
 compilation_database_dir: _build
-output_directory: ../puml
+output_directory: ../diagrams
 generate_links:
   link: 'https://github.com/skypjack/entt/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
   tooltip: '{% if existsIn(element, "comment") and existsIn(element.comment, "brief") %}{{ abbrv(trim(replace(element.comment.brief.0, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
@@ -76,18 +76,6 @@ diagrams:
     include:
       paths:
         - src/entt/meta
-      namespaces:
-        - entt
-  platform_class_diagram:
-    type: class
-    title: "'platform' class diagram"
-    glob:
-      - test/entt/platform/*.cpp
-    using_namespace:
-      - entt
-    include:
-      paths:
-        - src/entt/platform
       namespaces:
         - entt
   poly_class_diagram:

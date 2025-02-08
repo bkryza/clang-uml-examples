@@ -1,0 +1,113 @@
+@startuml
+title 'process' class diagram
+class "process<Derived,Delta>" as C_0018001750142984279989
+class C_0018001750142984279989 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L71{process}]] {
++process() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L170{process}]]]
++process(const process<type-parameter-0-0,type-parameter-0-1> &) = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L173{process}]]]
++process(process<type-parameter-0-0,type-parameter-0-1> &&) noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L176{process}]]]
++~process() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L191{~process}]]]
+..
++operator=(const process<type-parameter-0-0,type-parameter-0-1> &) = default : process<type-parameter-0-0,type-parameter-0-1> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L182{operator=}]]]
++operator=(process<type-parameter-0-0,type-parameter-0-1> &&) noexcept = default : process<type-parameter-0-0,type-parameter-0-1> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L188{operator=}]]]
+..
++abort(const bool immediate = false) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L203{abort}]]]
++alive() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L217{alive}]]]
+#fail() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L135{fail}]]]
++finished() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L225{finished}]]]
+-next<Target=Derived>(std::integral_constant<state,state::uninitialized>) : decltype(std::declval<Target>().init() , void())
+-next<Target=Derived>(std::integral_constant<state,state::running>, Delta delta, void * data) : decltype(std::declval<Target>().update(delta, data) , void())
+-next<Target=Derived>(std::integral_constant<state,state::succeeded>) : decltype(std::declval<Target>().succeeded() , void())
+-next<Target=Derived>(std::integral_constant<state,state::failed>) : decltype(std::declval<Target>().failed() , void())
+-next<Target=Derived>(std::integral_constant<state,state::aborted>) : decltype(std::declval<Target>().aborted() , void())
+-next<Args...>(Args &&...) const noexcept : void
+#pause() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L147{pause}]]]
++paused() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L233{paused}]]]
++rejected() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L241{rejected}]]]
+#succeed() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L123{succeed}]]]
++tick(const Delta delta, void * data = nullptr) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L250{tick}]]]
+#unpause() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L159{unpause}]]]
+__
+-current : state [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L285{current}]]]
+}
+enum "process::state" as C_0002917746718584045493
+enum C_0002917746718584045493 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L72{process::state}]] {
+uninitialized
+running
+paused
+succeeded
+failed
+aborted
+finished
+rejected
+}
+class "process_adaptor<Func,Delta>" as C_0007902543244082869685
+class C_0007902543244082869685 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L328{process_adaptor}]] {
+__
+}
+class "process<process_adaptor<Func,Delta>,Delta>" as C_0013691076075093252349
+class C_0013691076075093252349 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L328{process}]] {
+__
+}
+abstract "internal::basic_process_handler<Delta>" as C_0000079378394303088257
+abstract C_0000079378394303088257 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L20{basic_process_handler}]] {
++~basic_process_handler() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L21{~basic_process_handler}]]]
+..
+{abstract} +abort(bool) = 0 : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L24{abort}]]]
+{abstract} +update(Delta, void *) = 0 : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L23{update}]]]
+__
++next : std::shared_ptr<basic_process_handler<Delta>> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L27{next}]]]
+}
+class "internal::process_handler<Delta,Type>" as C_0003327253693836455337
+class C_0003327253693836455337 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L31{process_handler}]] {
++process_handler<Args...>(Args &&... args) : void
+..
++abort(const bool immediate) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L44{abort}]]]
++update(const Delta delta, void * data) : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L36{update}]]]
+__
++process : Type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L48{process}]]]
+}
+class "basic_scheduler<Delta=std::uint32_t,Allocator=std::allocator<void>>" as C_0014256786017402784757
+class C_0014256786017402784757 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L82{basic_scheduler}]] {
++basic_scheduler() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L102{basic_scheduler}]]]
++basic_scheduler(const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L109{basic_scheduler}]]]
++basic_scheduler(const basic_scheduler<type-parameter-0-0,type-parameter-0-1> &) = deleted : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L113{basic_scheduler}]]]
++basic_scheduler(basic_scheduler<type-parameter-0-0,type-parameter-0-1> && other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L119{basic_scheduler}]]]
++basic_scheduler(basic_scheduler<type-parameter-0-0,type-parameter-0-1> && other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L127{basic_scheduler}]]]
++~basic_scheduler() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L133{~basic_scheduler}]]]
+..
++operator=(const basic_scheduler<type-parameter-0-0,type-parameter-0-1> &) = deleted : basic_scheduler<type-parameter-0-0,type-parameter-0-1> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L139{operator=}]]]
++operator=(basic_scheduler<type-parameter-0-0,type-parameter-0-1> && other) noexcept : basic_scheduler<type-parameter-0-0,type-parameter-0-1> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L146{operator=}]]]
+..
++abort(const bool immediate = false) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L352{abort}]]]
++attach<Proc,Args...>(Args &&... args) : basic_scheduler<type-parameter-0-0, type-parameter-0-1> &
++attach<Func>(Func && func) : basic_scheduler<type-parameter-0-0, type-parameter-0-1> &
++clear() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L191{clear}]]]
++empty() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L181{empty}]]]
++get_allocator() constexpr const noexcept : allocator_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L165{get_allocator}]]]
++size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L173{size}]]]
++swap(basic_scheduler<type-parameter-0-0,type-parameter-0-1> & other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L156{swap}]]]
++then<Proc,Args...>(Args &&... args) : basic_scheduler<type-parameter-0-0, type-parameter-0-1> &
++then<Func>(Func && func) : basic_scheduler<type-parameter-0-0, type-parameter-0-1> &
++update(const delta_type delta, void * data = nullptr) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L326{update}]]]
+__
+-handlers : compressed_pair<container_type,allocator_type> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L359{handlers}]]]
+}
+class "process<typename,typename>" as C_0005504757885219253508
+class C_0005504757885219253508 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/fwd.hpp#L10{process}]] {
+__
+}
+class "basic_scheduler<typename=std::uint32_t,typename=std::allocator<void>>" as C_0009647766250616183065
+class C_0009647766250616183065 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/fwd.hpp#L13{basic_scheduler}]] {
+__
+}
+C_0018001750142984279989 o-- C_0002917746718584045493 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L285{current}]] : -current
+C_0002917746718584045493 --+ C_0018001750142984279989
+C_0007902543244082869685 ..|> C_0007902543244082869685
+C_0013691076075093252349 ..> C_0007902543244082869685
+C_0013691076075093252349 ..|> C_0018001750142984279989
+C_0000079378394303088257 <|-- C_0003327253693836455337
+C_0014256786017402784757 o-- C_0000079378394303088257 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L359{handlers}]] : -handlers
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

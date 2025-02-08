@@ -1,0 +1,145 @@
+@startuml
+title 'resource' class diagram
+class "resource_loader<Type>" as C_0014735462032073401024
+class C_0014735462032073401024 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/loader.hpp#L15{resource_loader}]] {
++operator()<Args...>(Args &&... args) const : result_type
+__
+}
+class "resource<typename>" as C_0004476387285913603328
+class C_0004476387285913603328 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/fwd.hpp#L15{resource}]] {
+__
+}
+class "resource_cache<Type,typename=resource_loader<Type>,typename=std::allocator<Type>>" as C_0007573507227400983129
+class C_0007573507227400983129 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/fwd.hpp#L12{resource_cache}]] {
+__
+}
+class "resource_loader<typename>" as C_0009957250125355145055
+class C_0009957250125355145055 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/fwd.hpp#L9{resource_loader}]] {
+__
+}
+class "internal::resource_cache_iterator<std::remove_const_t<Type>,Other>" as C_0017212500752943481667
+class C_0017212500752943481667 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L26{resource_cache_iterator}]] {
+__
+}
+class "internal::resource_cache_iterator<Type,It>" as C_0018051342968877125083
+class C_0018051342968877125083 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L26{resource_cache_iterator}]] {
++resource_cache_iterator() noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L38{resource_cache_iterator}]]]
++resource_cache_iterator(const It iter) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L40{resource_cache_iterator}]]]
++resource_cache_iterator<Other,typename=std::enable_if_t<!std::is_same_v<It, Other> && std::is_constructible_v<It, Other>>>(const resource_cache_iterator<std::remove_const_t<Type>,Other> & other) noexcept : void
+..
++operator*() constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L87{operator*}]]]
++operator+(const difference_type value) constexpr const noexcept : resource_cache_iterator<Type,It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L70{operator+}]]]
++operator++() constexpr noexcept : resource_cache_iterator<Type,It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L47{operator++}]]]
++operator++(int) constexpr noexcept : resource_cache_iterator<Type,It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L51{operator++}]]]
++operator+=(const difference_type value) constexpr noexcept : resource_cache_iterator<Type,It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L65{operator+=}]]]
++operator-(const difference_type value) constexpr const noexcept : resource_cache_iterator<Type,It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L79{operator-}]]]
++operator--() constexpr noexcept : resource_cache_iterator<Type,It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L56{operator--}]]]
++operator--(int) constexpr noexcept : resource_cache_iterator<Type,It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L60{operator--}]]]
++operator-=(const difference_type value) constexpr noexcept : resource_cache_iterator<Type,It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L75{operator-=}]]]
++operator->() constexpr const noexcept : pointer [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L91{operator->}]]]
++operator[](const difference_type value) constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L83{operator[]}]]]
+__
+-it : It [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L105{it}]]]
+}
+class "internal::resource_cache_iterator<Type const,typename container_type::const_iterator>" as C_0009160799430657499757
+class C_0009160799430657499757 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L26{resource_cache_iterator}]] {
+__
+}
+class "internal::resource_cache_iterator<Type,typename container_type::iterator>" as C_0012393889249170597816
+class C_0012393889249170597816 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L26{resource_cache_iterator}]] {
+__
+}
+class "internal::resource_cache_iterator<typename,typename>" as C_0017232908621428983744
+class C_0017232908621428983744 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L28{resource_cache_iterator}]] {
+__
+}
+class "resource<Other>" as C_0009932554139000054545
+class C_0009932554139000054545 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L22{resource}]] {
+__
+}
+class "resource<Type>" as C_0006434562767129070943
+class C_0006434562767129070943 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L22{resource}]] {
++resource() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L36{resource}]]]
++resource(handle_type res) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L43{resource}]]]
++resource(const resource<type-parameter-0-0> &) noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L47{resource}]]]
++resource(resource<type-parameter-0-0> &&) noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L50{resource}]]]
++resource<Other>(const resource<Other> & other, element_type & res) noexcept : void
++resource<Other,typename=std::enable_if_t<is_acceptable_v<Other>>>(const resource<Other> & other) noexcept : void
++resource<Other,typename=std::enable_if_t<is_acceptable_v<Other>>>(resource<Other> && other) noexcept : void
++~resource() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L81{~resource}]]]
+..
++operator=(const resource<type-parameter-0-0> &) noexcept = default : resource<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L87{operator=}]]]
++operator=(resource<type-parameter-0-0> &&) noexcept = default : resource<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L93{operator=}]]]
+..
++operator*() const noexcept : element_type & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L136{operator*}]]]
++operator->() const noexcept : element_type * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L149{operator->}]]]
++operator=<Other,typename=std::enable_if_t<is_acceptable_v<Other>>>(const resource<Other> & other) noexcept : resource<type-parameter-0-0> &
++operator=<Other,typename=std::enable_if_t<is_acceptable_v<Other>>>(resource<Other> && other) noexcept : resource<type-parameter-0-0> &
+..
++handle() const noexcept : const handle_type & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L178{handle}]]]
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L157{operator bool}]]]
++operator type-parameter-0-0 &() const noexcept : element_type & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L141{operator type-parameter-0-0 &}]]]
++reset() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L162{reset}]]]
++reset(handle_type other) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L170{reset}]]]
++swap(resource<type-parameter-0-0> & other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L123{swap}]]]
+__
+-value : handle_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L183{value}]]]
+}
+class "resource<resource_cache::value_type>" as C_0016280272146918438608
+class C_0016280272146918438608 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L22{resource}]] {
+__
+}
+class "resource_cache<Type,Loader=resource_loader<Type>,Allocator=std::allocator<Type>>" as C_0004758948397064667495
+class C_0004758948397064667495 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L153{resource_cache}]] {
++resource_cache() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L174{resource_cache}]]]
++resource_cache(const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L181{resource_cache}]]]
++resource_cache(const loader_type & callable, const allocator_type & allocator = allocator_type{}) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L189{resource_cache}]]]
++resource_cache(const resource_cache<Type,type-parameter-0-1,type-parameter-0-2> &) = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L193{resource_cache}]]]
++resource_cache(const resource_cache<Type,type-parameter-0-1,type-parameter-0-2> & other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L200{resource_cache}]]]
++resource_cache(resource_cache<Type,type-parameter-0-1,type-parameter-0-2> &&) noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L204{resource_cache}]]]
++resource_cache(resource_cache<Type,type-parameter-0-1,type-parameter-0-2> && other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L211{resource_cache}]]]
++~resource_cache() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L215{~resource_cache}]]]
+..
++operator=(const resource_cache<Type,type-parameter-0-1,type-parameter-0-2> &) = default : resource_cache<Type,type-parameter-0-1,type-parameter-0-2> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L221{operator=}]]]
++operator=(resource_cache<Type,type-parameter-0-1,type-parameter-0-2> &&) noexcept = default : resource_cache<Type,type-parameter-0-1,type-parameter-0-2> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L227{operator=}]]]
+..
++operator[](const id_type id) const : resource<const value_type> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L343{operator[]}]]]
++operator[](const id_type id) : resource<value_type> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L352{operator[]}]]]
+..
++begin() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L249{begin}]]]
++begin() noexcept : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L254{begin}]]]
++cbegin() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L244{cbegin}]]]
++cend() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L263{cend}]]]
++clear() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L294{clear}]]]
++contains(const id_type id) const : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L365{contains}]]]
++empty() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L281{empty}]]]
++end() const noexcept : const_iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L268{end}]]]
++end() noexcept : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L273{end}]]]
++erase(const id_type id) : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L395{erase}]]]
++erase(const_iterator pos) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L374{erase}]]]
++erase(const_iterator first, const_iterator last) : iterator [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L385{erase}]]]
++force_load<Args...>(const id_type id, Args &&... args) : std::pair<iterator, _Bool>
++get_allocator() constexpr const noexcept : allocator_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L233{get_allocator}]]]
++load<Args...>(const id_type id, Args &&... args) : std::pair<iterator, _Bool>
++loader() const : loader_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L403{loader}]]]
++size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L289{size}]]]
+__
+-pool : compressed_pair<container_type,loader_type> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L408{pool}]]]
+}
+C_0017212500752943481667 ..|> C_0018051342968877125083
+C_0018051342968877125083 ..> C_0006434562767129070943
+C_0018051342968877125083 ..> C_0017212500752943481667 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L44{}]]
+C_0009160799430657499757 ..|> C_0018051342968877125083
+C_0012393889249170597816 ..|> C_0018051342968877125083
+C_0009932554139000054545 ..|> C_0004476387285913603328
+C_0006434562767129070943 ..> C_0009932554139000054545 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/resource.hpp#L59{}]]
+C_0016280272146918438608 ..|> C_0004476387285913603328
+C_0004758948397064667495 ..> C_0009160799430657499757 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L244{}]]
+C_0004758948397064667495 ..> C_0018051342968877125083 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L244{}]]
+C_0004758948397064667495 ..> C_0012393889249170597816 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L254{}]]
+C_0004758948397064667495 ..> C_0016280272146918438608 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L343{}]]
+C_0004758948397064667495 ..> C_0006434562767129070943 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/resource/cache.hpp#L343{}]]
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml
