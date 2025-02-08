@@ -1,0 +1,347 @@
+@startuml
+title 'config' class diagram
+class "CConfigWatcher" as C_0013594160428149076905
+class C_0013594160428149076905 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L7{CConfigWatcher}]] {
++CConfigWatcher() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L9{CConfigWatcher}]]]
++~CConfigWatcher() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L10{~CConfigWatcher}]]]
+..
++getInotifyFD() : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L16{getInotifyFD}]]]
++onInotifyEvent() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L19{onInotifyEvent}]]]
++setOnChange(const std::function<void (const SConfigWatchEvent &)> & fn) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L18{setOnChange}]]]
++setWatchList(const std::vector<std::string> & paths) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L17{setWatchList}]]]
+__
+-m_inotifyFd : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L29{m_inotifyFd}]]]
+-m_watchCallback : std::function<void (const SConfigWatchEvent &)> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L27{m_watchCallback}]]]
+-m_watches : std::vector<SInotifyWatch> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L28{m_watches}]]]
+}
+class "CConfigWatcher::SConfigWatchEvent" as C_0007987692325106512747
+class C_0007987692325106512747 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L12{CConfigWatcher::SConfigWatchEvent}]] {
+__
++file : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L13{file}]]]
+}
+class "CConfigWatcher::SInotifyWatch" as C_0000626567476122839732
+class C_0000626567476122839732 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L22{CConfigWatcher::SInotifyWatch}]] {
+__
++file : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L24{file}]]]
++wd : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L23{wd}]]]
+}
+enum "eConfigValueDataTypes" as C_0004485035955819309564
+enum C_0004485035955819309564 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L6{eConfigValueDataTypes}]] {
+CVD_TYPE_INVALID
+CVD_TYPE_GRADIENT
+CVD_TYPE_CSS_VALUE
+}
+abstract "ICustomConfigValueData" as C_0001518717766710136032
+abstract C_0001518717766710136032 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L12{ICustomConfigValueData}]] {
+{abstract} +~ICustomConfigValueData() = 0 : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L14{~ICustomConfigValueData}]]]
+..
+{abstract} +getDataType() = 0 : eConfigValueDataTypes [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L16{getDataType}]]]
+{abstract} +toString() = 0 : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L18{toString}]]]
+__
+}
+class "CGradientValueData" as C_0014803147993020280735
+class C_0014803147993020280735 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L21{CGradientValueData}]] {
++CGradientValueData() = default : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L23{CGradientValueData}]]]
++CGradientValueData(CHyprColor col) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L24{CGradientValueData}]]]
++~CGradientValueData() constexpr = default : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L28{~CGradientValueData}]]]
+..
++operator==(const CGradientValueData & other) const : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L62{operator==}]]]
+..
++getDataType() : eConfigValueDataTypes [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L30{getDataType}]]]
++reset(CHyprColor col) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L34{reset}]]]
++toString() : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L73{toString}]]]
++updateColorsOk() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L41{updateColorsOk}]]]
+__
++m_fAngle : float [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L59{m_fAngle}]]]
++m_vColors : std::vector<CHyprColor> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L53{m_vColors}]]]
++m_vColorsOkLabA : std::vector<float> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L56{m_vColorsOkLabA}]]]
+}
+class "CCssGapData" as C_0013485691523749885846
+class C_0013485691523749885846 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L84{CCssGapData}]] {
++CCssGapData() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L86{CCssGapData}]]]
++CCssGapData(int64_t global) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L87{CCssGapData}]]]
++CCssGapData(int64_t vertical, int64_t horizontal) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L88{CCssGapData}]]]
++CCssGapData(int64_t top, int64_t horizontal, int64_t bottom) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L89{CCssGapData}]]]
++CCssGapData(int64_t top, int64_t right, int64_t bottom, int64_t left) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L90{CCssGapData}]]]
+..
++getDataType() : eConfigValueDataTypes [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L131{getDataType}]]]
++parseGapData(CVarList varlist) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L98{parseGapData}]]]
++reset(int64_t global) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L124{reset}]]]
++toString() : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L135{toString}]]]
+__
++bottom : int64_t [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L95{bottom}]]]
++left : int64_t [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L96{left}]]]
++right : int64_t [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L94{right}]]]
++top : int64_t [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L93{top}]]]
+}
+class "SWorkspaceRule" as C_0009084484781909356020
+class C_0009084484781909356020 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L30{SWorkspaceRule}]] {
+__
++borderSize : std::optional<int64_t> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L39{borderSize}]]]
++decorate : std::optional<bool> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L40{decorate}]]]
++defaultName : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L45{defaultName}]]]
++gapsIn : std::optional<CCssGapData> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L37{gapsIn}]]]
++gapsOut : std::optional<CCssGapData> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L38{gapsOut}]]]
++isDefault : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L35{isDefault}]]]
++isPersistent : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L36{isPersistent}]]]
++layoutopts : std::map<std::string,std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L46{layoutopts}]]]
++monitor : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L31{monitor}]]]
++noBorder : std::optional<bool> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L42{noBorder}]]]
++noRounding : std::optional<bool> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L41{noRounding}]]]
++noShadow : std::optional<bool> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L43{noShadow}]]]
++onCreatedEmptyRunCmd : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L44{onCreatedEmptyRunCmd}]]]
++workspaceId : WORKSPACEID [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L34{workspaceId}]]]
++workspaceName : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L33{workspaceName}]]]
++workspaceString : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L32{workspaceString}]]]
+}
+class "SMonitorAdditionalReservedArea" as C_0017118012665425557916
+class C_0017118012665425557916 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L49{SMonitorAdditionalReservedArea}]] {
+__
++bottom : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L51{bottom}]]]
++left : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L52{left}]]]
++right : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L53{right}]]]
++top : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L50{top}]]]
+}
+class "SPluginKeyword" as C_0007303501260999299648
+class C_0007303501260999299648 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L56{SPluginKeyword}]] {
+__
++fn : Hyprlang::PCONFIGHANDLERFUNC [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L59{fn}]]]
++handle : void * [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L57{handle}]]]
++name : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L58{name}]]]
+}
+class "SPluginVariable" as C_0009506419993630225823
+class C_0009506419993630225823 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L62{SPluginVariable}]] {
+__
++handle : void * [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L63{handle}]]]
++name : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L64{name}]]]
+}
+class "SExecRequestedRule" as C_0001406390722666738223
+class C_0001406390722666738223 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L67{SExecRequestedRule}]] {
+__
++iPid : uint64_t [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L69{iPid}]]]
++szRule : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L68{szRule}]]]
+}
+enum "eConfigOptionType" as C_0006434206581241812348
+enum C_0006434206581241812348 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L72{eConfigOptionType}]] {
+CONFIG_OPTION_BOOL
+CONFIG_OPTION_INT
+CONFIG_OPTION_FLOAT
+CONFIG_OPTION_STRING_SHORT
+CONFIG_OPTION_STRING_LONG
+CONFIG_OPTION_COLOR
+CONFIG_OPTION_CHOICE
+CONFIG_OPTION_GRADIENT
+CONFIG_OPTION_VECTOR
+}
+enum "eConfigOptionFlags" as C_0008041687111588720258
+enum C_0008041687111588720258 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L84{eConfigOptionFlags}]] {
+CONFIG_OPTION_FLAG_PERCENTAGE
+}
+class "SConfigOptionDescription" as C_0012406145230807721645
+class C_0012406145230807721645 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L88{SConfigOptionDescription}]] {
++jsonify() const : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L130{jsonify}]]]
+__
++data : std::variant<SBoolData,SRangeData,SFloatData,SStringData,SColorData,SChoiceData,SGradientData,SVectorData> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L133{data}]]]
++description : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L124{description}]]]
++flags : uint32_t [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L128{flags}]]]
++specialCategory : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L125{specialCategory}]]]
++specialKey : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L126{specialKey}]]]
++type : eConfigOptionType [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L127{type}]]]
++value : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L123{value}]]]
+}
+class "SConfigOptionDescription::SBoolData" as C_0004475258212298454886
+class C_0004475258212298454886 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L90{SConfigOptionDescription::SBoolData}]] {
+__
++value : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L91{value}]]]
+}
+class "SConfigOptionDescription::SRangeData" as C_0006683964847040392931
+class C_0006683964847040392931 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L94{SConfigOptionDescription::SRangeData}]] {
+__
++max : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L95{max}]]]
++min : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L95{min}]]]
++value : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L95{value}]]]
+}
+class "SConfigOptionDescription::SFloatData" as C_0007294513824325631331
+class C_0007294513824325631331 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L98{SConfigOptionDescription::SFloatData}]] {
+__
++max : float [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L99{max}]]]
++min : float [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L99{min}]]]
++value : float [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L99{value}]]]
+}
+class "SConfigOptionDescription::SStringData" as C_0001925705373080483509
+class C_0001925705373080483509 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L102{SConfigOptionDescription::SStringData}]] {
+__
++value : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L103{value}]]]
+}
+class "SConfigOptionDescription::SColorData" as C_0015229619883990247975
+class C_0015229619883990247975 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L106{SConfigOptionDescription::SColorData}]] {
+__
++color : CHyprColor [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L107{color}]]]
+}
+class "SConfigOptionDescription::SChoiceData" as C_0017217906976935874363
+class C_0017217906976935874363 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L110{SConfigOptionDescription::SChoiceData}]] {
+__
++choices : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L112{choices}]]]
++firstIndex : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L111{firstIndex}]]]
+}
+class "SConfigOptionDescription::SGradientData" as C_0012032234817449325970
+class C_0012032234817449325970 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L115{SConfigOptionDescription::SGradientData}]] {
+__
++gradient : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L116{gradient}]]]
+}
+class "SConfigOptionDescription::SVectorData" as C_0001001316465906442268
+class C_0001001316465906442268 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L119{SConfigOptionDescription::SVectorData}]] {
+__
++max : Vector2D [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L120{max}]]]
++min : Vector2D [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L120{min}]]]
++vec : Vector2D [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L120{vec}]]]
+}
+class "SFirstExecRequest" as C_0015185298198175601080
+class C_0015185298198175601080 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L136{SFirstExecRequest}]] {
+__
++exec : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L137{exec}]]]
++withRules : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L138{withRules}]]]
+}
+class "CConfigManager" as C_0005191251934634278921
+class C_0005191251934634278921 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L141{CConfigManager}]] {
++CConfigManager() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L143{CConfigManager}]]]
+..
++addExecRule(const SExecRequestedRule &) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L201{addExecRule}]]]
++addParseError(const std::string &) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L197{addParseError}]]]
++addPluginConfigVar(void * handle, const std::string & name, const Hyprlang::CConfigValue & value) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L180{addPluginConfigVar}]]]
++addPluginKeyword(void * handle, const std::string & name, Hyprlang::PCONFIGHANDLERFUNC fun, Hyprlang::SHandlerOptions opts = {}) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L181{addPluginKeyword}]]]
++deviceConfigExists(const std::string &) : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L153{deviceConfigExists}]]]
++dispatchExecOnce() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L185{dispatchExecOnce}]]]
++dispatchExecShutdown() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L186{dispatchExecShutdown}]]]
++ensureMonitorStatus() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L189{ensureMonitorStatus}]]]
++ensurePersistentWorkspacesPresent() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L172{ensurePersistentWorkspacesPresent}]]]
++ensureVRR(PHLMONITOR pMonitor = nullptr) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L190{ensureVRR}]]]
+-generateConfig(std::string configPath) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L304{generateConfig}]]]
++getAllDescriptions() : const std::vector<SConfigOptionDescription> & [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L174{getAllDescriptions}]]]
++getAllWorkspaceRules() : const std::vector<SWorkspaceRule> & [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L168{getAllWorkspaceRules}]]]
++getAnimationConfig() : const std::unordered_map<std::string,Hyprutils::Memory::CSharedPointer<Hyprutils::Animation::SAnimationPropertyConfig>> & [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L178{getAnimationConfig}]]]
++getAnimationPropertyConfig(const std::string &) : Hyprutils::Memory::CSharedPointer<Hyprutils::Animation::SAnimationPropertyConfig> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L199{getAnimationPropertyConfig}]]]
++getBoundMonitorForWS(const std::string &) : PHLMONITOR [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L166{getBoundMonitorForWS}]]]
++getBoundMonitorStringForWS(const std::string &) : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L167{getBoundMonitorStringForWS}]]]
++getConfigString() : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L160{getConfigString}]]]
++getConfigValuePtr(const std::string &) : void *const * [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L157{getConfigValuePtr}]]]
++getConfigValueSafeDevice(const std::string & dev, const std::string & val, const std::string & fallback) : Hyprlang::CConfigValue * [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L154{getConfigValueSafeDevice}]]]
++getDefaultWorkspaceFor(const std::string &) : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L164{getDefaultWorkspaceFor}]]]
++getDeviceFloat(const std::string &, const std::string &, const std::string & fallback = "") : float [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L150{getDeviceFloat}]]]
++getDeviceInt(const std::string &, const std::string &, const std::string & fallback = "") : int [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L149{getDeviceInt}]]]
++getDeviceString(const std::string &, const std::string &, const std::string & fallback = "") : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L152{getDeviceString}]]]
++getDeviceVec(const std::string &, const std::string &, const std::string & fallback = "") : Vector2D [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L151{getDeviceVec}]]]
++getErrors() : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L204{getErrors}]]]
++getHyprlangConfigValuePtr(const std::string & name, const std::string & specialCat = "") : Hyprlang::CConfigValue * [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L158{getHyprlangConfigValuePtr}]]]
++getMainConfigPath() : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L159{getMainConfigPath}]]]
++getMatchingRules(PHLWINDOW, bool dynamic = true, bool shadowExec = false) : std::vector<Hyprutils::Memory::CSharedPointer<CWindowRule>> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L170{getMatchingRules}]]]
++getMatchingRules(PHLLS) : std::vector<Hyprutils::Memory::CSharedPointer<CLayerRule>> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L171{getMatchingRules}]]]
++getMonitorRuleFor(const PHLMONITOR) : SMonitorRule [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L162{getMonitorRuleFor}]]]
++getWorkspaceRuleFor(PHLWORKSPACE workspace) : SWorkspaceRule [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L163{getWorkspaceRuleFor}]]]
++handleAnimation(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L220{handleAnimation}]]]
++handleBezier(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L219{handleBezier}]]]
++handleBind(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L213{handleBind}]]]
++handleBindWS(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L224{handleBindWS}]]]
++handleBlurLS(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L223{handleBlurLS}]]]
++handleEnv(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L225{handleEnv}]]]
++handleExec(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L208{handleExec}]]]
++handleExecOnce(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L209{handleExecOnce}]]]
++handleExecRawOnce(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L210{handleExecRawOnce}]]]
++handleExecShutdown(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L211{handleExecShutdown}]]]
++handleLayerRule(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L216{handleLayerRule}]]]
++handleMonitor(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L212{handleMonitor}]]]
++handlePlugin(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L226{handlePlugin}]]]
++handlePluginLoads() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L203{handlePluginLoads}]]]
++handleRawExec(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L207{handleRawExec}]]]
++handleSource(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L221{handleSource}]]]
++handleSubmap(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L222{handleSubmap}]]]
++handleUnbind(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L214{handleUnbind}]]]
++handleWindowRule(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L215{handleWindowRule}]]]
++handleWindowRuleV2(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L217{handleWindowRuleV2}]]]
++handleWorkspaceRules(const std::string &, const std::string &) : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L218{handleWorkspaceRules}]]]
++init() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L145{init}]]]
+-mergeWorkspaceRules(const SWorkspaceRule &, const SWorkspaceRule &) : SWorkspaceRule [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L307{mergeWorkspaceRules}]]]
++parseKeyword(const std::string &, const std::string &) : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L195{parseKeyword}]]]
++performMonitorReload() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L188{performMonitorReload}]]]
+-postConfigReload(const Hyprlang::CParseResult & result) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L306{postConfigReload}]]]
++reload() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L146{reload}]]]
++removePluginConfig(void * handle) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L182{removePluginConfig}]]]
+-resetHLConfig() : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L303{resetHLConfig}]]]
+-setDefaultAnimationVars() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L302{setDefaultAnimationVars}]]]
++shouldBlurLS(const std::string &) : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L155{shouldBlurLS}]]]
++shouldUseSoftwareCursors() : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L192{shouldUseSoftwareCursors}]]]
+-updateBlurredLS(const std::string &, const bool) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L301{updateBlurredLS}]]]
++updateWatcher() : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L193{updateWatcher}]]]
++verify() : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L147{verify}]]]
+-verifyConfigExists() : std::optional<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L305{verifyConfigExists}]]]
+__
++configCurrentPath : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L228{configCurrentPath}]]]
+-execRequestedRules : std::vector<SExecRequestedRule> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L277{execRequestedRules}]]]
+-finalExecRequests : std::vector<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L295{finalExecRequests}]]]
+-firstExecDispatched : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L291{firstExecDispatched}]]]
+-firstExecRequests : std::vector<SFirstExecRequest> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L294{firstExecRequests}]]]
+-isFirstLaunch : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L283{isFirstLaunch}]]]
++isLaunchingExecOnce : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L265{isLaunchingExecOnce}]]]
+-m_AnimationTree : Hyprutils::Animation::CAnimationConfigTree [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L273{m_AnimationTree}]]]
++m_bLastConfigVerificationWasSuccessful : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L266{m_bLastConfigVerificationWasSuccessful}]]]
+-m_bManualCrashInitiated : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L292{m_bManualCrashInitiated}]]]
++m_bNoMonitorReload : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L264{m_bNoMonitorReload}]]]
++m_bWantsMonitorReload : bool [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L263{m_bWantsMonitorReload}]]]
+-m_configPaths : std::vector<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L271{m_configPaths}]]]
+-m_dBlurLSNamespaces : std::vector<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L289{m_dBlurLSNamespaces}]]]
++m_mAdditionalReservedAreas : std::unordered_map<std::string,SMonitorAdditionalReservedArea> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L176{m_mAdditionalReservedAreas}]]]
+-m_pConfig : Hyprutils::Memory::CUniquePointer<Hyprlang::CConfig> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L269{m_pConfig}]]]
+-m_szConfigErrors : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L298{m_szConfigErrors}]]]
+-m_szCurrentSubmap : std::string [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L275{m_szCurrentSubmap}]]]
+-m_vDeclaredPlugins : std::vector<std::string> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L279{m_vDeclaredPlugins}]]]
+-m_vFailedPluginConfigValues : std::vector<std::pair<std::string,std::string>> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L297{m_vFailedPluginConfigValues}]]]
+-m_vLayerRules : std::vector<Hyprutils::Memory::CSharedPointer<CLayerRule>> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L288{m_vLayerRules}]]]
+-m_vMonitorRules : std::vector<SMonitorRule> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L285{m_vMonitorRules}]]]
+-m_vWindowRules : std::vector<Hyprutils::Memory::CSharedPointer<CWindowRule>> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L287{m_vWindowRules}]]]
+-m_vWorkspaceRules : std::vector<SWorkspaceRule> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L286{m_vWorkspaceRules}]]]
++mbWindowProperties : std::unordered_map<std::string,std::function<CWindowOverridableVar<bool> *(const PHLWINDOW &)>> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L230{mbWindowProperties}]]]
++mfWindowProperties : std::unordered_map<std::string,std::function<CWindowOverridableVar<float> *(PHLWINDOW)>> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L258{mfWindowProperties}]]]
++miWindowProperties : std::unordered_map<std::string,std::function<CWindowOverridableVar<int> *(const PHLWINDOW &)>> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L253{miWindowProperties}]]]
+-pluginKeywords : std::vector<SPluginKeyword> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L280{pluginKeywords}]]]
+-pluginVariables : std::vector<SPluginVariable> [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L281{pluginVariables}]]]
+}
+class "CConfigValue<T>" as C_0004838702467729678729
+class C_0004838702467729678729 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigValue.hpp#L10{CConfigValue}]] {
++CConfigValue(const std::string & val) : void [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigValue.hpp#L12{CConfigValue}]]]
+..
++operator*() const : T [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigValue.hpp#L35{operator*}]]]
+..
++ptr() const : T * [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigValue.hpp#L31{ptr}]]]
+__
+-p_ : void *const * [[[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigValue.hpp#L40{p_}]]]
+}
+C_0013594160428149076905 --> C_0007987692325106512747 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigWatcher.hpp#L27{m_watchCallback}]] : -m_watchCallback
+C_0007987692325106512747 --+ C_0013594160428149076905
+C_0000626567476122839732 --+ C_0013594160428149076905
+C_0001518717766710136032 ..> C_0004485035955819309564 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L16{}]]
+C_0014803147993020280735 ..> C_0004485035955819309564 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L30{}]]
+C_0001518717766710136032 <|-- C_0014803147993020280735
+C_0013485691523749885846 ..> C_0004485035955819309564 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigDataValues.hpp#L131{}]]
+C_0001518717766710136032 <|-- C_0013485691523749885846
+C_0009084484781909356020 o-- C_0013485691523749885846 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L37{gapsIn}]] : +gapsIn
+C_0009084484781909356020 o-- C_0013485691523749885846 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L38{gapsOut}]] : +gapsOut
+C_0012406145230807721645 o-- C_0006434206581241812348 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L127{type}]] : +type
+C_0004475258212298454886 --+ C_0012406145230807721645
+C_0006683964847040392931 --+ C_0012406145230807721645
+C_0007294513824325631331 --+ C_0012406145230807721645
+C_0001925705373080483509 --+ C_0012406145230807721645
+C_0015229619883990247975 --+ C_0012406145230807721645
+C_0017217906976935874363 --+ C_0012406145230807721645
+C_0012032234817449325970 --+ C_0012406145230807721645
+C_0001001316465906442268 --+ C_0012406145230807721645
+C_0005191251934634278921 ..> C_0012406145230807721645 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L174{}]]
+C_0005191251934634278921 o-- C_0017118012665425557916 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L176{m_mAdditionalReservedAreas}]] : +m_mAdditionalReservedAreas
+C_0005191251934634278921 o-- C_0001406390722666738223 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L277{execRequestedRules}]] : -execRequestedRules
+C_0005191251934634278921 o-- C_0007303501260999299648 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L280{pluginKeywords}]] : -pluginKeywords
+C_0005191251934634278921 o-- C_0009506419993630225823 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L281{pluginVariables}]] : -pluginVariables
+C_0005191251934634278921 o-- C_0009084484781909356020 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L286{m_vWorkspaceRules}]] : -m_vWorkspaceRules
+C_0005191251934634278921 o-- C_0015185298198175601080 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/config/ConfigManager.hpp#L294{firstExecRequests}]] : -firstExecRequests
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml
