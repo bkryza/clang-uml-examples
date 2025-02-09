@@ -1,0 +1,61 @@
+@startuml
+title Data::MappedElement context
+package [Data] as C_0007944022382666682349 {
+class "MappedName" as C_0007243427818333896881
+class C_0007243427818333896881 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L45{MappedName}]] {
+__
+}
+class "IndexedName" as C_0000077198310494763102
+class C_0000077198310494763102 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L55{IndexedName}]] {
++IndexedName(const char * name = nullptr, int _index = 0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L67{IndexedName}]]]
++IndexedName(const char * name, const std::vector<const char *> & allowedTypeNames, bool allowOthers = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L96{IndexedName}]]]
++IndexedName(const QByteArray & data) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L108{IndexedName}]]]
+..
++operator!=(const IndexedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L198{operator!=}]]]
++operator++() : IndexedName & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L182{operator++}]]]
++operator+=(int offset) : IndexedName & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L174{operator+=}]]]
++operator--() : IndexedName & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L190{operator--}]]]
++operator<(const IndexedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L221{operator<}]]]
++operator==(const IndexedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L166{operator==}]]]
++operator[](int input) const : char [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L228{operator[]}]]]
+..
++appendToStringBuffer(std::string & buffer) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L133{appendToStringBuffer}]]]
++compare(const IndexedName & other) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L204{compare}]]]
+{static} +fromConst(const char * name, int index) : IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L120{fromConst}]]]
++getIndex() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L241{getIndex}]]]
++getType() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L238{getType}]]]
++isNull() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L252{isNull}]]]
++operator bool() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L256{operator bool}]]]
+#set(const char * name, int length = -1, const std::vector<const char *> & allowedNames = = {}, bool allowOthers = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L271{set}]]]
++setIndex(int input) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L247{setIndex}]]]
++toString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L147{toString}]]]
+__
+-index : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L278{index}]]]
+-type : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L277{type}]]]
+}
+class "MappedElement" as C_0005907300236355149255
+class C_0005907300236355149255 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L41{MappedElement}]] {
++MappedElement() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L46{MappedElement}]]]
++MappedElement(const IndexedName & idx, MappedName n) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L48{MappedElement}]]]
++MappedElement(MappedName n, const IndexedName & idx) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L53{MappedElement}]]]
++MappedElement(const MappedElement & other) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L60{MappedElement}]]]
++MappedElement(MappedElement && other) noexcept : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L62{MappedElement}]]]
++~MappedElement() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L58{~MappedElement}]]]
+..
++operator=(MappedElement && other) noexcept : MappedElement & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L67{operator=}]]]
++operator=(const MappedElement & other) = default : MappedElement & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L74{operator=}]]]
+..
++operator!=(const MappedElement & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L81{operator!=}]]]
++operator<(const MappedElement & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L89{operator<}]]]
++operator==(const MappedElement & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L76{operator==}]]]
+__
++index : IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L43{index}]]]
++name : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L44{name}]]]
+}
+}
+C_0005907300236355149255 o-- C_0000077198310494763102 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L43{index}]] : +index
+C_0005907300236355149255 o-- C_0007243427818333896881 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MappedElement.h#L44{name}]] : +name
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

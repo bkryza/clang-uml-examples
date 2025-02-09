@@ -1,0 +1,270 @@
+@startuml
+title App::Expression context
+package [App] as C_0018282610363821501524 {
+class "PropertyExpressionEngine::ExpressionInfo" as C_0018124675770510475176
+class C_0018124675770510475176 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L86{PropertyExpressionEngine::ExpressionInfo}]] {
++operator=(const ExpressionInfo &) = default : ExpressionInfo & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L97{operator=}]]]
+..
++ExpressionInfo(std::shared_ptr<App::Expression> expression = std::shared_ptr<App::Expression>()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L90{ExpressionInfo}]]]
++ExpressionInfo(const ExpressionInfo &) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L95{ExpressionInfo}]]]
+__
++busy : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L88{busy}]]]
++expression : std::shared_ptr<App::Expression> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L87{expression}]]]
+}
+class "Expression" as C_0013813587537121748203
+class C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L44{Expression}]] {
+__
+}
+enum "Expression::DepOption" as C_0006002197549333748496
+enum C_0006002197549333748496 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L139{Expression::DepOption}]] {
+DepNormal
+DepHidden
+DepAll
+}
+class "Expression::Exception" as C_0005650473859836092462
+class C_0005650473859836092462 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L164{Expression::Exception}]] {
++Exception(const char * sMessage) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L166{Exception}]]]
+__
+}
+class "Expression::Component" as C_0002432171368468111337
+class C_0002432171368468111337 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L42{Expression::Component}]] {
++operator=(const Component &) = deleted : Component & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L53{operator=}]]]
+..
++Component(const std::string & n) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L48{Component}]]]
++Component(Expression * e1, Expression * e2, Expression * e3, bool isRange = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L49{Component}]]]
++Component(const ObjectIdentifier::Component & comp) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L50{Component}]]]
++Component(const Component & other) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L51{Component}]]]
++copy() const : Component * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L58{copy}]]]
++del(const Expression * owner, Py::Object & pyobj) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L63{del}]]]
++eval() const : Component * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L59{eval}]]]
++get(const Expression * owner, const Py::Object & pyobj) const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L61{get}]]]
++isTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L56{isTouched}]]]
++set(const Expression * owner, Py::Object & pyobj, const Py::Object & value) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L62{set}]]]
++toString(std::ostream & ss, bool persistent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L57{toString}]]]
++visit(ExpressionVisitor & v) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L55{visit}]]]
++~Component() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L52{~Component}]]]
+__
++comp : ObjectIdentifier::Component [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L43{comp}]]]
++e1 : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L44{e1}]]]
++e2 : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L45{e2}]]]
++e3 : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L46{e3}]]]
+}
+class "UnitExpression" as C_0016433379843098021634
+class C_0016433379843098021634 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L73{UnitExpression}]] {
++UnitExpression(const App::DocumentObject * _owner = nullptr, const Base::Quantity & _quantity = Base::Quantity(), const std::string & _unitStr = std::string()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L76{UnitExpression}]]]
++~UnitExpression() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L78{~UnitExpression}]]]
+..
+#_copy() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L97{_copy}]]]
+#_getPyValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L99{_getPyValue}]]]
+#_toString(std::ostream & ss, bool persistent, int indent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L98{_toString}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getQuantity() const : const Base::Quantity & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L90{getQuantity}]]]
++getScaler() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L94{getScaler}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getUnit() const : const Base::Unit & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L88{getUnit}]]]
++getUnitString() const : const std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L92{getUnitString}]]]
++getValue() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L86{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++setQuantity(const Base::Quantity & _quantity) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L84{setQuantity}]]]
++setUnit(const Base::Quantity & _quantity) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L82{setUnit}]]]
++simplify() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L80{simplify}]]]
+__
+#cache : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L102{cache}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+-quantity : Base::Quantity [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L105{quantity}]]]
+-unitStr : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L106{unitStr}]]]
+}
+class "OperatorExpression" as C_0007238140569559278607
+class C_0007238140569559278607 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L154{OperatorExpression}]] {
++OperatorExpression(const App::DocumentObject * _owner = nullptr, Expression * _left = nullptr, Operator _op = NONE, Expression * _right = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L175{OperatorExpression}]]]
++~OperatorExpression() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L177{~OperatorExpression}]]]
+..
+#_copy() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L192{_copy}]]]
+#_getPyValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L194{_getPyValue}]]]
+#_toString(std::ostream & ss, bool persistent, int indent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L196{_toString}]]]
+#_visit(ExpressionVisitor & v) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L198{_visit}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getLeft() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L187{getLeft}]]]
++getOperator() const : Operator [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L185{getOperator}]]]
++getRight() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L189{getRight}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+#isCommutative() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L200{isCommutative}]]]
+#isLeftAssociative() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L202{isLeftAssociative}]]]
+#isRightAssociative() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L204{isRightAssociative}]]]
++isTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L179{isTouched}]]]
++priority() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L183{priority}]]]
++simplify() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L181{simplify}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+#left : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L207{left}]]]
+#op : Operator [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L206{op}]]]
+#right : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L208{right}]]]
+}
+class "ConditionalExpression" as C_0016074440066124852054
+class C_0016074440066124852054 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L211{ConditionalExpression}]] {
++ConditionalExpression(const App::DocumentObject * _owner = nullptr, Expression * _condition = nullptr, Expression * _trueExpr = nullptr, Expression * _falseExpr = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L214{ConditionalExpression}]]]
++~ConditionalExpression() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L216{~ConditionalExpression}]]]
+..
+#_copy() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L225{_copy}]]]
+#_getPyValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L228{_getPyValue}]]]
+#_toString(std::ostream & ss, bool persistent, int indent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L227{_toString}]]]
+#_visit(ExpressionVisitor & v) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L226{_visit}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L218{isTouched}]]]
++priority() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L222{priority}]]]
++simplify() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L220{simplify}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+#condition : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L232{condition}]]]
+#falseExpr : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L234{falseExpr}]]]
+#trueExpr : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L233{trueExpr}]]]
+}
+class "FunctionExpression" as C_0017813697914954158255
+class C_0017813697914954158255 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L242{FunctionExpression}]] {
++FunctionExpression(const App::DocumentObject * _owner = nullptr, Function _f = NONE, std::string && name = std::string(), std::vector<Expression *> _args = std::vector<Expression*>()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L330{FunctionExpression}]]]
++~FunctionExpression() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L333{~FunctionExpression}]]]
+..
+#_copy() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L356{_copy}]]]
+#_getPyValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L355{_getPyValue}]]]
+#_toString(std::ostream & ss, bool persistent, int indent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L358{_toString}]]]
+#_visit(ExpressionVisitor & v) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L357{_visit}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} #evalAggregate(const Expression * owner, int type, const std::vector<Expression *> & args) : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L345{evalAggregate}]]]
+{static} +evaluate(const Expression * owner, int type, const std::vector<Expression *> & args) : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L339{evaluate}]]]
+{static} #evaluateSecondVectorArgument(const Expression * expression, const std::vector<Expression *> & arguments) : Base::Vector3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L346{evaluateSecondVectorArgument}]]]
+{static} #extractLengthValueArgument(const Expression * expression, const std::vector<Expression *> & arguments, int argumentIndex) : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L347{extractLengthValueArgument}]]]
+{static} #extractVectorArgument(const Expression * expression, const std::vector<Expression *> & arguments, int argumentIndex) : Base::Vector3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L348{extractVectorArgument}]]]
++getArgs() const : const std::vector<Expression *> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L342{getArgs}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getFunction() const : Function [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L341{getFunction}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+{static} #initialiseObject(const Py::Object * object, const std::vector<Expression *> & arguments, const unsigned long offset = 0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L349{initialiseObject}]]]
++isTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L335{isTouched}]]]
++simplify() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L337{simplify}]]]
+{static} #transformFirstArgument(const Expression * expression, const std::vector<Expression *> & arguments, const Base::Matrix4D * transformationMatrix) : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L350{transformFirstArgument}]]]
+{static} #translationMatrix(double x, double y, double z) : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L354{translationMatrix}]]]
+__
+#args : std::vector<Expression *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L362{args}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+#f : Function [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L360{f}]]]
+#fname : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L361{fname}]]]
+}
+class "PyObjectExpression" as C_0002508221460057824947
+class C_0002508221460057824947 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L420{PyObjectExpression}]] {
++PyObjectExpression(const App::DocumentObject * _owner = nullptr, PyObject * pyobj = nullptr, bool owned = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L424{PyObjectExpression}]]]
++~PyObjectExpression() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L430{~PyObjectExpression}]]]
+..
+#_copy() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L437{_copy}]]]
+#_getPyValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L439{_getPyValue}]]]
+#_toString(std::ostream & ss, bool persistent, int indent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L438{_toString}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++setPyValue(Py::Object pyobj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L432{setPyValue}]]]
++setPyValue(PyObject * pyobj, bool owned = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L433{setPyValue}]]]
++simplify() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L434{simplify}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+#pyObj : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L442{pyObj}]]]
+}
+class "StringExpression" as C_0012851928625509394759
+class C_0012851928625509394759 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L450{StringExpression}]] {
++StringExpression(const App::DocumentObject * _owner = nullptr, const std::string & _text = std::string()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L453{StringExpression}]]]
++~StringExpression() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L454{~StringExpression}]]]
+..
+#_copy() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L460{_copy}]]]
+#_getPyValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L462{_getPyValue}]]]
+#_isIndexable() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L463{_isIndexable}]]]
+#_toString(std::ostream & ss, bool persistent, int indent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L461{_toString}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getText() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L458{getText}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++simplify() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L456{simplify}]]]
+__
+-cache : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L467{cache}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+-text : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L466{text}]]]
+}
+class "RangeExpression" as C_0002817375213083003846
+class C_0002817375213083003846 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L470{RangeExpression}]] {
++RangeExpression(const App::DocumentObject * _owner = nullptr, const std::string & begin = std::string(), const std::string & end = std::string()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L473{RangeExpression}]]]
++~RangeExpression() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L475{~RangeExpression}]]]
+..
+#_copy() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L484{_copy}]]]
+#_getIdentifiers(std::map<App::ObjectIdentifier,bool> &) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L487{_getIdentifiers}]]]
+#_getPyValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L486{_getPyValue}]]]
+#_moveCells(const CellAddress &, int, int, ExpressionVisitor &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L490{_moveCells}]]]
+#_offsetCells(int, int, ExpressionVisitor &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L491{_offsetCells}]]]
+#_renameObjectIdentifier(const std::map<ObjectIdentifier,ObjectIdentifier> &, const ObjectIdentifier &, ExpressionVisitor &) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L488{_renameObjectIdentifier}]]]
+#_toString(std::ostream & ss, bool persistent, int indent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L485{_toString}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getRange() const : Range [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L481{getRange}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L477{isTouched}]]]
++simplify() const : App::Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L479{simplify}]]]
+__
+#begin : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L494{begin}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+#end : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L495{end}]]]
+}
+package [ExpressionParser] as C_0007246889466153709727 {
+class "semantic_type" as C_0005392806347637472888
+class C_0005392806347637472888 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L521{semantic_type}]] {
++semantic_type() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L542{semantic_type}]]]
+__
++arguments : std::vector<Expression *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L537{arguments}]]]
++component : Expression::Component * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L527{component}]]]
++components : std::deque<ObjectIdentifier::Component> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L530{components}]]]
++constant : semantic_type::(constant) [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L536{constant}]]]
++expr : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L528{expr}]]]
++func : std::pair<FunctionExpression::Function,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L540{func}]]]
++fvalue : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L532{fvalue}]]]
++ivalue : long long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L531{ivalue}]]]
++list : std::vector<Expression *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L538{list}]]]
++path : ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L529{path}]]]
++quantity : semantic_type::(quantity) [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L526{quantity}]]]
++string : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L539{string}]]]
++string_or_identifier : ObjectIdentifier::String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L541{string_or_identifier}]]]
+}
+}
+}
+C_0018124675770510475176 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L87{expression}]] : +expression
+C_0006002197549333748496 --+ C_0013813587537121748203
+C_0005650473859836092462 --+ C_0013813587537121748203
+C_0002432171368468111337 --+ C_0013813587537121748203
+C_0002432171368468111337 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L44{e1}]] : +e1
+C_0002432171368468111337 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L45{e2}]] : +e2
+C_0002432171368468111337 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L46{e3}]] : +e3
+C_0013813587537121748203 <|-- C_0016433379843098021634
+C_0007238140569559278607 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L207{left}]] : #left
+C_0007238140569559278607 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L208{right}]] : #right
+C_0016433379843098021634 <|-- C_0007238140569559278607
+C_0016074440066124852054 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L232{condition}]] : #condition
+C_0016074440066124852054 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L233{trueExpr}]] : #trueExpr
+C_0016074440066124852054 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L234{falseExpr}]] : #falseExpr
+C_0013813587537121748203 <|-- C_0016074440066124852054
+C_0017813697914954158255 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L362{args}]] : #args
+C_0016433379843098021634 <|-- C_0017813697914954158255
+C_0013813587537121748203 <|-- C_0002508221460057824947
+C_0013813587537121748203 <|-- C_0012851928625509394759
+C_0013813587537121748203 <|-- C_0002817375213083003846
+C_0005392806347637472888 --> C_0002432171368468111337 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L527{component}]] : +component
+C_0005392806347637472888 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L528{expr}]] : +expr
+C_0005392806347637472888 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L537{arguments}]] : +arguments
+C_0005392806347637472888 --> C_0013813587537121748203 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L538{list}]] : +list
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

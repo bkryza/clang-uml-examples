@@ -1,0 +1,265 @@
+@startuml
+title App::ObjectIdentifier context
+package [App] as C_0018282610363821501524 {
+class "ObjectIdentifier" as C_0009598458625057667703
+class C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L44{ObjectIdentifier}]] {
+__
+}
+class "PropertyExpressionEngine" as C_0012572907688142490737
+class C_0012572907688142490737 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L64{PropertyExpressionEngine}]] {
++PropertyExpressionEngine() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L100{PropertyExpressionEngine}]]]
++~PropertyExpressionEngine() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L101{~PropertyExpressionEngine}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L111{Copy}]]]
++CopyOnImportExternal(const std::map<std::string,std::string> & nameMap) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L74{CopyOnImportExternal}]]]
++CopyOnLabelChange(App::DocumentObject * obj, const std::string & ref, const char * newLabel) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L75{CopyOnLabelChange}]]]
++CopyOnLinkReplace(const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L77{CopyOnLinkReplace}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L113{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L117{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L115{Save}]]]
++adjustLink(const std::set<App::DocumentObject *> & inList) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L73{adjustLink}]]]
++afterRestore() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L160{afterRestore}]]]
+-buildGraph(const ExpressionMap & exprs, boost::unordered::unordered_map<int,App::ObjectIdentifier> & revNodes, DiGraph & g, ExecuteOption option = ExecuteAll) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L192{buildGraph}]]]
+-buildGraphStructures(const App::ObjectIdentifier & path, const std::shared_ptr<Expression> expression, boost::unordered::unordered_map<App::ObjectIdentifier,int> & nodes, boost::unordered::unordered_map<int,App::ObjectIdentifier> & revNodes, std::vector<Edge> & edges) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L188{buildGraphStructures}]]]
++canonicalPath(const App::ObjectIdentifier & p) const : App::ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L153{canonicalPath}]]]
+-computeEvaluationOrder(ExecuteOption option) : std::vector<App::ObjectIdentifier> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L186{computeEvaluationOrder}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
++depsAreTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L142{depsAreTouched}]]]
++execute(ExecuteOption option = ExecuteAll, bool * touched = nullptr) : DocumentObjectExecReturn * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L138{execute}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getExpressions() const : std::map<App::ObjectIdentifier,const App::Expression *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L105{getExpressions}]]]
++getLinksTo(std::vector<App::ObjectIdentifier> & identifiers, App::DocumentObject * obj, const char * subname = nullptr, bool all = false) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L163{getLinksTo}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L103{getMemSize}]]]
++getPathValue(const App::ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L121{getPathValue}]]]
++getPathsToDocumentObject(DocumentObject *, std::vector<App::ObjectIdentifier> & paths) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L140{getPathsToDocumentObject}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L169{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+#hasSetValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L173{hasSetValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++numExpressions() const : size_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L155{numExpressions}]]]
++onContainerRestored() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L161{onContainerRestored}]]]
++onRelabeledDocument(const App::Document & doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L107{onRelabeledDocument}]]]
++referenceChanged() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L72{referenceChanged}]]]
++renameExpressions(const std::map<App::ObjectIdentifier,App::ObjectIdentifier> & paths) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L149{renameExpressions}]]]
++renameObjectIdentifiers(const std::map<App::ObjectIdentifier,App::ObjectIdentifier> & paths) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L151{renameObjectIdentifiers}]]]
++setExpressions(std::map<App::ObjectIdentifier,App::ExpressionPtr> && exprs) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L106{setExpressions}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L170{setPyObject}]]]
++setValidator(ValidatorFunc f) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L145{setValidator}]]]
++setValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L109{setValue}]]]
++setValue(const App::ObjectIdentifier & path, std::shared_ptr<App::Expression> expr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L119{setValue}]]]
+-slotChangedObject(const App::DocumentObject & obj, const App::Property & prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L196{slotChangedObject}]]]
+-slotChangedProperty(const App::DocumentObject & obj, const App::Property & prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L197{slotChangedProperty}]]]
++updateElementReference(App::DocumentObject * feature, bool reverse = false, bool notify = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L70{updateElementReference}]]]
+-updateHiddenReference(const std::string & key) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L198{updateHiddenReference}]]]
++validateExpression(const App::ObjectIdentifier & path, std::shared_ptr<const App::Expression> expr) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L147{validateExpression}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
++expressionChanged : boost::signals2::signal<void (const App::ObjectIdentifier &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L158{expressionChanged}]]]
+-expressions : ExpressionMap [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L203{expressions}]]]
+-pimpl : std::unique_ptr<Private> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L216{pimpl}]]]
+-restoredExpressions : std::unique_ptr<std::vector<RestoredExpression>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L213{restoredExpressions}]]]
+-restoring : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L201{restoring}]]]
+-running : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L200{running}]]]
+-validator : ValidatorFunc [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L205{validator}]]]
+}
+class "ObjectIdentifier::DocumentMapper" as C_0000767079285969815285
+class C_0000767079285969815285 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L75{ObjectIdentifier::DocumentMapper}]] {
++DocumentMapper(const std::map<std::string,std::string> &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L77{DocumentMapper}]]]
++~DocumentMapper() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L78{~DocumentMapper}]]]
+__
+}
+class "ObjectIdentifier::String" as C_0009793800912515780838
+class C_0009793800912515780838 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L81{ObjectIdentifier::String}]] {
++operator=(const String &) = default : String & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L67{operator=}]]]
++operator=(String && other) : String & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L69{operator=}]]]
+..
++operator!=(const String & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L130{operator!=}]]]
++operator<(const String & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L134{operator<}]]]
++operator==(const String & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L128{operator==}]]]
++operator>(const String & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L136{operator>}]]]
++operator>=(const String & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L132{operator>=}]]]
+..
++String(const std::string & s = "", bool _isRealString = false, bool _forceIdentifier = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L86{String}]]]
++String(std::string && s, bool _isRealString = false, bool _forceIdentifier = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L94{String}]]]
++String(const String &) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L102{String}]]]
++String(String && other) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L102{String}]]]
++checkImport(const App::DocumentObject * owner, const App::DocumentObject * obj = nullptr, String * objName = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L138{checkImport}]]]
++getString() const : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L112{getString}]]]
++isForceIdentifier() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L117{isForceIdentifier}]]]
++isRealString() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L115{isRealString}]]]
++operator basic_string() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L124{operator basic_string}]]]
++operator const char *() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L126{operator const char *}]]]
++toString(bool toPython = false) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L120{toString}]]]
+__
+-forceIdentifier : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L144{forceIdentifier}]]]
+-isString : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L143{isString}]]]
+-str : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L142{str}]]]
+}
+class "ObjectIdentifier::Component" as C_0009310987197330480539
+class C_0009310987197330480539 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L154{ObjectIdentifier::Component}]] {
++operator=(const Component &) = default : Component & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L67{operator=}]]]
++operator=(Component && other) : Component & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L69{operator=}]]]
+..
++operator<(const Component & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L220{operator<}]]]
++operator==(const Component & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L219{operator==}]]]
+..
+{static} +ArrayComponent(int _index) : Component [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L187{ArrayComponent}]]]
++Component(Component && other) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L168{Component}]]]
++Component(const String & _name = String(), typeEnum _type = SIMPLE, int begin = 2147483647, int end = 2147483647, int step = 1) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L177{Component}]]]
++Component(String && _name, typeEnum _type = SIMPLE, int begin = 2147483647, int end = 2147483647, int step = 1) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L179{Component}]]]
++Component(const Component &) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L168{Component}]]]
+{static} +MapComponent(const String & _key) : Component [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L191{MapComponent}]]]
+{static} +MapComponent(String && _key) : Component [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L192{MapComponent}]]]
+{static} +RangeComponent(int _begin, int _end = 2147483647, int _step = 1) : Component [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L189{RangeComponent}]]]
+{static} +SimpleComponent(const char * _component) : Component [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L182{SimpleComponent}]]]
+{static} +SimpleComponent(const String & _component) : Component [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L184{SimpleComponent}]]]
+{static} +SimpleComponent(String && _component) : Component [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L185{SimpleComponent}]]]
++del(Py::Object & pyobj) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L224{del}]]]
++get(const Py::Object & pyobj) const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L222{get}]]]
++getBegin() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L213{getBegin}]]]
++getEnd() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L214{getEnd}]]]
++getIndex() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L210{getIndex}]]]
++getIndex(size_t count) const : size_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L211{getIndex}]]]
++getName() const : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L208{getName}]]]
++getStep() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L215{getStep}]]]
++isArray() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L200{isArray}]]]
++isMap() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L198{isMap}]]]
++isRange() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L202{isRange}]]]
++isSimple() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L196{isSimple}]]]
++set(Py::Object & pyobj, const Py::Object & value) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L223{set}]]]
++toString(std::ostream & ss, bool toPython = false) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L206{toString}]]]
+__
+-begin : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L230{begin}]]]
+-end : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L231{end}]]]
+-name : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L228{name}]]]
+-step : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L232{step}]]]
+-type : typeEnum [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L229{type}]]]
+}
+class "ObjectIdentifier::ResolveResults" as C_0001675047384878808167
+class C_0001675047384878808167 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L449{ObjectIdentifier::ResolveResults}]] {
++ResolveResults(const ObjectIdentifier & oi) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L451{ResolveResults}]]]
++getProperty(const ObjectIdentifier & oi) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L466{getProperty}]]]
++resolveErrorString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L465{resolveErrorString}]]]
+__
++flags : std::bitset<32> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L463{flags}]]]
++propertyIndex : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L453{propertyIndex}]]]
++propertyName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L461{propertyName}]]]
++propertyType : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L462{propertyType}]]]
++resolvedDocument : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L454{resolvedDocument}]]]
++resolvedDocumentName : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L455{resolvedDocumentName}]]]
++resolvedDocumentObject : App::DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L456{resolvedDocumentObject}]]]
++resolvedDocumentObjectName : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L457{resolvedDocumentObjectName}]]]
++resolvedProperty : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L460{resolvedProperty}]]]
++resolvedSubObject : App::DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L459{resolvedSubObject}]]]
++subObjectName : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L458{subObjectName}]]]
+}
+class "VariableExpression" as C_0007070909846180016132
+class C_0007070909846180016132 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L373{VariableExpression}]] {
++VariableExpression(const App::DocumentObject * _owner = nullptr, const ObjectIdentifier & _var = ObjectIdentifier()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L376{VariableExpression}]]]
++~VariableExpression() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L378{~VariableExpression}]]]
+..
+#_adjustLinks(const std::set<App::DocumentObject *> &, ExpressionVisitor &) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L400{_adjustLinks}]]]
+#_collectReplacement(std::map<ObjectIdentifier,ObjectIdentifier> &, const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L407{_collectReplacement}]]]
+#_copy() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L395{_copy}]]]
+#_getIdentifiers(std::map<App::ObjectIdentifier,bool> &) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L399{_getIdentifiers}]]]
+#_getPyValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L396{_getPyValue}]]]
+#_importSubNames(const ObjectIdentifier::SubNameMap &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L401{_importSubNames}]]]
+#_isIndexable() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L398{_isIndexable}]]]
+#_moveCells(const CellAddress &, int, int, ExpressionVisitor &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L410{_moveCells}]]]
+#_offsetCells(int, int, ExpressionVisitor &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L411{_offsetCells}]]]
+#_relabeledDocument(const std::string &, const std::string &, ExpressionVisitor &) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L404{_relabeledDocument}]]]
+#_renameObjectIdentifier(const std::map<ObjectIdentifier,ObjectIdentifier> &, const ObjectIdentifier &, ExpressionVisitor &) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L405{_renameObjectIdentifier}]]]
+#_toString(std::ostream & ss, bool persistent, int indent) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L397{_toString}]]]
+#_updateElementReference(App::DocumentObject *, bool, ExpressionVisitor &) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L403{_updateElementReference}]]]
+#_updateLabelReference(App::DocumentObject *, const std::string &, const char *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L402{_updateLabelReference}]]]
++addComponent(Component * component) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L392{addComponent}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getPath() const : ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L386{getPath}]]]
++getProperty() const : const App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L390{getProperty}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L380{isTouched}]]]
++name() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L384{name}]]]
++setPath(const ObjectIdentifier & path) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L388{setPath}]]]
++simplify() const : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L382{simplify}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+#var : ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L415{var}]]]
+}
+package [ExpressionParser] as C_0007246889466153709727 {
+class "semantic_type" as C_0005392806347637472888
+class C_0005392806347637472888 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L521{semantic_type}]] {
++semantic_type() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L542{semantic_type}]]]
+__
++arguments : std::vector<Expression *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L537{arguments}]]]
++component : Expression::Component * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L527{component}]]]
++components : std::deque<ObjectIdentifier::Component> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L530{components}]]]
++constant : semantic_type::(constant) [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L536{constant}]]]
++expr : Expression * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L528{expr}]]]
++func : std::pair<FunctionExpression::Function,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L540{func}]]]
++fvalue : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L532{fvalue}]]]
++ivalue : long long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L531{ivalue}]]]
++list : std::vector<Expression *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L538{list}]]]
++path : ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L529{path}]]]
++quantity : semantic_type::(quantity) [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L526{quantity}]]]
++string : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L539{string}]]]
++string_or_identifier : ObjectIdentifier::String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L541{string_or_identifier}]]]
+}
+}
+class "RenameObjectIdentifierExpressionVisitor<P>" as C_0008961693540508332433
+class C_0008961693540508332433 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L35{RenameObjectIdentifierExpressionVisitor}]] {
++RenameObjectIdentifierExpressionVisitor(P & _prop, const std::map<ObjectIdentifier,ObjectIdentifier> & _paths, const ObjectIdentifier & _owner) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L37{RenameObjectIdentifierExpressionVisitor}]]]
+..
++visit(Expression & node) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L47{visit}]]]
+__
+-owner : const ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L53{owner}]]]
+-paths : const std::map<ObjectIdentifier,ObjectIdentifier> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L52{paths}]]]
+}
+}
+class "GetIdentifiersExpressionVisitor" as C_0010147013736645561045
+class C_0010147013736645561045 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L943{GetIdentifiersExpressionVisitor}]] {
++GetIdentifiersExpressionVisitor(std::map<App::ObjectIdentifier,bool> & deps) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L945{GetIdentifiersExpressionVisitor}]]]
+..
++visit(Expression & e) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L949{visit}]]]
+__
++deps : std::map<App::ObjectIdentifier,bool> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L953{deps}]]]
+}
+class "ReplaceObjectExpressionVisitor" as C_0002747072790020223843
+class C_0002747072790020223843 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1067{ReplaceObjectExpressionVisitor}]] {
++ReplaceObjectExpressionVisitor(const DocumentObject * parent, DocumentObject * oldObj, DocumentObject * newObj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1069{ReplaceObjectExpressionVisitor}]]]
+..
++visit(Expression & e) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1075{visit}]]]
+__
++collect : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1087{collect}]]]
++dummy : ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1085{dummy}]]]
++newObj : DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1084{newObj}]]]
++oldObj : DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1083{oldObj}]]]
++parent : const DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1082{parent}]]]
++paths : std::map<ObjectIdentifier,ObjectIdentifier> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1086{paths}]]]
+}
+C_0012572907688142490737 --> C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L158{expressionChanged}]] : +expressionChanged
+C_0012572907688142490737 o-- C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L203{expressions}]] : -expressions
+C_0012572907688142490737 --> C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyExpressionEngine.h#L205{validator}]] : -validator
+C_0000767079285969815285 --+ C_0009598458625057667703
+C_0009793800912515780838 --+ C_0009598458625057667703
+C_0009793800912515780838 <.. C_0009598458625057667703 : +<<friend>>
+C_0009310987197330480539 --+ C_0009598458625057667703
+C_0009310987197330480539 o-- C_0009793800912515780838 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L228{name}]] : -name
+C_0009310987197330480539 <.. C_0009598458625057667703 : +<<friend>>
+C_0001675047384878808167 --+ C_0009598458625057667703
+C_0001675047384878808167 o-- C_0009793800912515780838 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L455{resolvedDocumentName}]] : +resolvedDocumentName
+C_0001675047384878808167 o-- C_0009793800912515780838 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L457{resolvedDocumentObjectName}]] : +resolvedDocumentObjectName
+C_0001675047384878808167 o-- C_0009793800912515780838 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L458{subObjectName}]] : +subObjectName
+C_0007070909846180016132 o-- C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L415{var}]] : #var
+C_0005392806347637472888 o-- C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L529{path}]] : +path
+C_0005392806347637472888 o-- C_0009793800912515780838 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionParser.h#L541{string_or_identifier}]] : +string_or_identifier
+C_0008961693540508332433 --> C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L52{paths}]] : -paths
+C_0008961693540508332433 o-- C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L53{owner}]] : -owner
+C_0010147013736645561045 --> C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L953{deps}]] : +deps
+C_0002747072790020223843 o-- C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1085{dummy}]] : +dummy
+C_0002747072790020223843 o-- C_0009598458625057667703 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.cpp#L1086{paths}]] : +paths
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

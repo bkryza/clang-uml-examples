@@ -1,0 +1,230 @@
+@startuml
+title Data::ElementMap context
+package [std] as C_0009971158671206323968 {
+class "enable_shared_from_this<Data::ElementMap>" as C_0000643324366187203980
+class C_0000643324366187203980 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L71{enable_shared_from_this}]] {
+__
+}
+}
+package [Base] as C_0005614219575140048477 {
+class "Reference<App::StringHasher>" as C_0010650550112233337169
+class C_0010650550112233337169 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L44{Reference}]] {
+__
+}
+}
+class "QByteArray" as C_0000245381209268052404
+class C_0000245381209268052404 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Stream.h#L39{QByteArray}]] {
+__
+}
+package [Data] as C_0007944022382666682349 {
+class "MappedName" as C_0007243427818333896881
+class C_0007243427818333896881 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L45{MappedName}]] {
+__
+}
+class "IndexedName" as C_0000077198310494763102
+class C_0000077198310494763102 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L55{IndexedName}]] {
++IndexedName(const char * name = nullptr, int _index = 0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L67{IndexedName}]]]
++IndexedName(const char * name, const std::vector<const char *> & allowedTypeNames, bool allowOthers = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L96{IndexedName}]]]
++IndexedName(const QByteArray & data) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L108{IndexedName}]]]
+..
++operator!=(const IndexedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L198{operator!=}]]]
++operator++() : IndexedName & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L182{operator++}]]]
++operator+=(int offset) : IndexedName & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L174{operator+=}]]]
++operator--() : IndexedName & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L190{operator--}]]]
++operator<(const IndexedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L221{operator<}]]]
++operator==(const IndexedName & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L166{operator==}]]]
++operator[](int input) const : char [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L228{operator[]}]]]
+..
++appendToStringBuffer(std::string & buffer) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L133{appendToStringBuffer}]]]
++compare(const IndexedName & other) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L204{compare}]]]
+{static} +fromConst(const char * name, int index) : IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L120{fromConst}]]]
++getIndex() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L241{getIndex}]]]
++getType() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L238{getType}]]]
++isNull() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L252{isNull}]]]
++operator bool() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L256{operator bool}]]]
+#set(const char * name, int length = -1, const std::vector<const char *> & allowedNames = = {}, bool allowOthers = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L271{set}]]]
++setIndex(int input) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L247{setIndex}]]]
++toString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L147{toString}]]]
+__
+-index : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L278{index}]]]
+-type : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/IndexedName.h#L277{type}]]]
+}
+class "ElementMap" as C_0006510952662018626113
+class C_0006510952662018626113 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L71{ElementMap}]] {
++ElementMap() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L78{ElementMap}]]]
+..
++addChildElements(long masterTag, const std::vector<MappedChildElements> & children) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L193{addChildElements}]]]
+-addName(MappedName & name, const IndexedName & idx, const ElementIDRefs & sids, bool overwrite, IndexedName * existing) : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L240{addName}]]]
+{static} -addPostfix(const QByteArray & postfix, std::map<QByteArray,int> & postfixMap, std::vector<QByteArray> & postfixes) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L246{addPostfix}]]]
++beforeSave(const ::App::StringHasherRef & hasherRef) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L87{beforeSave}]]]
+-collectChildMaps(std::map<const ElementMap *,int> & childMapSet, std::vector<const ElementMap *> & childMaps, std::map<QByteArray,int> & postfixMap, std::vector<QByteArray> & postfixes) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L272{collectChildMaps}]]]
+-dehashElementName(const MappedName & name) const : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L264{dehashElementName}]]]
++empty() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L152{empty}]]]
++encodeElementName(char element_type, MappedName & name, std::ostringstream & ss, ElementIDRefs * sids, long masterTag, const char * postfix = nullptr, long tag = 0, bool forceTag = false) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L135{encodeElementName}]]]
++erase(const MappedName & name) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L145{erase}]]]
++erase(const IndexedName & idx) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L148{erase}]]]
++find(const MappedName & name, ElementIDRefs * sids = nullptr) const : IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L154{find}]]]
++find(const IndexedName & idx, ElementIDRefs * sids = nullptr) const : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L156{find}]]]
++findAll(const IndexedName & idx) const : std::vector<std::pair<MappedName,ElementIDRefs>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L158{findAll}]]]
+-findMappedRef(const IndexedName & idx) const : const MappedNameRef * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L267{findMappedRef}]]]
+-findMappedRef(const IndexedName & idx) : MappedNameRef * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L268{findMappedRef}]]]
++getAll() const : std::vector<MappedElement> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L197{getAll}]]]
++getChildElements() const : std::vector<MappedChildElements> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L195{getChildElements}]]]
++getElementHistory(const MappedName & name, long masterTag, MappedName * original = nullptr, std::vector<MappedName> * history = nullptr) const : long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L199{getElementHistory}]]]
++hasChildElementMap() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L168{hasChildElementMap}]]]
++hashChildMaps(long masterTag) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L176{hashChildMaps}]]]
+-hashElementName(const MappedName & name, ElementIDRefs & sids) const : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L261{hashElementName}]]]
+-init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L308{init}]]]
+-mappedRef(const IndexedName & idx) : MappedNameRef & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L270{mappedRef}]]]
+-renameDuplicateElement(int index, const IndexedName & element, const IndexedName & element2, const MappedName & name, ElementIDRefs & sids, long masterTag) const : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L251{renameDuplicateElement}]]]
+-restore(App::StringHasherRef hasherRef, std::istream & stream, std::vector<ElementMapPtr> & childMaps, const std::vector<std::string> & postfixes) : ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L227{restore}]]]
++restore(App::StringHasherRef hasherRef, std::istream & stream) : ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L101{restore}]]]
+-save(std::ostream & stream, int index, const std::map<const ElementMap *,int> & childMapSet, const std::map<QByteArray,int> & postfixMap) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L218{save}]]]
++save(std::ostream & stream) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L93{save}]]]
++setElementName(const IndexedName & element, const MappedName & name, long masterTag, const ElementIDRefs * sid = nullptr, bool overwrite = false) : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L122{setElementName}]]]
++size() const : unsigned long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L150{size}]]]
++traceElement(const MappedName & name, long masterTag, TraceCallback cb) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L209{traceElement}]]]
+__
+-_id : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L306{_id}]]]
+-childElementSize : std::size_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L304{childElementSize}]]]
+-childElements : QHash<QByteArray,ChildMapInfo> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L303{childElements}]]]
++hasher : App::StringHasherRef [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L312{hasher}]]]
+-indexedNames : std::map<const char *,IndexedElements,CStringComp> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L292{indexedNames}]]]
+-mappedNames : std::map<MappedName,IndexedName,std::less<>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L294{mappedNames}]]]
+}
+class "ElementMap::MappedChildElements" as C_0004786846721929822972
+class C_0004786846721929822972 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L178{ElementMap::MappedChildElements}]] {
+__
++count : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L181{count}]]]
++elementMap : ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L184{elementMap}]]]
++indexedName : IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L180{indexedName}]]]
++offset : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L182{offset}]]]
++postfix : QByteArray [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L185{postfix}]]]
++sids : ElementIDRefs [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L186{sids}]]]
++tag : long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L183{tag}]]]
+}
+class "ElementMap::CStringComp" as C_0005980506410661569829
+class C_0005980506410661569829 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L277{ElementMap::CStringComp}]] {
++operator()(const char * str1, const char * str2) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L280{operator()}]]]
+__
+}
+class "ElementMap::IndexedElements" as C_0018343669941208334305
+class C_0018343669941208334305 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L286{ElementMap::IndexedElements}]] {
+__
++children : std::map<int,MappedChildElements> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L289{children}]]]
++names : std::deque<MappedNameRef> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L288{names}]]]
+}
+class "ElementMap::ChildMapInfo" as C_0002665795314023144912
+class C_0002665795314023144912 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L296{ElementMap::ChildMapInfo}]] {
+__
++childMap : MappedChildElements * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L299{childMap}]]]
++index : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L298{index}]]]
++mapIndices : std::map<ElementMap *,int> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L300{mapIndices}]]]
+}
+abstract "ComplexGeoData" as C_0002503828374302490757
+abstract C_0002503828374302490757 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L85{ComplexGeoData}]] {
++ComplexGeoData() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L98{ComplexGeoData}]]]
++~ComplexGeoData() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L100{~ComplexGeoData}]]]
+..
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L363{Restore}]]]
++RestoreDocFile(Base::Reader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L365{RestoreDocFile}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L362{Save}]]]
++SaveDocFile(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L364{SaveDocFile}]]]
++applyRotation(const Base::Rotation &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L137{applyRotation}]]]
++applyTransform(const Base::Matrix4D & rclTrf) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L133{applyTransform}]]]
++applyTranslation(const Base::Vector3d &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L135{applyTranslation}]]]
++beforeSave() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L368{beforeSave}]]]
++checkElementMapVersion(const char * ver) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L337{checkElementMapVersion}]]]
+{abstract} +countSubElements(const char * Type) const = 0 : unsigned long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L109{countSubElements}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
++dumpElementMap(std::ostream & stream) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L377{dumpElementMap}]]]
++dumpElementMap() const : const std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L382{dumpElementMap}]]]
+#elementMap(bool flush = true) const : ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L471{elementMap}]]]
+{static} +elementMapPrefix() : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L191{elementMapPrefix}]]]
++elementType(const Data::IndexedName &) const : char [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L310{elementType}]]]
++elementType(const Data::MappedName &) const : char [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L309{elementType}]]]
++elementType(const char * name) const : char [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L311{elementType}]]]
+#ensureElementMap(bool flush = true) : ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L472{ensureElementMap}]]]
++flushElementMap() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L357{flushElementMap}]]]
++getAccuracy() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L167{getAccuracy}]]]
+{abstract} +getBoundBox() const = 0 : Base::BoundBox3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L169{getBoundBox}]]]
++getCenterOfGravity(Base::Vector3d & center) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L188{getCenterOfGravity}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getElementHistory(const MappedName & name, MappedName * original = nullptr, std::vector<MappedName> * history = nullptr) const : long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L298{getElementHistory}]]]
++getElementMap() const : std::vector<MappedElement> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L322{getElementMap}]]]
++getElementMapSize(bool flush = true) const : size_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L328{getElementMapSize}]]]
++getElementMapVersion() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L334{getElementMapVersion}]]]
++getElementMappedNames(const IndexedName & element, bool needUnmapped = false) const : std::vector<std::pair<MappedName,ElementIDRefs>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L280{getElementMappedNames}]]]
++getElementName(const char * name, ElementIDRefs * sid = nullptr, bool copy = false) const : MappedElement [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L236{getElementName}]]]
+{abstract} +getElementTypes() const = 0 : std::vector<const char *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L108{getElementTypes}]]]
++getFaces(std::vector<Base::Vector3d> & Points, std::vector<Facet> & faces, double Accuracy, uint16_t flags = 0) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L182{getFaces}]]]
++getFacesFromSubElement(const Segment *, std::vector<Base::Vector3d> & Points, std::vector<Base::Vector3d> & PointNormals, std::vector<Facet> & faces) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L123{getFacesFromSubElement}]]]
++getHigherElements(const char * name, bool silent = false) const : std::vector<IndexedName> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L331{getHigherElements}]]]
++getIndexedName(const MappedName & name, ElementIDRefs * sid = nullptr) const : IndexedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L203{getIndexedName}]]]
++getLines(std::vector<Base::Vector3d> & Points, std::vector<Line> & lines, double Accuracy, uint16_t flags = 0) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L179{getLines}]]]
++getLinesFromSubElement(const Segment *, std::vector<Base::Vector3d> & Points, std::vector<Line> & lines) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L118{getLinesFromSubElement}]]]
++getMappedChildElements() const : std::vector<Data::ElementMap::MappedChildElements> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L307{getMappedChildElements}]]]
++getMappedName(const IndexedName & element, bool allowUnmapped = false, ElementIDRefs * sid = nullptr) const : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L215{getMappedName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L366{getMemSize}]]]
++getPlacement() const : Base::Placement [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L145{getPlacement}]]]
++getPointFromLineIntersection(const Base::Vector3f & base, const Base::Vector3f & dir) const : Base::Vector3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L171{getPointFromLineIntersection}]]]
++getPoints(std::vector<Base::Vector3d> & Points, std::vector<Base::Vector3d> & Normals, double Accuracy, uint16_t flags = 0) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L175{getPoints}]]]
+{abstract} +getSubElement(const char * Type, unsigned long) const = 0 : Segment * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L114{getSubElement}]]]
++getSubElementByName(const char * Name) const : Segment * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L116{getSubElementByName}]]]
+{abstract} +getTransform() const = 0 : Base::Matrix4D [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L155{getTransform}]]]
+{static} +getTypeAndIndex(const char * Name) : std::pair<std::string,unsigned long> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L112{getTypeAndIndex}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++hasChildElementMap() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L286{hasChildElementMap}]]]
++hasElementMap() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L266{hasElementMap}]]]
++hashChildMaps() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L283{hashChildMaps}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+{static} +isElementName(const char * subName) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L340{isElementName}]]]
++isRestoreFailed() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L369{isRestoreFailed}]]]
++reTagElementMap(long tag, App::StringHasherRef hasher, const char * postfix = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L289{reTagElementMap}]]]
+#readElements(Base::XMLReader & reader, size_t count) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L450{readElements}]]]
++resetElementMap(ElementMapPtr elementMap = ElementMapPtr()) : ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L319{resetElementMap}]]]
++resetRestoreFailure() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L370{resetRestoreFailure}]]]
+#restoreStream(std::istream & stream, std::size_t count) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L449{restoreStream}]]]
++setElementMap(const std::vector<MappedElement> & elements) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L325{setElementMap}]]]
++setElementName(const IndexedName & element, const MappedName & name, long masterTag, const ElementIDRefs * sid = nullptr, bool overwrite = false) : MappedName [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L258{setElementName}]]]
++setMappedChildElements(const std::vector<Data::ElementMap::MappedChildElements> & children) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L306{setMappedChildElements}]]]
++setPersistenceFileName(const char * name) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L367{setPersistenceFileName}]]]
++setPlacement(const Base::Placement & rclPlacement) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L141{setPlacement}]]]
+{abstract} +setTransform(const Base::Matrix4D & rclTrf) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L150{setTransform}]]]
++traceElement(const MappedName & name, TraceCallback cb) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L351{traceElement}]]]
+{abstract} +transformGeometry(const Base::Matrix4D & rclMat) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L161{transformGeometry}]]]
+#transformPointToInside(const Base::Vector3d & vec) const : Base::Vector3f [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L432{transformPointToInside}]]]
+#transformPointToOutside(const Base::Vector3f & vec) const : Base::Vector3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L387{transformPointToOutside}]]]
+#transformPointsToOutside<Vec>(const std::vector<Vec> & input) const : std::vector<Base::Vector3d>
+#transformToInside(const Base::Vector3d & vec) const : Base::Vector3f [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L460{transformToInside}]]]
+#transformToOutside(const Base::Vector3f & vec) const : Base::Vector3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L453{transformToOutside}]]]
+#transformVectorToOutside(const Base::Vector3f & vec) const : Base::Vector3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L408{transformVectorToOutside}]]]
+#transformVectorsToOutside<Vec>(const std::vector<Vec> & input) const : std::vector<Base::Vector3d>
+__
++Hasher : App::StringHasherRef [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L445{Hasher}]]]
++Tag : long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L442{Tag}]]]
+-_elementMap : ElementMapPtr [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L475{_elementMap}]]]
+#_persistenceName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L478{_persistenceName}]]]
+#_restoreFailed : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L479{_restoreFailed}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+}
+C_0006510952662018626113 o-- C_0007243427818333896881 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L294{mappedNames}]] : -mappedNames
+C_0006510952662018626113 o-- C_0000077198310494763102 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L294{mappedNames}]] : -mappedNames
+C_0006510952662018626113 o-- C_0000245381209268052404 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L303{childElements}]] : -childElements
+C_0006510952662018626113 o-- C_0010650550112233337169 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L312{hasher}]] : +hasher
+C_0000643324366187203980 <|-- C_0006510952662018626113
+C_0004786846721929822972 --+ C_0006510952662018626113
+C_0004786846721929822972 o-- C_0000077198310494763102 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L180{indexedName}]] : +indexedName
+C_0004786846721929822972 o-- C_0006510952662018626113 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L184{elementMap}]] : +elementMap
+C_0005980506410661569829 --+ C_0006510952662018626113
+C_0018343669941208334305 --+ C_0006510952662018626113
+C_0002665795314023144912 --+ C_0006510952662018626113
+C_0002665795314023144912 --> C_0004786846721929822972 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L299{childMap}]] : +childMap
+C_0002665795314023144912 --> C_0006510952662018626113 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ElementMap.h#L300{mapIndices}]] : +mapIndices
+C_0002503828374302490757 o-- C_0010650550112233337169 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L445{Hasher}]] : +Hasher
+C_0002503828374302490757 o-- C_0006510952662018626113 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ComplexGeoData.h#L475{_elementMap}]] : -_elementMap
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

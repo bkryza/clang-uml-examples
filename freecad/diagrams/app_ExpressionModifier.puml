@@ -1,0 +1,128 @@
+@startuml
+title App::ExpressionModifier context
+package [App] as C_0018282610363821501524 {
+abstract "PropertyLinkBase" as C_0002608726600132821089
+abstract C_0002608726600132821089 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L103{PropertyLinkBase}]] {
++PropertyLinkBase() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L109{PropertyLinkBase}]]]
++~PropertyLinkBase() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L110{~PropertyLinkBase}]]]
+..
++CopyOnImportExternal(const std::map<std::string,std::string> & nameMap) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L243{CopyOnImportExternal}]]]
++CopyOnLabelChange(App::DocumentObject * obj, const std::string & ref, const char * newLabel) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L257{CopyOnLabelChange}]]]
+{abstract} +CopyOnLinkReplace(const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj) const = 0 : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L231{CopyOnLinkReplace}]]]
+#_getLinksTo(std::vector<App::ObjectIdentifier> & identifiers, App::DocumentObject * obj, const char * subname, const std::vector<std::string> & subs, const std::vector<PropertyLinkBase::ShadowSub> & shadows) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L585{_getLinksTo}]]]
++_registerElementReference(App::DocumentObject * obj, std::string & sub, ShadowSub & shadow) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L399{_registerElementReference}]]]
++_updateElementReference(App::DocumentObject * feature, App::DocumentObject * obj, std::string & sub, ShadowSub & shadow, bool reverse, bool notify = false) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L386{_updateElementReference}]]]
+{abstract} +adjustLink(const std::set<App::DocumentObject *> & inList) = 0 : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L217{adjustLink}]]]
+{abstract} +breakLink(App::DocumentObject * obj, bool clear) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L206{breakLink}]]]
+{static} +breakLinks(App::DocumentObject * link, const std::vector<App::DocumentObject *> & objs, bool clear) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L409{breakLinks}]]]
++checkLabelReferences(const std::vector<std::string> & subs, bool reset = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L152{checkLabelReferences}]]]
++checkRestore(std::string * msg = nullptr) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L169{checkRestore}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +exportSubName(std::string & output, const App::DocumentObject * obj, const char * subname, bool first_obj = false) : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L466{exportSubName}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
+{static} +getElementReferences(DocumentObject *) : const std::unordered_set<PropertyLinkBase *> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L368{getElementReferences}]]]
+{static} +getLabelReferences(std::vector<std::string> & labels, const char * subname) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L518{getLabelReferences}]]]
++getLinkedElements(std::map<App::DocumentObject *,std::vector<std::string>> & elements, bool newStyle = true, bool all = false) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L282{getLinkedElements}]]]
++getLinkedObjects<T>(T & inserter, bool all = false) const : void
+{abstract} +getLinks(std::vector<App::DocumentObject *> & objs, bool all = false, std::vector<std::string> * subs = nullptr, bool newStyle = true) const = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L183{getLinks}]]]
+{abstract} +getLinksTo(std::vector<App::ObjectIdentifier> & identifiers, App::DocumentObject * obj, const char * subname = nullptr, bool all = false) const = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L194{getLinksTo}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+#hasSetValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L577{hasSetValue}]]]
+{static} +importSubName(Base::XMLReader & reader, const char * sub, bool & restoreLabel) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L484{importSubName}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L304{isSame}]]]
++linkedElements(bool newStyle = true, bool all = false) const : std::map<App::DocumentObject *,std::vector<std::string>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L296{linkedElements}]]]
++linkedObjects(bool all = false) const : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L267{linkedObjects}]]]
++referenceChanged() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L158{referenceChanged}]]]
++registerLabelReferences(std::vector<std::string> && labels, bool reset = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L141{registerLabelReferences}]]]
+{static} +restoreLabelReference(const App::DocumentObject * obj, std::string & sub, ShadowSub * shadow = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L506{restoreLabelReference}]]]
++setAllowExternal(bool allow) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L314{setAllowExternal}]]]
++setAllowPartial(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L568{setAllowPartial}]]]
+#setFlag(int flag, bool value = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L581{setFlag}]]]
++setReturnNewElement(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L570{setReturnNewElement}]]]
++setSilentRestore(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L572{setSilentRestore}]]]
++testFlag(int flag) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L564{testFlag}]]]
+{static} +tryImport(const App::Document * doc, const App::DocumentObject * obj, const std::map<std::string,std::string> & nameMap) : App::DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L441{tryImport}]]]
+{static} +tryImportSubName(const App::DocumentObject * obj, const char * sub, const App::Document * doc, const std::map<std::string,std::string> & nameMap) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L426{tryImportSubName}]]]
+{static} +tryReplaceLink(const App::PropertyContainer * owner, App::DocumentObject * obj, const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj, const char * sub = nullptr) : std::pair<App::DocumentObject *,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L337{tryReplaceLink}]]]
+{static} +tryReplaceLinkSubs(const App::PropertyContainer * owner, App::DocumentObject * obj, const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj, const std::vector<std::string> & subs) : std::pair<App::DocumentObject *,std::vector<std::string>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L357{tryReplaceLinkSubs}]]]
++unregisterElementReference() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L133{unregisterElementReference}]]]
++unregisterLabelReferences() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L155{unregisterLabelReferences}]]]
++updateElementReference(App::DocumentObject * feature, bool reverse = false, bool notify = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L124{updateElementReference}]]]
+{static} +updateElementReferences(DocumentObject * feature, bool reverse = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L365{updateElementReferences}]]]
+{static} +updateLabelReference(const App::DocumentObject * linked, const char * subname, App::DocumentObject * obj, const std::string & ref, const char * newLabel) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L550{updateLabelReference}]]]
+{static} +updateLabelReferences(App::DocumentObject * obj, const char * newLabel) : std::vector<std::pair<Property *,std::unique_ptr<Property>>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L528{updateLabelReferences}]]]
+__
+-_ElementRefs : std::set<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L594{_ElementRefs}]]]
+#_Flags : std::bitset<32> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L580{_Flags}]]]
+-_LabelRefs : std::set<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L593{_LabelRefs}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
++signalUpdateElementReference : boost::signals2::signal<void (const std::string &,const std::string &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L574{signalUpdateElementReference}]]]
+}
+class "ExpressionVisitor" as C_0009293213858076904527
+class C_0009293213858076904527 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L59{ExpressionVisitor}]] {
+__
+}
+class "ExpressionModifier<P>" as C_0002719644144049731031
+class C_0002719644144049731031 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L81{ExpressionModifier}]] {
++ExpressionModifier(P & _prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L83{ExpressionModifier}]]]
++~ExpressionModifier() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L89{~ExpressionModifier}]]]
+..
++aboutToChange() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L91{aboutToChange}]]]
++changed() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L96{changed}]]]
++getPropertyLink() : App::PropertyLinkBase * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L100{getPropertyLink}]]]
++reset() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L98{reset}]]]
+__
+#_changed : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L106{_changed}]]]
+#prop : P & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L103{prop}]]]
+#propLink : App::PropertyLinkBase * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L104{propLink}]]]
+#signaller : typename AtomicPropertyChangeInterface<P>::AtomicPropertyChange [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L105{signaller}]]]
+}
+class "RenameObjectIdentifierExpressionVisitor<P>" as C_0008961693540508332433
+class C_0008961693540508332433 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L35{RenameObjectIdentifierExpressionVisitor}]] {
++RenameObjectIdentifierExpressionVisitor(P & _prop, const std::map<ObjectIdentifier,ObjectIdentifier> & _paths, const ObjectIdentifier & _owner) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L37{RenameObjectIdentifierExpressionVisitor}]]]
+..
++visit(Expression & node) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L47{visit}]]]
+__
+-owner : const ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L53{owner}]]]
+-paths : const std::map<ObjectIdentifier,ObjectIdentifier> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L52{paths}]]]
+}
+class "UpdateElementReferenceExpressionVisitor<P>" as C_0010360271721165894645
+class C_0010360271721165894645 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L56{UpdateElementReferenceExpressionVisitor}]] {
++UpdateElementReferenceExpressionVisitor(P & _prop, App::DocumentObject * feature = nullptr, bool reverse = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L59{UpdateElementReferenceExpressionVisitor}]]]
+..
++visit(Expression & node) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L64{visit}]]]
+__
+-feature : App::DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L69{feature}]]]
+-reverse : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L70{reverse}]]]
+}
+class "MoveCellsExpressionVisitor<P>" as C_0005699767495787760215
+class C_0005699767495787760215 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L93{MoveCellsExpressionVisitor}]] {
++MoveCellsExpressionVisitor(P & prop, const CellAddress & address, int rowCount, int colCount) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L95{MoveCellsExpressionVisitor}]]]
+..
++visit(Expression & node) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L99{visit}]]]
+__
+-address : CellAddress [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L104{address}]]]
+-colCount : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L106{colCount}]]]
+-rowCount : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L105{rowCount}]]]
+}
+class "OffsetCellsExpressionVisitor<P>" as C_0001383306964740624932
+class C_0001383306964740624932 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L109{OffsetCellsExpressionVisitor}]] {
++OffsetCellsExpressionVisitor(P & prop, int rowOffset, int colOffset) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L111{OffsetCellsExpressionVisitor}]]]
+..
++visit(Expression & node) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L115{visit}]]]
+__
+-colOffset : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L121{colOffset}]]]
+-rowOffset : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExpressionVisitors.h#L120{rowOffset}]]]
+}
+}
+C_0002719644144049731031 --> C_0002608726600132821089 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L104{propLink}]] : #propLink
+C_0009293213858076904527 <|-- C_0002719644144049731031
+C_0002719644144049731031 <|-- C_0008961693540508332433
+C_0002719644144049731031 <|-- C_0010360271721165894645
+C_0002719644144049731031 <|-- C_0005699767495787760215
+C_0002719644144049731031 <|-- C_0001383306964740624932
+
+'Generated with clang-uml, version 0.6.0
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml
