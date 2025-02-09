@@ -7,15 +7,17 @@ add_compile_flags:
   - -Wno-gnu-variable-sized-type-not-at-end
   - -Wno-unknown-warning-option
   - -fparse-all-comments
+  - -Wno-error=enum-enum-conversion
 remove_compile_flags:
-  - '-mpreferred-stack-boundary=3'
-  - '-mindirect-branch=thunk-extern'
-  - '-mindirect-branch-register'
-  - '-fno-allow-store-data-races'
-  - '-fconserve-stack'
-  - '-falign-jumps=1'
-  - '-mrecord-mcount'
-  - '-fsanitize=bounds-strict'
+  - -mpreferred-stack-boundary=3
+  - -fmin-function-alignment=16
+  - -mindirect-branch=thunk-extern
+  - -mindirect-branch-register
+  - -fno-allow-store-data-races
+  - -fconserve-stack
+  - -falign-jumps=1
+  - -mrecord-mcount
+  - -fsanitize=bounds-strict
 generate_links:
   link: 'https://github.com/torvalds/linux/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
   tooltip: '{% if "comment" in element %}{{ abbrv(trim(replace(element.comment.formatted, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
