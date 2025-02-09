@@ -52,7 +52,7 @@ def generate_readme(config, name):
         for diagram_name in config["diagrams"].keys():
             title = config['diagrams'][diagram_name]['title']
             f.write(f'## {title}\n')
-            f.write(f'![puml](puml/{diagram_name}.svg)\n\n')
+            f.write(f'![{diagram_name}](diagrams/{diagram_name}.svg)\n\n')
 
 
 if __name__ == "__main__":

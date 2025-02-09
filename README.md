@@ -14,20 +14,23 @@ This repository contains several examples of UML diagrams generated using [clang
 * [C++ Standard Library](./cpp-standard-library/README.md)
 * [chromium](./chromium/README.md)
 * [linux](./linux/README.md)
+* [hyprland](./hyprland/README.md)
 
-To build the example diagrams follow the following steps:
+For each of these projects there exists a Docker image called `bkryza/clang-uml-examples-<project_name>`,
+which includes all dependencies necessary for the specific project and the latest version of `clang-uml`.
+The Dockerfiles for each project are in each project subdirectory.
+
+To generate the diagrams for any of these project (e.g. `hyprland`) just run:
 
 ```bash
-git clone https://github.com/bkryza/clang-uml
-git clone https://github.com/bkryza/clang-uml-examples
-make -C clang-uml debug
-cd clang-uml-examples
+make docker/hyprland
+```
 
-# Build diagrams for all example projects:
-make CLANG_UML_BINARY=../clang-uml/debug/src/clang-uml
+If you need to rebuild the Docker image for any of the projects, for instance to update 
+dependencies, run:
 
-# or build diagrams for a specific project:
-make CLANG_UML_BINARY=../clang-uml/debug/src/clang-uml godot
+```bash
+make dockerimage/hyprland
 ```
 
 ## LICENSE
