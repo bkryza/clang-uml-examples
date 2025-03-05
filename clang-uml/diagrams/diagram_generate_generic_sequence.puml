@@ -1,0 +1,123 @@
+@startuml
+title PlantUML sequence diagram generator sequence diagram
+participant "src/common/generators/generators.cc" as C_0009759712478665669081
+[-> C_0009759712478665669081 : generate_diagram()
+activate C_0009759712478665669081
+alt diagram->type() == diagram_t::kClass
+else diagram->type() == diagram_t::kSequence
+C_0009759712478665669081 -> C_0009759712478665669081 [[{}]] : generate_diagram_impl<config::sequence_diagram>()
+activate C_0009759712478665669081
+participant "src/common/generators/generators.h" as C_0015062456295463097058
+C_0009759712478665669081 -> C_0015062456295463097058 [[{}]] : generate<sequence_diagram::model::diagram,config::sequence_diagram,sequence_diagram::visitor::tra...
+activate C_0015062456295463097058
+C_0015062456295463097058 --> C_0009759712478665669081
+deactivate C_0015062456295463097058
+alt runtime_config.print_from
+
+end
+alt runtime_config.print_to
+
+end
+loop runtime_config
+alt generator_type == generator_type_t::plantuml
+C_0009759712478665669081 -> C_0009759712478665669081 [[{}]] : generate_diagram_select_generator<config::sequence_diagram,common::generators::plantuml_generator...
+activate C_0009759712478665669081
+participant "src/common/generators/plantuml/generator.h" as C_0001004430260393489450
+C_0009759712478665669081 -> C_0001004430260393489450 [[{}]] : operator<<<config::sequence_diagram,sequence_diagram::model::diagram>()
+activate C_0001004430260393489450
+participant "common::generators::plantuml::generator<config::sequence_diagram,sequence_diagram::model::diagram>" as C_0000601818504454058322 [[{generator}]]
+C_0001004430260393489450 -> C_0000601818504454058322 [[{}]] : generate() const
+activate C_0000601818504454058322
+participant "common::generators::generator<config::sequence_diagram,sequence_diagram::model::diagram>" as C_0009754721657170395648 [[{generator}]]
+C_0000601818504454058322 -> C_0009754721657170395648 [[{}]] : config() const
+activate C_0009754721657170395648
+C_0009754721657170395648 --> C_0000601818504454058322
+deactivate C_0009754721657170395648
+C_0000601818504454058322 -> C_0009754721657170395648 [[{}]] : model() const
+activate C_0009754721657170395648
+C_0009754721657170395648 --> C_0000601818504454058322
+deactivate C_0009754721657170395648
+C_0000601818504454058322 -> C_0009754721657170395648 [[{}]] : update_context() const
+activate C_0009754721657170395648
+deactivate C_0009754721657170395648
+C_0000601818504454058322 -> C_0000601818504454058322 [[{}]] : generate_title() const
+activate C_0000601818504454058322
+C_0000601818504454058322 -> C_0009754721657170395648 [[{}]] : config() const
+activate C_0009754721657170395648
+hnote over C_0009754721657170395648 : *
+C_0009754721657170395648-[hidden]->C_0009754721657170395648
+deactivate C_0009754721657170395648
+deactivate C_0000601818504454058322
+note over C_0000601818504454058322
+Generate PlantUML directives
+before auto generated content
+end note
+C_0000601818504454058322 -> C_0000601818504454058322 [[{}]] : generate_plantuml_directives() const
+activate C_0000601818504454058322
+loop directives
+C_0000601818504454058322 -> C_0009754721657170395648 [[{}]] : env() const
+activate C_0009754721657170395648
+C_0009754721657170395648 --> C_0000601818504454058322
+deactivate C_0009754721657170395648
+C_0000601818504454058322 -> C_0009754721657170395648 [[{}]] : context() const
+activate C_0009754721657170395648
+C_0009754721657170395648 --> C_0000601818504454058322
+deactivate C_0009754721657170395648
+end
+deactivate C_0000601818504454058322
+C_0000601818504454058322 -> C_0000601818504454058322 [[{}]] : generate_diagram() const
+activate C_0000601818504454058322
+deactivate C_0000601818504454058322
+note over C_0000601818504454058322
+Generate PlantUML directives
+after auto generated content
+end note
+C_0000601818504454058322 -> C_0000601818504454058322 [[{}]] : generate_plantuml_directives() const
+activate C_0000601818504454058322
+hnote over C_0000601818504454058322 : *
+C_0000601818504454058322-[hidden]->C_0000601818504454058322
+deactivate C_0000601818504454058322
+C_0000601818504454058322 -> C_0000601818504454058322 [[{}]] : generate_metadata() const
+activate C_0000601818504454058322
+C_0000601818504454058322 -> C_0009754721657170395648 [[{}]] : config() const
+activate C_0009754721657170395648
+hnote over C_0009754721657170395648 : *
+C_0009754721657170395648-[hidden]->C_0009754721657170395648
+deactivate C_0009754721657170395648
+deactivate C_0000601818504454058322
+deactivate C_0000601818504454058322
+C_0001004430260393489450 --> C_0009759712478665669081
+deactivate C_0001004430260393489450
+deactivate C_0009759712478665669081
+else generator_type == generator_type_t::json
+else generator_type == generator_type_t::mermaid
+else generator_type == generator_type_t::graphml
+C_0009759712478665669081 -> C_0009759712478665669081 [[{}]] : generate_diagram_select_generator<config::sequence_diagram,common::generators::graphml_generator_...
+activate C_0009759712478665669081
+deactivate C_0009759712478665669081
+end
+note over C_0009759712478665669081
+Convert plantuml or mermaid
+to an image using command
+provided in the command line
+arguments
+end note
+alt runtime_config.render_diagrams
+C_0009759712478665669081 -> C_0009759712478665669081 [[{}]] : render_diagram()
+activate C_0009759712478665669081
+group switch
+else clanguml::common::enum generator_type_t::plantuml
+
+end
+deactivate C_0009759712478665669081
+end
+end
+deactivate C_0009759712478665669081
+else diagram->type() == diagram_t::kPackage
+else diagram->type() == diagram_t::kInclude
+end
+deactivate C_0009759712478665669081
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

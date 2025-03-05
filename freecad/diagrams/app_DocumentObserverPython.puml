@@ -1,0 +1,173 @@
+@startuml
+title App::DocumentObserverPython context
+package [Py] as C_0006793471478365930557 {
+class "Object" as C_0003519981862413375085
+class C_0003519981862413375085 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L142{Object}]] {
++Object(PyObject * pyob = Py::_None(), bool owned = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L174{Object}]]]
++Object(const Object & ob) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L185{Object}]]]
++~Object() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L208{~Object}]]]
+..
++operator=(const Object & rhs) : Object & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L193{operator=}]]]
+..
++operator*() const : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L214{operator*}]]]
++operator=(PyObject * rhsp) : Object & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L199{operator=}]]]
+..
++accepts(PyObject *) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L246{accepts}]]]
++as_bool() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L292{as_bool}]]]
++as_string() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L261{as_string}]]]
++callMemberFunction(const std::string & function_name, const Tuple & args, const Dict & kw) const : Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L279{callMemberFunction}]]]
++callMemberFunction(const std::string & function_name, const Tuple & args) const : Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L278{callMemberFunction}]]]
++callMemberFunction(const std::string & function_name) const : Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L277{callMemberFunction}]]]
++decrement_reference_count() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L225{decrement_reference_count}]]]
++delAttr(const std::string & s) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L383{delAttr}]]]
++delItem(const Object & key) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L394{delItem}]]]
++dir() const : List [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L265{dir}]]]
++getAttr(const std::string & s) const : Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L272{getAttr}]]]
++getItem(const Object & key) const : Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L281{getItem}]]]
++hasAttr(const std::string & s) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L267{hasAttr}]]]
++hashValue() const : Py_hash_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L286{hashValue}]]]
++increment_reference_count() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L220{increment_reference_count}]]]
++is(const Object & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L302{is}]]]
++is(PyObject * pother) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L297{is}]]]
++isBoolean() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L369{isBoolean}]]]
++isBytes() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L364{isBytes}]]]
++isCallable() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L317{isCallable}]]]
++isDict() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L322{isDict}]]]
++isList() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L327{isList}]]]
++isMapping() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L332{isMapping}]]]
++isNone() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L312{isNone}]]]
++isNull() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L307{isNull}]]]
++isNumeric() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L337{isNumeric}]]]
++isSequence() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L342{isSequence}]]]
++isString() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L359{isString}]]]
++isTrue() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L347{isTrue}]]]
++isTuple() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L354{isTuple}]]]
++isType(const Type & t) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L352{isType}]]]
++ptr() const : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L236{ptr}]]]
++reference_count() const : Py_ssize_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L252{reference_count}]]]
+#release() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L164{release}]]]
++repr() const : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L263{repr}]]]
+#set(PyObject * pyob, bool owned = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L153{set}]]]
++setAttr(const std::string & s, const Object & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L375{setAttr}]]]
++str() const : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L259{str}]]]
++type() const : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L257{type}]]]
+#validate() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L170{validate}]]]
+__
+-p : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/CXX/Python3/Objects.hxx#L150{p}]]]
+}
+}
+package [App] as C_0018282610363821501524 {
+class "DocumentObserverPython" as C_0012922739375724488873
+class C_0012922739375724488873 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L48{DocumentObserverPython}]] {
++DocumentObserverPython(const Py::Object & obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L53{DocumentObserverPython}]]]
++~DocumentObserverPython() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L54{~DocumentObserverPython}]]]
+..
+{static} +addObserver(const Py::Object & obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L56{addObserver}]]]
+{static} +removeObserver(const Py::Object & obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L57{removeObserver}]]]
+-slotAbortTransaction(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L95{slotAbortTransaction}]]]
+-slotActivateDocument(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L67{slotActivateDocument}]]]
+-slotAddedDynamicExtension(const App::ExtensionContainer &, std::string extension) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L117{slotAddedDynamicExtension}]]]
+-slotAppendDynamicProperty(const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L105{slotAppendDynamicProperty}]]]
+-slotBeforeAddingDynamicExtension(const App::ExtensionContainer &, std::string extension) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L115{slotBeforeAddingDynamicExtension}]]]
+-slotBeforeChangeDocument(const App::Document & Obj, const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L69{slotBeforeChangeDocument}]]]
+-slotBeforeChangeObject(const App::DocumentObject & Obj, const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L77{slotBeforeChangeObject}]]]
+-slotBeforeCloseTransaction(bool abort) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L101{slotBeforeCloseTransaction}]]]
+-slotBeforeRecomputeDocument(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L87{slotBeforeRecomputeDocument}]]]
+-slotChangePropertyEditor(const App::Document & Doc, const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L109{slotChangePropertyEditor}]]]
+-slotChangedDocument(const App::Document & Obj, const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L71{slotChangedDocument}]]]
+-slotChangedObject(const App::DocumentObject & Obj, const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L79{slotChangedObject}]]]
+-slotCloseTransaction(bool abort) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L103{slotCloseTransaction}]]]
+-slotCommitTransaction(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L93{slotCommitTransaction}]]]
+-slotCreatedDocument(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L61{slotCreatedDocument}]]]
+-slotCreatedObject(const App::DocumentObject & Obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L73{slotCreatedObject}]]]
+-slotDeletedDocument(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L63{slotDeletedDocument}]]]
+-slotDeletedObject(const App::DocumentObject & Obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L75{slotDeletedObject}]]]
+-slotFinishSaveDocument(const App::Document &, const std::string &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L113{slotFinishSaveDocument}]]]
+-slotOpenTransaction(const App::Document & Doc, std::string str) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L91{slotOpenTransaction}]]]
+-slotRecomputedDocument(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L89{slotRecomputedDocument}]]]
+-slotRecomputedObject(const App::DocumentObject & Obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L85{slotRecomputedObject}]]]
+-slotRedo() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L99{slotRedo}]]]
+-slotRedoDocument(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L83{slotRedoDocument}]]]
+-slotRelabelDocument(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L65{slotRelabelDocument}]]]
+-slotRemoveDynamicProperty(const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L107{slotRemoveDynamicProperty}]]]
+-slotStartSaveDocument(const App::Document &, const std::string &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L111{slotStartSaveDocument}]]]
+-slotUndo() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L97{slotUndo}]]]
+-slotUndoDocument(const App::Document & Doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L81{slotUndoDocument}]]]
+__
+{static} -_instances : std::vector<DocumentObserverPython *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L122{_instances}]]]
+-inst : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L121{inst}]]]
+-pyAbortTransaction : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L149{pyAbortTransaction}]]]
+-pyActivateDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L135{pyActivateDocument}]]]
+-pyAddedDynamicExtension : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L160{pyAddedDynamicExtension}]]]
+-pyAppendDynamicProperty : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L156{pyAppendDynamicProperty}]]]
+-pyBeforeAddingDynamicExtension : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L159{pyBeforeAddingDynamicExtension}]]]
+-pyBeforeChangeDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L138{pyBeforeChangeDocument}]]]
+-pyBeforeChangeObject : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L142{pyBeforeChangeObject}]]]
+-pyBeforeCloseTransaction : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L152{pyBeforeCloseTransaction}]]]
+-pyBeforeRecomputeDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L145{pyBeforeRecomputeDocument}]]]
+-pyChangePropertyEditor : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L158{pyChangePropertyEditor}]]]
+-pyChangedDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L139{pyChangedDocument}]]]
+-pyChangedObject : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L143{pyChangedObject}]]]
+-pyCloseTransaction : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L153{pyCloseTransaction}]]]
+-pyCommitTransaction : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L148{pyCommitTransaction}]]]
+-pyCreatedDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L132{pyCreatedDocument}]]]
+-pyCreatedObject : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L140{pyCreatedObject}]]]
+-pyDeletedDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L133{pyDeletedDocument}]]]
+-pyDeletedObject : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L141{pyDeletedObject}]]]
+-pyFinishSaveDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L155{pyFinishSaveDocument}]]]
+-pyOpenTransaction : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L147{pyOpenTransaction}]]]
+-pyRecomputedDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L146{pyRecomputedDocument}]]]
+-pyRecomputedObject : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L144{pyRecomputedObject}]]]
+-pyRedo : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L151{pyRedo}]]]
+-pyRedoDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L137{pyRedoDocument}]]]
+-pyRelabelDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L134{pyRelabelDocument}]]]
+-pyRemoveDynamicProperty : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L157{pyRemoveDynamicProperty}]]]
+-pyStartSaveDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L154{pyStartSaveDocument}]]]
+-pyUndo : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L150{pyUndo}]]]
+-pyUndoDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L136{pyUndoDocument}]]]
+}
+class "DocumentObserverPython::PythonObject" as C_0002918141556241399540
+class C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L124{DocumentObserverPython::PythonObject}]] {
++ptr() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L127{ptr}]]]
+__
++py : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L126{py}]]]
++slot : boost::signals2::scoped_connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L125{slot}]]]
+}
+}
+C_0012922739375724488873 o-- C_0003519981862413375085 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L121{inst}]] : -inst
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L132{pyCreatedDocument}]] : -pyCreatedDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L133{pyDeletedDocument}]] : -pyDeletedDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L134{pyRelabelDocument}]] : -pyRelabelDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L135{pyActivateDocument}]] : -pyActivateDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L136{pyUndoDocument}]] : -pyUndoDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L137{pyRedoDocument}]] : -pyRedoDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L138{pyBeforeChangeDocument}]] : -pyBeforeChangeDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L139{pyChangedDocument}]] : -pyChangedDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L140{pyCreatedObject}]] : -pyCreatedObject
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L141{pyDeletedObject}]] : -pyDeletedObject
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L142{pyBeforeChangeObject}]] : -pyBeforeChangeObject
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L143{pyChangedObject}]] : -pyChangedObject
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L144{pyRecomputedObject}]] : -pyRecomputedObject
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L145{pyBeforeRecomputeDocument}]] : -pyBeforeRecomputeDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L146{pyRecomputedDocument}]] : -pyRecomputedDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L147{pyOpenTransaction}]] : -pyOpenTransaction
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L148{pyCommitTransaction}]] : -pyCommitTransaction
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L149{pyAbortTransaction}]] : -pyAbortTransaction
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L150{pyUndo}]] : -pyUndo
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L151{pyRedo}]] : -pyRedo
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L152{pyBeforeCloseTransaction}]] : -pyBeforeCloseTransaction
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L153{pyCloseTransaction}]] : -pyCloseTransaction
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L154{pyStartSaveDocument}]] : -pyStartSaveDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L155{pyFinishSaveDocument}]] : -pyFinishSaveDocument
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L156{pyAppendDynamicProperty}]] : -pyAppendDynamicProperty
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L157{pyRemoveDynamicProperty}]] : -pyRemoveDynamicProperty
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L158{pyChangePropertyEditor}]] : -pyChangePropertyEditor
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L159{pyBeforeAddingDynamicExtension}]] : -pyBeforeAddingDynamicExtension
+C_0012922739375724488873 o-- C_0002918141556241399540 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L160{pyAddedDynamicExtension}]] : -pyAddedDynamicExtension
+C_0012922739375724488873 --> C_0012922739375724488873 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L122{_instances}]] : -_instances
+C_0002918141556241399540 --+ C_0012922739375724488873
+C_0002918141556241399540 o-- C_0003519981862413375085 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObserverPython.h#L126{py}]] : +py
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

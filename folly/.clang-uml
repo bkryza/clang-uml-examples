@@ -1,5 +1,5 @@
 compilation_database_dir: _build
-output_directory: ../puml
+output_directory: ../diagrams
 generate_links:
   link: 'https://github.com/facebook/folly/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
   tooltip: '{% if existsIn(element, "comment") and existsIn(element.comment, "brief") %}{{ abbrv(trim(replace(element.comment.brief.0, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
@@ -33,10 +33,10 @@ diagrams:
         - folly::futures::detail
     plantuml:
       after:
-        - 'note left of @A(FutureBase<T>) : {{ comment("folly::FutureBase<T>") }}'
-        - 'note left of @A(SemiFuture<T>) : {{ comment("folly::SemiFuture<T>") }}'
-        - 'note left of @A(Future<T>) : {{ comment("folly::Future<T>") }}'
-        - 'note left of @A(Barrier) : {{ comment("folly::Barrier") }}'
+        - 'note left of {{ alias(futures::FutureBase<T>) }} : {{ comment("folly::futures::FutureBase<T>") }}'
+        - 'note left of {{ alias(futures::SemiFuture<T>) }} : {{ comment("folly::futures::SemiFuture<T>") }}'
+        - 'note left of {{ alias(futures::Future<T>) }} : {{ comment("folly::futures::Future<T>") }}'
+        - 'note left of {{ alias(futures::Barrier) }} : {{ comment("folly::futures::Barrier") }}'
   executors_hierarchy_class_diagram:
     type: class
     title: "'executors' class hierarchy"

@@ -1,0 +1,130 @@
+compilation_database_dir: _build
+output_directory: ../diagrams
+generate_links:
+  link: 'https://github.com/hyprwm/hyprland/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
+  tooltip: '{% if existsIn(element, "comment") and existsIn(element.comment, "brief") %}{{ abbrv(trim(replace(element.comment.brief.0, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
+relationship_hints:
+  Hyprutils::Memory::CUniquePointer: aggregation
+  Hyprutils::Memory::CSharedPointer: association
+  Hyprutils::Memory::CWeakPointer: association
+diagrams:
+  compositor_context_class_diagram:
+    type: class
+    title: "CCompositor class diagram"
+    generate_packages: true
+    package_type: directory
+    glob:
+      - src/*.cpp
+    include:
+      paths:
+        - src
+      context:
+        - match:
+            radius: 1
+            pattern: CCompositor
+    exclude:
+      access:
+        - public
+        - protected
+        - private
+      namespaces:
+        - std
+      relationships:
+        - dependency
+      elements:
+        - r: '.*anonymous_.*'
+        - r: 'Hyprutils::Memory::CSharedPointer.*'
+        - r: 'Hyprutils::Memory::CWeakPointer.*'
+    plantuml:
+      before:
+        - 'left to right direction'
+  window_context_class_diagram:
+    type: class
+    title: "CWindow class diagram"
+    generate_packages: true
+    package_type: directory
+    glob:
+      - src/*.cpp
+    include:
+      paths:
+        - src
+      context:
+        - match:
+            radius: 1
+            pattern: CWindow
+    exclude:
+      access:
+        - public
+        - protected
+        - private
+      relationships:
+        - dependency
+      elements:
+        - r: '.*anonymous_.*'
+    plantuml:
+      before:
+        - 'left to right direction'
+  config_class_diagram:
+    type: class
+    title: "'config' class diagram"
+    glob:
+      - src/config/**/*.cpp
+    include:
+      paths:
+        - src/config
+    exclude:
+      elements:
+        - r: '.*anonymous_.*'
+  desktop_class_diagram:
+    type: class
+    title: "'desktop' class diagram"
+    glob:
+      - src/desktop/**/*.cpp
+    include:
+      paths:
+        - src/desktop
+    exclude:
+      elements:
+        - r: '.*anonymous_.*'
+  devices_class_diagram:
+    type: class
+    title: "'devices' class diagram"
+    glob:
+      - src/devices/**/*.cpp
+    include:
+      paths:
+        - src/devices
+    exclude:
+      elements:
+        - r: '.*anonymous_.*'
+  helpers_class_diagram:
+    type: class
+    title: "'helpers' class diagram"
+    glob:
+      - src/helpers/**/*.cpp
+    include:
+      paths:
+        - src/helpers
+    exclude:
+      elements:
+        - r: '.*anonymous_.*'
+  render_class_diagram:
+    type: class
+    title: "'render' class diagram"
+    glob:
+      - src/render/**/*.cpp
+    include:
+      paths:
+        - src/render
+    exclude:
+      elements:
+        - r: '.*anonymous_.*'
+  package_directory_diagram:
+    type: package
+    title: "Package diagram"
+    package_type: directory
+    glob:
+      - src/**/*.cpp
+    include:
+      paths:
+        - src

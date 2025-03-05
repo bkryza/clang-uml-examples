@@ -1,0 +1,72 @@
+@startuml
+title 'cpp_expression' class diagram
+abstract "cpp_type" as C_0012685224329895379678
+abstract C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L44{cpp_type}]] {
++cpp_type(const cpp_type &) = deleted : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L47{cpp_type}]]]
+#cpp_type() noexcept : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L77{cpp_type}]]]
++~cpp_type() noexcept = default : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L50{~cpp_type}]]]
+..
++operator=(const cpp_type &) = deleted : cpp_type & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L48{operator=}]]]
+..
+{abstract} -do_get_kind() const noexcept = 0 : cpp_type_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L81{do_get_kind}]]]
++kind() const noexcept : cpp_type_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L53{kind}]]]
+-on_insert(const cpp_type &) : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L83{on_insert}]]]
++set_user_data(void * data) const noexcept : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L71{set_user_data}]]]
++user_data() const noexcept : void * [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L59{user_data}]]]
+__
+-user_data_ : std::atomic<void *> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L85{user_data_}]]]
+}
+enum "cpp_expression_kind" as C_0005398411911865345735
+enum C_0005398411911865345735 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L16{cpp_expression_kind}]] {
+literal_t
+unexposed_t
+}
+abstract "cpp_expression" as C_0017827775348805875802
+abstract C_0017827775348805875802 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L24{cpp_expression}]] {
++cpp_expression(const cpp_expression &) = deleted : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L27{cpp_expression}]]]
+#cpp_expression(std::unique_ptr<cpp_type> type) : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L65{cpp_expression}]]]
++~cpp_expression() noexcept = default : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L30{~cpp_expression}]]]
+..
++operator=(const cpp_expression &) = deleted : cpp_expression & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L28{operator=}]]]
+..
+{abstract} -do_get_kind() const noexcept = 0 : cpp_expression_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L72{do_get_kind}]]]
++kind() const noexcept : cpp_expression_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L33{kind}]]]
++set_user_data(void * data) const noexcept : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L57{set_user_data}]]]
++type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L39{type}]]]
++user_data() const noexcept : void * [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L45{user_data}]]]
+__
+-type_ : std::unique_ptr<cpp_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L74{type_}]]]
+-user_data_ : std::atomic<void *> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L75{user_data_}]]]
+}
+class "cpp_unexposed_expression" as C_0007825648684854810157
+class C_0007825648684854810157 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L81{cpp_unexposed_expression}]] {
+-cpp_unexposed_expression(std::unique_ptr<cpp_type> type, cpp_token_string str) : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L99{cpp_unexposed_expression}]]]
+..
+{static} +build(std::unique_ptr<cpp_type> type, cpp_token_string str) : std::unique_ptr<cpp_unexposed_expression> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L85{build}]]]
+-do_get_kind() const noexcept : cpp_expression_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L103{do_get_kind}]]]
++expression() const noexcept : const cpp_token_string & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L93{expression}]]]
+__
+-str_ : cpp_token_string [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L108{str_}]]]
+}
+class "cpp_literal_expression" as C_0011853162507509380488
+class C_0011853162507509380488 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L112{cpp_literal_expression}]] {
+-cpp_literal_expression(std::unique_ptr<cpp_type> type, std::string value) : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L130{cpp_literal_expression}]]]
+..
+{static} +build(std::unique_ptr<cpp_type> type, std::string value) : std::unique_ptr<cpp_literal_expression> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L116{build}]]]
+-do_get_kind() const noexcept : cpp_expression_kind [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L134{do_get_kind}]]]
++value() const noexcept : const std::string & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L124{value}]]]
+__
+-value_ : std::string [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L139{value_}]]]
+}
+C_0017827775348805875802 ..> C_0005398411911865345735 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L33{}]]
+C_0017827775348805875802 o-- C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L74{type_}]] : -type_
+C_0007825648684854810157 ..> C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L85{}]]
+C_0007825648684854810157 ..> C_0005398411911865345735 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L103{}]]
+C_0017827775348805875802 <|-- C_0007825648684854810157
+C_0011853162507509380488 ..> C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L116{}]]
+C_0011853162507509380488 ..> C_0005398411911865345735 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L134{}]]
+C_0017827775348805875802 <|-- C_0011853162507509380488
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

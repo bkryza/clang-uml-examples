@@ -1,0 +1,911 @@
+@startuml
+title Package diagram model
+class "::clanguml::common::model::source_location" as C_0007162092657467521843
+class C_0007162092657467521843 [[classclanguml_1_1common_1_1model_1_1source__location.html{Base class of all diagram elements that have source location.}]] {
++source_location() = default : void [[[{source_location}]]]
++source_location() : void [[[{source_location}]]]
+..
++column() const : unsigned int [[[{column}]]]
++file() const : const std::string & [[[{file}]]]
++file_relative() const : const std::string & [[[{file_relative}]]]
++line() const : unsigned int [[[{line}]]]
++location_id() const : unsigned int [[[{location_id}]]]
++set_column() : void [[[{set_column}]]]
++set_file() : void [[[{set_file}]]]
++set_file_relative() : void [[[{set_file_relative}]]]
++set_line() : void [[[{set_line}]]]
++set_location_id() : void [[[{set_location_id}]]]
++set_translation_unit() : void [[[{set_translation_unit}]]]
++translation_unit() const : const std::string & [[[{translation_unit}]]]
+__
+-column_ : unsigned int [[[{column_}]]]
+-file_ : std::string [[[{file_}]]]
+-file_relative_ : std::string [[[{file_relative_}]]]
+-hash_ : unsigned int [[[{hash_}]]]
+-line_ : unsigned int [[[{line_}]]]
+-translation_unit_ : std::string [[[{translation_unit_}]]]
+}
+enum "::clanguml::common::model::path_type" as C_0016255347626076472797
+enum C_0016255347626076472797 [[enumclanguml_1_1common_1_1model_1_1path__type.html{Type of diagram path}]] {
+kNamespace
+kFilesystem
+kModule
+}
+class "::clanguml::common::model::path" as C_0006758698337325774198
+class C_0006758698337325774198 [[classclanguml_1_1common_1_1model_1_1path.html{Diagram path}]] {
++path() : void [[[{path}]]]
++path() : void [[[{path}]]]
++path() : void [[[{path}]]]
++path() = default : void [[[{path}]]]
++path() noexcept = default : void [[[{path}]]]
++path() : void [[[{path}]]]
++path() : void [[[{path}]]]
++~path() = default : void [[[{~path}]]]
+..
++operator=() : path & [[[{operator=}]]]
++operator=() noexcept = default : path & [[[{operator=}]]]
+..
++operator[]() : std::string & [[[{operator[]}]]]
++operator[]() const : const std::string & [[[{operator[]}]]]
++operator|() const : path [[[{operator|}]]]
++operator|() const : path [[[{operator|}]]]
++operator|=() : void [[[{operator|=}]]]
++operator|=() : void [[[{operator|=}]]]
+..
++append() : void [[[{append}]]]
++append() : void [[[{append}]]]
++begin() : path::container_type::iterator [[[{begin}]]]
++begin() const : path::container_type::const_iterator [[[{begin}]]]
++cbegin() const : path::container_type::const_iterator [[[{cbegin}]]]
++cend() const : path::container_type::const_iterator [[[{cend}]]]
++common_path() const : path [[[{Returns the common prefix of 2 paths.}]]]
++end() const : path::container_type::const_iterator [[[{end}]]]
++end() : path::container_type::iterator [[[{end}]]]
++ends_with() const : bool [[[{ends_with}]]]
++is_empty() const : bool [[[{is_empty}]]]
++is_root() const : bool [[[{is_root}]]]
++is_root() : void [[[{is_root}]]]
++name() const : std::string [[[{name}]]]
++parent() const : std::optional<path> [[[{parent}]]]
++pop_back() : void [[[{pop_back}]]]
++relative() const : std::string [[[{relative}]]]
++relative_to() const : path [[[{relative_to}]]]
+-separator() const : const char * [[[{separator}]]]
+{static} -separator() : const char * [[[{separator}]]]
++size() const : size_t [[[{size}]]]
+{static} +split() : container_type [[[{split}]]]
++starts_with() const : bool [[[{starts_with}]]]
++to_string() const : std::string [[[{to_string}]]]
++tokens() const : const container_type & [[[{tokens}]]]
++type() const : path_type [[[{type}]]]
+__
+-is_root_ : bool [[[{is_root_}]]]
+-path_ : container_type [[[{path_}]]]
+}
+class "::clanguml::common::model::ns_path_separator" as C_0010655386284821382926
+class C_0010655386284821382926 [[structclanguml_1_1common_1_1model_1_1ns__path__separator.html{ns_path_separator}]] {
+__
+{static} +value : const std::string_view [[[{value}]]]
+}
+enum "::clanguml::common::model::diagram_t" as C_0007288192087020178058
+enum C_0007288192087020178058 [[enumclanguml_1_1common_1_1model_1_1diagram__t.html{diagram_t}]] {
+kClass
+kSequence
+kPackage
+kInclude
+}
+enum "::clanguml::common::model::module_access_t" as C_0006969247586605750999
+enum C_0006969247586605750999 [[enumclanguml_1_1common_1_1model_1_1module__access__t.html{module_access_t}]] {
+kPublic
+kPrivate
+}
+enum "::clanguml::common::model::access_t" as C_0016616250741959063654
+enum C_0016616250741959063654 [[enumclanguml_1_1common_1_1model_1_1access__t.html{access_t}]] {
+kPublic
+kProtected
+kPrivate
+kNone
+}
+enum "::clanguml::common::model::relationship_t" as C_0001833121281440583606
+enum C_0001833121281440583606 [[enumclanguml_1_1common_1_1model_1_1relationship__t.html{relationship_t}]] {
+kNone
+kExtension
+kComposition
+kAggregation
+kContainment
+kOwnership
+kAssociation
+kInstantiation
+kFriendship
+kAlias
+kDependency
+kConstraint
+}
+enum "::clanguml::common::model::message_t" as C_0012990663881099729824
+enum C_0012990663881099729824 [[enumclanguml_1_1common_1_1model_1_1message__t.html{message_t}]] {
+kCall
+kReturn
+kIf
+kElse
+kElseIf
+kIfEnd
+kWhile
+kWhileEnd
+kDo
+kDoEnd
+kFor
+kForEnd
+kTry
+kCatch
+kTryEnd
+kSwitch
+kCase
+kSwitchEnd
+kConditional
+kConditionalElse
+kConditionalEnd
+kCoReturn
+kCoAwait
+kCoYield
+kNone
+}
+enum "::clanguml::common::model::message_scope_t" as C_0001622873702655788086
+enum C_0001622873702655788086 [[enumclanguml_1_1common_1_1model_1_1message__scope__t.html{message_scope_t}]] {
+kNormal
+kCondition
+}
+class "::clanguml::common::model::decorated_element" as C_0008936819060997384951
+class C_0008936819060997384951 [[classclanguml_1_1common_1_1model_1_1decorated__element.html{Base class for decorated diagram elements}]] {
++~decorated_element() = default : void [[[{~decorated_element}]]]
+..
++add_decorators() : void [[[{add_decorators}]]]
++append() : void [[[{append}]]]
++comment() const : std::optional<comment_t> [[[{comment}]]]
++decorators() const : const std::vector<std::shared_ptr<decorators::decorator>> & [[[{decorators}]]]
++doxygen_link() const : std::optional<std::string> [[[{doxygen_link}]]]
++get_relationship() const : std::pair<relationship_t,std::string> [[[{get_relationship}]]]
++set_comment() : void [[[{set_comment}]]]
++skip() const : bool [[[{skip}]]]
++skip_relationship() const : bool [[[{skip_relationship}]]]
++style_spec() const : std::string [[[{style_spec}]]]
+__
+-comment_ : std::optional<comment_t> [[[{comment_}]]]
+-decorators_ : std::vector<std::shared_ptr<decorators::decorator>> [[[{decorators_}]]]
+}
+class "::clanguml::common::model::stylable_element" as C_0016622768607835415521
+class C_0016622768607835415521 [[classclanguml_1_1common_1_1model_1_1stylable__element.html{Diagram elements to which style can be applied.}]] {
++set_style() : void [[[{set_style}]]]
++style() const : std::optional<std::string> [[[{style}]]]
+__
+-style_ : std::optional<std::string> [[[{style_}]]]
+}
+class "::clanguml::common::model::relationship" as C_0016370694070378943411
+class C_0016370694070378943411 [[classclanguml_1_1common_1_1model_1_1relationship.html{Class representing any relationship other than inheritance}]] {
++relationship() : void [[[{relationship}]]]
++relationship() : void [[[{relationship}]]]
++~relationship() = default : void [[[{~relationship}]]]
+..
++access() const noexcept : access_t [[[{access}]]]
++destination() const : eid_t [[[{destination}]]]
++is_virtual() const : bool [[[{is_virtual}]]]
++label() const : std::string [[[{label}]]]
++multiplicity_destination() const : std::string [[[{multiplicity_destination}]]]
++multiplicity_source() const : std::string [[[{multiplicity_source}]]]
++set_access() noexcept : void [[[{set_access}]]]
++set_destination() : void [[[{set_destination}]]]
++set_label() : void [[[{set_label}]]]
++set_multiplicity_destination() : void [[[{set_multiplicity_destination}]]]
++set_multiplicity_source() : void [[[{set_multiplicity_source}]]]
++set_type() noexcept : void [[[{set_type}]]]
++set_virtual() : void [[[{set_virtual}]]]
++type() const noexcept : relationship_t [[[{type}]]]
+__
+-destination_ : eid_t [[[{destination_}]]]
+-is_virtual_ : bool [[[{is_virtual_}]]]
+-label_ : std::string [[[{label_}]]]
+-multiplicity_destination_ : std::string [[[{multiplicity_destination_}]]]
+-multiplicity_source_ : std::string [[[{multiplicity_source_}]]]
+}
+class "::clanguml::common::model::full_name_tag_t" as C_0008055211364012910024
+class C_0008055211364012910024 [[structclanguml_1_1common_1_1model_1_1full__name__tag__t.html{full_name_tag_t}]] {
+__
+}
+class "::clanguml::common::model::name_and_ns_tag" as C_0017789505560089675948
+class C_0017789505560089675948 [[structclanguml_1_1common_1_1model_1_1name__and__ns__tag.html{name_and_ns_tag}]] {
+__
+}
+class "::clanguml::common::model::diagram_element" as C_0008588005715032923314
+class C_0008588005715032923314 [[classclanguml_1_1common_1_1model_1_1diagram__element.html{Base class for standalone diagram elements.}]] {
++diagram_element() : void [[[{diagram_element}]]]
++~diagram_element() = default : void [[[{~diagram_element}]]]
+..
++add_relationship() : void [[[{add_relationship}]]]
++alias() const : std::string [[[{Return elements' diagram alias.}]]]
++append() : void [[[{append}]]]
++apply_filter() : void [[[{apply_filter}]]]
++complete() : void [[[{complete}]]]
++complete() const : bool [[[{complete}]]]
++full_name() const : std::string [[[{Return the elements fully qualified name.}]]]
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++id() const : const eid_t & [[[{Returns diagram element id.}]]]
++is_nested() const : bool [[[{is_nested}]]]
++name() const : std::string [[[{name}]]]
++nested() : void [[[{nested}]]]
++parent_element_id() const : std::optional<eid_t> [[[{parent_element_id}]]]
++relationships() : std::vector<relationship> & [[[{relationships}]]]
++relationships() const : const std::vector<relationship> & [[[{relationships}]]]
++remove_duplicate_relationships() : void [[[{remove_duplicate_relationships}]]]
++set_id() : void [[[{set_id}]]]
++set_name() : void [[[{set_name}]]]
++set_name() : void [[[{set_name}]]]
++set_parent_element_id() : void [[[{set_parent_element_id}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+-complete_ : bool [[[{complete_}]]]
+-id_ : eid_t [[[{id_}]]]
+-name_ : std::string [[[{name_}]]]
+-nested_ : bool [[[{nested_}]]]
+-parent_element_id_ : std::optional<eid_t> [[[{parent_element_id_}]]]
+}
+enum "::clanguml::common::model::template_parameter_kind_t" as C_0002899271625383948189
+enum C_0002899271625383948189 [[enumclanguml_1_1common_1_1model_1_1template__parameter__kind__t.html{template_parameter_kind_t}]] {
+template_type
+template_template_type
+non_type_template
+argument
+concept_constraint
+empty
+}
+enum "::clanguml::common::model::rpqualifier" as C_0017544883041375810356
+enum C_0017544883041375810356 [[enumclanguml_1_1common_1_1model_1_1rpqualifier.html{rpqualifier}]] {
+kLValueReference
+kRValueReference
+kPointer
+kNone
+}
+class "::clanguml::common::model::context" as C_0006767826637291167780
+class C_0006767826637291167780 [[structclanguml_1_1common_1_1model_1_1context.html{context}]] {
++operator!=() const : bool [[[{operator!=}]]]
++operator==() const : bool [[[{operator==}]]]
+..
++to_string() const : std::string [[[{to_string}]]]
+__
++is_const : bool [[[{is_const}]]]
++is_ref_const : bool [[[{is_ref_const}]]]
++is_ref_volatile : bool [[[{is_ref_volatile}]]]
++is_volatile : bool [[[{is_volatile}]]]
+}
+class "::clanguml::common::model::template_parameter" as C_0001425108501944636238
+class C_0001425108501944636238 [[classclanguml_1_1common_1_1model_1_1template__parameter.html{Represents template parameter, template arguments or concept         constraints}]] {
+-template_parameter() = default : void [[[{template_parameter}]]]
+..
++add_template_param() : void [[[{add_template_param}]]]
++add_template_param() : void [[[{add_template_param}]]]
++calculate_specialization_match() const : int [[[{Calculate the match between this and other parameter}]]]
++clear_params() : void [[[{clear_params}]]]
++concept_constraint() const : const std::optional<std::string> & [[[{concept_constraint}]]]
++deduced_context() : void [[[{deduced_context}]]]
++deduced_context() const : const std::deque<context> & [[[{deduced_context}]]]
+-deduced_context_str() const : std::string [[[{deduced_context_str}]]]
++default_value() const : const std::optional<std::string> & [[[{default_value}]]]
++find_nested_relationships() const : bool [[[{Find all relationships in this and its nested templates}]]]
++id() const : const std::optional<eid_t> & [[[{id}]]]
++is_array() const : bool [[[{is_array}]]]
++is_array() : void [[[{is_array}]]]
++is_association() const : bool [[[{is_association}]]]
++is_data_pointer() const : bool [[[{is_data_pointer}]]]
++is_data_pointer() : void [[[{is_data_pointer}]]]
++is_ellipsis() : void [[[{is_ellipsis}]]]
++is_ellipsis() const : bool [[[{is_ellipsis}]]]
++is_function_template() const : bool [[[{is_function_template}]]]
++is_function_template() : void [[[{is_function_template}]]]
++is_member_pointer() : void [[[{is_member_pointer}]]]
++is_member_pointer() const : bool [[[{is_member_pointer}]]]
++is_same_specialization() const : bool [[[{Whether this is the same type of specialization as other.}]]]
++is_specialization() const : bool [[[{is_specialization}]]]
++is_template_parameter() : void [[[{is_template_parameter}]]]
++is_template_parameter() const : bool [[[{is_template_parameter}]]]
++is_template_template_parameter() : void [[[{is_template_template_parameter}]]]
++is_template_template_parameter() const : bool [[[{is_template_template_parameter}]]]
++is_unexposed() const : bool [[[{is_unexposed}]]]
++is_variadic() noexcept : void [[[{is_variadic}]]]
++is_variadic() const noexcept : bool [[[{is_variadic}]]]
++kind() const : template_parameter_kind_t [[[{kind}]]]
+{static} +make_argument() : template_parameter [[[{Build template argument}]]]
+{static} +make_empty() : template_parameter [[[{Build template type parameter}]]]
+{static} +make_non_type_template() : template_parameter [[[{Build non-type template parameter}]]]
+{static} +make_template_template_type() : template_parameter [[[{Build template template parameter type}]]]
+{static} +make_template_type() : template_parameter [[[{Build template type parameter}]]]
+{static} +make_unexposed_argument() : template_parameter [[[{Build template argument with unexposed type}]]]
++name() const : std::optional<std::string> [[[{name}]]]
++push_context() : void [[[{Append a deduced context to the template parameter.}]]]
++set_concept_constraint() : void [[[{set_concept_constraint}]]]
++set_default_value() : void [[[{set_default_value}]]]
++set_id() : void [[[{set_id}]]]
++set_kind() : void [[[{set_kind}]]]
++set_name() : void [[[{set_name}]]]
++set_type() : void [[[{set_type}]]]
++set_unexposed() : void [[[{set_unexposed}]]]
++template_params() const : const std::vector<template_parameter> & [[[{template_params}]]]
++to_string() const : std::string [[[{Render the template_parameter into string}]]]
++type() const : std::optional<std::string> [[[{type}]]]
+__
+-concept_constraint_ : std::optional<std::string> [[[{concept_constraint_}]]]
+-default_value_ : std::optional<std::string> [[[{default_value_}]]]
+-id_ : std::optional<eid_t> [[[{id_}]]]
+-is_array_ : bool [[[{is_array_}]]]
+-is_data_pointer_ : bool [[[{is_data_pointer_}]]]
+-is_ellipsis_ : bool [[[{is_ellipsis_}]]]
+-is_function_template_ : bool [[[{is_function_template_}]]]
+-is_member_pointer_ : bool [[[{is_member_pointer_}]]]
+-is_template_parameter_ : bool [[[{is_template_parameter_}]]]
+-is_template_template_parameter_ : bool [[[{is_template_template_parameter_}]]]
+-is_unexposed_ : bool [[[{is_unexposed_}]]]
+-is_variadic_ : bool [[[{is_variadic_}]]]
+-name_ : std::optional<std::string> [[[{name_}]]]
+-type_ : std::optional<std::string> [[[{type_}]]]
+}
+class "::clanguml::common::model::element" as C_0016556163051475263500
+class C_0016556163051475263500 [[classclanguml_1_1common_1_1model_1_1element.html{Base class for any element qualified by namespace.}]] {
++element() : void [[[{element}]]]
++~element() = default : void [[[{~element}]]]
+..
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++full_name_no_ns() const : std::string [[[{full_name_no_ns}]]]
++get_namespace() const : namespace_ [[[{get_namespace}]]]
++get_relative_namespace() const : namespace_ [[[{get_relative_namespace}]]]
++module() const : std::optional<std::string> [[[{module}]]]
++module_private() const : bool [[[{module_private}]]]
++name_and_ns() const : std::string [[[{name_and_ns}]]]
+#name_and_ns_impl() const : std::string [[[{name_and_ns_impl}]]]
++path() const : const namespace_ & [[[{path}]]]
++set_module() : void [[[{set_module}]]]
++set_module_private() : void [[[{set_module_private}]]]
++set_namespace() : void [[[{set_namespace}]]]
++using_namespace() const : const namespace_ & [[[{using_namespace}]]]
+__
+-module_ : std::optional<std::string> [[[{module_}]]]
+-module_private_ : bool [[[{module_private_}]]]
+}
+class "::clanguml::common::model::template_trait" as C_0003717723700041732716
+class C_0003717723700041732716 [[classclanguml_1_1common_1_1model_1_1template__trait.html{Common interface for template diagram elements.}]] {
++add_template() : void [[[{add_template}]]]
++calculate_template_specialization_match() const : int [[[{Wrapper around}]]]
++render_template_params() const : std::ostream & [[[{render_template_params}]]]
++template_params() const : const std::vector<template_parameter> & [[[{template_params}]]]
+__
+}
+class "::clanguml::common::model::template_element" as C_0013384831159811298387
+class C_0013384831159811298387 [[classclanguml_1_1common_1_1model_1_1template__element.html{Base class for any element qualified by namespace.}]] {
++~template_element() = default : void [[[{~template_element}]]]
+..
++calculate_template_specialization_match() const : int [[[{Calculate template specialization match with other class.}]]]
++is_template() const : bool [[[{is_template}]]]
++is_template() : void [[[{is_template}]]]
++template_specialization_found() const : bool [[[{template_specialization_found}]]]
++template_specialization_found() : void [[[{template_specialization_found}]]]
+__
+-is_template_ : bool [[[{is_template_}]]]
+-template_specialization_found_ : bool [[[{template_specialization_found_}]]]
+}
+class "::clanguml::common::model::nested_trait<T,Path>" as C_0007129669985754476498
+class C_0007129669985754476498 [[classclanguml_1_1common_1_1model_1_1nested__trait.html{Base class for elements nested in the diagram.}]] {
++nested_trait() = default : void [[[{nested_trait}]]]
++nested_trait() = deleted : void [[[{nested_trait}]]]
++nested_trait() noexcept = default : void [[[{nested_trait}]]]
++~nested_trait() = default : void [[[{~nested_trait}]]]
+..
++operator=() = deleted : nested_trait<T,Path> & [[[{operator=}]]]
++operator=() noexcept = default : nested_trait<T,Path> & [[[{operator=}]]]
+..
++add_element<V=T>() : _Bool
++add_element<V=T>() : _Bool
++all_of<F>() const : _Bool
++begin() const : auto [[[{begin}]]]
++cbegin() const : auto [[[{cbegin}]]]
++cend() const : auto [[[{cend}]]]
++end() const : auto [[[{end}]]]
++get_and_remove<V=T>() : std::unique_ptr<V>
++get_element<V=T>() const : auto
++get_element<V=T>() const : auto
+-has_element() const : bool [[[{has_element}]]]
++is_empty() const : bool [[[{is_empty}]]]
++is_root() const : bool [[[{is_root}]]]
++is_root() : void [[[{is_root}]]]
++print_tree() const : void [[[{print_tree}]]]
++remove() : void [[[{remove}]]]
+__
+-elements_ : std::list<std::unique_ptr<T>> [[[{elements_}]]]
+-elements_by_id_ : std::map<eid_t,element_iterator_t> [[[{elements_by_id_}]]]
+-elements_by_name_ : std::multimap<std::string,element_iterator_t> [[[{elements_by_name_}]]]
+-is_root_ : bool [[[{is_root_}]]]
+}
+enum "::clanguml::common::model::source_file_t" as C_0011921262880242400910
+enum C_0011921262880242400910 [[enumclanguml_1_1common_1_1model_1_1source__file__t.html{source_file_t}]] {
+kDirectory
+kHeader
+kImplementation
+}
+class "::clanguml::common::model::fs_path_sep" as C_0005122065303139962793
+class C_0005122065303139962793 [[structclanguml_1_1common_1_1model_1_1fs__path__sep.html{fs_path_sep}]] {
+__
+{static} +value : const std::string_view [[[{value}]]]
+}
+class "::clanguml::common::model::nested_trait<clanguml::common::model::source_file,clanguml::common::model::filesystem_path>" as C_0012891720332235399601
+class C_0012891720332235399601 [[classclanguml_1_1common_1_1model_1_1nested__trait.html{nested_trait}]] {
+__
+}
+class "::clanguml::common::model::source_file" as C_0006285717704576425038
+class C_0006285717704576425038 [[classclanguml_1_1common_1_1model_1_1source__file.html{Diagram element representing some file or directory.}]] {
++source_file() = default : void [[[{source_file}]]]
++source_file() : void [[[{source_file}]]]
++source_file() = deleted : void [[[{source_file}]]]
++source_file() = default : void [[[{source_file}]]]
+..
++operator=() = deleted : source_file & [[[{operator=}]]]
++operator=() = deleted : source_file & [[[{operator=}]]]
+..
++operator==() const : bool [[[{operator==}]]]
+..
++fs_path() const : std::filesystem::path [[[{fs_path}]]]
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++full_path() const : path [[[{full_path}]]]
++is_absolute() const : bool [[[{is_absolute}]]]
++is_system_header() const : bool [[[{is_system_header}]]]
++path() const : const filesystem_path & [[[{path}]]]
++set_path() : void [[[{set_path}]]]
++set_system_header() : void [[[{set_system_header}]]]
++set_type() : void [[[{set_type}]]]
++type() const : source_file_t [[[{type}]]]
+__
+-is_absolute_ : bool [[[{is_absolute_}]]]
+-is_system_header_ : bool [[[{is_system_header_}]]]
+}
+abstract "::clanguml::common::model::diagram" as C_0001576551882566686996
+abstract C_0001576551882566686996 [[classclanguml_1_1common_1_1model_1_1diagram.html{Base class for all diagram models}]] {
++diagram() : void [[[{diagram}]]]
++diagram() = deleted : void [[[{diagram}]]]
++diagram() noexcept : void [[[{diagram}]]]
++~diagram() : void [[[{~diagram}]]]
+..
++operator=() = deleted : diagram & [[[{operator=}]]]
++operator=() noexcept : diagram & [[[{operator=}]]]
+..
++apply_filter() : void [[[{apply_filter}]]]
++complete() const : bool [[[{Whether the diagram is complete.}]]]
+#filter() : diagram_filter & [[[{filter}]]]
++filter() const : const diagram_filter & [[[{filter}]]]
++finalize() : void [[[{Once the diagram is complete, run any final processing.}]]]
+{abstract} +get() const = 0 : clanguml::common::optional_ref<clanguml::common::model::diagram_element> [[[{get}]]]
+{abstract} +get() const = 0 : clanguml::common::optional_ref<clanguml::common::model::diagram_element> [[[{get}]]]
++get_with_namespace() const : clanguml::common::optional_ref<clanguml::common::model::diagram_element> [[[{get_with_namespace}]]]
++has_element() const : bool [[[{has_element}]]]
+{abstract} +is_empty() const = 0 : bool [[[{Check whether the diagram is empty}]]]
++name() const : std::string [[[{name}]]]
++set_complete() : void [[[{Set diagram in a complete state.}]]]
++set_filter() : void [[[{set_filter}]]]
++set_name() : void [[[{set_name}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const = deleted : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
+{abstract} +type() const = 0 : diagram_t [[[{Return type of the diagram.}]]]
+__
+-complete_ : bool [[[{complete_}]]]
+-filtered_ : bool [[[{filtered_}]]]
+-name_ : std::string [[[{name_}]]]
+}
+class "::clanguml::common::model::element_view<T>" as C_0014290881841292490213
+class C_0014290881841292490213 [[classclanguml_1_1common_1_1model_1_1element__view.html{element_view}]] {
++add() : void [[[{Add reference to diagram element}]]]
++for_each<F>() const : void
++get() const : common::optional_ref<T> [[[{Get typed diagram element by id}]]]
++is_empty() const : bool [[[{Check whether the element view is empty}]]]
++remove() : void [[[{remove}]]]
++view() const : const reference_vector<T> & [[[{Get collection of reference to diagram elements}]]]
++view() : reference_vector<T> & [[[{Get collection of reference to diagram elements}]]]
+__
+-elements_ : reference_vector<T> [[[{elements_}]]]
+}
+class "::clanguml::common::model::element_view<Ts>" as C_0016060342263910724057
+class C_0016060342263910724057 [[classclanguml_1_1common_1_1model_1_1element__view.html{element_view}]] {
+__
+}
+class "::clanguml::common::model::element_views<Ts...>" as C_0000442317801108185645
+class C_0000442317801108185645 [[structclanguml_1_1common_1_1model_1_1element__views.html{element_views}]] {
++dynamic_apply<T,F>() const : void
++for_all_elements<F>() : void
++for_all_elements<F>() const : void
++view<T>() const : const element_view<T> &
+__
+}
+class "::clanguml::common::model::nested_trait<clanguml::common::model::element,clanguml::common::model::path>" as C_0015066935078142509054
+class C_0015066935078142509054 [[classclanguml_1_1common_1_1model_1_1nested__trait.html{nested_trait}]] {
+__
+}
+class "::clanguml::common::model::package" as C_0017146293478645494837
+class C_0017146293478645494837 [[classclanguml_1_1common_1_1model_1_1package.html{Diagram element representing namespace or directory package}]] {
++package() : void [[[{package}]]]
++package() = deleted : void [[[{package}]]]
++package() = default : void [[[{package}]]]
+..
++operator=() = deleted : package & [[[{operator=}]]]
++operator=() = deleted : package & [[[{operator=}]]]
+..
++doxygen_link() const : std::optional<std::string> [[[{Generate Doxygen style HTML link for the class.}]]]
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++is_deprecated() const : bool [[[{is_deprecated}]]]
++set_deprecated() : void [[[{set_deprecated}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+-is_deprecated_ : bool [[[{is_deprecated_}]]]
+}
+enum "::clanguml::common::model::filter_t" as C_0015453332803030149602
+enum C_0015453332803030149602 [[enumclanguml_1_1common_1_1model_1_1filter__t.html{filter_t}]] {
+kInclusive
+kExclusive
+}
+class "::clanguml::common::model::filter_visitor" as C_0003755664421485538512
+class C_0003755664421485538512 [[classclanguml_1_1common_1_1model_1_1filter__visitor.html{Base class for any diagram filter.}]] {
++filter_visitor() : void [[[{filter_visitor}]]]
++~filter_visitor() = default : void [[[{~filter_visitor}]]]
+..
++is_exclusive() const : bool [[[{is_exclusive}]]]
++is_inclusive() const : bool [[[{is_inclusive}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++mode() const : filter_mode_t [[[{mode}]]]
++reset() : void [[[{reset}]]]
++set_mode() : void [[[{set_mode}]]]
++type() const : filter_t [[[{type}]]]
+__
+-mode_ : filter_mode_t [[[{mode_}]]]
+}
+class "::clanguml::common::model::anyof_filter" as C_0004846633653196508605
+class C_0004846633653196508605 [[structclanguml_1_1common_1_1model_1_1anyof__filter.html{anyof_filter}]] {
++anyof_filter() : void [[[{anyof_filter}]]]
++~anyof_filter() = default : void [[[{~anyof_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
+-match_anyof<E>() const : tvl::value_t
++reset() : void [[[{reset}]]]
+__
+}
+class "::clanguml::common::model::allof_filter" as C_0008681673430919411882
+class C_0008681673430919411882 [[structclanguml_1_1common_1_1model_1_1allof__filter.html{allof_filter}]] {
++allof_filter() : void [[[{allof_filter}]]]
++~allof_filter() = default : void [[[{~allof_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
+-match_allof<E>() const : tvl::value_t
++reset() : void [[[{reset}]]]
+__
+}
+class "::clanguml::common::model::namespace_filter" as C_0014529922051766561513
+class C_0014529922051766561513 [[structclanguml_1_1common_1_1model_1_1namespace__filter.html{namespace_filter}]] {
++namespace_filter() : void [[[{namespace_filter}]]]
++~namespace_filter() = default : void [[[{~namespace_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
+__
+-namespaces_ : std::vector<common::namespace_or_regex> [[[{namespaces_}]]]
+}
+class "::clanguml::common::model::modules_filter" as C_0018235506892675596161
+class C_0018235506892675596161 [[structclanguml_1_1common_1_1model_1_1modules__filter.html{modules_filter}]] {
++modules_filter() : void [[[{modules_filter}]]]
++~modules_filter() = default : void [[[{~modules_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+-modules_ : std::vector<common::string_or_regex> [[[{modules_}]]]
+}
+class "::clanguml::common::model::element_filter" as C_0005522729892949283391
+class C_0005522729892949283391 [[structclanguml_1_1common_1_1model_1_1element__filter.html{element_filter}]] {
++element_filter() : void [[[{element_filter}]]]
++~element_filter() = default : void [[[{~element_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
+__
+-elements_ : std::vector<config::element_filter_t> [[[{elements_}]]]
+}
+class "::clanguml::common::model::element_type_filter" as C_0016413347653743218402
+class C_0016413347653743218402 [[structclanguml_1_1common_1_1model_1_1element__type__filter.html{element_type_filter}]] {
++element_type_filter() : void [[[{element_type_filter}]]]
++~element_type_filter() = default : void [[[{~element_type_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+-element_types_ : std::vector<std::string> [[[{element_types_}]]]
+}
+class "::clanguml::common::model::method_type_filter" as C_0015178953694360295900
+class C_0015178953694360295900 [[structclanguml_1_1common_1_1model_1_1method__type__filter.html{method_type_filter}]] {
++method_type_filter() : void [[[{method_type_filter}]]]
++~method_type_filter() = default : void [[[{~method_type_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+-method_types_ : std::vector<config::method_type> [[[{method_types_}]]]
+}
+class "::clanguml::common::model::callee_filter" as C_0009586729560943033114
+class C_0009586729560943033114 [[structclanguml_1_1common_1_1model_1_1callee__filter.html{callee_filter}]] {
++callee_filter() : void [[[{callee_filter}]]]
++~callee_filter() = default : void [[[{~callee_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+-callee_types_ : std::vector<config::callee_type> [[[{callee_types_}]]]
+}
+class "::clanguml::common::model::subclass_filter" as C_0011119356209474014086
+class C_0011119356209474014086 [[structclanguml_1_1common_1_1model_1_1subclass__filter.html{subclass_filter}]] {
++subclass_filter() : void [[[{subclass_filter}]]]
++~subclass_filter() = default : void [[[{~subclass_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+-roots_ : std::vector<common::string_or_regex> [[[{roots_}]]]
+}
+class "::clanguml::common::model::parents_filter" as C_0014190027896959020338
+class C_0014190027896959020338 [[structclanguml_1_1common_1_1model_1_1parents__filter.html{parents_filter}]] {
++parents_filter() : void [[[{parents_filter}]]]
++~parents_filter() = default : void [[[{~parents_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+-children_ : std::vector<common::string_or_regex> [[[{children_}]]]
+}
+class "::clanguml::common::model::edge_traversal_filter<DiagramT,ElementT,ConfigEntryT=std::string,MatchOverrideT=common::model::element>" as C_0011978821643502128904
+class C_0011978821643502128904 [[structclanguml_1_1common_1_1model_1_1edge__traversal__filter.html{Common template for filters involving traversing relationship graph.}]] {
++edge_traversal_filter() : void [[[{edge_traversal_filter}]]]
++~edge_traversal_filter() = default : void [[[{~edge_traversal_filter}]]]
+..
+-add_adjacent<C,D>() const : _Bool
+-add_parents() const : void [[[{add_parents}]]]
+-init() const : void [[[{init}]]]
++match() const : tvl::value_t [[[{match}]]]
++reset() : void [[[{reset}]]]
+__
+-forward_ : bool [[[{forward_}]]]
+-initialized_ : bool [[[{initialized_}]]]
+-matching_elements_ : clanguml::common::reference_set<ElementT> [[[{matching_elements_}]]]
+-roots_ : std::vector<ConfigEntryT> [[[{roots_}]]]
+}
+class "::clanguml::common::model::relationship_filter" as C_0009565704064810099821
+class C_0009565704064810099821 [[structclanguml_1_1common_1_1model_1_1relationship__filter.html{relationship_filter}]] {
++relationship_filter() : void [[[{relationship_filter}]]]
++~relationship_filter() = default : void [[[{~relationship_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+}
+class "::clanguml::common::model::access_filter" as C_0008785474747591996724
+class C_0008785474747591996724 [[structclanguml_1_1common_1_1model_1_1access__filter.html{access_filter}]] {
++access_filter() : void [[[{access_filter}]]]
++~access_filter() = default : void [[[{~access_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+}
+class "::clanguml::common::model::module_access_filter" as C_0015952402022523334996
+class C_0015952402022523334996 [[structclanguml_1_1common_1_1model_1_1module__access__filter.html{module_access_filter}]] {
++module_access_filter() : void [[[{module_access_filter}]]]
++~module_access_filter() = default : void [[[{~module_access_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+}
+class "::clanguml::common::model::context_filter" as C_0016629349577908476453
+class C_0016629349577908476453 [[structclanguml_1_1common_1_1model_1_1context__filter.html{context_filter}]] {
++context_filter() : void [[[{context_filter}]]]
++~context_filter() = default : void [[[{~context_filter}]]]
+..
+-find_elements_in_direct_relationship<DiagramT>() const : void
+-initialize() const : void [[[{initialize}]]]
+-initialize_effective_context() const : void [[[{initialize_effective_context}]]]
+-initialize_effective_context_class_diagram() const : void [[[{initialize_effective_context_class_diagram}]]]
+-initialize_effective_context_package_diagram() const : void [[[{initialize_effective_context_package_diagram}]]]
+-is_inward() const : bool [[[{is_inward}]]]
+-is_outward() const : bool [[[{is_outward}]]]
++match() const : tvl::value_t [[[{match}]]]
+-process_elements<NestedTraitT>() const : void
+-should_include() const : bool [[[{should_include}]]]
+__
+-context_ : std::vector<config::context_config> [[[{context_}]]]
+-effective_contexts_ : std::vector<std::set<eid_t>> [[[{effective_contexts_}]]]
+-initialized_ : bool [[[{initialized_}]]]
+}
+class "::clanguml::common::model::paths_filter" as C_0006652291670129478083
+class C_0006652291670129478083 [[structclanguml_1_1common_1_1model_1_1paths__filter.html{paths_filter}]] {
++paths_filter() : void [[[{paths_filter}]]]
++~paths_filter() = default : void [[[{~paths_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
++match() const : tvl::value_t [[[{match}]]]
+__
+-paths_ : std::vector<std::filesystem::path> [[[{paths_}]]]
+-root_ : std::filesystem::path [[[{root_}]]]
+}
+class "::clanguml::common::model::class_method_filter" as C_0012630714920699568214
+class C_0012630714920699568214 [[structclanguml_1_1common_1_1model_1_1class__method__filter.html{class_method_filter}]] {
++class_method_filter() : void [[[{class_method_filter}]]]
++~class_method_filter() = default : void [[[{~class_method_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+}
+class "::clanguml::common::model::class_member_filter" as C_0005413465939996691743
+class C_0005413465939996691743 [[structclanguml_1_1common_1_1model_1_1class__member__filter.html{class_member_filter}]] {
++class_member_filter() : void [[[{class_member_filter}]]]
++~class_member_filter() = default : void [[[{~class_member_filter}]]]
+..
++match() const : tvl::value_t [[[{match}]]]
+__
+}
+class "::clanguml::common::model::diagram_filter" as C_0016433125554160293965
+class C_0016433125554160293965 [[classclanguml_1_1common_1_1model_1_1diagram__filter.html{Composite of all diagrams filters.}]] {
++diagram_filter() : void [[[{diagram_filter}]]]
+..
++add_exclusive_filter() : void [[[{add_exclusive_filter}]]]
++add_filter() : void [[[{add_filter}]]]
++add_inclusive_filter() : void [[[{add_inclusive_filter}]]]
++mode() const : filter_mode_t [[[{mode}]]]
++reset() : void [[[{reset}]]]
++set_mode() : void [[[{set_mode}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include<T>() const : _Bool
+__
+-mode_ : filter_mode_t [[[{mode_}]]]
+}
+class "::clanguml::common::model::diagram_filter::private_constructor_tag_t" as C_0004875546475450307527
+class C_0004875546475450307527 [[structclanguml_1_1common_1_1model_1_1diagram__filter_1_1private__constructor__tag__t.html{diagram_filter::private_constructor_tag_t}]] {
+__
+}
+class "::clanguml::common::model::diagram_filter_factory" as C_0011768847127831739904
+class C_0011768847127831739904 [[classclanguml_1_1common_1_1model_1_1diagram__filter__factory.html{diagram_filter_factory}]] {
+__
+}
+class "::clanguml::common::model::element_views<clanguml::common::model::package>" as C_0003889132146964597741
+class C_0003889132146964597741 [[classclanguml_1_1common_1_1model_1_1element__views.html{element_views}]] {
+__
+}
+class "::clanguml::common::model::nested_trait<clanguml::common::model::element,clanguml::common::model::namespace_>" as C_0000875139725026606268
+class C_0000875139725026606268 [[classclanguml_1_1common_1_1model_1_1nested__trait.html{nested_trait}]] {
+__
+}
+class "diagram" as C_0001188296008369339829
+class C_0001188296008369339829 [[classclanguml_1_1package__diagram_1_1model_1_1diagram.html{Package diagram model.}]] {
++diagram() = default : void [[[{diagram}]]]
++diagram() = deleted : void [[[{diagram}]]]
++diagram() = default : void [[[{diagram}]]]
+..
++operator=() = deleted : diagram & [[[{operator=}]]]
++operator=() = default : diagram & [[[{operator=}]]]
+..
++add<ElementT>() : _Bool
+-add_with_filesystem_path<ElementT>() : _Bool
+-add_with_module_path<ElementT>() : _Bool
+-add_with_namespace_path<ElementT>() : _Bool
++apply_filter() : void [[[{apply_filter}]]]
++elements<ElementT>() const : const common::reference_vector<ElementT> &
++find<ElementT>() const : opt_ref<ElementT>
++find<ElementT>() const : opt_ref<ElementT>
++find<ElementT>() const : std::vector<opt_ref<ElementT> >
++get() const : clanguml::common::optional_ref<diagram_element> [[[{Search for element in the diagram by fully qualified name.}]]]
++get() const : clanguml::common::optional_ref<diagram_element> [[[{Search for element in the diagram by id.}]]]
++is_empty() const : bool [[[{Check whether the diagram is empty}]]]
++packages() const : const common::reference_vector<package> & [[[{Get list of references to packages in the diagram model.}]]]
++to_alias() const : std::string [[[{Get alias of existing diagram element}]]]
++type() const : common::model::diagram_t [[[{Get the diagram model type - in this case package.}]]]
+__
+}
+C_0006758698337325774198 o-- C_0016255347626076472797 [[{path_type_}]] : -path_type_
+C_0016370694070378943411 o-- C_0001833121281440583606 [[{type_}]] : -type_
+C_0016370694070378943411 o-- C_0016616250741959063654 [[{access_}]] : -access_
+C_0008936819060997384951 <|-- C_0016370694070378943411
+C_0016622768607835415521 <|-- C_0016370694070378943411
+C_0007162092657467521843 <|-- C_0016370694070378943411
+C_0008588005715032923314 o-- C_0016370694070378943411 [[{relationships_}]] : -relationships_
+C_0008936819060997384951 <|-- C_0008588005715032923314
+C_0007162092657467521843 <|-- C_0008588005715032923314
+C_0006767826637291167780 o-- C_0017544883041375810356 [[{pr}]] : +pr
+C_0001425108501944636238 o-- C_0002899271625383948189 [[{kind_}]] : -kind_
+C_0001425108501944636238 o-- C_0006767826637291167780 [[{context_}]] : -context_
+C_0001425108501944636238 o-- C_0001425108501944636238 [[{template_params_}]] : -template_params_
+C_0016556163051475263500 o-- C_0006758698337325774198 [[{ns_}]] : -ns_
+C_0016556163051475263500 o-- C_0006758698337325774198 [[{using_namespace_}]] : -using_namespace_
+C_0008588005715032923314 <|-- C_0016556163051475263500
+C_0003717723700041732716 o-- C_0001425108501944636238 [[{templates_}]] : -templates_
+C_0016556163051475263500 <|-- C_0013384831159811298387
+C_0003717723700041732716 <|-- C_0013384831159811298387
+C_0012891720332235399601 ..|> C_0007129669985754476498
+C_0006285717704576425038 o-- C_0006758698337325774198 [[{path_}]] : -path_
+C_0006285717704576425038 o-- C_0011921262880242400910 [[{type_}]] : -type_
+C_0008588005715032923314 <|-- C_0006285717704576425038
+C_0016622768607835415521 <|-- C_0006285717704576425038
+C_0012891720332235399601 <|-- C_0006285717704576425038
+C_0001576551882566686996 o-- C_0016433125554160293965 [[{filter_}]] : -filter_
+C_0016060342263910724057 ..|> C_0014290881841292490213
+C_0016060342263910724057 <|-- C_0000442317801108185645
+C_0015066935078142509054 ..|> C_0007129669985754476498
+C_0016556163051475263500 <|-- C_0017146293478645494837
+C_0016622768607835415521 <|-- C_0017146293478645494837
+C_0015066935078142509054 <|-- C_0017146293478645494837
+C_0003755664421485538512 o-- C_0015453332803030149602 [[{type_}]] : -type_
+C_0004846633653196508605 o-- C_0003755664421485538512 [[{filters_}]] : -filters_
+C_0003755664421485538512 <|-- C_0004846633653196508605
+C_0008681673430919411882 o-- C_0003755664421485538512 [[{filters_}]] : -filters_
+C_0003755664421485538512 <|-- C_0008681673430919411882
+C_0003755664421485538512 <|-- C_0014529922051766561513
+C_0003755664421485538512 <|-- C_0018235506892675596161
+C_0003755664421485538512 <|-- C_0005522729892949283391
+C_0003755664421485538512 <|-- C_0016413347653743218402
+C_0003755664421485538512 <|-- C_0015178953694360295900
+C_0003755664421485538512 <|-- C_0009586729560943033114
+C_0003755664421485538512 <|-- C_0011119356209474014086
+C_0003755664421485538512 <|-- C_0014190027896959020338
+C_0011978821643502128904 o-- C_0001833121281440583606 [[{relationship_}]] : -relationship_
+C_0003755664421485538512 <|-- C_0011978821643502128904
+C_0009565704064810099821 o-- C_0001833121281440583606 [[{relationships_}]] : -relationships_
+C_0003755664421485538512 <|-- C_0009565704064810099821
+C_0008785474747591996724 o-- C_0016616250741959063654 [[{access_}]] : -access_
+C_0003755664421485538512 <|-- C_0008785474747591996724
+C_0015952402022523334996 o-- C_0006969247586605750999 [[{access_}]] : -access_
+C_0003755664421485538512 <|-- C_0015952402022523334996
+C_0003755664421485538512 <|-- C_0016629349577908476453
+C_0003755664421485538512 <|-- C_0006652291670129478083
+C_0012630714920699568214 o-- C_0008785474747591996724 [[{access_filter_}]] : -access_filter_
+C_0012630714920699568214 o-- C_0015178953694360295900 [[{method_type_filter_}]] : -method_type_filter_
+C_0003755664421485538512 <|-- C_0012630714920699568214
+C_0005413465939996691743 o-- C_0008785474747591996724 [[{access_filter_}]] : -access_filter_
+C_0003755664421485538512 <|-- C_0005413465939996691743
+C_0016433125554160293965 o-- C_0003755664421485538512 [[{inclusive_}]] : -inclusive_
+C_0016433125554160293965 o-- C_0003755664421485538512 [[{exclusive_}]] : -exclusive_
+C_0016433125554160293965 --> C_0001576551882566686996 [[{diagram_}]] : -diagram_
+C_0016433125554160293965 <.. C_0011768847127831739904 : +<<friend>>
+C_0004875546475450307527 --+ C_0016433125554160293965
+C_0003889132146964597741 ..|> C_0000442317801108185645
+C_0000875139725026606268 ..|> C_0007129669985754476498
+C_0001576551882566686996 <|-- C_0001188296008369339829
+C_0003889132146964597741 <|-- C_0001188296008369339829
+C_0000875139725026606268 <|-- C_0001188296008369339829
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

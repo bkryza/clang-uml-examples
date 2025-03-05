@@ -1,0 +1,1057 @@
+@startuml
+title App::PropertyQuantity context
+package [Base] as C_0005614219575140048477 {
+class "Type" as C_0010396699791746075194
+class C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L80{Type}]] {
++Type(const Type & type) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L84{Type}]]]
++Type(Type && type) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L85{Type}]]]
++Type() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L86{Type}]]]
++~Type() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L88{~Type}]]]
+..
++operator=(const Type & type) constexpr = default : Type & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L119{operator=}]]]
++operator=(Type && type) constexpr = default : Type & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L120{operator=}]]]
+..
++operator!=(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L122{operator!=}]]]
++operator<(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L124{operator<}]]]
++operator<=(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L125{operator<=}]]]
++operator==(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L121{operator==}]]]
++operator>(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L127{operator>}]]]
++operator>=(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L126{operator>=}]]]
+..
+{static} +badType() : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L129{badType}]]]
++canInstantiate() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L93{canInstantiate}]]]
++createInstance() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L91{createInstance}]]]
+{static} +createInstanceByName(const char * TypeName, bool bLoadModule = false) : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L95{createInstanceByName}]]]
+{static} +createType(const Type & parent, const char * name, instantiationMethod method = nullptr) : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L114{createType}]]]
+{static} +destruct() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L131{destruct}]]]
+{static} +fromKey(unsigned int key) : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L101{fromKey}]]]
+{static} +fromName(const char * name) : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L100{fromName}]]]
+{static} +getAllDerivedFrom(const Type & type, std::vector<Type> & List) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L106{getAllDerivedFrom}]]]
++getKey() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L116{getKey}]]]
+{static} +getModuleName(const char * ClassName) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L133{getModuleName}]]]
++getName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L102{getName}]]]
+{static} +getNumTypes() : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L111{getNumTypes}]]]
++getParent() const : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L103{getParent}]]]
+{static} +getTypeIfDerivedFrom(const char * name, const Type & parent, bool bLoadModule = false) : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L109{getTypeIfDerivedFrom}]]]
+{static} +importModule(const char * TypeName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L96{importModule}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L130{init}]]]
++isBad() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L117{isBad}]]]
++isDerivedFrom(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L104{isDerivedFrom}]]]
+__
+-index : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L137{index}]]]
+{static} -loadModuleSet : std::set<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L141{loadModuleSet}]]]
+{static} -typedata : std::vector<TypeData *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L140{typedata}]]]
+{static} -typemap : std::map<std::string,unsigned int> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L139{typemap}]]]
+}
+class "Unit" as C_0004517032700531835333
+class C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L60{Unit}]] {
++Unit(int8_t Length, int8_t Mass = 0, int8_t Time = 0, int8_t ElectricCurrent = 0, int8_t ThermodynamicTemperature = 0, int8_t AmountOfSubstance = 0, int8_t LuminousIntensity = 0, int8_t Angle = 0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L64{Unit}]]]
++Unit() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L72{Unit}]]]
++Unit(const Unit &) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L73{Unit}]]]
++Unit(Unit &&) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L74{Unit}]]]
++Unit(const QString & expr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L75{Unit}]]]
++~Unit() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L77{~Unit}]]]
+..
++operator=(const Unit &) = default : Unit & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L91{operator=}]]]
++operator=(Unit &&) = default : Unit & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L92{operator=}]]]
+..
++operator!=(const Unit & that) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L87{operator!=}]]]
++operator*(const Unit &) const : Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L84{operator*}]]]
++operator*=(const Unit & that) : Unit & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L82{operator*=}]]]
++operator/(const Unit &) const : Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L85{operator/}]]]
++operator/=(const Unit & that) : Unit & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L83{operator/=}]]]
++operator==(const Unit &) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L86{operator==}]]]
+..
++getSignature() const : const UnitSignature & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L96{getSignature}]]]
++getString() const : QString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L102{getString}]]]
++getTypeString() const : QString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L104{getTypeString}]]]
++isEmpty() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L100{isEmpty}]]]
++pow(double exp) const : Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L93{pow}]]]
+__
+{static} +Acceleration : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L124{Acceleration}]]]
+{static} +AmountOfSubstance : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L140{AmountOfSubstance}]]]
+{static} +Angle : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L114{Angle}]]]
+{static} +AngleOfFriction : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L115{AngleOfFriction}]]]
+{static} +Area : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L119{Area}]]]
+{static} +CompressiveStrength : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L144{CompressiveStrength}]]]
+{static} +CurrentDensity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L127{CurrentDensity}]]]
+{static} +Density : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L117{Density}]]]
+{static} +DissipationRate : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L171{DissipationRate}]]]
+{static} +DynamicViscosity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L167{DynamicViscosity}]]]
+{static} +ElectricCharge : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L130{ElectricCharge}]]]
+{static} +ElectricCurrent : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L128{ElectricCurrent}]]]
+{static} +ElectricPotential : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L129{ElectricPotential}]]]
+{static} +ElectricalCapacitance : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L135{ElectricalCapacitance}]]]
+{static} +ElectricalConductance : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L137{ElectricalConductance}]]]
+{static} +ElectricalConductivity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L139{ElectricalConductivity}]]]
+{static} +ElectricalInductance : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L136{ElectricalInductance}]]]
+{static} +ElectricalResistance : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L138{ElectricalResistance}]]]
+{static} +Force : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L155{Force}]]]
+{static} +Frequency : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L122{Frequency}]]]
+{static} +HeatFlux : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L166{HeatFlux}]]]
+{static} +InverseArea : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L174{InverseArea}]]]
+{static} +InverseLength : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L173{InverseLength}]]]
+{static} +InverseVolume : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L175{InverseVolume}]]]
+{static} +KinematicViscosity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L168{KinematicViscosity}]]]
+{static} +Length : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L109{Length}]]]
+{static} +LuminousIntensity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L141{LuminousIntensity}]]]
+{static} +MagneticFieldStrength : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L131{MagneticFieldStrength}]]]
+{static} +MagneticFlux : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L132{MagneticFlux}]]]
+{static} +MagneticFluxDensity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L133{MagneticFluxDensity}]]]
+{static} +Magnetization : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L134{Magnetization}]]]
+{static} +Mass : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L111{Mass}]]]
+{static} +Moment : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L158{Moment}]]]
+{static} +Power : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L157{Power}]]]
+{static} +Pressure : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L145{Pressure}]]]
+{static} +ShearModulus : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L146{ShearModulus}]]]
+-Sig : UnitSignature [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L179{Sig}]]]
+{static} +SpecificEnergy : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L160{SpecificEnergy}]]]
+{static} +SpecificHeat : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L164{SpecificHeat}]]]
+{static} +Stiffness : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L152{Stiffness}]]]
+{static} +StiffnessDensity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L153{StiffnessDensity}]]]
+{static} +Stress : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L147{Stress}]]]
+{static} +Temperature : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L125{Temperature}]]]
+{static} +ThermalConductivity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L161{ThermalConductivity}]]]
+{static} +ThermalExpansionCoefficient : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L162{ThermalExpansionCoefficient}]]]
+{static} +ThermalTransferCoefficient : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L165{ThermalTransferCoefficient}]]]
+{static} +TimeSpan : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L121{TimeSpan}]]]
+{static} +UltimateTensileStrength : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L148{UltimateTensileStrength}]]]
+{static} +VacuumPermittivity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L169{VacuumPermittivity}]]]
+{static} +Velocity : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L123{Velocity}]]]
+{static} +Volume : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L120{Volume}]]]
+{static} +VolumeFlowRate : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L170{VolumeFlowRate}]]]
+{static} +VolumetricThermalExpansionCoefficient : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L163{VolumetricThermalExpansionCoefficient}]]]
+{static} +Work : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L156{Work}]]]
+{static} +YieldStrength : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L149{YieldStrength}]]]
+{static} +YoungsModulus : const Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L150{YoungsModulus}]]]
+}
+}
+package [App] as C_0018282610363821501524 {
+class "PropertyFloat" as C_0012887428429727173509
+class C_0012887428429727173509 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L498{PropertyFloat}]] {
++PropertyFloat() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L506{PropertyFloat}]]]
++~PropertyFloat() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L512{~PropertyFloat}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L526{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L527{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L524{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L523{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L518{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L529{getMemSize}]]]
++getPathValue(const App::ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L532{getPathValue}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L520{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L516{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L534{isSame}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L531{setPathValue}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L521{setPyObject}]]]
++setValue(double lValue) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L515{setValue}]]]
+__
+#_dValue : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L543{_dValue}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyQuantity" as C_0014269413040790547216
+class C_0014269413040790547216 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L42{PropertyQuantity}]] {
++PropertyQuantity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L47{PropertyQuantity}]]]
++~PropertyQuantity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L48{~PropertyQuantity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+#createQuantityFromPy(PyObject * value) : Base::Quantity [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L75{createQuantityFromPy}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L52{getEditorName}]]]
++getPathValue(const App::ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L64{getPathValue}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L54{getPyObject}]]]
++getQuantityValue() const : Base::Quantity [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L50{getQuantityValue}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getUnit() const : const Base::Unit & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L58{getUnit}]]]
++getValue() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L61{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L66{isSame}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L63{setPathValue}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L55{setPyObject}]]]
++setUnit(const Base::Unit & u) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L57{setUnit}]]]
++setValue(double lValue) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L60{setValue}]]]
+__
+#_Unit : Base::Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L76{_Unit}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyQuantityConstraint" as C_0011885667992304164553
+class C_0011885667992304164553 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L82{PropertyQuantityConstraint}]] {
++PropertyQuantityConstraint() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L87{PropertyQuantityConstraint}]]]
++~PropertyQuantityConstraint() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L88{~PropertyQuantityConstraint}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getConstraints() const : const Constraints * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L106{getConstraints}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L113{getEditorName}]]]
++getMaximum() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L110{getMaximum}]]]
++getMinimum() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L109{getMinimum}]]]
++getStepSize() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L111{getStepSize}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++setConstraints(const Constraints * sConstrain) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L104{setConstraints}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L114{setPyObject}]]]
+__
+-_ConstStruct : const Constraints * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L117{_ConstStruct}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyAcceleration" as C_0005125435232803714475
+class C_0005125435232803714475 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L128{PropertyAcceleration}]] {
++PropertyAcceleration() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L133{PropertyAcceleration}]]]
++~PropertyAcceleration() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L134{~PropertyAcceleration}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyAmountOfSubstance" as C_0009034219065519484387
+class C_0009034219065519484387 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L141{PropertyAmountOfSubstance}]] {
++PropertyAmountOfSubstance() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L146{PropertyAmountOfSubstance}]]]
++~PropertyAmountOfSubstance() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L147{~PropertyAmountOfSubstance}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyCompressiveStrength" as C_0015098407887226269354
+class C_0015098407887226269354 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L181{PropertyCompressiveStrength}]] {
++PropertyCompressiveStrength() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L186{PropertyCompressiveStrength}]]]
++~PropertyCompressiveStrength() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L187{~PropertyCompressiveStrength}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyCurrentDensity" as C_0005517470564042081004
+class C_0005517470564042081004 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L194{PropertyCurrentDensity}]] {
++PropertyCurrentDensity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L199{PropertyCurrentDensity}]]]
++~PropertyCurrentDensity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L200{~PropertyCurrentDensity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyDensity" as C_0013751151762620995906
+class C_0013751151762620995906 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L208{PropertyDensity}]] {
++PropertyDensity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L213{PropertyDensity}]]]
++~PropertyDensity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L214{~PropertyDensity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyDissipationRate" as C_0001680601615617437360
+class C_0001680601615617437360 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L221{PropertyDissipationRate}]] {
++PropertyDissipationRate() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L226{PropertyDissipationRate}]]]
++~PropertyDissipationRate() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L227{~PropertyDissipationRate}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyDistance" as C_0003796840685907020967
+class C_0003796840685907020967 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L234{PropertyDistance}]] {
++PropertyDistance() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L239{PropertyDistance}]]]
++~PropertyDistance() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L240{~PropertyDistance}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyDynamicViscosity" as C_0002426905061851844762
+class C_0002426905061851844762 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L247{PropertyDynamicViscosity}]] {
++PropertyDynamicViscosity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L252{PropertyDynamicViscosity}]]]
++~PropertyDynamicViscosity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L253{~PropertyDynamicViscosity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyElectricalCapacitance" as C_0007380244183887158627
+class C_0007380244183887158627 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L260{PropertyElectricalCapacitance}]] {
++PropertyElectricalCapacitance() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L265{PropertyElectricalCapacitance}]]]
++~PropertyElectricalCapacitance() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L266{~PropertyElectricalCapacitance}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyElectricalConductance" as C_0009995465184257900389
+class C_0009995465184257900389 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L273{PropertyElectricalConductance}]] {
++PropertyElectricalConductance() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L278{PropertyElectricalConductance}]]]
++~PropertyElectricalConductance() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L279{~PropertyElectricalConductance}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyElectricalConductivity" as C_0003343697254810133802
+class C_0003343697254810133802 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L286{PropertyElectricalConductivity}]] {
++PropertyElectricalConductivity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L291{PropertyElectricalConductivity}]]]
++~PropertyElectricalConductivity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L292{~PropertyElectricalConductivity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyElectricalInductance" as C_0003975415372428184649
+class C_0003975415372428184649 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L299{PropertyElectricalInductance}]] {
++PropertyElectricalInductance() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L304{PropertyElectricalInductance}]]]
++~PropertyElectricalInductance() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L305{~PropertyElectricalInductance}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyElectricalResistance" as C_0009725833482432524535
+class C_0009725833482432524535 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L313{PropertyElectricalResistance}]] {
++PropertyElectricalResistance() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L318{PropertyElectricalResistance}]]]
++~PropertyElectricalResistance() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L319{~PropertyElectricalResistance}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyElectricCharge" as C_0001911308950326530176
+class C_0001911308950326530176 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L326{PropertyElectricCharge}]] {
++PropertyElectricCharge() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L331{PropertyElectricCharge}]]]
++~PropertyElectricCharge() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L332{~PropertyElectricCharge}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyElectricCurrent" as C_0009313749301250433089
+class C_0009313749301250433089 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L339{PropertyElectricCurrent}]] {
++PropertyElectricCurrent() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L344{PropertyElectricCurrent}]]]
++~PropertyElectricCurrent() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L345{~PropertyElectricCurrent}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyElectricPotential" as C_0015196558022315021702
+class C_0015196558022315021702 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L352{PropertyElectricPotential}]] {
++PropertyElectricPotential() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L357{PropertyElectricPotential}]]]
++~PropertyElectricPotential() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L358{~PropertyElectricPotential}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyFrequency" as C_0009662905439710553177
+class C_0009662905439710553177 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L365{PropertyFrequency}]] {
++PropertyFrequency() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L370{PropertyFrequency}]]]
++~PropertyFrequency() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L371{~PropertyFrequency}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyForce" as C_0010796431701332295157
+class C_0010796431701332295157 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L378{PropertyForce}]] {
++PropertyForce() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L383{PropertyForce}]]]
++~PropertyForce() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L384{~PropertyForce}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyHeatFlux" as C_0014984476721088951721
+class C_0014984476721088951721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L391{PropertyHeatFlux}]] {
++PropertyHeatFlux() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L396{PropertyHeatFlux}]]]
++~PropertyHeatFlux() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L397{~PropertyHeatFlux}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyInverseArea" as C_0010932801116686433294
+class C_0010932801116686433294 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L404{PropertyInverseArea}]] {
++PropertyInverseArea() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L409{PropertyInverseArea}]]]
++~PropertyInverseArea() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L410{~PropertyInverseArea}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyInverseLength" as C_0001295452357442334288
+class C_0001295452357442334288 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L417{PropertyInverseLength}]] {
++PropertyInverseLength() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L422{PropertyInverseLength}]]]
++~PropertyInverseLength() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L423{~PropertyInverseLength}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyInverseVolume" as C_0002757069744623887368
+class C_0002757069744623887368 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L430{PropertyInverseVolume}]] {
++PropertyInverseVolume() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L435{PropertyInverseVolume}]]]
++~PropertyInverseVolume() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L436{~PropertyInverseVolume}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyKinematicViscosity" as C_0000208020696042825923
+class C_0000208020696042825923 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L443{PropertyKinematicViscosity}]] {
++PropertyKinematicViscosity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L448{PropertyKinematicViscosity}]]]
++~PropertyKinematicViscosity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L449{~PropertyKinematicViscosity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyLuminousIntensity" as C_0006103817014616326461
+class C_0006103817014616326461 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L469{PropertyLuminousIntensity}]] {
++PropertyLuminousIntensity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L474{PropertyLuminousIntensity}]]]
++~PropertyLuminousIntensity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L475{~PropertyLuminousIntensity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMagneticFieldStrength" as C_0002581843080807706356
+class C_0002581843080807706356 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L482{PropertyMagneticFieldStrength}]] {
++PropertyMagneticFieldStrength() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L487{PropertyMagneticFieldStrength}]]]
++~PropertyMagneticFieldStrength() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L488{~PropertyMagneticFieldStrength}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMagneticFlux" as C_0010083792903117958299
+class C_0010083792903117958299 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L495{PropertyMagneticFlux}]] {
++PropertyMagneticFlux() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L500{PropertyMagneticFlux}]]]
++~PropertyMagneticFlux() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L501{~PropertyMagneticFlux}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMagneticFluxDensity" as C_0008409867217007755712
+class C_0008409867217007755712 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L508{PropertyMagneticFluxDensity}]] {
++PropertyMagneticFluxDensity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L513{PropertyMagneticFluxDensity}]]]
++~PropertyMagneticFluxDensity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L514{~PropertyMagneticFluxDensity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMagnetization" as C_0008379380719328827619
+class C_0008379380719328827619 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L521{PropertyMagnetization}]] {
++PropertyMagnetization() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L526{PropertyMagnetization}]]]
++~PropertyMagnetization() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L527{~PropertyMagnetization}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMass" as C_0006944994821631058349
+class C_0006944994821631058349 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L534{PropertyMass}]] {
++PropertyMass() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L539{PropertyMass}]]]
++~PropertyMass() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L540{~PropertyMass}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMoment" as C_0017539723616938281448
+class C_0017539723616938281448 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L547{PropertyMoment}]] {
++PropertyMoment() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L552{PropertyMoment}]]]
++~PropertyMoment() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L553{~PropertyMoment}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyPressure" as C_0016266740192365586360
+class C_0016266740192365586360 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L560{PropertyPressure}]] {
++PropertyPressure() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L565{PropertyPressure}]]]
++~PropertyPressure() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L566{~PropertyPressure}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyPower" as C_0017879206819242149021
+class C_0017879206819242149021 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L573{PropertyPower}]] {
++PropertyPower() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L578{PropertyPower}]]]
++~PropertyPower() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L579{~PropertyPower}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyShearModulus" as C_0010687859219795030113
+class C_0010687859219795030113 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L586{PropertyShearModulus}]] {
++PropertyShearModulus() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L591{PropertyShearModulus}]]]
++~PropertyShearModulus() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L592{~PropertyShearModulus}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertySpecificEnergy" as C_0002938112120990311436
+class C_0002938112120990311436 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L599{PropertySpecificEnergy}]] {
++PropertySpecificEnergy() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L604{PropertySpecificEnergy}]]]
++~PropertySpecificEnergy() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L605{~PropertySpecificEnergy}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertySpecificHeat" as C_0001864299066073391244
+class C_0001864299066073391244 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L612{PropertySpecificHeat}]] {
++PropertySpecificHeat() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L617{PropertySpecificHeat}]]]
++~PropertySpecificHeat() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L618{~PropertySpecificHeat}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertySpeed" as C_0002525406540660570498
+class C_0002525406540660570498 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L625{PropertySpeed}]] {
++PropertySpeed() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L630{PropertySpeed}]]]
++~PropertySpeed() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L631{~PropertySpeed}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyStiffness" as C_0002154538389258061894
+class C_0002154538389258061894 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L638{PropertyStiffness}]] {
++PropertyStiffness() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L643{PropertyStiffness}]]]
++~PropertyStiffness() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L644{~PropertyStiffness}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyStiffnessDensity" as C_0005594744721042435017
+class C_0005594744721042435017 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L651{PropertyStiffnessDensity}]] {
++PropertyStiffnessDensity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L656{PropertyStiffnessDensity}]]]
++~PropertyStiffnessDensity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L657{~PropertyStiffnessDensity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyStress" as C_0014391077506285397562
+class C_0014391077506285397562 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L664{PropertyStress}]] {
++PropertyStress() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L669{PropertyStress}]]]
++~PropertyStress() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L670{~PropertyStress}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyTemperature" as C_0010972050399595840583
+class C_0010972050399595840583 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L677{PropertyTemperature}]] {
++PropertyTemperature() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L682{PropertyTemperature}]]]
++~PropertyTemperature() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L683{~PropertyTemperature}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyThermalConductivity" as C_0006336302910179917675
+class C_0006336302910179917675 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L690{PropertyThermalConductivity}]] {
++PropertyThermalConductivity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L695{PropertyThermalConductivity}]]]
++~PropertyThermalConductivity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L696{~PropertyThermalConductivity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyThermalExpansionCoefficient" as C_0018070088074014284301
+class C_0018070088074014284301 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L703{PropertyThermalExpansionCoefficient}]] {
++PropertyThermalExpansionCoefficient() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L708{PropertyThermalExpansionCoefficient}]]]
++~PropertyThermalExpansionCoefficient() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L709{~PropertyThermalExpansionCoefficient}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyThermalTransferCoefficient" as C_0017378212826774787324
+class C_0017378212826774787324 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L716{PropertyThermalTransferCoefficient}]] {
++PropertyThermalTransferCoefficient() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L721{PropertyThermalTransferCoefficient}]]]
++~PropertyThermalTransferCoefficient() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L722{~PropertyThermalTransferCoefficient}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyTime" as C_0013226022950931152231
+class C_0013226022950931152231 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L729{PropertyTime}]] {
++PropertyTime() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L734{PropertyTime}]]]
++~PropertyTime() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L735{~PropertyTime}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyUltimateTensileStrength" as C_0002047156304027417177
+class C_0002047156304027417177 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L742{PropertyUltimateTensileStrength}]] {
++PropertyUltimateTensileStrength() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L747{PropertyUltimateTensileStrength}]]]
++~PropertyUltimateTensileStrength() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L748{~PropertyUltimateTensileStrength}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyVacuumPermittivity" as C_0016112050631316858901
+class C_0016112050631316858901 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L755{PropertyVacuumPermittivity}]] {
++PropertyVacuumPermittivity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L760{PropertyVacuumPermittivity}]]]
++~PropertyVacuumPermittivity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L761{~PropertyVacuumPermittivity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyVelocity" as C_0002951396466333058901
+class C_0002951396466333058901 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L768{PropertyVelocity}]] {
++PropertyVelocity() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L773{PropertyVelocity}]]]
++~PropertyVelocity() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L774{~PropertyVelocity}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyVolumeFlowRate" as C_0001568944232525334037
+class C_0001568944232525334037 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L794{PropertyVolumeFlowRate}]] {
++PropertyVolumeFlowRate() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L799{PropertyVolumeFlowRate}]]]
++~PropertyVolumeFlowRate() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L800{~PropertyVolumeFlowRate}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyVolumetricThermalExpansionCoefficient" as C_0002101580744864181538
+class C_0002101580744864181538 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L807{PropertyVolumetricThermalExpansionCoefficient}]] {
++PropertyVolumetricThermalExpansionCoefficient() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L812{PropertyVolumetricThermalExpansionCoefficient}]]]
++~PropertyVolumetricThermalExpansionCoefficient() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L813{~PropertyVolumetricThermalExpansionCoefficient}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyWork" as C_0018067031384507085677
+class C_0018067031384507085677 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L820{PropertyWork}]] {
++PropertyWork() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L825{PropertyWork}]]]
++~PropertyWork() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L826{~PropertyWork}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyYieldStrength" as C_0016596212412331990836
+class C_0016596212412331990836 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L833{PropertyYieldStrength}]] {
++PropertyYieldStrength() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L838{PropertyYieldStrength}]]]
++~PropertyYieldStrength() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L839{~PropertyYieldStrength}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyYoungsModulus" as C_0004282558421175836572
+class C_0004282558421175836572 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L846{PropertyYoungsModulus}]] {
++PropertyYoungsModulus() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L851{PropertyYoungsModulus}]]]
++~PropertyYoungsModulus() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L852{~PropertyYoungsModulus}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "FeatureTest" as C_0007411343199106715084
+class C_0007411343199106715084 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L38{FeatureTest}]] {
++FeatureTest() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L43{FeatureTest}]]]
++~FeatureTest() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L45{~FeatureTest}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
++execute() : DocumentObjectExecReturn * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L110{execute}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
+#getPropertyData() const : const App::PropertyData & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L307{getPropertyData}]]]
+{static} #getPropertyDataPtr() : const App::PropertyData * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L306{getPropertyDataPtr}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getViewProviderName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L113{getViewProviderName}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++mustExecute() const : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L108{mustExecute}]]]
+__
++Angle : App::PropertyAngle [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L63{Angle}]]]
++Bool : App::PropertyBool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L50{Bool}]]]
++BoolList : App::PropertyBoolList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L51{BoolList}]]]
++Colour : App::PropertyColor [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L56{Colour}]]]
++ColourList : App::PropertyColorList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L57{ColourList}]]]
++ConstraintFloat : App::PropertyFloatConstraint [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L68{ConstraintFloat}]]]
++ConstraintInt : App::PropertyIntegerConstraint [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L67{ConstraintInt}]]]
++Distance : App::PropertyDistance [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L62{Distance}]]]
++Enum : App::PropertyEnumeration [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L66{Enum}]]]
++ExceptionType : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L91{ExceptionType}]]]
++ExecCount : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L92{ExecCount}]]]
++ExecResult : App::PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L90{ExecResult}]]]
++Float : App::PropertyFloat [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L49{Float}]]]
++FloatList : App::PropertyFloatList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L72{FloatList}]]]
++Integer : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L48{Integer}]]]
++IntegerList : App::PropertyIntegerList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L71{IntegerList}]]]
++Link : App::PropertyLink [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L75{Link}]]]
++LinkList : App::PropertyLinkList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L77{LinkList}]]]
++LinkSub : App::PropertyLinkSub [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L76{LinkSub}]]]
++LinkSubList : App::PropertyLinkSubList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L78{LinkSubList}]]]
++Material : App::PropertyMaterial [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L58{Material}]]]
++MaterialList : App::PropertyMaterialList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L59{MaterialList}]]]
++Matrix : App::PropertyMatrix [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L81{Matrix}]]]
++Path : App::PropertyPath [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L53{Path}]]]
++Placement : App::PropertyPlacement [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L84{Placement}]]]
++QuantityLength : App::PropertyQuantity [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L101{QuantityLength}]]]
++QuantityOther : App::PropertyQuantity [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L102{QuantityOther}]]]
++Source1 : App::PropertyLink [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L87{Source1}]]]
++Source2 : App::PropertyLink [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L88{Source2}]]]
++SourceN : App::PropertyLinkList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L89{SourceN}]]]
++String : App::PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L52{String}]]]
++StringList : App::PropertyStringList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L54{StringList}]]]
++TypeAll : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L97{TypeAll}]]]
++TypeHidden : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L94{TypeHidden}]]]
++TypeNoRecompute : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L99{TypeNoRecompute}]]]
++TypeOutput : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L96{TypeOutput}]]]
++TypeReadOnly : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L95{TypeReadOnly}]]]
++TypeTransient : App::PropertyInteger [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L98{TypeTransient}]]]
++Vector : App::PropertyVector [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L82{Vector}]]]
++VectorList : App::PropertyVectorList [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L83{VectorList}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+{static} -propertyData : App::PropertyData [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L309{propertyData}]]]
+}
+}
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L109{Length}]] : +Length
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L111{Mass}]] : +Mass
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L114{Angle}]] : +Angle
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L115{AngleOfFriction}]] : +AngleOfFriction
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L117{Density}]] : +Density
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L119{Area}]] : +Area
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L120{Volume}]] : +Volume
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L121{TimeSpan}]] : +TimeSpan
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L122{Frequency}]] : +Frequency
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L123{Velocity}]] : +Velocity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L124{Acceleration}]] : +Acceleration
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L125{Temperature}]] : +Temperature
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L127{CurrentDensity}]] : +CurrentDensity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L128{ElectricCurrent}]] : +ElectricCurrent
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L129{ElectricPotential}]] : +ElectricPotential
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L130{ElectricCharge}]] : +ElectricCharge
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L131{MagneticFieldStrength}]] : +MagneticFieldStrength
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L132{MagneticFlux}]] : +MagneticFlux
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L133{MagneticFluxDensity}]] : +MagneticFluxDensity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L134{Magnetization}]] : +Magnetization
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L135{ElectricalCapacitance}]] : +ElectricalCapacitance
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L136{ElectricalInductance}]] : +ElectricalInductance
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L137{ElectricalConductance}]] : +ElectricalConductance
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L138{ElectricalResistance}]] : +ElectricalResistance
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L139{ElectricalConductivity}]] : +ElectricalConductivity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L140{AmountOfSubstance}]] : +AmountOfSubstance
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L141{LuminousIntensity}]] : +LuminousIntensity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L144{CompressiveStrength}]] : +CompressiveStrength
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L145{Pressure}]] : +Pressure
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L146{ShearModulus}]] : +ShearModulus
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L147{Stress}]] : +Stress
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L148{UltimateTensileStrength}]] : +UltimateTensileStrength
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L149{YieldStrength}]] : +YieldStrength
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L150{YoungsModulus}]] : +YoungsModulus
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L152{Stiffness}]] : +Stiffness
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L153{StiffnessDensity}]] : +StiffnessDensity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L155{Force}]] : +Force
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L156{Work}]] : +Work
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L157{Power}]] : +Power
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L158{Moment}]] : +Moment
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L160{SpecificEnergy}]] : +SpecificEnergy
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L161{ThermalConductivity}]] : +ThermalConductivity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L162{ThermalExpansionCoefficient}]] : +ThermalExpansionCoefficient
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L163{VolumetricThermalExpansionCoefficient}]] : +VolumetricThermalExpansionCoefficient
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L164{SpecificHeat}]] : +SpecificHeat
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L165{ThermalTransferCoefficient}]] : +ThermalTransferCoefficient
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L166{HeatFlux}]] : +HeatFlux
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L167{DynamicViscosity}]] : +DynamicViscosity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L168{KinematicViscosity}]] : +KinematicViscosity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L169{VacuumPermittivity}]] : +VacuumPermittivity
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L170{VolumeFlowRate}]] : +VolumeFlowRate
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L171{DissipationRate}]] : +DissipationRate
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L173{InverseLength}]] : +InverseLength
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L174{InverseArea}]] : +InverseArea
+C_0004517032700531835333 --> C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Unit.h#L175{InverseVolume}]] : +InverseVolume
+C_0012887428429727173509 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 o-- C_0004517032700531835333 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyUnits.h#L76{_Unit}]] : #_Unit
+C_0014269413040790547216 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0012887428429727173509 <|-- C_0014269413040790547216
+C_0011885667992304164553 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0011885667992304164553
+C_0005125435232803714475 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0005125435232803714475
+C_0009034219065519484387 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0009034219065519484387
+C_0015098407887226269354 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0015098407887226269354
+C_0005517470564042081004 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0005517470564042081004
+C_0013751151762620995906 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0013751151762620995906
+C_0001680601615617437360 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0001680601615617437360
+C_0003796840685907020967 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0003796840685907020967
+C_0002426905061851844762 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002426905061851844762
+C_0007380244183887158627 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0007380244183887158627
+C_0009995465184257900389 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0009995465184257900389
+C_0003343697254810133802 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0003343697254810133802
+C_0003975415372428184649 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0003975415372428184649
+C_0009725833482432524535 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0009725833482432524535
+C_0001911308950326530176 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0001911308950326530176
+C_0009313749301250433089 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0009313749301250433089
+C_0015196558022315021702 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0015196558022315021702
+C_0009662905439710553177 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0009662905439710553177
+C_0010796431701332295157 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0010796431701332295157
+C_0014984476721088951721 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0014984476721088951721
+C_0010932801116686433294 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0010932801116686433294
+C_0001295452357442334288 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0001295452357442334288
+C_0002757069744623887368 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002757069744623887368
+C_0000208020696042825923 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0000208020696042825923
+C_0006103817014616326461 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0006103817014616326461
+C_0002581843080807706356 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002581843080807706356
+C_0010083792903117958299 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0010083792903117958299
+C_0008409867217007755712 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0008409867217007755712
+C_0008379380719328827619 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0008379380719328827619
+C_0006944994821631058349 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0006944994821631058349
+C_0017539723616938281448 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0017539723616938281448
+C_0016266740192365586360 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0016266740192365586360
+C_0017879206819242149021 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0017879206819242149021
+C_0010687859219795030113 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0010687859219795030113
+C_0002938112120990311436 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002938112120990311436
+C_0001864299066073391244 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0001864299066073391244
+C_0002525406540660570498 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002525406540660570498
+C_0002154538389258061894 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002154538389258061894
+C_0005594744721042435017 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0005594744721042435017
+C_0014391077506285397562 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0014391077506285397562
+C_0010972050399595840583 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0010972050399595840583
+C_0006336302910179917675 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0006336302910179917675
+C_0018070088074014284301 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0018070088074014284301
+C_0017378212826774787324 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0017378212826774787324
+C_0013226022950931152231 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0013226022950931152231
+C_0002047156304027417177 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002047156304027417177
+C_0016112050631316858901 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0016112050631316858901
+C_0002951396466333058901 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002951396466333058901
+C_0001568944232525334037 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0001568944232525334037
+C_0002101580744864181538 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0002101580744864181538
+C_0018067031384507085677 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0018067031384507085677
+C_0016596212412331990836 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0016596212412331990836
+C_0004282558421175836572 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0014269413040790547216 <|-- C_0004282558421175836572
+C_0007411343199106715084 o-- C_0012887428429727173509 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L49{Float}]] : +Float
+C_0007411343199106715084 o-- C_0003796840685907020967 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L62{Distance}]] : +Distance
+C_0007411343199106715084 o-- C_0014269413040790547216 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L101{QuantityLength}]] : +QuantityLength
+C_0007411343199106715084 o-- C_0014269413040790547216 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L102{QuantityOther}]] : +QuantityOther
+C_0007411343199106715084 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

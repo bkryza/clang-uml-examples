@@ -1,0 +1,339 @@
+@startuml
+title Sequence diagram model
+package [common] as C_0002532840279361781187 {
+package [model] as C_0000669774451444102653 {
+enum "message_t" as C_0012990663881099729824
+enum C_0012990663881099729824 [[enumclanguml_1_1common_1_1model_1_1message__t.html{message_t}]] {
+kCall
+kReturn
+kIf
+kElse
+kElseIf
+kIfEnd
+kWhile
+kWhileEnd
+kDo
+kDoEnd
+kFor
+kForEnd
+kTry
+kCatch
+kTryEnd
+kSwitch
+kCase
+kSwitchEnd
+kConditional
+kConditionalElse
+kConditionalEnd
+kCoReturn
+kCoAwait
+kCoYield
+kNone
+}
+enum "message_scope_t" as C_0001622873702655788086
+enum C_0001622873702655788086 [[enumclanguml_1_1common_1_1model_1_1message__scope__t.html{message_scope_t}]] {
+kNormal
+kCondition
+}
+class "diagram_element" as C_0008588005715032923314
+class C_0008588005715032923314 [[classclanguml_1_1common_1_1model_1_1diagram__element.html{Base class for standalone diagram elements.}]] {
++add_relationship() : void [[[{add_relationship}]]]
++alias() const : std::string [[[{Return elements' diagram alias.}]]]
++append() : void [[[{append}]]]
++apply_filter() : void [[[{apply_filter}]]]
++complete() : void [[[{complete}]]]
++complete() const : bool [[[{complete}]]]
++full_name() const : std::string [[[{Return the elements fully qualified name.}]]]
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++id() const : const eid_t & [[[{Returns diagram element id.}]]]
++is_nested() const : bool [[[{is_nested}]]]
++name() const : std::string [[[{name}]]]
++nested() : void [[[{nested}]]]
++parent_element_id() const : std::optional<eid_t> [[[{parent_element_id}]]]
++relationships() : std::vector<relationship> & [[[{relationships}]]]
++relationships() const : const std::vector<relationship> & [[[{relationships}]]]
++remove_duplicate_relationships() : void [[[{remove_duplicate_relationships}]]]
++set_id() : void [[[{set_id}]]]
++set_name() : void [[[{set_name}]]]
++set_name() : void [[[{set_name}]]]
++set_parent_element_id() : void [[[{set_parent_element_id}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+-complete_ : bool [[[{complete_}]]]
+-id_ : eid_t [[[{id_}]]]
+-name_ : std::string [[[{name_}]]]
+-nested_ : bool [[[{nested_}]]]
+-parent_element_id_ : std::optional<eid_t> [[[{parent_element_id_}]]]
+-relationships_ : std::vector<relationship> [[[{relationships_}]]]
+}
+abstract "diagram" as C_0001576551882566686996
+abstract C_0001576551882566686996 [[classclanguml_1_1common_1_1model_1_1diagram.html{Base class for all diagram models}]] {
++apply_filter() : void [[[{apply_filter}]]]
++complete() const : bool [[[{Whether the diagram is complete.}]]]
+#filter() : diagram_filter & [[[{filter}]]]
++filter() const : const diagram_filter & [[[{filter}]]]
++finalize() : void [[[{Once the diagram is complete, run any final processing.}]]]
+{abstract} +get() const = 0 : common::optional_ref<common::model::diagram_element> [[[{get}]]]
+{abstract} +get() const = 0 : common::optional_ref<common::model::diagram_element> [[[{get}]]]
++get_with_namespace() const : common::optional_ref<common::model::diagram_element> [[[{get_with_namespace}]]]
++has_element() const : bool [[[{has_element}]]]
+{abstract} +is_empty() const = 0 : bool [[[{Check whether the diagram is empty}]]]
++name() const : std::string [[[{name}]]]
++set_complete() : void [[[{Set diagram in a complete state.}]]]
++set_filter() : void [[[{set_filter}]]]
++set_name() : void [[[{set_name}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const = deleted : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
++should_include() const : bool [[[{should_include}]]]
+{abstract} +type() const = 0 : diagram_t [[[{Return type of the diagram.}]]]
+__
+-complete_ : bool [[[{complete_}]]]
+-filter_ : std::unique_ptr<diagram_filter> [[[{filter_}]]]
+-filtered_ : bool [[[{filtered_}]]]
+-name_ : std::string [[[{name_}]]]
+}
+}
+}
+package [sequence_diagram] as C_0012174902727661033893 {
+package [model] as C_0017655759046645114118 {
+class "participant" as C_0011201726182739961811
+class C_0011201726182739961811 [[structclanguml_1_1sequence__diagram_1_1model_1_1participant.html{Base class for various types of sequence diagram participants}]] {
++to_string() const : std::string [[[{Create a string representation of the participant}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
++stereotype_ : stereotype_t [[[{stereotype_}]]]
+}
+class "class_" as C_0007084118972955772881
+class C_0007084118972955772881 [[structclanguml_1_1sequence__diagram_1_1model_1_1class__.html{Sequence diagram participant representing a class.}]] {
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++full_name_no_ns() const : std::string [[[{full_name_no_ns}]]]
++is_abstract() const : bool [[[{Check if class is a abstract.}]]]
++is_alias() : void [[[{Set whether the class is an alias}]]]
++is_alias() const : bool [[[{Check if class is a typedef/using alias.}]]]
++is_lambda() const : bool [[[{Check if the class is lambda}]]]
++is_lambda() : void [[[{Set whether the class is a lambda.}]]]
++is_objc_interface() const : bool [[[{is_objc_interface}]]]
++is_objc_interface() : void [[[{is_objc_interface}]]]
++is_objc_protocol() const : bool [[[{is_objc_protocol}]]]
++is_objc_protocol() : void [[[{is_objc_protocol}]]]
++is_struct() : void [[[{Set whether the class is a struct.}]]]
++is_struct() const : bool [[[{Check if class is a struct.}]]]
++is_template() : void [[[{Set whether the class is a template instantiation.}]]]
++is_template() const : bool [[[{Check if class is a template.}]]]
++is_template_instantiation() const : bool [[[{Check if class is a template instantiation.}]]]
++is_template_instantiation() : void [[[{Set whether the class is a template instantiation.}]]]
++lambda_operator_id() const : eid_t [[[{lambda_operator_id}]]]
++set_lambda_operator_id() : void [[[{set_lambda_operator_id}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+-full_name_ : std::string [[[{full_name_}]]]
+-is_alias_ : bool [[[{is_alias_}]]]
+-is_lambda_ : bool [[[{is_lambda_}]]]
+-is_objc_interface_ : bool [[[{is_objc_interface_}]]]
+-is_objc_protocol_ : bool [[[{is_objc_protocol_}]]]
+-is_struct_ : bool [[[{is_struct_}]]]
+-is_template_ : bool [[[{is_template_}]]]
+-is_template_instantiation_ : bool [[[{is_template_instantiation_}]]]
+-lambda_operator_id_ : eid_t [[[{lambda_operator_id_}]]]
+}
+class "function" as C_0001861107648253454629
+class C_0001861107648253454629 [[structclanguml_1_1sequence__diagram_1_1model_1_1function.html{Participant mode representing a free function.}]] {
++add_parameter() : void [[[{Add a function parameter}]]]
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++full_name_no_ns() const : std::string [[[{full_name_no_ns}]]]
++is_const() : void [[[{Set whether the function is const}]]]
++is_const() const : bool [[[{Check if function is const}]]]
++is_coroutine() : void [[[{Set whether the function is a coroutine}]]]
++is_coroutine() const : bool [[[{Check, if a function is a coroutine}]]]
++is_cuda_device() : void [[[{Set whether the method is a CUDA device call}]]]
++is_cuda_device() const : bool [[[{Check, if a functions is a call to CUDA device}]]]
++is_cuda_kernel() : void [[[{Set whether the method is a CUDA kernel call}]]]
++is_cuda_kernel() const : bool [[[{Check, if a functions is a call to CUDA Kernel}]]]
++is_operator() : void [[[{Set whether the method is an operator}]]]
++is_operator() const : bool [[[{Check, if the method is an operator}]]]
++is_static() : void [[[{Set whether the function is static}]]]
++is_static() const : bool [[[{Check, if the function is static}]]]
++is_void() : void [[[{Set whether the function has a return value}]]]
++is_void() const : bool [[[{Check, if the function has no return value}]]]
++message_name() const : std::string [[[{Render function name as message label}]]]
++parameters() const : const std::vector<std::string> & [[[{Get the list of function parameters}]]]
++return_type() : void [[[{Set functions return type}]]]
++return_type() const : const std::string & [[[{Get function return type}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+-is_const_ : bool [[[{is_const_}]]]
+-is_coroutine_ : bool [[[{is_coroutine_}]]]
+-is_cuda_device_ : bool [[[{is_cuda_device_}]]]
+-is_cuda_kernel_ : bool [[[{is_cuda_kernel_}]]]
+-is_operator_ : bool [[[{is_operator_}]]]
+-is_static_ : bool [[[{is_static_}]]]
+-is_void_ : bool [[[{is_void_}]]]
+-parameters_ : std::vector<std::string> [[[{parameters_}]]]
+-return_type_ : std::string [[[{return_type_}]]]
+}
+class "method" as C_0006541327780382276039
+class C_0006541327780382276039 [[structclanguml_1_1sequence__diagram_1_1model_1_1method.html{Participant model representing a method}]] {
++alias() const : std::string [[[{Get the participant PlantUML alias}]]]
++class_full_name() const : const auto & [[[{Get the class full name.}]]]
++class_id() const : eid_t [[[{Get the class id}]]]
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++is_assignment() const : bool [[[{Check, if the method is an assignment operator}]]]
++is_assignment() : void [[[{Set whether the method is an assignment operator}]]]
++is_constructor() const : bool [[[{Check, if the method is a constructor}]]]
++is_constructor() : void [[[{Set whether the method is a constructor}]]]
++is_defaulted() const : bool [[[{Check, if the method is defaulted}]]]
++is_defaulted() : void [[[{Set whether the method is defaulted}]]]
++message_name() const : std::string [[[{message_name}]]]
++method_name() const : std::string [[[{Get method name}]]]
++set_class_full_name() : void [[[{Set full qualified name of the class}]]]
++set_class_id() : void [[[{Set the id of the participant to which this method belongs to.}]]]
++set_method_name() : void [[[{Set method name}]]]
++to_string() const : std::string [[[{Create a string representation of the participant}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+-class_full_name_ : std::string [[[{class_full_name_}]]]
+-class_id_ : eid_t [[[{class_id_}]]]
+-is_assignment_ : bool [[[{is_assignment_}]]]
+-is_constructor_ : bool [[[{is_constructor_}]]]
+-is_defaulted_ : bool [[[{is_defaulted_}]]]
+-method_name_ : std::string [[[{method_name_}]]]
+}
+class "objc_method" as C_0013742559556936917396
+class C_0013742559556936917396 [[structclanguml_1_1sequence__diagram_1_1model_1_1objc__method.html{objc_method}]] {
++alias() const : std::string [[[{Get the participant PlantUML alias}]]]
++class_full_name() const : const auto & [[[{Get the class full name.}]]]
++class_id() const : eid_t [[[{Get the class id}]]]
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++message_name() const : std::string [[[{message_name}]]]
++method_name() const : std::string [[[{Get method name}]]]
++set_class_full_name() : void [[[{Set full qualified name of the class}]]]
++set_class_id() : void [[[{Set the id of the participant to which this method belongs to.}]]]
++set_method_name() : void [[[{Set method name}]]]
++to_string() const : std::string [[[{Create a string representation of the participant}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+-class_full_name_ : std::string [[[{class_full_name_}]]]
+-class_id_ : eid_t [[[{class_id_}]]]
+-method_name_ : std::string [[[{method_name_}]]]
+}
+class "function_template" as C_0018241535739946484465
+class C_0018241535739946484465 [[structclanguml_1_1sequence__diagram_1_1model_1_1function__template.html{Participant model representing a function template.}]] {
+#full_name_impl() const : std::string [[[{full_name_impl}]]]
++full_name_no_ns() const : std::string [[[{full_name_no_ns}]]]
++message_name() const : std::string [[[{Render function name as message label}]]]
++type_name() const : std::string [[[{type_name}]]]
+__
+}
+class "message" as C_0017829224549649886549
+class C_0017829224549649886549 [[classclanguml_1_1sequence__diagram_1_1model_1_1message.html{Model of a sequence diagram message.}]] {
++comment() const : const std::optional<common::model::comment_t> & [[[{comment}]]]
++condition_text() const : std::optional<std::string> [[[{Get condition text}]]]
++condition_text() : void [[[{Set condition text for block statements (e.g. if( <THIS  TEXT>))}]]]
++from() const : eid_t [[[{Get the id of source of message}]]]
++in_static_declaration_context() : void [[[{in_static_declaration_context}]]]
++in_static_declaration_context() const : bool [[[{in_static_declaration_context}]]]
++message_name() const : const std::string & [[[{Get the message label}]]]
++message_scope() const : common::model::message_scope_t [[[{Get message scope}]]]
++return_type() const : const std::string & [[[{Get the return message type label}]]]
++set_comment() : void [[[{set_comment}]]]
++set_comment() : void [[[{set_comment}]]]
++set_comment() : void [[[{set_comment}]]]
++set_comment() : void [[[{set_comment}]]]
++set_from() : void [[[{Set the id of message source participant}]]]
++set_message_name() : void [[[{Set the message label}]]]
++set_message_scope() : void [[[{Set message scope}]]]
++set_return_type() : void [[[{Set the return message type label}]]]
++set_to() : void [[[{Set the id of the message target}]]]
++set_type() : void [[[{Set message type}]]]
++to() const : eid_t [[[{Get the id of the message target}]]]
++type() const : common::model::message_t [[[{Get message type}]]]
+__
+-comment_ : std::optional<common::model::comment_t> [[[{comment_}]]]
+-condition_text_ : std::optional<std::string> [[[{condition_text_}]]]
+-from_ : eid_t [[[{from_}]]]
+-in_static_declaration_context_ : bool [[[{in_static_declaration_context_}]]]
+-message_name_ : std::string [[[{message_name_}]]]
+-return_type_ : std::string [[[{return_type_}]]]
+-scope_ : common::model::message_scope_t [[[{scope_}]]]
+-to_ : eid_t [[[{to_}]]]
+-type_ : common::model::message_t [[[{type_}]]]
+}
+class "activity" as C_0003680244166321572184
+class C_0003680244166321572184 [[classclanguml_1_1sequence__diagram_1_1model_1_1activity.html{Model of a sequence diagram activity}]] {
++add_caller() : void [[[{add_caller}]]]
++add_message() : void [[[{Add a message call to the activity}]]]
++callers() const : const std::set<eid_t> & [[[{callers}]]]
++from() const : eid_t [[[{Get the id of activity parent participant}]]]
++messages() : std::vector<message> & [[[{Get list of messages in the activity}]]]
++messages() const : const std::vector<message> & [[[{Get list of messages in the activity}]]]
++set_callers() : void [[[{set_callers}]]]
+__
+-callers_ : std::set<eid_t> [[[{callers_}]]]
+-from_ : eid_t [[[{from_}]]]
+-messages_ : std::vector<message> [[[{messages_}]]]
+}
+class "diagram" as C_0007392356576284087808
+class C_0007392356576284087808 [[classclanguml_1_1sequence__diagram_1_1model_1_1diagram.html{Model of a sequence diagram}]] {
++active_participants() const : const std::set<eid_t> & [[[{Get all active participants in the diagram}]]]
++active_participants() : std::set<eid_t> & [[[{Get all active participants in the diagram}]]]
++add_active_participant() : void [[[{Set participant with `id` as active}]]]
++add_block_message() : void [[[{Add block message to the current activity}]]]
++add_case_stmt_message() : void [[[{Add `switch` block `case` statement}]]]
++add_message() : void [[[{Add message to current activity}]]]
++add_participant() : void [[[{Add sequence diagram participant}]]]
++build_reverse_call_graph() const : void [[[{Build reverse call graph}]]]
++end_block_message() : void [[[{End current block message}]]]
++finalize() : void [[[{Once the diagram is complete, run any final processing.}]]]
+-fold_or_end_block_statement() const : void [[[{fold_or_end_block_statement}]]]
++get() const : common::optional_ref<common::model::diagram_element> [[[{Search for element in the diagram by fully qualified name.}]]]
++get() const : common::optional_ref<common::model::diagram_element> [[[{Search for element in the diagram by id.}]]]
++get_activity() : activity & [[[{Get reference to current activity of a participant}]]]
++get_activity() const : const activity & [[[{Get reference to current activity of a participant}]]]
++get_all_from_to_message_chains() const : std::vector<message_chain_t> [[[{Generate a list of message chains matching a from_to constraint}]]]
++get_from_activity_ids() const : std::vector<eid_t> [[[{Get ids of activities matching 'from'}]]]
++get_participant<T>() const : common::optional_ref<T>
++get_to_activity_ids() const : std::vector<eid_t> [[[{Get ids of activities matching 'to'}]]]
++has_activity() const : bool [[[{Check if diagram has activity identified by caller id}]]]
+-inline_lambda_operator_call() : bool [[[{inline_lambda_operator_call}]]]
++inline_lambda_operator_calls() : void [[[{inline_lambda_operator_calls}]]]
+-is_begin_block_message() : bool [[[{is_begin_block_message}]]]
++is_empty() const : bool [[[{Check whether the diagram is empty}]]]
+-is_end_block_message() : bool [[[{is_end_block_message}]]]
++list_from_values() const : std::vector<std::string> [[[{Get list of all possible 'from' values in the model}]]]
++list_to_values() const : std::vector<std::string> [[[{Get list of all possible 'to' values in the model}]]]
++participants() const : const std::map<eid_t,std::unique_ptr<participant>> & [[[{Get map of all participants in the diagram}]]]
++participants() : std::map<eid_t,std::unique_ptr<participant>> & [[[{Get map of all participants in the diagram}]]]
++print() const : void [[[{Debug method for printing entire diagram to console.}]]]
++sequences() const : const std::map<eid_t,activity> & [[[{Get all sequences in the diagram}]]]
++sequences() : std::map<eid_t,activity> & [[[{Get all sequences in the diagram}]]]
++should_include() const : bool [[[{Convenience `should_include` overload for participant}]]]
++to_alias() const : std::string [[[{Convert element full name to PlantUML alias.}]]]
++type() const : common::model::diagram_t [[[{Get the diagram model type - in this case sequence.}]]]
+__
+-active_participants_ : std::set<eid_t> [[[{active_participants_}]]]
+-activities_ : std::map<eid_t,activity> [[[{activities_}]]]
+-participants_ : std::map<eid_t,std::unique_ptr<participant>> [[[{participants_}]]]
+}
+}
+}
+C_0011201726182739961811 <|-- C_0007084118972955772881
+C_0011201726182739961811 <|-- C_0001861107648253454629
+C_0001861107648253454629 <|-- C_0006541327780382276039
+C_0001861107648253454629 <|-- C_0013742559556936917396
+C_0001861107648253454629 <|-- C_0018241535739946484465
+C_0017829224549649886549 o-- C_0012990663881099729824 [[{type_}]] : -type_
+C_0017829224549649886549 o-- C_0001622873702655788086 [[{scope_}]] : -scope_
+C_0008588005715032923314 <|-- C_0017829224549649886549
+C_0003680244166321572184 o-- C_0017829224549649886549 [[{messages_}]] : -messages_
+C_0007392356576284087808 o-- C_0003680244166321572184 [[{activities_}]] : -activities_
+C_0007392356576284087808 o-- C_0011201726182739961811 [[{participants_}]] : -participants_
+C_0001576551882566686996 <|-- C_0007392356576284087808
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

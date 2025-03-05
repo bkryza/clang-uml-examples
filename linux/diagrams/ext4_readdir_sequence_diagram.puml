@@ -1,0 +1,711 @@
+@startuml
+title ext4_readdir() sequence diagram
+participant "fs/ext4/dir.c" as C_0012766423187770066230
+[-> C_0012766423187770066230 : ext4_readdir(struct file *,struct dir_context *)
+activate C_0012766423187770066230
+participant "include/linux/fs.h" as C_0016755648223359512704
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L132{}]] : file_inode(const struct file *)
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+participant "include/linux/fscrypt.h" as C_0002050352535276561931
+C_0012766423187770066230 -> C_0002050352535276561931 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L137{}]] : fscrypt_prepare_readdir(struct inode *)
+activate C_0002050352535276561931
+alt IS_ENCRYPTED(dir)
+C_0002050352535276561931 -> C_0002050352535276561931 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/fscrypt.h#L1056{}]] : __fscrypt_prepare_readdir(struct inode *)
+activate C_0002050352535276561931
+C_0002050352535276561931 --> C_0002050352535276561931
+deactivate C_0002050352535276561931
+C_0002050352535276561931 --> C_0012766423187770066230
+end
+C_0002050352535276561931 --> C_0012766423187770066230
+deactivate C_0002050352535276561931
+alt err
+[<-- C_0012766423187770066230
+end
+alt is_dx_dir(inode)
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L141{}]] : **[**is_dx_dir(struct inode *)**]**
+activate C_0012766423187770066230
+alt ext4_has_feature_dir_index(inode->i_sb) && ((ext4_test_inode_flag(inode, EXT4_INODE_INDEX)) || ((inode->i_size >> sb->s_blocksize_bits) == 1) || ext4_has_inline_data(inode))
+participant "fs/ext4/ext4.h" as C_0010061488089004016593
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L49{}]] : **[**ext4_has_feature_dir_index(struct super_block *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2065{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L50{}]] : **[**ext4_test_inode_flag(struct inode *,int)**]**
+activate C_0010061488089004016593
+alt __builtin_constant_p(nr) &&					\ __builtin_constant_p((uintptr_t)(addr) != (uintptr_t)NULL) &&	\ (uintptr_t)(addr) != (uintptr_t)NULL &&			\ __builtin_constant_p(*(const unsigned long *)(addr))
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+else
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L52{}]] : **[**ext4_has_inline_data(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3603{}]] : ext4_test_inode_flag(struct inode *,int)
+activate C_0010061488089004016593
+alt __builtin_constant_p(nr) &&					\ __builtin_constant_p((uintptr_t)(addr) != (uintptr_t)NULL) &&	\ (uintptr_t)(addr) != (uintptr_t)NULL &&			\ __builtin_constant_p(*(const unsigned long *)(addr))
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+else
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3604{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L142{}]] : ext4_dx_readdir(struct file *,struct dir_context *)
+activate C_0012766423187770066230
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L551{}]] : file_inode(const struct file *)
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+alt !info
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L556{}]] : ext4_htree_create_dir_info(struct file *,loff_t)
+activate C_0012766423187770066230
+alt !p
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L441{}]] : pos2maj_hash(struct file *,loff_t)
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L345{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L442{}]] : pos2min_hash(struct file *,loff_t)
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L354{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+alt !info
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+end
+alt ctx->pos == ext4_get_htree_eof(file)
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L562{}]] : **[**ext4_get_htree_eof(struct file *)**]**
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L366{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+note over C_0012766423187770066230
+EOF
+end note
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+note over C_0012766423187770066230
+Some one has messed with
+f_pos; reset the world
+end note
+alt info->last_pos != ctx->pos
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L567{}]] : free_rb_tree_fname(struct rb_root *)
+activate C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L570{}]] : pos2maj_hash(struct file *,loff_t)
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L345{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L571{}]] : pos2min_hash(struct file *,loff_t)
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L354{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+end
+note over C_0012766423187770066230
+If there are any leftover
+names on the hash collision
+chain, return them first.
+end note
+alt info->extra_fname
+alt call_filldir(file, ctx, info->extra_fname)
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L579{}]] : **[**call_filldir(struct file *,struct dir_context *,struct fname *)**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L525{}]] : file_inode(const struct file *)
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+alt !fname
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3174{}]] : __ext4_msg(struct super_block *,const char *,const char *,...)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L534{}]] : hash2pos(struct file *,__u32,__u32)
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L336{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+loop fname
+alt !dir_emit(ctx, fname->name, fname->name_len, fname->inode, get_dtype(sb, fname->file_type))
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L539{}]] : **[**get_dtype(struct super_block *,int)**]**
+activate C_0010061488089004016593
+alt !ext4_has_feature_filetype(sb) || filetype >= EXT4_FT_MAX
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2844{}]] : **[**ext4_has_feature_filetype(struct super_block *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2101{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L536{}]] : **[**dir_emit(struct dir_context *,const char *,int,u64,unsigned int)**]**
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+end
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+end
+else !info->curr_node
+end
+loop 1
+note over C_0012766423187770066230
+Fill the rbtree if we have
+no more entries, or the inode
+has changed since we last
+read in the cached entries.
+end note
+alt (!info->curr_node) || !inode_eq_iversion(inode, file->f_version)
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L595{}]] : free_rb_tree_fname(struct rb_root *)
+activate C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L597{}]] : ext4_htree_fill_tree(struct file *,__u32,__u32,__u32 *)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+alt ret == 0
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L603{}]] : ext4_get_htree_eof(struct file *)
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L366{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+end
+end
+alt call_filldir(file, ctx, fname)
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L612{}]] : **[**call_filldir(struct file *,struct dir_context *,struct fname *)**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L525{}]] : file_inode(const struct file *)
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+alt !fname
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3174{}]] : __ext4_msg(struct super_block *,const char *,const char *,...)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L534{}]] : hash2pos(struct file *,__u32,__u32)
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L336{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+loop fname
+alt !dir_emit(ctx, fname->name, fname->name_len, fname->inode, get_dtype(sb, fname->file_type))
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L539{}]] : **[**get_dtype(struct super_block *,int)**]**
+activate C_0010061488089004016593
+alt !ext4_has_feature_filetype(sb) || filetype >= EXT4_FT_MAX
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2844{}]] : **[**ext4_has_feature_filetype(struct super_block *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2101{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L536{}]] : **[**dir_emit(struct dir_context *,const char *,int,u64,unsigned int)**]**
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+end
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+end
+alt info->curr_node
+else
+alt info->next_hash == ~0
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L623{}]] : ext4_get_htree_eof(struct file *)
+activate C_0012766423187770066230
+alt (filp->f_mode & FMODE_32BITHASH) || (!(filp->f_mode & FMODE_64BITHASH) && is_32bit_api())
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L366{}]] : **[**is_32bit_api()**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+deactivate C_0012766423187770066230
+end
+end
+end
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+alt err != ERR_BAD_DX_DIR
+[<-- C_0012766423187770066230
+end
+note over C_0012766423187770066230
+Can we just clear INDEX flag
+to ignore htree information?
+end note
+alt !ext4_has_metadata_csum(sb)
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L147{}]] : **[**ext4_has_metadata_csum(struct super_block *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3271{}]] : ext4_has_feature_metadata_csum(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2083{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3272{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3274{}]] : ext4_has_feature_metadata_csum(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2083{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3275{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+note over C_0012766423187770066230
+We don't set the inode dirty
+flag since it's not critical
+that it gets flushed back
+to the disk.
+end note
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L152{}]] : ext4_clear_inode_flag(struct inode *,int)
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1931{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+end
+alt ext4_has_inline_data(inode)
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L156{}]] : **[**ext4_has_inline_data(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3603{}]] : ext4_test_inode_flag(struct inode *,int)
+activate C_0010061488089004016593
+alt __builtin_constant_p(nr) &&					\ __builtin_constant_p((uintptr_t)(addr) != (uintptr_t)NULL) &&	\ (uintptr_t)(addr) != (uintptr_t)NULL &&			\ __builtin_constant_p(*(const unsigned long *)(addr))
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : **[**EXT4_I(struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+else
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L1923{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3604{}]] : EXT4_I(struct inode *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L158{}]] : ext4_read_inline_dir(struct file *,struct dir_context *,int *)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+alt has_inline_data
+[<-- C_0012766423187770066230
+end
+end
+alt IS_ENCRYPTED(inode)
+C_0012766423187770066230 -> C_0002050352535276561931 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L165{}]] : fscrypt_fname_alloc_buffer(u32,struct fscrypt_str *)
+activate C_0002050352535276561931
+C_0002050352535276561931 --> C_0012766423187770066230
+deactivate C_0002050352535276561931
+alt err < 0
+[<-- C_0012766423187770066230
+end
+end
+loop ctx->pos < inode->i_size
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L181{}]] : ext4_map_blocks(handle_t *,struct inode *,struct ext4_map_blocks *,int)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+alt err > 0
+alt !ra_has_index(&file->f_ra, index)
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L193{}]] : **[**ra_has_index(struct file_ra_state *,unsigned long)**]**
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+end
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L199{}]] : ext4_bread(handle_t *,struct inode *,ext4_lblk_t,int)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+note over C_0012766423187770066230
+Check the checksum
+end note
+alt !buffer_verified(bh) && !ext4_dirblock_csum_verify(inode, bh)
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L217{}]] : **[**ext4_dirblock_csum_verify(struct inode *,struct buffer_head *)**]**
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3162{}]] : __ext4_error_file(struct file *,const char *,unsigned int,ext4_fsblk_t,const char *,...)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+note over C_0012766423187770066230
+If the dir block has changed
+since the last call to readdir(2),
+then we might be pointing
+to an invalid dirent right
+now. Scan from the start
+of the block to make sure.
+end note
+alt !inode_eq_iversion(inode, file->f_version)
+loop i = 0; i < sb->s_blocksize && i < offset; 
+note over C_0012766423187770066230
+It's too expensive to do
+a full dirent test each time
+round this loop, but we do
+have to test at least that
+it is non-zero. A failure
+will be detected in the dirent
+test below.
+end note
+alt ext4_rec_len_from_disk(de->rec_len, sb->s_blocksize) < ext4_dir_rec_len(1, inode)
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L242{}]] : **[**ext4_rec_len_from_disk(__le16,unsigned int)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L243{}]] : **[**ext4_dir_rec_len(__u8,const struct inode *)**]**
+activate C_0010061488089004016593
+alt dir && ext4_hash_in_dirent(dir)
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2404{}]] : **[**ext4_hash_in_dirent(const struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+end
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L246{}]] : ext4_rec_len_from_disk(__le16,unsigned int)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+end
+end
+loop ctx->pos < inode->i_size && offset < sb->s_blocksize
+alt ext4_check_dir_entry(inode, file, de, bh, bh->b_data, bh->b_size, offset)
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2813{}]] : **[**__ext4_check_dir_entry(const char *,unsigned int,struct inode *,struct file *,struct ext4_dir_ent...**]**
+activate C_0012766423187770066230
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L85{}]] : ext4_rec_len_from_disk(__le16,unsigned int)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0012766423187770066230 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L88{}]] : is_fake_dir_entry(struct ext4_dir_entry_2 *)
+activate C_0012766423187770066230
+note over C_0012766423187770066230
+Check if . or .. , or skip
+if namelen is 0
+end note
+alt (de->name_len > 0) && (de->name_len <= 2) && (de->name[0] == '.') && (de->name[1] == '.' || de->name[1] == '\0')
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+note over C_0012766423187770066230
+Check if this is a csum entry
+end note
+alt de->file_type == EXT4_FT_DIR_CSUM
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L89{}]] : ext4_has_metadata_csum(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3271{}]] : ext4_has_feature_metadata_csum(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2083{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3272{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3274{}]] : ext4_has_feature_metadata_csum(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2083{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3275{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+alt unlikely(rlen < ext4_dir_rec_len(1, fake ? NULL : dir))
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L91{}]] : **[**ext4_dir_rec_len(__u8,const struct inode *)**]**
+activate C_0010061488089004016593
+alt dir && ext4_hash_in_dirent(dir)
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2404{}]] : **[**ext4_hash_in_dirent(const struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+else unlikely(rlen % 4 != 0)
+else unlikely(rlen < ext4_dir_rec_len(de->name_len, fake ? NULL : dir))
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L95{}]] : **[**ext4_dir_rec_len(__u8,const struct inode *)**]**
+activate C_0010061488089004016593
+alt dir && ext4_hash_in_dirent(dir)
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2404{}]] : **[**ext4_hash_in_dirent(const struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+else unlikely(next_offset > size)
+else unlikely(next_offset > size - ext4_dir_rec_len(1, has_csum ? NULL : dir) && next_offset != size)
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L100{}]] : **[**ext4_dir_rec_len(__u8,const struct inode *)**]**
+activate C_0010061488089004016593
+alt dir && ext4_hash_in_dirent(dir)
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2404{}]] : **[**ext4_hash_in_dirent(const struct inode *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+else unlikely(le32_to_cpu(de->inode) > le32_to_cpu(EXT4_SB(dir->i_sb)->s_es->s_inodes_count))
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L105{}]] : **[**EXT4_SB(struct super_block *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 --> C_0012766423187770066230
+end
+alt filp
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3162{}]] : __ext4_error_file(struct file *,const char *,unsigned int,ext4_fsblk_t,const char *,...)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L3157{}]] : __ext4_error_inode(struct inode *,const char *,unsigned int,ext4_fsblk_t,int,const char *,...)
+activate C_0010061488089004016593
+deactivate C_0010061488089004016593
+end
+C_0012766423187770066230 --> C_0012766423187770066230
+deactivate C_0012766423187770066230
+end
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L268{}]] : ext4_rec_len_from_disk(__le16,unsigned int)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+alt le32_to_cpu(de->inode)
+alt !IS_ENCRYPTED(inode)
+alt !dir_emit(ctx, de->name, de->name_len, le32_to_cpu(de->inode), get_dtype(sb, de->file_type))
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L275{}]] : **[**get_dtype(struct super_block *,int)**]**
+activate C_0010061488089004016593
+alt !ext4_has_feature_filetype(sb) || filetype >= EXT4_FT_MAX
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2844{}]] : **[**ext4_has_feature_filetype(struct super_block *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2101{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L272{}]] : **[**dir_emit(struct dir_context *,const char *,int,u64,unsigned int)**]**
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+end
+else
+note over C_0012766423187770066230
+Directory is encrypted
+end note
+C_0012766423187770066230 -> C_0002050352535276561931 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L284{}]] : fscrypt_fname_disk_to_usr(const struct inode *,u32,u32,const struct fscrypt_str *,struct fscrypt_...
+activate C_0002050352535276561931
+C_0002050352535276561931 --> C_0012766423187770066230
+deactivate C_0002050352535276561931
+alt !dir_emit(ctx, de_name.name, de_name.len, le32_to_cpu(de->inode), get_dtype(sb, de->file_type))
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L295{}]] : **[**get_dtype(struct super_block *,int)**]**
+activate C_0010061488089004016593
+alt !ext4_has_feature_filetype(sb) || filetype >= EXT4_FT_MAX
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2844{}]] : **[**ext4_has_feature_filetype(struct super_block *)**]**
+activate C_0010061488089004016593
+C_0010061488089004016593 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/ext4.h#L2101{}]] : EXT4_SB(struct super_block *)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0010061488089004016593
+deactivate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+end
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L292{}]] : **[**dir_emit(struct dir_context *,const char *,int,u64,unsigned int)**]**
+activate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+end
+end
+end
+C_0012766423187770066230 -> C_0010061488089004016593 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L299{}]] : ext4_rec_len_from_disk(__le16,unsigned int)
+activate C_0010061488089004016593
+C_0010061488089004016593 --> C_0012766423187770066230
+deactivate C_0010061488089004016593
+end
+alt (ctx->pos < inode->i_size) && !dir_relax_shared(inode)
+C_0012766423187770066230 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L302{}]] : **[**dir_relax_shared(struct inode *)**]**
+activate C_0016755648223359512704
+C_0016755648223359512704 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/fs.h#L3602{}]] : inode_unlock_shared(struct inode *)
+activate C_0016755648223359512704
+deactivate C_0016755648223359512704
+C_0016755648223359512704 -> C_0016755648223359512704 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/fs.h#L3603{}]] : inode_lock_shared(struct inode *)
+activate C_0016755648223359512704
+deactivate C_0016755648223359512704
+C_0016755648223359512704 --> C_0012766423187770066230
+deactivate C_0016755648223359512704
+end
+end
+C_0012766423187770066230 -> C_0002050352535276561931 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/fs/ext4/dir.c#L310{}]] : fscrypt_fname_free_buffer(struct fscrypt_str *)
+activate C_0002050352535276561931
+
+deactivate C_0002050352535276561931
+[<-- C_0012766423187770066230
+deactivate C_0012766423187770066230
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

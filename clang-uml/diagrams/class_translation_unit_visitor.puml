@@ -1,0 +1,57 @@
+@startuml
+title Class diagram TU visitor
+package [clanguml] as C_0017394171196056322719 {
+package [common] as C_0002532840279361781187 {
+package [visitor] as C_0016474478155368192384 {
+class "template_builder<clanguml::class_diagram::visitor::translation_unit_visitor>" as C_0006928801289515998382
+class C_0006928801289515998382 [[classclanguml_1_1common_1_1visitor_1_1template__builder.html{template_builder}]] {
+__
+}
+class "translation_unit_visitor<clanguml::config::class_diagram,clanguml::class_diagram::model::diagram>" as C_0005184632287329019882
+class C_0005184632287329019882 [[classclanguml_1_1common_1_1visitor_1_1translation__unit__visitor.html{translation_unit_visitor}]] {
+__
+}
+}
+}
+package [class_diagram] as C_0017921336289613804855 {
+package [visitor] as C_0014897743554774430622 {
+class "forward_declarations_t<clanguml::class_diagram::model::class_,clanguml::class_diagram::model::enum_>" as C_0002640037786747292483
+class C_0002640037786747292483 [[classclanguml_1_1class__diagram_1_1visitor_1_1forward__declarations__t.html{forward_declarations_t}]] {
+__
+}
+class "translation_unit_visitor" as C_0013934086101141939615
+class C_0013934086101141939615 [[classclanguml_1_1class__diagram_1_1visitor_1_1translation__unit__visitor.html{Class diagram translation unit visitor}]] {
+__
+}
+}
+}
+}
+package [clang] as C_0004091562305438647185 {
+class "TypedefDecl" as C_0015575070709788530059
+class C_0015575070709788530059 {
+__
+}
+class "EnumDecl" as C_0014260023443016199669
+class C_0014260023443016199669 {
+__
+}
+class "RecursiveASTVisitor<Derived>" as C_0015863240072594960404
+class C_0015863240072594960404 {
+__
+}
+class "RecursiveASTVisitor<clanguml::class_diagram::visitor::translation_unit_visitor>" as C_0011265253827398874958
+class C_0011265253827398874958 [[classclang_1_1RecursiveASTVisitor.html{RecursiveASTVisitor}]] {
+__
+}
+}
+C_0013934086101141939615 o-- C_0006928801289515998382 [[{template_builder_}]] : -template_builder_
+C_0013934086101141939615 o-- C_0002640037786747292483 [[{forward_declarations_}]] : -forward_declarations_
+C_0013934086101141939615 --> C_0014260023443016199669 [[{typedef_enum_decls_}]] : -typedef_enum_decls_
+C_0013934086101141939615 --> C_0015575070709788530059 [[{typedef_enum_decls_}]] : -typedef_enum_decls_
+C_0011265253827398874958 <|-- C_0013934086101141939615
+C_0005184632287329019882 <|-- C_0013934086101141939615
+C_0011265253827398874958 ..|> C_0015863240072594960404
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

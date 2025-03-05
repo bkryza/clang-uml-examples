@@ -1,0 +1,55 @@
+@startuml
+title 'curl_easy_init' sequence diagram
+participant "lib/easy.c" as C_0013686580212228222516
+[-> C_0013686580212228222516 : curl_easy_init()
+activate C_0013686580212228222516
+alt !initialized
+C_0013686580212228222516 -> C_0013686580212228222516 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L360{}]] : global_init(long,_Bool)
+activate C_0013686580212228222516
+alt initialized++
+C_0013686580212228222516 --> C_0013686580212228222516
+end
+alt Curl_trc_init()
+participant "lib/curl_trc.h" as C_0000898269797836910488
+C_0013686580212228222516 -> C_0000898269797836910488 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L163{}]] : **[**Curl_trc_init()**]**
+activate C_0000898269797836910488
+deactivate C_0000898269797836910488
+end
+alt !Curl_ssl_init()
+participant "lib/vtls/vtls.h" as C_0016379285197593915683
+C_0013686580212228222516 -> C_0016379285197593915683 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L168{}]] : **[**Curl_ssl_init()**]**
+activate C_0016379285197593915683
+deactivate C_0016379285197593915683
+end
+alt Curl_resolver_global_init()
+participant "lib/asyn.h" as C_0005849726571181810329
+C_0013686580212228222516 -> C_0005849726571181810329 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L188{}]] : **[**Curl_resolver_global_init()**]**
+activate C_0005849726571181810329
+deactivate C_0005849726571181810329
+end
+C_0013686580212228222516 --> C_0013686580212228222516
+note over C_0013686580212228222516
+undo the increase
+end note
+C_0013686580212228222516 --> C_0013686580212228222516
+deactivate C_0013686580212228222516
+alt result
+[<-- C_0013686580212228222516
+end
+end
+participant "lib/url.h" as C_0005088518788478813699
+note over C_0013686580212228222516
+We use curl_open() with undefined URL so far
+end note
+C_0013686580212228222516 -> C_0005088518788478813699 [[https://github.com/curl/curl/blob/34cf9d54a46598c44938aa7598820484d7af7133/lib/easy.c#L371{}]] : Curl_open(struct Curl_easy **)
+activate C_0005088518788478813699
+deactivate C_0005088518788478813699
+alt result
+[<-- C_0013686580212228222516
+end
+[<-- C_0013686580212228222516
+deactivate C_0013686580212228222516
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

@@ -1,0 +1,90 @@
+@startuml
+title PlantUML diagram generator sequence diagram
+participant "::clanguml::common::generators::plantuml::generator<clanguml::config::class_diagram,clanguml::class_diagram::model::diagram>" as C_0007303806194175061004 [[{generator}]]
+[-> C_0007303806194175061004 : generate(std::ostream &) const
+activate C_0007303806194175061004
+participant "::clanguml::common::generators::generator<clanguml::config::class_diagram,clanguml::class_diagram::model::diagram>" as C_0014482003182127814705 [[{generator}]]
+C_0007303806194175061004 -> C_0014482003182127814705 [[{}]] : config() const
+activate C_0014482003182127814705
+C_0014482003182127814705 --> C_0007303806194175061004
+deactivate C_0014482003182127814705
+C_0007303806194175061004 -> C_0014482003182127814705 [[{}]] : model() const
+activate C_0014482003182127814705
+C_0014482003182127814705 --> C_0007303806194175061004
+deactivate C_0014482003182127814705
+C_0007303806194175061004 -> C_0014482003182127814705 [[{}]] : update_context() const
+activate C_0014482003182127814705
+deactivate C_0014482003182127814705
+alt !config.allow_empty_diagrams() && model.is_empty() && config.puml().before.empty() && config.puml().after.empty()
+participant "::clanguml::class_diagram::model::diagram" as C_0007315456613526221498 [[{Class representing a class diagram.}]]
+C_0007303806194175061004 -> C_0007315456613526221498 [[{}]] : **[**is_empty() const**]**
+activate C_0007315456613526221498
+deactivate C_0007315456613526221498
+C_0007303806194175061004 -> C_0007315456613526221498 [[{}]] : type() const
+activate C_0007315456613526221498
+deactivate C_0007315456613526221498
+participant "::clanguml::common::model::diagram" as C_0001576551882566686996 [[{Base class for all diagram models}]]
+C_0007303806194175061004 -> C_0001576551882566686996 [[{}]] : name() const
+activate C_0001576551882566686996
+deactivate C_0001576551882566686996
+end
+C_0007303806194175061004 -> C_0007303806194175061004 [[{}]] : generate_title(std::ostream &) const
+activate C_0007303806194175061004
+C_0007303806194175061004 -> C_0014482003182127814705 [[{}]] : config() const
+activate C_0014482003182127814705
+hnote over C_0014482003182127814705 : *
+C_0014482003182127814705-[hidden]->C_0014482003182127814705
+deactivate C_0014482003182127814705
+deactivate C_0007303806194175061004
+note over C_0007303806194175061004
+Generate PlantUML directives
+before auto generated content
+end note
+C_0007303806194175061004 -> C_0007303806194175061004 [[{}]] : generate_plantuml_directives(std::ostream &,const std::vector<std::string> &) const
+activate C_0007303806194175061004
+loop directives
+C_0007303806194175061004 -> C_0014482003182127814705 [[{}]] : env() const
+activate C_0014482003182127814705
+C_0014482003182127814705 --> C_0007303806194175061004
+deactivate C_0014482003182127814705
+C_0007303806194175061004 -> C_0014482003182127814705 [[{}]] : context() const
+activate C_0014482003182127814705
+C_0014482003182127814705 --> C_0007303806194175061004
+deactivate C_0014482003182127814705
+participant "::clanguml::common::jinja::render_template(inja::Environment &,const inja::json &,const std::string &)" as C_0004856939666699546185 [[{render_template}]]
+C_0007303806194175061004 -> C_0004856939666699546185 [[{}]] : 
+activate C_0004856939666699546185
+deactivate C_0004856939666699546185
+end
+deactivate C_0007303806194175061004
+C_0007303806194175061004 -> C_0007303806194175061004 [[{}]] : generate_diagram(std::ostream &) const
+activate C_0007303806194175061004
+deactivate C_0007303806194175061004
+note over C_0007303806194175061004
+Generate PlantUML directives
+after auto generated content
+end note
+C_0007303806194175061004 -> C_0007303806194175061004 [[{}]] : generate_plantuml_directives(std::ostream &,const std::vector<std::string> &) const
+activate C_0007303806194175061004
+hnote over C_0007303806194175061004 : *
+C_0007303806194175061004-[hidden]->C_0007303806194175061004
+deactivate C_0007303806194175061004
+C_0007303806194175061004 -> C_0007303806194175061004 [[{}]] : generate_metadata(std::ostream &) const
+activate C_0007303806194175061004
+C_0007303806194175061004 -> C_0014482003182127814705 [[{}]] : config() const
+activate C_0014482003182127814705
+hnote over C_0014482003182127814705 : *
+C_0014482003182127814705-[hidden]->C_0014482003182127814705
+deactivate C_0014482003182127814705
+alt config.generate_metadata()
+participant "::clanguml::version::version()" as C_0001338719242913888198 [[{version}]]
+C_0007303806194175061004 -> C_0001338719242913888198 [[{}]] : 
+activate C_0001338719242913888198
+deactivate C_0001338719242913888198
+end
+deactivate C_0007303806194175061004
+deactivate C_0007303806194175061004
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

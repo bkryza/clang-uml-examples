@@ -1,0 +1,83 @@
+@startuml
+title CCompositor class diagram
+left to right direction
+package [src] as C_0016921741234196091272 {
+package [helpers] as C_0014095800143712300570 {
+class "CMonitor" as C_0002587632398238283980
+class C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L63{CMonitor}]] {
+__
+}
+}
+package [managers] as C_0010021955641857666039 {
+class "CKeybindManager" as C_0016304478193204797825
+class C_0016304478193204797825 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/managers/KeybindManager.hpp#L79{CKeybindManager}]] {
+__
+}
+}
+package [desktop] as C_0013766816001661514431 {
+class "CLayerSurface" as C_0001404942946589410033
+class C_0001404942946589410033 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/LayerSurface.hpp#L10{CLayerSurface}]] {
+__
+}
+class "CWorkspace" as C_0007115609409407733134
+class C_0007115609409407733134 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Workspace.hpp#L18{CWorkspace}]] {
+__
+}
+class "CWindow" as C_0012338003450374755839
+class C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Window.hpp#L212{CWindow}]] {
+__
+}
+}
+package [protocols] as C_0004279855157962091204 {
+package [core] as C_0016979185542239678704 {
+class "CWLSurfaceResource" as C_0003887000734811221854
+class C_0003887000734811221854 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/protocols/core/Compositor.hpp#L55{CWLSurfaceResource}]] {
+__
+}
+}
+}
+class "CCompositor" as C_0007446884540589081521
+class C_0007446884540589081521 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L26{CCompositor}]] {
+__
+}
+}
+C_0002587632398238283980 o-- C_0007115609409407733134 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L77{activeWorkspace}]] : +activeWorkspace
+C_0002587632398238283980 o-- C_0007115609409407733134 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L78{activeSpecialWorkspace}]] : +activeSpecialWorkspace
+C_0002587632398238283980 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L129{self}]] : +self
+C_0002587632398238283980 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L132{pMirrorOf}]] : +pMirrorOf
+C_0002587632398238283980 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L133{mirrors}]] : +mirrors
+C_0002587632398238283980 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L140{solitaryClient}]] : +solitaryClient
+C_0002587632398238283980 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L143{lastScanout}]] : +lastScanout
+C_0002587632398238283980 o-- C_0001404942946589410033 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L162{m_aLayerSurfaceLayers}]] : +m_aLayerSurfaceLayers
+C_0002587632398238283980 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/helpers/Monitor.hpp#L195{m_previousFSWindow}]] : +m_previousFSWindow
+C_0016304478193204797825 <.. C_0007115609409407733134 : +<<friend>>
+C_0016304478193204797825 <.. C_0007446884540589081521 : +<<friend>>
+C_0001404942946589410033 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/LayerSurface.hpp#L40{monitor}]] : +monitor
+C_0001404942946589410033 o-- C_0001404942946589410033 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/LayerSurface.hpp#L57{self}]] : +self
+C_0007115609409407733134 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Workspace.hpp#L29{m_pMonitor}]] : +m_pMonitor
+C_0007115609409407733134 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Workspace.hpp#L48{m_pLastFocusedWindow}]] : +m_pLastFocusedWindow
+C_0007115609409407733134 o-- C_0007115609409407733134 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Workspace.hpp#L95{m_pSelf}]] : -m_pSelf
+C_0012338003450374755839 o-- C_0007115609409407733134 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Window.hpp#L271{m_pWorkspace}]] : +m_pWorkspace
+C_0012338003450374755839 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Window.hpp#L272{m_pMonitor}]] : +m_pMonitor
+C_0012338003450374755839 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Window.hpp#L283{m_pX11Parent}]] : +m_pX11Parent
+C_0012338003450374755839 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Window.hpp#L328{m_pLastCycledWindow}]] : +m_pLastCycledWindow
+C_0012338003450374755839 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Window.hpp#L356{m_pSwallowed}]] : +m_pSwallowed
+C_0012338003450374755839 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/desktop/Window.hpp#L485{m_pSelf}]] : +m_pSelf
+C_0003887000734811221854 o-- C_0003887000734811221854 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/protocols/core/Compositor.hpp#L117{self}]] : +self
+C_0003887000734811221854 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/protocols/core/Compositor.hpp#L119{enteredOutputs}]] : +enteredOutputs
+C_0007446884540589081521 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L44{m_vMonitors}]] : +m_vMonitors
+C_0007446884540589081521 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L45{m_vRealMonitors}]] : +m_vRealMonitors
+C_0007446884540589081521 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L46{m_vWindows}]] : +m_vWindows
+C_0007446884540589081521 o-- C_0001404942946589410033 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L47{m_vLayers}]] : +m_vLayers
+C_0007446884540589081521 o-- C_0007115609409407733134 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L48{m_vWorkspaces}]] : +m_vWorkspaces
+C_0007446884540589081521 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L49{m_vWindowsFadingOut}]] : +m_vWindowsFadingOut
+C_0007446884540589081521 o-- C_0001404942946589410033 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L50{m_vSurfacesFadingOut}]] : +m_vSurfacesFadingOut
+C_0007446884540589081521 o-- C_0003887000734811221854 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L63{m_pLastFocus}]] : +m_pLastFocus
+C_0007446884540589081521 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L64{m_pLastWindow}]] : +m_pLastWindow
+C_0007446884540589081521 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L65{m_pLastMonitor}]] : +m_pLastMonitor
+C_0007446884540589081521 o-- C_0012338003450374755839 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L67{m_vWindowFocusHistory}]] : +m_vWindowFocusHistory
+C_0007446884540589081521 o-- C_0002587632398238283980 [[https://github.com/hyprwm/hyprland/blob/882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff/src/Compositor.hpp#L74{m_pUnsafeOutput}]] : +m_pUnsafeOutput
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

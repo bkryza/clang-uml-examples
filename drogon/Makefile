@@ -1,27 +1,26 @@
-CLANG_UML_BINARY ?= ../../clang-uml/debug/src/clang-uml
+CLANG_UML_BINARY ?= /usr/bin/clang-uml
 
 .PHONY: clean build diagrams plantuml
 
 all: plantuml
 
 drogon:
-		git clone https://github.com/drogonframework/drogon && \
-		cd drogon && \
-		git submodule update --init
+		git clone --recursive https://github.com/drogonframework/drogon && \
+        cd drogon && \
+        git checkout v1.9.9
 
 build: drogon
 		cd drogon && \
-		mkdir -p _build && \
-		cd _build && \
-		cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DBUILD_TESTING=OFF -DBUILD_SQLITE=OFF -DBUILD_MYSQL=OFF -DBUILD_REDIS=OFF ..
+		cmake -S . -B _build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DBUILD_TESTING=OFF \
+		                     -DBUILD_SQLITE=OFF -DBUILD_MYSQL=OFF -DBUILD_REDIS=OFF
 
 diagrams: build
 		cd drogon && \
 		cp ../.clang-uml .clang-uml && \
-		../$(CLANG_UML_BINARY) --query-driver clang++-15
+		$(CLANG_UML_BINARY) --query-driver clang++-19 -p
 
 plantuml: diagrams
-		plantuml -tsvg puml/*.puml
+		plantuml -tsvg diagrams/*.puml
 		python3 ../generate_readme.py drogon
 
 clean:

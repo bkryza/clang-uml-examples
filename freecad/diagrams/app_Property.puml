@@ -1,0 +1,998 @@
+@startuml
+title App::Property context
+package [std] as C_0009971158671206323968 {
+class "bitset<32>" as C_0011287612919229690754
+class C_0011287612919229690754 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Reader.h#L367{bitset}]] {
+__
+}
+}
+package [Base] as C_0005614219575140048477 {
+class "Type" as C_0010396699791746075194
+class C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L80{Type}]] {
++Type(const Type & type) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L84{Type}]]]
++Type(Type && type) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L85{Type}]]]
++Type() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L86{Type}]]]
++~Type() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L88{~Type}]]]
+..
++operator=(const Type & type) constexpr = default : Type & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L119{operator=}]]]
++operator=(Type && type) constexpr = default : Type & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L120{operator=}]]]
+..
++operator!=(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L122{operator!=}]]]
++operator<(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L124{operator<}]]]
++operator<=(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L125{operator<=}]]]
++operator==(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L121{operator==}]]]
++operator>(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L127{operator>}]]]
++operator>=(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L126{operator>=}]]]
+..
+{static} +badType() : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L129{badType}]]]
++canInstantiate() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L93{canInstantiate}]]]
++createInstance() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L91{createInstance}]]]
+{static} +createInstanceByName(const char * TypeName, bool bLoadModule = false) : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L95{createInstanceByName}]]]
+{static} +createType(const Type & parent, const char * name, instantiationMethod method = nullptr) : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L114{createType}]]]
+{static} +destruct() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L131{destruct}]]]
+{static} +fromKey(unsigned int key) : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L101{fromKey}]]]
+{static} +fromName(const char * name) : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L100{fromName}]]]
+{static} +getAllDerivedFrom(const Type & type, std::vector<Type> & List) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L106{getAllDerivedFrom}]]]
++getKey() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L116{getKey}]]]
+{static} +getModuleName(const char * ClassName) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L133{getModuleName}]]]
++getName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L102{getName}]]]
+{static} +getNumTypes() : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L111{getNumTypes}]]]
++getParent() const : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L103{getParent}]]]
+{static} +getTypeIfDerivedFrom(const char * name, const Type & parent, bool bLoadModule = false) : Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L109{getTypeIfDerivedFrom}]]]
+{static} +importModule(const char * TypeName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L96{importModule}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L130{init}]]]
++isBad() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L117{isBad}]]]
++isDerivedFrom(const Type & type) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L104{isDerivedFrom}]]]
+__
+-index : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L137{index}]]]
+{static} -loadModuleSet : std::set<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L141{loadModuleSet}]]]
+{static} -typedata : std::vector<TypeData *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L140{typedata}]]]
+{static} -typemap : std::map<std::string,unsigned int> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L139{typemap}]]]
+}
+abstract "Persistence" as C_0011528780144950876692
+abstract C_0011528780144950876692 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L36{Persistence}]] {
+{abstract} +Restore(XMLReader &) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L79{Restore}]]]
++RestoreDocFile(Reader &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L144{RestoreDocFile}]]]
+{abstract} +Save(Writer &) const = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L63{Save}]]]
++SaveDocFile(Writer &) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L114{SaveDocFile}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L40{create}]]]
++dumpToStream(std::ostream & stream, int compression) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L149{dumpToStream}]]]
+{static} +encodeAttribute(const std::string &) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L146{encodeAttribute}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L37{getClassTypeId}]]]
+{abstract} +getMemSize() const = 0 : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L46{getMemSize}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L38{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L39{init}]]]
+-restoreFinished() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L160{restoreFinished}]]]
++restoreFromStream(std::istream & stream) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L152{restoreFromStream}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L43{classTypeId}]]]
+}
+}
+package [boost] as C_0015721512833981967600 {
+package [signals2] as C_0016784150829702890784 {
+class "signal<void(App::Property const&)>" as C_0007009446637664636435
+class C_0007009446637664636435 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L310{signal}]] {
+__
+}
+}
+}
+package [App] as C_0018282610363821501524 {
+abstract "Property" as C_0010695310204690954695
+abstract C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L55{Property}]] {
++Property() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L104{Property}]]]
++Property(const Property &) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L297{Property}]]]
++~Property() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L105{~Property}]]]
+..
++operator=(const Property &) = deleted : Property & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L298{operator=}]]]
+..
+{abstract} +Copy() const = 0 : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L243{Copy}]]]
+{abstract} +Paste(const Property & from) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L245{Paste}]]]
++aboutToSetChildValue(Property &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L250{aboutToSetChildValue}]]]
+#aboutToSetValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L287{aboutToSetValue}]]]
++afterRestore() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L193{afterRestore}]]]
++beforeSave() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L265{beforeSave}]]]
++canonicalPath(const App::ObjectIdentifier & p) const : App::ObjectIdentifier [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L168{canonicalPath}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +destroy(Property * p) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L108{destroy}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getContainer() const : PropertyContainer * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L154{getContainer}]]]
++getDocumentation() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L148{getDocumentation}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L139{getEditorName}]]]
+#getFileName(const char * postfix = 0, const char * prefix = 0) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L293{getFileName}]]]
++getFullName() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L136{getFullName}]]]
++getGroup() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L145{getGroup}]]]
++getID() const : int64_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L263{getID}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L116{getMemSize}]]]
++getName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L125{getName}]]]
++getPathValue(const App::ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L160{getPathValue}]]]
++getPaths(std::vector<App::ObjectIdentifier> & paths) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L171{getPaths}]]]
++getPyPathValue(const App::ObjectIdentifier &, Py::Object &) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L163{getPyPathValue}]]]
++getStatus() const : unsigned long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L218{getStatus}]]]
++getType() const : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L142{getType}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++hasName() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L129{hasName}]]]
++hasSetChildValue(Property &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L248{hasSetChildValue}]]]
+#hasSetValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L285{hasSetValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isReadOnly() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L228{isReadOnly}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L253{isSame}]]]
++isSinglePrecision() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L237{isSinglePrecision}]]]
++isTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L210{isTouched}]]]
+{static} +isValidName(const char * name) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L134{isValidName}]]]
++onContainerRestored() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L202{onContainerRestored}]]]
++purgeTouched() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L214{purgeTouched}]]]
++setContainer(PropertyContainer * Father) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L151{setContainer}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L157{setPathValue}]]]
++setReadOnly(bool readOnly) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L227{setReadOnly}]]]
++setSinglePrecision(bool single) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L233{setSinglePrecision}]]]
++setStatus(Status pos, bool on) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L224{setStatus}]]]
++setStatusValue(unsigned long status) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L225{setStatusValue}]]]
+-syncType(unsigned int type) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L302{syncType}]]]
++testStatus(Status pos) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L221{testStatus}]]]
++touch() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L208{touch}]]]
+#verifyPath(const App::ObjectIdentifier & p) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L290{verifyPath}]]]
+__
+#StatusBits : std::bitset<32> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L281{StatusBits}]]]
+-_id : int64_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L307{_id}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+-father : PropertyContainer * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L305{father}]]]
+-myName : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L306{myName}]]]
++signalChanged : boost::signals2::signal<void (const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L310{signalChanged}]]]
+}
+enum "Property::Status" as C_0015854913928868302836
+enum C_0015854913928868302836 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L60{Property::Status}]] {
+Touched
+Immutable
+ReadOnly
+Hidden
+Transient
+MaterialEdit
+NoMaterialListEdit
+Output
+LockDynamic
+NoModify
+PartialTrigger
+NoRecompute
+Single
+Ordered
+EvalOnRestore
+Busy
+CopyOnChange
+UserEdit
+PropStaticBegin
+PropDynamic
+PropNoPersist
+PropNoRecompute
+PropReadOnly
+PropTransient
+PropHidden
+PropOutput
+PropStaticEnd
+User1
+User2
+User3
+User4
+}
+class "PropertyLists" as C_0011751656626629753837
+class C_0011751656626629753837 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L461{PropertyLists}]] {
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isOrderRelevant() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L474{isOrderRelevant}]]]
++setOrderRelevant(bool on) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L473{setOrderRelevant}]]]
++setPyObject(PyObject * obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L466{setPyObject}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "DynamicProperty" as C_0006995009966221590167
+class C_0006995009966221590167 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L67{DynamicProperty}]] {
++DynamicProperty() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L70{DynamicProperty}]]]
++~DynamicProperty() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L71{~DynamicProperty}]]]
+..
++addDynamicProperty(PropertyContainer & pc, const char * type, const char * name = nullptr, const char * group = nullptr, const char * doc = nullptr, short attr = 0, bool ro = false, bool hidden = false) : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L100{addDynamicProperty}]]]
++addProperty(Property * prop) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L108{addProperty}]]]
++changeDynamicProperty(const Property * prop, const char * group, const char * doc) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L172{changeDynamicProperty}]]]
++clear() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L139{clear}]]]
++getDynamicPropertyByName(const char * name) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L82{getDynamicPropertyByName}]]]
++getDynamicPropertyData(const Property * prop) const : PropData [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L170{getDynamicPropertyData}]]]
++getDynamicPropertyNames() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L117{getDynamicPropertyNames}]]]
++getPropertyDocumentation(const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L133{getPropertyDocumentation}]]]
++getPropertyDocumentation(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L135{getPropertyDocumentation}]]]
++getPropertyGroup(const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L129{getPropertyGroup}]]]
++getPropertyGroup(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L131{getPropertyGroup}]]]
++getPropertyList(std::vector<Property *> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L76{getPropertyList}]]]
++getPropertyMap(std::map<std::string,Property *> & Map) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L80{getPropertyMap}]]]
++getPropertyName(const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L119{getPropertyName}]]]
++getPropertyNamedList(std::vector<std::pair<const char *,Property *>> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L78{getPropertyNamedList}]]]
++getPropertyType(const char * name) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L127{getPropertyType}]]]
++getPropertyType(const Property * prop) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L125{getPropertyType}]]]
+-getUniquePropertyName(PropertyContainer & pc, const char * Name) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L175{getUniquePropertyName}]]]
++removeDynamicProperty(const char * name) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L113{removeDynamicProperty}]]]
++removeProperty(const Property * prop) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L115{removeProperty}]]]
++restore(PropertyContainer & pc, const char * PropName, const char * TypeName, Base::XMLReader & reader) : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L146{restore}]]]
++save(const Property * prop, Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L144{save}]]]
++size() const : size_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L142{size}]]]
+__
+-props : bmi::multi_index_container<PropData,bmi::indexed_by<bmi::hashed_unique<bmi::const_mem_fun<PropData,const char *,&PropData::getName>,CStringHasher,CStringHasher>,bmi::hashed_unique<bmi::member<PropData,Property *,&PropData::property>>>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L190{props}]]]
+}
+class "DynamicProperty::PropData" as C_0001277848309579128052
+class C_0001277848309579128052 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L149{DynamicProperty::PropData}]] {
++PropData(Property * prop = nullptr, std::string && n = std::string(), const char * pn = nullptr, const char * g = nullptr, const char * d = nullptr, short a = 0, bool ro = false, bool h = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L159{PropData}]]]
++getName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L165{getName}]]]
+__
++attr : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L155{attr}]]]
++doc : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L154{doc}]]]
++group : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L153{group}]]]
++hidden : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L157{hidden}]]]
++name : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L151{name}]]]
++pName : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L152{pName}]]]
++property : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L150{property}]]]
++readonly : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L156{readonly}]]]
+}
+class "PropertyData" as C_0008521121395702379220
+class C_0008521121395702379220 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L58{PropertyData}]] {
++addProperty(OffsetBase offsetBase, const char * PropName, Property * Prop, const char * PropertyGroup = nullptr, PropertyType  = Prop_None, const char * PropertyDocu = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L118{addProperty}]]]
++findProperty(OffsetBase offsetBase, const char * PropName) const : const PropertySpec * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L120{findProperty}]]]
++findProperty(OffsetBase offsetBase, const Property * prop) const : const PropertySpec * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L121{findProperty}]]]
++getDocumentation(OffsetBase offsetBase, const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L128{getDocumentation}]]]
++getDocumentation(OffsetBase offsetBase, const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L129{getDocumentation}]]]
++getGroup(OffsetBase offsetBase, const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L126{getGroup}]]]
++getGroup(OffsetBase offsetBase, const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L127{getGroup}]]]
++getName(OffsetBase offsetBase, const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L123{getName}]]]
++getPropertyByName(OffsetBase offsetBase, const char * name) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L131{getPropertyByName}]]]
++getPropertyList(OffsetBase offsetBase, std::vector<Property *> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L133{getPropertyList}]]]
++getPropertyMap(OffsetBase offsetBase, std::map<std::string,Property *> & Map) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L132{getPropertyMap}]]]
++getPropertyNamedList(OffsetBase offsetBase, std::vector<std::pair<const char *,Property *>> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L134{getPropertyNamedList}]]]
++getType(OffsetBase offsetBase, const Property * prop) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L124{getType}]]]
++getType(OffsetBase offsetBase, const char * name) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L125{getType}]]]
++merge(PropertyData * other = nullptr) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L136{merge}]]]
++split(PropertyData * other) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L137{split}]]]
+__
++parentMerged : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L114{parentMerged}]]]
++parentPropertyData : const PropertyData * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L116{parentPropertyData}]]]
++propertyData : bmi::multi_index_container<PropertySpec,bmi::indexed_by<bmi::sequenced<>,bmi::hashed_unique<bmi::member<PropertySpec,const char *,&PropertySpec::Name>,CStringHasher,CStringHasher>,bmi::hashed_unique<bmi::member<PropertySpec,short,&PropertySpec::Offset>>>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L112{propertyData}]]]
+}
+class "PropertyContainer" as C_0011434723455086278527
+class C_0011434723455086278527 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L143{PropertyContainer}]] {
++PropertyContainer() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L153{PropertyContainer}]]]
++PropertyContainer(const PropertyContainer &) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L261{PropertyContainer}]]]
++~PropertyContainer() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L159{~PropertyContainer}]]]
+..
++operator=(const PropertyContainer &) = deleted : PropertyContainer & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L262{operator=}]]]
+..
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L224{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L223{Save}]]]
++addDynamicProperty(const char * type, const char * name = nullptr, const char * group = nullptr, const char * doc = nullptr, short attr = 0, bool ro = false, bool hidden = false) : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L198{addDynamicProperty}]]]
++beforeSave() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L225{beforeSave}]]]
++changeDynamicProperty(const Property * prop, const char * group, const char * doc) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L207{changeDynamicProperty}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
++editProperty(const char *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L227{editProperty}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getDynamicPropertyByName(const char * name) const : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L217{getDynamicPropertyByName}]]]
++getDynamicPropertyData(const Property * prop) const : DynamicProperty::PropData [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L203{getDynamicPropertyData}]]]
++getDynamicPropertyNames() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L214{getDynamicPropertyNames}]]]
++getFullName() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L163{getFullName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L161{getMemSize}]]]
++getPropertyByName(const char * name) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L166{getPropertyByName}]]]
+#getPropertyData() const : const PropertyData & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L254{getPropertyData}]]]
+{static} #getPropertyDataPtr() : const PropertyData * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L253{getPropertyDataPtr}]]]
++getPropertyDocumentation(const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L187{getPropertyDocumentation}]]]
++getPropertyDocumentation(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L189{getPropertyDocumentation}]]]
++getPropertyGroup(const char * name) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L185{getPropertyGroup}]]]
++getPropertyGroup(const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L183{getPropertyGroup}]]]
++getPropertyList(std::vector<Property *> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L172{getPropertyList}]]]
++getPropertyMap(std::map<std::string,Property *> & Map) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L170{getPropertyMap}]]]
++getPropertyName(const Property * prop) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L168{getPropertyName}]]]
++getPropertyNamedList(std::vector<std::pair<const char *,Property *>> & List) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L174{getPropertyNamedList}]]]
++getPropertyPrefix() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L229{getPropertyPrefix}]]]
++getPropertyType(const char * name) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L181{getPropertyType}]]]
++getPropertyType(const Property * prop) const : short [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L179{getPropertyType}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+#handleChangedPropertyName(Base::XMLReader & reader, const char * TypeName, const char * PropName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L256{handleChangedPropertyName}]]]
+#handleChangedPropertyType(Base::XMLReader & reader, const char * TypeName, Property * prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L257{handleChangedPropertyType}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isHidden(const char * name) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L197{isHidden}]]]
++isHidden(const Property * prop) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L195{isHidden}]]]
++isReadOnly(const char * name) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L193{isReadOnly}]]]
++isReadOnly(const Property * prop) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L191{isReadOnly}]]]
+#onBeforeChange(const Property *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L250{onBeforeChange}]]]
+#onChanged(const Property *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L248{onChanged}]]]
+#onEarlyChange(const Property *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L246{onEarlyChange}]]]
++onPropertyStatusChanged(const Property & prop, unsigned long oldStatus) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L221{onPropertyStatusChanged}]]]
++removeDynamicProperty(const char * name) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L211{removeDynamicProperty}]]]
++setPropertyPrefix(const char * prefix) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L233{setPropertyPrefix}]]]
++setPropertyStatus(unsigned char bit, bool value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L176{setPropertyStatus}]]]
+__
+-_propertyPrefix : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L268{_propertyPrefix}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+#dynamicProps : DynamicProperty [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L265{dynamicProps}]]]
+{static} -propertyData : PropertyData [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L269{propertyData}]]]
+}
+abstract "PropertyLinkBase" as C_0002608726600132821089
+abstract C_0002608726600132821089 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L103{PropertyLinkBase}]] {
++PropertyLinkBase() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L109{PropertyLinkBase}]]]
++~PropertyLinkBase() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L110{~PropertyLinkBase}]]]
+..
++CopyOnImportExternal(const std::map<std::string,std::string> & nameMap) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L243{CopyOnImportExternal}]]]
++CopyOnLabelChange(App::DocumentObject * obj, const std::string & ref, const char * newLabel) const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L257{CopyOnLabelChange}]]]
+{abstract} +CopyOnLinkReplace(const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj) const = 0 : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L231{CopyOnLinkReplace}]]]
+#_getLinksTo(std::vector<App::ObjectIdentifier> & identifiers, App::DocumentObject * obj, const char * subname, const std::vector<std::string> & subs, const std::vector<PropertyLinkBase::ShadowSub> & shadows) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L585{_getLinksTo}]]]
++_registerElementReference(App::DocumentObject * obj, std::string & sub, ShadowSub & shadow) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L399{_registerElementReference}]]]
++_updateElementReference(App::DocumentObject * feature, App::DocumentObject * obj, std::string & sub, ShadowSub & shadow, bool reverse, bool notify = false) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L386{_updateElementReference}]]]
+{abstract} +adjustLink(const std::set<App::DocumentObject *> & inList) = 0 : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L217{adjustLink}]]]
+{abstract} +breakLink(App::DocumentObject * obj, bool clear) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L206{breakLink}]]]
+{static} +breakLinks(App::DocumentObject * link, const std::vector<App::DocumentObject *> & objs, bool clear) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L409{breakLinks}]]]
++checkLabelReferences(const std::vector<std::string> & subs, bool reset = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L152{checkLabelReferences}]]]
++checkRestore(std::string * msg = nullptr) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L169{checkRestore}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +exportSubName(std::string & output, const App::DocumentObject * obj, const char * subname, bool first_obj = false) : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L466{exportSubName}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
+{static} +getElementReferences(DocumentObject *) : const std::unordered_set<PropertyLinkBase *> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L368{getElementReferences}]]]
+{static} +getLabelReferences(std::vector<std::string> & labels, const char * subname) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L518{getLabelReferences}]]]
++getLinkedElements(std::map<App::DocumentObject *,std::vector<std::string>> & elements, bool newStyle = true, bool all = false) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L282{getLinkedElements}]]]
++getLinkedObjects<T>(T & inserter, bool all = false) const : void
+{abstract} +getLinks(std::vector<App::DocumentObject *> & objs, bool all = false, std::vector<std::string> * subs = nullptr, bool newStyle = true) const = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L183{getLinks}]]]
+{abstract} +getLinksTo(std::vector<App::ObjectIdentifier> & identifiers, App::DocumentObject * obj, const char * subname = nullptr, bool all = false) const = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L194{getLinksTo}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+#hasSetValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L577{hasSetValue}]]]
+{static} +importSubName(Base::XMLReader & reader, const char * sub, bool & restoreLabel) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L484{importSubName}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L304{isSame}]]]
++linkedElements(bool newStyle = true, bool all = false) const : std::map<App::DocumentObject *,std::vector<std::string>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L296{linkedElements}]]]
++linkedObjects(bool all = false) const : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L267{linkedObjects}]]]
++referenceChanged() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L158{referenceChanged}]]]
++registerLabelReferences(std::vector<std::string> && labels, bool reset = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L141{registerLabelReferences}]]]
+{static} +restoreLabelReference(const App::DocumentObject * obj, std::string & sub, ShadowSub * shadow = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L506{restoreLabelReference}]]]
++setAllowExternal(bool allow) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L314{setAllowExternal}]]]
++setAllowPartial(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L568{setAllowPartial}]]]
+#setFlag(int flag, bool value = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L581{setFlag}]]]
++setReturnNewElement(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L570{setReturnNewElement}]]]
++setSilentRestore(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L572{setSilentRestore}]]]
++testFlag(int flag) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L564{testFlag}]]]
+{static} +tryImport(const App::Document * doc, const App::DocumentObject * obj, const std::map<std::string,std::string> & nameMap) : App::DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L441{tryImport}]]]
+{static} +tryImportSubName(const App::DocumentObject * obj, const char * sub, const App::Document * doc, const std::map<std::string,std::string> & nameMap) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L426{tryImportSubName}]]]
+{static} +tryReplaceLink(const App::PropertyContainer * owner, App::DocumentObject * obj, const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj, const char * sub = nullptr) : std::pair<App::DocumentObject *,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L337{tryReplaceLink}]]]
+{static} +tryReplaceLinkSubs(const App::PropertyContainer * owner, App::DocumentObject * obj, const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj, const std::vector<std::string> & subs) : std::pair<App::DocumentObject *,std::vector<std::string>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L357{tryReplaceLinkSubs}]]]
++unregisterElementReference() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L133{unregisterElementReference}]]]
++unregisterLabelReferences() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L155{unregisterLabelReferences}]]]
++updateElementReference(App::DocumentObject * feature, bool reverse = false, bool notify = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L124{updateElementReference}]]]
+{static} +updateElementReferences(DocumentObject * feature, bool reverse = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L365{updateElementReferences}]]]
+{static} +updateLabelReference(const App::DocumentObject * linked, const char * subname, App::DocumentObject * obj, const std::string & ref, const char * newLabel) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L550{updateLabelReference}]]]
+{static} +updateLabelReferences(App::DocumentObject * obj, const char * newLabel) : std::vector<std::pair<Property *,std::unique_ptr<Property>>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L528{updateLabelReferences}]]]
+__
+-_ElementRefs : std::set<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L594{_ElementRefs}]]]
+#_Flags : std::bitset<32> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L580{_Flags}]]]
+-_LabelRefs : std::set<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L593{_LabelRefs}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
++signalUpdateElementReference : boost::signals2::signal<void (const std::string &,const std::string &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L574{signalUpdateElementReference}]]]
+}
+class "PropertyInteger" as C_0010149275064017107462
+class C_0010149275064017107462 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L53{PropertyInteger}]] {
++PropertyInteger() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L58{PropertyInteger}]]]
++~PropertyInteger() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L59{~PropertyInteger}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L76{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L77{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L74{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L73{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L68{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L79{getMemSize}]]]
++getPathValue(const App::ObjectIdentifier &) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L82{getPathValue}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L70{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L67{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L84{isSame}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L81{setPathValue}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L71{setPyObject}]]]
++setValue(long) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L63{setValue}]]]
+__
+#_lValue : long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L93{_lValue}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyPath" as C_0018350041598237777189
+class C_0018350041598237777189 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L99{PropertyPath}]] {
++PropertyPath() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L105{PropertyPath}]]]
++~PropertyPath() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L106{~PropertyPath}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L128{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L129{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L126{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L125{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L120{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L131{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L122{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const boost::filesystem::path & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L118{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L133{isSame}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L123{setPyObject}]]]
++setValue(const boost::filesystem::path &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L110{setValue}]]]
++setValue(const char *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L114{setValue}]]]
+__
+#_cValue : boost::filesystem::path [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L142{_cValue}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyEnumeration" as C_0004953339373382161483
+class C_0004953339373382161483 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L146{PropertyEnumeration}]] {
++PropertyEnumeration() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L152{PropertyEnumeration}]]]
++PropertyEnumeration(const Enumeration & e) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L155{PropertyEnumeration}]]]
++~PropertyEnumeration() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L158{~PropertyEnumeration}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L228{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L229{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L226{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L225{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L219{getEditorName}]]]
++getEnum() const : const Enumeration & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L205{getEnum}]]]
++getEnumVector() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L208{getEnumVector}]]]
++getPathValue(const App::ObjectIdentifier &) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L233{getPathValue}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L222{getPyObject}]]]
++getPyPathValue(const ObjectIdentifier & path, Py::Object & r) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L234{getPyPathValue}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : long [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L193{getValue}]]]
++getValueAsString() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L202{getValueAsString}]]]
++hasEnums() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L213{hasEnums}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isPartOf(const char * value) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L199{isPartOf}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L236{isSame}]]]
++isValid() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L216{isValid}]]]
++isValue(const char * value) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L196{isValue}]]]
++setEditorName(const char * name) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L220{setEditorName}]]]
++setEnumVector(const std::vector<std::string> &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L211{setEnumVector}]]]
++setEnums(const std::vector<std::string> & Enums) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L176{setEnums}]]]
++setEnums(const char ** plEnums) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L171{setEnums}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L231{setPathValue}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L223{setPyObject}]]]
++setPyPathValue(const App::ObjectIdentifier & path, const Py::Object & value) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L232{setPyPathValue}]]]
++setValue(const Enumeration & source) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L190{setValue}]]]
++setValue(long) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L187{setValue}]]]
++setValue(const char * value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L181{setValue}]]]
+__
+-_editorTypeName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L246{_editorTypeName}]]]
+-_enum : Enumeration [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L245{_enum}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyIntegerSet" as C_0013486526236660896339
+class C_0013486526236660896339 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L378{PropertyIntegerSet}]] {
++PropertyIntegerSet() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L388{PropertyIntegerSet}]]]
++~PropertyIntegerSet() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L394{~PropertyIntegerSet}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L412{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L413{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L410{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L409{Save}]]]
++addValue(long value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L401{addValue}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L414{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L406{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValues() const : const std::set<long> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L404{getValues}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L416{isSame}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L407{setPyObject}]]]
++setValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L399{setValue}]]]
++setValue(long) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L398{setValue}]]]
++setValues(const std::set<long> & values) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L402{setValues}]]]
+__
+-_lValueSet : std::set<long> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L424{_lValueSet}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMap" as C_0017896249762988195075
+class C_0017896249762988195075 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L431{PropertyMap}]] {
++PropertyMap() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L441{PropertyMap}]]]
++~PropertyMap() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L447{~PropertyMap}]]]
+..
++operator[](const std::string & key) const : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L458{operator[]}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L472{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L473{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L470{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L469{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L475{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L466{getPyObject}]]]
++getSize() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L449{getSize}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValues() const : const std::map<std::string,std::string> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L462{getValues}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L477{isSame}]]]
++set1Value(const std::string & key, const std::string & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L460{set1Value}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L467{setPyObject}]]]
++setValue(const std::string & key, const std::string & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L454{setValue}]]]
++setValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L453{setValue}]]]
++setValues(const std::map<std::string,std::string> &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L455{setValues}]]]
+__
+-_lValueList : std::map<std::string,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L486{_lValueList}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyFloat" as C_0012887428429727173509
+class C_0012887428429727173509 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L498{PropertyFloat}]] {
++PropertyFloat() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L506{PropertyFloat}]]]
++~PropertyFloat() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L512{~PropertyFloat}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L526{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L527{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L524{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L523{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L518{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L529{getMemSize}]]]
++getPathValue(const App::ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L532{getPathValue}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L520{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L516{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L534{isSame}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L531{setPathValue}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L521{setPyObject}]]]
++setValue(double lValue) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L515{setValue}]]]
+__
+#_dValue : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L543{_dValue}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyString" as C_0016187210898358423369
+class C_0016187210898358423369 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L685{PropertyString}]] {
++PropertyString() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L695{PropertyString}]]]
++~PropertyString() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L701{~PropertyString}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L717{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L718{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L715{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L714{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L710{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L719{getMemSize}]]]
++getPathValue(const App::ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L722{getPathValue}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L711{getPyObject}]]]
++getStrValue() const : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L706{getStrValue}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L705{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isEmpty() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L708{isEmpty}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L724{isSame}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L721{setPathValue}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L712{setPyObject}]]]
++setValue(const std::string & sString) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L704{setValue}]]]
++setValue(const char * sString) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L703{setValue}]]]
+__
+#_cValue : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L733{_cValue}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyUUID" as C_0006362021324240458965
+class C_0006362021324240458965 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L739{PropertyUUID}]] {
++PropertyUUID() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L749{PropertyUUID}]]]
++~PropertyUUID() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L755{~PropertyUUID}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L771{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L772{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L769{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L768{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L773{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L765{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const Base::Uuid & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L762{getValue}]]]
++getValueStr() const : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L761{getValueStr}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L775{isSame}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L766{setPyObject}]]]
++setValue(const std::string & sString) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L760{setValue}]]]
++setValue(const char * sString) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L759{setValue}]]]
++setValue(const Base::Uuid &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L758{setValue}]]]
+__
+-_uuid : Base::Uuid [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L784{_uuid}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyBool" as C_0017832526763232648572
+class C_0017832526763232648572 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L851{PropertyBool}]] {
++PropertyBool() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L861{PropertyBool}]]]
++~PropertyBool() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L867{~PropertyBool}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L880{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L881{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L878{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L877{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L872{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L883{getMemSize}]]]
++getPathValue(const App::ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L886{getPathValue}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L874{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L870{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L888{isSame}]]]
++setPathValue(const App::ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L885{setPathValue}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L875{setPyObject}]]]
++setValue(bool lValue) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L869{setValue}]]]
+__
+-_lValue : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L897{_lValue}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyColor" as C_0015230124054626886715
+class C_0015230124054626886715 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L930{PropertyColor}]] {
++PropertyColor() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L939{PropertyColor}]]]
++~PropertyColor() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L945{~PropertyColor}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L965{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L966{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L963{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L962{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L957{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L968{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L959{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L955{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L970{isSame}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L960{setPyObject}]]]
++setValue(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L951{setValue}]]]
++setValue(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L950{setValue}]]]
++setValue(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L949{setValue}]]]
+__
+-_cCol : Color [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L979{_cCol}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMaterial" as C_0006865239829155458824
+class C_0006865239829155458824 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1020{PropertyMaterial}]] {
++PropertyMaterial() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1029{PropertyMaterial}]]]
++~PropertyMaterial() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1035{~PropertyMaterial}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1076{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1077{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1072{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1071{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
++getAmbientColor() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1061{getAmbientColor}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getDiffuseColor() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1062{getDiffuseColor}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1074{getEditorName}]]]
++getEmissiveColor() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1064{getEmissiveColor}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1079{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1068{getPyObject}]]]
++getShininess() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1065{getShininess}]]]
++getSpecularColor() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1063{getSpecularColor}]]]
++getTransparency() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1066{getTransparency}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const Material & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1060{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1084{isSame}]]]
++setAmbientColor(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1043{setAmbientColor}]]]
++setAmbientColor(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1044{setAmbientColor}]]]
++setAmbientColor(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1045{setAmbientColor}]]]
++setDiffuseColor(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1048{setDiffuseColor}]]]
++setDiffuseColor(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1047{setDiffuseColor}]]]
++setDiffuseColor(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1046{setDiffuseColor}]]]
++setEmissiveColor(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1054{setEmissiveColor}]]]
++setEmissiveColor(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1053{setEmissiveColor}]]]
++setEmissiveColor(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1052{setEmissiveColor}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1069{setPyObject}]]]
++setShininess(float) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1055{setShininess}]]]
++setSpecularColor(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1049{setSpecularColor}]]]
++setSpecularColor(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1050{setSpecularColor}]]]
++setSpecularColor(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1051{setSpecularColor}]]]
++setTransparency(float) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1056{setTransparency}]]]
++setValue(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1042{setValue}]]]
++setValue(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1041{setValue}]]]
++setValue(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1040{setValue}]]]
++setValue(const Material & mat) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1039{setValue}]]]
+__
+-_cMat : Material [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1094{_cMat}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyVector" as C_0001461766869203530439
+class C_0001461766869203530439 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L54{PropertyVector}]] {
++PropertyVector() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L63{PropertyVector}]]]
++~PropertyVector() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L69{~PropertyVector}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L92{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L93{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L90{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L89{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L82{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L95{getMemSize}]]]
++getPathValue(const ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L99{getPathValue}]]]
++getPaths(std::vector<ObjectIdentifier> & paths) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L77{getPaths}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L86{getPyObject}]]]
++getPyPathValue(const ObjectIdentifier & path, Py::Object & res) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L101{getPyPathValue}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getUnit() const : Base::Unit [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L103{getUnit}]]]
++getValue() const : const Base::Vector3d & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L81{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L107{isSame}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L87{setPyObject}]]]
++setValue(double x, double y, double z) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L74{setValue}]]]
++setValue(const Base::Vector3d & vec) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L73{setValue}]]]
+__
+-_cVec : Base::Vector3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L115{_cVec}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyMatrix" as C_0006649623973586094780
+class C_0006649623973586094780 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L243{PropertyMatrix}]] {
++PropertyMatrix() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L252{PropertyMatrix}]]]
++~PropertyMatrix() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L258{~PropertyMatrix}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L277{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L278{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L275{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L274{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L267{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L280{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L271{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const Base::Matrix4D & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L266{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L284{isSame}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L272{setPyObject}]]]
++setValue(const Base::Matrix4D & mat) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L262{setValue}]]]
+__
+-_cMat : Base::Matrix4D [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L292{_cMat}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyPlacement" as C_0000677701823704837107
+class C_0000677701823704837107 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L299{PropertyPlacement}]] {
++PropertyPlacement() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L308{PropertyPlacement}]]]
++~PropertyPlacement() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L314{~PropertyPlacement}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L351{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L352{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L349{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L348{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L341{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L354{getMemSize}]]]
++getPathValue(const ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L337{getPathValue}]]]
++getPaths(std::vector<ObjectIdentifier> & paths) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L333{getPaths}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L345{getPyObject}]]]
++getPyPathValue(const ObjectIdentifier & path, Py::Object & res) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L339{getPyPathValue}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const Base::Placement & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L330{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L358{isSame}]]]
++setPathValue(const ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L335{setPathValue}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L346{setPyObject}]]]
++setValue(const Base::Placement & pos) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L318{setValue}]]]
++setValueIfChanged(const Base::Placement & pos, double tol = 1e-7, double atol = 1e-12) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L325{setValueIfChanged}]]]
+__
+{static} +Null : const Placement [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L365{Null}]]]
+-_cPos : Base::Placement [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L368{_cPos}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyRotation" as C_0007795314316200875755
+class C_0007795314316200875755 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L434{PropertyRotation}]] {
++PropertyRotation() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L443{PropertyRotation}]]]
++~PropertyRotation() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L449{~PropertyRotation}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L485{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L486{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L483{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L482{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L475{getEditorName}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L488{getMemSize}]]]
++getPathValue(const ObjectIdentifier & path) const : const boost::any [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L471{getPathValue}]]]
++getPaths(std::vector<ObjectIdentifier> & paths) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L467{getPaths}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L479{getPyObject}]]]
++getPyPathValue(const ObjectIdentifier & path, Py::Object & res) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L473{getPyPathValue}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const Base::Rotation & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L464{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++setPathValue(const ObjectIdentifier & path, const boost::any & value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L469{setPathValue}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L480{setPyObject}]]]
++setValue(const Base::Rotation & rot) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L453{setValue}]]]
++setValueIfChanged(const Base::Rotation & rot, double atol = 1e-12) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L460{setValueIfChanged}]]]
+__
+-_rot : Base::Rotation [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L493{_rot}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+abstract "PropertyGeometry" as C_0015689162663982196594
+abstract C_0015689162663982196594 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L500{PropertyGeometry}]] {
++PropertyGeometry() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L505{PropertyGeometry}]]]
++~PropertyGeometry() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L506{~PropertyGeometry}]]]
+..
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{abstract} +getBoundingBox() const = 0 : Base::BoundBox3d [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L517{getBoundingBox}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
+{abstract} +getTransform() const = 0 : Base::Matrix4D [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L513{getTransform}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+{abstract} +setTransform(const Base::Matrix4D & rclTrf) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L511{setTransform}]]]
+{abstract} +transformGeometry(const Base::Matrix4D & rclMat) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyGeo.h#L515{transformGeometry}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+class "PropertyPythonObject" as C_0010073763032840863061
+class C_0010073763032840863061 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L45{PropertyPythonObject}]] {
++PropertyPythonObject() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L50{PropertyPythonObject}]]]
++~PropertyPythonObject() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L51{~PropertyPythonObject}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L67{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L68{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L62{Restore}]]]
++RestoreDocFile(Base::Reader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L64{RestoreDocFile}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L60{Save}]]]
++SaveDocFile(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L63{SaveDocFile}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+-decodeValue(const std::string & str) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L77{decodeValue}]]]
+-encodeValue(const std::string & str) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L76{encodeValue}]]]
++fromString(const std::string &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L71{fromString}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L66{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L56{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L54{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+-loadPickle(const std::string & str) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L78{loadPickle}]]]
+-restoreObject(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L75{restoreObject}]]]
+-saveObject(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L74{saveObject}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L57{setPyObject}]]]
++setValue(Py::Object) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L53{setValue}]]]
++toString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L70{toString}]]]
+__
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+-object : Py::Object [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyPythonObject.h#L79{object}]]]
+}
+class "ObjectIdentifier::ResolveResults" as C_0001675047384878808167
+class C_0001675047384878808167 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L449{ObjectIdentifier::ResolveResults}]] {
++ResolveResults(const ObjectIdentifier & oi) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L451{ResolveResults}]]]
++getProperty(const ObjectIdentifier & oi) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L466{getProperty}]]]
++resolveErrorString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L465{resolveErrorString}]]]
+__
++flags : std::bitset<32> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L463{flags}]]]
++propertyIndex : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L453{propertyIndex}]]]
++propertyName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L461{propertyName}]]]
++propertyType : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L462{propertyType}]]]
++resolvedDocument : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L454{resolvedDocument}]]]
++resolvedDocumentName : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L455{resolvedDocumentName}]]]
++resolvedDocumentObject : App::DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L456{resolvedDocumentObject}]]]
++resolvedDocumentObjectName : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L457{resolvedDocumentObjectName}]]]
++resolvedProperty : App::Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L460{resolvedProperty}]]]
++resolvedSubObject : App::DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L459{resolvedSubObject}]]]
++subObjectName : String [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L458{subObjectName}]]]
+}
+class "PropertyFileIncluded" as C_0014984907955352612061
+class C_0014984907955352612061 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L75{PropertyFileIncluded}]] {
++PropertyFileIncluded() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L80{PropertyFileIncluded}]]]
++~PropertyFileIncluded() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L81{~PropertyFileIncluded}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L97{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L98{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L92{Restore}]]]
++RestoreDocFile(Base::Reader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L95{RestoreDocFile}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L91{Save}]]]
++SaveDocFile(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L94{SaveDocFile}]]]
+#aboutToSetValue() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L127{aboutToSetValue}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
+#getDocTransientPath() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L125{getDocTransientPath}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L86{getEditorName}]]]
++getExchangeTempFile() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L115{getExchangeTempFile}]]]
++getFilter() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L121{getFilter}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L99{getMemSize}]]]
++getOriginalFileName() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L116{getOriginalFileName}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L88{getPyObject}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
+#getUniqueFileName(const std::string &, const std::string &) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L126{getUniqueFileName}]]]
++getValue() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L84{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isEmpty() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L118{isEmpty}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L101{isSame}]]]
++setFilter(std::string filter) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L120{setFilter}]]]
++setPyObject(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L89{setPyObject}]]]
++setValue(const char * sFile, const char * sName = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L83{setValue}]]]
+__
+#_BaseFileName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L131{_BaseFileName}]]]
+#_OriginalName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L132{_OriginalName}]]]
+#_cValue : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L130{_cValue}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+-m_filter : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L135{m_filter}]]]
+}
+class "TransactionObject::PropData" as C_0001784710677044248001
+class C_0001784710677044248001 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Transactions.h#L133{TransactionObject::PropData}]] {
+__
++propertyOrig : const Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Transactions.h#L135{propertyOrig}]]]
++propertyType : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Transactions.h#L134{propertyType}]]]
+}
+class "PropertyCleaner" as C_0010604326288209644713
+class C_0010604326288209644713 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L189{PropertyCleaner}]] {
++PropertyCleaner(Property * p) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L190{PropertyCleaner}]]]
++~PropertyCleaner() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L195{~PropertyCleaner}]]]
+..
+{static} +add(Property * prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L211{add}]]]
+__
+{static} +_PropCleanerCounter : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L218{_PropCleanerCounter}]]]
+{static} +_RemovedProps : std::vector<Property *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L217{_RemovedProps}]]]
++prop : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L215{prop}]]]
+}
+}
+C_0011528780144950876692 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L43{classTypeId}]] : -classTypeId
+C_0010695310204690954695 o-- C_0011287612919229690754 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L281{StatusBits}]] : #StatusBits
+C_0010695310204690954695 --> C_0011434723455086278527 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L305{father}]] : -father
+C_0010695310204690954695 o-- C_0007009446637664636435 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L310{signalChanged}]] : +signalChanged
+C_0010695310204690954695 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <.. C_0006995009966221590167 : +<<friend>>
+C_0010695310204690954695 <.. C_0008521121395702379220 : +<<friend>>
+C_0010695310204690954695 <.. C_0011434723455086278527 : +<<friend>>
+C_0011528780144950876692 <|-- C_0010695310204690954695
+C_0015854913928868302836 --+ C_0010695310204690954695
+C_0011751656626629753837 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0011751656626629753837
+C_0001277848309579128052 --+ C_0006995009966221590167
+C_0001277848309579128052 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L150{property}]] : +property
+C_0008521121395702379220 --> C_0008521121395702379220 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L116{parentPropertyData}]] : +parentPropertyData
+C_0011434723455086278527 o-- C_0006995009966221590167 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L265{dynamicProps}]] : #dynamicProps
+C_0011434723455086278527 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0011434723455086278527 --> C_0008521121395702379220 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L269{propertyData}]] : -propertyData
+C_0011434723455086278527 <.. C_0006995009966221590167 : +<<friend>>
+C_0011434723455086278527 <.. C_0010695310204690954695 : +<<friend>>
+C_0011528780144950876692 <|-- C_0011434723455086278527
+C_0002608726600132821089 o-- C_0011287612919229690754 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L580{_Flags}]] : #_Flags
+C_0002608726600132821089 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0002608726600132821089
+C_0010149275064017107462 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0010149275064017107462
+C_0018350041598237777189 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0018350041598237777189
+C_0004953339373382161483 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0004953339373382161483
+C_0013486526236660896339 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0013486526236660896339
+C_0017896249762988195075 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0017896249762988195075
+C_0012887428429727173509 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0012887428429727173509
+C_0016187210898358423369 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0016187210898358423369
+C_0006362021324240458965 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0006362021324240458965
+C_0017832526763232648572 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0017832526763232648572
+C_0015230124054626886715 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0015230124054626886715
+C_0006865239829155458824 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0006865239829155458824
+C_0001461766869203530439 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0001461766869203530439
+C_0006649623973586094780 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0006649623973586094780
+C_0000677701823704837107 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0000677701823704837107
+C_0007795314316200875755 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0007795314316200875755
+C_0015689162663982196594 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0015689162663982196594
+C_0010073763032840863061 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0010073763032840863061
+C_0001675047384878808167 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L460{resolvedProperty}]] : +resolvedProperty
+C_0001675047384878808167 o-- C_0011287612919229690754 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L463{flags}]] : +flags
+C_0014984907955352612061 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
+C_0010695310204690954695 <|-- C_0014984907955352612061
+C_0001784710677044248001 o-- C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Transactions.h#L134{propertyType}]] : +propertyType
+C_0001784710677044248001 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Transactions.h#L135{propertyOrig}]] : +propertyOrig
+C_0010604326288209644713 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L215{prop}]] : +prop
+C_0010604326288209644713 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.cpp#L217{_RemovedProps}]] : +_RemovedProps
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

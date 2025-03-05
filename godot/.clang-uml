@@ -1,5 +1,5 @@
 compilation_database_dir: .
-output_directory: ../puml
+output_directory: ../diagrams
 add_compile_flags:
   - -Wno-deprecated-builtins
   - -Wno-unknown-warning-option
@@ -16,11 +16,7 @@ diagrams:
     generate_packages: true
     package_type: directory
     glob:
-      - core/*.cpp
-      - core/crypto/*.cpp
-      - core/io/*.cpp
-      - core/math/*.cpp
-      - core/os/*.cpp
+      - core/**/*.cpp
     include:
       subclasses:
         - Reference
@@ -69,9 +65,10 @@ diagrams:
     type: class
     title: Godot Node2D class context
     generate_method_arguments: full
-    generate_packages: false
+    generate_packages: true
+    package_type: directory
     glob:
-      - scene/2d/node_2d.cpp
+      - scene/2d/*.cpp
     include:
       context:
         - Node2D
@@ -90,10 +87,11 @@ diagrams:
   node2d_class_context_full_diagram:
     type: class
     title: Godot Node2D class context
-    generate_method_arguments: full
-    generate_packages: false
+    generate_method_arguments: none
+    generate_packages: true
+    package_type: directory
     glob:
-      - scene/2d/node_2d.cpp
+      - scene/2d/*.cpp
     include:
       context:
         - Node2D
@@ -109,7 +107,8 @@ diagrams:
     type: class
     title: Godot Object class hierarchy
     generate_method_arguments: full
-    generate_packages: false
+    generate_packages: true
+    package_type: directory
     glob:
       - core/*.cpp
       - core/crypto/*.cpp

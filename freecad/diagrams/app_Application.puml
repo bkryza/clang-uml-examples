@@ -1,0 +1,738 @@
+@startuml
+title App::Application context
+package [std] as C_0009971158671206323968 {
+class "basic_string<char>" as C_0001275076681856179721
+class C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L133{basic_string}]] {
+__
+}
+class "map<std::string,std::string>" as C_0012004170049756060246
+class C_0012004170049756060246 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Reader.h#L333{map}]] {
+__
+}
+class "map<std::string,Base::Reference<ParameterManager>>" as C_0005015822572726412129
+class C_0005015822572726412129 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L335{map}]] {
+__
+}
+class "vector<App::Application::FileTypeItem>" as C_0006799026921705821270
+class C_0006799026921705821270 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L607{vector}]] {
+__
+}
+class "map<std::string,Document *>" as C_0017727964120145395819
+class C_0017727964120145395819 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L609{map}]] {
+__
+}
+class "deque<std::string>" as C_0004792907299990430654
+class C_0004792907299990430654 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L615{deque}]] {
+__
+}
+class "map<std::string,std::vector<std::string>>" as C_0011554716954904530215
+class C_0011554716954904530215 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L617{map}]] {
+__
+}
+class "map<std::string,std::set<std::string>>" as C_0007444569011639854588
+class C_0007444569011639854588 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L621{map}]] {
+__
+}
+}
+package [Base] as C_0005614219575140048477 {
+class "Reference<T>" as C_0011212476507339072068
+class C_0011212476507339072068 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L44{Reference}]] {
++Reference() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L51{Reference}]]]
++Reference(T * pointer) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L55{Reference}]]]
++Reference(const Reference<T> & ref) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L64{Reference}]]]
++~Reference() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L77{~Reference}]]]
+..
++operator=(const Reference<T> & ref) : Reference<T> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L105{operator=}]]]
+..
++operator*() const : T & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L122{operator*}]]]
++operator->() const : T * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L128{operator->}]]]
++operator=(T * pointer) : Reference<T> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L88{operator=}]]]
+..
++getRefCount() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L154{getRefCount}]]]
++isNull() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L148{isNull}]]]
++isValid() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L142{isValid}]]]
++operator type-parameter-0-0 *() const : T * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L133{operator type-parameter-0-0 *}]]]
+__
+-_toHandle : T * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Handle.h#L163{_toHandle}]]]
+}
+class "ConsoleObserverFile" as C_0016959784259541534381
+class C_0016959784259541534381 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L40{ConsoleObserverFile}]] {
++ConsoleObserverFile(const char * sFileName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L43{ConsoleObserverFile}]]]
++ConsoleObserverFile(const ConsoleObserverFile &) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L56{ConsoleObserverFile}]]]
++ConsoleObserverFile(ConsoleObserverFile &&) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L57{ConsoleObserverFile}]]]
++~ConsoleObserverFile() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L44{~ConsoleObserverFile}]]]
+..
++operator=(const ConsoleObserverFile &) = deleted : ConsoleObserverFile & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L58{operator=}]]]
++operator=(ConsoleObserverFile &&) = deleted : ConsoleObserverFile & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L59{operator=}]]]
+..
++Name() : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L51{Name}]]]
++SendLog(const std::string & notifiername, const std::string & msg, LogStyle level, IntendedRecipient recipient, ContentType content) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L46{SendLog}]]]
+__
+-cFileStream : Base::ofstream [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L62{cFileStream}]]]
+}
+class "ConsoleObserverStd" as C_0011201061960952297604
+class C_0011201061960952297604 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L68{ConsoleObserverStd}]] {
++ConsoleObserverStd() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L71{ConsoleObserverStd}]]]
++ConsoleObserverStd(const ConsoleObserverStd &) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L83{ConsoleObserverStd}]]]
++ConsoleObserverStd(ConsoleObserverStd &&) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L84{ConsoleObserverStd}]]]
++~ConsoleObserverStd() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L72{~ConsoleObserverStd}]]]
+..
++operator=(const ConsoleObserverStd &) = deleted : ConsoleObserverStd & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L85{operator=}]]]
++operator=(ConsoleObserverStd &&) = deleted : ConsoleObserverStd & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L86{operator=}]]]
+..
+-Critical(const char * sCritical) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L94{Critical}]]]
+-Error(const char * sErr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L92{Error}]]]
+-Log(const char * sLog) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L93{Log}]]]
+-Message(const char * sMsg) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L91{Message}]]]
++Name() : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L78{Name}]]]
++SendLog(const std::string & notifiername, const std::string & msg, LogStyle level, IntendedRecipient recipient, ContentType content) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L73{SendLog}]]]
+-Warning(const char * sWarn) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L90{Warning}]]]
+__
+-useColorStderr : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/ConsoleObserver.h#L89{useColorStderr}]]]
+}
+}
+package [boost] as C_0015721512833981967600 {
+package [signals2] as C_0016784150829702890784 {
+class "signal<void(App::Property const&)>" as C_0007009446637664636435
+class C_0007009446637664636435 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L310{signal}]] {
+__
+}
+class "signal<void(App::DocumentObject const&,App::Property const&)>" as C_0014383984081759882478
+class C_0014383984081759882478 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DocumentObject.h#L111{signal}]] {
+__
+}
+class "signal<void(Document const&,bool)>" as C_0005088892736305901407
+class C_0005088892736305901407 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L211{signal}]] {
+__
+}
+class "signal<void(Document const&)>" as C_0004896791175287781523
+class C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L213{signal}]] {
+__
+}
+class "signal<void()>" as C_0001173185122141874266
+class C_0001173185122141874266 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L215{signal}]] {
+__
+}
+class "signal<void(Document const&,std::string const& const&)>" as C_0018216817201482086352
+class C_0018216817201482086352 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L231{signal}]] {
+__
+}
+class "signal<void(bool)>" as C_0001721759462545688970
+class C_0001721759462545688970 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L243{signal}]] {
+__
+}
+class "signal<void(App::Document const&,App::Property const&)>" as C_0010228902605650207452
+class C_0010228902605650207452 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L261{signal}]] {
+__
+}
+class "signal<void(App::DocumentObject const&)>" as C_0009700370456155618549
+class C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L265{signal}]] {
+__
+}
+class "signal<void(App::Document const&)>" as C_0001711646591018024238
+class C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L278{signal}]] {
+__
+}
+class "signal<void(App::Document const&,std::string)>" as C_0005037904125307815040
+class C_0005037904125307815040 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L284{signal}]] {
+__
+}
+class "signal<void(App::ExtensionContainer const&,std::string)>" as C_0004338874090693449097
+class C_0004338874090693449097 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L311{signal}]] {
+__
+}
+}
+}
+class "ParameterManager" as C_0007994369350752944384
+class C_0007994369350752944384 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L391{ParameterManager}]] {
+-ParameterManager() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L473{ParameterManager}]]]
++ParameterManager(const ParameterManager &) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L477{ParameterManager}]]]
++ParameterManager(ParameterManager &&) = deleted : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L478{ParameterManager}]]]
++~ParameterManager() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L476{~ParameterManager}]]]
+..
++operator=(const ParameterManager &) = deleted : ParameterManager & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L480{operator=}]]]
++operator=(ParameterManager &&) = deleted : ParameterManager & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L481{operator=}]]]
+..
++CheckDocument() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L433{CheckDocument}]]]
+{static} +Create() : Base::Reference<ParameterManager> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L395{Create}]]]
++CreateDocument() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L432{CreateDocument}]]]
++GetSerializeFileName() const : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L442{GetSerializeFileName}]]]
++HasSerializer() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L440{HasSerializer}]]]
++IgnoreSave() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L450{IgnoreSave}]]]
+{static} +Init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L396{Init}]]]
++LoadDocument(const xercesc_3_2::InputSource &) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L428{LoadDocument}]]]
++LoadDocument(const char * sFileName) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L427{LoadDocument}]]]
++LoadDocument() : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L444{LoadDocument}]]]
++LoadOrCreateDocument(const char * sFileName) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L429{LoadOrCreateDocument}]]]
++LoadOrCreateDocument() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L446{LoadOrCreateDocument}]]]
++SaveDocument(const char * sFileName) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L430{SaveDocument}]]]
++SaveDocument(xercesc_3_2::XMLFormatTarget * pFormatTarget) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L431{SaveDocument}]]]
++SaveDocument() const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L448{SaveDocument}]]]
++SetIgnoreSave(bool value) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L449{SetIgnoreSave}]]]
++SetSerializer(ParameterSerializer *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L438{SetSerializer}]]]
+{static} +Terminate() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L397{Terminate}]]]
+__
+-_pDocument : xercesc_3_2::DOMDocument * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L454{_pDocument}]]]
+-gDiscardDefaultContent : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L468{gDiscardDefaultContent}]]]
+-gDoCreate : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L461{gDoCreate}]]]
+-gDoNamespaces : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L458{gDoNamespaces}]]]
+-gDoSchema : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L459{gDoSchema}]]]
+-gFormatPrettyPrint : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L470{gFormatPrettyPrint}]]]
+-gIgnoreSave : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L457{gIgnoreSave}]]]
+-gMyEOLSequence : const XMLCh * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L465{gMyEOLSequence}]]]
+-gOutputEncoding : const XMLCh * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L464{gOutputEncoding}]]]
+-gSchemaFullChecking : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L460{gSchemaFullChecking}]]]
+-gSplitCdataSections : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L467{gSplitCdataSections}]]]
+-gUseFilter : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L469{gUseFilter}]]]
+-paramSerializer : ParameterSerializer * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L455{paramSerializer}]]]
++signalParamChanged : boost::signals2::signal<void (ParameterGrp *,ParamType,const char *,const char *)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Parameter.h#L425{signalParamChanged}]]]
+}
+package [App] as C_0018282610363821501524 {
+class "Application" as C_0008903278854836561936
+class C_0008903278854836561936 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L77{Application}]] {
+-Application(std::map<std::string,std::string> & mConfig) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L499{Application}]]]
+-~Application() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L501{~Application}]]]
+..
++AddParameterSet(const char * sName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L336{AddParameterSet}]]]
+{static} +Config() : std::map<std::string,std::string> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L399{Config}]]]
+{static} -ExtractUserPath() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L589{ExtractUserPath}]]]
+{static} -FindHomePath(const char * sCall) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L585{FindHomePath}]]]
+{static} +GetARGC() : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L400{GetARGC}]]]
+{static} +GetARGV() : char ** [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L401{GetARGV}]]]
++GetParameterGroupByPath(const char * sName) : Base::Reference<ParameterGrp> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L332{GetParameterGroupByPath}]]]
++GetParameterSet(const char * sName) const : ParameterManager * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L334{GetParameterSet}]]]
++GetParameterSetList() const : const std::map<std::string,Base::Reference<ParameterManager>> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L335{GetParameterSetList}]]]
++GetSystemParameter() : ParameterManager & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L320{GetSystemParameter}]]]
++GetUserParameter() : ParameterManager & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L322{GetUserParameter}]]]
+{static} -LoadParameters() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L591{LoadParameters}]]]
+{static} -PrintInitHelp() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L587{PrintInitHelp}]]]
++RemoveParameterSet(const char * sName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L337{RemoveParameterSet}]]]
+{static} -SaveEnv(const char *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L593{SaveEnv}]]]
++addExportType(const char * Type, const char * ModuleName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L371{addExportType}]]]
++addImportType(const char * Type, const char * ModuleName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L353{addImportType}]]]
++addPendingDocument(const char * FileName, const char * objName, bool allowPartial) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L168{addPendingDocument}]]]
+{static} +applicationPid() : int64_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L402{applicationPid}]]]
++changeExportModule(const char * Type, const char * OldModuleName, const char * NewModuleName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L373{changeExportModule}]]]
++changeImportModule(const char * Type, const char * OldModuleName, const char * NewModuleName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L355{changeImportModule}]]]
++checkLinkDepth(int depth, MessageOption option = MessageOption::Error) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L438{checkLinkDepth}]]]
+{static} -cleanupUnits() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L503{cleanupUnits}]]]
++closeActiveTransaction(bool abort = false, int id = 0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L205{closeActiveTransaction}]]]
++closeAllDocuments() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L166{closeAllDocuments}]]]
++closeDocument(const char * name) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L100{closeDocument}]]]
+{static} +destruct() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L392{destruct}]]]
+{static} +destructObserver() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L393{destructObserver}]]]
++getActiveDocument() const : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L128{getActiveDocument}]]]
++getActiveTransaction(int * tid = nullptr) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L195{getActiveTransaction}]]]
+{static} +getCmdLineFiles() : std::list<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L395{getCmdLineFiles}]]]
++getDocument(const char * Name) const : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L130{getDocument}]]]
++getDocumentByPath(const char * path, PathMatchMode checkCanonical = PathMatchMode::MatchAbsolute) const : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L155{getDocumentByPath}]]]
++getDocumentName(const App::Document *) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L159{getDocumentName}]]]
++getDocuments() const : std::vector<App::Document *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L161{getDocuments}]]]
+{static} +getExecutableName() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L408{getExecutableName}]]]
++getExportFilters(const char * Type) const : std::map<std::string,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L383{getExportFilters}]]]
++getExportFilters() const : std::map<std::string,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L385{getExportFilters}]]]
++getExportModules(const char * Type) const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L375{getExportModules}]]]
++getExportModules() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L377{getExportModules}]]]
++getExportTypes(const char * Module) const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L379{getExportTypes}]]]
++getExportTypes() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L381{getExportTypes}]]]
+{static} +getHelpDir() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L421{getHelpDir}]]]
+{static} +getHomePath() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L407{getHomePath}]]]
++getImportFilters(const char * Type) const : std::map<std::string,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L365{getImportFilters}]]]
++getImportFilters() const : std::map<std::string,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L367{getImportFilters}]]]
++getImportModules() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L359{getImportModules}]]]
++getImportModules(const char * Type) const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L357{getImportModules}]]]
++getImportTypes(const char * Module) const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L361{getImportTypes}]]]
++getImportTypes() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L363{getImportTypes}]]]
+{static} +getLibraryDir() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L420{getLibraryDir}]]]
++getLinksTo(const DocumentObject *, int options, int maxCount = 0) const : std::set<DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L446{getLinksTo}]]]
+{static} +getResourceDir() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L419{getResourceDir}]]]
+{static} +getTempFileName(const char * FileName = nullptr) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L414{getTempFileName}]]]
+{static} +getTempPath() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L413{getTempPath}]]]
++getUniqueDocumentName(const char * Name, bool tempDoc = false) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L102{getUniqueDocumentName}]]]
+{static} +getUserAppDataDir() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L417{getUserAppDataDir}]]]
+{static} +getUserCachePath() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L415{getUserCachePath}]]]
+{static} +getUserConfigPath() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L416{getUserConfigPath}]]]
+{static} +getUserMacroDir() : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L418{getUserMacroDir}]]]
++hasLinksTo(const DocumentObject * obj) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L450{hasLinksTo}]]]
+{static} +init(int argc, char ** argv) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L390{init}]]]
+{static} -initApplication() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L575{initApplication}]]]
+{static} -initConfig(int argc, char ** argv) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L574{initConfig}]]]
+{static} +initTypes() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L391{initTypes}]]]
++isClosingAll() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L172{isClosingAll}]]]
++isRestoring() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L170{isRestoring}]]]
+{static} -logStatus() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L576{logStatus}]]]
++newDocument(const char * Name = nullptr, const char * UserName = nullptr, bool createView = true, bool tempDoc = false) : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L97{newDocument}]]]
++openDocument(const char * FileName = nullptr, bool createView = true) : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L104{openDocument}]]]
+#openDocumentPrivate(const char * FileName, const char * propFileName, const char * label, bool isMainDoc, bool createView, std::vector<std::string> && objNames) : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L485{openDocumentPrivate}]]]
++openDocuments(const std::vector<std::string> & filenames, const std::vector<std::string> * paths = nullptr, const std::vector<std::string> * labels = nullptr, std::vector<std::string> * errs = nullptr, bool createView = true) : std::vector<Document *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L122{openDocuments}]]]
+{static} +processCmdLineFiles() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L394{processCmdLineFiles}]]]
+{static} +processFiles(const std::list<std::string> &) : std::list<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L396{processFiles}]]]
+#renameDocument(const char * OldName, const char * NewName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L457{renameDocument}]]]
+{static} +runApplication() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L397{runApplication}]]]
+{static} -sActiveDocument(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L547{sActiveDocument}]]]
+{static} -sAddDocObserver(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L551{sAddDocObserver}]]]
+{static} -sAddExportType(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L528{sAddExportType}]]]
+{static} -sAddImportType(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L525{sAddImportType}]]]
+{static} -sChangeExportModule(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L529{sChangeExportModule}]]]
+{static} -sChangeImportModule(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L526{sChangeImportModule}]]]
+{static} -sCheckAbort(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L566{sCheckAbort}]]]
+{static} -sCheckLinkDepth(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L558{sCheckLinkDepth}]]]
+{static} -sCloseActiveTransaction(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L565{sCloseActiveTransaction}]]]
+{static} -sCloseDocument(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L546{sCloseDocument}]]]
+{static} -sDumpConfig(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L524{sDumpConfig}]]]
+{static} -sGetActiveTransaction(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L564{sGetActiveTransaction}]]]
+{static} -sGetConfig(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L522{sGetConfig}]]]
+{static} -sGetDependentObjects(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L561{sGetDependentObjects}]]]
+{static} -sGetDocument(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L549{sGetDocument}]]]
+{static} -sGetExportType(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L530{sGetExportType}]]]
+{static} -sGetHelpPath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L538{sGetHelpPath}]]]
+{static} -sGetHomePath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L539{sGetHomePath}]]]
+{static} -sGetImportType(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L527{sGetImportType}]]]
+{static} -sGetLibraryPath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L532{sGetLibraryPath}]]]
+{static} -sGetLinksTo(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L559{sGetLinksTo}]]]
+{static} -sGetLogLevel(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L556{sGetLogLevel}]]]
+{static} -sGetParam(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L519{sGetParam}]]]
+{static} -sGetResourcePath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L531{sGetResourcePath}]]]
+{static} -sGetTempPath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L533{sGetTempPath}]]]
+{static} -sGetUserAppDataPath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L536{sGetUserAppDataPath}]]]
+{static} -sGetUserCachePath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L534{sGetUserCachePath}]]]
+{static} -sGetUserConfigPath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L535{sGetUserConfigPath}]]]
+{static} -sGetUserMacroPath(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L537{sGetUserMacroPath}]]]
+{static} -sGetVersion(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L521{sGetVersion}]]]
+{static} -sIsRestoring(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L553{sIsRestoring}]]]
+{static} -sListDocuments(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L550{sListDocuments}]]]
+{static} -sLoadFile(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L541{sLoadFile}]]]
+{static} -sNewDocument(PyObject * self, PyObject * args, PyObject * kwd) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L545{sNewDocument}]]]
+{static} -sOpenDocument(PyObject * self, PyObject * args, PyObject * kwd) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L542{sOpenDocument}]]]
+{static} -sRemoveDocObserver(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L552{sRemoveDocObserver}]]]
+{static} -sSaveDocument(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L543{sSaveDocument}]]]
+{static} -sSaveDocumentAs(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L544{sSaveDocumentAs}]]]
+{static} -sSaveParameter(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L520{sSaveParameter}]]]
+{static} -sSetActiveDocument(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L548{sSetActiveDocument}]]]
+{static} -sSetActiveTransaction(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L563{sSetActiveTransaction}]]]
+{static} -sSetConfig(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L523{sSetConfig}]]]
+{static} -sSetLogLevel(PyObject * self, PyObject * args) : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L555{sSetLogLevel}]]]
++setActiveDocument(const char * Name) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L164{setActiveDocument}]]]
++setActiveDocument(App::Document * pDoc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L163{setActiveDocument}]]]
++setActiveTransaction(const char * name, bool persist = false) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L193{setActiveTransaction}]]]
+{static} -setupPythonException(PyObject *) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L515{setupPythonException}]]]
+{static} -setupPythonTypes() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L514{setupPythonTypes}]]]
+#slotAbortTransaction(const App::Document &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L478{slotAbortTransaction}]]]
+#slotActivatedObject(const App::DocumentObject &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L470{slotActivatedObject}]]]
+#slotBeforeChangeDocument(const App::Document &, const App::Property &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L463{slotBeforeChangeDocument}]]]
+#slotBeforeChangeObject(const App::DocumentObject &, const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L467{slotBeforeChangeObject}]]]
+#slotBeforeRecompute(const App::Document &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L475{slotBeforeRecompute}]]]
+#slotChangePropertyEditor(const App::Document &, const App::Property &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L481{slotChangePropertyEditor}]]]
+#slotChangedDocument(const App::Document &, const App::Property &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L464{slotChangedDocument}]]]
+#slotChangedObject(const App::DocumentObject &, const App::Property & Prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L468{slotChangedObject}]]]
+#slotCommitTransaction(const App::Document &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L477{slotCommitTransaction}]]]
+#slotDeletedObject(const App::DocumentObject &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L466{slotDeletedObject}]]]
+#slotFinishSaveDocument(const App::Document &, const std::string &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L480{slotFinishSaveDocument}]]]
+#slotNewObject(const App::DocumentObject &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L465{slotNewObject}]]]
+#slotOpenTransaction(const App::Document &, std::string) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L476{slotOpenTransaction}]]]
+#slotRecomputed(const App::Document &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L474{slotRecomputed}]]]
+#slotRecomputedObject(const App::DocumentObject &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L473{slotRecomputedObject}]]]
+#slotRedoDocument(const App::Document &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L472{slotRedoDocument}]]]
+#slotRelabelObject(const App::DocumentObject &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L469{slotRelabelObject}]]]
+#slotStartSaveDocument(const App::Document &, const std::string &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L479{slotStartSaveDocument}]]]
+#slotUndoDocument(const App::Document &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L471{slotUndoDocument}]]]
+__
+-DocFileMap : std::map<std::string,Document *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L610{DocFileMap}]]]
+-DocMap : std::map<std::string,Document *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L609{DocMap}]]]
+{static} -Methods : PyMethodDef[] [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L567{Methods}]]]
+-_activeTransactionGuard : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L634{_activeTransactionGuard}]]]
+-_activeTransactionID : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L633{_activeTransactionID}]]]
+-_activeTransactionName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L632{_activeTransactionName}]]]
+-_activeTransactionTmpName : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L635{_activeTransactionTmpName}]]]
+-_allowPartial : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L624{_allowPartial}]]]
+{static} -_argc : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L596{_argc}]]]
+{static} -_argv : char ** [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L597{_argv}]]]
+-_docReloadAttempts : std::map<std::string,std::set<std::string>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L621{_docReloadAttempts}]]]
+-_isClosingAll : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L625{_isClosingAll}]]]
+-_isRestoring : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L623{_isRestoring}]]]
+-_mConfig : std::map<std::string,std::string> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L612{_mConfig}]]]
+-_mExportTypes : std::vector<FileTypeItem> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L608{_mExportTypes}]]]
+-_mImportTypes : std::vector<FileTypeItem> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L607{_mImportTypes}]]]
+-_objCount : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L628{_objCount}]]]
+-_pActiveDoc : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L613{_pActiveDoc}]]]
+{static} -_pConsoleObserverFile : Base::ConsoleObserverFile * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L638{_pConsoleObserverFile}]]]
+{static} -_pConsoleObserverStd : Base::ConsoleObserverStd * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L637{_pConsoleObserverStd}]]]
+{static} -_pcSingleton : Application * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L578{_pcSingleton}]]]
+{static} -_pcSysParamMngr : Base::Reference<ParameterManager> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L507{_pcSysParamMngr}]]]
+{static} -_pcUserParamMngr : Base::Reference<ParameterManager> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L508{_pcUserParamMngr}]]]
+-_pendingDocMap : std::map<std::string,std::vector<std::string>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L617{_pendingDocMap}]]]
+-_pendingDocs : std::deque<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L615{_pendingDocs}]]]
+-_pendingDocsReopen : std::deque<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L616{_pendingDocsReopen}]]]
+{static} -mConfig : std::map<std::string,std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L595{mConfig}]]]
+-mpcPramManager : std::map<std::string,Base::Reference<ParameterManager>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L611{mpcPramManager}]]]
++signalAbortTransaction : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L288{signalAbortTransaction}]]]
++signalActivatedObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L276{signalActivatedObject}]]]
++signalActiveDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L221{signalActiveDocument}]]]
++signalAddedDynamicExtension : boost::signals2::signal<void (const App::ExtensionContainer &,std::string)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L313{signalAddedDynamicExtension}]]]
++signalAppendDynamicProperty : boost::signals2::signal<void (const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L297{signalAppendDynamicProperty}]]]
++signalBeforeAddingDynamicExtension : boost::signals2::signal<void (const App::ExtensionContainer &,std::string)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L311{signalBeforeAddingDynamicExtension}]]]
++signalBeforeChangeDocument : boost::signals2::signal<void (const App::Document &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L261{signalBeforeChangeDocument}]]]
++signalBeforeChangeObject : boost::signals2::signal<void (const App::DocumentObject &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L270{signalBeforeChangeObject}]]]
++signalBeforeCloseTransaction : boost::signals2::signal<void (bool)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L243{signalBeforeCloseTransaction}]]]
++signalBeforeRecomputeDocument : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L278{signalBeforeRecomputeDocument}]]]
++signalChangePropertyEditor : boost::signals2::signal<void (const App::Document &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L301{signalChangePropertyEditor}]]]
++signalChangedDocument : boost::signals2::signal<void (const App::Document &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L263{signalChangedDocument}]]]
++signalChangedObject : boost::signals2::signal<void (const App::DocumentObject &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L272{signalChangedObject}]]]
++signalCloseTransaction : boost::signals2::signal<void (bool)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L245{signalCloseTransaction}]]]
++signalCommitTransaction : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L286{signalCommitTransaction}]]]
++signalDeleteDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L213{signalDeleteDocument}]]]
++signalDeletedDocument : boost::signals2::signal<void ()> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L215{signalDeletedDocument}]]]
++signalDeletedObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L268{signalDeletedObject}]]]
++signalFinishOpenDocument : boost::signals2::signal<void ()> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L251{signalFinishOpenDocument}]]]
++signalFinishRestoreDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L227{signalFinishRestoreDocument}]]]
++signalFinishSaveDocument : boost::signals2::signal<void (const Document &,const std::string &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L233{signalFinishSaveDocument}]]]
++signalNewDocument : boost::signals2::signal<void (const Document &,bool)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L211{signalNewDocument}]]]
++signalNewObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L265{signalNewObject}]]]
++signalObjectRecomputed : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L282{signalObjectRecomputed}]]]
++signalOpenTransaction : boost::signals2::signal<void (const App::Document &,std::string)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L284{signalOpenTransaction}]]]
++signalPendingReloadDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L229{signalPendingReloadDocument}]]]
++signalRecomputed : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L280{signalRecomputed}]]]
++signalRedo : boost::signals2::signal<void ()> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L241{signalRedo}]]]
++signalRedoDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L239{signalRedoDocument}]]]
++signalRelabelDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L217{signalRelabelDocument}]]]
++signalRelabelObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L274{signalRelabelObject}]]]
++signalRemoveDynamicProperty : boost::signals2::signal<void (const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L299{signalRemoveDynamicProperty}]]]
++signalRenameDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L219{signalRenameDocument}]]]
++signalSaveDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L223{signalSaveDocument}]]]
++signalShowHidden : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L247{signalShowHidden}]]]
++signalStartOpenDocument : boost::signals2::signal<void ()> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L249{signalStartOpenDocument}]]]
++signalStartRestoreDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L225{signalStartRestoreDocument}]]]
++signalStartSaveDocument : boost::signals2::signal<void (const Document &,const std::string &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L231{signalStartSaveDocument}]]]
++signalUndo : boost::signals2::signal<void ()> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L237{signalUndo}]]]
++signalUndoDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L235{signalUndoDocument}]]]
+}
+enum "Application::PathMatchMode" as C_0014167484362602641979
+enum C_0014167484362602641979 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L133{Application::PathMatchMode}]] {
+MatchAbsolute
+MatchCanonical
+MatchCanonicalWarning
+}
+class "Application::TransactionSignaller" as C_0014629301140014851359
+class C_0014629301140014851359 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L489{Application::TransactionSignaller}]] {
++TransactionSignaller(bool abort, bool signal) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L491{TransactionSignaller}]]]
++~TransactionSignaller() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L492{~TransactionSignaller}]]]
+__
+-abort : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L494{abort}]]]
+}
+class "Application::FileTypeItem" as C_0008326620194672098655
+class C_0008326620194672098655 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L600{Application::FileTypeItem}]] {
+__
++filter : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L601{filter}]]]
++module : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L602{module}]]]
++types : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L603{types}]]]
+}
+class "Document" as C_0016033603647734666392
+class C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L61{Document}]] {
+#Document(const char * documentName = "") : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L553{Document}]]]
++~Document() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L549{~Document}]]]
+..
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L245{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L244{Save}]]]
+#_abortTransaction() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L595{_abortTransaction}]]]
+#_addObject(DocumentObject * pcObject, const char * pObjectName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L556{_addObject}]]]
+#_checkTransaction(DocumentObject * pcDelObj, const Property * What, int line) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L558{_checkTransaction}]]]
+#_clearRedos() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L573{_clearRedos}]]]
+#_commitTransaction(bool notify = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L593{_commitTransaction}]]]
+#_openTransaction(const char * name = nullptr, int id = 0) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L591{_openTransaction}]]]
+#_rebuildDependencyList(const std::vector<App::DocumentObject *> & objs = std::vector<App::DocumentObject*>()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L576{_rebuildDependencyList}]]]
+#_recomputeFeature(DocumentObject * Feat) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L572{_recomputeFeature}]]]
+#_removeObject(DocumentObject * pcObject) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L555{_removeObject}]]]
++abortTransaction() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L401{abortTransaction}]]]
++addObject(const char * sType, const char * pObjectName = nullptr, bool isNew = true, const char * viewType = nullptr, bool isPartial = false) : DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L260{addObject}]]]
++addObject(DocumentObject *, const char * pObjectName = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L278{addObject}]]]
++addObjects(const char * sType, const std::vector<std::string> & objectNames, bool isNew = true) : std::vector<DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L268{addObjects}]]]
++addOrRemovePropertyOfObject(TransactionalObject *, Property * prop, bool add) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L434{addOrRemovePropertyOfObject}]]]
++addRecomputeObject(DocumentObject * obj) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L527{addRecomputeObject}]]]
++addStringHasher(const StringHasherRef & hasher) const : std::pair<bool,int> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L496{addStringHasher}]]]
++afterRestore(bool checkPartial = false) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L203{afterRestore}]]]
++afterRestore(const std::vector<App::DocumentObject *> &, bool checkPartial = false) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L204{afterRestore}]]]
+#breakDependency(DocumentObject * pcObject, bool clear) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L559{breakDependency}]]]
++checkOnCycle() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L442{checkOnCycle}]]]
++clearDocument() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L190{clearDocument}]]]
++clearUndos() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L418{clearUndos}]]]
++commitTransaction() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L399{commitTransaction}]]]
++copyObject(const std::vector<DocumentObject *> & objs, bool recursive = false, bool returnAll = false) : std::vector<DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L292{copyObject}]]]
++countObjects() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L328{countObjects}]]]
++countObjectsOfType(const Base::Type & typeId) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L326{countObjectsOfType}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
++exportGraphviz(std::ostream &) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L211{exportGraphviz}]]]
++exportObjects(const std::vector<App::DocumentObject *> &, std::ostream &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L210{exportObjects}]]]
++findObjects(const Base::Type & typeId, const char * objname, const char * label) const : std::vector<DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L323{findObjects}]]]
++getActiveObject() const : DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L303{getActiveObject}]]]
++getAvailableRedoNames() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L428{getAvailableRedoNames}]]]
++getAvailableRedos(int id = 0) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L426{getAvailableRedos}]]]
++getAvailableUndoNames() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L422{getAvailableUndoNames}]]]
++getAvailableUndos(int id = 0) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L420{getAvailableUndos}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
+{static} +getDependencyList(const std::vector<App::DocumentObject *> & objs, int options = 0) : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L464{getDependencyList}]]]
++getDependentDocuments(bool sort = true) : std::vector<App::Document *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L467{getDependentDocuments}]]]
+{static} +getDependentDocuments(std::vector<App::Document *> docs, bool sort) : std::vector<App::Document *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L468{getDependentDocuments}]]]
++getDependingObjects() const : std::vector<DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L317{getDependingObjects}]]]
++getErrorDescription(const App::DocumentObject *) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L356{getErrorDescription}]]]
++getFileName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L241{getFileName}]]]
++getFullName() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L536{getFullName}]]]
++getInList(const DocumentObject * me) const : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L444{getInList}]]]
++getLinksTo(std::set<DocumentObject *> & links, const DocumentObject * obj, int options, int maxCount = 0, const std::vector<DocumentObject *> & objs = = {}) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L519{getLinksTo}]]]
++getMaxUndoStackSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L416{getMaxUndoStackSize}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L248{getMemSize}]]]
++getName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L232{getName}]]]
++getObject(const char * Name) const : DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L305{getObject}]]]
++getObjectByID(long id) const : DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L307{getObjectByID}]]]
++getObjectName(DocumentObject * pFeat) const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L311{getObjectName}]]]
++getObjects() const : const std::vector<DocumentObject *> & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L319{getObjects}]]]
++getObjectsOfType<T>() const : std::vector<T *>
++getObjectsOfType(const Base::Type & typeId) const : std::vector<DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L320{getObjectsOfType}]]]
++getObjectsWithExtension(const Base::Type & typeId, bool derived = true) const : std::vector<DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L322{getObjectsWithExtension}]]]
++getOldLabel() const : const std::string & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L529{getOldLabel}]]]
++getPathsByOutList(const App::DocumentObject * from, const App::DocumentObject * to) const : std::vector<std::list<App::DocumentObject *>> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L479{getPathsByOutList}]]]
++getProgramVersion() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L234{getProgramVersion}]]]
+#getPropertyData() const : const App::PropertyData & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L307{getPropertyData}]]]
+{static} #getPropertyDataPtr() : const App::PropertyData * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L306{getPropertyDataPtr}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L534{getPyObject}]]]
++getRootObjects() const : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L475{getRootObjects}]]]
++getRootObjectsIgnoreLinks() const : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L477{getRootObjectsIgnoreLinks}]]]
++getStandardObjectName(const char * Name, int d) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L315{getStandardObjectName}]]]
++getStringHasher(int index = -1) const : StringHasherRef [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L508{getStringHasher}]]]
++getTouched() const : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L341{getTouched}]]]
++getTransactionID(bool undo, unsigned int pos = 0) const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L405{getTransactionID}]]]
+#getTransientDirectoryName(const std::string & uuid, const std::string & filename) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L579{getTransientDirectoryName}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getUndoMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L412{getUndoMemSize}]]]
++getUndoMode() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L384{getUndoMode}]]]
++getUniqueObjectName(const char * Name) const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L313{getUniqueObjectName}]]]
++hasLinksTo(const DocumentObject * obj) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L524{hasLinksTo}]]]
++hasPendingTransaction() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L403{hasPendingTransaction}]]]
++importLinks(const std::vector<App::DocumentObject *> & objs = = {}) : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L225{importLinks}]]]
++importObjects(Base::XMLReader & reader) : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L212{importObjects}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
+{static} +isAnyRestoring() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L539{isAnyRestoring}]]]
++isClosable() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L345{isClosable}]]]
++isExporting(const App::DocumentObject * obj) const : ExportStatus [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L209{isExporting}]]]
++isIn(const DocumentObject * pFeat) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L309{isIn}]]]
++isPerformingTransaction() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L432{isPerformingTransaction}]]]
++isSaved() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L230{isSaved}]]]
++isTouched() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L337{isTouched}]]]
++isTransactionEmpty() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L408{isTransactionEmpty}]]]
++moveObject(DocumentObject * obj, bool recursive = false) : DocumentObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L301{moveObject}]]]
++mustExecute() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L339{mustExecute}]]]
+#onBeforeChange(const Property * prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L564{onBeforeChange}]]]
+#onBeforeChangeProperty(const TransactionalObject * Who, const Property * What) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L567{onBeforeChangeProperty}]]]
+#onChanged(const Property * prop) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L565{onChanged}]]]
+#onChangedProperty(const DocumentObject * Who, const Property * What) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L569{onChangedProperty}]]]
++openTransaction(const char * name = nullptr) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L395{openTransaction}]]]
++purgeTouched() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L335{purgeTouched}]]]
+#readObjects(Base::XMLReader & reader) : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L560{readObjects}]]]
++recompute(const std::vector<App::DocumentObject *> & objs = ={}, bool force = false, bool * hasError = nullptr, int options = 0) : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L351{recompute}]]]
++recomputeFeature(DocumentObject * Feat, bool recursive = false) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L354{recomputeFeature}]]]
++redo(int id = 0) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L430{redo}]]]
++removeObject(const char * sName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L270{removeObject}]]]
++renameObjectIdentifiers(const std::map<App::ObjectIdentifier,App::ObjectIdentifier> & paths, const std::function<bool (const App::DocumentObject *)> & selector = [](const App::DocumentObject *) { return true; }) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L532{renameObjectIdentifiers}]]]
++renameTransaction(const char * name, int id) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L397{renameTransaction}]]]
++restore(const char * filename = nullptr, bool delaySignal = false, const std::vector<std::string> & objNames = ={}) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L201{restore}]]]
++save() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L197{save}]]]
++saveAs(const char * file) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L198{saveAs}]]]
++saveCopy(const char * file) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L199{saveCopy}]]]
+#saveToFile(const char * filename) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L562{saveToFile}]]]
++setClosable(bool) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L343{setClosable}]]]
++setMaxUndoStackSize(unsigned int UndoMaxStackSize = 20) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L414{setMaxUndoStackSize}]]]
++setStatus(Status pos, bool on) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L360{setStatus}]]]
++setTransactionMode(int iMode) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L386{setTransactionMode}]]]
++setUndoLimit(unsigned int UndoMemSize = 0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L410{setUndoLimit}]]]
++setUndoMode(int iMode) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L382{setUndoMode}]]]
++testStatus(Status pos) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L358{testStatus}]]]
++topologicalSort() const : std::vector<App::DocumentObject *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L473{topologicalSort}]]]
++undo(int id = 0) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L424{undo}]]]
++writeDependencyGraphViz(std::ostream & out) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L440{writeDependencyGraphViz}]]]
+#writeObjects(const std::vector<App::DocumentObject *> &, Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L561{writeObjects}]]]
+__
++Comment : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L100{Comment}]]]
++Company : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L96{Company}]]]
++CreatedBy : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L90{CreatedBy}]]]
++CreationDate : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L91{CreationDate}]]]
++FileName : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L88{FileName}]]]
++Id : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L102{Id}]]]
++Label : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L86{Label}]]]
++LastModifiedBy : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L93{LastModifiedBy}]]]
++LastModifiedDate : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L94{LastModifiedDate}]]]
++License : App::PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L106{License}]]]
++LicenseURL : App::PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L108{LicenseURL}]]]
++Material : App::PropertyMap [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L112{Material}]]]
++Meta : App::PropertyMap [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L110{Meta}]]]
++ShowHidden : PropertyBool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L120{ShowHidden}]]]
++Tip : PropertyLink [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L116{Tip}]]]
++TipName : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L118{TipName}]]]
++TransientDir : PropertyString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L114{TransientDir}]]]
++Uid : PropertyUUID [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L104{Uid}]]]
++UnitSystem : PropertyEnumeration [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L98{UnitSystem}]]]
++UseHasher : PropertyBool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L122{UseHasher}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+-d : struct DocumentP * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L604{d}]]]
+-mRedoMap : std::map<int,Transaction *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L602{mRedoMap}]]]
+-mRedoTransactions : std::list<Transaction *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L601{mRedoTransactions}]]]
+-mUndoMap : std::map<int,Transaction *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L600{mUndoMap}]]]
+-mUndoTransactions : std::list<Transaction *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L599{mUndoTransactions}]]]
+-myName : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L607{myName}]]]
+-oldLabel : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L606{oldLabel}]]]
+{static} -propertyData : App::PropertyData [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L309{propertyData}]]]
++signalAbortTransaction : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L182{signalAbortTransaction}]]]
++signalActivatedObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L145{signalActivatedObject}]]]
++signalBeforeChange : boost::signals2::signal<void (const App::Document &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L128{signalBeforeChange}]]]
++signalBeforeChangeObject : boost::signals2::signal<void (const App::DocumentObject &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L137{signalBeforeChangeObject}]]]
++signalBeforeRecompute : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L174{signalBeforeRecompute}]]]
++signalChangePropertyEditor : boost::signals2::signal<void (const App::Document &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L185{signalChangePropertyEditor}]]]
++signalChanged : boost::signals2::signal<void (const App::Document &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L130{signalChanged}]]]
++signalChangedObject : boost::signals2::signal<void (const App::DocumentObject &,const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L139{signalChangedObject}]]]
++signalCommitTransaction : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L180{signalCommitTransaction}]]]
++signalDeletedObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L135{signalDeletedObject}]]]
++signalExportObjects : boost::signals2::signal<void (const std::vector<App::DocumentObject *> &,Base::Writer &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L162{signalExportObjects}]]]
++signalExportViewObjects : boost::signals2::signal<void (const std::vector<App::DocumentObject *> &,Base::Writer &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L164{signalExportViewObjects}]]]
++signalFinishImportObjects : boost::signals2::signal<void (const std::vector<App::DocumentObject *> &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L169{signalFinishImportObjects}]]]
++signalFinishRestoreObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L184{signalFinishRestoreObject}]]]
++signalFinishSave : boost::signals2::signal<void (const App::Document &,const std::string &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L173{signalFinishSave}]]]
++signalImportObjects : boost::signals2::signal<void (const std::vector<App::DocumentObject *> &,Base::XMLReader &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L166{signalImportObjects}]]]
++signalImportViewObjects : boost::signals2::signal<void (const std::vector<App::DocumentObject *> &,Base::Reader &,const std::map<std::string,std::string> &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L168{signalImportViewObjects}]]]
++signalLinkXsetValue : boost::signals2::signal<void (std::string)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L187{signalLinkXsetValue}]]]
++signalNewObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L132{signalNewObject}]]]
++signalOpenTransaction : boost::signals2::signal<void (const App::Document &,std::string)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L178{signalOpenTransaction}]]]
++signalRecomputed : boost::signals2::signal<void (const App::Document &,const std::vector<App::DocumentObject *> &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L175{signalRecomputed}]]]
++signalRecomputedObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L176{signalRecomputedObject}]]]
++signalRedo : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L153{signalRedo}]]]
++signalRelabelObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L143{signalRelabelObject}]]]
++signalRestoreDocument : boost::signals2::signal<void (Base::XMLReader &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L160{signalRestoreDocument}]]]
++signalSaveDocument : boost::signals2::signal<void (Base::Writer &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L159{signalSaveDocument}]]]
++signalSkipRecompute : boost::signals2::signal<void (const App::Document &,const std::vector<App::DocumentObject *> &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L183{signalSkipRecompute}]]]
++signalStartSave : boost::signals2::signal<void (const App::Document &,const std::string &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L171{signalStartSave}]]]
++signalTouchedObject : boost::signals2::signal<void (const App::DocumentObject &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L141{signalTouchedObject}]]]
++signalTransactionAppend : boost::signals2::signal<void (const App::DocumentObject &,Transaction *)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L147{signalTransactionAppend}]]]
++signalTransactionRemove : boost::signals2::signal<void (const App::DocumentObject &,Transaction *)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L149{signalTransactionRemove}]]]
++signalUndo : boost::signals2::signal<void (const App::Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L151{signalUndo}]]]
+}
+class "AutoTransaction" as C_0004352057540002486641
+class C_0004352057540002486641 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L34{AutoTransaction}]] {
++AutoTransaction(const char * name = nullptr, bool tmpName = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L54{AutoTransaction}]]]
++~AutoTransaction() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L62{~AutoTransaction}]]]
+..
+{static} +operator new(std::size_t) = deleted : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L37{operator new}]]]
+..
++close(bool abort = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L70{close}]]]
+{static} +setEnable(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L81{setEnable}]]]
+__
+-tid : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L84{tid}]]]
+}
+class "ApplicationObserver" as C_0013812302843710479746
+class C_0013812302843710479746 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L50{ApplicationObserver}]] {
+__
+}
+class "TransactionLocker" as C_0002293596905032042747
+class C_0002293596905032042747 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L93{TransactionLocker}]] {
++TransactionLocker(bool lock = true) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L99{TransactionLocker}]]]
++~TransactionLocker() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L104{~TransactionLocker}]]]
+..
+{static} +operator new(std::size_t) = deleted : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L126{operator new}]]]
+..
++activate(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L114{activate}]]]
++isActive() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L117{isActive}]]]
+{static} +isLocked() : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L120{isLocked}]]]
+__
+-active : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L129{active}]]]
+}
+}
+C_0011212476507339072068 ..|> C_0011212476507339072068
+C_0008903278854836561936 o-- C_0005088892736305901407 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L211{signalNewDocument}]] : +signalNewDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L213{signalDeleteDocument}]] : +signalDeleteDocument
+C_0008903278854836561936 o-- C_0001173185122141874266 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L215{signalDeletedDocument}]] : +signalDeletedDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L217{signalRelabelDocument}]] : +signalRelabelDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L219{signalRenameDocument}]] : +signalRenameDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L221{signalActiveDocument}]] : +signalActiveDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L223{signalSaveDocument}]] : +signalSaveDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L225{signalStartRestoreDocument}]] : +signalStartRestoreDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L227{signalFinishRestoreDocument}]] : +signalFinishRestoreDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L229{signalPendingReloadDocument}]] : +signalPendingReloadDocument
+C_0008903278854836561936 o-- C_0018216817201482086352 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L231{signalStartSaveDocument}]] : +signalStartSaveDocument
+C_0008903278854836561936 o-- C_0018216817201482086352 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L233{signalFinishSaveDocument}]] : +signalFinishSaveDocument
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L235{signalUndoDocument}]] : +signalUndoDocument
+C_0008903278854836561936 o-- C_0001173185122141874266 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L237{signalUndo}]] : +signalUndo
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L239{signalRedoDocument}]] : +signalRedoDocument
+C_0008903278854836561936 o-- C_0001173185122141874266 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L241{signalRedo}]] : +signalRedo
+C_0008903278854836561936 o-- C_0001721759462545688970 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L243{signalBeforeCloseTransaction}]] : +signalBeforeCloseTransaction
+C_0008903278854836561936 o-- C_0001721759462545688970 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L245{signalCloseTransaction}]] : +signalCloseTransaction
+C_0008903278854836561936 o-- C_0004896791175287781523 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L247{signalShowHidden}]] : +signalShowHidden
+C_0008903278854836561936 o-- C_0001173185122141874266 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L249{signalStartOpenDocument}]] : +signalStartOpenDocument
+C_0008903278854836561936 o-- C_0001173185122141874266 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L251{signalFinishOpenDocument}]] : +signalFinishOpenDocument
+C_0008903278854836561936 o-- C_0010228902605650207452 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L261{signalBeforeChangeDocument}]] : +signalBeforeChangeDocument
+C_0008903278854836561936 o-- C_0010228902605650207452 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L263{signalChangedDocument}]] : +signalChangedDocument
+C_0008903278854836561936 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L265{signalNewObject}]] : +signalNewObject
+C_0008903278854836561936 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L268{signalDeletedObject}]] : +signalDeletedObject
+C_0008903278854836561936 o-- C_0014383984081759882478 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L270{signalBeforeChangeObject}]] : +signalBeforeChangeObject
+C_0008903278854836561936 o-- C_0014383984081759882478 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L272{signalChangedObject}]] : +signalChangedObject
+C_0008903278854836561936 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L274{signalRelabelObject}]] : +signalRelabelObject
+C_0008903278854836561936 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L276{signalActivatedObject}]] : +signalActivatedObject
+C_0008903278854836561936 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L278{signalBeforeRecomputeDocument}]] : +signalBeforeRecomputeDocument
+C_0008903278854836561936 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L280{signalRecomputed}]] : +signalRecomputed
+C_0008903278854836561936 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L282{signalObjectRecomputed}]] : +signalObjectRecomputed
+C_0008903278854836561936 o-- C_0005037904125307815040 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L284{signalOpenTransaction}]] : +signalOpenTransaction
+C_0008903278854836561936 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L286{signalCommitTransaction}]] : +signalCommitTransaction
+C_0008903278854836561936 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L288{signalAbortTransaction}]] : +signalAbortTransaction
+C_0008903278854836561936 o-- C_0007009446637664636435 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L297{signalAppendDynamicProperty}]] : +signalAppendDynamicProperty
+C_0008903278854836561936 o-- C_0007009446637664636435 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L299{signalRemoveDynamicProperty}]] : +signalRemoveDynamicProperty
+C_0008903278854836561936 o-- C_0010228902605650207452 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L301{signalChangePropertyEditor}]] : +signalChangePropertyEditor
+C_0008903278854836561936 o-- C_0004338874090693449097 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L311{signalBeforeAddingDynamicExtension}]] : +signalBeforeAddingDynamicExtension
+C_0008903278854836561936 o-- C_0004338874090693449097 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L313{signalAddedDynamicExtension}]] : +signalAddedDynamicExtension
+C_0008903278854836561936 o-- C_0006799026921705821270 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L607{_mImportTypes}]] : -_mImportTypes
+C_0008903278854836561936 o-- C_0006799026921705821270 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L608{_mExportTypes}]] : -_mExportTypes
+C_0008903278854836561936 o-- C_0017727964120145395819 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L609{DocMap}]] : -DocMap
+C_0008903278854836561936 o-- C_0017727964120145395819 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L610{DocFileMap}]] : -DocFileMap
+C_0008903278854836561936 o-- C_0005015822572726412129 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L611{mpcPramManager}]] : -mpcPramManager
+C_0008903278854836561936 --> C_0012004170049756060246 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L612{_mConfig}]] : -_mConfig
+C_0008903278854836561936 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L613{_pActiveDoc}]] : -_pActiveDoc
+C_0008903278854836561936 o-- C_0004792907299990430654 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L615{_pendingDocs}]] : -_pendingDocs
+C_0008903278854836561936 o-- C_0004792907299990430654 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L616{_pendingDocsReopen}]] : -_pendingDocsReopen
+C_0008903278854836561936 o-- C_0011554716954904530215 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L617{_pendingDocMap}]] : -_pendingDocMap
+C_0008903278854836561936 o-- C_0007444569011639854588 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L621{_docReloadAttempts}]] : -_docReloadAttempts
+C_0008903278854836561936 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L632{_activeTransactionName}]] : -_activeTransactionName
+C_0008903278854836561936 --> C_0011212476507339072068 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L507{_pcSysParamMngr}]] : -_pcSysParamMngr
+C_0008903278854836561936 --> C_0007994369350752944384 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L507{_pcSysParamMngr}]] : -_pcSysParamMngr
+C_0008903278854836561936 --> C_0011212476507339072068 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L508{_pcUserParamMngr}]] : -_pcUserParamMngr
+C_0008903278854836561936 --> C_0007994369350752944384 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L508{_pcUserParamMngr}]] : -_pcUserParamMngr
+C_0008903278854836561936 --> C_0008903278854836561936 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L578{_pcSingleton}]] : -_pcSingleton
+C_0008903278854836561936 --> C_0011201061960952297604 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L637{_pConsoleObserverStd}]] : -_pConsoleObserverStd
+C_0008903278854836561936 --> C_0016959784259541534381 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L638{_pConsoleObserverFile}]] : -_pConsoleObserverFile
+C_0008903278854836561936 <.. C_0004352057540002486641 : +<<friend>>
+C_0008903278854836561936 <.. C_0013812302843710479746 : +<<friend>>
+C_0008903278854836561936 <.. C_0016033603647734666392 : +<<friend>>
+C_0014167484362602641979 --+ C_0008903278854836561936
+C_0014629301140014851359 --+ C_0008903278854836561936
+C_0008326620194672098655 --+ C_0008903278854836561936
+C_0008326620194672098655 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L601{filter}]] : +filter
+C_0008326620194672098655 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L602{module}]] : +module
+C_0016033603647734666392 o-- C_0010228902605650207452 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L128{signalBeforeChange}]] : +signalBeforeChange
+C_0016033603647734666392 o-- C_0010228902605650207452 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L130{signalChanged}]] : +signalChanged
+C_0016033603647734666392 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L132{signalNewObject}]] : +signalNewObject
+C_0016033603647734666392 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L135{signalDeletedObject}]] : +signalDeletedObject
+C_0016033603647734666392 o-- C_0014383984081759882478 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L137{signalBeforeChangeObject}]] : +signalBeforeChangeObject
+C_0016033603647734666392 o-- C_0014383984081759882478 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L139{signalChangedObject}]] : +signalChangedObject
+C_0016033603647734666392 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L141{signalTouchedObject}]] : +signalTouchedObject
+C_0016033603647734666392 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L143{signalRelabelObject}]] : +signalRelabelObject
+C_0016033603647734666392 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L145{signalActivatedObject}]] : +signalActivatedObject
+C_0016033603647734666392 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L151{signalUndo}]] : +signalUndo
+C_0016033603647734666392 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L153{signalRedo}]] : +signalRedo
+C_0016033603647734666392 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L174{signalBeforeRecompute}]] : +signalBeforeRecompute
+C_0016033603647734666392 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L176{signalRecomputedObject}]] : +signalRecomputedObject
+C_0016033603647734666392 o-- C_0005037904125307815040 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L178{signalOpenTransaction}]] : +signalOpenTransaction
+C_0016033603647734666392 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L180{signalCommitTransaction}]] : +signalCommitTransaction
+C_0016033603647734666392 o-- C_0001711646591018024238 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L182{signalAbortTransaction}]] : +signalAbortTransaction
+C_0016033603647734666392 o-- C_0009700370456155618549 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L184{signalFinishRestoreObject}]] : +signalFinishRestoreObject
+C_0016033603647734666392 o-- C_0010228902605650207452 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L185{signalChangePropertyEditor}]] : +signalChangePropertyEditor
+C_0016033603647734666392 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L606{oldLabel}]] : -oldLabel
+C_0016033603647734666392 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L607{myName}]] : -myName
+C_0016033603647734666392 <.. C_0008903278854836561936 : +<<friend>>
+C_0002293596905032042747 <.. C_0008903278854836561936 : +<<friend>>
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

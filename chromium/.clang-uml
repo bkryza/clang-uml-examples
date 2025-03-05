@@ -1,7 +1,8 @@
-relative_to: ../..
+relative_to: chromium/src
 compilation_database_dir: .
-output_directory: ../../puml
+output_directory: ../../diagrams
 add_compile_flags:
+  - -I./out/default/gen
   - -Wno-unknown-warning-option
   - -Wno-unknown-pragmas
 remove_compile_flags:
@@ -13,6 +14,121 @@ generate_links:
   link: 'https://github.com/chromium/chromium/blob/{{ git.commit }}/{{ element.source.path }}#L{{ element.source.line }}'
   tooltip: '{% if "comment" in element %}{{ abbrv(trim(replace(element.comment.formatted, "\n+", " ")), 256) }}{% else %}{{ element.name }}{% endif %}'
 diagrams:
+  content_shell_namespace_package_diagram:
+      type: package
+      title: "Chromium Content Namespace Package Diagram"
+      glob:
+        - content/shell/**/*.cc
+      package_type: namespace
+      include:
+        paths:
+          - content
+      exclude:
+        elements:
+          - r: ".*_test.*"
+          - r: ".*Test.*"
+  content_shell_renderer_client_diagram:
+      type: class
+      title: "Chromium Content Shell Renderer Client Diagram"
+      glob:
+        - content/shell/renderer/*.cc
+      generate_packages: true
+      package_type: namespace
+      generate_method_arguments: none
+      filter_mode: basic
+      include:
+        namespaces:
+          - ui
+          - base
+          - content
+        context:
+          - match:
+              radius: 1
+              pattern: content::ShellContentRendererClient
+      exclude:
+        elements:
+          - r: ".*_test.*"
+          - r: ".*Test.*"
+#  # TODO
+#  content_shell_renderer_client_overview_diagram:
+#      type: class
+#      title: "Chromium Content Shell Renderer Client Diagram"
+#      glob:
+#        - content/shell/renderer/*.cc
+#      generate_packages: true
+#      package_type: directory
+#      generate_method_arguments: none
+#      filter_mode: basic
+#      include:
+#        paths:
+#          - content/shell
+#        context:
+#          - match:
+#              radius: 1
+#              pattern: content::ShellContentRendererClient
+#      exclude:
+#        elements:
+#          - r: ".*_test.*"
+#          - r: ".*Test.*"
+#        access:
+#          - public
+#          - protected
+#          - private
+#        relationships:
+#          - dependency
+#        paths:
+#          - third_party
+#          - testing
+  content_shell_renderer_observer_diagram:
+      type: class
+      title: "Chromium Content Shell Renderer Observer Diagram"
+      glob:
+        - content/shell/renderer/*.cc
+      generate_packages: true
+      package_type: directory
+      generate_method_arguments: none
+      filter_mode: basic
+      include:
+        namespaces:
+          - ui
+          - base
+          - content
+        context:
+          - match:
+              radius: 3
+              pattern: content::ShellRenderFrameObserver
+      exclude:
+        elements:
+          - r: ".*_test.*"
+          - r: ".*Test.*"
+        access:
+          - public
+          - protected
+          - private
+  content_shell_renderer_observer_overview_diagram:
+      type: class
+      title: "Chromium Content Shell Renderer Observer Diagram"
+      glob:
+        - content/shell/renderer/*.cc
+      generate_packages: true
+      package_type: directory
+      generate_method_arguments: none
+      filter_mode: basic
+      include:
+        namespaces:
+          - ui
+          - base
+          - content
+        context:
+          - match:
+              radius: 2
+              pattern: content::ShellRenderFrameObserver
+      exclude:
+        elements:
+          - r: ".*_test.*"
+          - r: ".*Test.*"
+        relationships:
+          - dependency
   media_audio_class_diagram:
     type: class
     title: "media/audio class diagram"
@@ -49,6 +165,8 @@ diagrams:
   ui_ozone_class_diagram:
     type: class
     title: "ui/ozone class diagram"
+    generate_packages: true
+    package_type: directory
     glob:
       - ui/ozone/common/*.cc
       - ui/ozone/platform/*.cc
@@ -73,9 +191,14 @@ diagrams:
         - public
         - private
         - protected
+    plantuml:
+      before:
+        - left to right direction
   ui_platform_window_class_diagram:
     type: class
     title: "ui/platform_window class diagram"
+    generate_packages: true
+    package_type: directory
     glob:
       - ui/platform_window/*.cc
       - ui/platform_window/common/*.cc
@@ -102,6 +225,8 @@ diagrams:
   ui_platform_window_context_diagram:
     type: class
     title: "ui::PlatformWindow context class diagram"
+    generate_packages: true
+    package_type: directory
     glob:
       - ui/platform_window/*.cc
       - ui/platform_window/**/*.cc

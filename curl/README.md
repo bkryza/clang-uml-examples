@@ -1,25 +1,25 @@
 # curl UML diagrams
 ## 'Cookie' class diagram
-![puml](puml/cookies.svg)
+![cookies](diagrams/cookies.svg)
 
 ## 'FTP' class diagram
-![puml](puml/ftp.svg)
+![ftp](diagrams/ftp.svg)
 
 ## 'MIME' class diagram
-![puml](puml/mime.svg)
+![mime](diagrams/mime.svg)
 
 ## easy.c include graph diagram
-![puml](puml/easy_include.svg)
+![easy_include](diagrams/easy_include.svg)
 
 ## 'curl_easy_init' sequence diagram
-![puml](puml/curl_easy_init.svg)
+![curl_easy_init](diagrams/curl_easy_init.svg)
 
 ## 'curl_easy_getinfo' sequence diagram
-![puml](puml/curl_easy_getinfo.svg)
+![curl_easy_getinfo](diagrams/curl_easy_getinfo.svg)
 
 ## 'curl_easy_send' sequence diagram
-![puml](puml/curl_easy_send.svg)
+![curl_easy_send](diagrams/curl_easy_send.svg)
 
 ## 'curl_easy_recv' sequence diagram
-![puml](puml/curl_easy_recv.svg)
+![curl_easy_recv](diagrams/curl_easy_recv.svg)
 

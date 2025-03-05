@@ -1,0 +1,123 @@
+@startuml
+title Translation unit AST visitors
+left to right direction
+package [clanguml] as C_0017394171196056322719 {
+package [common] as C_0002532840279361781187 {
+package [model] as C_0000669774451444102653 {
+class "diagram" as C_0001576551882566686996
+class C_0001576551882566686996 [[classclanguml_1_1common_1_1model_1_1diagram.html{Base class for all diagram models}]] {
+__
+}
+}
+package [visitor] as C_0016474478155368192384 {
+class "translation_unit_visitor<ConfigT,DiagramT>" as C_0014290992758498762286
+class C_0014290992758498762286 [[classclanguml_1_1common_1_1visitor_1_1translation__unit__visitor.html{Diagram translation unit visitor base class}]] {
+__
+}
+class "template_builder<clanguml::class_diagram::visitor::translation_unit_visitor>" as C_0006928801289515998382
+class C_0006928801289515998382 [[classclanguml_1_1common_1_1visitor_1_1template__builder.html{template_builder}]] {
+__
+}
+class "translation_unit_visitor<clanguml::config::class_diagram,clanguml::class_diagram::model::diagram>" as C_0005184632287329019882
+class C_0005184632287329019882 [[classclanguml_1_1common_1_1visitor_1_1translation__unit__visitor.html{translation_unit_visitor}]] {
+__
+}
+class "translation_unit_visitor<clanguml::config::include_diagram,clanguml::include_diagram::model::diagram>" as C_0010797356058171728853
+class C_0010797356058171728853 [[classclanguml_1_1common_1_1visitor_1_1translation__unit__visitor.html{translation_unit_visitor}]] {
+__
+}
+class "translation_unit_visitor<clanguml::config::package_diagram,clanguml::package_diagram::model::diagram>" as C_0000788514013195129993
+class C_0000788514013195129993 [[classclanguml_1_1common_1_1visitor_1_1translation__unit__visitor.html{translation_unit_visitor}]] {
+__
+}
+class "template_builder<clanguml::sequence_diagram::visitor::translation_unit_visitor>" as C_0016589185193012457922
+class C_0016589185193012457922 [[classclanguml_1_1common_1_1visitor_1_1template__builder.html{template_builder}]] {
+__
+}
+class "translation_unit_visitor<clanguml::config::sequence_diagram,clanguml::sequence_diagram::model::diagram>" as C_0000336264923250556599
+class C_0000336264923250556599 [[classclanguml_1_1common_1_1visitor_1_1translation__unit__visitor.html{translation_unit_visitor}]] {
+__
+}
+}
+}
+package [class_diagram] as C_0017921336289613804855 {
+package [model] as C_0007176993879715460962 {
+class "diagram" as C_0007315456613526221498
+class C_0007315456613526221498 [[classclanguml_1_1class__diagram_1_1model_1_1diagram.html{Class representing a class diagram.}]] {
+__
+}
+}
+package [visitor] as C_0014897743554774430622 {
+class "translation_unit_visitor" as C_0013934086101141939615
+class C_0013934086101141939615 [[classclanguml_1_1class__diagram_1_1visitor_1_1translation__unit__visitor.html{Class diagram translation unit visitor}]] {
+__
+}
+}
+}
+package [include_diagram] as C_0018317418947569564933 {
+package [model] as C_0004362631048833985714 {
+class "diagram" as C_0002467043186855586999
+class C_0002467043186855586999 [[classclanguml_1_1include__diagram_1_1model_1_1diagram.html{Class representing an include diagram model.}]] {
+__
+}
+}
+package [visitor] as C_0002398062589073292507 {
+class "translation_unit_visitor" as C_0015659136776023822053
+class C_0015659136776023822053 [[classclanguml_1_1include__diagram_1_1visitor_1_1translation__unit__visitor.html{Include diagram translation unit visitor wrapper}]] {
+__
+}
+class "translation_unit_visitor::include_visitor" as C_0000567484436108945460
+class C_0000567484436108945460 [[classclanguml_1_1include__diagram_1_1visitor_1_1translation__unit__visitor_1_1include__visitor.html{translation_unit_visitor::include_visitor}]] {
+__
+}
+}
+}
+package [package_diagram] as C_0009413724933622552589 {
+package [model] as C_0012558484942253952660 {
+class "diagram" as C_0001188296008369339829
+class C_0001188296008369339829 [[classclanguml_1_1package__diagram_1_1model_1_1diagram.html{Package diagram model.}]] {
+__
+}
+}
+package [visitor] as C_0001471162262834345471 {
+class "translation_unit_visitor" as C_0010290736275922634760
+class C_0010290736275922634760 [[classclanguml_1_1package__diagram_1_1visitor_1_1translation__unit__visitor.html{Package diagram translation unit visitor}]] {
+__
+}
+}
+}
+package [sequence_diagram] as C_0012174902727661033893 {
+package [model] as C_0017655759046645114118 {
+class "diagram" as C_0007392356576284087808
+class C_0007392356576284087808 [[classclanguml_1_1sequence__diagram_1_1model_1_1diagram.html{Model of a sequence diagram}]] {
+__
+}
+}
+package [visitor] as C_0002812166065521257903 {
+class "translation_unit_visitor" as C_0009834819563374321482
+class C_0009834819563374321482 [[classclanguml_1_1sequence__diagram_1_1visitor_1_1translation__unit__visitor.html{Sequence diagram translation unit visitor}]] {
+__
+}
+}
+}
+}
+C_0005184632287329019882 ..|> C_0014290992758498762286
+C_0010797356058171728853 ..|> C_0014290992758498762286
+C_0000788514013195129993 ..|> C_0014290992758498762286
+C_0000336264923250556599 ..|> C_0014290992758498762286
+C_0001576551882566686996 <|-- C_0007315456613526221498
+C_0013934086101141939615 o-- C_0006928801289515998382 [[{template_builder_}]] : -template_builder_
+C_0005184632287329019882 <|-- C_0013934086101141939615
+C_0001576551882566686996 <|-- C_0002467043186855586999
+C_0015659136776023822053 --> C_0002467043186855586999 [[{diagram_}]] : -diagram_
+C_0000567484436108945460 --+ C_0015659136776023822053
+C_0010797356058171728853 <|-- C_0000567484436108945460
+C_0001576551882566686996 <|-- C_0001188296008369339829
+C_0000788514013195129993 <|-- C_0010290736275922634760
+C_0001576551882566686996 <|-- C_0007392356576284087808
+C_0009834819563374321482 o-- C_0016589185193012457922 [[{template_builder_}]] : -template_builder_
+C_0000336264923250556599 <|-- C_0009834819563374321482
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

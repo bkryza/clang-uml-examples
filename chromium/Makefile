@@ -1,24 +1,23 @@
-CLANG_UML_BINARY ?= ../../clang-uml/debug/src/clang-uml
+CLANG_UML_BINARY ?= /usr/bin/clang-uml
 
-.PHONY: clean build diagrams plantuml
+.PHONY: clean build chromium diagrams plantuml all
 
 all: plantuml
 
 chromium:
-		git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-		PATH="${PWD}/depot_tools:${PATH}" bash -c " mkdir -p ~/chromium && cd ~/chromium && fetch --nohooks --no-history chromium && cd chromium/src && client runhooks"
+		rm -rf depot_tools &&
+		git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git &&
+		env PATH=$$PWD/depot_tools:$$PATH bash -c 'mkdir -p chromium && cd chromium && fetch --nohooks --no-history chromium' && \
+		env PATH=$$PWD/depot_tools:$$PATH bash -c 'cd chromium/src && gclient runhooks'
+
 build: chromium
-		PATH="${PWD}/depot_tools:${PATH}" bash -c "cd chromium/src && tools/clang/scripts/generate_compdb.py -p out/Default > compile_commands.json && ninja -C out/Default media/gpu:buildflags"
+		env PATH=$$PWD/depot_tools:$$PATH bash -c "cd chromium/src && gn gen out/Default && tools/clang/scripts/generate_compdb.py -p out/Default > compile_commands.json && ninja -C out/Default chrome unit_tests browser_tests"
 
 diagrams:
-		cd chromium/src && \
-		mkdir -p _build/_build && \
-		cd _build/_build && \
-		cp ../../../../.clang-uml .clang-uml && \
-		../../../../$(CLANG_UML_BINARY) -p
+		$(CLANG_UML_BINARY) -t 1 -p -g plantuml
 
-plantuml:
-		plantuml -tsvg puml/*.puml
+plantuml: diagrams
+		plantuml -tsvg diagrams/*.puml
 		python3 ../generate_readme.py chromium ./.clang-uml
 		markdown-toc  --bullets "*" -i README.md
 

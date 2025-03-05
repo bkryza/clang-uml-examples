@@ -1,0 +1,201 @@
+@startuml
+title App::Metadata context
+package [std] as C_0009971158671206323968 {
+class "basic_string<char>" as C_0001275076681856179721
+class C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L133{basic_string}]] {
+__
+}
+class "vector<std::string>" as C_0001347152004389415025
+class C_0001347152004389415025 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Reader.h#L255{vector}]] {
+__
+}
+class "vector<App::Meta::Contact>" as C_0001985648904068597344
+class C_0001985648904068597344 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L228{vector}]] {
+__
+}
+class "vector<App::Meta::License>" as C_0003094525457043069843
+class C_0003094525457043069843 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L230{vector}]] {
+__
+}
+class "vector<App::Meta::Url>" as C_0013480699619800097301
+class C_0013480699619800097301 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L231{vector}]] {
+__
+}
+class "vector<App::Meta::Dependency>" as C_0008870901595533072928
+class C_0008870901595533072928 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L236{vector}]] {
+__
+}
+class "vector<boost::filesystem::path>" as C_0002887487609506098978
+class C_0002887487609506098978 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L248{vector}]] {
+__
+}
+class "multimap<std::string,App::Metadata>" as C_0009115455889877705864
+class C_0009115455889877705864 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L269{multimap}]] {
+__
+}
+class "multimap<std::string,App::Meta::GenericMetadata>" as C_0011941298585386816834
+class C_0011941298585386816834 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L375{multimap}]] {
+__
+}
+class "shared_ptr<xercesc_3_2::XercesDOMParser>" as C_0008588813797623764331
+class C_0008588813797623764331 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L378{shared_ptr}]] {
+__
+}
+}
+package [App] as C_0018282610363821501524 {
+package [Meta] as C_0018270916162518928430 {
+class "Version" as C_0018099229163711272065
+class C_0018099229163711272065 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L103{Version}]] {
++Version() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L104{Version}]]]
++Version(int major, int minor = 0, int patch = 0, std::string suffix = std::string()) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L105{Version}]]]
++Version(const std::string & semanticString) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L107{Version}]]]
+..
++operator!=(const Version &) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L121{operator!=}]]]
++operator<(const Version &) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L116{operator<}]]]
++operator<=(const Version &) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L118{operator<=}]]]
++operator==(const Version &) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L120{operator==}]]]
++operator>(const Version &) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L117{operator>}]]]
++operator>=(const Version &) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L119{operator>=}]]]
+..
++str() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L114{str}]]]
+__
++major : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L109{major}]]]
++minor : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L110{minor}]]]
++patch : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L111{patch}]]]
++suffix : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L112{suffix}]]]
+}
+}
+class "Metadata" as C_0006748241260794213528
+class C_0006748241260794213528 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L188{Metadata}]] {
++Metadata() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L191{Metadata}]]]
++Metadata(const boost::filesystem::path & metadataFile) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L199{Metadata}]]]
++Metadata(const xercesc_3_2::DOMNode * domNode, int format) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L207{Metadata}]]]
++Metadata(const std::string & rawData) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L212{Metadata}]]]
++~Metadata() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L214{~Metadata}]]]
+..
++operator[](const std::string & tag) const : std::vector<Meta::GenericMetadata> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L279{operator[]}]]]
+..
++addAuthor(const Meta::Contact & author) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L296{addAuthor}]]]
++addConflict(const Meta::Dependency & dep) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L298{addConflict}]]]
++addContentItem(const std::string & tag, const Metadata & item) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L305{addContentItem}]]]
++addDepend(const Meta::Dependency & dep) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L297{addDepend}]]]
++addFile(const boost::filesystem::path & path) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L304{addFile}]]]
++addGenericMetadata(const std::string & tag, const Meta::GenericMetadata & genericMetadata) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L309{addGenericMetadata}]]]
++addLicense(const Meta::License & license) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L294{addLicense}]]]
++addMaintainer(const Meta::Contact & maintainer) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L293{addMaintainer}]]]
++addReplace(const Meta::Dependency & dep) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L299{addReplace}]]]
++addTag(const std::string & tag) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L300{addTag}]]]
++addUrl(const Meta::Url & url) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L295{addUrl}]]]
+-appendToElement(xercesc_3_2::DOMElement * root) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L384{appendToElement}]]]
++author() const : std::vector<Meta::Contact> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L234{author}]]]
++classname() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L244{classname}]]]
++clearAuthor() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L328{clearAuthor}]]]
++clearConflict() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L330{clearConflict}]]]
++clearContent() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L324{clearContent}]]]
++clearDepend() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L329{clearDepend}]]]
++clearFile() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L333{clearFile}]]]
++clearLicense() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L326{clearLicense}]]]
++clearMaintainer() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L325{clearMaintainer}]]]
++clearReplace() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L331{clearReplace}]]]
++clearTag() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L332{clearTag}]]]
++clearUrl() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L327{clearUrl}]]]
++conflict() const : std::vector<Meta::Dependency> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L238{conflict}]]]
++content() const : std::multimap<std::string,Metadata> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L269{content}]]]
++date() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L224{date}]]]
++depend() const : std::vector<Meta::Dependency> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L236{depend}]]]
++description() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L226{description}]]]
++dom() const : xercesc_3_2::DOMElement * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L284{dom}]]]
++file() const : std::vector<boost::filesystem::path> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L248{file}]]]
++freecadmax() const : Meta::Version [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L250{freecadmax}]]]
++freecadmin() const : Meta::Version [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L249{freecadmin}]]]
++icon() const : boost::filesystem::path [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L242{icon}]]]
++license() const : std::vector<Meta::License> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L230{license}]]]
+-loadFromInputSource(const xercesc_3_2::InputSource & source) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L380{loadFromInputSource}]]]
++maintainer() const : std::vector<Meta::Contact> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L228{maintainer}]]]
++name() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L221{name}]]]
+-parseContentNodeVersion1(const xercesc_3_2::DOMElement * contentNode) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L382{parseContentNodeVersion1}]]]
+-parseVersion1(const xercesc_3_2::DOMNode * startNode) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L381{parseVersion1}]]]
++pythonmin() const : Meta::Version [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L251{pythonmin}]]]
++removeAuthor(const Meta::Contact & author) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L316{removeAuthor}]]]
++removeConflict(const Meta::Dependency & dep) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L318{removeConflict}]]]
++removeContentItem(const std::string & tag, const std::string & itemName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L312{removeContentItem}]]]
++removeDepend(const Meta::Dependency & dep) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L317{removeDepend}]]]
++removeFile(const boost::filesystem::path & path) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L321{removeFile}]]]
++removeLicense(const Meta::License & license) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L314{removeLicense}]]]
++removeMaintainer(const Meta::Contact & maintainer) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L313{removeMaintainer}]]]
++removeReplace(const Meta::Dependency & dep) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L319{removeReplace}]]]
++removeTag(const std::string & tag) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L320{removeTag}]]]
++removeUrl(const Meta::Url & url) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L315{removeUrl}]]]
++replace() const : std::vector<Meta::Dependency> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L240{replace}]]]
++satisfies(const Meta::Dependency &) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L343{satisfies}]]]
++setClassname(const std::string & name) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L302{setClassname}]]]
++setDate(const std::string & date) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L291{setDate}]]]
++setDescription(const std::string & description) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L292{setDescription}]]]
++setFreeCADMax(const Meta::Version & version) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L307{setFreeCADMax}]]]
++setFreeCADMin(const Meta::Version & version) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L306{setFreeCADMin}]]]
++setIcon(const boost::filesystem::path & path) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L301{setIcon}]]]
++setName(const std::string & name) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L288{setName}]]]
++setPythonMin(const Meta::Version & version) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L308{setPythonMin}]]]
++setSubdirectory(const boost::filesystem::path & path) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L303{setSubdirectory}]]]
++setType(const std::string & type) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L289{setType}]]]
++setVersion(const Meta::Version & version) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L290{setVersion}]]]
++subdirectory() const : boost::filesystem::path [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L246{subdirectory}]]]
++supportsCurrentFreeCAD() const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L349{supportsCurrentFreeCAD}]]]
++tag() const : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L241{tag}]]]
++type() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L222{type}]]]
++url() const : std::vector<Meta::Url> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L231{url}]]]
++version() const : Meta::Version [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L223{version}]]]
++write(const boost::filesystem::path & file) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L338{write}]]]
+__
+-_author : std::vector<Meta::Contact> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L360{_author}]]]
+-_classname : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L366{_classname}]]]
+-_conflict : std::vector<Meta::Dependency> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L362{_conflict}]]]
+-_content : std::multimap<std::string,Metadata> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L373{_content}]]]
+-_date : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L355{_date}]]]
+-_depend : std::vector<Meta::Dependency> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L361{_depend}]]]
+-_description : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L356{_description}]]]
+-_dom : xercesc_3_2::DOMElement * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L377{_dom}]]]
+-_file : std::vector<boost::filesystem::path> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L368{_file}]]]
+-_freecadmax : Meta::Version [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L370{_freecadmax}]]]
+-_freecadmin : Meta::Version [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L369{_freecadmin}]]]
+-_genericMetadata : std::multimap<std::string,Meta::GenericMetadata> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L375{_genericMetadata}]]]
+-_icon : boost::filesystem::path [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L365{_icon}]]]
+-_license : std::vector<Meta::License> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L358{_license}]]]
+-_maintainer : std::vector<Meta::Contact> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L357{_maintainer}]]]
+-_name : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L352{_name}]]]
+-_parser : std::shared_ptr<xercesc_3_2::XercesDOMParser> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L378{_parser}]]]
+-_pythonmin : Meta::Version [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L371{_pythonmin}]]]
+-_replace : std::vector<Meta::Dependency> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L363{_replace}]]]
+-_subdirectory : boost::filesystem::path [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L367{_subdirectory}]]]
+-_tag : std::vector<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L364{_tag}]]]
+-_type : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L353{_type}]]]
+-_url : std::vector<Meta::Url> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L359{_url}]]]
+-_version : Meta::Version [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L354{_version}]]]
+}
+}
+C_0018099229163711272065 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L112{suffix}]] : +suffix
+C_0006748241260794213528 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L352{_name}]] : -_name
+C_0006748241260794213528 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L353{_type}]] : -_type
+C_0006748241260794213528 o-- C_0018099229163711272065 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L354{_version}]] : -_version
+C_0006748241260794213528 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L355{_date}]] : -_date
+C_0006748241260794213528 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L356{_description}]] : -_description
+C_0006748241260794213528 o-- C_0001985648904068597344 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L357{_maintainer}]] : -_maintainer
+C_0006748241260794213528 o-- C_0003094525457043069843 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L358{_license}]] : -_license
+C_0006748241260794213528 o-- C_0013480699619800097301 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L359{_url}]] : -_url
+C_0006748241260794213528 o-- C_0001985648904068597344 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L360{_author}]] : -_author
+C_0006748241260794213528 o-- C_0008870901595533072928 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L361{_depend}]] : -_depend
+C_0006748241260794213528 o-- C_0008870901595533072928 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L362{_conflict}]] : -_conflict
+C_0006748241260794213528 o-- C_0008870901595533072928 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L363{_replace}]] : -_replace
+C_0006748241260794213528 o-- C_0001347152004389415025 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L364{_tag}]] : -_tag
+C_0006748241260794213528 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L366{_classname}]] : -_classname
+C_0006748241260794213528 o-- C_0002887487609506098978 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L368{_file}]] : -_file
+C_0006748241260794213528 o-- C_0018099229163711272065 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L369{_freecadmin}]] : -_freecadmin
+C_0006748241260794213528 o-- C_0018099229163711272065 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L370{_freecadmax}]] : -_freecadmax
+C_0006748241260794213528 o-- C_0018099229163711272065 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L371{_pythonmin}]] : -_pythonmin
+C_0006748241260794213528 o-- C_0009115455889877705864 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L373{_content}]] : -_content
+C_0006748241260794213528 o-- C_0011941298585386816834 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L375{_genericMetadata}]] : -_genericMetadata
+C_0006748241260794213528 --> C_0008588813797623764331 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Metadata.h#L378{_parser}]] : -_parser
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

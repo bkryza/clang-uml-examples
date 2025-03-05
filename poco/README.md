@@ -1,23 +1,13 @@
 # poco UML diagrams
-
-<!-- toc -->
-
-* ['Foundation' class diagram](#foundation-class-diagram)
-* ['Dynamic' class diagram](#dynamic-class-diagram)
-* ['Dynamic' class detail diagram](#dynamic-class-detail-diagram)
-* ['JSON' class diagram](#json-class-diagram)
-
-<!-- tocstop -->
-
 ## 'Foundation' class diagram
-![puml](puml/foundation_class_diagram.svg)
+![foundation_class_diagram](diagrams/foundation_class_diagram.svg)
 
 ## 'Dynamic' class diagram
-![puml](puml/dynamic_class_diagram.svg)
+![dynamic_class_diagram](diagrams/dynamic_class_diagram.svg)
 
 ## 'Dynamic' class detail diagram
-![puml](puml/dynamic_class_detail_diagram.svg)
+![dynamic_class_detail_diagram](diagrams/dynamic_class_detail_diagram.svg)
 
 ## 'JSON' class diagram
-![puml](puml/json_class_diagram.svg)
+![json_class_diagram](diagrams/json_class_diagram.svg)
 

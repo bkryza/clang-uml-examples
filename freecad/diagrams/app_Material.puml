@@ -1,0 +1,162 @@
+@startuml
+title App::Material context
+package [std] as C_0009971158671206323968 {
+class "basic_string<char>" as C_0001275076681856179721
+class C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L133{basic_string}]] {
+__
+}
+}
+package [App] as C_0018282610363821501524 {
+class "Color" as C_0007151109991894271781
+class C_0007151109991894271781 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L40{Color}]] {
++Color(float R = 0.0, float G = 0.0, float B = 0.0, float A = 0.0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L47{Color}]]]
++Color(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L53{Color}]]]
++Color(const Color & c) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L56{Color}]]]
++Color(Color &&) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L57{Color}]]]
+..
++operator=(const Color & c) = default : Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L67{operator=}]]]
++operator=(Color && c) = default : Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L68{operator=}]]]
+..
++operator!=(const Color & c) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L61{operator!=}]]]
++operator==(const Color & c) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L60{operator==}]]]
+..
++asHexString() const : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L143{asHexString}]]]
+{static} +asPackedRGB<T>(const T & color) : uint32_t
+{static} +asPackedRGBA<T>(const T & color) : uint32_t
++asValue<T>() const : T
++fromHexString(const std::string & hex) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L149{fromHexString}]]]
+{static} +fromPackedRGB<T>(uint32_t color) : T
+{static} +fromPackedRGBA<T>(uint32_t color) : T
++getPackedARGB() const : uint32_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L94{getPackedARGB}]]]
++getPackedRGB() const : uint32_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L86{getPackedRGB}]]]
++getPackedValue() const : uint32_t [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L82{getPackedValue}]]]
++set(float R, float G, float B, float A = 0.0) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L66{set}]]]
++setPackedARGB(uint32_t) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L98{setPackedARGB}]]]
++setPackedRGB(uint32_t) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L90{setPackedRGB}]]]
++setPackedValue(uint32_t rgba) : Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L76{setPackedValue}]]]
++setValue<T>(const T & q) : void
+__
++a : float [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L152{a}]]]
++b : float [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L152{b}]]]
++g : float [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L152{g}]]]
++r : float [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Color.h#L152{r}]]]
+}
+class "Material" as C_0011932603888482871764
+class C_0011932603888482871764 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L34{Material}]] {
++Material() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L69{Material}]]]
++Material(const Material & other) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L72{Material}]]]
++Material(Material && other) = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L73{Material}]]]
++Material(const char * MatName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L77{Material}]]]
++Material(MaterialType MatType) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L80{Material}]]]
++~Material() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L70{~Material}]]]
+..
++operator=(const Material & other) = default : Material & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L159{operator=}]]]
++operator=(Material && other) = default : Material & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L160{operator=}]]]
+..
++operator!=(const Material & m) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L155{operator!=}]]]
++operator==(const Material & m) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L140{operator==}]]]
+..
+{static} +getDefaultAppearance() : Material [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L162{getDefaultAppearance}]]]
++getType() const : MaterialType [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L120{getType}]]]
++set(const char * MatName) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L111{set}]]]
++setType(MaterialType MatType) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L116{setType}]]]
+__
+-_matType : MaterialType [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L165{_matType}]]]
++ambientColor : Color [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L128{ambientColor}]]]
++diffuseColor : Color [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L129{diffuseColor}]]]
++emissiveColor : Color [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L131{emissiveColor}]]]
++image : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L134{image}]]]
++imagePath : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L135{imagePath}]]]
++shininess : float [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L132{shininess}]]]
++specularColor : Color [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L130{specularColor}]]]
++transparency : float [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L133{transparency}]]]
++uuid : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L136{uuid}]]]
+}
+enum "Material::MaterialType" as C_0014576806863920019546
+enum C_0014576806863920019546 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L37{Material::MaterialType}]] {
+BRASS
+BRONZE
+COPPER
+GOLD
+PEWTER
+PLASTER
+PLASTIC
+SILVER
+STEEL
+STONE
+SHINY_PLASTIC
+SATIN
+METALIZED
+NEON_GNC
+CHROME
+ALUMINIUM
+OBSIDIAN
+NEON_PHC
+JADE
+RUBY
+EMERALD
+DEFAULT
+USER_DEFINED
+}
+class "PropertyMaterial" as C_0006865239829155458824
+class C_0006865239829155458824 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1020{PropertyMaterial}]] {
++PropertyMaterial() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1029{PropertyMaterial}]]]
++~PropertyMaterial() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1035{~PropertyMaterial}]]]
+..
++Copy() const : Property * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1076{Copy}]]]
++Paste(const Property & from) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1077{Paste}]]]
++Restore(Base::XMLReader & reader) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1072{Restore}]]]
++Save(Base::Writer & writer) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1071{Save}]]]
+{static} +create() : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L52{create}]]]
++getAmbientColor() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1061{getAmbientColor}]]]
+{static} +getClassTypeId() : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L49{getClassTypeId}]]]
++getDiffuseColor() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1062{getDiffuseColor}]]]
++getEditorName() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1074{getEditorName}]]]
++getEmissiveColor() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1064{getEmissiveColor}]]]
++getMemSize() const : unsigned int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1079{getMemSize}]]]
++getPyObject() : PyObject * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1068{getPyObject}]]]
++getShininess() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1065{getShininess}]]]
++getSpecularColor() const : const Color & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1063{getSpecularColor}]]]
++getTransparency() const : double [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1066{getTransparency}]]]
++getTypeId() const : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L50{getTypeId}]]]
++getValue() const : const Material & [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1060{getValue}]]]
+{static} +init() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L51{init}]]]
++isSame(const Property & other) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1084{isSame}]]]
++setAmbientColor(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1043{setAmbientColor}]]]
++setAmbientColor(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1044{setAmbientColor}]]]
++setAmbientColor(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1045{setAmbientColor}]]]
++setDiffuseColor(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1048{setDiffuseColor}]]]
++setDiffuseColor(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1047{setDiffuseColor}]]]
++setDiffuseColor(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1046{setDiffuseColor}]]]
++setEmissiveColor(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1054{setEmissiveColor}]]]
++setEmissiveColor(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1053{setEmissiveColor}]]]
++setEmissiveColor(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1052{setEmissiveColor}]]]
++setPyObject(PyObject * py) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1069{setPyObject}]]]
++setShininess(float) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1055{setShininess}]]]
++setSpecularColor(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1049{setSpecularColor}]]]
++setSpecularColor(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1050{setSpecularColor}]]]
++setSpecularColor(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1051{setSpecularColor}]]]
++setTransparency(float) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1056{setTransparency}]]]
++setValue(uint32_t rgba) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1042{setValue}]]]
++setValue(float r, float g, float b, float a = 0.0F) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1041{setValue}]]]
++setValue(const Color & col) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1040{setValue}]]]
++setValue(const Material & mat) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1039{setValue}]]]
+__
+-_cMat : Material [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1094{_cMat}]]]
+{static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
+}
+}
+C_0011932603888482871764 o-- C_0007151109991894271781 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L128{ambientColor}]] : +ambientColor
+C_0011932603888482871764 o-- C_0007151109991894271781 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L129{diffuseColor}]] : +diffuseColor
+C_0011932603888482871764 o-- C_0007151109991894271781 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L130{specularColor}]] : +specularColor
+C_0011932603888482871764 o-- C_0007151109991894271781 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L131{emissiveColor}]] : +emissiveColor
+C_0011932603888482871764 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L134{image}]] : +image
+C_0011932603888482871764 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L135{imagePath}]] : +imagePath
+C_0011932603888482871764 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L136{uuid}]] : +uuid
+C_0011932603888482871764 o-- C_0014576806863920019546 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Material.h#L165{_matType}]] : -_matType
+C_0014576806863920019546 --+ C_0011932603888482871764
+C_0006865239829155458824 o-- C_0011932603888482871764 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L1094{_cMat}]] : -_cMat
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

@@ -1,0 +1,78 @@
+@startuml
+title 'poly' class diagram
+class "basic_poly<Concept>" as C_0017501201129880878205
+class C_0017501201129880878205 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/fwd.hpp#L17{basic_poly}]] {
+__
+}
+class "poly_inspector" as C_0003687135513869351241
+class C_0003687135513869351241 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L17{poly_inspector}]] {
++invoke<std::size_t Member,Args...>(Args &&... args) const : poly_inspector
++invoke<std::size_t Member,Args...>(Args &&... args) : poly_inspector
++operator type-parameter-0-0 &&<Type>() const : Type &&
+__
+}
+class "value_list<Candidate...>" as C_0000212399863066908165
+class C_0000212399863066908165 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L67{value_list}]] {
+__
+}
+class "type_list<Func...>" as C_0012016157750554058343
+class C_0012016157750554058343 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L71{type_list}]] {
+__
+}
+class "poly_vtable<Concept,std::size_t Len,std::size_t Align>" as C_0004749599840194619350
+class C_0004749599840194619350 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L47{poly_vtable}]] {
+{static} -fill_vtable<Type,auto... Index>(std::index_sequence<Index...>) noexcept : auto
+{static} -fill_vtable_entry<Type,auto Candidate,Ret,Any,Args...>(Ret (*&)(Any &,Args...) entry) noexcept : void
+{static} +instance<Type>() noexcept : type
+{static} -make_vtable<auto... Candidate>(value_list<Candidate...>) noexcept : decltype(std::make_tuple(vtable_entry(Candidate)...))
+{static} -make_vtable<Func...>(type_list<Func...>) constexpr noexcept : auto
+{static} -vtable_entry<Ret,Clazz,Args...>(Ret (*)(Clazz &,Args...)) : std::enable_if_t<std::is_base_of_v<std::remove_const_t<Clazz>, inspector>, Ret (*)(constness_as_t<basic_any<Len, Align>, Clazz> &, Args...)>
+{static} -vtable_entry<Ret,Args...>(Ret (*)(Args...)) : Ret (*)(const basic_any<Len, Align> &, Args...)
+{static} -vtable_entry<Ret,Clazz,Args...>(Ret (Clazz::*)(Args...)) : std::enable_if_t<std::is_base_of_v<Clazz, inspector>, Ret (*)(basic_any<Len, Align> &, Args...)>
+{static} -vtable_entry<Ret,Clazz,Args...>(Ret (Clazz::*)(Args...) const) : std::enable_if_t<std::is_base_of_v<Clazz, inspector>, Ret (*)(const basic_any<Len, Align> &, Args...)>
+__
+{static} -is_mono_v : const bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L100{is_mono_v}]]]
+}
+class "poly_base<Poly>" as C_0014071038703701003895
+class C_0014071038703701003895 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L129{poly_base}]] {
++invoke<std::size_t Member,Args...>(const poly_base<Poly> & self, Args &&... args) const : decltype(auto)
++invoke<std::size_t Member,Args...>(poly_base<Poly> & self, Args &&... args) : decltype(auto)
+__
+}
+class "basic_any<Len,Align>" as C_0001101813056811770428
+class C_0001101813056811770428 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L305{basic_any}]] {
+__
+}
+class "basic_poly<Concept,std::size_t Len=sizeof(double[2]),std::size_t Align=alignof(double[2])>" as C_0016308479569936640596
+class C_0016308479569936640596 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L193{basic_poly}]] {
++basic_poly() noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L203{basic_poly}]]]
++basic_poly<Type,Args...>(std::in_place_type_t<Type>, Args &&... args) : void
++basic_poly<Type,typename=std::enable_if_t<!std::is_same_v<std::remove_cv_t<std::remove_reference_t<Type>>, basic_poly<type-parameter-0-0, Len, >>>>(Type && value) noexcept : void
+..
++operator->() noexcept : concept_type * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L276{operator->}]]]
++operator->() const noexcept : const concept_type * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L281{operator->}]]]
+..
++as_ref() noexcept : basic_poly<type-parameter-0-0,Len,> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L289{as_ref}]]]
++as_ref() const noexcept : basic_poly<type-parameter-0-0,Len,> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L297{as_ref}]]]
++data() const noexcept : const void * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L237{data}]]]
++data() noexcept : void * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L242{data}]]]
++emplace<Type,Args...>(Args &&... args) : void
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L268{operator bool}]]]
++reset() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L259{reset}]]]
++type() const noexcept : const type_info & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L229{type}]]]
+__
+-storage : basic_any<Len,Align> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L305{storage}]]]
+-vtable : vtable_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L306{vtable}]]]
+}
+class "basic_poly<typename,std::size_t Len=sizeof(double[2]),std::size_t=alignof(double[2])>" as C_0002433144032423111964
+class C_0002433144032423111964 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/fwd.hpp#L10{basic_poly}]] {
+__
+}
+C_0017501201129880878205 ..|> C_0002433144032423111964
+C_0004749599840194619350 ..> C_0000212399863066908165 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L67{}]]
+C_0004749599840194619350 ..> C_0012016157750554058343 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L71{}]]
+C_0016308479569936640596 o-- C_0001101813056811770428 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/poly/poly.hpp#L305{storage}]] : -storage
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

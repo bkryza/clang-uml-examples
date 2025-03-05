@@ -1,0 +1,160 @@
+@startuml
+title 'graph' class diagram
+class "directed_tag" as C_0016166641616663646252
+class C_0016166641616663646252 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/fwd.hpp#L11{directed_tag}]] {
+__
+}
+class "undirected_tag" as C_0002095623159475364388
+class C_0002095623159475364388 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/fwd.hpp#L14{undirected_tag}]] {
+__
+}
+class "internal::edge_iterator<It>" as C_0008265378530825598326
+class C_0008265378530825598326 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L20{edge_iterator}]] {
++edge_iterator() noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L31{edge_iterator}]]]
++edge_iterator(It base, const size_type vertices, const size_type from, const size_type to, const size_type step) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L34{edge_iterator}]]]
+..
++operator*() constexpr const noexcept : reference [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L53{operator*}]]]
++operator++() constexpr noexcept : edge_iterator<It> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L43{operator++}]]]
++operator++(int) constexpr noexcept : edge_iterator<It> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L48{operator++}]]]
++operator->() constexpr const noexcept : pointer [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L57{operator->}]]]
+__
+-it : It [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L65{it}]]]
+-last : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L68{last}]]]
+-offset : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L69{offset}]]]
+-pos : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L67{pos}]]]
+-vert : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L66{vert}]]]
+}
+class "internal::edge_iterator<typename container_type::const_iterator>" as C_0018429352041585898913
+class C_0018429352041585898913 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L235{edge_iterator}]] {
+__
+}
+class "input_iterator_pointer<std::pair<internal::edge_iterator::size_type,internal::edge_iterator::size_type>>" as C_0009427172440706032301
+class C_0009427172440706032301 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L57{input_iterator_pointer}]] {
+__
+}
+class "iota_iterator<adjacency_matrix::vertex_type>" as C_0005374630461342947344
+class C_0005374630461342947344 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L227{iota_iterator}]] {
+__
+}
+class "iterable_adaptor<iota_iterator<adjacency_matrix::vertex_type>>" as C_0010971486611346982663
+class C_0010971486611346982663 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L227{iterable_adaptor}]] {
+__
+}
+class "iterable_adaptor<internal::edge_iterator<typename container_type::const_iterator>>" as C_0009179971368597158638
+class C_0009179971368597158638 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L235{iterable_adaptor}]] {
+__
+}
+class "adjacency_matrix<Category,Allocator=std::allocator<std::size_t>>" as C_0011625863282683175065
+class C_0011625863282683175065 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L91{adjacency_matrix}]] {
++adjacency_matrix() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L118{adjacency_matrix}]]]
++adjacency_matrix(const allocator_type & allocator) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L126{adjacency_matrix}]]]
++adjacency_matrix(const size_type vertices, const allocator_type & allocator = allocator_type{}) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L135{adjacency_matrix}]]]
++adjacency_matrix(const adjacency_matrix<type-parameter-0-0,type-parameter-0-1> &) = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L140{adjacency_matrix}]]]
++adjacency_matrix(const adjacency_matrix<type-parameter-0-0,type-parameter-0-1> & other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L147{adjacency_matrix}]]]
++adjacency_matrix(adjacency_matrix<type-parameter-0-0,type-parameter-0-1> &&) noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L152{adjacency_matrix}]]]
++adjacency_matrix(adjacency_matrix<type-parameter-0-0,type-parameter-0-1> && other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L159{adjacency_matrix}]]]
++~adjacency_matrix() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L164{~adjacency_matrix}]]]
+..
++operator=(const adjacency_matrix<type-parameter-0-0,type-parameter-0-1> &) = default : adjacency_matrix<type-parameter-0-0,type-parameter-0-1> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L170{operator=}]]]
++operator=(adjacency_matrix<type-parameter-0-0,type-parameter-0-1> &&) noexcept = default : adjacency_matrix<type-parameter-0-0,type-parameter-0-1> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L176{operator=}]]]
+..
++clear() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L187{clear}]]]
++contains(const vertex_type lhs, const vertex_type rhs) const : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L324{contains}]]]
++edges() const noexcept : iterable_adaptor<edge_iterator> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L235{edges}]]]
++empty() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L210{empty}]]]
++erase(const vertex_type lhs, const vertex_type rhs) : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L306{erase}]]]
++get_allocator() constexpr const noexcept : allocator_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L182{get_allocator}]]]
++in_edges(const vertex_type vertex) const noexcept : iterable_adaptor<in_edge_iterator> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L258{in_edges}]]]
++insert(const vertex_type lhs, const vertex_type rhs) : std::pair<edge_iterator,bool> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L287{insert}]]]
++out_edges(const vertex_type vertex) const noexcept : iterable_adaptor<out_edge_iterator> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L246{out_edges}]]]
++resize(const size_type vertices) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L269{resize}]]]
++size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L219{size}]]]
++swap(adjacency_matrix<type-parameter-0-0,type-parameter-0-1> & other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L196{swap}]]]
++vertices() const noexcept : iterable_adaptor<vertex_iterator> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L227{vertices}]]]
+__
+-matrix : container_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L330{matrix}]]]
+-vert : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L331{vert}]]]
+}
+class "basic_flow<typename=std::allocator<id_type>>" as C_0001155636740511711449
+class C_0001155636740511711449 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/fwd.hpp#L20{basic_flow}]] {
+__
+}
+class "adjacency_matrix<typename,typename=std::allocator<std::size_t>>" as C_0007102608618123962650
+class C_0007102608618123962650 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/fwd.hpp#L17{adjacency_matrix}]] {
+__
+}
+class "adjacency_matrix<directed_tag,typename alloc_traits::template rebind_alloc<std::size_t>>" as C_0011425232183484485869
+class C_0011425232183484485869 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L47{adjacency_matrix}]] {
+__
+}
+class "compressed_pair<basic_flow::size_type,basic_flow::allocator_type>" as C_0009167652795845818772
+class C_0009167652795845818772 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L343{compressed_pair}]] {
+__
+}
+class "dense_set<id_type,identity,std::equal_to,typename alloc_traits::template rebind_alloc<id_type>>" as C_0004441550514081720182
+class C_0004441550514081720182 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L344{dense_set}]] {
+__
+}
+class "dense_map<id_type,std::vector<std::pair<std::size_t,bool>>,identity,std::equal_to,typename alloc_traits::template rebind_alloc<std::pair<const id_type,ro_rw_container_type>>>" as C_0015065660989484217524
+class C_0015065660989484217524 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L345{dense_map}]] {
+__
+}
+class "basic_flow<Allocator=std::allocator<id_type>>" as C_0001680489547117965541
+class C_0001680489547117965541 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L29{basic_flow}]] {
++basic_flow() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L128{basic_flow}]]]
++basic_flow(const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L135{basic_flow}]]]
++basic_flow(const basic_flow<type-parameter-0-0> &) = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L141{basic_flow}]]]
++basic_flow(const basic_flow<type-parameter-0-0> & other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L148{basic_flow}]]]
++basic_flow(basic_flow<type-parameter-0-0> &&) noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L155{basic_flow}]]]
++basic_flow(basic_flow<type-parameter-0-0> && other, const allocator_type & allocator) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L162{basic_flow}]]]
++~basic_flow() = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L169{~basic_flow}]]]
+..
++operator=(const basic_flow<type-parameter-0-0> &) = default : basic_flow<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L175{operator=}]]]
++operator=(basic_flow<type-parameter-0-0> &&) noexcept = default : basic_flow<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L181{operator=}]]]
+..
++operator[](const size_type pos) const : id_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L196{operator[]}]]]
+..
++bind(const id_type value) : basic_flow<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L241{bind}]]]
++clear() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L201{clear}]]]
+-emplace(const id_type res, const bool is_rw) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L37{emplace}]]]
++empty() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L224{empty}]]]
++get_allocator() constexpr const noexcept : allocator_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L187{get_allocator}]]]
++graph() const : graph_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L332{graph}]]]
++ro<It>(It first, It last) : std::enable_if_t<std::is_same_v<std::remove_const_t<typename std::iterator_traits<It>::value_type>, id_type>, basic_flow<type-parameter-0-0> &>
++ro(const id_type res) : basic_flow<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L279{ro}]]]
++rw<It>(It first, It last) : std::enable_if_t<std::is_same_v<std::remove_const_t<typename std::iterator_traits<It>::value_type>, id_type>, basic_flow<type-parameter-0-0> &>
++rw(const id_type res) : basic_flow<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L306{rw}]]]
++set(const id_type res, bool is_rw = false) : basic_flow<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L269{set}]]]
+-setup_graph(adjacency_matrix_type & matrix) const : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L47{setup_graph}]]]
++size() const noexcept : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L232{size}]]]
++swap(basic_flow<type-parameter-0-0> & other) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L212{swap}]]]
++sync() : basic_flow<type-parameter-0-0> & [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L252{sync}]]]
+-transitive_closure(adjacency_matrix_type & matrix) const : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L83{transitive_closure}]]]
+-transitive_reduction(adjacency_matrix_type & matrix) const : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L97{transitive_reduction}]]]
+__
+-deps : deps_container_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L345{deps}]]]
+-index : compressed_pair<size_type,allocator_type> [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L343{index}]]]
+-sync_on : size_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L346{sync_on}]]]
+-vertices : task_container_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L344{vertices}]]]
+}
+C_0016166641616663646252 <|-- C_0002095623159475364388
+C_0008265378530825598326 ..> C_0009427172440706032301 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L57{}]]
+C_0018429352041585898913 ..|> C_0008265378530825598326
+C_0010971486611346982663 ..> C_0005374630461342947344
+C_0009179971368597158638 ..> C_0018429352041585898913
+C_0011625863282683175065 ..> C_0010971486611346982663 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L227{}]]
+C_0011625863282683175065 ..> C_0009179971368597158638 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L235{}]]
+C_0011625863282683175065 ..> C_0008265378530825598326 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/adjacency_matrix.hpp#L235{}]]
+C_0011625863282683175065 ..> C_0018429352041585898913
+C_0011425232183484485869 ..> C_0016166641616663646252
+C_0011425232183484485869 ..|> C_0011625863282683175065
+C_0001680489547117965541 ..> C_0011425232183484485869 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L47{}]]
+C_0001680489547117965541 ..> C_0011625863282683175065 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L47{}]]
+C_0001680489547117965541 ..> C_0016166641616663646252 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L47{}]]
+C_0001680489547117965541 o-- C_0009167652795845818772 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L343{index}]] : -index
+C_0001680489547117965541 o-- C_0004441550514081720182 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L344{vertices}]] : -vertices
+C_0001680489547117965541 o-- C_0015065660989484217524 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/graph/flow.hpp#L345{deps}]] : -deps
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml
