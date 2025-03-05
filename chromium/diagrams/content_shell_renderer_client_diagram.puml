@@ -1,0 +1,190 @@
+@startuml
+title Chromium Content Shell Renderer Client Diagram
+package [base] as C_0004833921248397714067 {
+class "RepeatingCallback<Signature>" as C_0000448350262091866175
+class C_0000448350262091866175 [[{RepeatingCallback}]] {
+__
+}
+class "RepeatingCallback<void(std::vector<std::unique_ptr<media::KeySystemInfo>>)>" as C_0000291963373364741548
+class C_0000291963373364741548 [[{RepeatingCallback}]] {
+__
+}
+}
+package [content] as C_0007443789900200112731 {
+abstract "RenderFrame" as C_0008130916102836574198
+abstract C_0008130916102836574198 [[{RenderFrame}]] {
+-RenderFrame() : void [[[{RenderFrame}]]]
+#~RenderFrame() : void [[[{~RenderFrame}]]]
+..
+{abstract} +AddMessageToConsole() = 0 : void [[[{AddMessageToConsole}]]]
+{abstract} +BindLocalInterface() = 0 : void [[[{BindLocalInterface}]]]
+{abstract} +ConvertViewportToWindow() = 0 : gfx::Rect [[[{ConvertViewportToWindow}]]]
+{abstract} +CreateAXTreeSnapshotter() = 0 : std::unique_ptr<AXTreeSnapshotter> [[[{CreateAXTreeSnapshotter}]]]
+{abstract} +CreatePlugin() = 0 : blink::WebPlugin * [[[{CreatePlugin}]]]
+{abstract} +ExecuteJavaScript() = 0 : void [[[{ExecuteJavaScript}]]]
+{static} +ForEach() : void [[[{ForEach}]]]
+{static} +FromWebFrame() : RenderFrame * [[[{FromWebFrame}]]]
+{abstract} +GetAgentGroupScheduler() = 0 : blink::scheduler::WebAgentGroupScheduler & [[[{GetAgentGroupScheduler}]]]
+{abstract} +GetAssociatedInterfaceRegistry() = 0 : blink::AssociatedInterfaceRegistry * [[[{GetAssociatedInterfaceRegistry}]]]
+{abstract} +GetBlinkPreferences() = 0 : const blink::web_pref::WebPreferences & [[[{GetBlinkPreferences}]]]
+{abstract} +GetBrowserInterfaceBroker() = 0 : const blink::BrowserInterfaceBrokerProxy & [[[{GetBrowserInterfaceBroker}]]]
+{abstract} +GetDeviceScaleFactor() = 0 : float [[[{GetDeviceScaleFactor}]]]
+{abstract} +GetEnabledBindings() = 0 : BindingsPolicySet [[[{GetEnabledBindings}]]]
+{abstract} +GetMainRenderFrame() = 0 : RenderFrame * [[[{GetMainRenderFrame}]]]
+{abstract} +GetRemoteAssociatedInterfaces() = 0 : blink::AssociatedInterfaceProvider * [[[{GetRemoteAssociatedInterfaces}]]]
+{abstract} +GetRenderAccessibility() = 0 : RenderAccessibility * [[[{GetRenderAccessibility}]]]
+{abstract} +GetRenderFrameMediaPlaybackOptions() = 0 : const RenderFrameMediaPlaybackOptions & [[[{GetRenderFrameMediaPlaybackOptions}]]]
+{abstract} +GetTaskRunner() = 0 : scoped_refptr<base::SingleThreadTaskRunner> [[[{GetTaskRunner}]]]
+{abstract} +GetWebFrame() const = 0 : const blink::WebLocalFrame * [[[{GetWebFrame}]]]
+{abstract} +GetWebFrame() = 0 : blink::WebLocalFrame * [[[{GetWebFrame}]]]
+{abstract} +GetWebView() = 0 : blink::WebView * [[[{GetWebView}]]]
+{abstract} +GetWebView() const = 0 : const blink::WebView * [[[{GetWebView}]]]
+{abstract} +IsHidden() = 0 : bool [[[{IsHidden}]]]
+{abstract} +IsInFencedFrameTree() const = 0 : bool [[[{IsInFencedFrameTree}]]]
+{abstract} +IsMainFrame() = 0 : bool [[[{IsMainFrame}]]]
+{abstract} +IsPasting() = 0 : bool [[[{IsPasting}]]]
+{abstract} +IsRequestingNavigation() = 0 : bool [[[{IsRequestingNavigation}]]]
+{abstract} +LoadHTMLStringForTesting() = 0 : void [[[{LoadHTMLStringForTesting}]]]
+{abstract} +SetAccessibilityModeForTest() = 0 : void [[[{SetAccessibilityModeForTest}]]]
+{abstract} +SetAllowsCrossBrowsingInstanceFrameLookup() = 0 : void [[[{SetAllowsCrossBrowsingInstanceFrameLookup}]]]
+{abstract} +SetRenderFrameMediaPlaybackOptions() = 0 : void [[[{SetRenderFrameMediaPlaybackOptions}]]]
+{abstract} +SetSelectedText() = 0 : void [[[{SetSelectedText}]]]
+{abstract} +ShowVirtualKeyboard() = 0 : void [[[{ShowVirtualKeyboard}]]]
+__
+}
+package [mojom] as C_0016439248259605566676 {
+class "AlternativeErrorPageOverrideInfo" as C_0003768646857398194629
+class C_0003768646857398194629 [[{AlternativeErrorPageOverrideInfo}]] {
++AlternativeErrorPageOverrideInfo() : void [[[{AlternativeErrorPageOverrideInfo}]]]
++AlternativeErrorPageOverrideInfo() : void [[[{AlternativeErrorPageOverrideInfo}]]]
++AlternativeErrorPageOverrideInfo() = deleted : void [[[{AlternativeErrorPageOverrideInfo}]]]
++~AlternativeErrorPageOverrideInfo() : void [[[{~AlternativeErrorPageOverrideInfo}]]]
+..
++operator=() = deleted : AlternativeErrorPageOverrideInfo & [[[{operator=}]]]
+..
++operator!=<T,class AlternativeErrorPageOverrideInfo::EnableIfSame<T> *=nullptr>() const : _Bool
++operator==<T,class AlternativeErrorPageOverrideInfo::EnableIfSame<T> *=nullptr>() const : _Bool
+..
++Clone<StructPtrType=AlternativeErrorPageOverrideInfoPtr>() const : AlternativeErrorPageOverrideInfoPtr
+{static} +Deserialize<UserType>() : _Bool
+{static} +Deserialize<UserType>() : _Bool
+{static} +DeserializeFromMessage<UserType>() : _Bool
++Equals<T,class AlternativeErrorPageOverrideInfo::EnableIfSame<T> *=nullptr>() const : _Bool
+{static} +From<U>() : AlternativeErrorPageOverrideInfoPtr
+{static} +New<Args...>() : AlternativeErrorPageOverrideInfoPtr
+{static} +Serialize<UserType>() : std::vector<uint8_t>
+{static} +SerializeAsMessage<UserType>() : mojo::Message
++To<U>() const : U
+{static} -Validate() : bool [[[{Validate}]]]
+{static} +WrapAsMessage<UserType>() : mojo::Message
++WriteIntoTrace() const : void [[[{WriteIntoTrace}]]]
+__
++alternative_error_page_params : ::base::Value::Dict [[[{alternative_error_page_params}]]]
++resource_id : uint32_t [[[{resource_id}]]]
+}
+}
+class "ContentRendererClient" as C_0007196939442393815154
+class C_0007196939442393815154 [[{ContentRendererClient}]] {
++~ContentRendererClient() : void [[[{~ContentRendererClient}]]]
+..
++AddOrUpdateVisitedLinkSalt() : void [[[{AddOrUpdateVisitedLinkSalt}]]]
++AllowPopup() : bool [[[{AllowPopup}]]]
++AllowScriptExtensionForServiceWorker() : bool [[[{AllowScriptExtensionForServiceWorker}]]]
++AppendContentSecurityPolicy() : void [[[{AppendContentSecurityPolicy}]]]
++CreateLinkPreviewTriggerer() : std::unique_ptr<blink::WebLinkPreviewTriggerer> [[[{CreateLinkPreviewTriggerer}]]]
++CreatePluginReplacement() : blink::WebPlugin * [[[{CreatePluginReplacement}]]]
++CreatePrescientNetworking() : std::unique_ptr<blink::WebPrescientNetworking> [[[{CreatePrescientNetworking}]]]
++CreateSpeechRecognitionClient() : std::unique_ptr<media::SpeechRecognitionClient> [[[{CreateSpeechRecognitionClient}]]]
++CreateURLLoaderThrottleProvider() : std::unique_ptr<blink::URLLoaderThrottleProvider> [[[{CreateURLLoaderThrottleProvider}]]]
++CreateWebSocketHandshakeThrottleProvider() : std::unique_ptr<blink::WebSocketHandshakeThrottleProvider> [[[{CreateWebSocketHandshakeThrottleProvider}]]]
++CreateWorkerContentSettingsClient() : std::unique_ptr<blink::WebContentSettingsClient> [[[{CreateWorkerContentSettingsClient}]]]
++DeferMediaLoad() : bool [[[{DeferMediaLoad}]]]
++DidInitializeServiceWorkerContextOnWorkerThread() : void [[[{DidInitializeServiceWorkerContextOnWorkerThread}]]]
++DidInitializeWorkerContextOnWorkerThread() : void [[[{DidInitializeWorkerContextOnWorkerThread}]]]
++DidSetUserAgent() : void [[[{DidSetUserAgent}]]]
++DidStartServiceWorkerContextOnWorkerThread() : void [[[{DidStartServiceWorkerContextOnWorkerThread}]]]
++ExposeInterfacesToBrowser() : void [[[{ExposeInterfacesToBrowser}]]]
++FindFrame() : blink::WebFrame * [[[{FindFrame}]]]
++GetAudioRendererAlgorithmParameters() : std::optional< ::media::AudioRendererAlgorithmParameters> [[[{GetAudioRendererAlgorithmParameters}]]]
++GetBaseRendererFactory() : std::unique_ptr<media::RendererFactory> [[[{GetBaseRendererFactory}]]]
++GetMediaAllocator() : media::ExternalMemoryAllocator * [[[{GetMediaAllocator}]]]
++GetProtocolHandlerSecurityLevel() : blink::ProtocolHandlerSecurityLevel [[[{GetProtocolHandlerSecurityLevel}]]]
++GetSadPluginBitmap() : SkBitmap * [[[{GetSadPluginBitmap}]]]
++GetSadWebViewBitmap() : SkBitmap * [[[{GetSadWebViewBitmap}]]]
++GetScriptableObject() : v8::Local<v8::Object> [[[{GetScriptableObject}]]]
++GetSupportedKeySystems() : std::unique_ptr<media::KeySystemSupportRegistration> [[[{GetSupportedKeySystems}]]]
++IsDecoderSupportedAudioType() : bool [[[{IsDecoderSupportedAudioType}]]]
++IsDecoderSupportedVideoType() : bool [[[{IsDecoderSupportedVideoType}]]]
++IsDomStorageDisabled() const : bool [[[{IsDomStorageDisabled}]]]
++IsEncoderSupportedVideoType() : bool [[[{IsEncoderSupportedVideoType}]]]
++IsExternalPepperPlugin() : bool [[[{IsExternalPepperPlugin}]]]
++IsIdleMediaSuspendEnabled() : bool [[[{IsIdleMediaSuspendEnabled}]]]
++IsLinkVisited() : bool [[[{IsLinkVisited}]]]
++IsOriginIsolatedPepperPlugin() : bool [[[{IsOriginIsolatedPepperPlugin}]]]
++IsPluginAllowedToUseCameraDeviceAPI() : bool [[[{IsPluginAllowedToUseCameraDeviceAPI}]]]
++IsPluginHandledExternally() : bool [[[{IsPluginHandledExternally}]]]
++IsPrefetchOnly() : bool [[[{IsPrefetchOnly}]]]
++IsSafeRedirectTarget() : bool [[[{IsSafeRedirectTarget}]]]
++IsSupportedBitstreamAudioCodec() : bool [[[{IsSupportedBitstreamAudioCodec}]]]
++OverrideCreatePlugin() : bool [[[{OverrideCreatePlugin}]]]
++OverrideDemuxerForUrl() : std::unique_ptr<media::Demuxer> [[[{OverrideDemuxerForUrl}]]]
++OverrideFlashEmbedWithHTML() : GURL [[[{OverrideFlashEmbedWithHTML}]]]
++PartitionedVisitedLinkFingerprint() : uint64_t [[[{PartitionedVisitedLinkFingerprint}]]]
++PostCompositorThreadCreated() : void [[[{PostCompositorThreadCreated}]]]
++PostIOThreadCreated() : void [[[{PostIOThreadCreated}]]]
++PostSandboxInitialized() : void [[[{PostSandboxInitialized}]]]
++PrepareErrorPage() : void [[[{PrepareErrorPage}]]]
++PrepareErrorPageForHttpStatusError() : void [[[{PrepareErrorPageForHttpStatusError}]]]
++RenderFrameCreated() : void [[[{RenderFrameCreated}]]]
++RenderThreadStarted() : void [[[{RenderThreadStarted}]]]
++RunIdleHandlerWhenWidgetsHidden() : bool [[[{RunIdleHandlerWhenWidgetsHidden}]]]
++RunScriptsAtDocumentEnd() : void [[[{RunScriptsAtDocumentEnd}]]]
++RunScriptsAtDocumentIdle() : void [[[{RunScriptsAtDocumentIdle}]]]
++RunScriptsAtDocumentStart() : void [[[{RunScriptsAtDocumentStart}]]]
++SetRuntimeFeaturesDefaultsBeforeBlinkInitialization() : void [[[{SetRuntimeFeaturesDefaultsBeforeBlinkInitialization}]]]
++SetUpWebAssemblyTrapHandler() : void [[[{SetUpWebAssemblyTrapHandler}]]]
++ShouldEnforceWebRTCRoutingPreferences() : bool [[[{ShouldEnforceWebRTCRoutingPreferences}]]]
++ShouldNotifyServiceWorkerOnWebSocketActivity() : bool [[[{ShouldNotifyServiceWorkerOnWebSocketActivity}]]]
++ShouldReportDetailedMessageForSource() : bool [[[{ShouldReportDetailedMessageForSource}]]]
++ShouldUseCodeCacheWithHashing() const : bool [[[{ShouldUseCodeCacheWithHashing}]]]
++VisitedLinkHash() : uint64_t [[[{VisitedLinkHash}]]]
++WebViewCreated() : void [[[{WebViewCreated}]]]
++WillDestroyServiceWorkerContextOnWorkerThread() : void [[[{WillDestroyServiceWorkerContextOnWorkerThread}]]]
++WillEvaluateServiceWorkerOnWorkerThread() : void [[[{WillEvaluateServiceWorkerOnWorkerThread}]]]
++WillInitializeServiceWorkerContextOnWorkerThread() : void [[[{WillInitializeServiceWorkerContextOnWorkerThread}]]]
++WillSendRequest() : void [[[{WillSendRequest}]]]
+__
+}
+class "ShellContentRendererClient" as C_0007475696003365951483
+class C_0007475696003365951483 [[{ShellContentRendererClient}]] {
++ShellContentRendererClient() : void [[[{ShellContentRendererClient}]]]
++~ShellContentRendererClient() : void [[[{~ShellContentRendererClient}]]]
+..
++CreatePrescientNetworking() : std::unique_ptr<blink::WebPrescientNetworking> [[[{CreatePrescientNetworking}]]]
++CreateURLLoaderThrottleProvider() : std::unique_ptr<blink::URLLoaderThrottleProvider> [[[{CreateURLLoaderThrottleProvider}]]]
++DidInitializeWorkerContextOnWorkerThread() : void [[[{DidInitializeWorkerContextOnWorkerThread}]]]
++ExposeInterfacesToBrowser() : void [[[{ExposeInterfacesToBrowser}]]]
++GetSupportedKeySystems() : std::unique_ptr<media::KeySystemSupportRegistration> [[[{GetSupportedKeySystems}]]]
++PrepareErrorPage() : void [[[{PrepareErrorPage}]]]
++PrepareErrorPageForHttpStatusError() : void [[[{PrepareErrorPageForHttpStatusError}]]]
++RenderFrameCreated() : void [[[{RenderFrameCreated}]]]
++RenderThreadStarted() : void [[[{RenderThreadStarted}]]]
++SetUpWebAssemblyTrapHandler() : void [[[{SetUpWebAssemblyTrapHandler}]]]
+__
+-web_cache_impl_ : std::unique_ptr<web_cache::WebCacheImpl> [[[{web_cache_impl_}]]]
+}
+}
+C_0000448350262091866175 ..|> C_0000448350262091866175
+C_0007196939442393815154 ..> C_0008130916102836574198 [[{}]]
+C_0007196939442393815154 ..> C_0003768646857398194629 [[{}]]
+C_0007196939442393815154 ..> C_0000291963373364741548 [[{}]]
+C_0007196939442393815154 ..> C_0000448350262091866175 [[{}]]
+C_0007475696003365951483 ..> C_0008130916102836574198 [[{}]]
+C_0007475696003365951483 ..> C_0003768646857398194629 [[{}]]
+C_0007475696003365951483 ..> C_0000291963373364741548 [[{}]]
+C_0007475696003365951483 ..> C_0000448350262091866175 [[{}]]
+C_0007196939442393815154 <|-- C_0007475696003365951483
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

@@ -1,0 +1,109 @@
+@startuml
+title Chromium Content Shell Renderer Observer Diagram
+package [content] as C_0016157277133464820102 {
+package [public] as C_0013936970978425443509 {
+package [renderer] as C_0001422695902090755204 {
+class "raw_ptr<content::RenderFrame>" as C_0012554765419338077344
+class C_0012554765419338077344 [[{raw_ptr}]] {
+__
+}
+class "RenderFrameImpl" as C_0016961073801130368306
+class C_0016961073801130368306 [[{RenderFrameImpl}]] {
+__
+}
+abstract "RenderFrameObserver" as C_0016524041064289520152
+abstract C_0016524041064289520152 [[{RenderFrameObserver}]] {
++RenderFrameObserver() = deleted : void [[[{RenderFrameObserver}]]]
+#RenderFrameObserver() : void [[[{RenderFrameObserver}]]]
+#~RenderFrameObserver() : void [[[{~RenderFrameObserver}]]]
+..
++operator=() = deleted : RenderFrameObserver & [[[{operator=}]]]
+..
++AccessibilityModeChanged() : void [[[{AccessibilityModeChanged}]]]
++DetailedConsoleMessageAdded() : void [[[{DetailedConsoleMessageAdded}]]]
++DidCancelResponse() : void [[[{DidCancelResponse}]]]
++DidChangeCpuTiming() : void [[[{DidChangeCpuTiming}]]]
++DidChangePerformanceTiming() : void [[[{DidChangePerformanceTiming}]]]
++DidChangeScrollOffset() : void [[[{DidChangeScrollOffset}]]]
++DidClearWindowObject() : void [[[{DidClearWindowObject}]]]
++DidCommitProvisionalLoad() : void [[[{DidCommitProvisionalLoad}]]]
++DidCompleteResponse() : void [[[{DidCompleteResponse}]]]
++DidCreateDocumentElement() : void [[[{DidCreateDocumentElement}]]]
++DidCreateFencedFrame() : void [[[{DidCreateFencedFrame}]]]
++DidCreateNewDocument() : void [[[{DidCreateNewDocument}]]]
++DidCreatePepperPlugin() : void [[[{DidCreatePepperPlugin}]]]
++DidCreateScriptContext() : void [[[{DidCreateScriptContext}]]]
++DidDispatchDOMContentLoadedEvent() : void [[[{DidDispatchDOMContentLoadedEvent}]]]
++DidFailProvisionalLoad() : void [[[{DidFailProvisionalLoad}]]]
++DidFinishLoad() : void [[[{DidFinishLoad}]]]
++DidFinishLoadForPrinting() : void [[[{DidFinishLoadForPrinting}]]]
++DidFinishSameDocumentNavigation() : void [[[{DidFinishSameDocumentNavigation}]]]
++DidHandleOnloadEvents() : void [[[{DidHandleOnloadEvents}]]]
++DidLoadResourceFromMemoryCache() : void [[[{DidLoadResourceFromMemoryCache}]]]
++DidMatchCSS() : void [[[{DidMatchCSS}]]]
++DidMeaningfulLayout() : void [[[{DidMeaningfulLayout}]]]
++DidObserveFirstScrollDelay() : void [[[{DidObserveFirstScrollDelay}]]]
++DidObserveJavaScriptFrameworks() : void [[[{DidObserveJavaScriptFrameworks}]]]
++DidObserveLayoutShift() : void [[[{DidObserveLayoutShift}]]]
++DidObserveLoadingBehavior() : void [[[{DidObserveLoadingBehavior}]]]
++DidObserveNewFeatureUsage() : void [[[{DidObserveNewFeatureUsage}]]]
++DidObserveSoftNavigation() : void [[[{DidObserveSoftNavigation}]]]
++DidObserveSubresourceLoad() : void [[[{DidObserveSubresourceLoad}]]]
++DidObserveUserInteraction() : void [[[{DidObserveUserInteraction}]]]
++DidReceiveTransferSizeUpdate() : void [[[{DidReceiveTransferSizeUpdate}]]]
++DidSetPageLifecycleState() : void [[[{DidSetPageLifecycleState}]]]
++DidStartNavigation() : void [[[{DidStartNavigation}]]]
++DidStartResponse() : void [[[{DidStartResponse}]]]
++FocusedElementChanged() : void [[[{FocusedElementChanged}]]]
++OnAssociatedInterfaceRequestForFrame() : bool [[[{OnAssociatedInterfaceRequestForFrame}]]]
+{abstract} +OnDestruct() = 0 : void [[[{OnDestruct}]]]
++OnFrameVisibilityChanged() : void [[[{OnFrameVisibilityChanged}]]]
++OnInterfaceRequestForFrame() : void [[[{OnInterfaceRequestForFrame}]]]
++OnLargeStickyAdDetected() : void [[[{OnLargeStickyAdDetected}]]]
++OnMainFrameImageAdRectangleChanged() : void [[[{OnMainFrameImageAdRectangleChanged}]]]
++OnMainFrameIntersectionChanged() : void [[[{OnMainFrameIntersectionChanged}]]]
++OnMainFrameViewportRectangleChanged() : void [[[{OnMainFrameViewportRectangleChanged}]]]
++OnOverlayPopupAdDetected() : void [[[{OnOverlayPopupAdDetected}]]]
++OnStop() : void [[[{OnStop}]]]
++ReadyToCommitNavigation() : void [[[{ReadyToCommitNavigation}]]]
+-RenderFrameGone() : void [[[{RenderFrameGone}]]]
++ScriptedPrint() : void [[[{ScriptedPrint}]]]
++SetUpSmoothnessReporting() : bool [[[{SetUpSmoothnessReporting}]]]
++WasHidden() : void [[[{WasHidden}]]]
++WasShown() : void [[[{WasShown}]]]
++WillCreateWorkerFetchContext() : void [[[{WillCreateWorkerFetchContext}]]]
++WillDetach() : void [[[{WillDetach}]]]
++WillReleaseScriptContext() : void [[[{WillReleaseScriptContext}]]]
++WillSendRequest() : void [[[{WillSendRequest}]]]
++WillSubmitForm() : void [[[{WillSubmitForm}]]]
++render_frame() const : RenderFrame * [[[{render_frame}]]]
+__
+-render_frame_ : raw_ptr<RenderFrame> [[[{render_frame_}]]]
+}
+}
+}
+package [shell] as C_0017473739825269821141 {
+package [renderer] as C_0004659898310615916949 {
+class "ShellRenderFrameObserver" as C_0002003743222331021302
+class C_0002003743222331021302 [[{ShellRenderFrameObserver}]] {
++ShellRenderFrameObserver() : void [[[{ShellRenderFrameObserver}]]]
++ShellRenderFrameObserver() = deleted : void [[[{ShellRenderFrameObserver}]]]
++~ShellRenderFrameObserver() : void [[[{~ShellRenderFrameObserver}]]]
+..
++operator=() = deleted : ShellRenderFrameObserver & [[[{operator=}]]]
+..
+-DidClearWindowObject() : void [[[{DidClearWindowObject}]]]
+-OnDestruct() : void [[[{OnDestruct}]]]
+-OnInterfaceRequestForFrame() : void [[[{OnInterfaceRequestForFrame}]]]
+__
+}
+}
+}
+}
+C_0016524041064289520152 o-- C_0012554765419338077344 [[{render_frame_}]] : -render_frame_
+C_0016524041064289520152 <.. C_0016961073801130368306 : +<<friend>>
+C_0016524041064289520152 <|-- C_0002003743222331021302
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml

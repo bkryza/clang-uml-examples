@@ -1,0 +1,231 @@
+@startuml
+title ui::PlatformWindow context class diagram
+package [ui] as C_0010501953460611170695 {
+package [base] as C_0013050205497352612465 {
+package [cursor] as C_0000519482591042437507 {
+class "PlatformCursor" as C_0017737036712140491157
+class C_0017737036712140491157 [[{PlatformCursor}]] {
+__
+}
+}
+class "ClassProperty<T>" as C_0003560248179536117537
+class C_0003560248179536117537 [[{ClassProperty}]] {
+__
++cascading : bool [[[{cascading}]]]
++deallocator : PropertyDeallocator [[[{deallocator}]]]
++default_value : T [[[{default_value}]]]
++name : const char * [[[{name}]]]
+}
+class "PropertyHandler" as C_0014123125489500529321
+class C_0014123125489500529321 [[{PropertyHandler}]] {
++PropertyHandler() : void [[[{PropertyHandler}]]]
++PropertyHandler(PropertyHandler &&) : void [[[{PropertyHandler}]]]
++~PropertyHandler() : void [[[{~PropertyHandler}]]]
+..
++operator=(PropertyHandler &&) : PropertyHandler & [[[{operator=}]]]
+..
++AcquireAllPropertiesFrom(PropertyHandler && other) : void [[[{AcquireAllPropertiesFrom}]]]
++ClearProperty<T>(const ClassProperty<T> * property) : void
++GetAllPropertyKeys() const : std::set<const void *> [[[{GetAllPropertyKeys}]]]
++GetProperty<T>(const ClassProperty<T> * property) const : T
++SetProperty<T>(const ClassProperty<T> * property, T value) : T
++SetProperty<T,U>(const ClassProperty<T> * property, U && value) : T
++SetProperty<T,U>(const ClassProperty<T *> * property, U && value) : T *
++SetProperty<T,U>(const ClassProperty<T *> * property, std::unique_ptr<U> value) : T *
+__
+}
+class "PropertyHandler::Value" as C_0002029433289759059245
+class C_0002029433289759059245 [[{PropertyHandler::Value}]] {
+__
++deallocator : PropertyDeallocator [[[{deallocator}]]]
++name : const char * [[[{name}]]]
++value : int64_t [[[{value}]]]
+}
+class "PropertyHelper" as C_0010720617258079439186
+class C_0010720617258079439186 [[{PropertyHelper}]] {
+{static} +Clear<T>(ui::PropertyHandler * handler, const ::ui::ClassProperty<T> * property) : void
+{static} +Get<T>(const ::ui::PropertyHandler * handler, const ::ui::ClassProperty<T> * property, bool allow_cascade) : T
+{static} +Set<T>(ui::PropertyHandler * handler, const ::ui::ClassProperty<T> * property, T value) : T
+__
+}
+}
+package [platform_window] as C_0004008188106029357805 {
+class "WorkspaceExtensionDelegate" as C_0000339074417896446261
+class C_0000339074417896446261 [[{WorkspaceExtensionDelegate}]] {
+__
+}
+class "X11ExtensionDelegate" as C_0005456790814334145396
+class C_0005456790814334145396 [[{X11ExtensionDelegate}]] {
+__
+}
+package [stub] as C_0004818034330385509733 {
+class "StubWindow" as C_0007618783177371271244
+class C_0007618783177371271244 [[{StubWindow}]] {
++StubWindow(PlatformWindowDelegate * delegate, bool use_default_accelerated_widget = true, const gfx::Rect & bounds = gfx::Rect()) : void [[[{StubWindow}]]]
++StubWindow(const gfx::Rect & bounds) : void [[[{StubWindow}]]]
++StubWindow(const StubWindow &) = deleted : void [[[{StubWindow}]]]
++~StubWindow() : void [[[{~StubWindow}]]]
+..
++operator=(const StubWindow &) = deleted : StubWindow & [[[{operator=}]]]
+..
++InitDelegate(PlatformWindowDelegate * delegate, bool use_default_accelerated_widget = true) : void [[[{InitDelegate}]]]
++InitDelegateWithWidget(PlatformWindowDelegate * delegate, gfx::AcceleratedWidget widget) : void [[[{InitDelegateWithWidget}]]]
+__
+}
+}
+package [extensions] as C_0001100326116271766907 {
+abstract "X11Extension" as C_0001098074681709332547
+abstract C_0001098074681709332547 [[{X11Extension}]] {
+{abstract} +CanResetOverrideRedirect() const = 0 : bool [[[{CanResetOverrideRedirect}]]]
+{abstract} +GetXRootWindowOuterBounds() const = 0 : gfx::Rect [[[{GetXRootWindowOuterBounds}]]]
+{abstract} +IsSyncExtensionAvailable() const = 0 : bool [[[{IsSyncExtensionAvailable}]]]
+{abstract} +IsWmTiling() const = 0 : bool [[[{IsWmTiling}]]]
+{abstract} +LowerXWindow() = 0 : void [[[{LowerXWindow}]]]
+{abstract} +OnCompleteSwapAfterResize() = 0 : void [[[{OnCompleteSwapAfterResize}]]]
+{abstract} +SetOverrideRedirect(bool override_redirect) = 0 : void [[[{SetOverrideRedirect}]]]
+{abstract} +SetX11ExtensionDelegate(X11ExtensionDelegate * delegate) = 0 : void [[[{SetX11ExtensionDelegate}]]]
+__
+}
+abstract "WaylandExtension" as C_0007331596878444806860
+abstract C_0007331596878444806860 [[{WaylandExtension}]] {
+{abstract} +GetVizSequenceIdForAppliedState() const = 0 : int64_t [[[{GetVizSequenceIdForAppliedState}]]]
+{abstract} +GetVizSequenceIdForLatchedState() const = 0 : int64_t [[[{GetVizSequenceIdForLatchedState}]]]
+{abstract} +HasInFlightRequestsForState() const = 0 : bool [[[{HasInFlightRequestsForState}]]]
+{abstract} +RoundTripQueue() = 0 : void [[[{RoundTripQueue}]]]
+{abstract} +SetLatchImmediately(bool latch_immediately) = 0 : void [[[{SetLatchImmediately}]]]
+__
+}
+abstract "WaylandToplevelExtension" as C_0006049113229815869742
+abstract C_0006049113229815869742 [[{WaylandToplevelExtension}]] {
+{abstract} +LockPointer(bool enabled) = 0 : void [[[{LockPointer}]]]
+{abstract} +StartWindowDraggingSessionIfNeeded(ui::mojom::DragEventSource event_source, bool allow_system_drag) = 0 : void [[[{StartWindowDraggingSessionIfNeeded}]]]
+{abstract} +SupportsPointerLock() = 0 : bool [[[{SupportsPointerLock}]]]
+__
+}
+abstract "WorkspaceExtension" as C_0016482784505912265703
+abstract C_0016482784505912265703 [[{WorkspaceExtension}]] {
+{abstract} +GetWorkspace() const = 0 : std::string [[[{GetWorkspace}]]]
+{abstract} +IsVisibleOnAllWorkspaces() const = 0 : bool [[[{IsVisibleOnAllWorkspaces}]]]
+{abstract} +SetVisibleOnAllWorkspaces(bool always_visible) = 0 : void [[[{SetVisibleOnAllWorkspaces}]]]
+{abstract} +SetWorkspaceExtensionDelegate(WorkspaceExtensionDelegate * delegate) = 0 : void [[[{SetWorkspaceExtensionDelegate}]]]
+__
+}
+abstract "SystemModalExtension" as C_0015456905396135118800
+abstract C_0015456905396135118800 [[{SystemModalExtension}]] {
+{abstract} +SetSystemModal(bool modal) = 0 : void [[[{SetSystemModal}]]]
+__
+}
+}
+abstract "PlatformWindowDelegate" as C_0004133948817376201184
+abstract C_0004133948817376201184 [[{PlatformWindowDelegate}]] {
++PlatformWindowDelegate() : void [[[{PlatformWindowDelegate}]]]
++~PlatformWindowDelegate() : void [[[{~PlatformWindowDelegate}]]]
+..
++CalculateInsetsInDIP(PlatformWindowState window_state) const : gfx::Insets [[[{CalculateInsetsInDIP}]]]
++CanFullscreen() const : bool [[[{CanFullscreen}]]]
++CanMaximize() const : bool [[[{CanMaximize}]]]
++ConvertInsetsToPixels(const gfx::Insets & insets_dip) const : gfx::Insets [[[{ConvertInsetsToPixels}]]]
++ConvertRectToDIP(const gfx::Rect & rect_in_pixels) const : gfx::Rect [[[{ConvertRectToDIP}]]]
++ConvertRectToPixels(const gfx::Rect & rect_in_dp) const : gfx::Rect [[[{ConvertRectToPixels}]]]
++ConvertScreenPointToLocalDIP(const gfx::Point & screen_in_pixels) const : gfx::PointF [[[{ConvertScreenPointToLocalDIP}]]]
+{abstract} +DispatchEvent(Event * event) = 0 : void [[[{DispatchEvent}]]]
++GetMaximumSizeForWindow() const : std::optional<gfx::Size> [[[{GetMaximumSizeForWindow}]]]
++GetMinimumSizeForWindow() const : std::optional<gfx::Size> [[[{GetMinimumSizeForWindow}]]]
++GetOwnedWindowAnchorAndRectInDIP() : std::optional<OwnedWindowAnchor> [[[{GetOwnedWindowAnchorAndRectInDIP}]]]
++GetWindowMaskForWindowShapeInPixels() : SkPath [[[{GetWindowMaskForWindowShapeInPixels}]]]
+{abstract} +OnAcceleratedWidgetAvailable(gfx::AcceleratedWidget widget) = 0 : void [[[{OnAcceleratedWidgetAvailable}]]]
+{abstract} +OnAcceleratedWidgetDestroyed() = 0 : void [[[{OnAcceleratedWidgetDestroyed}]]]
+{abstract} +OnActivationChanged(bool active) = 0 : void [[[{OnActivationChanged}]]]
+{abstract} +OnBoundsChanged(const BoundsChange & change) = 0 : void [[[{OnBoundsChanged}]]]
+{abstract} +OnCloseRequest() = 0 : void [[[{OnCloseRequest}]]]
+{abstract} +OnClosed() = 0 : void [[[{OnClosed}]]]
+{abstract} +OnDamageRect(const gfx::Rect & damaged_region) = 0 : void [[[{OnDamageRect}]]]
+{abstract} +OnLostCapture() = 0 : void [[[{OnLostCapture}]]]
+{abstract} +OnMouseEnter() = 0 : void [[[{OnMouseEnter}]]]
++OnOcclusionStateChanged(PlatformWindowOcclusionState occlusion_state) : void [[[{OnOcclusionStateChanged}]]]
++OnRotateFocus(RotateDirection direction, bool reset) : bool [[[{OnRotateFocus}]]]
++OnStateUpdate(const State & old, const State & latest) : int64_t [[[{OnStateUpdate}]]]
+{abstract} +OnWillDestroyAcceleratedWidget() = 0 : void [[[{OnWillDestroyAcceleratedWidget}]]]
+{abstract} +OnWindowStateChanged(PlatformWindowState old_state, PlatformWindowState new_state) = 0 : void [[[{OnWindowStateChanged}]]]
++OnWindowTiledStateChanged(WindowTiledEdges new_tiled_edges) : void [[[{OnWindowTiledStateChanged}]]]
+__
+}
+abstract "PlatformWindow" as C_0014641466677610233161
+abstract C_0014641466677610233161 [[{PlatformWindow}]] {
++PlatformWindow() : void [[[{PlatformWindow}]]]
++~PlatformWindow() : void [[[{~PlatformWindow}]]]
+..
+{abstract} +Activate() = 0 : void [[[{Activate}]]]
++CanSetDecorationInsets() const : bool [[[{CanSetDecorationInsets}]]]
+{abstract} +Close() = 0 : void [[[{Close}]]]
+{abstract} +ConfineCursorToBounds(const gfx::Rect & bounds) = 0 : void [[[{ConfineCursorToBounds}]]]
+{abstract} +Deactivate() = 0 : void [[[{Deactivate}]]]
++FlashFrame(bool flash_frame) : void [[[{FlashFrame}]]]
+{abstract} +GetBoundsInDIP() const = 0 : gfx::Rect [[[{GetBoundsInDIP}]]]
+{abstract} +GetBoundsInPixels() const = 0 : gfx::Rect [[[{GetBoundsInPixels}]]]
+{abstract} +GetPlatformWindowState() const = 0 : PlatformWindowState [[[{GetPlatformWindowState}]]]
+{abstract} +GetRestoredBoundsInDIP() const = 0 : gfx::Rect [[[{GetRestoredBoundsInDIP}]]]
++GetWindowUniqueId() const : std::string [[[{GetWindowUniqueId}]]]
++GetZOrderLevel() const : ZOrderLevel [[[{GetZOrderLevel}]]]
+{abstract} +HasCapture() const = 0 : bool [[[{HasCapture}]]]
+{abstract} +Hide() = 0 : void [[[{Hide}]]]
++IsAnimatingClosed() const : bool [[[{IsAnimatingClosed}]]]
++IsClientControlledWindowMovementSupported() const : bool [[[{IsClientControlledWindowMovementSupported}]]]
+{abstract} +IsVisible() const = 0 : bool [[[{IsVisible}]]]
+{abstract} +Maximize() = 0 : void [[[{Maximize}]]]
+{abstract} +Minimize() = 0 : void [[[{Minimize}]]]
+{abstract} +MoveCursorTo(const gfx::Point & location) = 0 : void [[[{MoveCursorTo}]]]
++NotifyStartupComplete(const std::string & startup_id) : void [[[{NotifyStartupComplete}]]]
+{abstract} +PrepareForShutdown() = 0 : void [[[{PrepareForShutdown}]]]
+{abstract} +ReleaseCapture() = 0 : void [[[{ReleaseCapture}]]]
++ReleaseVideoCapture() : void [[[{ReleaseVideoCapture}]]]
+{abstract} +Restore() = 0 : void [[[{Restore}]]]
++SetAspectRatio(const gfx::SizeF & aspect_ratio) : void [[[{SetAspectRatio}]]]
+{abstract} +SetBoundsInDIP(const gfx::Rect & bounds) = 0 : void [[[{SetBoundsInDIP}]]]
+{abstract} +SetBoundsInPixels(const gfx::Rect & bounds) = 0 : void [[[{SetBoundsInPixels}]]]
+{abstract} +SetCapture() = 0 : void [[[{SetCapture}]]]
+{abstract} +SetCursor(scoped_refptr<PlatformCursor> cursor) = 0 : void [[[{SetCursor}]]]
+{abstract} +SetFullscreen(bool fullscreen, int64_t target_display_id) = 0 : void [[[{SetFullscreen}]]]
++SetInputRegion(std::optional<std::vector<gfx::Rect>> region_px) : void [[[{SetInputRegion}]]]
++SetOpacity(float opacity) : void [[[{SetOpacity}]]]
++SetOpaqueRegion(std::optional<std::vector<gfx::Rect>> region_px) : void [[[{SetOpaqueRegion}]]]
+{abstract} +SetRestoredBoundsInDIP(const gfx::Rect & bounds) = 0 : void [[[{SetRestoredBoundsInDIP}]]]
++SetShape(std::unique_ptr<ShapeRects> native_shape, const gfx::Transform & transform) : void [[[{SetShape}]]]
+{abstract} +SetTitle(const std::u16string & title) = 0 : void [[[{SetTitle}]]]
+{abstract} +SetUseNativeFrame(bool use_native_frame) = 0 : void [[[{SetUseNativeFrame}]]]
++SetVideoCapture() : void [[[{SetVideoCapture}]]]
++SetVisibilityChangedAnimationsEnabled(bool enabled) : void [[[{SetVisibilityChangedAnimationsEnabled}]]]
+{abstract} +SetWindowIcons(const gfx::ImageSkia & window_icon, const gfx::ImageSkia & app_icon) = 0 : void [[[{SetWindowIcons}]]]
++SetZOrderLevel(ZOrderLevel order) : void [[[{SetZOrderLevel}]]]
++ShouldUpdateWindowShape() const : bool [[[{ShouldUpdateWindowShape}]]]
+{abstract} +ShouldUseNativeFrame() const = 0 : bool [[[{ShouldUseNativeFrame}]]]
++ShouldWindowContentsBeTransparent() const : bool [[[{ShouldWindowContentsBeTransparent}]]]
+{abstract} +Show(bool inactive = false) = 0 : void [[[{Show}]]]
+{abstract} +SizeConstraintsChanged() = 0 : void [[[{SizeConstraintsChanged}]]]
++StackAbove(gfx::AcceleratedWidget widget) : void [[[{StackAbove}]]]
++StackAtTop() : void [[[{StackAtTop}]]]
+__
+}
+}
+}
+C_0014123125489500529321 ..> C_0003560248179536117537 [[{}]]
+C_0014123125489500529321 <.. C_0010720617258079439186 : +<<friend>>
+C_0002029433289759059245 --+ C_0014123125489500529321
+C_0010720617258079439186 ..> C_0014123125489500529321 [[{}]]
+C_0010720617258079439186 ..> C_0003560248179536117537 [[{}]]
+C_0007618783177371271244 ..> C_0017737036712140491157 [[{}]]
+C_0007618783177371271244 o-- C_0004133948817376201184 [[{delegate_}]] : -delegate_
+C_0014641466677610233161 <|-- C_0007618783177371271244
+C_0001098074681709332547 ..> C_0005456790814334145396 [[{}]]
+C_0001098074681709332547 ..> C_0014641466677610233161 [[{}]]
+C_0007331596878444806860 ..> C_0014641466677610233161 [[{}]]
+C_0006049113229815869742 ..> C_0014641466677610233161 [[{}]]
+C_0016482784505912265703 ..> C_0000339074417896446261 [[{}]]
+C_0016482784505912265703 ..> C_0014641466677610233161 [[{}]]
+C_0015456905396135118800 ..> C_0014641466677610233161 [[{}]]
+C_0014641466677610233161 ..> C_0017737036712140491157 [[{}]]
+C_0014123125489500529321 <|-- C_0014641466677610233161
+
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
+@enduml
