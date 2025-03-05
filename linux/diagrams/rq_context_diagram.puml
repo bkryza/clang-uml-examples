@@ -1,24 +1,104 @@
 @startuml
 title rq struct context diagram
 left to right direction
+package [include] as C_0002190201107501869016 {
+package [linux] as C_0015986331935468561106 {
+package [sched] as C_0009302706645117170996 {
+class "sched_domain" as C_0005051213716894894011
+class C_0005051213716894894011 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched/topology.h#L87{sched_domain}]] {
+__
+}
+}
+class "cpuidle_state" as C_0012298945312873513847
+class C_0012298945312873513847 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cpuidle.h#L49{cpuidle_state}]] {
+__
+}
+class "raw_spinlock" as C_0002539913256155999702
+class C_0002539913256155999702 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/spinlock_types_raw.h#L14{raw_spinlock}]] {
+__
+}
+class "cpumask" as C_0012699191346127703564
+class C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cpumask.h#L20{cpumask}]] {
+__
+}
+class "__call_single_data" as C_0011684995545972184513
+class C_0011684995545972184513 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/smp.h#L23{__call_single_data}]] {
+__
+}
+class "hrtimer" as C_0011525659871170572233
+class C_0011525659871170572233 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/hrtimer_types.h#L39{hrtimer}]] {
+__
+}
+class "sched_info" as C_0011326355355843501074
+class C_0011326355355843501074 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L386{sched_info}]] {
+__
+}
+class "sched_avg" as C_0007699822332639529086
+class C_0007699822332639529086 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L471{sched_avg}]] {
+__
+}
+class "sched_dl_entity" as C_0007405505529131564023
+class C_0007405505529131564023 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L598{sched_dl_entity}]] {
+__
+}
+class "task_struct" as C_0015917873333235073396
+class C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L748{task_struct}]] {
+__
+}
+class "mm_struct" as C_0003044054845010947696
+class C_0003044054845010947696 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/mm_types.h#L763{mm_struct}]] {
+__
+}
+class "rcuwait" as C_0012927716078494796032
+class C_0012927716078494796032 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/rcuwait.h#L16{rcuwait}]] {
+__
+}
+class "cpu_stop_work" as C_0003909907395561397744
+class C_0003909907395561397744 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/stop_machine.h#L24{cpu_stop_work}]] {
+__
+}
+class "class_task_rq_lock_t" as C_0017938875088097095711
+class C_0017938875088097095711 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L199{class_task_rq_lock_t}]] {
+__
+}
+class "class_rq_lock_t" as C_0001319075620346567495
+class C_0001319075620346567495 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L199{class_rq_lock_t}]] {
+__
+}
+class "class_rq_lock_irq_t" as C_0004330289671567408826
+class C_0004330289671567408826 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L199{class_rq_lock_irq_t}]] {
+__
+}
+class "class_rq_lock_irqsave_t" as C_0004076450942424583539
+class C_0004076450942424583539 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L199{class_rq_lock_irqsave_t}]] {
+__
+}
+class "class_double_rq_lock_t" as C_0005415114945752328500
+class C_0005415114945752328500 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L199{class_double_rq_lock_t}]] {
+__
+}
+}
+}
+package [kernel] as C_0011240978185188793280 {
+package [sched] as C_0003975001187639220471 {
+class "lb_env" as C_0010373236854052220188
+class C_0010373236854052220188 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/fair.c#L8851{lb_env}]] {
+__
+}
 class "cfs_rq" as C_0009371104448029711161
-class C_0009371104448029711161 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L587{CFS-related fields in a runqueue}]] {
+class C_0009371104448029711161 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L587{cfs_rq}]] {
 __
 }
 class "rt_rq" as C_0014515208731558767524
-class C_0014515208731558767524 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L705{Real-Time classes' related field in a runqueue:}]] {
+class C_0014515208731558767524 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L705{rt_rq}]] {
 __
 }
 class "dl_rq" as C_0015676061878373635824
-class C_0015676061878373635824 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L744{Deadline class' related fields in a runqueue}]] {
+class C_0015676061878373635824 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L744{dl_rq}]] {
 __
 }
 class "root_domain" as C_0017007075483513821849
-class C_0017007075483513821849 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L863{We add the notion of a root-domain which will be used to define per-domain  variables. Each exclusive cpuset essentially defines an island domain by  fully partitioning the member CPUs from any other cpuset. Whenever a new  exclusive cpuset is created, ...}]] {
-__
-}
-class "uclamp_rq" as C_0004095957555449292468
-class C_0004095957555449292468 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L983{struct uclamp_rq - rq's utilization clamp  @value: currently active clamp values for a rq  @bucket: utilization clamp buckets affecting a rq  Keep track of RUNNABLE tasks on a rq to aggregate their clamp values.  A clamp value is affecting a rq when the...}]] {
+class C_0017007075483513821849 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L863{root_domain}]] {
 __
 }
 class "balance_callback" as C_0009415204538954564998
@@ -26,97 +106,77 @@ class C_0009415204538954564998 [[https://github.com/torvalds/linux/blob/0c383648
 __
 }
 class "rq" as C_0003618054735090668884
-class C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1004{This is the main, per-CPU runqueue data structure.  Locking rule: those places that want to lock multiple runqueues  (such as the load balancing or the thread migration code), lock  acquire operations must be ordered by ascending &runqueue.}]] {
+class C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1004{rq}]] {
 __
 }
-class "class_task_rq_lock_t" as C_0017938875088097095711
-class C_0017938875088097095711 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1678{class_task_rq_lock_t}]] {
-__
 }
-class "class_rq_lock_t" as C_0001319075620346567495
-class C_0001319075620346567495 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1731{class_rq_lock_t}]] {
-__
 }
-class "class_rq_lock_irq_t" as C_0004330289671567408826
-class C_0004330289671567408826 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1736{class_rq_lock_irq_t}]] {
-__
-}
-class "class_rq_lock_irqsave_t" as C_0004076450942424583539
-class C_0004076450942424583539 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1741{class_rq_lock_irqsave_t}]] {
-__
-}
-class "class_double_rq_lock_t" as C_0005415114945752328500
-class C_0005415114945752328500 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L2866{class_double_rq_lock_t}]] {
-__
-}
-class "mm_struct" as C_0003044054845010947696
-class C_0003044054845010947696 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/arch/x86/include/asm/pgtable_64.h#L54{mm_struct}]] {
-__
-}
-class "hrtimer" as C_0011525659871170572233
-class C_0011525659871170572233 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/timer.h#L206{hrtimer}]] {
-__
-}
-class "cpuidle_state" as C_0012298945312873513847
-class C_0012298945312873513847 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L94{cpuidle_state}]] {
-__
-}
-class "cpumask" as C_0012699191346127703564
-class C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/net/netns/core.h#L9{cpumask}]] {
-__
-}
-class "task_struct" as C_0015917873333235073396
-class C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/swait.h#L41{Simple waitqueues are semantically very different to regular wait queues  (wait.h). The most important difference is that the simple waitqueue allows  for deterministic behaviour -- IOW it has strictly bounded IRQ and lock hold  times.  Mainly, this is ...}]] {
-__
-}
-class "lb_env" as C_0010373236854052220188
-class C_0010373236854052220188 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/fair.c#L8851{lb_env}]] {
-__
-}
-C_0009371104448029711161 --> C_0003618054735090668884 : +rq
-C_0017007075483513821849 --> C_0012699191346127703564 : +span
-C_0017007075483513821849 --> C_0012699191346127703564 : +online
-C_0017007075483513821849 --> C_0012699191346127703564 : +dlo_mask
-C_0017007075483513821849 --> C_0012699191346127703564 : +rto_mask
-C_0009415204538954564998 --> C_0009415204538954564998 : +next
-C_0003618054735090668884 o-- "2" C_0004095957555449292468 : +uclamp
-C_0003618054735090668884 o-- C_0009371104448029711161 : +cfs
-C_0003618054735090668884 o-- C_0014515208731558767524 : +rt
-C_0003618054735090668884 o-- C_0015676061878373635824 : +dl
-C_0003618054735090668884 --> C_0015917873333235073396 : +curr
-C_0003618054735090668884 --> C_0015917873333235073396 : +idle
-C_0003618054735090668884 --> C_0015917873333235073396 : +stop
-C_0003618054735090668884 --> C_0003044054845010947696 : +prev_mm
-C_0003618054735090668884 --> C_0017007075483513821849 : +rd
-C_0003618054735090668884 --> C_0009415204538954564998 : +balance_callback
-C_0003618054735090668884 o-- C_0011525659871170572233 : +hrtick_timer
-C_0003618054735090668884 --> C_0012298945312873513847 : +idle_state
-C_0003618054735090668884 --> C_0003618054735090668884 : +core
-C_0003618054735090668884 --> C_0015917873333235073396 : +core_pick
-C_0003618054735090668884 --> C_0012699191346127703564 : +scratch_mask
-C_0017938875088097095711 --> C_0015917873333235073396 : +lock
-C_0017938875088097095711 --> C_0003618054735090668884 : +rq
-C_0001319075620346567495 --> C_0003618054735090668884 : +lock
-C_0004330289671567408826 --> C_0003618054735090668884 : +lock
-C_0004076450942424583539 --> C_0003618054735090668884 : +lock
-C_0005415114945752328500 --> C_0003618054735090668884 : +lock
-C_0005415114945752328500 --> C_0003618054735090668884 : +lock2
-C_0015917873333235073396 --> C_0015917873333235073396 : +last_wakee
-C_0015917873333235073396 --> C_0012699191346127703564 : +cpus_ptr
-C_0015917873333235073396 --> C_0012699191346127703564 : +user_cpus_ptr
-C_0015917873333235073396 o-- C_0012699191346127703564 : +cpus_mask
-C_0015917873333235073396 --> C_0003044054845010947696 : +mm
-C_0015917873333235073396 --> C_0003044054845010947696 : +active_mm
-C_0015917873333235073396 --> C_0015917873333235073396 : +real_parent
-C_0015917873333235073396 --> C_0015917873333235073396 : +parent
-C_0015917873333235073396 --> C_0015917873333235073396 : +group_leader
-C_0015917873333235073396 --> C_0015917873333235073396 : +pi_top_task
-C_0015917873333235073396 --> C_0015917873333235073396 : +oom_reaper_list
-C_0010373236854052220188 --> C_0003618054735090668884 : +src_rq
-C_0010373236854052220188 --> C_0003618054735090668884 : +dst_rq
-C_0010373236854052220188 --> C_0012699191346127703564 : +dst_grpmask
-C_0010373236854052220188 --> C_0012699191346127703564 : +cpus
+C_0005051213716894894011 --> C_0005051213716894894011 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched/topology.h#L89{parent}]] : +parent
+C_0005051213716894894011 --> C_0005051213716894894011 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched/topology.h#L90{child}]] : +child
+C_0007405505529131564023 o-- C_0011525659871170572233 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L651{dl_timer}]] : +dl_timer
+C_0007405505529131564023 o-- C_0011525659871170572233 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L660{inactive_timer}]] : +inactive_timer
+C_0007405505529131564023 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L671{rq}]] : +rq
+C_0007405505529131564023 --> C_0007405505529131564023 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L681{pi_se}]] : +pi_se
+C_0015917873333235073396 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L782{last_wakee}]] : +last_wakee
+C_0015917873333235073396 o-- C_0007405505529131564023 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L803{dl}]] : +dl
+C_0015917873333235073396 --> C_0007405505529131564023 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L804{dl_server}]] : +dl_server
+C_0015917873333235073396 --> C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L845{cpus_ptr}]] : +cpus_ptr
+C_0015917873333235073396 --> C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L846{user_cpus_ptr}]] : +user_cpus_ptr
+C_0015917873333235073396 o-- C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L847{cpus_mask}]] : +cpus_mask
+C_0015917873333235073396 o-- C_0011326355355843501074 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L880{sched_info}]] : +sched_info
+C_0015917873333235073396 --> C_0003044054845010947696 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L888{mm}]] : +mm
+C_0015917873333235073396 --> C_0003044054845010947696 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L889{active_mm}]] : +active_mm
+C_0015917873333235073396 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L997{real_parent}]] : +real_parent
+C_0015917873333235073396 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L1000{parent}]] : +parent
+C_0015917873333235073396 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L1007{group_leader}]] : +group_leader
+C_0015917873333235073396 o-- C_0002539913256155999702 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L1150{pi_lock}]] : +pi_lock
+C_0015917873333235073396 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L1158{pi_top_task}]] : +pi_top_task
+C_0015917873333235073396 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/sched.h#L1486{oom_reaper_list}]] : +oom_reaper_list
+C_0012927716078494796032 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/rcuwait.h#L17{task}]] : +task
+C_0017938875088097095711 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L200{lock}]] : +lock
+C_0017938875088097095711 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1681{rq}]] : +rq
+C_0001319075620346567495 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L200{lock}]] : +lock
+C_0004330289671567408826 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L200{lock}]] : +lock
+C_0004076450942424583539 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L200{lock}]] : +lock
+C_0005415114945752328500 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/include/linux/cleanup.h#L200{lock}]] : +lock
+C_0005415114945752328500 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L2665{lock2}]] : +lock2
+C_0010373236854052220188 --> C_0005051213716894894011 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/fair.c#L8852{sd}]] : +sd
+C_0010373236854052220188 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/fair.c#L8854{src_rq}]] : +src_rq
+C_0010373236854052220188 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/fair.c#L8858{dst_rq}]] : +dst_rq
+C_0010373236854052220188 --> C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/fair.c#L8860{dst_grpmask}]] : +dst_grpmask
+C_0010373236854052220188 --> C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/fair.c#L8865{cpus}]] : +cpus
+C_0009371104448029711161 o-- C_0007699822332639529086 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L625{avg}]] : +avg
+C_0009371104448029711161 --> C_0003618054735090668884 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L656{rq}]] : +rq
+C_0014515208731558767524 o-- C_0002539913256155999702 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L728{rt_runtime_lock}]] : +rt_runtime_lock
+C_0017007075483513821849 o-- "1" C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L867{span}]] : +span
+C_0017007075483513821849 o-- "1" C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L868{online}]] : +online
+C_0017007075483513821849 o-- "1" C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L884{dlo_mask}]] : +dlo_mask
+C_0017007075483513821849 o-- C_0002539913256155999702 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L903{rto_lock}]] : +rto_lock
+C_0017007075483513821849 o-- "1" C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L915{rto_mask}]] : +rto_mask
+C_0009415204538954564998 --> C_0009415204538954564998 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L993{next}]] : +next
+C_0003618054735090668884 o-- C_0002539913256155999702 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1006{__lock}]] : +__lock
+C_0003618054735090668884 o-- C_0011684995545972184513 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1018{nohz_csd}]] : +nohz_csd
+C_0003618054735090668884 o-- C_0009371104448029711161 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1036{cfs}]] : +cfs
+C_0003618054735090668884 o-- C_0014515208731558767524 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1037{rt}]] : +rt
+C_0003618054735090668884 o-- C_0015676061878373635824 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1038{dl}]] : +dl
+C_0003618054735090668884 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1054{curr}]] : +curr
+C_0003618054735090668884 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1055{idle}]] : +idle
+C_0003618054735090668884 --> C_0015917873333235073396 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1056{stop}]] : +stop
+C_0003618054735090668884 --> C_0003044054845010947696 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1058{prev_mm}]] : +prev_mm
+C_0003618054735090668884 --> C_0017007075483513821849 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1085{rd}]] : +rd
+C_0003618054735090668884 --> C_0005051213716894894011 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1086{sd}]] : +sd
+C_0003618054735090668884 --> C_0009415204538954564998 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1090{balance_callback}]] : +balance_callback
+C_0003618054735090668884 o-- C_0003909907395561397744 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1100{active_balance_work}]] : +active_balance_work
+C_0003618054735090668884 o-- C_0007699822332639529086 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1108{avg_rt}]] : +avg_rt
+C_0003618054735090668884 o-- C_0007699822332639529086 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1109{avg_dl}]] : +avg_dl
+C_0003618054735090668884 o-- C_0012927716078494796032 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1123{hotplug_wait}]] : +hotplug_wait
+C_0003618054735090668884 o-- C_0011684995545972184513 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1144{hrtick_csd}]] : +hrtick_csd
+C_0003618054735090668884 o-- C_0011525659871170572233 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1146{hrtick_timer}]] : +hrtick_timer
+C_0003618054735090668884 o-- C_0011326355355843501074 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1152{rq_sched_info}]] : +rq_sched_info
+C_0003618054735090668884 --> C_0012298945312873513847 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1170{idle_state}]] : +idle_state
+C_0003618054735090668884 o-- C_0003909907395561397744 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1177{push_work}]] : +push_work
+C_0003618054735090668884 o-- "1" C_0012699191346127703564 [[https://github.com/torvalds/linux/blob/0c3836482481200ead7b416ca80c68a29cfdaabd/kernel/sched/sched.h#L1198{scratch_mask}]] : +scratch_mask
 
-'Generated with clang-uml, version 0.5.3-18-ga4180de
-'LLVM version Ubuntu clang version 18.1.8 (++20240731024944+3b5b5c1ec4a3-1~exp1~20240731145000.144)
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
