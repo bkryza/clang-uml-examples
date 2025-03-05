@@ -13,7 +13,7 @@ diagrams: build
 		$(CLANG_UML_BINARY) -p --query-driver .
 
 plantuml: diagrams
-		plantuml -tsvg cpp-standard-library/diagrams/*.puml
+		plantuml -tsvg diagrams/*.puml
 		python3 ../generate_readme.py cpp-standard-library
 		markdown-toc  --bullets "*" -i README.md
 

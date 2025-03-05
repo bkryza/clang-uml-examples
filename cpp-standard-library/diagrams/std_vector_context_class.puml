@@ -4,6 +4,10 @@ class "iterator<_Category,_Tp,_Distance=ptrdiff_t,_Pointer=_Tp *,_Reference=_Tp 
 class C_0016384363037466094568 {
 __
 }
+class "reverse_iterator<_Iter>" as C_0014172594989642843197
+class C_0014172594989642843197 {
+__
+}
 class "iterator<typename iterator_traits<_Iterator>::iterator_category,typename iterator_traits<_Iterator>::value_type,typename iterator_traits<_Iterator>::difference_type,typename iterator_traits<_Iterator>::pointer,typename iterator_traits<_Iterator>::reference>" as C_0012471832686357493722
 class C_0012471832686357493722 {
 __
@@ -38,6 +42,14 @@ __
 }
 class "_Vector_base::_Vector_impl" as C_0018207793148199959866
 class C_0018207793148199959866 {
+__
+}
+class "reverse_iterator<__gnu_cxx::__normal_iterator<vector::pointer,vector<_Tp,_Alloc>>>" as C_0007946380561791240729
+class C_0007946380561791240729 {
+__
+}
+class "reverse_iterator<__gnu_cxx::__normal_iterator<vector::const_pointer,vector<_Tp,_Alloc>>>" as C_0011328800956802955955
+class C_0011328800956802955955 {
 __
 }
 class "vector<_Tp,_Alloc=allocator<_Tp>>" as C_0005805017087195686008
@@ -84,6 +96,14 @@ class "_Bvector_base::_Bvector_impl" as C_0010744634881075136595
 class C_0010744634881075136595 {
 __
 }
+class "reverse_iterator<iterator>" as C_0016172396674571732333
+class C_0016172396674571732333 {
+__
+}
+class "reverse_iterator<const_iterator>" as C_0006440291576529819714
+class C_0006440291576529819714 {
+__
+}
 class "vector<bool,_Alloc>" as C_0002261458041236941641
 class C_0002261458041236941641 {
 __
@@ -92,6 +112,7 @@ class "vector<_Tp,pmr::polymorphic_allocator<_Tp>>" as C_0009937165181912686464
 class C_0009937165181912686464 {
 __
 }
+C_0014172594989642843197 ..|> C_0003742820890603540341
 C_0012471832686357493722 ..|> C_0016384363037466094568
 C_0012471832686357493722 <|-- C_0003742820890603540341
 C_0014653995113384390955 ..|> C_0016384363037466094568
@@ -101,6 +122,8 @@ C_0014653995113384390955 <|-- C_0003857731205391224987
 C_0000997856561152181668 o-- C_0018207793148199959866 : +_M_impl
 C_0018039370053612920865 --+ C_0000997856561152181668
 C_0018207793148199959866 --+ C_0000997856561152181668
+C_0007946380561791240729 ..|> C_0014172594989642843197
+C_0011328800956802955955 ..|> C_0014172594989642843197
 C_0000997856561152181668 <|-- C_0005805017087195686008
 C_0011374935455579958805 --+ C_0005805017087195686008
 C_0011374935455579958805 o-- C_0003028152696443724275 : -_M_storage
@@ -115,6 +138,8 @@ C_0003860519816965633390 --+ C_0012020207555608092007
 C_0003860519816965633390 o-- C_0018068942244072229765 : +_M_start
 C_0003860519816965633390 o-- C_0018068942244072229765 : +_M_finish
 C_0010744634881075136595 --+ C_0012020207555608092007
+C_0016172396674571732333 ..|> C_0014172594989642843197
+C_0006440291576529819714 ..|> C_0014172594989642843197
 C_0002261458041236941641 ..|> C_0005805017087195686008
 C_0012020207555608092007 <|-- C_0002261458041236941641
 C_0009937165181912686464 ..|> C_0005805017087195686008
@@ -122,7 +147,7 @@ C_0009937165181912686464 ..|> C_0005805017087195686008
     This class does nothing but define nested typedefs.  %Iterator classes
   can inherit from this cl...
 end note
-       note top of C_0003742820890603540341
+         note top of C_0003742820890603540341
     24.4.1 Reverse iterators
 
   Bidirectional and random access iterators have corresponding reverse
@@ -146,7 +171,7 @@ end note
      note top of C_0000997856561152181668
     See bits/stl_deque.h's _Deque_base for an explanation.
 end note
-         note top of C_0005805017087195686008
+             note top of C_0005805017087195686008
     Meets the requirements of a 
 container
 , a
@@ -161,7 +186,7 @@ end note
     A value_type object constructed with _Alloc_traits::construct()
  and destroyed with _Alloc_traits...
 end note
-                       note top of C_0002261458041236941641
+                           note top of C_0002261458041236941641
     Note that vector
 <bool
 > does not actually meet the requirements for being
@@ -170,6 +195,6 @@ end note
     
 
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
