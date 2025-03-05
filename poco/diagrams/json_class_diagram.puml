@@ -61,8 +61,14 @@ __
 -_pLogger : Logger * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/include/Poco/JSON/TemplateCache.h#L76{_pLogger}]]]
 }
 class "MultiPart" as C_0003280629382048110868
-class C_0003280629382048110868 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/include/Poco/JSON/Template.h#L34{MultiPart}]] {
+class C_0003280629382048110868 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/src/Template.cpp#L78{MultiPart}]] {
++MultiPart() = default : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/src/Template.cpp#L81{MultiPart}]]]
++~MultiPart() = default : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/src/Template.cpp#L83{~MultiPart}]]]
+..
++addPart(Part * part) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/src/Template.cpp#L85{addPart}]]]
++render(const Var & data, std::ostream & out) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/src/Template.cpp#L90{render}]]]
 __
+#_parts : VectorParts [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/src/Template.cpp#L99{_parts}]]]
 }
 abstract "Handler" as C_0017366252517865787775
 abstract C_0017366252517865787775 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/include/Poco/JSON/Handler.h#L31{Handler}]] {
@@ -443,6 +449,8 @@ C_0009798509640525557374 --> C_0003280629382048110868 [[https://github.com/pocop
 C_0009798509640525557374 --> C_0003280629382048110868 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/include/Poco/JSON/Template.h#L126{_currentPart}]] : -_currentPart
 C_0014595940615977043998 o-- C_0009798509640525557374 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/include/Poco/JSON/TemplateCache.h#L75{_cache}]] : -_cache
 C_0014595940615977043998 --> C_0014595940615977043998 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/include/Poco/JSON/TemplateCache.h#L73{_pInstance}]] : -_pInstance
+C_0003280629382048110868 o-- C_0013288363836979953299 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/src/Template.cpp#L99{_parts}]] : #_parts
+C_0013288363836979953299 <|-- C_0003280629382048110868
 C_0017366252517865787775 <|-- C_0008504468101746865405
 C_0000580006711800051634 ..> C_0003396747076398296186 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/include/Poco/JSON/Array.h#L141{}]]
 C_0003396747076398296186 ..> C_0000580006711800051634 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/JSON/include/Poco/JSON/Object.h#L141{}]]
@@ -462,6 +470,6 @@ C_0003280629382048110868 <|-- C_0017749869250798869390
 C_0003280629382048110868 <|-- C_0006819219310646992997
 C_0013288363836979953299 <|-- C_0015088026113962443582
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

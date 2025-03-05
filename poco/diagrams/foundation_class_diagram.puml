@@ -991,7 +991,7 @@ class C_0015124384236961025667 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "SharedPtr<Other,RC,OtherRP>" as C_0006477019587631393482
-class C_0006477019587631393482 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SharedPtr.h#L89{SharedPtr}]] {
+class C_0006477019587631393482 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SharedPtr.h#L137{SharedPtr}]] {
 __
 }
 class "SharedPtr<C,RC=ReferenceCounter,RP=ReleasePolicy<C>>" as C_0004385785097626938096
@@ -1058,7 +1058,7 @@ __
 -_ptr : C * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SharedPtr.h#L460{_ptr}]]]
 }
 class "SharedPtr<TextEncoding>" as C_0004555712289983816556
-class C_0004555712289983816556 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SharedPtr.h#L89{SharedPtr}]] {
+class C_0004555712289983816556 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TextEncoding.h#L142{SharedPtr}]] {
 __
 }
 abstract "TextEncoding" as C_0011104246352260264575
@@ -1085,8 +1085,20 @@ __
 +MAX_SEQUENCE_LENGTH : enum
 }
 class "TextEncodingManager" as C_0006860467277989499787
-class C_0006860467277989499787 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TextEncoding.h#L28{TextEncodingManager}]] {
+class C_0006860467277989499787 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L40{TextEncodingManager}]] {
++TextEncodingManager() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L43{TextEncodingManager}]]]
+-TextEncodingManager(const TextEncodingManager &) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L100{TextEncodingManager}]]]
++~TextEncodingManager() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L60{~TextEncodingManager}]]]
+..
+-operator=(const TextEncodingManager &) : TextEncodingManager & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L101{operator=}]]]
+..
++add(TextEncoding::Ptr pEncoding) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L64{add}]]]
++add(TextEncoding::Ptr pEncoding, const std::string & name) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L69{add}]]]
++find(const std::string & name) const : TextEncoding::Ptr [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L83{find}]]]
++remove(const std::string & name) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L76{remove}]]]
 __
+-_encodings : EncodingMap [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L105{_encodings}]]]
+-_lock : RWLock [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L106{_lock}]]]
 }
 class "SharedPtr<OtherC,OtherRC,OtherRP>" as C_0009793198755489462333
 class C_0009793198755489462333 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SharedPtr.h#L462{SharedPtr}]] {
@@ -1267,7 +1279,7 @@ __
 -_counter : AtomicCounter [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/RefCountedObject.h#L59{_counter}]]]
 }
 class "AutoPtr<Other>" as C_0010227407547369107199
-class C_0010227407547369107199 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AutoPtr.h#L31{AutoPtr}]] {
+class C_0010227407547369107199 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AutoPtr.h#L89{AutoPtr}]] {
 __
 }
 class "AutoPtr<C>" as C_0012523625749156340919
@@ -1409,7 +1421,7 @@ __
 -_pWriteBuffer : char_type * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/BufferedBidirectionalStreamBuf.h#L176{_pWriteBuffer}]]]
 }
 class "BufferAllocator<char>" as C_0009583388613333096023
-class C_0009583388613333096023 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/BufferedBidirectionalStreamBuf.h#L33{BufferAllocator}]] {
+class C_0009583388613333096023 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/BufferedBidirectionalStreamBuf.h#L188{BufferAllocator}]] {
 __
 }
 class "BasicBufferedBidirectionalStreamBuf<char,std::char_traits<char>,BufferAllocator<char>>" as C_0016716647563417741121
@@ -1745,24 +1757,194 @@ class C_0018188801085570100001 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "Timespan" as C_0012063484857691753039
-class C_0012063484857691753039 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timestamp.h#L28{Timespan}]] {
+class C_0012063484857691753039 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L29{Timespan}]] {
++Timespan() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L35{Timespan}]]]
++Timespan(TimeDiff microseconds) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L38{Timespan}]]]
++Timespan(long seconds, long microseconds) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L41{Timespan}]]]
++Timespan(int days, int hours, int minutes, int seconds, int microSeconds) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L45{Timespan}]]]
++Timespan(const Timespan & timespan) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L48{Timespan}]]]
++Timespan<T,Period>(const std::chrono::duration<T,Period> & dtime) : void
++~Timespan() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L56{~Timespan}]]]
+..
++operator=(const Timespan & timespan) : Timespan & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L59{operator=}]]]
+..
++operator!=(const Timespan & ts) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L84{operator!=}]]]
++operator!=(TimeDiff microSeconds) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L91{operator!=}]]]
++operator+(TimeDiff microSeconds) const : Timespan [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L102{operator+}]]]
++operator+(const Timespan & d) const : Timespan [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L97{operator+}]]]
++operator+=(TimeDiff microSeconds) : Timespan & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L104{operator+=}]]]
++operator+=(const Timespan & d) : Timespan & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L99{operator+=}]]]
++operator-(TimeDiff microSeconds) const : Timespan [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L103{operator-}]]]
++operator-(const Timespan & d) const : Timespan [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L98{operator-}]]]
++operator-=(TimeDiff microSeconds) : Timespan & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L105{operator-=}]]]
++operator-=(const Timespan & d) : Timespan & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L100{operator-=}]]]
++operator<(const Timespan & ts) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L87{operator<}]]]
++operator<(TimeDiff microSeconds) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L94{operator<}]]]
++operator<=(const Timespan & ts) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L88{operator<=}]]]
++operator<=(TimeDiff microSeconds) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L95{operator<=}]]]
++operator=(TimeDiff microseconds) : Timespan & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L62{operator=}]]]
++operator==(const Timespan & ts) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L83{operator==}]]]
++operator==(TimeDiff microSeconds) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L90{operator==}]]]
++operator>(TimeDiff microSeconds) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L92{operator>}]]]
++operator>(const Timespan & ts) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L85{operator>}]]]
++operator>=(TimeDiff microSeconds) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L93{operator>=}]]]
++operator>=(const Timespan & ts) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L86{operator>=}]]]
+..
++assign(int days, int hours, int minutes, int seconds, int microSeconds) : Timespan & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L65{assign}]]]
++assign(long seconds, long microseconds) : Timespan & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L68{assign}]]]
++assign<T,Period>(const std::chrono::duration<T,Period> & dtime) : Timespan &
++days() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L107{days}]]]
++hours() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L110{hours}]]]
++microseconds() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L134{microseconds}]]]
++milliseconds() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L128{milliseconds}]]]
++minutes() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L116{minutes}]]]
++seconds() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L122{seconds}]]]
++swap(Timespan & timespan) noexcept : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L80{swap}]]]
++totalHours() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L113{totalHours}]]]
++totalMicroseconds() const : TimeDiff [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L142{totalMicroseconds}]]]
++totalMilliseconds() const : TimeDiff [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L131{totalMilliseconds}]]]
++totalMinutes() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L119{totalMinutes}]]]
++totalSeconds() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L125{totalSeconds}]]]
++useconds() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L138{useconds}]]]
 __
+{static} +DAYS : const TimeDiff [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L149{DAYS}]]]
+{static} +HOURS : const TimeDiff [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L148{HOURS}]]]
+{static} +MILLISECONDS : const TimeDiff [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L145{MILLISECONDS}]]]
+{static} +MINUTES : const TimeDiff [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L147{MINUTES}]]]
+{static} +SECONDS : const TimeDiff [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L146{SECONDS}]]]
+-_span : TimeDiff [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timespan.h#L152{_span}]]]
 }
 class "BSDDirectoryWatcherStrategy" as C_0014123722514913269088
 class C_0014123722514913269088 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/File_UNIX.h#L78{BSDDirectoryWatcherStrategy}]] {
 __
 }
 class "Path" as C_0015086615117285320795
-class C_0015086615117285320795 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/File.h#L38{Path}]] {
+class C_0015086615117285320795 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L28{Path}]] {
++Path() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L53{Path}]]]
++Path(bool absolute) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L56{Path}]]]
++Path(const char * path) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L59{Path}]]]
++Path(const char * path, Style style) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L62{Path}]]]
++Path(const std::string & path) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L65{Path}]]]
++Path(const std::string & path, Style style) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L68{Path}]]]
++Path(const Path & path) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L71{Path}]]]
++Path(Path && path) noexcept : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L74{Path}]]]
++Path(const Path & parent, const std::string & fileName) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L77{Path}]]]
++Path(const Path & parent, const char * fileName) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L81{Path}]]]
++Path(const Path & parent, const Path & relative) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L85{Path}]]]
++~Path() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L90{~Path}]]]
+..
++operator=(const Path & path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L93{operator=}]]]
++operator=(Path && path) noexcept : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L96{operator=}]]]
+..
++operator=(const std::string & path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L99{operator=}]]]
++operator=(const char * path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L102{operator=}]]]
++operator[](int n) const : const std::string & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L220{operator[]}]]]
+..
++absolute(const Path & base) const : Path [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L267{absolute}]]]
++absolute() const : Path [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L263{absolute}]]]
+{static} +addDirectorySeparator(const std::string & path, Style style) : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L301{addDirectorySeparator}]]]
+{static} +addDirectorySeparator(const std::string & path) : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L293{addDirectorySeparator}]]]
++append(const Path & path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L174{append}]]]
++assign(const std::string & path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L108{assign}]]]
++assign(const std::string & path, Style style) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L111{assign}]]]
++assign(const Path & path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L114{assign}]]]
++assign(const char * path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L117{assign}]]]
+#buildUnix() const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L397{buildUnix}]]]
+#buildVMS() const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L399{buildVMS}]]]
+#buildWindows() const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L398{buildWindows}]]]
+{static} +cacheHome() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L336{cacheHome}]]]
++clear() : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L256{clear}]]]
+{static} +config() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L345{config}]]]
+{static} +configHome() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L319{configHome}]]]
+{static} +current() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L313{current}]]]
+{static} +dataHome() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L325{dataHome}]]]
++depth() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L213{depth}]]]
++directory(int n) const : const std::string & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L216{directory}]]]
+{static} +expand(const std::string & path) : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L353{expand}]]]
+{static} +find(StringVec::const_iterator it, StringVec::const_iterator end, const std::string & name, Path & path) : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L365{find}]]]
+{static} +find(const std::string & pathList, const std::string & name, Path & path) : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L373{find}]]]
+{static} +forDirectory(const std::string & path, Style style) : Path [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L274{forDirectory}]]]
+{static} +forDirectory(const std::string & path) : Path [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L271{forDirectory}]]]
++getBaseName() const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L243{getBaseName}]]]
++getDevice() const : const std::string & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L210{getDevice}]]]
++getExtension() const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L250{getExtension}]]]
++getFileName() const : const std::string & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L236{getFileName}]]]
++getNode() const : const std::string & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L202{getNode}]]]
+{static} +home() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L316{home}]]]
++isAbsolute() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L183{isAbsolute}]]]
++isDirectory() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L189{isDirectory}]]]
++isFile() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L193{isFile}]]]
++isRelative() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L186{isRelative}]]]
+{static} +listRoots(std::vector<std::string> & roots) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L359{listRoots}]]]
++makeAbsolute(const Path & base) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L170{makeAbsolute}]]]
++makeAbsolute() : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L166{makeAbsolute}]]]
++makeDirectory() : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L154{makeDirectory}]]]
++makeFile() : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L159{makeFile}]]]
++makeParent() : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L163{makeParent}]]]
+{static} +null() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L350{null}]]]
++parent() const : Path [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L259{parent}]]]
++parse(const std::string & path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L126{parse}]]]
++parse(const std::string & path, Style style) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L129{parse}]]]
++parseDirectory(const std::string & path, Style style) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L150{parseDirectory}]]]
++parseDirectory(const std::string & path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L146{parseDirectory}]]]
+#parseGuess(const std::string & path) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L396{parseGuess}]]]
+#parseUnix(const std::string & path) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L393{parseUnix}]]]
+#parseVMS(const std::string & path) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L395{parseVMS}]]]
+#parseWindows(const std::string & path) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L394{parseWindows}]]]
+{static} +pathSeparator() : char [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L285{pathSeparator}]]]
++popDirectory() : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L227{popDirectory}]]]
++popFrontDirectory() : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L230{popFrontDirectory}]]]
++pushDirectory(const std::string & dir) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L224{pushDirectory}]]]
++resolve(const Path & path) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L177{resolve}]]]
+{static} +self() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L309{self}]]]
+{static} +separator() : char [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L277{separator}]]]
++setBaseName(const std::string & name) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L239{setBaseName}]]]
++setDevice(const std::string & device) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L205{setDevice}]]]
++setExtension(const std::string & extension) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L247{setExtension}]]]
++setFileName(const std::string & name) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L233{setFileName}]]]
++setNode(const std::string & node) : Path & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L197{setNode}]]]
++swap(Path & path) noexcept : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L105{swap}]]]
+{static} +temp() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L342{temp}]]]
+{static} +tempHome() : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L331{tempHome}]]]
++toString(Style style) const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L123{toString}]]]
++toString() const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L120{toString}]]]
+{static} +transcode(const std::string & path) : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L382{transcode}]]]
++tryParse(const std::string & path, Style style) : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L139{tryParse}]]]
++tryParse(const std::string & path) : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L132{tryParse}]]]
++version() const : const std::string & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L253{version}]]]
 __
+-_absolute : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L407{_absolute}]]]
+-_device : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L403{_device}]]]
+-_dirs : StringVec [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L406{_dirs}]]]
+-_name : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L404{_name}]]]
+-_node : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L402{_node}]]]
+-_version : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L405{_version}]]]
 }
 class "DirectoryIteratorImpl" as C_0015275811409958199737
-class C_0015275811409958199737 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/File_UNIX.h#L76{DirectoryIteratorImpl}]] {
+class C_0015275811409958199737 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L28{DirectoryIteratorImpl}]] {
++DirectoryIteratorImpl(const std::string & path) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L31{DirectoryIteratorImpl}]]]
++~DirectoryIteratorImpl() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L32{~DirectoryIteratorImpl}]]]
+..
++duplicate() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L34{duplicate}]]]
++get() const : const std::string & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L37{get}]]]
++next() : const std::string & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L38{next}]]]
++release() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L35{release}]]]
 __
+-_current : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L42{_current}]]]
+-_pDir : DIR * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L41{_pDir}]]]
+-_rc : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryIterator_UNIX.h#L43{_rc}]]]
 }
 class "LinuxDirectoryWatcherStrategy" as C_0015328925881649552410
-class C_0015328925881649552410 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/File_UNIX.h#L77{LinuxDirectoryWatcherStrategy}]] {
+class C_0015328925881649552410 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L252{LinuxDirectoryWatcherStrategy}]] {
++LinuxDirectoryWatcherStrategy(DirectoryWatcher & owner) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L255{LinuxDirectoryWatcherStrategy}]]]
++~LinuxDirectoryWatcherStrategy() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L264{~LinuxDirectoryWatcherStrategy}]]]
+..
++run() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L269{run}]]]
++stop() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L361{stop}]]]
++supportsMoveEvents() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L366{supportsMoveEvents}]]]
 __
+-_fd : std::atomic<int> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L372{_fd}]]]
+-_stopped : std::atomic<bool> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L373{_stopped}]]]
 }
 class "TemporaryFile" as C_0010288169691537111908
 class C_0010288169691537111908 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TemporaryFile.h#L28{TemporaryFile}]] {
@@ -1892,8 +2074,20 @@ __
 -_mutex : FastMutex [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TemporaryFile.cpp#L72{_mutex}]]]
 }
 class "Pipe" as C_0008900543697223691708
-class C_0008900543697223691708 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Process_UNIX.h#L32{Pipe}]] {
+class C_0008900543697223691708 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L28{Pipe}]] {
++Pipe() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L60{Pipe}]]]
++Pipe(const Pipe & pipe) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L66{Pipe}]]]
++~Pipe() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L69{~Pipe}]]]
+..
++operator=(const Pipe & pipe) : Pipe & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L72{operator=}]]]
+..
++close(CloseMode mode = CLOSE_BOTH) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L102{close}]]]
++readBytes(void * buffer, int length) : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L84{readBytes}]]]
++readHandle() const : Handle [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L94{readHandle}]]]
++writeBytes(const void * buffer, int length) : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L75{writeBytes}]]]
++writeHandle() const : Handle [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L98{writeHandle}]]]
 __
+-_pImpl : PipeImpl * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L108{_pImpl}]]]
 }
 class "RegularExpression" as C_0004449858085413894935
 class C_0004449858085413894935 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/RegularExpression.h#L32{RegularExpression}]] {
@@ -1960,7 +2154,7 @@ __
 +offset : std::string::size_type [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/RegularExpression.h#L79{offset}]]]
 }
 class "AutoPtr<Channel>" as C_0013370612837083999548
-class C_0013370612837083999548 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AutoPtr.h#L31{AutoPtr}]] {
+class C_0013370612837083999548 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SplitterChannel.h#L41{AutoPtr}]] {
 __
 }
 class "SplitterChannel" as C_0007447214940294801670
@@ -1989,7 +2183,7 @@ abstract C_0008126990619712609743 [[https://github.com/pocoproject/poco/blob/8d1
 __
 }
 class "AutoPtr<Formatter>" as C_0016414996661974890250
-class C_0016414996661974890250 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AutoPtr.h#L31{AutoPtr}]] {
+class C_0016414996661974890250 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/LoggingRegistry.h#L51{AutoPtr}]] {
 __
 }
 class "LoggingRegistry" as C_0001517847005983218626
@@ -2609,7 +2803,17 @@ class C_0005104605891311472709 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "DateTimeParser" as C_0017768987477229740842
-class C_0017768987477229740842 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/LocalDateTime.h#L252{DateTimeParser}]] {
+class C_0017768987477229740842 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L28{DateTimeParser}]] {
+{static} +parse(const std::string & fmt, const std::string & str, DateTime & dateTime, int & timeZoneDifferential) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L60{parse}]]]
+{static} +parse(const std::string & fmt, const std::string & str, int & timeZoneDifferential) : DateTime [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L67{parse}]]]
+{static} +parse(const std::string & str, DateTime & dateTime, int & timeZoneDifferential) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L81{parse}]]]
+{static} +parse(const std::string & str, int & timeZoneDifferential) : DateTime [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L89{parse}]]]
+{static} #parseAMPM(std::string::const_iterator & it, const std::string::const_iterator & end, int hour) : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L117{parseAMPM}]]]
+{static} +parseDayOfWeek(std::string::const_iterator & it, const std::string::const_iterator & end) : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L109{parseDayOfWeek}]]]
+{static} +parseMonth(std::string::const_iterator & it, const std::string::const_iterator & end) : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L103{parseMonth}]]]
+{static} #parseTZD(std::string::const_iterator & it, const std::string::const_iterator & end) : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L116{parseTZD}]]]
+{static} +tryParse(const std::string & fmt, const std::string & str, DateTime & dateTime, int & timeZoneDifferential) : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L74{tryParse}]]]
+{static} +tryParse(const std::string & str, DateTime & dateTime, int & timeZoneDifferential) : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L96{tryParse}]]]
 __
 }
 class "Unicode" as C_0000826079553405328363
@@ -2902,7 +3106,7 @@ __
 -_clock : ClockVal [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Clock.h#L121{_clock}]]]
 }
 class "AutoPtr<Notification>" as C_0014834926082183846381
-class C_0014834926082183846381 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AutoPtr.h#L31{AutoPtr}]] {
+class C_0014834926082183846381 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TimedNotificationQueue.h#L61{AutoPtr}]] {
 __
 }
 class "TimedNotificationQueue" as C_0006129867772378672531
@@ -2957,7 +3161,7 @@ __
 +pNf : Notification::Ptr [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NotificationQueue.h#L145{pNf}]]]
 }
 class "SharedPtr<AbstractObserver>" as C_0006288170728233455697
-class C_0006288170728233455697 {
+class C_0006288170728233455697 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NotificationCenter.h#L143{SharedPtr}]] {
 __
 }
 class "NotificationCenter" as C_0015873951955174032075
@@ -2980,8 +3184,22 @@ __
 -_mutex : Mutex [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NotificationCenter.h#L149{_mutex}]]]
 -_observers : ObserverList [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NotificationCenter.h#L148{_observers}]]]
 }
-class "AbstractObserver" as C_0001524878547874030626
-class C_0001524878547874030626 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NotificationCenter.h#L32{AbstractObserver}]] {
+abstract "AbstractObserver" as C_0001524878547874030626
+abstract C_0001524878547874030626 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L28{AbstractObserver}]] {
++AbstractObserver() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L33{AbstractObserver}]]]
++AbstractObserver(const AbstractObserver & observer) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L34{AbstractObserver}]]]
++~AbstractObserver() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L35{~AbstractObserver}]]]
+..
++operator=(const AbstractObserver & observer) : AbstractObserver & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L37{operator=}]]]
+..
+{abstract} +accepts(Notification * pNf, const char * pName) const = 0 : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L44{accepts}]]]
+{abstract} +accepts(const Notification::Ptr & pNf) const = 0 : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L46{accepts}]]]
++backlog() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L57{backlog}]]]
+{abstract} +clone() const = 0 : AbstractObserver * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L48{clone}]]]
+{abstract} +disable() = 0 : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L55{disable}]]]
+{abstract} +equals(const AbstractObserver & observer) const = 0 : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L41{equals}]]]
+{abstract} +notify(Notification * pNf) const = 0 : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L39{notify}]]]
++start() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L50{start}]]]
 __
 }
 class "Latin1Encoding" as C_0006498252026322225710
@@ -3143,7 +3361,7 @@ __
 -_pBuffer : char_type * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/MemoryStream.h#L169{_pBuffer}]]]
 }
 class "BasicMemoryStreamBuf<char,std::char_traits<char>>" as C_0014851966735393999279
-class C_0014851966735393999279 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/MemoryStream.h#L35{BasicMemoryStreamBuf}]] {
+class C_0014851966735393999279 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/MemoryStream.h#L201{BasicMemoryStreamBuf}]] {
 __
 }
 class "MemoryIOS" as C_0003834755918967195825
@@ -3461,11 +3679,11 @@ __
 +buf : struct __jmp_buf_tag[1] [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SignalHandler.h#L99{buf}]]]
 }
 class "SharedPtr<Runnable>" as C_0004304057024766395278
-class C_0004304057024766395278 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SharedPtr.h#L89{SharedPtr}]] {
+class C_0004304057024766395278 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Thread_POSIX.h#L82{SharedPtr}]] {
 __
 }
 class "AutoPtr<ThreadImpl::ThreadData>" as C_0001026947609355725203
-class C_0001026947609355725203 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AutoPtr.h#L31{AutoPtr}]] {
+class C_0001026947609355725203 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Thread_POSIX.h#L157{AutoPtr}]] {
 __
 }
 class "ThreadImpl" as C_0009022216788264952726
@@ -3613,12 +3831,40 @@ __
 -_functor : Functor [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Thread.h#L296{_functor}]]]
 }
 class "PooledThread" as C_0009167390822495017537
-class C_0009167390822495017537 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Thread.h#L308{PooledThread}]] {
+class C_0009167390822495017537 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L28{PooledThread}]] {
++PooledThread(const std::string & name, int stackSize = 0) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L31{PooledThread}]]]
++~PooledThread() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L32{~PooledThread}]]]
+..
++activate() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L40{activate}]]]
++idle() : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L37{idle}]]]
++idleTime() : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L38{idleTime}]]]
++join() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L39{join}]]]
++release() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L41{release}]]]
++run() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L42{run}]]]
++start() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L34{start}]]]
++start(Thread::Priority priority, Runnable & target) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L35{start}]]]
++start(Thread::Priority priority, Runnable & target, const std::string & name) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L36{start}]]]
 __
+-_idle : volatile bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L45{_idle}]]]
+-_idleTime : volatile std::time_t [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L46{_idleTime}]]]
+-_mutex : FastMutex [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L53{_mutex}]]]
+-_name : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L48{_name}]]]
+-_pTarget : Runnable * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L47{_pTarget}]]]
+-_started : Event [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L52{_started}]]]
+-_targetCompleted : Event [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L51{_targetCompleted}]]]
+-_targetReady : Event [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L50{_targetReady}]]]
+-_thread : Thread [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L49{_thread}]]]
 }
 class "ThreadLocalStorage" as C_0017199255419134485158
-class C_0017199255419134485158 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Thread.h#L41{ThreadLocalStorage}]] {
+class C_0017199255419134485158 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadLocal.h#L68{ThreadLocalStorage}]] {
++ThreadLocalStorage() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadLocal.h#L74{ThreadLocalStorage}]]]
++~ThreadLocalStorage() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadLocal.h#L77{~ThreadLocalStorage}]]]
+..
+{static} +clear() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadLocal.h#L87{clear}]]]
+{static} +current() : ThreadLocalStorage & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadLocal.h#L83{current}]]]
++get(const void * key) : TLSAbstractSlot *& [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadLocal.h#L80{get}]]]
 __
+-_map : TLSMap [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadLocal.h#L94{_map}]]]
 }
 abstract "DigestEngine" as C_0006218057946562235761
 abstract C_0006218057946562235761 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DigestEngine.h#L28{DigestEngine}]] {
@@ -3817,8 +4063,32 @@ __
 -_custom : C [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskNotification.h#L142{_custom}]]]
 }
 class "TaskManager" as C_0005957272326729134224
-class C_0005957272326729134224 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Task.h#L31{TaskManager}]] {
+class C_0005957272326729134224 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L38{TaskManager}]] {
++TaskManager(const std::string & name = "", int minCapacity = 2, int maxCapacity = 16, int idleTime = 60, int stackSize = 0) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L53{TaskManager}]]]
++TaskManager(ThreadPool & pool) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L60{TaskManager}]]]
++~TaskManager() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L65{~TaskManager}]]]
+..
++addObserver(const AbstractObserver & observer) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L101{addObserver}]]]
++cancelAll() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L82{cancelAll}]]]
++count() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L98{count}]]]
++joinAll() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L85{joinAll}]]]
+#postNotification(const Notification::Ptr & pNf) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L113{postNotification}]]]
++removeObserver(const AbstractObserver & observer) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L107{removeObserver}]]]
++start(Task * pTask) : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L68{start}]]]
+#taskCancelled(Task * pTask) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L119{taskCancelled}]]]
+#taskFailed(Task * pTask, const Exception & exc) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L121{taskFailed}]]]
+#taskFinished(Task * pTask) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L120{taskFinished}]]]
++taskList() const : TaskList [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L95{taskList}]]]
+#taskProgress(Task * pTask, float progress) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L118{taskProgress}]]]
+#taskStarted(Task * pTask) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L117{taskStarted}]]]
 __
+{static} +MIN_PROGRESS_NOTIFICATION_INTERVAL : const int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L110{MIN_PROGRESS_NOTIFICATION_INTERVAL}]]]
+-_lastProgressNotification : Timestamp [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L130{_lastProgressNotification}]]]
+-_mutex : MutexT [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L132{_mutex}]]]
+-_nc : NotificationCenter [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L131{_nc}]]]
+-_ownPool : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L128{_ownPool}]]]
+-_taskList : TaskList [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L129{_taskList}]]]
+-_threadPool : ThreadPool & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L127{_threadPool}]]]
 }
 class "ErrorHandler" as C_0012354916859093281904
 class C_0012354916859093281904 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ErrorHandler.h#L29{ErrorHandler}]] {
@@ -3905,17 +4175,225 @@ class "TypeWrapper<T &>" as C_0000747124538769379123
 class C_0000747124538769379123 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/MetaProgramming.h#L132{TypeWrapper}]] {
 __
 }
-class "Dynamic::VarHolder" as C_0006560733041784049907
-class C_0006560733041784049907 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Any.h#L36{VarHolder}]] {
+abstract "Dynamic::VarHolder" as C_0006560733041784049907
+abstract C_0006560733041784049907 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L117{VarHolder}]] {
+#VarHolder() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L306{VarHolder}]]]
++~VarHolder() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L136{~VarHolder}]]]
+..
+{static} -checkLowerLimit<F,T,std::enable_if_t<std::is_floating_point_v<F>, _Bool>=true>(const F & from) : void
+{static} -checkLowerLimit<F,T,std::enable_if_t<std::is_integral_v<F>, _Bool>=true>(const F & from) : void
+{static} -checkUpperLimit<F,T,std::enable_if_t<std::is_integral_v<F>, _Bool>=true>(const F & from) : void
+{static} -checkUpperLimit<F,T,std::enable_if_t<std::is_floating_point_v<F>, _Bool>=true>(const F & from) : void
+{abstract} +clone(Placeholder<VarHolder> * pHolder = nullptr) const = 0 : VarHolder * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L139{clone}]]]
+#cloneHolder<T>(Placeholder<VarHolder> * pVarHolder, const T & val) const : VarHolder *
++convert(UTF16String & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L239{convert}]]]
++convert(std::string & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L235{convert}]]]
++convert(char & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L231{convert}]]]
++convert(double & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L227{convert}]]]
++convert(float & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L223{convert}]]]
++convert(bool & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L219{convert}]]]
++convert(unsigned long long & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L213{convert}]]]
++convert(long long & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L209{convert}]]]
++convert(Timestamp & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L191{convert}]]]
++convert(Int16 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L155{convert}]]]
++convert(Int8 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L151{convert}]]]
++convert(Int32 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L159{convert}]]]
++convert(Int64 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L163{convert}]]]
++convert(UInt8 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L167{convert}]]]
++convert(UUID & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L195{convert}]]]
++convert(UInt16 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L171{convert}]]]
++convert(UInt32 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L175{convert}]]]
++convert(UInt64 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L179{convert}]]]
++convert(DateTime & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L183{convert}]]]
++convert(LocalDateTime & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L187{convert}]]]
+{static} #convertSignedFloatToUnsigned<F,T,std::enable_if_t<std::is_floating_point_v<F>, _Bool>=true,std::enable_if_t<std::is_integral_v<T> && !std::is_signed_v<T>, T> *=nullptr>(const F & from, T & to) : void
+{static} #convertSignedToUnsigned<F,T,std::enable_if_t<std::is_integral_v<F> && std::is_signed_v<F>, F> *=nullptr,std::enable_if_t<std::is_integral_v<T> && !std::is_signed_v<T>, T> *=nullptr>(const F & from, T & to) : void
+{static} #convertToFP<F,T,std::enable_if_t<std::is_integral_v<F>, _Bool>=true,std::enable_if_t<std::is_floating_point_v<T>, _Bool>=true>(F & from, T & to) : void
+#convertToSigned<F,T,std::enable_if_t<!std::is_signed_v<F> && std::is_signed_v<T> > *=nullptr>(const F & from, T & to) const : void
+#convertToSigned<F,T,std::enable_if_t<std::is_signed_v<F> && std::is_signed_v<T> && (sizeof(F) > sizeof(T))> *=nullptr>(const F & from, T & to) const : void
+#convertToSigned<F,T,std::enable_if_t<std::is_signed_v<F> && std::is_signed_v<T> && (sizeof(F) <= sizeof(T))> *=nullptr>(const F & from, T & to) const : void
+{static} #convertToSmaller<F,T,std::enable_if_t<std::is_integral_v<F> && std::is_signed_v<T>, F> *=nullptr,std::enable_if_t<std::is_floating_point_v<T>, T> *=nullptr>(const F & from, T & to) : void
+{static} #convertToSmaller<F,T,std::enable_if_t<(std::is_integral_v<F> && std::is_signed_v<F>) || std::is_floating_point_v<F>, F> *=nullptr,std::enable_if_t<(std::is_integral_v<T> && std::is_signed_v<T>) || std::is_floating_point_v<F>, T> *=nullptr>(const F & from, T & to) : void
+{static} #convertToSmaller<F,T,std::enable_if_t<std::is_same_v<F, _Bool> > *=nullptr,std::enable_if_t<std::is_floating_point_v<T>, T> *=nullptr>(const F & from, T & to) : void
+{static} #convertToSmallerUnsigned<F,T,std::enable_if_t<std::is_integral_v<F> && !std::is_signed_v<F>, F> *=nullptr,std::enable_if_t<(std::is_integral_v<T> && !std::is_signed_v<T>) || std::is_floating_point_v<T>, T> *=nullptr>(const F & from, T & to) : void
+#convertToUnsigned<F,T,std::enable_if_t<!std::is_signed_v<F> && !std::is_signed_v<T> && (sizeof(F) <= sizeof(T))> *=nullptr>(const F & from, T & to) const : void
+#convertToUnsigned<F,T,std::enable_if_t<!std::is_signed_v<F> && !std::is_signed_v<T> && (sizeof(F) > sizeof(T))> *=nullptr>(const F & from, T & to) const : void
+#convertToUnsigned<F,T,std::enable_if_t<std::is_signed_v<F> && !std::is_signed_v<T> > *=nullptr>(const F & from, T & to) const : void
+{static} #convertUnsignedToSigned<F,T,std::enable_if_t<std::is_integral_v<F> && !std::is_signed_v<F>, F> *=nullptr,std::enable_if_t<std::is_integral_v<T> && std::is_signed_v<T>, T> *=nullptr>(const F & from, T & to) : void
++isArray() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L243{isArray}]]]
++isBoolean() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L278{isBoolean}]]]
++isDate() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L286{isDate}]]]
++isDateTime() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L294{isDateTime}]]]
++isDeque() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L254{isDeque}]]]
++isInteger() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L266{isInteger}]]]
++isList() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L250{isList}]]]
++isNumeric() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L274{isNumeric}]]]
++isOrdered() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L262{isOrdered}]]]
+{static} -isPrecisionLost<F,T,std::enable_if_t<std::is_integral_v<F>, _Bool>=true,std::enable_if_t<std::is_floating_point_v<T>, _Bool>=true>(const F & from) : _Bool
++isSigned() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L270{isSigned}]]]
++isString() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L282{isString}]]]
++isStruct() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L258{isStruct}]]]
++isTime() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L290{isTime}]]]
++isUUID() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L298{isUUID}]]]
++isVector() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L246{isVector}]]]
+{static} -numTypeDigits<T,std::enable_if_t<std::is_floating_point_v<T>, _Bool>=true>() constexpr : int
+{static} -numTypeDigits<T,std::enable_if_t<std::is_integral_v<T>, _Bool>=true>() constexpr : int
+{static} -numValDigits<T,std::enable_if_t<std::is_floating_point_v<T>, _Bool>=true>(T value) constexpr : int
+{static} -numValDigits<T,std::enable_if_t<std::is_integral_v<T>, _Bool>=true>(const T & value) constexpr : int
++size() const : std::size_t [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L302{size}]]]
+{abstract} +type() const = 0 : const std::type_info & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L147{type}]]]
 __
 }
 class "Dynamic::VarHolderImpl<T>" as C_0008902936726276553299
-class C_0008902936726276553299 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Any.h#L37{VarHolderImpl}]] {
+class C_0008902936726276553299 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L792{VarHolderImpl}]] {
++VarHolderImpl(const T & val) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L813{VarHolderImpl}]]]
++VarHolderImpl() = deleted : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L819{VarHolderImpl}]]]
++VarHolderImpl(const VarHolderImpl<T> &) = deleted : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L820{VarHolderImpl}]]]
++~VarHolderImpl() = default : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L817{~VarHolderImpl}]]]
+..
++operator=(const VarHolderImpl<T> &) = deleted : VarHolderImpl<T> & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L821{operator=}]]]
+..
++clone(Placeholder<VarHolder> * pVarHolder = nullptr) const : VarHolder * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1109{clone}]]]
++convert(Int8 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L828{convert}]]]
++convert(UTF16String & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1012{convert}]]]
++convert(std::string & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1000{convert}]]]
++convert(char & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L988{convert}]]]
++convert(double & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L976{convert}]]]
++convert(float & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L964{convert}]]]
++convert(bool & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L952{convert}]]]
++convert(unsigned long long & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L938{convert}]]]
++convert(UInt64 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L912{convert}]]]
++convert(UInt32 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L900{convert}]]]
++convert(UInt16 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L888{convert}]]]
++convert(UInt8 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L876{convert}]]]
++convert(Int64 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L864{convert}]]]
++convert(Int32 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L852{convert}]]]
++convert(Int16 & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L840{convert}]]]
++convert(long long & val) const : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L926{convert}]]]
++isArray() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1025{isArray}]]]
++isBoolean() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1085{isBoolean}]]]
++isInteger() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1049{isInteger}]]]
++isNumeric() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1073{isNumeric}]]]
++isSigned() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1061{isSigned}]]]
++isString() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1097{isString}]]]
++isStruct() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1037{isStruct}]]]
++type() const : const std::type_info & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L823{type}]]]
++value() const : const T & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1114{value}]]]
 __
+-_val : T [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1120{_val}]]]
 }
 class "Dynamic::Var" as C_0014620750009015572001
-class C_0014620750009015572001 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Any.h#L35{Var}]] {
+class C_0014620750009015572001 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L41{Var}]] {
++Var() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L88{Var}]]]
++Var(const char * pVal) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L98{Var}]]]
++Var(const Var & other) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L101{Var}]]]
++Var<T>(const T & val) : void
++~Var() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L104{~Var}]]]
+..
++operator=(const Var & other) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L235{operator=}]]]
+..
++operator<T>(const T & other) const : _Bool
++operator<T>(const T & other) const : _Bool
++operator!() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L232{operator!}]]]
++operator!=<T>(const T & other) const : _Bool
++operator!=(const char * other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L361{operator!=}]]]
++operator!=(const Var & other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L358{operator!=}]]]
++operator&&<T>(const T & other) const : _Bool
++operator&&(const Var & other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L427{operator&&}]]]
++operator*<T>(const T & other) const : const Var
++operator*(const Var & other) const : const Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L303{operator*}]]]
++operator*=<T>(const T & other) : Var &
++operator*=(const Var & other) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L313{operator*=}]]]
++operator+(const Var & other) const : const Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L245{operator+}]]]
++operator+<T>(const T & other) const : const Var
++operator+(const char * other) const : const Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L248{operator+}]]]
++operator++() : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L251{operator++}]]]
++operator++(int) : const Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L254{operator++}]]]
++operator+=<T>(const T & other) : Var &
++operator+=(const char * other) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L273{operator+=}]]]
++operator+=(const Var & other) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L270{operator+=}]]]
++operator-<T>(const T & other) const : const Var
++operator-(const Var & other) const : const Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L283{operator-}]]]
++operator--(int) : const Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L260{operator--}]]]
++operator--() : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L257{operator--}]]]
++operator-=<T>(const T & other) : Var &
++operator-=(const Var & other) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L293{operator-=}]]]
++operator/<T>(const T & other) const : const Var
++operator/(const Var & other) const : const Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L323{operator/}]]]
++operator/=<T>(const T & other) : Var &
++operator/=(const Var & other) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L333{operator/=}]]]
++operator<(const Var & other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L372{operator<}]]]
++operator<=(const Var & other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L383{operator<=}]]]
++operator=<T>(const T & other) : Var &
++operator==<T>(const T & other) const : _Bool
++operator==(const char * other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L344{operator==}]]]
++operator==(const Var & other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L347{operator==}]]]
++operator><T>(const T & other) const : _Bool
++operator>(const Var & other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L394{operator>}]]]
++operator>=(const Var & other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L405{operator>=}]]]
++operator>=<T>(const T & other) const : _Bool
++operator[]<T>(const T & n) : Var &
++operator[]<T>(const T & n) const : const Var &
++operator[](const std::string & name) const : const Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L470{operator[]}]]]
++operator[](const std::string & name) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L466{operator[]}]]]
++operator||<T>(const T & other) const : _Bool
++operator||(const Var & other) const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L416{operator||}]]]
+..
+-add<T>(const Var & other) const : T
++at(std::size_t n) : char & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L449{at}]]]
++begin() const : ConstIterator [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L110{begin}]]]
++begin() : Iterator [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L116{begin}]]]
++clear() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L488{clear}]]]
+-construct<ValueType>(const ValueType & value) : void
+-construct(const Var & other) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L611{construct}]]]
+-construct(const char * value) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L610{construct}]]]
+-content() const : VarHolder * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L595{content}]]]
++convert<T>(T & val) const : void
++convert<T>() const : T
+-destruct() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L600{destruct}]]]
+-divide<T>(const Var & other) const : T
++empty() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L483{empty}]]]
++end() const : ConstIterator [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L113{end}]]]
++end() : Iterator [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L119{end}]]]
++extract<T>() const : const T &
+-getAt(const std::string & n) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L540{getAt}]]]
+-getAt(std::size_t n) : Var & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L539{getAt}]]]
+-holderImpl<T,E>(const std::string errorMessage = "") const : VarHolderImpl<T> *
++isArray() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L430{isArray}]]]
++isBoolean() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L504{isBoolean}]]]
++isDate() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L511{isDate}]]]
++isDateTime() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L517{isDateTime}]]]
++isDeque() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L439{isDeque}]]]
++isEmpty() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L491{isEmpty}]]]
++isInteger() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L494{isInteger}]]]
++isList() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L436{isList}]]]
++isNumeric() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L500{isNumeric}]]]
++isOrdered() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L445{isOrdered}]]]
++isSigned() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L497{isSigned}]]]
++isString() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L508{isString}]]]
++isStruct() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L442{isStruct}]]]
++isTime() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L514{isTime}]]]
++isUUID() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L520{isUUID}]]]
++isVector() const : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L433{isVector}]]]
+-multiply<T>(const Var & other) const : T
++operator type-parameter-0-0<T>() const : T
+{static} -parse(const std::string & val, std::string::size_type & offset) : Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L542{parse}]]]
+{static} +parse(const std::string & val) : Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L531{parse}]]]
+{static} -parseArray(const std::string & val, std::string::size_type & pos) : Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L546{parseArray}]]]
+{static} -parseJSONString(const std::string & val, std::string::size_type & pos) : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L548{parseJSONString}]]]
+{static} -parseObject(const std::string & val, std::string::size_type & pos) : Var [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L545{parseObject}]]]
+{static} -parseString(const std::string & val, std::string::size_type & pos) : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L547{parseString}]]]
++size() const : std::size_t [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L523{size}]]]
+{static} -skipWhiteSpace(const std::string & val, std::string::size_type & pos) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L549{skipWhiteSpace}]]]
+-structIndexOperator<T,N>(T * pStr, N n) const : Var &
+-subtract<T>(const Var & other) const : T
++swap(Var & other) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L107{swap}]]]
++toString() const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L528{toString}]]]
+{static} +toString(const Var & var) : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L534{toString}]]]
++type() const : const std::type_info & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L474{type}]]]
++typeName(bool demangle = true) const : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L477{typeName}]]]
 __
+-_placeholder : Placeholder<VarHolder> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L613{_placeholder}]]]
 }
 class "Dynamic::VarIterator" as C_0017897477804007188430
 class C_0017897477804007188430 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarIterator.h#L33{VarIterator}]] {
@@ -4967,7 +5445,7 @@ __
 -_val : ValueType [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L469{_val}]]]
 }
 class "Dynamic::Struct<Dynamic::VarHolderImpl<Dynamic::Struct<int>>::KeyType,std::map<Dynamic::VarHolderImpl<Dynamic::Struct<int>>::KeyType,Dynamic::Var>,std::set<Dynamic::VarHolderImpl<Dynamic::Struct<int>>::KeyType>>" as C_0009696703665851560414
-class C_0009696703665851560414 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L67{Struct}]] {
+class C_0009696703665851560414 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L482{Struct}]] {
 __
 }
 class "Dynamic::VarHolderImpl<Dynamic::Struct<int,std::map<int,Dynamic::Var>,std::set<int>>>" as C_0002701793325544761132
@@ -5009,7 +5487,7 @@ __
 -_val : ValueType [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L634{_val}]]]
 }
 class "Dynamic::Struct<std::string,OrderedMap<std::string,Dynamic::Var>,OrderedSet<std::string>>" as C_0002280605106312968087
-class C_0002280605106312968087 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L67{Struct}]] {
+class C_0002280605106312968087 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L647{Struct}]] {
 __
 }
 class "Dynamic::VarHolderImpl<Dynamic::Struct<std::string,tsl::ordered_map<std::string,Dynamic::Var>,tsl::ordered_set<std::string>>>" as C_0007358024489650744335
@@ -5051,7 +5529,7 @@ __
 -_val : ValueType [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L799{_val}]]]
 }
 class "Dynamic::Struct<Dynamic::VarHolderImpl<Dynamic::Struct<int,OrderedMap<int,Var>,OrderedSet<int>>>::KeyType,OrderedMap<int,Dynamic::Var>,OrderedSet<int>>" as C_0011154956825926247026
-class C_0011154956825926247026 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L67{Struct}]] {
+class C_0011154956825926247026 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L812{Struct}]] {
 __
 }
 class "Dynamic::VarHolderImpl<Dynamic::Struct<int,tsl::ordered_map<int,Dynamic::Var>,tsl::ordered_set<int>>>" as C_0007909624509698723516
@@ -5144,7 +5622,7 @@ POCO_ANY_LOCAL
 POCO_ANY_EXTERNAL
 }
 class "Placeholder<Any::ValueHolder>" as C_0011578050296925467233
-class C_0011578050296925467233 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Any.h#L55{Placeholder}]] {
+class C_0011578050296925467233 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Any.h#L433{Placeholder}]] {
 __
 }
 class "Any" as C_0011233568559677885969
@@ -5451,7 +5929,7 @@ __
 -_pExc : Exception * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L229{_pExc}]]]
 }
 class "ActiveResultHolder<ActiveResult::ResultType>" as C_0000352049406203629738
-class C_0000352049406203629738 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L33{ActiveResultHolder}]] {
+class C_0000352049406203629738 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L368{ActiveResultHolder}]] {
 __
 }
 class "ActiveResult<RT>" as C_0012057131228769334590
@@ -5508,7 +5986,7 @@ class C_0017453751090655989375 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "ActiveResult<ResultType>" as C_0005697099712403171417
-class C_0005697099712403171417 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L235{ActiveResult}]] {
+class C_0005697099712403171417 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L49{ActiveResult}]] {
 __
 }
 class "ActiveRunnable<ResultType,ArgType,OwnerType>" as C_0006813525152135118869
@@ -5554,7 +6032,7 @@ __
 -_result : ActiveResultType [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L224{_result}]]]
 }
 class "AutoPtr<ActiveRunnableBase>" as C_0007789799845459614177
-class C_0007789799845459614177 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AutoPtr.h#L31{AutoPtr}]] {
+class C_0007789799845459614177 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveStarter.h#L37{AutoPtr}]] {
 __
 }
 class "ActiveStarter<OwnerType>" as C_0003773557735839560991
@@ -5624,7 +6102,7 @@ class C_0003987432967783090663 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "ActiveMethod<void,ArchiveCompressor::ArchiveToCompress,ArchiveCompressor,ActiveStarter<ActiveDispatcher>>" as C_0009735221466405386489
-class C_0009735221466405386489 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveMethod.h#L32{ActiveMethod}]] {
+class C_0009735221466405386489 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ArchiveStrategy.cpp#L55{ActiveMethod}]] {
 __
 }
 class "ArchiveCompressor" as C_0011824144929393692350
@@ -5643,8 +6121,29 @@ __
 +path : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ArchiveStrategy.cpp#L52{path}]]]
 }
 class "ActiveThreadPoolPrivate" as C_0008415223380321398438
-class C_0008415223380321398438 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveThreadPool.h#L31{ActiveThreadPoolPrivate}]] {
+class C_0008415223380321398438 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L147{ActiveThreadPoolPrivate}]] {
++ActiveThreadPoolPrivate(int capacity, int stackSize) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L150{ActiveThreadPoolPrivate}]]]
++ActiveThreadPoolPrivate(int capacity, int stackSize, const std::string & name) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L151{ActiveThreadPoolPrivate}]]]
++~ActiveThreadPoolPrivate() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L152{~ActiveThreadPoolPrivate}]]]
+..
++activeThreadCount() const : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L159{activeThreadCount}]]]
++enqueueTask(Runnable & target, int priority = 0) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L155{enqueueTask}]]]
++joinAll() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L157{joinAll}]]]
++startThread(Runnable & target) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L156{startThread}]]]
++tryStart(Runnable & target) : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L154{tryStart}]]]
 __
++activeThreads : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L173{activeThreads}]]]
++allThreads : std::set<ActivePooledThread::Ptr> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L164{allThreads}]]]
++expiredThreads : std::list<ActivePooledThread::Ptr> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L166{expiredThreads}]]]
++expiryTimeout : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L170{expiryTimeout}]]]
++maxThreadCount : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L171{maxThreadCount}]]]
++mutex : FastMutex [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L162{mutex}]]]
++name : std::string [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L163{name}]]]
++noActiveThreads : Condition [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L168{noActiveThreads}]]]
++runnables : RunnablePriorityQueue [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L167{runnables}]]]
++serial : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L174{serial}]]]
++stackSize : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L172{stackSize}]]]
++waitingThreads : std::list<ActivePooledThread::Ptr> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L165{waitingThreads}]]]
 }
 class "NumberParser" as C_0018391835615691987749
 class C_0018391835615691987749 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NumberParser.h#L31{NumberParser}]] {
@@ -5774,9 +6273,38 @@ class C_0006286747828288677386 [[https://github.com/pocoproject/poco/blob/8d1aab
 {static} +sourceFile(const std::string_view & fileName) constexpr : std::string_view [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Debugger.h#L66{sourceFile}]]]
 __
 }
-class "UUIDGenerator" as C_0014501160332643838895
-class C_0014501160332643838895 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUID.h#L158{UUIDGenerator}]] {
+class "Placeholder<Dynamic::VarHolder>" as C_0004000101564055926705
+class C_0004000101564055926705 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L613{Placeholder}]] {
 __
+}
+class "UUIDGenerator" as C_0014501160332643838895
+class C_0014501160332643838895 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L35{UUIDGenerator}]] {
++UUIDGenerator() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L46{UUIDGenerator}]]]
+-UUIDGenerator(const UUIDGenerator &) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L112{UUIDGenerator}]]]
++~UUIDGenerator() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L49{~UUIDGenerator}]]]
+..
+-operator=(const UUIDGenerator &) : UUIDGenerator & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L113{operator=}]]]
+..
++create() : UUID [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L52{create}]]]
++createFromName(const UUID & nsid, const std::string & name) : UUID [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L59{createFromName}]]]
++createFromName(const UUID & nsid, const std::string & name, DigestEngine & de) : UUID [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L62{createFromName}]]]
++createFromName(const UUID & nsid, const std::string & name, DigestEngine & de, UUID::Version version) : UUID [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L69{createFromName}]]]
++createOne() : UUID [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L75{createOne}]]]
++createRandom() : UUID [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L72{createRandom}]]]
++createV6() : UUID [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L83{createV6}]]]
++createV7() : UUID [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L87{createV7}]]]
+{static} +defaultGenerator() : UUIDGenerator & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L97{defaultGenerator}]]]
++seed(UInt32 n) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L90{seed}]]]
++seed() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L93{seed}]]]
+#timeStamp() : Timestamp::UtcTimeVal [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L101{timeStamp}]]]
+__
+-_counter : UInt16 [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L108{_counter}]]]
+-_haveNode : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L110{_haveNode}]]]
+-_lastTime : Timestamp [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L106{_lastTime}]]]
+-_mutex : FastMutex [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L104{_mutex}]]]
+-_node : UInt8[6] [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L109{_node}]]]
+-_random : Random [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L105{_random}]]]
+-_ticks : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L107{_ticks}]]]
 }
 class "RandomBuf" as C_0010622286715623702671
 class C_0010622286715623702671 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/RandomStream.h#L29{RandomBuf}]] {
@@ -6217,8 +6745,26 @@ class C_0011892765176647327340 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "Base64DecoderBuf" as C_0003515285068499915125
-class C_0003515285068499915125 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Encoder.h#L84{Base64DecoderBuf}]] {
+class C_0003515285068499915125 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L29{Base64DecoderBuf}]] {
++Base64DecoderBuf(std::istream & istr, int options = 0) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L40{Base64DecoderBuf}]]]
+-Base64DecoderBuf(const Base64DecoderBuf &) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L60{Base64DecoderBuf}]]]
++~Base64DecoderBuf() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L41{~Base64DecoderBuf}]]]
+..
+-operator=(const Base64DecoderBuf &) : Base64DecoderBuf & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L61{operator=}]]]
+..
+-readFromDevice() : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L44{readFromDevice}]]]
+-readOne() : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L45{readOne}]]]
 __
+{static} -IN_ENCODING : unsigned char[256] [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L54{IN_ENCODING}]]]
+{static} -IN_ENCODING_INIT : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L55{IN_ENCODING_INIT}]]]
+{static} -IN_ENCODING_URL : unsigned char[256] [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L56{IN_ENCODING_URL}]]]
+{static} -IN_ENCODING_URL_INIT : bool [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L57{IN_ENCODING_URL_INIT}]]]
+-_buf : std::streambuf & [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L51{_buf}]]]
+-_group : unsigned char[3] [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L48{_group}]]]
+-_groupIndex : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L50{_groupIndex}]]]
+-_groupLength : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L49{_groupLength}]]]
+-_options : int [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L47{_options}]]]
+-_pInEncoding : const unsigned char * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Decoder.h#L52{_pInEncoding}]]]
 }
 class "SynchronizedObject" as C_0001203921863280610449
 class C_0001203921863280610449 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SynchronizedObject.h#L29{SynchronizedObject}]] {
@@ -6332,11 +6878,11 @@ __
 -_pS : S * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SingletonHolder.h#L69{_pS}]]]
 }
 class "ActiveResult<TArgs>" as C_0003044879368463657755
-class C_0003044879368463657755 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L235{ActiveResult}]] {
+class C_0003044879368463657755 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractEvent.h#L253{ActiveResult}]] {
 __
 }
 class "ActiveMethod<TArgs,AbstractEvent::NotifyAsyncParams,AbstractEvent<TArgs,TStrategy,TDelegate,TMutex>>" as C_0009842406968153021209
-class C_0009842406968153021209 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveMethod.h#L32{ActiveMethod}]] {
+class C_0009842406968153021209 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractEvent.h#L332{ActiveMethod}]] {
 __
 }
 class "AbstractEvent<TArgs,TStrategy,TDelegate,TMutex=FastMutex>" as C_0001589684368386554906
@@ -6371,7 +6917,7 @@ __
 #_strategy : TStrategy [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractEvent.h#L346{_strategy}]]]
 }
 class "SharedPtr<TStrategy>" as C_0016318582820178322552
-class C_0016318582820178322552 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SharedPtr.h#L89{SharedPtr}]] {
+class C_0016318582820178322552 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractEvent.h#L321{SharedPtr}]] {
 __
 }
 class "AbstractEvent::NotifyAsyncParams" as C_0015735768897993760915
@@ -6384,7 +6930,7 @@ __
 +ptrStrat : SharedPtr<TStrategy> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractEvent.h#L321{ptrStrat}]]]
 }
 class "ActiveMethod<void,AbstractEvent<void,type-parameter-0-0,type-parameter-0-1,type-parameter-0-2>::NotifyAsyncParams,AbstractEvent<void,type-parameter-0-0,type-parameter-0-1,type-parameter-0-2>>" as C_0016722572019494938682
-class C_0016722572019494938682 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveMethod.h#L32{ActiveMethod}]] {
+class C_0016722572019494938682 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractEvent.h#L532{ActiveMethod}]] {
 __
 }
 class "AbstractEvent<void,TStrategy,TDelegate,TMutex>" as C_0005635825696662560721
@@ -6444,7 +6990,7 @@ abstract C_0000702719673848083539 [[https://github.com/pocoproject/poco/blob/8d1
 __
 }
 class "SharedPtr<TDelegate>" as C_0014770993441828118894
-class C_0014770993441828118894 {
+class C_0014770993441828118894 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DefaultStrategy.h#L122{SharedPtr}]] {
 __
 }
 class "DefaultStrategy<TArgs,TDelegate>" as C_0009435365242297231417
@@ -6527,7 +7073,7 @@ class C_0009764811057511079080 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "BasicEvent<bool>" as C_0007332613810582850341
-class C_0007332613810582850341 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/BasicEvent.h#L31{BasicEvent}]] {
+class C_0007332613810582850341 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/FIFOBuffer.h#L54{BasicEvent}]] {
 __
 }
 class "BasicFIFOBuffer<T>" as C_0010306707204710969662
@@ -6585,7 +7131,7 @@ __
 +writable : BasicEvent<bool> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/FIFOBuffer.h#L54{writable}]]]
 }
 class "BasicFIFOBuffer<char>" as C_0015408019408765761164
-class C_0015408019408765761164 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/FIFOBuffer.h#L33{BasicFIFOBuffer}]] {
+class C_0015408019408765761164 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/FIFOBufferStream.h#L40{BasicFIFOBuffer}]] {
 __
 }
 class "FIFOBufferStreamBuf" as C_0001288374398481303965
@@ -7055,7 +7601,7 @@ __
 -_pData : void * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/Thread.cpp#L78{_pData}]]]
 }
 class "BasicEvent<Message>" as C_0005397945804773365759
-class C_0005397945804773365759 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/BasicEvent.h#L31{BasicEvent}]] {
+class C_0005397945804773365759 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/EventChannel.h#L38{BasicEvent}]] {
 __
 }
 class "EventChannel" as C_0001519234810229134559
@@ -7110,6 +7656,10 @@ __
 -_target : std::optional<std::reference_wrapper<Runnable>> [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L141{_target}]]]
 -_thread : Thread [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L143{_thread}]]]
 }
+class "AutoPtr<ActivePooledThread>" as C_0008597069019911576648
+class C_0008597069019911576648 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L164{AutoPtr}]] {
+__
+}
 class "Stopwatch" as C_0005566718165901971833
 class C_0005566718165901971833 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Stopwatch.h#L28{Stopwatch}]] {
 +Stopwatch() : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Stopwatch.h#L33{Stopwatch}]]]
@@ -7145,7 +7695,7 @@ __
 -_pObject : C * [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/RunnableAdapter.h#L70{_pObject}]]]
 }
 class "RunnableAdapter<AsyncNotificationCenter>" as C_0004527054866136666435
-class C_0004527054866136666435 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/RunnableAdapter.h#L29{RunnableAdapter}]] {
+class C_0004527054866136666435 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AsyncNotificationCenter.h#L68{RunnableAdapter}]] {
 __
 }
 class "AsyncNotificationCenter" as C_0003110718398542439016
@@ -7590,6 +8140,10 @@ __
 {static} -_charMap : int[256] [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Latin2Encoding.h#L47{_charMap}]]]
 {static} -_names : const char *[] [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Latin2Encoding.h#L46{_names}]]]
 }
+class "AutoPtr<Task>" as C_0005703935964867207561
+class C_0005703935964867207561 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L95{AutoPtr}]] {
+__
+}
 class "ThreadPool" as C_0004630398041607517310
 class C_0004630398041607517310 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadPool.h#L34{ThreadPool}]] {
 +ThreadPool(int minCapacity = 2, int maxCapacity = 16, int idleTime = 60, int stackSize = 0) : void [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadPool.h#L50{ThreadPool}]]]
@@ -7948,7 +8502,7 @@ class C_0010316418987616122416 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "AutoPtr<Logger>" as C_0014172221953628929097
-class C_0014172221953628929097 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AutoPtr.h#L31{AutoPtr}]] {
+class C_0014172221953628929097 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Logger.h#L420{AutoPtr}]] {
 __
 }
 class "Logger" as C_0004479230608718557683
@@ -8323,7 +8877,7 @@ class C_0003792669085632436715 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "SingletonHolder<C>" as C_0003893642649283454546
-class C_0003893642649283454546 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SingletonHolder.h#L29{SingletonHolder}]] {
+class C_0003893642649283454546 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/MetaObject.h#L194{SingletonHolder}]] {
 __
 }
 class "MetaSingleton<C,B>" as C_0009171993043111995028
@@ -8422,7 +8976,7 @@ class C_0007634452921087591041 [[https://github.com/pocoproject/poco/blob/8d1aab
 __
 }
 class "Details::HandlerPointer<T>" as C_0012903904768629987005
-class C_0012903904768629987005 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarVisitor.h#L54{HandlerPointer}]] {
+class C_0012903904768629987005 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarVisitor.h#L94{HandlerPointer}]] {
 __
 }
 class "SharedLibraryImpl" as C_0016985547121879727135
@@ -8696,11 +9250,11 @@ __
 -_mutex : FastMutex [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DynamicFactory.h#L130{_mutex}]]]
 }
 class "DynamicFactory<Channel>" as C_0015246970645547512631
-class C_0015246970645547512631 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DynamicFactory.h#L33{DynamicFactory}]] {
+class C_0015246970645547512631 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/LoggingFactory.h#L84{DynamicFactory}]] {
 __
 }
 class "DynamicFactory<Formatter>" as C_0004115179293924742248
-class C_0004115179293924742248 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DynamicFactory.h#L33{DynamicFactory}]] {
+class C_0004115179293924742248 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/LoggingFactory.h#L85{DynamicFactory}]] {
 __
 }
 class "LoggingFactory" as C_0012039477447554900257
@@ -8741,11 +9295,11 @@ __
 -_method : Callback [[[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadTarget.h#L71{_method}]]]
 }
 class "BasicEvent<DirectoryWatcher::DirectoryEvent>" as C_0006976304983275709943
-class C_0006976304983275709943 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/BasicEvent.h#L31{BasicEvent}]] {
+class C_0006976304983275709943 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryWatcher.h#L117{BasicEvent}]] {
 __
 }
 class "BasicEvent<Exception>" as C_0005454399297490619237
-class C_0005454399297490619237 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/BasicEvent.h#L31{BasicEvent}]] {
+class C_0005454399297490619237 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DirectoryWatcher.h#L132{BasicEvent}]] {
 __
 }
 class "DirectoryWatcher" as C_0010823682848088269321
@@ -8946,6 +9500,10 @@ C_0004555712289983816556 ..|> C_0004385785097626938096
 C_0011104246352260264575 ..> C_0004555712289983816556 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TextEncoding.h#L142{}]]
 C_0011104246352260264575 ..> C_0004385785097626938096 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TextEncoding.h#L142{}]]
 C_0011104246352260264575 ..> C_0006860467277989499787 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TextEncoding.h#L177{}]]
+C_0006860467277989499787 ..> C_0004385785097626938096 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L64{}]]
+C_0006860467277989499787 ..> C_0011104246352260264575 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L64{}]]
+C_0006860467277989499787 o-- C_0004555712289983816556 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L105{_encodings}]] : -_encodings
+C_0006860467277989499787 o-- C_0006714113423639746546 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TextEncoding.cpp#L106{_lock}]] : -_lock
 C_0014029293244885855426 ..> C_0012063484857691753039 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timestamp.h#L94{}]]
 C_0004920712354631188998 <|-- C_0015300607432168499937
 C_0004920712354631188998 <|-- C_0002542066431576758564
@@ -8987,6 +9545,9 @@ C_0017636675706001596941 o-- C_0016738769296328476777 [[https://github.com/pocop
 C_0017636675706001596941 o-- C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Message.h#L208{_time}]] : -_time
 C_0016738769296328476777 --+ C_0017636675706001596941
 C_0002107826521541840037 --+ C_0011624939912617294612
+C_0015086615117285320795 ..> C_0004782031024822305827 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Path.h#L62{}]]
+C_0015328925881649552410 ..> C_0010823682848088269321 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L255{}]]
+C_0006216570765925255284 <|-- C_0015328925881649552410
 C_0013153026146762305374 <|-- C_0010288169691537111908
 C_0004782031024822305827 --+ C_0015086615117285320795
 C_0008909946608184601061 <|-- C_0000389707751102630782
@@ -8999,6 +9560,8 @@ C_0012081405275023016388 ..> C_0008900543697223691708 [[https://github.com/pocop
 C_0008474915085977286091 <|-- C_0012081405275023016388
 C_0006467457775694305120 --+ C_0017214912550878233744
 C_0002994880819854933178 o-- C_0009670794570405605642 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/TemporaryFile.cpp#L72{_mutex}]] : -_mutex
+C_0008900543697223691708 ..> C_0009208575438712490700 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L102{}]]
+C_0008900543697223691708 --> C_0010884299273843838248 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Pipe.h#L108{_pImpl}]] : -_pImpl
 C_0004449858085413894935 ..> C_0013694639265597138860 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/RegularExpression.h#L96{}]]
 C_0009704931058996868510 --+ C_0004449858085413894935
 C_0013694639265597138860 --+ C_0004449858085413894935
@@ -9055,6 +9618,7 @@ C_0007600485509932842030 ..> C_0015953129858828985841 [[https://github.com/pocop
 C_0007600485509932842030 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeFormatter.h#L87{}]]
 C_0007600485509932842030 ..> C_0012063484857691753039 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeFormatter.h#L91{}]]
 C_0005104605891311472709 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Timezone.h#L41{}]]
+C_0017768987477229740842 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DateTimeParser.h#L60{}]]
 C_0000826079553405328363 ..> C_0013713533315298186186 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Unicode.h#L237{}]]
 C_0001035350117454244862 --+ C_0000826079553405328363
 C_0016755039903592939032 --+ C_0000826079553405328363
@@ -9095,6 +9659,9 @@ C_0015873951955174032075 ..> C_0006226701047499551938 [[https://github.com/pocop
 C_0015873951955174032075 ..> C_0004385785097626938096 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NotificationCenter.h#L143{}]]
 C_0015873951955174032075 o-- C_0006288170728233455697 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NotificationCenter.h#L148{_observers}]] : -_observers
 C_0015873951955174032075 o-- C_0002542066431576758564 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/NotificationCenter.h#L149{_mutex}]] : -_mutex
+C_0001524878547874030626 ..> C_0006226701047499551938 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L39{}]]
+C_0001524878547874030626 ..> C_0014834926082183846381 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L46{}]]
+C_0001524878547874030626 ..> C_0012523625749156340919 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/AbstractObserver.h#L46{}]]
 C_0011104246352260264575 <|-- C_0006498252026322225710
 C_0011104246352260264575 <|-- C_0006097034814819675808
 C_0014709034816954249359 ..|> C_0011212986582732060779
@@ -9166,6 +9733,16 @@ C_0014987002174329963129 --+ C_0009344188358052936442
 C_0001004430410259296998 --+ C_0009344188358052936442
 C_0006806590184710632931 --+ C_0009344188358052936442
 C_0015723371772848182025 <|-- C_0006806590184710632931
+C_0009167390822495017537 ..> C_0014987002174329963129 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L35{}]]
+C_0009167390822495017537 --> C_0015723371772848182025 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L47{_pTarget}]] : -_pTarget
+C_0009167390822495017537 o-- C_0009344188358052936442 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L49{_thread}]] : -_thread
+C_0009167390822495017537 o-- C_0009215734625314669694 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L50{_targetReady}]] : -_targetReady
+C_0009167390822495017537 o-- C_0009215734625314669694 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L51{_targetCompleted}]] : -_targetCompleted
+C_0009167390822495017537 o-- C_0009215734625314669694 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L52{_started}]] : -_started
+C_0009167390822495017537 o-- C_0009670794570405605642 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ThreadPool.cpp#L53{_mutex}]] : -_mutex
+C_0015723371772848182025 <|-- C_0009167390822495017537
+C_0017199255419134485158 --> C_0004399512602342429914 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadLocal.h#L94{_map}]] : -_map
+C_0017199255419134485158 <.. C_0009344188358052936442 : +<<friend>>
 C_0010501882343236282032 o-- C_0011948492465619546937 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/MD4Engine.h#L84{_context}]] : -_context
 C_0006218057946562235761 <|-- C_0010501882343236282032
 C_0011948492465619546937 --+ C_0010501882343236282032
@@ -9197,6 +9774,17 @@ C_0009936578282775187605 ..> C_0010684962242744590877 [[https://github.com/pocop
 C_0011200394390072036845 <|-- C_0009936578282775187605
 C_0006232058936862441493 ..> C_0010684962242744590877 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskNotification.h#L127{}]]
 C_0011200394390072036845 <|-- C_0006232058936862441493
+C_0005957272326729134224 ..> C_0012523625749156340919 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L95{}]]
+C_0005957272326729134224 ..> C_0001524878547874030626 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L101{}]]
+C_0005957272326729134224 ..> C_0014834926082183846381 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L113{}]]
+C_0005957272326729134224 ..> C_0006226701047499551938 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L113{}]]
+C_0005957272326729134224 ..> C_0008562248713650082964 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L121{}]]
+C_0005957272326729134224 --> C_0004630398041607517310 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L127{_threadPool}]] : -_threadPool
+C_0005957272326729134224 o-- C_0005703935964867207561 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L129{_taskList}]] : -_taskList
+C_0005957272326729134224 o-- C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L130{_lastProgressNotification}]] : -_lastProgressNotification
+C_0005957272326729134224 o-- C_0015873951955174032075 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L131{_nc}]] : -_nc
+C_0005957272326729134224 o-- C_0009670794570405605642 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/TaskManager.h#L132{_mutex}]] : -_mutex
+C_0005957272326729134224 <.. C_0010684962242744590877 : +<<friend>>
 C_0012354916859093281904 ..> C_0008562248713650082964 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ErrorHandler.h#L52{}]]
 C_0012354916859093281904 --> C_0012354916859093281904 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ErrorHandler.h#L103{_pHandler}]] : -_pHandler
 C_0012354916859093281904 --> C_0009670794570405605642 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ErrorHandler.h#L104{_mutex}]] : -_mutex
@@ -9209,104 +9797,116 @@ C_0008651450826548444036 ..|> C_0017655513985660331800
 C_0016890509834543143075 ..|> C_0016809260476707416044
 C_0009196601687504170816 ..|> C_0016809260476707416044
 C_0000747124538769379123 ..|> C_0016809260476707416044
+C_0006560733041784049907 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L139{}]]
+C_0006560733041784049907 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L183{}]]
+C_0006560733041784049907 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L187{}]]
+C_0006560733041784049907 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L191{}]]
+C_0006560733041784049907 ..> C_0001458999823424549362 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L195{}]]
+C_0006560733041784049907 ..> C_0015888634654321107772 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L239{}]]
+C_0008902936726276553299 ..> C_0015888634654321107772 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1012{}]]
+C_0008902936726276553299 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1109{}]]
+C_0006560733041784049907 <|-- C_0008902936726276553299
+C_0014620750009015572001 ..> C_0017897477804007188430 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L110{}]]
+C_0014620750009015572001 ..> C_0006560733041784049907 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L595{}]]
+C_0014620750009015572001 o-- C_0004000101564055926705 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Var.h#L613{_placeholder}]] : -_placeholder
 C_0017897477804007188430 --> C_0014620750009015572001 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarIterator.h#L129{_pVar}]] : -_pVar
 C_0017897477804007188430 <.. C_0014620750009015572001 : +<<friend>>
 C_0017193326596675876531 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0017193326596675876531
 C_0017193326596675876531 ..> C_0015888634654321107772 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1222{}]]
 C_0017193326596675876531 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1228{}]]
+C_0006560733041784049907 <|-- C_0017193326596675876531
 C_0001590464749032019147 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0001590464749032019147
 C_0001590464749032019147 ..> C_0015888634654321107772 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1378{}]]
 C_0001590464749032019147 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1384{}]]
+C_0006560733041784049907 <|-- C_0001590464749032019147
 C_0007814147618587503868 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0007814147618587503868
 C_0007814147618587503868 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1529{}]]
+C_0006560733041784049907 <|-- C_0007814147618587503868
 C_0014435452943192339411 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0014435452943192339411
 C_0014435452943192339411 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1679{}]]
 C_0014435452943192339411 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1684{}]]
 C_0014435452943192339411 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1689{}]]
 C_0014435452943192339411 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1694{}]]
+C_0006560733041784049907 <|-- C_0014435452943192339411
 C_0014656076109500202996 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0014656076109500202996
 C_0014656076109500202996 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1844{}]]
+C_0006560733041784049907 <|-- C_0014656076109500202996
 C_0004577491316471355845 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0004577491316471355845
 C_0004577491316471355845 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L1994{}]]
+C_0006560733041784049907 <|-- C_0004577491316471355845
 C_0001330030738046522862 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0001330030738046522862
 C_0001330030738046522862 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2144{}]]
+C_0006560733041784049907 <|-- C_0001330030738046522862
 C_0011675212598757160875 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0011675212598757160875
 C_0011675212598757160875 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2294{}]]
 C_0011675212598757160875 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2301{}]]
 C_0011675212598757160875 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2308{}]]
 C_0011675212598757160875 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2315{}]]
+C_0006560733041784049907 <|-- C_0011675212598757160875
 C_0004794232876594608484 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0004794232876594608484
 C_0004794232876594608484 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2462{}]]
+C_0006560733041784049907 <|-- C_0004794232876594608484
 C_0003076952417802020269 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0003076952417802020269
 C_0003076952417802020269 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2613{}]]
+C_0006560733041784049907 <|-- C_0003076952417802020269
 C_0017938056422331944898 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0017938056422331944898
 C_0017938056422331944898 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2770{}]]
+C_0006560733041784049907 <|-- C_0017938056422331944898
 C_0015537451038073743184 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0015537451038073743184
 C_0015537451038073743184 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L2918{}]]
+C_0006560733041784049907 <|-- C_0015537451038073743184
 C_0018335226698853316069 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0018335226698853316069
 C_0018335226698853316069 ..> C_0015888634654321107772 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3087{}]]
 C_0018335226698853316069 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3092{}]]
 C_0018335226698853316069 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3099{}]]
 C_0018335226698853316069 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3109{}]]
 C_0018335226698853316069 ..> C_0001458999823424549362 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3119{}]]
 C_0018335226698853316069 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3124{}]]
+C_0006560733041784049907 <|-- C_0018335226698853316069
 C_0010962950936329599754 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0010962950936329599754
 C_0010962950936329599754 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3290{}]]
 C_0010962950936329599754 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3297{}]]
 C_0010962950936329599754 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3307{}]]
 C_0010962950936329599754 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3317{}]]
 C_0010962950936329599754 o-- C_0015888634654321107772 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3359{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0010962950936329599754
 C_0013169386282775244937 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0013169386282775244937
 C_0013169386282775244937 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3737{}]]
+C_0006560733041784049907 <|-- C_0013169386282775244937
 C_0012669232272379142870 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0012669232272379142870
 C_0012669232272379142870 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3883{}]]
+C_0006560733041784049907 <|-- C_0012669232272379142870
 C_0007282463725455415157 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0007282463725455415157
 C_0007282463725455415157 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L3960{}]]
+C_0006560733041784049907 <|-- C_0007282463725455415157
 C_0002846183718016432258 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0002846183718016432258
 C_0002846183718016432258 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4023{}]]
+C_0006560733041784049907 <|-- C_0002846183718016432258
 C_0010800677433113392431 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0010800677433113392431
 C_0010800677433113392431 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4096{}]]
+C_0006560733041784049907 <|-- C_0010800677433113392431
 C_0005592001403327304596 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0005592001403327304596
 C_0005592001403327304596 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4203{}]]
 C_0005592001403327304596 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4208{}]]
 C_0005592001403327304596 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4213{}]]
 C_0005592001403327304596 o-- C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4279{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0005592001403327304596
 C_0014806173003328354858 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0014806173003328354858
 C_0014806173003328354858 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4330{}]]
 C_0014806173003328354858 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4340{}]]
 C_0014806173003328354858 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4345{}]]
 C_0014806173003328354858 o-- C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4411{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0014806173003328354858
 C_0011668093361001572173 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0011668093361001572173
 C_0011668093361001572173 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4463{}]]
 C_0011668093361001572173 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4468{}]]
 C_0011668093361001572173 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4478{}]]
 C_0011668093361001572173 o-- C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4544{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0011668093361001572173
 C_0010289915845226196651 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0010289915845226196651
 C_0010289915845226196651 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4572{}]]
 C_0010289915845226196651 o-- C_0001458999823424549362 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarHolder.h#L4638{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0010289915845226196651
 C_0004501439813937074789 ..> C_0014620750009015572001 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L105{}]]
 C_0004218770179915669241 ..> C_0014620750009015572001
 C_0004218770179915669241 ..|> C_0007013158600366395351
@@ -9319,46 +9919,46 @@ C_0007814350189966325201 ..|> C_0007013158600366395351
 C_0000047673709882110439 ..> C_0014620750009015572001
 C_0000047673709882110439 ..|> C_0007013158600366395351
 C_0000047673709882110439 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0000047673709882110439
 C_0000047673709882110439 ..> C_0004501439813937074789 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L317{}]]
 C_0000047673709882110439 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L393{}]]
 C_0000047673709882110439 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L398{}]]
 C_0000047673709882110439 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L403{}]]
 C_0000047673709882110439 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L408{}]]
 C_0000047673709882110439 o-- C_0004218770179915669241 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L469{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0000047673709882110439
 C_0009696703665851560414 ..|> C_0007013158600366395351
 C_0002701793325544761132 ..> C_0014620750009015572001
 C_0002701793325544761132 ..|> C_0007013158600366395351
 C_0002701793325544761132 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0002701793325544761132
 C_0002701793325544761132 ..> C_0004501439813937074789 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L482{}]]
 C_0002701793325544761132 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L558{}]]
 C_0002701793325544761132 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L563{}]]
 C_0002701793325544761132 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L568{}]]
 C_0002701793325544761132 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L573{}]]
 C_0002701793325544761132 o-- C_0009696703665851560414 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L634{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0002701793325544761132
 C_0002280605106312968087 ..|> C_0007013158600366395351
 C_0007358024489650744335 ..> C_0014620750009015572001
 C_0007358024489650744335 ..|> C_0007013158600366395351
 C_0007358024489650744335 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0007358024489650744335
 C_0007358024489650744335 ..> C_0004501439813937074789 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L647{}]]
 C_0007358024489650744335 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L723{}]]
 C_0007358024489650744335 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L728{}]]
 C_0007358024489650744335 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L733{}]]
 C_0007358024489650744335 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L738{}]]
 C_0007358024489650744335 o-- C_0002280605106312968087 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L799{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0007358024489650744335
 C_0011154956825926247026 ..|> C_0007013158600366395351
 C_0007909624509698723516 ..> C_0014620750009015572001
 C_0007909624509698723516 ..|> C_0007013158600366395351
 C_0007909624509698723516 ..|> C_0008902936726276553299
-C_0006560733041784049907 <|-- C_0007909624509698723516
 C_0007909624509698723516 ..> C_0004501439813937074789 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L812{}]]
 C_0007909624509698723516 ..> C_0015953129858828985841 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L888{}]]
 C_0007909624509698723516 ..> C_0018178250544296382628 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L893{}]]
 C_0007909624509698723516 ..> C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L898{}]]
 C_0007909624509698723516 ..> C_0015666994675681744641 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L903{}]]
 C_0007909624509698723516 o-- C_0011154956825926247026 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/Struct.h#L964{_val}]] : -_val
+C_0006560733041784049907 <|-- C_0007909624509698723516
 C_0014885823093480106126 ..> C_0012903904768629987005 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarVisitor.h#L94{}]]
 C_0014885823093480106126 --> C_0014620750009015572001 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarVisitor.h#L76{_handlers}]] : -_handlers
 C_0014885823093480106126 o-- C_0007723000301832339429 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Dynamic/VarVisitor.h#L76{_handlers}]] : -_handlers
@@ -9404,9 +10004,9 @@ C_0003028244113631809121 --> C_0008562248713650082964 [[https://github.com/pocop
 C_0003028244113631809121 o-- C_0009215734625314669694 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L139{_event}]] : -_event
 C_0008909946608184601061 <|-- C_0003028244113631809121
 C_0014973467021913423527 ..|> C_0003028244113631809121
-C_0008909946608184601061 <|-- C_0014973467021913423527
 C_0014973467021913423527 --> C_0008562248713650082964 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L229{_pExc}]] : -_pExc
 C_0014973467021913423527 o-- C_0009215734625314669694 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L230{_event}]] : -_event
+C_0008909946608184601061 <|-- C_0014973467021913423527
 C_0000352049406203629738 ..|> C_0003028244113631809121
 C_0012057131228769334590 ..> C_0008562248713650082964 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L332{}]]
 C_0012057131228769334590 --> C_0000352049406203629738 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveResult.h#L368{_pHolder}]] : -_pHolder
@@ -9422,17 +10022,17 @@ C_0006813525152135118869 ..> C_0012057131228769334590 [[https://github.com/pocop
 C_0006813525152135118869 o-- C_0005697099712403171417 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L84{_result}]] : -_result
 C_0017453751090655989375 <|-- C_0006813525152135118869
 C_0008849929740145986544 ..|> C_0006813525152135118869
-C_0017453751090655989375 <|-- C_0008849929740145986544
 C_0008849929740145986544 ..> C_0012057131228769334590 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L97{}]]
 C_0008849929740145986544 o-- C_0014856537336018338341 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L132{_result}]] : -_result
+C_0017453751090655989375 <|-- C_0008849929740145986544
 C_0001236713713531977836 ..|> C_0006813525152135118869
-C_0017453751090655989375 <|-- C_0001236713713531977836
 C_0001236713713531977836 ..> C_0012057131228769334590 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L145{}]]
 C_0001236713713531977836 o-- C_0005697099712403171417 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L178{_result}]] : -_result
+C_0017453751090655989375 <|-- C_0001236713713531977836
 C_0000144061376658363959 ..|> C_0008849929740145986544
-C_0017453751090655989375 <|-- C_0000144061376658363959
 C_0000144061376658363959 ..> C_0012057131228769334590 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L191{}]]
 C_0000144061376658363959 o-- C_0014856537336018338341 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveRunnable.h#L224{_result}]] : -_result
+C_0017453751090655989375 <|-- C_0000144061376658363959
 C_0007789799845459614177 ..> C_0017453751090655989375
 C_0007789799845459614177 ..|> C_0010227407547369107199
 C_0003773557735839560991 ..> C_0007789799845459614177 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ActiveStarter.h#L37{}]]
@@ -9463,11 +10063,26 @@ C_0011824144929393692350 o-- C_0009735221466405386489 [[https://github.com/pocop
 C_0013214872206791403176 <|-- C_0011824144929393692350
 C_0014322948426165498293 --+ C_0011824144929393692350
 C_0014322948426165498293 --> C_0008104973340854298213 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ArchiveStrategy.cpp#L51{as}]] : +as
+C_0008415223380321398438 ..> C_0015723371772848182025 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L154{}]]
+C_0008415223380321398438 o-- C_0009670794570405605642 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L162{mutex}]] : +mutex
+C_0008415223380321398438 o-- C_0008597069019911576648 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L164{allThreads}]] : +allThreads
+C_0008415223380321398438 o-- C_0008597069019911576648 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L165{waitingThreads}]] : +waitingThreads
+C_0008415223380321398438 o-- C_0008597069019911576648 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L166{expiredThreads}]] : +expiredThreads
+C_0008415223380321398438 o-- C_0003634724761823537587 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L167{runnables}]] : +runnables
+C_0008415223380321398438 o-- C_0014111123887693717701 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L168{noActiveThreads}]] : +noActiveThreads
 C_0016955962460133752241 ..> C_0008432866300915247937 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UTF8String.h#L87{}]]
 C_0008432866300915247937 --+ C_0016955962460133752241
 C_0001458999823424549362 ..> C_0016064347603702066566 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUID.h#L104{}]]
 C_0001458999823424549362 <.. C_0014501160332643838895 : +<<friend>>
 C_0016064347603702066566 --+ C_0001458999823424549362
+C_0004000101564055926705 ..> C_0006560733041784049907
+C_0004000101564055926705 ..|> C_0015666994675681744641
+C_0014501160332643838895 ..> C_0001458999823424549362 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L52{}]]
+C_0014501160332643838895 ..> C_0006218057946562235761 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L62{}]]
+C_0014501160332643838895 ..> C_0016064347603702066566 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L69{}]]
+C_0014501160332643838895 o-- C_0009670794570405605642 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L104{_mutex}]] : -_mutex
+C_0014501160332643838895 o-- C_0017214912550878233744 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L105{_random}]] : -_random
+C_0014501160332643838895 o-- C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/UUIDGenerator.h#L106{_lastTime}]] : -_lastTime
 C_0013217391012087682135 <|-- C_0010622286715623702671
 C_0009132616735956071832 o-- C_0010622286715623702671 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/RandomStream.h#L56{_buf}]] : #_buf
 C_0009132616735956071832 <|-- C_0013950287474267213258
@@ -9523,6 +10138,7 @@ C_0009088976161645078398 <.. C_0003515285068499915125 : +<<friend>>
 C_0016979824521045627492 <|-- C_0009088976161645078398
 C_0001698615950209602541 o-- C_0009088976161645078398 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Base64Encoder.h#L104{_buf}]] : #_buf
 C_0001698615950209602541 <|-- C_0011892765176647327340
+C_0016979824521045627492 <|-- C_0003515285068499915125
 C_0001203921863280610449 o-- C_0002542066431576758564 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SynchronizedObject.h#L78{_mutex}]] : -_mutex
 C_0001203921863280610449 o-- C_0009215734625314669694 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SynchronizedObject.h#L79{_event}]] : -_event
 C_0013595211798990953023 ..> C_0005160755896123324567 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/SharedMemory.h#L52{}]]
@@ -9560,8 +10176,8 @@ C_0014770993441828118894 ..|> C_0016318582820178322552
 C_0009435365242297231417 o-- C_0014770993441828118894 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DefaultStrategy.h#L122{_delegates}]] : #_delegates
 C_0013177650320328061758 <|-- C_0009435365242297231417
 C_0015286914516950550428 ..|> C_0009435365242297231417
-C_0000702719673848083539 <|-- C_0015286914516950550428
 C_0015286914516950550428 o-- C_0014770993441828118894 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/DefaultStrategy.h#L233{_delegates}]] : #_delegates
+C_0000702719673848083539 <|-- C_0015286914516950550428
 C_0002932015244798568932 ..|> C_0016244583582793656484
 C_0006199374869835035170 ..> C_0016244583582793656484
 C_0006199374869835035170 ..|> C_0009435365242297231417
@@ -9643,6 +10259,8 @@ C_0006410410243648463964 o-- C_0014111123887693717701 [[https://github.com/pocop
 C_0006410410243648463964 o-- C_0009344188358052936442 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/ActiveThreadPool.cpp#L143{_thread}]] : -_thread
 C_0015723371772848182025 <|-- C_0006410410243648463964
 C_0008909946608184601061 <|-- C_0006410410243648463964
+C_0008597069019911576648 ..> C_0006410410243648463964
+C_0008597069019911576648 ..|> C_0010227407547369107199
 C_0005566718165901971833 o-- C_0009730058281871874897 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/Stopwatch.h#L63{_start}]] : -_start
 C_0015723371772848182025 <|-- C_0002688533488216663221
 C_0004527054866136666435 ..> C_0003110718398542439016
@@ -9704,6 +10322,8 @@ C_0012436252476637399702 o-- C_0016414996661974890250 [[https://github.com/pocop
 C_0012436252476637399702 o-- C_0013370612837083999548 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/FormattingChannel.h#L93{_pChannel}]] : -_pChannel
 C_0009119650275678658147 <|-- C_0012436252476637399702
 C_0011104246352260264575 <|-- C_0009456169094987431070
+C_0005703935964867207561 ..> C_0010684962242744590877
+C_0005703935964867207561 ..|> C_0010227407547369107199
 C_0004630398041607517310 ..> C_0015723371772848182025 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadPool.h#L100{}]]
 C_0004630398041607517310 ..> C_0014987002174329963129 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadPool.h#L111{}]]
 C_0004630398041607517310 --> C_0009167390822495017537 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/include/Poco/ThreadPool.h#L179{_threads}]] : -_threads
@@ -9893,6 +10513,6 @@ C_0015738115616738418009 --+ C_0006216570765925255284
 C_0015738115616738418009 ..> C_0013153026146762305374 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L86{}]]
 C_0015738115616738418009 o-- C_0014029293244885855426 [[https://github.com/pocoproject/poco/blob/8d1aab0d2795ae394accebe313619b9605ef43be/Foundation/src/DirectoryWatcher.cpp#L95{lastModified}]] : +lastModified
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
