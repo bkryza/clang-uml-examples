@@ -20,7 +20,7 @@ RUN git clone --recurse-submodules https://github.com/coin3d/coin coin && \
     rm -rf coin && \
     rm -rf coin_build
 
-ARG CLANG_UML_VERSION="0.6.0"
+ARG CLANG_UML_VERSION="0.6.1"
 
 RUN /usr/bin/install-clang-uml.sh ${CLANG_UML_VERSION}
 

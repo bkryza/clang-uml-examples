@@ -1,5 +1,11 @@
 @startuml
 title App::Enumeration context
+package [std] as C_0009971158671206323968 {
+class "vector<std::shared_ptr<App::Enumeration::Object>>" as C_0006812624800376789489
+class C_0006812624800376789489 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Enumeration.h#L179{vector}]] {
+__
+}
+}
 package [App] as C_0018282610363821501524 {
 class "Enumeration" as C_0007437775024332276402
 class C_0007437775024332276402 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Enumeration.h#L52{Enumeration}]] {
@@ -84,10 +90,11 @@ __
 {static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
 }
 }
+C_0007437775024332276402 o-- C_0006812624800376789489 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Enumeration.h#L179{enumArray}]] : -enumArray
 C_0007437775024332276402 <.. C_0004953339373382161483 : +<<friend>>
 C_0006323324694372464875 --+ C_0007437775024332276402
 C_0004953339373382161483 o-- C_0007437775024332276402 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyStandard.h#L245{_enum}]] : -_enum
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

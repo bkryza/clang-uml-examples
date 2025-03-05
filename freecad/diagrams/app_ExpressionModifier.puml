@@ -59,8 +59,25 @@ __
 {static} -classTypeId : Base::Type [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]]]
 +signalUpdateElementReference : boost::signals2::signal<void (const std::string &,const std::string &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L574{signalUpdateElementReference}]]]
 }
-class "ExpressionVisitor" as C_0009293213858076904527
-class C_0009293213858076904527 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ObjectIdentifier.h#L59{ExpressionVisitor}]] {
+abstract "ExpressionVisitor" as C_0009293213858076904527
+abstract C_0009293213858076904527 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L56{ExpressionVisitor}]] {
++~ExpressionVisitor() = default : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L58{~ExpressionVisitor}]]]
+..
++aboutToChange() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L60{aboutToChange}]]]
+#adjustLinks(Expression & e, const std::set<App::DocumentObject *> & inList) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L67{adjustLinks}]]]
++changed() const : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L61{changed}]]]
+#collectReplacement(Expression & e, std::map<ObjectIdentifier,ObjectIdentifier> &, const App::DocumentObject * parent, App::DocumentObject * oldObj, App::DocumentObject * newObj) const : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L71{collectReplacement}]]]
+#getIdentifiers(Expression & e, std::map<App::ObjectIdentifier,bool> &) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L66{getIdentifiers}]]]
++getPropertyLink() : App::PropertyLinkBase * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L63{getPropertyLink}]]]
+#importSubNames(Expression & e, const ObjectIdentifier::SubNameMap & subNameMap) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L74{importSubNames}]]]
+#moveCells(Expression & e, const CellAddress & address, int rowCount, int colCount) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L77{moveCells}]]]
+#offsetCells(Expression & e, int rowOffset, int colOffset) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L78{offsetCells}]]]
+#relabeledDocument(Expression & e, const std::string & oldName, const std::string & newName) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L68{relabeledDocument}]]]
+#renameObjectIdentifier(Expression & e, const std::map<ObjectIdentifier,ObjectIdentifier> &, const ObjectIdentifier &) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L69{renameObjectIdentifier}]]]
++reset() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L62{reset}]]]
+#updateElementReference(Expression & e, App::DocumentObject * feature, bool reverse) : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L73{updateElementReference}]]]
+#updateLabelReference(Expression & e, App::DocumentObject * obj, const std::string & ref, const char * newLabel) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L75{updateLabelReference}]]]
+{abstract} +visit(Expression & e) = 0 : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L59{visit}]]]
 __
 }
 class "ExpressionModifier<P>" as C_0002719644144049731031
@@ -123,6 +140,6 @@ C_0002719644144049731031 <|-- C_0010360271721165894645
 C_0002719644144049731031 <|-- C_0005699767495787760215
 C_0002719644144049731031 <|-- C_0001383306964740624932
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

@@ -1,5 +1,13 @@
 @startuml
 title App::DynamicProperty context
+package [boost] as C_0015721512833981967600 {
+package [multi_index] as C_0013256516603325021331 {
+class "multi_index_container<App::DynamicProperty::PropData,boost::multi_index::indexed_by<boost::multi_index::hashed_unique<boost::multi_index::const_mem_fun<App::DynamicProperty::PropData,const char *,&PropData::getName>,App::CStringHasher,App::CStringHasher>,boost::multi_index::hashed_unique<boost::multi_index::member<App::DynamicProperty::PropData,Property *,&PropData::property>>>>" as C_0011420277096385027841
+class C_0011420277096385027841 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L190{multi_index_container}]] {
+__
+}
+}
+}
 package [App] as C_0018282610363821501524 {
 abstract "Property" as C_0010695310204690954695
 abstract C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L55{Property}]] {
@@ -166,15 +174,15 @@ __
 }
 }
 C_0010695310204690954695 --> C_0011434723455086278527 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L305{father}]] : -father
-C_0010695310204690954695 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L310{signalChanged}]] : +signalChanged
 C_0010695310204690954695 <.. C_0006995009966221590167 : +<<friend>>
 C_0010695310204690954695 <.. C_0011434723455086278527 : +<<friend>>
+C_0006995009966221590167 o-- C_0011420277096385027841 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L190{props}]] : -props
 C_0001277848309579128052 --+ C_0006995009966221590167
 C_0001277848309579128052 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/DynamicProperty.h#L150{property}]] : +property
 C_0011434723455086278527 o-- C_0006995009966221590167 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L265{dynamicProps}]] : #dynamicProps
 C_0011434723455086278527 <.. C_0006995009966221590167 : +<<friend>>
 C_0011434723455086278527 <.. C_0010695310204690954695 : +<<friend>>
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

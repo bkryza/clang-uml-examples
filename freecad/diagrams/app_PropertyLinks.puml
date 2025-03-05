@@ -1,5 +1,39 @@
 @startuml
 title App::PropertyLinks context
+package [std] as C_0009971158671206323968 {
+class "vector<std::string>" as C_0001347152004389415025
+class C_0001347152004389415025 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Reader.h#L255{vector}]] {
+__
+}
+class "bitset<32>" as C_0011287612919229690754
+class C_0011287612919229690754 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Reader.h#L367{bitset}]] {
+__
+}
+class "map<std::string,int>" as C_0006156734009172850642
+class C_0006156734009172850642 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Console.h#L899{map}]] {
+__
+}
+class "set<std::string>" as C_0000727039560643301762
+class C_0000727039560643301762 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Writer.h#L92{set}]] {
+__
+}
+class "vector<int>" as C_0009228492206209329687
+class C_0009228492206209329687 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Builder3D.h#L499{vector}]] {
+__
+}
+class "set<App::DocumentObject *>" as C_0013308879624612958512
+class C_0013308879624612958512 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L217{set}]] {
+__
+}
+class "vector<App::PropertyLinkBase::ShadowSub>" as C_0014166476186574794205
+class C_0014166476186574794205 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L590{vector}]] {
+__
+}
+class "vector<DocumentObject *>" as C_0000971373548487246411
+class C_0000971373548487246411 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L737{vector}]] {
+__
+}
+}
 package [Base] as C_0005614219575140048477 {
 class "Type" as C_0010396699791746075194
 class C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L80{Type}]] {
@@ -42,6 +76,14 @@ __
 {static} -loadModuleSet : std::set<std::string> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L141{loadModuleSet}]]]
 {static} -typedata : std::vector<TypeData *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L140{typedata}]]]
 {static} -typemap : std::map<std::string,unsigned int> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L139{typemap}]]]
+}
+}
+package [boost] as C_0015721512833981967600 {
+package [signals2] as C_0016784150829702890784 {
+class "signal<void(std::string const& const&,std::string const& const&)>" as C_0008230723223479441929
+class C_0008230723223479441929 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L574{signal}]] {
+__
+}
 }
 }
 package [App] as C_0018282610363821501524 {
@@ -106,10 +148,6 @@ __
 -father : PropertyContainer * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L305{father}]]]
 -myName : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L306{myName}]]]
 +signalChanged : boost::signals2::signal<void (const App::Property &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L310{signalChanged}]]]
-}
-class "DocumentObject" as C_0013438737591560532615
-class C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L42{DocumentObject}]] {
-__
 }
 enum "LinkScope" as C_0008043958047214054893
 enum C_0008043958047214054893 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L60{LinkScope}]] {
@@ -848,8 +886,32 @@ __
 {static} -propertyData : App::PropertyData [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L309{propertyData}]]]
 }
 class "DocInfo" as C_0000471281825098599380
-class C_0000471281825098599380 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L47{DocInfo}]] {
+class C_0000471281825098599380 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2945{DocInfo}]] {
++attach(Document * doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3119{attach}]]]
+{static} +breakLinks(App::DocumentObject * obj, bool clear) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3294{breakLinks}]]]
++deinit() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3070{deinit}]]]
++filePath() const : const char * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3066{filePath}]]]
+{static} +get(const char * filename, App::Document * pDoc, PropertyXLink * l, const char * objName) : DocInfoPtr [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3001{get}]]]
+{static} +getDocPath(const char * filename, App::Document * pDoc, bool relative, QString * fullPath = nullptr) : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2961{getDocPath}]]]
+{static} +getFullPath(const char * p) : QString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3045{getFullPath}]]]
++getFullPath() const : QString [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3057{getFullPath}]]]
++hasXLink(const App::Document * doc) const : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3285{hasXLink}]]]
++init(DocInfoMap::iterator pos, const char * objName, PropertyXLink * l) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3086{init}]]]
++remove(PropertyXLink * l) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3170{remove}]]]
+{static} +restoreDocument(const App::Document & doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3179{restoreDocument}]]]
++slotDeleteDocument(const App::Document & doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3243{slotDeleteDocument}]]]
++slotFinishRestoreDocument(const App::Document & doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3186{slotFinishRestoreDocument}]]]
++slotSaveDocument(const App::Document & doc) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L3194{slotSaveDocument}]]]
 __
++connDeleteDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2952{connDeleteDocument}]]]
++connDeletedObject : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2954{connDeletedObject}]]]
++connFinishRestoreDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2950{connFinishRestoreDocument}]]]
++connPendingReloadDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2951{connPendingReloadDocument}]]]
++connSaveDocument : Connection [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2953{connSaveDocument}]]]
++links : std::set<PropertyXLink *> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2959{links}]]]
++myPath : std::string [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2957{myPath}]]]
++myPos : DocInfoMap::iterator [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2956{myPos}]]]
++pcDoc : App::Document * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.cpp#L2958{pcDoc}]]]
 }
 class "ExpressionModifier<P>" as C_0002719644144049731031
 class C_0002719644144049731031 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L81{ExpressionModifier}]] {
@@ -965,21 +1027,24 @@ __
 {static} -propertyData : App::PropertyData [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L309{propertyData}]]]
 }
 }
-C_0010695310204690954695 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L310{signalChanged}]] : +signalChanged
+C_0010695310204690954695 o-- C_0011287612919229690754 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L281{StatusBits}]] : #StatusBits
 C_0010695310204690954695 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0003248008758125075888 o-- C_0008043958047214054893 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L99{_pcScope}]] : #_pcScope
-C_0002608726600132821089 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L594{_ElementRefs}]] : -_ElementRefs
+C_0002608726600132821089 o-- C_0008230723223479441929 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L574{signalUpdateElementReference}]] : +signalUpdateElementReference
+C_0002608726600132821089 o-- C_0011287612919229690754 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L580{_Flags}]] : #_Flags
+C_0002608726600132821089 o-- C_0000727039560643301762 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L593{_LabelRefs}]] : -_LabelRefs
+C_0002608726600132821089 o-- C_0013308879624612958512 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L594{_ElementRefs}]] : -_ElementRefs
 C_0002608726600132821089 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0002608726600132821089 <.. C_0000471281825098599380 : +<<friend>>
 C_0010695310204690954695 <|-- C_0002608726600132821089
 C_0003248008758125075888 <|-- C_0002608726600132821089
 C_0001180914135153777777 --+ C_0002608726600132821089
-C_0005394693048280462702 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L673{_pcLink}]] : #_pcLink
 C_0005394693048280462702 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0002608726600132821089 <|-- C_0005394693048280462702
 C_0008853167447719662535 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0002608726600132821089 <|-- C_0008853167447719662535
 C_0008853167447719662535 <|-- C_0015735421993864143571
+C_0014085980215244691733 o-- C_0006156734009172850642 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L775{_nameMap}]] : #_nameMap
 C_0014085980215244691733 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0015735421993864143571 <|-- C_0014085980215244691733
 C_0000483996533066158537 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L43{classTypeId}]] : -classTypeId
@@ -988,10 +1053,15 @@ C_0014794734502999483957 --> C_0010396699791746075194 [[https://github.com/FreeC
 C_0014085980215244691733 <|-- C_0014794734502999483957
 C_0017518396032144104641 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L43{classTypeId}]] : -classTypeId
 C_0014085980215244691733 <|-- C_0017518396032144104641
-C_0013271696616023367735 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L910{_pcLinkSub}]] : #_pcLinkSub
+C_0013271696616023367735 o-- C_0001347152004389415025 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L911{_cSubList}]] : #_cSubList
+C_0013271696616023367735 o-- C_0014166476186574794205 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L912{_ShadowSubList}]] : #_ShadowSubList
+C_0013271696616023367735 o-- C_0009228492206209329687 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L913{_mapped}]] : #_mapped
 C_0013271696616023367735 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0002608726600132821089 <|-- C_0013271696616023367735
-C_0013815104530485117626 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1067{_lValueList}]] : -_lValueList
+C_0013815104530485117626 o-- C_0000971373548487246411 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1067{_lValueList}]] : -_lValueList
+C_0013815104530485117626 o-- C_0001347152004389415025 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1068{_lSubList}]] : -_lSubList
+C_0013815104530485117626 o-- C_0014166476186574794205 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1069{_ShadowSubList}]] : -_ShadowSubList
+C_0013815104530485117626 o-- C_0009228492206209329687 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1070{_mapped}]] : -_mapped
 C_0013815104530485117626 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0002608726600132821089 <|-- C_0013815104530485117626
 C_0011851115478722663312 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L43{classTypeId}]] : -classTypeId
@@ -1000,35 +1070,31 @@ C_0008317139342106350069 --> C_0010396699791746075194 [[https://github.com/FreeC
 C_0013815104530485117626 <|-- C_0008317139342106350069
 C_0008535932535076062742 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L43{classTypeId}]] : -classTypeId
 C_0013815104530485117626 <|-- C_0008535932535076062742
-C_0008247520714140459012 o-- C_0000471281825098599380 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1220{docInfo}]] : #docInfo
+C_0008247520714140459012 o-- C_0001347152004389415025 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1225{_SubList}]] : #_SubList
+C_0008247520714140459012 o-- C_0014166476186574794205 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1226{_ShadowSubList}]] : #_ShadowSubList
+C_0008247520714140459012 o-- C_0009228492206209329687 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1227{_mapped}]] : #_mapped
 C_0008247520714140459012 --> C_0002608726600132821089 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1228{parentProp}]] : #parentProp
 C_0008247520714140459012 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0008247520714140459012 <.. C_0013779649905845948439 : +<<friend>>
 C_0008247520714140459012 <.. C_0000471281825098599380 : +<<friend>>
 C_0013779649905845948439 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0002608726600132821089 <|-- C_0013779649905845948439
-C_0003243972351689768810 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L1437{_Deps}]] : #_Deps
 C_0003243972351689768810 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0002608726600132821089 <|-- C_0003243972351689768810
 C_0014056646395515823561 o-- C_0014085980215244691733 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/GroupExtension.h#L125{Group}]] : +Group
-C_0014056646395515823561 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/GroupExtension.h#L136{_Conns}]] : -_Conns
 C_0014056646395515823561 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Extension.h#L52{classTypeId}]] : -classTypeId
 C_0012057493706357581048 o-- C_0014085980215244691733 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Link.h#L62{_ChildCache}]] : +_ChildCache
-C_0012057493706357581048 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Link.h#L377{props}]] : #props
-C_0012057493706357581048 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Link.h#L378{myHiddenElements}]] : #myHiddenElements
-C_0012057493706357581048 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Link.h#L383{plainGroupConns}]] : #plainGroupConns
+C_0012057493706357581048 o-- C_0001347152004389415025 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Link.h#L379{mySubElements}]] : #mySubElements
 C_0012057493706357581048 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Extension.h#L52{classTypeId}]] : -classTypeId
 C_0010041788863116126136 o-- C_0014085980215244691733 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Link.h#L137{ElementList}]] : +ElementList
 C_0010041788863116126136 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Extension.h#L52{classTypeId}]] : -classTypeId
 C_0012057493706357581048 <|-- C_0010041788863116126136
 C_0017715033373660922528 o-- C_0014085980215244691733 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Link.h#L137{ElementList}]] : +ElementList
 C_0017715033373660922528 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
-C_0013438737591560532615 <|-- C_0017715033373660922528
 C_0012057493706357581048 <|-- C_0017715033373660922528
 C_0002719644144049731031 --> C_0002608726600132821089 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Expression.h#L104{propLink}]] : #propLink
 C_0011226072182996780034 o-- C_0014085980215244691733 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Origin.h#L125{OriginFeatures}]] : +OriginFeatures
 C_0011226072182996780034 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
-C_0013438737591560532615 <|-- C_0011226072182996780034
 C_0007411343199106715084 o-- C_0005394693048280462702 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L75{Link}]] : +Link
 C_0007411343199106715084 o-- C_0013271696616023367735 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L76{LinkSub}]] : +LinkSub
 C_0007411343199106715084 o-- C_0014085980215244691733 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L77{LinkList}]] : +LinkList
@@ -1037,8 +1103,7 @@ C_0007411343199106715084 o-- C_0005394693048280462702 [[https://github.com/FreeC
 C_0007411343199106715084 o-- C_0005394693048280462702 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L88{Source2}]] : +Source2
 C_0007411343199106715084 o-- C_0014085980215244691733 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/FeatureTest.h#L89{SourceN}]] : +SourceN
 C_0007411343199106715084 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
-C_0013438737591560532615 <|-- C_0007411343199106715084
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

@@ -1,5 +1,11 @@
 @startuml
 title App::VRMLObject context
+package [std] as C_0009971158671206323968 {
+class "basic_string<char>" as C_0001275076681856179721
+class C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L133{basic_string}]] {
+__
+}
+}
 package [Base] as C_0005614219575140048477 {
 class "Type" as C_0010396699791746075194
 class C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L80{Type}]] {
@@ -202,14 +208,19 @@ C_0008521121395702379220 --> C_0008521121395702379220 [[https://github.com/FreeC
 C_0017690504369665749358 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0000183330796290968704 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0000183330796290968704 --> C_0008521121395702379220 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L309{propertyData}]] : -propertyData
+C_0014984907955352612061 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L130{_cValue}]] : #_cValue
+C_0014984907955352612061 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L131{_BaseFileName}]] : #_BaseFileName
+C_0014984907955352612061 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L132{_OriginalName}]] : #_OriginalName
+C_0014984907955352612061 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyFile.h#L135{m_filter}]] : -m_filter
 C_0014984907955352612061 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0005981626211632622083 o-- C_0014984907955352612061 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/VRMLObject.h#L57{VrmlFile}]] : +VrmlFile
 C_0005981626211632622083 o-- C_0017690504369665749358 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/VRMLObject.h#L58{Urls}]] : +Urls
 C_0005981626211632622083 o-- C_0017690504369665749358 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/VRMLObject.h#L59{Resources}]] : +Resources
+C_0005981626211632622083 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/VRMLObject.h#L73{vrmlPath}]] : -vrmlPath
 C_0005981626211632622083 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0005981626211632622083 --> C_0008521121395702379220 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L309{propertyData}]] : -propertyData
 C_0000183330796290968704 <|-- C_0005981626211632622083
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

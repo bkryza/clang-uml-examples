@@ -1,5 +1,11 @@
 @startuml
 title App::PropertyContainer context
+package [std] as C_0009971158671206323968 {
+class "basic_string<char>" as C_0001275076681856179721
+class C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L133{basic_string}]] {
+__
+}
+}
 package [Base] as C_0005614219575140048477 {
 class "Type" as C_0010396699791746075194
 class C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L80{Type}]] {
@@ -466,7 +472,6 @@ __
 }
 C_0011528780144950876692 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L43{classTypeId}]] : -classTypeId
 C_0010695310204690954695 --> C_0011434723455086278527 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L305{father}]] : -father
-C_0010695310204690954695 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Property.h#L310{signalChanged}]] : +signalChanged
 C_0010695310204690954695 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0010695310204690954695 <.. C_0006995009966221590167 : +<<friend>>
 C_0010695310204690954695 <.. C_0008521121395702379220 : +<<friend>>
@@ -474,36 +479,20 @@ C_0010695310204690954695 <.. C_0011434723455086278527 : +<<friend>>
 C_0011528780144950876692 <|-- C_0010695310204690954695
 C_0008521121395702379220 --> C_0008521121395702379220 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L116{parentPropertyData}]] : +parentPropertyData
 C_0011434723455086278527 o-- C_0006995009966221590167 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L265{dynamicProps}]] : #dynamicProps
+C_0011434723455086278527 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L268{_propertyPrefix}]] : -_propertyPrefix
 C_0011434723455086278527 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0011434723455086278527 --> C_0008521121395702379220 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L269{propertyData}]] : -propertyData
 C_0011434723455086278527 <.. C_0006995009966221590167 : +<<friend>>
 C_0011434723455086278527 <.. C_0010695310204690954695 : +<<friend>>
 C_0011528780144950876692 <|-- C_0011434723455086278527
-C_0005435287129923806992 o-- C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/ExtensionContainer.h#L213{_extensions}]] : -_extensions
 C_0005435287129923806992 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0011434723455086278527 <|-- C_0005435287129923806992
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L128{signalBeforeChange}]] : +signalBeforeChange
-C_0016033603647734666392 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L128{signalBeforeChange}]] : +signalBeforeChange
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L130{signalChanged}]] : +signalChanged
-C_0016033603647734666392 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L130{signalChanged}]] : +signalChanged
-C_0016033603647734666392 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L137{signalBeforeChangeObject}]] : +signalBeforeChangeObject
-C_0016033603647734666392 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L139{signalChangedObject}]] : +signalChangedObject
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L151{signalUndo}]] : +signalUndo
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L153{signalRedo}]] : +signalRedo
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L171{signalStartSave}]] : +signalStartSave
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L173{signalFinishSave}]] : +signalFinishSave
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L174{signalBeforeRecompute}]] : +signalBeforeRecompute
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L175{signalRecomputed}]] : +signalRecomputed
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L178{signalOpenTransaction}]] : +signalOpenTransaction
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L180{signalCommitTransaction}]] : +signalCommitTransaction
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L182{signalAbortTransaction}]] : +signalAbortTransaction
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L183{signalSkipRecompute}]] : +signalSkipRecompute
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L185{signalChangePropertyEditor}]] : +signalChangePropertyEditor
-C_0016033603647734666392 --> C_0010695310204690954695 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L185{signalChangePropertyEditor}]] : +signalChangePropertyEditor
+C_0016033603647734666392 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L606{oldLabel}]] : -oldLabel
+C_0016033603647734666392 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L607{myName}]] : -myName
 C_0016033603647734666392 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0016033603647734666392 --> C_0008521121395702379220 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L309{propertyData}]] : -propertyData
 C_0011434723455086278527 <|-- C_0016033603647734666392
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

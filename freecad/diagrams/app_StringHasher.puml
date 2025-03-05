@@ -1,5 +1,15 @@
 @startuml
 title App::StringHasher context
+package [std] as C_0009971158671206323968 {
+class "basic_string<char>" as C_0001275076681856179721
+class C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L133{basic_string}]] {
+__
+}
+class "unique_ptr<App::StringHasher::HashMap>" as C_0006441130617195995659
+class C_0006441130617195995659 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L781{unique_ptr}]] {
+__
+}
+}
 package [Base] as C_0005614219575140048477 {
 class "Type" as C_0010396699791746075194
 class C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Type.h#L80{Type}]] {
@@ -229,18 +239,21 @@ Hashable
 NoCopy
 }
 class "StringHasher::HashMap" as C_0005192877218220951797
-class C_0005192877218220951797 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L770{StringHasher::HashMap}]] {
+class C_0005192877218220951797 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.cpp#L80{StringHasher::HashMap}]] {
 __
++SaveAll : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.cpp#L83{SaveAll}]]]
++Threshold : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.cpp#L84{Threshold}]]]
 }
 }
 C_0011528780144950876692 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L43{classTypeId}]] : -classTypeId
 C_0013605707669487948616 --> C_0017780509170682934100 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L315{_hasher}]] : -_hasher
-C_0013605707669487948616 o-- C_0005093615375110790147 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L317{_sids}]] : -_sids
 C_0013605707669487948616 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0013605707669487948616 <.. C_0017780509170682934100 : +<<friend>>
 C_0015017624697253180418 <|-- C_0013605707669487948616
 C_0005093615375110790147 --> C_0013605707669487948616 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L618{_sid}]] : -_sid
 C_0005093615375110790147 <.. C_0017780509170682934100 : +<<friend>>
+C_0017780509170682934100 o-- C_0006441130617195995659 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L781{_hashes}]] : -_hashes
+C_0017780509170682934100 o-- C_0001275076681856179721 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/StringHasher.h#L782{_filename}]] : -_filename
 C_0017780509170682934100 --> C_0010396699791746075194 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/BaseClass.h#L55{classTypeId}]] : -classTypeId
 C_0017780509170682934100 <.. C_0013605707669487948616 : +<<friend>>
 C_0011528780144950876692 <|-- C_0017780509170682934100
@@ -248,6 +261,6 @@ C_0015017624697253180418 <|-- C_0017780509170682934100
 C_0012037765823422809204 --+ C_0017780509170682934100
 C_0005192877218220951797 --+ C_0017780509170682934100
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

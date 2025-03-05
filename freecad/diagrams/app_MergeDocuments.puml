@@ -1,5 +1,15 @@
 @startuml
 title App::MergeDocuments context
+package [std] as C_0009971158671206323968 {
+class "map<std::string,std::string>" as C_0012004170049756060246
+class C_0012004170049756060246 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Reader.h#L333{map}]] {
+__
+}
+class "vector<App::DocumentObject *>" as C_0007691493813868778495
+class C_0007691493813868778495 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyLinks.h#L183{vector}]] {
+__
+}
+}
 package [Base] as C_0005614219575140048477 {
 abstract "Persistence" as C_0011528780144950876692
 abstract C_0011528780144950876692 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/Base/Persistence.h#L36{Persistence}]] {
@@ -40,10 +50,6 @@ __
 }
 }
 package [App] as C_0018282610363821501524 {
-class "DocumentObject" as C_0013438737591560532615
-class C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/PropertyContainer.h#L42{DocumentObject}]] {
-__
-}
 class "Document" as C_0016033603647734666392
 class C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L61{Document}]] {
 #Document(const char * documentName = "") : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L553{Document}]]]
@@ -257,43 +263,12 @@ __
 -verbose : bool [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MergeDocuments.h#L57{verbose}]]]
 }
 }
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L128{signalBeforeChange}]] : +signalBeforeChange
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L130{signalChanged}]] : +signalChanged
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L132{signalNewObject}]] : +signalNewObject
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L135{signalDeletedObject}]] : +signalDeletedObject
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L137{signalBeforeChangeObject}]] : +signalBeforeChangeObject
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L139{signalChangedObject}]] : +signalChangedObject
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L141{signalTouchedObject}]] : +signalTouchedObject
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L143{signalRelabelObject}]] : +signalRelabelObject
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L145{signalActivatedObject}]] : +signalActivatedObject
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L147{signalTransactionAppend}]] : +signalTransactionAppend
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L149{signalTransactionRemove}]] : +signalTransactionRemove
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L151{signalUndo}]] : +signalUndo
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L153{signalRedo}]] : +signalRedo
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L162{signalExportObjects}]] : +signalExportObjects
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L164{signalExportViewObjects}]] : +signalExportViewObjects
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L166{signalImportObjects}]] : +signalImportObjects
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L168{signalImportViewObjects}]] : +signalImportViewObjects
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L169{signalFinishImportObjects}]] : +signalFinishImportObjects
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L171{signalStartSave}]] : +signalStartSave
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L173{signalFinishSave}]] : +signalFinishSave
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L174{signalBeforeRecompute}]] : +signalBeforeRecompute
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L175{signalRecomputed}]] : +signalRecomputed
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L175{signalRecomputed}]] : +signalRecomputed
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L176{signalRecomputedObject}]] : +signalRecomputedObject
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L178{signalOpenTransaction}]] : +signalOpenTransaction
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L180{signalCommitTransaction}]] : +signalCommitTransaction
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L182{signalAbortTransaction}]] : +signalAbortTransaction
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L183{signalSkipRecompute}]] : +signalSkipRecompute
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L183{signalSkipRecompute}]] : +signalSkipRecompute
-C_0016033603647734666392 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L184{signalFinishRestoreObject}]] : +signalFinishRestoreObject
-C_0016033603647734666392 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Document.h#L185{signalChangePropertyEditor}]] : +signalChangePropertyEditor
-C_0016033603647734666392 <.. C_0013438737591560532615 : +<<friend>>
 C_0001870913455895323032 --> C_0003868765709791894867 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MergeDocuments.h#L58{stream}]] : -stream
 C_0001870913455895323032 --> C_0016033603647734666392 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MergeDocuments.h#L59{appdoc}]] : -appdoc
-C_0001870913455895323032 --> C_0013438737591560532615 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MergeDocuments.h#L60{objects}]] : -objects
+C_0001870913455895323032 o-- C_0007691493813868778495 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MergeDocuments.h#L60{objects}]] : -objects
+C_0001870913455895323032 o-- C_0012004170049756060246 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/MergeDocuments.h#L61{nameMap}]] : -nameMap
 C_0011528780144950876692 <|-- C_0001870913455895323032
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

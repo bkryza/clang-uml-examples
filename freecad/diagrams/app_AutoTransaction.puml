@@ -220,13 +220,21 @@ __
 +signalUndoDocument : boost::signals2::signal<void (const Document &)> [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L235{signalUndoDocument}]]]
 }
 class "AutoTransaction" as C_0004352057540002486641
-class C_0004352057540002486641 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L52{AutoTransaction}]] {
+class C_0004352057540002486641 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L34{AutoTransaction}]] {
++AutoTransaction(const char * name = nullptr, bool tmpName = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L54{AutoTransaction}]]]
++~AutoTransaction() : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L62{~AutoTransaction}]]]
+..
+{static} +operator new(std::size_t) = deleted : void * [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L37{operator new}]]]
+..
++close(bool abort = false) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L70{close}]]]
+{static} +setEnable(bool enable) : void [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L81{setEnable}]]]
 __
+-tid : int [[[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/AutoTransaction.h#L84{tid}]]]
 }
 }
 C_0008903278854836561936 --> C_0008903278854836561936 [[https://github.com/FreeCAD/FreeCAD/blob/2fcc5317fe3aee96ca73475986a577719fc78e20/src/App/Application.h#L578{_pcSingleton}]] : -_pcSingleton
 C_0008903278854836561936 <.. C_0004352057540002486641 : +<<friend>>
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
