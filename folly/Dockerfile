@@ -6,7 +6,7 @@ RUN apt -y update && \
                   libgoogle-glog-dev libfmt-dev&& \
     apt clean
 
-ARG CLANG_UML_VERSION="0.6.0"
+ARG CLANG_UML_VERSION="0.6.1"
 
 RUN /usr/bin/install-clang-uml.sh ${CLANG_UML_VERSION}
 

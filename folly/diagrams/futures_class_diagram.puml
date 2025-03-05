@@ -1,5 +1,37 @@
 @startuml
 title 'futures' class diagram
+class "tag_t<typename...>" as C_0003474684073711699487
+class C_0003474684073711699487 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Traits.h#L57{tag_t}]] {
+__
+}
+class "Executor::KeepAlive<ExecutorT=Executor>" as C_0003318743605067253837
+class C_0003318743605067253837 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L86{Executor::KeepAlive}]] {
++operator=(KeepAlive<ExecutorT> && other) noexcept : KeepAlive<ExecutorT> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L127{operator=}]]]
++operator=(const KeepAlive<ExecutorT> & other) : KeepAlive<ExecutorT> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L133{operator=}]]]
+..
++operator*() const : ExecutorT & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L168{operator*}]]]
++operator->() const : ExecutorT * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L170{operator->}]]]
++operator=<OtherExecutor,typename=typename std::enable_if<std::is_convertible<OtherExecutor *, ExecutorT *>::value>::type>(KeepAlive<OtherExecutor> && other) noexcept : KeepAlive<ExecutorT> &
++operator=<OtherExecutor,typename=typename std::enable_if<std::is_convertible<OtherExecutor *, ExecutorT *>::value>::type>(const KeepAlive<OtherExecutor> & other) : KeepAlive<ExecutorT> &
+..
++KeepAlive() = default : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L90{KeepAlive}]]]
++KeepAlive(KeepAlive<ExecutorT> && other) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L101{KeepAlive}]]]
++KeepAlive(const KeepAlive<ExecutorT> & other) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L104{KeepAlive}]]]
++KeepAlive(ExecutorT * executor) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L123{KeepAlive}]]]
+-KeepAlive(ExecutorT * executor, uintptr_t flags) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L196{KeepAlive}]]]
+-KeepAlive(uintptr_t storage) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L203{KeepAlive}]]]
++KeepAlive<OtherExecutor,typename=typename std::enable_if<std::is_convertible<OtherExecutor *, ExecutorT *>::value>::type>(KeepAlive<OtherExecutor> && other) noexcept : void
++KeepAlive<OtherExecutor,typename=typename std::enable_if<std::is_convertible<OtherExecutor *, ExecutorT *>::value>::type>(const KeepAlive<OtherExecutor> & other) noexcept : void
++add<KAF>(KAF && f) : void
++copy() const : KeepAlive<ExecutorT> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L172{copy}]]]
++get() const : ExecutorT * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L164{get}]]]
++get_alias() const : KeepAlive<ExecutorT> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L178{get_alias}]]]
++operator bool() const : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L162{operator bool}]]]
++reset() noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L153{reset}]]]
++~KeepAlive() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L92{~KeepAlive}]]]
+__
+-storage_ : uintptr_t [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Executor.h#L206{storage_}]]]
+}
 class "exception_wrapper" as C_0012315460912762857634
 class C_0012315460912762857634 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/ExceptionWrapper.h#L98{exception_wrapper}]] {
 +exception_wrapper() noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/ExceptionWrapper.h#L134{exception_wrapper}]]]
@@ -45,6 +77,12 @@ class C_0012315460912762857634 [[https://github.com/facebook/folly/blob/78286282
 {static} -with_exception_<Ex,This,Fn>(This & this_, Fn fn_) : _Bool
 __
 -ptr_ : std::exception_ptr [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/ExceptionWrapper.h#L108{ptr_}]]]
+}
+class "Unit" as C_0009195241151980591236
+class C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Unit.h#L36{Unit}]] {
++operator!=(const Unit &) constexpr const : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Unit.h#L38{operator!=}]]]
++operator==(const Unit &) constexpr const : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Unit.h#L37{operator==}]]]
+__
 }
 class "Try<T>" as C_0001082685028566422986
 class C_0001082685028566422986 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Try.h#L138{Try}]] {
@@ -101,17 +139,202 @@ __
 {static} -kValueMask : const uint64_t [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Barrier.h#L57{kValueMask}]]]
 -size_ : uint32_t [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Barrier.h#L93{size_}]]]
 }
-class "Promise<T>" as C_0014224631506271559051
-class C_0014224631506271559051 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L179{Promise}]] {
+class "Executor::KeepAlive" as C_0017942624705739324784
+class C_0017942624705739324784 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/synchronization/HazptrDomain.h#L747{Executor::KeepAlive}]] {
 __
 }
+class "Promise<T>" as C_0014224631506271559051
+class C_0014224631506271559051 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L179{Promise}]] {
++Promise() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L195{Promise}]]]
++Promise(const Promise<T> &) = deleted : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L206{Promise}]]]
++Promise(Promise<T> && other) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L216{Promise}]]]
+-Promise(futures::detail::EmptyConstruct) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L479{Promise}]]]
+-Promise(futures::detail::MakeRetrievedFromStolenCoreTag, Core & core) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L484{Promise}]]]
++~Promise() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L203{~Promise}]]]
+..
++operator=(const Promise<T> &) = deleted : Promise<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L207{operator=}]]]
++operator=(Promise<T> && other) noexcept : Promise<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L229{operator=}]]]
+..
+-detach() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L482{detach}]]]
+-getCore() const : const Core & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L461{getCore}]]]
+-getCore() : Core & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L460{getCore}]]]
+{static} -getCoreImpl<CoreT>(CoreT * core) : CoreT &
++getFuture() : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L265{getFuture}]]]
++getSemiFuture() : SemiFuture<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L246{getSemiFuture}]]]
++isFulfilled() const noexcept : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L435{isFulfilled}]]]
+{static} +makeEmpty() noexcept : Promise<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L187{makeEmpty}]]]
++setException(exception_wrapper ew) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L289{setException}]]]
++setException<E>(E && e) : typename std::enable_if<std::is_base_of<std::exception, typename std::decay<E>::type>::value>::type
++setInterruptHandler<F>(F && fn) : void
++setTry(Try<T> && t) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L397{setTry}]]]
+-setTry(Executor::KeepAlive<> && ka, Try<T> && t) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L473{setTry}]]]
++setValue<B=T>() : typename std::enable_if<std::is_same<Unit, B>::value, void>::type
++setValue<M>(M && value) : void
++setWith<F>(F && func) : void
+-throwIfFulfilled() const : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L481{throwIfFulfilled}]]]
++valid() const noexcept : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L428{valid}]]]
+__
+-core_ : Core * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L477{core_}]]]
+-retrieved_ : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L451{retrieved_}]]]
+}
 class "SemiFuture<T>" as C_0001253063926417800239
-class C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L87{SemiFuture}]] {
+class C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L521{SemiFuture}]] {
++SemiFuture(const SemiFuture<T> &) = deleted : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L585{SemiFuture}]]]
++SemiFuture(SemiFuture<T> &&) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L587{SemiFuture}]]]
++SemiFuture(Future<T> &&) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L589{SemiFuture}]]]
+-SemiFuture(Core * obj) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1003{SemiFuture}]]]
+-SemiFuture(futures::detail::EmptyConstruct) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1005{SemiFuture}]]]
++SemiFuture<T2=T,typename=typename std::enable_if<!isFuture<typename std::decay<T2>::type>::value && !isSemiFuture<typename std::decay<T2>::type>::value && std::is_constructible<Try<T>, T2>::value>::type>(T2 && val) : void
++SemiFuture<T2=T>(typename std::enable_if<std::is_same<Unit,T2>::value>::type * p = nullptr) : void
++SemiFuture<Args...,typename std::enable_if<std::is_constructible<T, Args &&...>::value, int>::type=0>(std::in_place_t, Args &&... args) : void
++~SemiFuture() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L528{~SemiFuture}]]]
+..
++operator=(const SemiFuture<T> &) = deleted : SemiFuture<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L602{operator=}]]]
++operator=(SemiFuture<T> &&) noexcept : SemiFuture<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L603{operator=}]]]
+..
++operator=(Future<T> &&) noexcept : SemiFuture<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L604{operator=}]]]
+..
++defer<F>(F && func) : SemiFuture<typename futures::detail::tryCallableResult<T, F>::value_type>
++defer<R,Args...>(R (&)(Args...) func) : auto
++deferEnsure<F>(F && func) : SemiFuture<T>
++deferError<ExceptionType,F>(tag_t<ExceptionType>, F && func) : SemiFuture<T>
++deferError<ExceptionType,R,Args...>(tag_t<ExceptionType> tag, R (&)(Args...) func) : SemiFuture<T>
++deferError<R,Args...>(R (&)(Args...) func) : SemiFuture<T>
++deferError<F>(F && func) : SemiFuture<T>
++deferError<ExceptionType,F>(F && func) : SemiFuture<T>
++deferExTry<F>(F && func) : SemiFuture<typename futures::detail::tryExecutorCallableResult<T, F>::value_type>
++deferExValue<F>(F && func) : SemiFuture<typename futures::detail::valueExecutorCallableResult<T, F>::value_type>
++deferValue<R,Args...>(R (&)(Args...) func) : auto
++deferValue<F>(F && func) : SemiFuture<typename futures::detail::valueCallableResult<T, F>::value_type>
++delayed(HighResDuration dur, Timekeeper * tk = nullptr) : SemiFuture<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L951{delayed}]]]
++get(HighResDuration dur) : T [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L630{get}]]]
++get() : T [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L617{get}]]]
++getTry(HighResDuration dur) : Try<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L655{getTry}]]]
++getTry() : Try<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L642{getTry}]]]
+{static} +makeEmpty() : SemiFuture<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L535{makeEmpty}]]]
+{static} -releaseDeferredExecutor(Core * core) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1024{releaseDeferredExecutor}]]]
+-stealDeferredExecutor() : futures::detail::DeferredWrapper [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1009{stealDeferredExecutor}]]]
++toUnsafeFuture() : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L969{toUnsafeFuture}]]]
++unit() : SemiFuture<Unit> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L902{unit}]]]
++via(Executor::KeepAlive<> executor, int8_t priority) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L705{via}]]]
++via(Executor::KeepAlive<> executor) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L699{via}]]]
++viaInlineUnsafe(Executor::KeepAlive<> executor) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L704{viaInlineUnsafe}]]]
+-wait(HighResDuration dur) : SemiFuture<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1022{wait}]]]
++wait(HighResDuration dur) : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L696{wait}]]]
++wait() : SemiFuture<T> && [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L684{wait}]]]
++wait() : SemiFuture<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L669{wait}]]]
++within(HighResDuration dur, Timekeeper * tk = nullptr) : SemiFuture<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L919{within}]]]
++within<E>(HighResDuration dur, E e, Timekeeper * tk = nullptr) : SemiFuture<T>
 __
 }
 class "Future<T>" as C_0003460267206905569965
-class C_0003460267206905569965 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L89{Future}]] {
+class C_0003460267206905569965 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1063{Future}]] {
++Future(const Future<T> &) = deleted : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1115{Future}]]]
++Future(Future<T> &&) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1117{Future}]]]
+#Future(Core * obj) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1896{Future}]]]
+#Future(futures::detail::EmptyConstruct) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1898{Future}]]]
++Future<T2=T,typename=typename std::enable_if<!isFuture<typename std::decay<T2>::type>::value && !isSemiFuture<typename std::decay<T2>::type>::value && std::is_constructible<Try<T>, T2>::value>::type>(T2 && val) : void
++Future<T2=T>(typename std::enable_if<std::is_same<Unit,T2>::value>::type * p = nullptr) : void
++Future<Args...,typename std::enable_if<std::is_constructible<T, Args &&...>::value, int>::type=0>(std::in_place_t, Args &&... args) : void
++Future<T2,typename std::enable_if<!std::is_same<T, typename std::decay<T2>::type>::value && std::is_constructible<T, T2 &&>::value && std::is_convertible<T2 &&, T>::value, int>::type=0>(Future<T2> && other) : void
++Future<T2,typename std::enable_if<!std::is_same<T, typename std::decay<T2>::type>::value && std::is_constructible<T, T2 &&>::value && !std::is_convertible<T2 &&, T>::value, int>::type=0>(Future<T2> && other) : void
+..
++operator=(const Future<T> &) = deleted : Future<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1175{operator=}]]]
++operator=(Future<T> &&) noexcept : Future<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1178{operator=}]]]
+..
++operator=<T2,typename std::enable_if<!std::is_same<T, typename std::decay<T2>::type>::value && std::is_constructible<T, T2 &&>::value, int>::type=0>(Future<T2> && other) : Future<T> &
+..
++delayed(HighResDuration, Timekeeper *  = nullptr) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1662{delayed}]]]
++ensure<F>(F && func) : Future<T>
++ensureInline<F>(F && func) : Future<T>
++filter<F>(F && predicate) : Future<T>
++get(HighResDuration dur) : T [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1687{get}]]]
++get() : T [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1674{get}]]]
++getTry(HighResDuration dur) : Try<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1712{getTry}]]]
++getTry() : Try<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1699{getTry}]]]
++getTryVia(DrivableExecutor * e) : Try<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1197{getTryVia}]]]
++getTryVia(TimedDrivableExecutor * e, HighResDuration dur) : Try<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1201{getTryVia}]]]
++getVia(DrivableExecutor * e) : T [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1185{getVia}]]]
++getVia(TimedDrivableExecutor * e, HighResDuration dur) : T [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1192{getVia}]]]
+{static} +makeEmpty() : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1172{makeEmpty}]]]
++onTimeout<F>(HighResDuration, F && func, Timekeeper *  = nullptr) : Future<T>
++reduce<In,F>(In && initial, F && func) : Future<In>
++semi() : SemiFuture<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1866{semi}]]]
++then<R,Caller,Args...>(R (Caller::*)(Args...) func, Caller * instance) : Future<typename isFuture<R>::Inner>
++then<Arg>(Executor::KeepAlive<> x, Arg && arg) = deleted : auto
++then<F>(F && func) : Future<typename futures::detail::tryCallableResult<T, F>::value_type>
++then() : Future<Unit> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1551{then}]]]
++thenError<ExceptionType,F>(tag_t<ExceptionType>, F && func) : typename std::enable_if<isFutureOrSemiFuture<invoke_result_t<F, ExceptionType> >::value, Future<T> >::type
++thenError<ExceptionType,F>(tag_t<ExceptionType>, F && func) : typename std::enable_if<!isFutureOrSemiFuture<invoke_result_t<F, ExceptionType> >::value, Future<T> >::type
++thenError<ExceptionType,R,Args...>(tag_t<ExceptionType> tag, R (&)(Args...) func) : Future<T>
++thenError<ExceptionType,F>(F && func) : Future<T>
++thenError<R,Args...>(R (&)(Args...) func) : Future<T>
++thenError<F>(F && func) : typename std::enable_if<isFutureOrSemiFuture<invoke_result_t<F, exception_wrapper> >::value, Future<T> >::type
++thenError<F>(F && func) : typename std::enable_if<!isFutureOrSemiFuture<invoke_result_t<F, exception_wrapper> >::value, Future<T> >::type
+#thenErrorImpl<F>(F && func, futures::detail::InlineContinuation allowInline = futures::detail::InlineContinuation::forbid) : typename std::enable_if<!isFutureOrSemiFuture<invoke_result_t<F, exception_wrapper> >::value, Future<T> >::type
+#thenErrorImpl<ExceptionType,F>(tag_t<ExceptionType>, F && func, futures::detail::InlineContinuation allowInline = futures::detail::InlineContinuation::forbid) : typename std::enable_if<isFutureOrSemiFuture<invoke_result_t<F, ExceptionType> >::value, Future<T> >::type
+#thenErrorImpl<ExceptionType,F>(tag_t<ExceptionType>, F && func, futures::detail::InlineContinuation allowInline = futures::detail::InlineContinuation::forbid) : typename std::enable_if<!isFutureOrSemiFuture<invoke_result_t<F, ExceptionType> >::value, Future<T> >::type
+#thenErrorImpl<F>(F && func, futures::detail::InlineContinuation allowInline = futures::detail::InlineContinuation::forbid) : typename std::enable_if<isFutureOrSemiFuture<invoke_result_t<F, exception_wrapper> >::value, Future<T> >::type
++thenErrorInline<F>(F && func) : Future<T>
++thenErrorInline<ExceptionType,F>(tag_t<ExceptionType>, F && func) : Future<T>
++thenExTry<F>(F && func) : Future<typename futures::detail::tryExecutorCallableResult<T, F>::value_type>
++thenExTryInline<F>(F && func) : Future<typename futures::detail::tryExecutorCallableResult<T, F>::value_type>
++thenExValue<F>(F && func) : Future<typename futures::detail::valueExecutorCallableResult<T, F>::value_type>
++thenExValueInline<F>(F && func) : Future<typename futures::detail::valueExecutorCallableResult<T, F>::value_type>
++thenInline<F>(F && func) : Future<typename futures::detail::tryCallableResult<T, F>::value_type>
++thenTry<R,Args...>(R (&)(Args...) func) : auto
++thenTry<F>(F && func) : Future<typename futures::detail::tryCallableResult<T, F>::value_type>
++thenTryInline<R,Args...>(R (&)(Args...) func) : auto
++thenTryInline<F>(F && func) : Future<typename futures::detail::tryCallableResult<T, F>::value_type>
++thenValue<F>(F && func) : Future<typename futures::detail::valueCallableResult<T, F>::value_type>
++thenValue<R,Args...>(R (&)(Args...) func) : auto
++thenValueInline<F>(F && func) : Future<typename futures::detail::valueCallableResult<T, F>::value_type>
++thenValueInline<R,Args...>(R (&)(Args...) func) : auto
++unit() : Future<Unit> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1566{unit}]]]
++unwrap<F=T>() : typename std::enable_if<isFuture<F>::value, Future<typename isFuture<T>::Inner> >::type
++via(Executor::KeepAlive<> executor, int8_t priority) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1247{via}]]]
++via(Executor::KeepAlive<> executor) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1246{via}]]]
++via(Executor::KeepAlive<> executor, int8_t priority) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1231{via}]]]
++via(Executor::KeepAlive<> executor) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1230{via}]]]
++wait() : Future<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1725{wait}]]]
++wait(HighResDuration dur) : Future<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1752{wait}]]]
++wait() : Future<T> && [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1739{wait}]]]
++wait(HighResDuration dur) : Future<T> && [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1766{wait}]]]
++waitVia(TimedDrivableExecutor * e, HighResDuration dur) : Future<T> && [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1820{waitVia}]]]
++waitVia(TimedDrivableExecutor * e, HighResDuration dur) : Future<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1806{waitVia}]]]
++waitVia(DrivableExecutor * e) : Future<T> && [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1794{waitVia}]]]
++waitVia(DrivableExecutor * e) : Future<T> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1781{waitVia}]]]
++willEqual(Future<T> &) : Future<bool> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1826{willEqual}]]]
++within(HighResDuration dur, Timekeeper * tk = nullptr) : Future<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1631{within}]]]
++within<E>(HighResDuration dur, E exception, Timekeeper * tk = nullptr) : Future<T>
 __
+}
+abstract "DrivableExecutor" as C_0003854733173129195911
+abstract C_0003854733173129195911 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/DrivableExecutor.h#L40{DrivableExecutor}]] {
++~DrivableExecutor() = default : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/DrivableExecutor.h#L42{~DrivableExecutor}]]]
+..
+{abstract} +drive() = 0 : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/DrivableExecutor.h#L52{drive}]]]
+__
+}
+class "TimedDrivableExecutor" as C_0006155476999457451449
+class C_0006155476999457451449 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L30{TimedDrivableExecutor}]] {
++TimedDrivableExecutor() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L32{TimedDrivableExecutor}]]]
++~TimedDrivableExecutor() noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L33{~TimedDrivableExecutor}]]]
+..
++add(Func) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L60{add}]]]
++drain() noexcept : size_t [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L76{drain}]]]
++drive() noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L36{drive}]]]
++run() noexcept : size_t [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L68{run}]]]
++try_drive() noexcept : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L40{try_drive}]]]
++try_drive_for<Rep,Period>(const std::chrono::duration<Rep,Period> & timeout) noexcept : _Bool
++try_drive_until<Clock,Duration>(const std::chrono::time_point<Clock,Duration> & deadline) noexcept : _Bool
++try_wait() noexcept : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L82{try_wait}]]]
++try_wait_for<Rep,Period>(const std::chrono::duration<Rep,Period> & timeout) noexcept : _Bool
++try_wait_until<Clock,Duration>(const std::chrono::time_point<Clock,Duration> & deadline) noexcept : _Bool
++wait() noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L79{wait}]]]
+__
+-func_ : Func [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L100{func_}]]]
+-queue_ : UMPSCQueue<Func,true> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimedDrivableExecutor.h#L99{queue_}]]]
 }
 class "isSemiFuture<SemiFuture<T>>" as C_0007421581599365877708
 class C_0007421581599365877708 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future-pre.h#L35{isSemiFuture}]] {
@@ -150,19 +373,23 @@ __
 +promise : Promise<T> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L129{promise}]]]
 }
 class "SemiFuture<Unit>" as C_0005040405413099874209
-class C_0005040405413099874209 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L521{SemiFuture}]] {
+class C_0005040405413099874209 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L902{SemiFuture}]] {
+__
+}
+class "tag_t<ExceptionType>" as C_0018347827994528382898
+class C_0018347827994528382898 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L818{tag_t}]] {
 __
 }
 class "Future<Unit>" as C_0006984202933268680575
-class C_0006984202933268680575 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1063{Future}]] {
+class C_0006984202933268680575 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1551{Future}]] {
 __
 }
 class "Future<bool>" as C_0001755568429059916174
-class C_0001755568429059916174 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1063{Future}]] {
+class C_0001755568429059916174 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1826{Future}]] {
 __
 }
 class "Future<T2>" as C_0003257631961380900224
-class C_0003257631961380900224 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1063{Future}]] {
+class C_0003257631961380900224 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1127{Future}]] {
 __
 }
 abstract "Timekeeper" as C_0012634615413387786366
@@ -176,11 +403,11 @@ abstract C_0012634615413387786366 [[https://github.com/facebook/folly/blob/78286
 __
 }
 class "SharedPromise::Defaulted<size_t>" as C_0005942001210392254752
-class C_0005942001210392254752 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/SharedPromise.h#L111{SharedPromise::Defaulted}]] {
+class C_0005942001210392254752 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/SharedPromise.h#L131{SharedPromise::Defaulted}]] {
 __
 }
 class "SharedPromise::Defaulted<Try<T>>" as C_0004934512812947647933
-class C_0004934512812947647933 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/SharedPromise.h#L111{SharedPromise::Defaulted}]] {
+class C_0004934512812947647933 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/SharedPromise.h#L132{SharedPromise::Defaulted}]] {
 __
 }
 class "SharedPromise<T>" as C_0000565409696705527043
@@ -226,7 +453,7 @@ class C_0007311240070236582105 [[https://github.com/facebook/folly/blob/78286282
 __
 }
 class "Promise<bool>" as C_0001284932117452059526
-class C_0001284932117452059526 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future-pre.h#L24{Promise}]] {
+class C_0001284932117452059526 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Barrier.h#L79{Promise}]] {
 __
 }
 class "EventBaseThreadTimekeeper" as C_0014546640806406856592
@@ -251,7 +478,7 @@ __
 #state_ : Synchronized<std::optional<State>> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/WTCallback.h#L59{state_}]]]
 }
 class "Promise<Unit>" as C_0003493896011210497921
-class C_0003493896011210497921 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future-pre.h#L24{Promise}]] {
+class C_0003493896011210497921 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/WTCallback.h#L54{Promise}]] {
 __
 }
 class "ManualTimekeeper" as C_0010191229819511600985
@@ -276,12 +503,58 @@ __
 -state_ : std::shared_ptr<State> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.h#L46{state_}]]]
 -thread_ : std::thread [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.h#L47{thread_}]]]
 }
+class "HeapTimekeeper::Timeout" as C_0003677432100539814726
+class C_0003677432100539814726 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L34{HeapTimekeeper::Timeout}]] {
++operator<(const Timeout & other) const : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L47{operator<}]]]
+..
+-Timeout(HeapTimekeeper & parent, Clock::time_point exp, Promise<Unit> promise) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L57{Timeout}]]]
+{static} +create(HeapTimekeeper & parent, Clock::time_point expiration) : std::pair<Ref,SemiFuture<Unit>> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L41{create}]]]
++decRef() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L44{decRef}]]]
+{static} -interruptHandler(Ref self, std::shared_ptr<State> state, exception_wrapper ew) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L54{interruptHandler}]]]
++tryFulfill(Try<Unit> t) : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L45{tryFulfill}]]]
+__
++expiration : const Clock::time_point [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L51{expiration}]]]
+-fulfilled_ : relaxed_atomic<bool> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L60{fulfilled_}]]]
+-promise_ : Promise<Unit> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L61{promise_}]]]
+-refCount_ : std::atomic<uint8_t> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L59{refCount_}]]]
+}
+C_0012315460912762857634 ..> C_0003474684073711699487 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/ExceptionWrapper.h#L118{}]]
 C_0001082685028566422986 ..> C_0012315460912762857634 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/Try.h#L291{}]]
 C_0003208454900612351799 ..> C_0001755568429059916174 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Barrier.h#L50{}]]
 C_0003208454900612351799 ..> C_0003460267206905569965 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Barrier.h#L50{}]]
+C_0017942624705739324784 ..|> C_0003318743605067253837
 C_0014224631506271559051 ..|> C_0014224631506271559051
+C_0014224631506271559051 ..> C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L246{}]]
+C_0014224631506271559051 ..> C_0003460267206905569965 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L265{}]]
+C_0014224631506271559051 ..> C_0012315460912762857634 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L289{}]]
+C_0014224631506271559051 ..> C_0001082685028566422986 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L397{}]]
+C_0014224631506271559051 ..> C_0017942624705739324784 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L473{}]]
+C_0014224631506271559051 ..> C_0003318743605067253837 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Promise.h#L473{}]]
 C_0001253063926417800239 ..|> C_0001253063926417800239
+C_0001253063926417800239 ..> C_0003460267206905569965 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L589{}]]
+C_0001253063926417800239 ..> C_0001082685028566422986 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L642{}]]
+C_0001253063926417800239 ..> C_0017942624705739324784 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L699{}]]
+C_0001253063926417800239 ..> C_0003318743605067253837 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L699{}]]
+C_0001253063926417800239 ..> C_0005040405413099874209 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L902{}]]
+C_0001253063926417800239 ..> C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L902{}]]
+C_0001253063926417800239 ..> C_0012634615413387786366 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L919{}]]
+C_0001253063926417800239 ..> C_0018347827994528382898 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L818{}]]
+C_0001253063926417800239 ..> C_0003474684073711699487 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L818{}]]
 C_0003460267206905569965 ..|> C_0003460267206905569965
+C_0003460267206905569965 ..> C_0003854733173129195911 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1185{}]]
+C_0003460267206905569965 ..> C_0006155476999457451449 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1192{}]]
+C_0003460267206905569965 ..> C_0001082685028566422986 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1197{}]]
+C_0003460267206905569965 ..> C_0017942624705739324784 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1230{}]]
+C_0003460267206905569965 ..> C_0003318743605067253837 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1230{}]]
+C_0003460267206905569965 ..> C_0006984202933268680575 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1551{}]]
+C_0003460267206905569965 ..> C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1551{}]]
+C_0003460267206905569965 ..> C_0012634615413387786366 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1631{}]]
+C_0003460267206905569965 ..> C_0001755568429059916174 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1826{}]]
+C_0003460267206905569965 ..> C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1866{}]]
+C_0003460267206905569965 ..> C_0003257631961380900224 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1127{}]]
+C_0003460267206905569965 ..> C_0018347827994528382898 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1472{}]]
+C_0003460267206905569965 ..> C_0003474684073711699487 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1472{}]]
+C_0003854733173129195911 <|-- C_0006155476999457451449
 C_0007421581599365877708 ..> C_0001253063926417800239
 C_0005835383907236762306 ..> C_0003460267206905569965
 C_0018009393024518706430 ..> C_0003460267206905569965
@@ -294,12 +567,16 @@ C_0010115290322117200595 o-- C_0014224631506271559051 [[https://github.com/faceb
 C_0010115290322117200595 o-- C_0003460267206905569965 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L124{future}]] : +future
 C_0000624268001861988441 o-- C_0014224631506271559051 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L129{promise}]] : +promise
 C_0000624268001861988441 o-- C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L130{future}]] : +future
+C_0005040405413099874209 ..> C_0009195241151980591236
 C_0005040405413099874209 ..|> C_0001253063926417800239
+C_0018347827994528382898 ..|> C_0003474684073711699487
+C_0006984202933268680575 ..> C_0009195241151980591236
 C_0006984202933268680575 ..|> C_0003460267206905569965
 C_0001755568429059916174 ..|> C_0003460267206905569965
 C_0003257631961380900224 ..|> C_0003460267206905569965
 C_0012634615413387786366 ..> C_0005040405413099874209 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1986{}]]
 C_0012634615413387786366 ..> C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1986{}]]
+C_0012634615413387786366 ..> C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1986{}]]
 C_0012634615413387786366 ..> C_0006984202933268680575 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1994{}]]
 C_0012634615413387786366 ..> C_0003460267206905569965 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/Future.h#L1994{}]]
 C_0005942001210392254752 ..|> C_0006115416865625030461
@@ -318,18 +595,30 @@ C_0006115416865625030461 --+ C_0000565409696705527043
 C_0001284932117452059526 ..|> C_0014224631506271559051
 C_0014546640806406856592 ..> C_0005040405413099874209 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/ThreadWheelTimekeeper.h#L35{}]]
 C_0014546640806406856592 ..> C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/ThreadWheelTimekeeper.h#L35{}]]
+C_0014546640806406856592 ..> C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/ThreadWheelTimekeeper.h#L35{}]]
 C_0012634615413387786366 <|-- C_0014546640806406856592
 C_0009184897837778571109 ..> C_0005040405413099874209
 C_0009184897837778571109 ..> C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/WTCallback.h#L37{}]]
+C_0009184897837778571109 ..> C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/WTCallback.h#L37{}]]
 C_0009184897837778571109 ..> C_0012315460912762857634 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/WTCallback.h#L74{}]]
+C_0003493896011210497921 ..> C_0009195241151980591236
 C_0003493896011210497921 ..|> C_0014224631506271559051
 C_0010191229819511600985 ..> C_0005040405413099874209 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/ManualTimekeeper.h#L40{}]]
 C_0010191229819511600985 ..> C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/ManualTimekeeper.h#L40{}]]
+C_0010191229819511600985 ..> C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/ManualTimekeeper.h#L40{}]]
 C_0012634615413387786366 <|-- C_0010191229819511600985
 C_0015282033556129705293 ..> C_0005040405413099874209 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.h#L37{}]]
 C_0015282033556129705293 ..> C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.h#L37{}]]
+C_0015282033556129705293 ..> C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.h#L37{}]]
 C_0012634615413387786366 <|-- C_0015282033556129705293
+C_0003677432100539814726 --+ C_0015282033556129705293
+C_0003677432100539814726 ..> C_0005040405413099874209
+C_0003677432100539814726 ..> C_0001253063926417800239 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L41{}]]
+C_0003677432100539814726 ..> C_0009195241151980591236 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L41{}]]
+C_0003677432100539814726 ..> C_0001082685028566422986 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L45{}]]
+C_0003677432100539814726 ..> C_0012315460912762857634 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L55{}]]
+C_0003677432100539814726 o-- C_0003493896011210497921 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/futures/HeapTimekeeper.cpp#L61{promise_}]] : -promise_
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

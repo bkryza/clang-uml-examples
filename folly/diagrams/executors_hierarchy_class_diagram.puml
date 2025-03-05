@@ -138,6 +138,88 @@ class C_0008986097041257675940 [[https://github.com/facebook/folly/blob/78286282
 +scheduleAt(Func && func, const ScheduledExecutor::TimePoint & t) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimekeeperScheduledExecutor.h#L51{scheduleAt}]]]
 __
 }
+class "EventBase" as C_0015762807249591665962
+class C_0015762807249591665962 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L135{EventBase}]] {
++EventBase(std::chrono::milliseconds tickInterval) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L339{EventBase}]]]
++EventBase() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L346{EventBase}]]]
++EventBase(bool enableTimeMeasurement) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L357{EventBase}]]]
++EventBase(const EventBase &) = deleted : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L359{EventBase}]]]
++EventBase(event_base * evb, bool enableTimeMeasurement = true) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L375{EventBase}]]]
++EventBase(Options options) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L377{EventBase}]]]
++~EventBase() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L378{~EventBase}]]]
+..
++operator=(const EventBase &) = deleted : EventBase & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L360{operator=}]]]
+..
++add(Cob fn) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L963{add}]]]
++addExecutionObserver(ExecutionObserver * observer) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L925{addExecutionObserver}]]]
++attachTimeoutManager(AsyncTimeout * obj, TimeoutManager::InternalEnum internal) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L978{attachTimeoutManager}]]]
++bumpHandlingTime() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L877{bumpHandlingTime}]]]
++cancelTimeout(AsyncTimeout * obj) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L986{cancelTimeout}]]]
++checkIsInEventBaseThread() const : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L845{checkIsInEventBaseThread}]]]
++dcheckIsInEventBaseThread() const : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L846{dcheckIsInEventBaseThread}]]]
++detachTimeoutManager(AsyncTimeout * obj) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L981{detachTimeoutManager}]]]
++drive() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L966{drive}]]]
++getAvgLoopTime() const : double [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L778{getAvgLoopTime}]]]
++getBackend() : EventBaseBackendBase * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L859{getBackend}]]]
+{static} +getDefaultBackend() : std::unique_ptr<EventBaseBackendBase> [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L1005{getDefaultBackend}]]]
++getEventBase() : EventBase * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L1000{getEventBase}]]]
++getExecutionObserverList() : ExecutionObserver::List & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L936{getExecutionObserverList}]]]
++getLibeventBase() const : event_base * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L864{getLibeventBase}]]]
++getLibeventMethod() : const char * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L867{getLibeventMethod}]]]
+{static} +getLibeventVersion() : const char * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L866{getLibeventVersion}]]]
++getLoopCallbacksStartTime() : std::chrono::steady_clock::time_point [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L958{getLoopCallbacksStartTime}]]]
++getLoopThreadId() : std::thread::id [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L953{getLoopThreadId}]]]
++getName() : const std::string & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L948{getName}]]]
++getNotificationQueueSize() const : size_t [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L798{getNotificationQueueSize}]]]
++getNumLoopCallbacks() const : size_t [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L804{getNumLoopCallbacks}]]]
++getObserver() : const std::shared_ptr<EventBaseObserver> & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L917{getObserver}]]]
++getThreadIdCollector() : WorkerProvider * [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L1003{getThreadIdCollector}]]]
++getVirtualEventBase() : VirtualEventBase & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L997{getVirtualEventBase}]]]
++inRunningEventBaseThread() const : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L838{inRunningEventBaseThread}]]]
++isInEventBaseThread() const : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L833{isInEventBaseThread}]]]
++isInTimeoutManagerThread() : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L988{isInTimeoutManagerThread}]]]
++isRunning() const : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L789{isRunning}]]]
++loop() : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L395{loop}]]]
++loopForever() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L481{loopForever}]]]
++loopIgnoreKeepAlive() : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L401{loopIgnoreKeepAlive}]]]
++loopOnce(int flags = 0) : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L413{loopOnce}]]]
++loopPoll() : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L432{loopPoll}]]]
++loopPollCleanup() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L448{loopPollCleanup}]]]
++loopPollSetup() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L440{loopPollSetup}]]]
++loopWithSuspension() : LoopStatus [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L463{loopWithSuspension}]]]
++removeExecutionObserver(ExecutionObserver * observer) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L929{removeExecutionObserver}]]]
++resetLoadAvg(double value = 0.0) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L773{resetLoadAvg}]]]
++runAfterLoop(LoopCallback * callback) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L621{runAfterLoop}]]]
++runBeforeLoop(LoopCallback * callback) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L614{runBeforeLoop}]]]
++runImmediatelyOrRunInEventBaseThread<T>(void (*)(T *) fn, T * arg) noexcept : void
++runImmediatelyOrRunInEventBaseThread(Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L747{runImmediatelyOrRunInEventBaseThread}]]]
++runImmediatelyOrRunInEventBaseThreadAndWait<T>(void (*)(T *) fn, T * arg) noexcept : void
++runImmediatelyOrRunInEventBaseThreadAndWait(Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L734{runImmediatelyOrRunInEventBaseThreadAndWait}]]]
++runInEventBaseThread(Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L663{runInEventBaseThread}]]]
++runInEventBaseThread<T>(void (*)(T *) fn, T * arg) noexcept : void
++runInEventBaseThreadAlwaysEnqueue(Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L707{runInEventBaseThreadAlwaysEnqueue}]]]
++runInEventBaseThreadAlwaysEnqueue<T>(void (*)(T *) fn, T * arg) noexcept : void
++runInEventBaseThreadAndWait(Func fn) noexcept : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L720{runInEventBaseThreadAndWait}]]]
++runInEventBaseThreadAndWait<T>(void (*)(T *) fn, T * arg) noexcept : void
++runInLoop(Func c, bool thisIteration = false) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L572{runInLoop}]]]
++runInLoop(LoopCallback * callback, bool thisIteration = false, std::shared_ptr<RequestContext> rctx = RequestContext::saveContext()) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L553{runInLoop}]]]
++runOnDestruction(Func f) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L590{runOnDestruction}]]]
++runOnDestruction(OnDestructionCallback & callback) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L584{runOnDestruction}]]]
++runOnDestructionStart(OnDestructionCallback & callback) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L600{runOnDestructionStart}]]]
++runOnDestructionStart(Func f) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L607{runOnDestructionStart}]]]
++scheduleAt(Func && fn, const TimePoint & timeout) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L975{scheduleAt}]]]
++scheduleTimeout(AsyncTimeout * obj, TimeoutManager::timeout_type timeout) : bool [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L983{scheduleTimeout}]]]
++setLoadAvgMsec(std::chrono::milliseconds ms) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L768{setLoadAvgMsec}]]]
++setMaxLatency(std::chrono::microseconds maxLatency, Func maxLatencyCob, bool dampen = true) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L754{setMaxLatency}]]]
++setMaxReadAtOnce(uint32_t maxAtOnce) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L806{setMaxReadAtOnce}]]]
++setName(const std::string & name) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L943{setName}]]]
++setObserver(const std::shared_ptr<EventBaseObserver> & observer) : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L912{setObserver}]]]
++setStrictLoopThread() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L495{setStrictLoopThread}]]]
++terminateLoopSoon() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L523{terminateLoopSoon}]]]
++timer() : HHWheelTimer & [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L852{timer}]]]
++waitUntilRunning() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/io/async/EventBase.h#L796{waitUntilRunning}]]]
+__
+}
 class "SequencedExecutor" as C_0001241429373093027918
 class C_0001241429373093027918 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/SequencedExecutor.h#L27{SequencedExecutor}]] {
 +~SequencedExecutor() : void [[[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/SequencedExecutor.h#L29{~SequencedExecutor}]]]
@@ -319,9 +401,14 @@ C_0017776793085380749494 <|-- C_0009745677385186340420
 C_0017776793085380749494 <|-- C_0003854733173129195911
 C_0003854733173129195911 <|-- C_0006155476999457451449
 C_0017776793085380749494 <|-- C_0009653293792027775908
+C_0017164186783690075328 ..> C_0015762807249591665962 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/IOExecutor.h#L43{}]]
 C_0017776793085380749494 <|-- C_0017164186783690075328
 C_0008986097041257675940 ..> C_0017776793085380749494 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/TimekeeperScheduledExecutor.h#L60{}]]
 C_0009745677385186340420 <|-- C_0008986097041257675940
+C_0003854733173129195911 <|-- C_0015762807249591665962
+C_0017164186783690075328 <|-- C_0015762807249591665962
+C_0001241429373093027918 <|-- C_0015762807249591665962
+C_0009745677385186340420 <|-- C_0015762807249591665962
 C_0017776793085380749494 <|-- C_0001241429373093027918
 C_0017776793085380749494 <|-- C_0010778331982922016807
 C_0010778331982922016807 <|-- C_0018336471146499174434
@@ -330,8 +417,10 @@ C_0007431842865275729560 <|-- C_0004703699748051481367
 C_0017776793085380749494 <|-- C_0004483174105243086193
 C_0004483174105243086193 <|-- C_0004688217237312394024
 C_0018336471146499174434 <|-- C_0004688217237312394024
+C_0009607834158170061665 ..> C_0015762807249591665962 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/IOThreadPoolExecutor.h#L42{}]]
 C_0018336471146499174434 <|-- C_0009607834158170061665
 C_0017164186783690075328 <|-- C_0009607834158170061665
+C_0002081364047203854678 ..> C_0015762807249591665962 [[https://github.com/facebook/folly/blob/78286282478e1ae05b2e8cbcf0e2139eab283bea/folly/executors/IOThreadPoolExecutor.h#L122{}]]
 C_0009607834158170061665 <|-- C_0002081364047203854678
 C_0018336471146499174434 <|-- C_0013921078486722917754
 C_0003854733173129195911 <|-- C_0017886884333874879620
@@ -341,6 +430,6 @@ C_0016874217848018977497 ..> C_0004483174105243086193 [[https://github.com/faceb
 C_0017776793085380749494 <|-- C_0016874217848018977497
 C_0017776793085380749494 <|-- C_0003762899441884029837
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
