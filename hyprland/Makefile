@@ -17,7 +17,7 @@ build: hyprland
 diagrams: build
 		cd hyprland && \
 		cp ../.clang-uml .clang-uml && \
-		$(CLANG_UML_BINARY) -p --query-driver .
+		$(CLANG_UML_BINARY) -p -g plantuml
 
 plantuml: diagrams
 		plantuml -tsvg diagrams/*.puml

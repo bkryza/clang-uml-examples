@@ -69,7 +69,7 @@ RUN git clone --recursive https://github.com/hyprwm/hyprgraphics && \
     cd .. && \
     rm -rf hyprgraphics
 
-ARG CLANG_UML_VERSION="0.6.0"
+ARG CLANG_UML_VERSION="0.6.1"
 
 RUN /usr/bin/install-clang-uml.sh ${CLANG_UML_VERSION}
 
