@@ -1,66 +1,200 @@
 @startuml
 title Configuration model
-class "inheritable_diagram_options" as C_0000120779063265662583
-class C_0000120779063265662583 [[structclanguml_1_1config_1_1inheritable__diagram__options.html{Represents subset of inheritable configuration options}]] {
+enum "method_arguments" as C_0008929930160265859246
+enum C_0008929930160265859246 [[enumclanguml_1_1config_1_1method__arguments.html{method_arguments}]] {
+full
+abbreviated
+none
+}
+enum "package_type_t" as C_0011139441767746478551
+enum C_0011139441767746478551 [[enumclanguml_1_1config_1_1package__type__t.html{package_type_t}]] {
+kNamespace
+kDirectory
+kModule
+}
+enum "member_order_t" as C_0014034345390788369415
+enum C_0014034345390788369415 [[enumclanguml_1_1config_1_1member__order__t.html{member_order_t}]] {
+lexical
+as_is
+}
+enum "comment_parser_t" as C_0005797243701987833675
+enum C_0005797243701987833675 [[enumclanguml_1_1config_1_1comment__parser__t.html{comment_parser_t}]] {
+plain
+clang
+}
+enum "filter_mode_t" as C_0010159407361142330466
+enum C_0010159407361142330466 [[enumclanguml_1_1config_1_1filter__mode__t.html{filter_mode_t}]] {
+basic
+advanced
+}
+class "glob_t" as C_0000922824005107888467
+class C_0000922824005107888467 [[structclanguml_1_1config_1_1glob__t.html{Glob config section for including and excluding TUs}]] {
+__
++exclude : std::vector<common::string_or_regex> [[[{exclude}]]]
++include : std::vector<common::string_or_regex> [[[{include}]]]
+}
+class "plantuml" as C_0012552209127939982434
+class C_0012552209127939982434 [[structclanguml_1_1config_1_1plantuml.html{PlantUML diagram config section}]] {
++append(const plantuml & r) : void [[[{append}]]]
++get_style(common::model::relationship_t relationship_type) const : std::optional<std::string> [[[{get_style}]]]
++get_style(const std::string & element_type) const : std::optional<std::string> [[[{get_style}]]]
+__
++after : std::vector<std::string> [[[{after}]]]
++before : std::vector<std::string> [[[{before}]]]
++cmd : std::string [[[{cmd}]]]
++style : std::map<std::string,std::string> [[[{style}]]]
+}
+class "mermaid" as C_0010550478192514220106
+class C_0010550478192514220106 [[structclanguml_1_1config_1_1mermaid.html{MermaidJS diagram config section}]] {
++append(const mermaid & r) : void [[[{append}]]]
+__
++after : std::vector<std::string> [[[{after}]]]
++before : std::vector<std::string> [[[{before}]]]
++cmd : std::string [[[{cmd}]]]
+}
+class "graphml" as C_0009607386144451449715
+class C_0009607386144451449715 [[structclanguml_1_1config_1_1graphml.html{GraphML diagram config section}]] {
++append(const graphml & r) : void [[[{append}]]]
+__
++notes : std::map<std::string,std::vector<std::string>> [[[{notes}]]]
+}
+class "diagram_template" as C_0003260962999707780561
+class C_0003260962999707780561 [[structclanguml_1_1config_1_1diagram__template.html{Definition of diagram template}]] {
+__
++description : std::string [[[{description}]]]
++jinja_template : std::string [[[{jinja_template}]]]
++type : common::model::diagram_t [[[{type}]]]
+}
+class "filter" as C_0007079177641899195342
+class C_0007079177641899195342 [[structclanguml_1_1config_1_1filter.html{filter}]] {
+__
++access : std::vector<common::model::access_t> [[[{Access type filter}]]]
++allof : std::shared_ptr<filter> [[[{allof}]]]
++anyof : std::shared_ptr<filter> [[[{anyof}]]]
++callee_types : std::vector<callee_type> [[[{Callee types filter}]]]
++context : std::vector<context_config> [[[{Context filter}]]]
++dependants : std::vector<common::string_or_regex> [[[{Dependants filter}]]]
++dependencies : std::vector<common::string_or_regex> [[[{Dependencies filter}]]]
++element_types : std::vector<std::string> [[[{Element types filter}]]]
++elements : std::vector<element_filter_t> [[[{Elements filter}]]]
++method_types : std::vector<method_type> [[[{Method types filter}]]]
++module_access : std::vector<common::model::module_access_t> [[[{Access type filter}]]]
++modules : std::vector<common::string_or_regex> [[[{Modules filter}]]]
++namespaces : std::vector<common::namespace_or_regex> [[[{Namespaces filter}]]]
++parents : std::vector<common::string_or_regex> [[[{Parents filter}]]]
++paths : std::vector<std::string> [[[{Paths filter}]]]
++relationships : std::vector<common::model::relationship_t> [[[{Relationships filter}]]]
++specializations : std::vector<common::string_or_regex> [[[{Specializations filter}]]]
++subclasses : std::vector<common::string_or_regex> [[[{Subclasses filter}]]]
+}
+class "layout_hint" as C_0011953689435760969706
+class C_0011953689435760969706 [[structclanguml_1_1config_1_1layout__hint.html{layout_hint}]] {
+__
++entity : std::variant<std::string,std::vector<std::string>> [[[{entity}]]]
++hint : hint_t [[[{hint}]]]
+}
+class "generate_links_config" as C_0008758954105640727658
+class C_0008758954105640727658 [[structclanguml_1_1config_1_1generate__links__config.html{generate_links_config}]] {
++get_link_pattern(const std::string & path) const : std::optional<std::pair<std::string,std::string>> [[[{get_link_pattern}]]]
++get_tooltip_pattern(const std::string & path) const : std::optional<std::pair<std::string,std::string>> [[[{get_tooltip_pattern}]]]
+__
++link : std::map<std::string,std::string> [[[{link}]]]
++tooltip : std::map<std::string,std::string> [[[{tooltip}]]]
+}
+class "git_config" as C_0011876211496262698090
+class C_0011876211496262698090 [[structclanguml_1_1config_1_1git__config.html{git_config}]] {
+__
++branch : std::string [[[{branch}]]]
++commit : std::string [[[{commit}]]]
++revision : std::string [[[{revision}]]]
++toplevel : std::string [[[{toplevel}]]]
+}
+class "relationship_hint_t" as C_0011005884513554910500
+class C_0011005884513554910500 [[structclanguml_1_1config_1_1relationship__hint__t.html{relationship_hint_t}]] {
++relationship_hint_t(common::model::relationship_t def = common::model::relationship_t::kAggregation) : void [[[{relationship_hint_t}]]]
+..
++get(unsigned int argument_index, std::optional<common::model::relationship_t> def = = {}) const : common::model::relationship_t [[[{get}]]]
+__
++argument_hints : std::map<unsigned int,common::model::relationship_t> [[[{argument_hints}]]]
++default_hint : common::model::relationship_t [[[{default_hint}]]]
+}
+class "inheritable_diagram_options" as C_0000966232506125300666
+class C_0000966232506125300666 [[structclanguml_1_1config_1_1inheritable__diagram__options.html{Represents subset of inheritable configuration options}]] {
 +~inheritable_diagram_options() = default : void [[[{~inheritable_diagram_options}]]]
 ..
++generate_fully_qualified_name() const : bool [[[{Whether the diagram element should be fully qualified in diagram}]]]
++get_relative_to() : option<std::filesystem::path> & [[[{Get reference to `relative_to` diagram config option}]]]
 +inherit(const inheritable_diagram_options & parent) : void [[[{inherit}]]]
++root_directory() const : std::filesystem::path [[[{Returns absolute path of the `relative_to` option}]]]
 +simplify_template_type(std::string full_name) const : std::string [[[{simplify_template_type}]]]
 __
++allow_empty_diagrams : option<bool> [[[{allow_empty_diagrams}]]]
 +base_directory : option<std::filesystem::path> [[[{base_directory}]]]
 +combine_free_functions_into_file_participants : option<bool> [[[{combine_free_functions_into_file_participants}]]]
 +comment_parser : option<comment_parser_t> [[[{comment_parser}]]]
 +debug_mode : option<bool> [[[{debug_mode}]]]
 +exclude : option<filter> [[[{exclude}]]]
++filter_mode : option<filter_mode_t> [[[{filter_mode}]]]
++fold_repeated_activities : option<bool> [[[{fold_repeated_activities}]]]
++generate_concept_requirements : option<bool> [[[{generate_concept_requirements}]]]
 +generate_condition_statements : option<bool> [[[{generate_condition_statements}]]]
 +generate_links : option<generate_links_config> [[[{generate_links}]]]
++generate_message_comments : option<bool> [[[{generate_message_comments}]]]
 +generate_metadata : option<bool> [[[{generate_metadata}]]]
 +generate_method_arguments : option<method_arguments> [[[{generate_method_arguments}]]]
 +generate_packages : option<bool> [[[{generate_packages}]]]
 +generate_return_types : option<bool> [[[{generate_return_types}]]]
++generate_return_values : option<bool> [[[{generate_return_values}]]]
 +generate_system_headers : option<bool> [[[{generate_system_headers}]]]
 +generate_template_argument_dependencies : option<bool> [[[{generate_template_argument_dependencies}]]]
 +git : option<git_config> [[[{git}]]]
-+glob : option<std::vector<std::string>> [[[{glob}]]]
++glob : option<glob_t> [[[{glob}]]]
++graphml : option<struct graphml> [[[{graphml}]]]
 +group_methods : option<bool> [[[{group_methods}]]]
 +include : option<filter> [[[{include}]]]
 +include_relations_also_as_members : option<bool> [[[{include_relations_also_as_members}]]]
++include_system_headers : option<bool> [[[{include_system_headers}]]]
++inline_lambda_messages : option<bool> [[[{inline_lambda_messages}]]]
 +layout : option<layout_hints> [[[{layout}]]]
 +member_order : option<member_order_t> [[[{member_order}]]]
 +mermaid : option<struct mermaid> [[[{mermaid}]]]
++message_comment_width : option<unsigned int> [[[{message_comment_width}]]]
++message_name_width : option<unsigned int> [[[{message_name_width}]]]
 +package_type : option<package_type_t> [[[{package_type}]]]
 +participants_order : option<std::vector<std::string>> [[[{participants_order}]]]
 +puml : option<plantuml> [[[{puml}]]]
 +relationship_hints : option<relationship_hints_t> [[[{relationship_hints}]]]
-+relative_to : option<std::filesystem::path> [[[{relative_to}]]]
+#relative_to : option<std::filesystem::path> [[[{relative_to}]]]
 +skip_redundant_dependencies : option<bool> [[[{skip_redundant_dependencies}]]]
 +type_aliases : option<type_aliases_t> [[[{type_aliases}]]]
++user_data : option<inja::json> [[[{user_data}]]]
++using_module : option<std::string> [[[{using_module}]]]
 +using_namespace : option<common::model::namespace_> [[[{using_namespace}]]]
 }
-abstract "diagram" as C_0000400244097365422548
-abstract C_0000400244097365422548 [[structclanguml_1_1config_1_1diagram.html{Common diagram configuration type}]] {
+abstract "diagram" as C_0003201952778923380387
+abstract C_0003201952778923380387 [[structclanguml_1_1config_1_1diagram.html{Common diagram configuration type}]] {
 +~diagram() = default : void [[[{~diagram}]]]
 ..
 +get_together_group(const std::string & full_name) const : std::optional<std::string> [[[{get_together_group}]]]
-+get_translation_units() const : std::vector<std::string> [[[{Returns list of translation unit paths}]]]
++glob_translation_units(const std::vector<std::string> & compilation_database_files, bool is_fixed = false) const : std::vector<std::string> [[[{Filter translation units based on glob patterns}]]]
 +initialize_type_aliases() : void [[[{Initialize predefined set of C++ type aliases}]]]
++make_module_relative(const std::optional<std::string> & maybe_module) const : std::vector<std::string> [[[{Make module path relative to `using_module` configuration option}]]]
 +make_path_relative(const std::filesystem::path & p) const : std::filesystem::path [[[{Make path relative to the `relative_to` config option}]]]
-+root_directory() const : std::filesystem::path [[[{Returns absolute path of the `relative_to` option}]]]
 {abstract} +type() const = 0 : common::model::diagram_t [[[{type}]]]
 __
 +name : std::string [[[{name}]]]
 +title : option<std::string> [[[{title}]]]
 }
-class "class_diagram" as C_0000315821915147252995
-class C_0000315821915147252995 [[structclanguml_1_1config_1_1class__diagram.html{Class diagram configuration}]] {
+class "class_diagram" as C_0002526575321178023965
+class C_0002526575321178023965 [[structclanguml_1_1config_1_1class__diagram.html{Class diagram configuration}]] {
 +~class_diagram() = default : void [[[{~class_diagram}]]]
 ..
 +initialize_relationship_hints() : void [[[{initialize_relationship_hints}]]]
 +type() const : common::model::diagram_t [[[{type}]]]
 __
 }
-class "sequence_diagram" as C_0002069553655160139136
-class C_0002069553655160139136 [[structclanguml_1_1config_1_1sequence__diagram.html{Sequence diagram configuration}]] {
+class "sequence_diagram" as C_0016556429241281113094
+class C_0016556429241281113094 [[structclanguml_1_1config_1_1sequence__diagram.html{Sequence diagram configuration}]] {
 +~sequence_diagram() = default : void [[[{~sequence_diagram}]]]
 ..
 +type() const : common::model::diagram_t [[[{type}]]]
@@ -69,22 +203,23 @@ __
 +from_to : option<std::vector<std::vector<source_location>>> [[[{from_to}]]]
 +to : option<std::vector<source_location>> [[[{to}]]]
 }
-class "package_diagram" as C_0002030177163277970590
-class C_0002030177163277970590 [[structclanguml_1_1config_1_1package__diagram.html{Package diagram configuration}]] {
+class "package_diagram" as C_0016241417306223764720
+class C_0016241417306223764720 [[structclanguml_1_1config_1_1package__diagram.html{Package diagram configuration}]] {
 +~package_diagram() = default : void [[[{~package_diagram}]]]
 ..
 +type() const : common::model::diagram_t [[[{type}]]]
 __
 }
-class "include_diagram" as C_0000509333813868966475
-class C_0000509333813868966475 [[structclanguml_1_1config_1_1include__diagram.html{Include diagram configuration}]] {
+class "include_diagram" as C_0004074670510951731805
+class C_0004074670510951731805 [[structclanguml_1_1config_1_1include__diagram.html{Include diagram configuration}]] {
 +~include_diagram() = default : void [[[{~include_diagram}]]]
 ..
 +type() const : common::model::diagram_t [[[{type}]]]
 __
 }
-class "config" as C_0000893743909513410599
-class C_0000893743909513410599 [[structclanguml_1_1config_1_1config.html{Represents entire configuration file}]] {
+class "config" as C_0007149951276107284798
+class C_0007149951276107284798 [[structclanguml_1_1config_1_1config.html{Represents entire configuration file}]] {
++inherit() : void [[[{inherit}]]]
 +initialize_diagram_templates() : void [[[{initialize_diagram_templates}]]]
 __
 +add_compile_flags : option<std::vector<std::string>> [[[{add_compile_flags}]]]
@@ -93,22 +228,40 @@ __
 +diagrams : std::map<std::string,std::shared_ptr<diagram>> [[[{diagrams}]]]
 +output_directory : option<std::string> [[[{output_directory}]]]
 +query_driver : option<std::string> [[[{query_driver}]]]
-+remove_compile_flags : option<std::vector<std::string>> [[[{remove_compile_flags}]]]
++remove_compile_flags : option<std::vector<common::string_or_regex>> [[[{remove_compile_flags}]]]
 }
-C_0000120779063265662583 <|-- C_0000400244097365422548
-C_0000400244097365422548 <|-- C_0000315821915147252995
-C_0000400244097365422548 <|-- C_0002069553655160139136
-C_0000400244097365422548 <|-- C_0002030177163277970590
-C_0000400244097365422548 <|-- C_0000509333813868966475
-C_0000893743909513410599 o-- C_0000400244097365422548 : +diagrams
-C_0000120779063265662583 <|-- C_0000893743909513410599
-note left of C_0000120779063265662583: Options common to all diagram types.
-note right of C_0000893743909513410599: General options not used by diagrams.
-note bottom of C_0000315821915147252995: Options for specific class diagrams
-note bottom of C_0002069553655160139136: Options for specific sequence diagrams
-note bottom of C_0002030177163277970590: Options for specific package diagrams
-note bottom of C_0000509333813868966475: Options for specific include diagrams
+C_0007079177641899195342 --> C_0007079177641899195342 [[{anyof}]] : +anyof
+C_0007079177641899195342 --> C_0007079177641899195342 [[{allof}]] : +allof
+C_0000966232506125300666 o-- C_0000922824005107888467 [[{glob}]] : +glob
+C_0000966232506125300666 o-- C_0010159407361142330466 [[{filter_mode}]] : +filter_mode
+C_0000966232506125300666 o-- C_0007079177641899195342 [[{include}]] : +include
+C_0000966232506125300666 o-- C_0007079177641899195342 [[{exclude}]] : +exclude
+C_0000966232506125300666 o-- C_0012552209127939982434 [[{puml}]] : +puml
+C_0000966232506125300666 o-- C_0010550478192514220106 [[{mermaid}]] : +mermaid
+C_0000966232506125300666 o-- C_0009607386144451449715 [[{graphml}]] : +graphml
+C_0000966232506125300666 o-- C_0008929930160265859246 [[{generate_method_arguments}]] : +generate_method_arguments
+C_0000966232506125300666 o-- C_0014034345390788369415 [[{member_order}]] : +member_order
+C_0000966232506125300666 o-- C_0011139441767746478551 [[{package_type}]] : +package_type
+C_0000966232506125300666 o-- C_0008758954105640727658 [[{generate_links}]] : +generate_links
+C_0000966232506125300666 o-- C_0011876211496262698090 [[{git}]] : +git
+C_0000966232506125300666 o-- C_0011953689435760969706 [[{layout}]] : +layout
+C_0000966232506125300666 o-- C_0011005884513554910500 [[{relationship_hints}]] : +relationship_hints
+C_0000966232506125300666 o-- C_0005797243701987833675 [[{comment_parser}]] : +comment_parser
+C_0000966232506125300666 <|-- C_0003201952778923380387
+C_0003201952778923380387 <|-- C_0002526575321178023965
+C_0003201952778923380387 <|-- C_0016556429241281113094
+C_0003201952778923380387 <|-- C_0016241417306223764720
+C_0003201952778923380387 <|-- C_0004074670510951731805
+C_0007149951276107284798 o-- C_0003260962999707780561 [[{diagram_templates}]] : +diagram_templates
+C_0007149951276107284798 o-- C_0003201952778923380387 [[{diagrams}]] : +diagrams
+C_0000966232506125300666 <|-- C_0007149951276107284798
+note left of C_0000966232506125300666: Options common to all diagram types.
+note right of C_0007149951276107284798: General options not used by diagrams.
+note bottom of C_0002526575321178023965: Options for specific class diagrams
+note bottom of C_0016556429241281113094: Options for specific sequence diagrams
+note bottom of C_0016241417306223764720: Options for specific package diagrams
+note bottom of C_0004074670510951731805: Options for specific include diagrams
 
-'Generated with clang-uml, version 0.4.0-7-g8a6b497
-'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

@@ -1,10 +1,24 @@
 @startuml
 title Nested trait model class hierarchy
-class "common::model::nested_trait<T,Path>" as C_0000891208748219309562
-class C_0000891208748219309562 [[classclanguml_1_1common_1_1model_1_1nested__trait.html{Base class for elements nested in the diagram.}]] {
+package [common] as C_0002532840279361781187 {
+package [model] as C_0000669774451444102653 {
+class "nested_trait<T,Path>" as C_0007129669985754476498
+class C_0007129669985754476498 [[classclanguml_1_1common_1_1model_1_1nested__trait.html{Base class for elements nested in the diagram.}]] {
 __
 }
+class "nested_trait<common::model::element,common::model::path>" as C_0015066935078142509054
+class C_0015066935078142509054 [[classclanguml_1_1common_1_1model_1_1nested__trait.html{nested_trait}]] {
+__
+}
+class "package" as C_0017146293478645494837
+class C_0017146293478645494837 [[classclanguml_1_1common_1_1model_1_1package.html{Diagram element representing namespace or directory package}]] {
+__
+}
+}
+}
+C_0015066935078142509054 ..|> C_0007129669985754476498
+C_0015066935078142509054 <|-- C_0017146293478645494837
 
-'Generated with clang-uml, version 0.4.0-7-g8a6b497
-'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

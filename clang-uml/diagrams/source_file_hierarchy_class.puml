@@ -1,30 +1,46 @@
 @startuml
 title Source file model class hierarchy
-class "common::model::decorated_element" as C_0001117102382624673118
-class C_0001117102382624673118 [[classclanguml_1_1common_1_1model_1_1decorated__element.html{Base class for decorated diagram elements}]] {
+class "common::model::source_location" as C_0007162092657467521843
+class C_0007162092657467521843 [[classclanguml_1_1common_1_1model_1_1source__location.html{Base class of all diagram elements that have source location.}]] {
 __
 }
-class "common::model::stylable_element" as C_0002077846075979426940
-class C_0002077846075979426940 [[classclanguml_1_1common_1_1model_1_1stylable__element.html{Diagram elements to which style can be applied.}]] {
+class "common::model::decorated_element" as C_0008936819060997384951
+class C_0008936819060997384951 [[classclanguml_1_1common_1_1model_1_1decorated__element.html{Base class for decorated diagram elements}]] {
 __
 }
-class "common::model::source_location" as C_0000895261582183440230
-class C_0000895261582183440230 [[classclanguml_1_1common_1_1model_1_1source__location.html{Base class of all diagram elements that have source location.}]] {
+class "common::model::stylable_element" as C_0016622768607835415521
+class C_0016622768607835415521 [[classclanguml_1_1common_1_1model_1_1stylable__element.html{Diagram elements to which style can be applied.}]] {
 __
 }
-class "common::model::diagram_element" as C_0001073500714379115414
-class C_0001073500714379115414 [[classclanguml_1_1common_1_1model_1_1diagram__element.html{Base class for standalone diagram elements.}]] {
+class "common::model::diagram_element" as C_0008588005715032923314
+class C_0008588005715032923314 [[classclanguml_1_1common_1_1model_1_1diagram__element.html{Base class for standalone diagram elements.}]] {
 __
 }
-class "common::model::source_file" as C_0000785714713072053129
-class C_0000785714713072053129 [[classclanguml_1_1common_1_1model_1_1source__file.html{Diagram element representing some file or directory.}]] {
+class "common::model::nested_trait<common::model::source_file,common::model::filesystem_path>" as C_0012891720332235399601
+class C_0012891720332235399601 [[classclanguml_1_1common_1_1model_1_1nested__trait.html{nested_trait}]] {
 __
 }
-C_0001117102382624673118 <|-- C_0001073500714379115414
-C_0000895261582183440230 <|-- C_0001073500714379115414
-C_0001073500714379115414 <|-- C_0000785714713072053129
-C_0002077846075979426940 <|-- C_0000785714713072053129
+class "common::model::source_file" as C_0006285717704576425038
+class C_0006285717704576425038 [[classclanguml_1_1common_1_1model_1_1source__file.html{Diagram element representing some file or directory.}]] {
+__
+}
+class "util::memoized<common::model::full_name_tag_t,std::string,bool>" as C_0015453306866783002016
+class C_0015453306866783002016 [[classclanguml_1_1util_1_1memoized.html{memoized}]] {
+__
+}
+class "util::memoized<common::model::name_and_ns_tag,std::string>" as C_0011142327304907631799
+class C_0011142327304907631799 [[classclanguml_1_1util_1_1memoized.html{memoized}]] {
+__
+}
+C_0008936819060997384951 <|-- C_0008588005715032923314
+C_0007162092657467521843 <|-- C_0008588005715032923314
+C_0015453306866783002016 <|-- C_0008588005715032923314
+C_0011142327304907631799 <|-- C_0008588005715032923314
+C_0012891720332235399601 ..> C_0006285717704576425038
+C_0008588005715032923314 <|-- C_0006285717704576425038
+C_0016622768607835415521 <|-- C_0006285717704576425038
+C_0012891720332235399601 <|-- C_0006285717704576425038
 
-'Generated with clang-uml, version 0.4.0-7-g8a6b497
-'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

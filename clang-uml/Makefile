@@ -7,14 +7,14 @@ all: plantuml
 clang-uml:
 		git clone https://github.com/bkryza/clang-uml && \
 		cd clang-uml && \
-		git checkout v0.6.0
+		git checkout v0.6.1
 
 build: clang-uml
 		LLVM_VERSION=19 $(MAKE) -C clang-uml debug/CMakeLists.txt
 
 diagrams: build
 		cd clang-uml && \
-		$(CLANG_UML_BINARY) --output-directory ../diagrams -p --query-driver .
+		$(CLANG_UML_BINARY) -p --query-driver .
 
 plantuml: diagrams
 		plantuml -tsvg diagrams/*.puml

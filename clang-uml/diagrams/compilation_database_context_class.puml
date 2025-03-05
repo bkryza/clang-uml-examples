@@ -1,24 +1,28 @@
 @startuml
 title Compilation database context diagram
-class "clanguml::common::compilation_database" as C_0000597104457503221480
-class C_0000597104457503221480 [[classclanguml_1_1common_1_1compilation__database.html{Custom compilation database class}]] {
-+compilation_database(std::unique_ptr<clang::tooling::CompilationDatabase> base, const clanguml::config::config & cfg) : void [[[{compilation_database}]]]
+class "clanguml::common::compilation_database" as C_0004776835660025771847
+class C_0004776835660025771847 [[classclanguml_1_1common_1_1compilation__database.html{Custom compilation database class}]] {
++compilation_database(std::unique_ptr<clang::tooling::CompilationDatabase> base, const clanguml::config::config & cfg, bool is_fixed) : void [[[{compilation_database}]]]
 +~compilation_database() = default : void [[[{~compilation_database}]]]
 ..
 -adjust_compilation_database(std::vector<clang::tooling::CompileCommand> & commands) const : void [[[{adjust_compilation_database}]]]
 {static} +auto_detect_from_directory(const clanguml::config::config & cfg) : std::unique_ptr<compilation_database> [[[{auto_detect_from_directory}]]]
 +base() const : const clang::tooling::CompilationDatabase & [[[{base}]]]
 +config() const : const clanguml::config::config & [[[{config}]]]
++count_matching_commands(const std::vector<std::string> & files) const : size_t [[[{count_matching_commands}]]]
 +getAllCompileCommands() const : std::vector<clang::tooling::CompileCommand> [[[{getAllCompileCommands}]]]
 +getAllFiles() const : std::vector<std::string> [[[{getAllFiles}]]]
 +getCompileCommands(clang::StringRef FilePath) const : std::vector<clang::tooling::CompileCommand> [[[{getCompileCommands}]]]
 +guess_language_from_filename(const std::string & filename) const : std::string [[[{guess_language_from_filename}]]]
++is_fixed() const : bool [[[{Determines whether this is a fixed or regular compilation  database.}]]]
 __
 -base_ : std::unique_ptr<clang::tooling::CompilationDatabase> [[[{base_}]]]
 -config_ : const clanguml::config::config & [[[{config_}]]]
+-is_fixed_ : bool [[[{is_fixed_}]]]
 }
-class "clanguml::config::config" as C_0000893743909513410599
-class C_0000893743909513410599 [[structclanguml_1_1config_1_1config.html{Represents entire configuration file}]] {
+class "clanguml::config::config" as C_0007149951276107284798
+class C_0007149951276107284798 [[structclanguml_1_1config_1_1config.html{Represents entire configuration file}]] {
++inherit() : void [[[{inherit}]]]
 +initialize_diagram_templates() : void [[[{initialize_diagram_templates}]]]
 __
 +add_compile_flags : option<std::vector<std::string>> [[[{add_compile_flags}]]]
@@ -27,37 +31,37 @@ __
 +diagrams : std::map<std::string,std::shared_ptr<diagram>> [[[{diagrams}]]]
 +output_directory : option<std::string> [[[{output_directory}]]]
 +query_driver : option<std::string> [[[{query_driver}]]]
-+remove_compile_flags : option<std::vector<std::string>> [[[{remove_compile_flags}]]]
++remove_compile_flags : option<std::vector<common::string_or_regex>> [[[{remove_compile_flags}]]]
 }
-class "clang::tooling::CompileCommand" as C_0001157011696030393919
-class C_0001157011696030393919 [[structclang_1_1tooling_1_1CompileCommand.html{CompileCommand}]] {
-+CompileCommand() = default : void [[[{CompileCommand}]]]
-+CompileCommand(const Twine & Directory, const Twine & Filename, std::vector<std::string> CommandLine, const Twine & Output) : void [[[{CompileCommand}]]]
+class "clang::tooling::CompileCommand" as C_0009256093568243151354
+class C_0009256093568243151354 {
++CompileCommand() = default : void
++CompileCommand(const Twine & Directory, const Twine & Filename, std::vector<std::string> CommandLine, const Twine & Output) : void
 __
-+CommandLine : std::vector<std::string> [[[{CommandLine}]]]
-+Directory : std::string [[[{Directory}]]]
-+Filename : std::string [[[{Filename}]]]
-+Heuristic : std::string [[[{Heuristic}]]]
-+Output : std::string [[[{Output}]]]
++CommandLine : std::vector<std::string>
++Directory : std::string
++Filename : std::string
++Heuristic : std::string
++Output : std::string
 }
-abstract "clang::tooling::CompilationDatabase" as C_0001617832303729071872
-abstract C_0001617832303729071872 [[classclang_1_1tooling_1_1CompilationDatabase.html{CompilationDatabase}]] {
-+~CompilationDatabase() : void [[[{~CompilationDatabase}]]]
+abstract "clang::tooling::CompilationDatabase" as C_0012942658429832574981
+abstract C_0012942658429832574981 {
++~CompilationDatabase() : void
 ..
-{static} +autoDetectFromDirectory(StringRef SourceDir, std::string & ErrorMessage) : std::unique_ptr<CompilationDatabase> [[[{autoDetectFromDirectory}]]]
-{static} +autoDetectFromSource(StringRef SourceFile, std::string & ErrorMessage) : std::unique_ptr<CompilationDatabase> [[[{autoDetectFromSource}]]]
-+getAllCompileCommands() const : std::vector<CompileCommand> [[[{getAllCompileCommands}]]]
-+getAllFiles() const : std::vector<std::string> [[[{getAllFiles}]]]
-{abstract} +getCompileCommands(StringRef FilePath) const = 0 : std::vector<CompileCommand> [[[{getCompileCommands}]]]
-{static} +loadFromDirectory(StringRef BuildDirectory, std::string & ErrorMessage) : std::unique_ptr<CompilationDatabase> [[[{loadFromDirectory}]]]
+{static} +autoDetectFromDirectory(StringRef SourceDir, std::string & ErrorMessage) : std::unique_ptr<CompilationDatabase>
+{static} +autoDetectFromSource(StringRef SourceFile, std::string & ErrorMessage) : std::unique_ptr<CompilationDatabase>
++getAllCompileCommands() const : std::vector<CompileCommand>
++getAllFiles() const : std::vector<std::string>
+{abstract} +getCompileCommands(StringRef FilePath) const = 0 : std::vector<CompileCommand>
+{static} +loadFromDirectory(StringRef BuildDirectory, std::string & ErrorMessage) : std::unique_ptr<CompilationDatabase>
 __
 }
-C_0000597104457503221480 ..> C_0001157011696030393919
-C_0000597104457503221480 o-- C_0001617832303729071872 : -base_
-C_0000597104457503221480 --> C_0000893743909513410599 : -config_
-C_0001617832303729071872 <|-- C_0000597104457503221480
-C_0001617832303729071872 ..> C_0001157011696030393919
+C_0004776835660025771847 ..> C_0009256093568243151354 [[{}]]
+C_0004776835660025771847 o-- C_0012942658429832574981 [[{base_}]] : -base_
+C_0004776835660025771847 --> C_0007149951276107284798 [[{config_}]] : -config_
+C_0012942658429832574981 <|-- C_0004776835660025771847
+C_0012942658429832574981 ..> C_0009256093568243151354
 
-'Generated with clang-uml, version 0.4.0-7-g8a6b497
-'LLVM version Ubuntu clang version 16.0.6 (++20230710042027+7cbf1a259152-1~exp1~20230710162048.105)
+'Generated with clang-uml, version 0.6.1
+'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
