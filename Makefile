@@ -1,4 +1,5 @@
-CLANG_UML_BINARY ?= /usr/bin/clang-uml
+CLANG_UML_DIR ?= /usr/bin/
+CLANG_UML_BINARY ?= $(CLANG_UML_DIR)/clang-uml
 DOCKER_IMAGE_REVISION ?= 1
 
 BUILD_DIRS = clang-uml chromium cppast drogon folly godot yaml-cpp poco entt freecad curl cpp-standard-library hyprland
@@ -23,8 +24,11 @@ dockerimage/%:
 
 dockerpush:
 	@for dir in $(BUILD_DIRS); do \
-	  docker push bkryza/clang-uml-examples-$*:v$(DOCKER_IMAGE_REVISION); \
+	  docker push bkryza/clang-uml-examples-$$dir:v$(DOCKER_IMAGE_REVISION); \
 	done
 
 dockerpush/%:
 	docker push bkryza/clang-uml-examples-$*:v$(DOCKER_IMAGE_REVISION)
+
+docker-dev/%:
+	docker run -v $(CLANG_UML_DIR):$(CLANG_UML_DIR) -v $(PWD):/build -it bkryza/clang-uml-examples-$*:v$(DOCKER_IMAGE_REVISION) -C $* CLANG_UML_BINARY=$(CLANG_UML_BINARY)
