@@ -31,11 +31,31 @@ class C_0009137490335478929011 [[https://github.com/skypjack/entt/blob/4a2d1a854
 __
 }
 class "delegate<Ret(Args...)>" as C_0000095819046035262690
-class C_0000095819046035262690 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L51{delegate}]] {
+class C_0000095819046035262690 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L66{delegate}]] {
++delegate() noexcept = default : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L108{delegate}]]]
++delegate(function_type * function, const void * payload = nullptr) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L127{delegate}]]]
++delegate<auto Candidate,Type...>(connect_arg_t<Candidate>, Type &&... value_or_instance) noexcept : void
+..
++operator()(Args... args) const : Ret [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L260{operator()}]]]
++operator==(const delegate<Ret (Args...)> & other) const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L279{operator==}]]]
+..
++connect(function_type * function, const void * payload = nullptr) noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L216{connect}]]]
++connect<auto Candidate>() noexcept : void
++connect<auto Candidate,Type>(Type & value_or_instance) noexcept : void
++connect<auto Candidate,Type>(Type * value_or_instance) noexcept : void
++data() const noexcept : const void * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L244{data}]]]
++operator bool() const noexcept : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L269{operator bool}]]]
++reset() noexcept : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L227{reset}]]]
++target() const noexcept : function_type * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L236{target}]]]
+-wrap<auto Candidate,std::size_t... Index>(std::index_sequence<Index...>) noexcept : auto
+-wrap<auto Candidate,Type,std::size_t... Index>(Type &, std::index_sequence<Index...>) noexcept : auto
+-wrap<auto Candidate,Type,std::size_t... Index>(Type *, std::index_sequence<Index...>) noexcept : auto
 __
+-fn : delegate_type * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L285{fn}]]]
+-instance : const void * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L284{instance}]]]
 }
 class "connect_arg_t<Candidate>" as C_0005357853988188680439
-class C_0005357853988188680439 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/fwd.hpp#L32{connect_arg_t}]] {
+class C_0005357853988188680439 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L117{connect_arg_t}]] {
 __
 }
 class "sigh<Ret(Args...),Allocator>" as C_0013236231516175506741
@@ -61,7 +81,7 @@ __
 -calls : container_type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/sigh.hpp#L219{calls}]]]
 }
 class "delegate<void(void *)>" as C_0010705873669594481554
-class C_0010705873669594481554 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L51{delegate}]] {
+class C_0010705873669594481554 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/sigh.hpp#L233{delegate}]] {
 __
 }
 class "connection" as C_0013032066334648964050
@@ -109,7 +129,15 @@ __
 -signal : signal_type * [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/sigh.hpp#L452{signal}]]]
 }
 class "sigh<void(Type &),Allocator>" as C_0006816532813498759562
-class C_0006816532813498759562 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/sigh.hpp#L35{sigh}]] {
+class C_0006816532813498759562 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/dispatcher.hpp#L86{sigh}]] {
+__
+}
+class "dense_map<basic_dispatcher::key_type,std::shared_ptr<internal::basic_dispatcher_handler>,identity,std::equal_to,basic_dispatcher::container_allocator>" as C_0017681255020896416991
+class C_0017681255020896416991 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/dispatcher.hpp#L392{dense_map}]] {
+__
+}
+class "compressed_pair<dense_map<basic_dispatcher::key_type,std::shared_ptr<internal::basic_dispatcher_handler>,identity,std::equal_to,basic_dispatcher::container_allocator>,basic_dispatcher::allocator_type>" as C_0011263284971506974574
+class C_0011263284971506974574 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/dispatcher.hpp#L392{compressed_pair}]] {
 __
 }
 class "basic_dispatcher<Allocator=std::allocator<void>>" as C_0009115614145857051039
@@ -174,6 +202,14 @@ class "delegate<typename>" as C_0016977260515313172050
 class C_0016977260515313172050 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/fwd.hpp#L9{delegate}]] {
 __
 }
+class "dense_map<emitter::key_type,std::function<void(void *)>,identity,std::equal_to,emitter::container_allocator>" as C_0015678297364003084443
+class C_0015678297364003084443 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/emitter.hpp#L177{dense_map}]] {
+__
+}
+class "compressed_pair<dense_map<emitter::key_type,std::function<void(void *)>,identity,std::equal_to,emitter::container_allocator>,emitter::allocator_type>" as C_0000727777562493826683
+class C_0000727777562493826683 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/emitter.hpp#L177{compressed_pair}]] {
+__
+}
 class "emitter<Derived,Allocator=std::allocator<void>>" as C_0011018497833689505232
 class C_0011018497833689505232 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/emitter.hpp#L36{emitter}]] {
 +emitter() : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/emitter.hpp#L51{emitter}]]]
@@ -200,6 +236,8 @@ __
 C_0007585688813257773636 o-- C_0006816532813498759562 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/dispatcher.hpp#L86{signal}]] : -signal
 C_0010458321909914862036 <|-- C_0007585688813257773636
 C_0000095819046035262690 ..|> C_0016977260515313172050
+C_0000095819046035262690 ..> C_0005357853988188680439 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L117{}]]
+C_0000095819046035262690 ..> C_0009137490335478929011 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/delegate.hpp#L117{}]]
 C_0005357853988188680439 ..|> C_0009137490335478929011
 C_0013236231516175506741 o-- C_0000095819046035262690 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/sigh.hpp#L219{calls}]] : -calls
 C_0013236231516175506741 ..|> C_0001347871636257682237
@@ -211,8 +249,11 @@ C_0000981745609737535993 --> C_0013236231516175506741 [[https://github.com/skypj
 C_0000981745609737535993 --> C_0001347871636257682237 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/sigh.hpp#L452{signal}]] : -signal
 C_0000981745609737535993 ..|> C_0013542667047513183698
 C_0006816532813498759562 ..|> C_0013236231516175506741
-C_0009115614145857051039 o-- C_0010458321909914862036 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/dispatcher.hpp#L392{pools}]] : -pools
+C_0011263284971506974574 ..> C_0017681255020896416991
+C_0009115614145857051039 o-- C_0011263284971506974574 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/dispatcher.hpp#L392{pools}]] : -pools
+C_0000727777562493826683 ..> C_0015678297364003084443
+C_0011018497833689505232 o-- C_0000727777562493826683 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/signal/emitter.hpp#L177{handlers}]] : -handlers
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

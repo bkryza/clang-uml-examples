@@ -42,6 +42,9 @@ rejected
 }
 class "process_adaptor<Func,Delta>" as C_0007902543244082869685
 class C_0007902543244082869685 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L328{process_adaptor}]] {
++process_adaptor<Args...>(Args &&... args) : void
+..
++update(const Delta delta, void * data) : void [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L343{update}]]]
 __
 }
 class "process<process_adaptor<Func,Delta>,Delta>" as C_0013691076075093252349
@@ -65,6 +68,10 @@ class C_0003327253693836455337 [[https://github.com/skypjack/entt/blob/4a2d1a854
 +update(const Delta delta, void * data) : bool [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L36{update}]]]
 __
 +process : Type [[[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L48{process}]]]
+}
+class "compressed_pair<std::vector<std::shared_ptr<internal::basic_process_handler<Delta>>>,basic_scheduler::allocator_type>" as C_0000329567306917909881
+class C_0000329567306917909881 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L359{compressed_pair}]] {
+__
 }
 class "basic_scheduler<Delta=std::uint32_t,Allocator=std::allocator<void>>" as C_0014256786017402784757
 class C_0014256786017402784757 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L82{basic_scheduler}]] {
@@ -103,11 +110,13 @@ __
 C_0018001750142984279989 o-- C_0002917746718584045493 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/process.hpp#L285{current}]] : -current
 C_0002917746718584045493 --+ C_0018001750142984279989
 C_0007902543244082869685 ..|> C_0007902543244082869685
+C_0013691076075093252349 <|-- C_0007902543244082869685
 C_0013691076075093252349 ..> C_0007902543244082869685
 C_0013691076075093252349 ..|> C_0018001750142984279989
 C_0000079378394303088257 <|-- C_0003327253693836455337
-C_0014256786017402784757 o-- C_0000079378394303088257 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L359{handlers}]] : -handlers
+C_0000329567306917909881 ..> C_0000079378394303088257
+C_0014256786017402784757 o-- C_0000329567306917909881 [[https://github.com/skypjack/entt/blob/4a2d1a8541228a90e02a873dba6a980506c42c03/src/entt/process/scheduler.hpp#L359{handlers}]] : -handlers
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
