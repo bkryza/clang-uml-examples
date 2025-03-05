@@ -267,17 +267,64 @@ class C_0016109918494445555553 {
 +~CallbackEntry() : void
 __
 }
-class "Poller" as C_0002400273203183077136
-class C_0002400273203183077136 {
+abstract "Poller" as C_0002400273203183077136
+abstract C_0002400273203183077136 {
++Poller(EventLoop * loop) : void
++~Poller() : void
+..
++assertInLoopThread() : void
+{static} +newPoller(EventLoop * loop) : Poller *
+{abstract} +poll(int timeoutMs, ChannelList * activeChannels) = 0 : void
+{abstract} +removeChannel(Channel * channel) = 0 : void
++resetAfterFork() : void
+{abstract} +updateChannel(Channel * channel) = 0 : void
 __
 }
 class "TimerQueue" as C_0004859200761461552810
 class C_0004859200761461552810 {
++TimerQueue(EventLoop * loop) : void
++~TimerQueue() : void
+..
++addTimer(const TimerCallback & cb, const TimePoint & when, const TimeInterval & interval) : TimerId
++addTimer(TimerCallback && cb, const TimePoint & when, const TimeInterval & interval) : TimerId
++addTimerInLoop(const TimerPtr & timer) : void
++invalidateTimer(TimerId id) : void
++reset() : void
 __
 }
 class "Channel" as C_0006117526629196852195
 class C_0006117526629196852195 {
++Channel(EventLoop * loop, int fd) : void
+..
++disableAll() : void
++disableReading() : void
++disableWriting() : void
++enableReading() : void
++enableWriting() : void
++events() const : int
++fd() const : int
++isNoneEvent() const : bool
++isReading() const : bool
++isWriting() const : bool
++ownerLoop() : EventLoop *
++remove() : void
++revents() const : int
++setCloseCallback(EventCallback && cb) : void
++setCloseCallback(const EventCallback & cb) : void
++setErrorCallback(EventCallback && cb) : void
++setErrorCallback(const EventCallback & cb) : void
++setEventCallback(const EventCallback & cb) : void
++setEventCallback(EventCallback && cb) : void
++setReadCallback(EventCallback && cb) : void
++setReadCallback(const EventCallback & cb) : void
++setWriteCallback(EventCallback && cb) : void
++setWriteCallback(const EventCallback & cb) : void
++tie(const std::shared_ptr<void> & obj) : void
++updateEvents(int events) : void
 __
+{static} +kNoneEvent : const int
+{static} +kReadEvent : const int
+{static} +kWriteEvent : const int
 }
 abstract "TaskQueue" as C_0005478985967983820353
 abstract C_0005478985967983820353 {
@@ -767,6 +814,31 @@ __
 }
 class "TcpClient" as C_0009250936088729533450
 class C_0009250936088729533450 {
++TcpClient(EventLoop * loop, const InetAddress & serverAddr, const std::string & nameArg) : void
++~TcpClient() : void
+..
++connect() : void
++connection() const : TcpConnectionPtr
++disconnect() : void
++enableRetry() : void
++enableSSL(TLSPolicyPtr policy) : void
++enableSSL(bool useOldTLS = false, bool validateCert = true, std::string hostname = "", const std::vector<std::pair<std::string,std::string>> & sslConfCmds = =
+            {}, const std::string & certPath = "", const std::string & keyPath = "", const std::string & caPath = "") : void
++getLoop() const : EventLoop *
++name() const : const std::string &
++retry() const : bool
++setConnectionCallback(const ConnectionCallback & cb) : void
++setConnectionCallback(ConnectionCallback && cb) : void
++setConnectionErrorCallback(const ConnectionErrorCallback & cb) : void
++setMessageCallback(const RecvMessageCallback & cb) : void
++setMessageCallback(RecvMessageCallback && cb) : void
++setSSLErrorCallback(const SSLErrorCallback & cb) : void
++setSSLErrorCallback(SSLErrorCallback && cb) : void
++setSockOptCallback(const SockOptCallback & cb) : void
++setSockOptCallback(SockOptCallback && cb) : void
++setWriteCompleteCallback(const WriteCompleteCallback & cb) : void
++setWriteCompleteCallback(WriteCompleteCallback && cb) : void
++stop() : void
 __
 }
 class "KQueue" as C_0012237386715174947101
@@ -878,6 +950,19 @@ C_0005731444726335351425 o-- C_0015445520160522602000 : -logStream_
 C_0009278591901947957509 <|-- C_0005731444726335351425
 C_0007715726745416538447 --> C_0011121046198641787995 : -loop_
 C_0016109918494445555553 --+ C_0007715726745416538447
+C_0002400273203183077136 ..> C_0006117526629196852195
+C_0002400273203183077136 --> C_0011121046198641787995 : -ownerLoop_
+C_0009278591901947957509 <|-- C_0002400273203183077136
+C_0004859200761461552810 --> C_0011121046198641787995 : #loop_
+C_0004859200761461552810 --> C_0006117526629196852195 : #timerfdChannelPtr_
+C_0004859200761461552810 o-- C_0016211802203438081308 : #timers_
+C_0009278591901947957509 <|-- C_0004859200761461552810
+C_0006117526629196852195 --> C_0011121046198641787995 : -loop_
+C_0006117526629196852195 <.. C_0005296074009893140189 : +<<friend>>
+C_0006117526629196852195 <.. C_0012237386715174947101 : +<<friend>>
+C_0006117526629196852195 <.. C_0002358328527430634934 : +<<friend>>
+C_0006117526629196852195 <.. C_0011121046198641787995 : +<<friend>>
+C_0009278591901947957509 <|-- C_0006117526629196852195
 C_0009278591901947957509 <|-- C_0005478985967983820353
 C_0010244900171882959669 --> C_0011121046198641787995 : -loop_
 C_0010244900171882959669 o-- C_0011121046198641787995 : -promiseForLoopPointer_
@@ -970,6 +1055,19 @@ C_0009278591901947957509 <|-- C_0007366076114194714852
 C_0018135163554749066073 --+ C_0007366076114194714852
 C_0018135163554749066073 --> C_0017844999456800716210 : -conn_
 C_0013818794706755929803 --+ C_0007366076114194714852
+C_0009250936088729533450 ..> C_0015178723681693133804
+C_0009250936088729533450 ..> C_0003473961504128027226
+C_0009250936088729533450 --> C_0011121046198641787995 : -loop_
+C_0009250936088729533450 o-- C_0013648347674017210592 : -connector_
+C_0009250936088729533450 --> C_0017844999456800716210 : -connectionCallback_
+C_0009250936088729533450 --> C_0017844999456800716210 : -messageCallback_
+C_0009250936088729533450 --> C_0010315960162156298814 : -messageCallback_
+C_0009250936088729533450 --> C_0017844999456800716210 : -writeCompleteCallback_
+C_0009250936088729533450 ..> C_0003473961504128027226 : -sslErrorCallback_
+C_0009250936088729533450 o-- C_0017844999456800716210 : -connection_
+C_0009250936088729533450 o-- C_0016802962249950978267 : -tlsPolicyPtr_
+C_0009250936088729533450 o-- C_0005008858431116647593 : -sslContextPtr_
+C_0009278591901947957509 <|-- C_0009250936088729533450
 C_0010231268558644568352 --+ C_0009250936088729533450
 C_0013648347674017210592 --> C_0006117526629196852195 : -channelPtr_
 C_0013648347674017210592 --> C_0011121046198641787995 : -loop_
@@ -979,6 +1077,6 @@ C_0000007857573361393299 --+ C_0013648347674017210592
 C_0009278591901947957509 <|-- C_0016211802203438081308
 C_0001258725769384817912 ..> C_0016211802203438081308
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
