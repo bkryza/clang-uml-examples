@@ -64,6 +64,60 @@ class C_0004804591595803064605 [[https://github.com/foonathan/cppast/blob/5329e3
 +reference_kind() const noexcept : cpp_reference [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L413{reference_kind}]]]
 __
 }
+class "cpp_decltype_auto_type" as C_0000209986721715701296
+class C_0000209986721715701296 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_decltype_type.hpp#L40{cpp_decltype_auto_type}]] {
+{static} +build() : std::unique_ptr<cpp_decltype_auto_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_decltype_type.hpp#L44{build}]]]
+__
+}
+class "cpp_member_object_type" as C_0004829067063951846468
+class C_0004829067063951846468 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L164{cpp_member_object_type}]] {
+{static} +build(std::unique_ptr<cpp_type> class_type, std::unique_ptr<cpp_type> object_type) : std::unique_ptr<cpp_member_object_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L168{build}]]]
++class_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L176{class_type}]]]
++object_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L182{object_type}]]]
+__
+}
+class "cpp_template_instantiation_type" as C_0008075371397714845723
+class C_0008075371397714845723 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_template.hpp#L93{cpp_template_instantiation_type}]] {
++arguments() const noexcept : type_safe::basic_optional<type_safe::array_ref<const cpp_template_argument>> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_template.hpp#L145{arguments}]]]
++arguments_exposed() const noexcept : bool [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_template.hpp#L138{arguments_exposed}]]]
++primary_template() const noexcept : const cpp_template_ref & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_template.hpp#L132{primary_template}]]]
++unexposed_arguments() const noexcept : const std::string & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_template.hpp#L156{unexposed_arguments}]]]
+__
+}
+class "cpp_decltype_type" as C_0009479862681401776453
+class C_0009479862681401776453 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_decltype_type.hpp#L13{cpp_decltype_type}]] {
+{static} +build(std::unique_ptr<cpp_expression> expr) : std::unique_ptr<cpp_decltype_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_decltype_type.hpp#L17{build}]]]
++expression() const noexcept : const cpp_expression & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_decltype_type.hpp#L23{expression}]]]
+__
+}
+class "cpp_array_type" as C_0010779989821278160600
+class C_0010779989821278160600 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_array_type.hpp#L13{cpp_array_type}]] {
+{static} +build(std::unique_ptr<cpp_type> type, std::unique_ptr<cpp_expression> size) : std::unique_ptr<cpp_array_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_array_type.hpp#L18{build}]]]
++size() const noexcept : type_safe::basic_optional<const cpp_expression> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_array_type.hpp#L33{size}]]]
++value_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_array_type.hpp#L26{value_type}]]]
+__
+}
+class "cpp_function_type" as C_0011646818473724564525
+class C_0011646818473724564525 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L14{cpp_function_type}]] {
++is_variadic() const noexcept : bool [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L61{is_variadic}]]]
++parameter_types() const noexcept : detail::iteratable_intrusive_list<cpp_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L55{parameter_types}]]]
++return_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L49{return_type}]]]
+__
+}
+class "cpp_member_function_type" as C_0015655533434215258614
+class C_0015655533434215258614 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L87{cpp_member_function_type}]] {
++class_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L122{class_type}]]]
++is_variadic() const noexcept : bool [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L140{is_variadic}]]]
++parameter_types() const noexcept : detail::iteratable_intrusive_list<cpp_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L134{parameter_types}]]]
++return_type() const noexcept : const cpp_type & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_function_type.hpp#L128{return_type}]]]
+__
+}
+class "cpp_template_parameter_type" as C_0017266576910863053385
+class C_0017266576910863053385 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_template_parameter.hpp#L106{cpp_template_parameter_type}]] {
+{static} +build(cpp_template_type_parameter_ref parameter) : std::unique_ptr<cpp_template_parameter_type> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_template_parameter.hpp#L110{build}]]]
++entity() const noexcept : const cpp_template_type_parameter_ref & [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_template_parameter.hpp#L118{entity}]]]
+__
+}
 C_0012685224329895379678 <|-- C_0004813842429643163269
 C_0012685224329895379678 <|-- C_0016286280656642083260
 C_0012685224329895379678 <|-- C_0017335635478607505504
@@ -72,7 +126,15 @@ C_0012685224329895379678 <|-- C_0004063987833557896570
 C_0012685224329895379678 <|-- C_0002742775955639665712
 C_0012685224329895379678 <|-- C_0006892285644718134459
 C_0012685224329895379678 <|-- C_0004804591595803064605
+C_0012685224329895379678 <|-- C_0000209986721715701296
+C_0012685224329895379678 <|-- C_0004829067063951846468
+C_0012685224329895379678 <|-- C_0008075371397714845723
+C_0012685224329895379678 <|-- C_0009479862681401776453
+C_0012685224329895379678 <|-- C_0010779989821278160600
+C_0012685224329895379678 <|-- C_0011646818473724564525
+C_0012685224329895379678 <|-- C_0015655533434215258614
+C_0012685224329895379678 <|-- C_0017266576910863053385
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

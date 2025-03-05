@@ -1,8 +1,16 @@
 @startuml
 title 'cpp_type' class diagram
 left to right direction
+class "cpp_type" as C_0012685224329895379678
+class C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L44{cpp_type}]] {
+__
+}
+class "cpp_unexposed_type" as C_0004813842429643163269
+class C_0004813842429643163269 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L95{cpp_unexposed_type}]] {
+__
+}
 enum "cpp_builtin_type_kind" as C_0015100020573075757289
-enum C_0015100020573075757289 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cppast_fwd.hpp#L105{cpp_builtin_type_kind}]] {
+enum C_0015100020573075757289 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L122{cpp_builtin_type_kind}]] {
 cpp_void
 cpp_bool
 cpp_uchar
@@ -27,27 +35,6 @@ cpp_char16
 cpp_char32
 cpp_nullptr
 }
-enum "cpp_cv" as C_0001710878300033646583
-enum C_0001710878300033646583 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cppast_fwd.hpp#L106{cpp_cv}]] {
-cpp_cv_none
-cpp_cv_const
-cpp_cv_volatile
-cpp_cv_const_volatile
-}
-enum "cpp_reference" as C_0003091513284465858803
-enum C_0003091513284465858803 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cppast_fwd.hpp#L108{cpp_reference}]] {
-cpp_ref_none
-cpp_ref_lvalue
-cpp_ref_rvalue
-}
-class "cpp_type" as C_0012685224329895379678
-class C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L44{cpp_type}]] {
-__
-}
-class "cpp_unexposed_type" as C_0004813842429643163269
-class C_0004813842429643163269 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L95{cpp_unexposed_type}]] {
-__
-}
 class "cpp_builtin_type" as C_0016286280656642083260
 class C_0016286280656642083260 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L161{cpp_builtin_type}]] {
 __
@@ -64,6 +51,13 @@ class "cpp_dependent_type" as C_0004063987833557896570
 class C_0004063987833557896570 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L249{cpp_dependent_type}]] {
 __
 }
+enum "cpp_cv" as C_0001710878300033646583
+enum C_0001710878300033646583 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L290{cpp_cv}]] {
+cpp_cv_none
+cpp_cv_const
+cpp_cv_volatile
+cpp_cv_const_volatile
+}
 class "cpp_cv_qualified_type" as C_0002742775955639665712
 class C_0002742775955639665712 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L311{cpp_cv_qualified_type}]] {
 __
@@ -71,6 +65,12 @@ __
 class "cpp_pointer_type" as C_0006892285644718134459
 class C_0006892285644718134459 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L359{cpp_pointer_type}]] {
 __
+}
+enum "cpp_reference" as C_0003091513284465858803
+enum C_0003091513284465858803 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L386{cpp_reference}]] {
+cpp_ref_none
+cpp_ref_lvalue
+cpp_ref_rvalue
 }
 class "cpp_reference_type" as C_0004804591595803064605
 class C_0004804591595803064605 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L394{cpp_reference_type}]] {
@@ -175,6 +175,6 @@ C_0008075371397714845723 o-- C_0005612736646146921134 [[https://github.com/foona
 C_0012685224329895379678 <|-- C_0008075371397714845723
 C_0013221475101342136913 o-- C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type_alias.hpp#L40{type_}]] : -type_
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml

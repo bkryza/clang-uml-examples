@@ -1,10 +1,5 @@
 @startuml
 title 'cpp_expression' class diagram
-enum "cpp_expression_kind" as C_0005398411911865345735
-enum C_0005398411911865345735 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cppast_fwd.hpp#L93{cpp_expression_kind}]] {
-literal_t
-unexposed_t
-}
 abstract "cpp_type" as C_0012685224329895379678
 abstract C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L44{cpp_type}]] {
 +cpp_type(const cpp_type &) = deleted : void [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L47{cpp_type}]]]
@@ -20,6 +15,11 @@ abstract C_0012685224329895379678 [[https://github.com/foonathan/cppast/blob/532
 +user_data() const noexcept : void * [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L59{user_data}]]]
 __
 -user_data_ : std::atomic<void *> [[[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_type.hpp#L85{user_data_}]]]
+}
+enum "cpp_expression_kind" as C_0005398411911865345735
+enum C_0005398411911865345735 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L16{cpp_expression_kind}]] {
+literal_t
+unexposed_t
 }
 abstract "cpp_expression" as C_0017827775348805875802
 abstract C_0017827775348805875802 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L24{cpp_expression}]] {
@@ -67,6 +67,6 @@ C_0011853162507509380488 ..> C_0012685224329895379678 [[https://github.com/foona
 C_0011853162507509380488 ..> C_0005398411911865345735 [[https://github.com/foonathan/cppast/blob/5329e377ab9b9ab9309e9641f3fcda04366a449a/include/cppast/cpp_expression.hpp#L134{}]]
 C_0017827775348805875802 <|-- C_0011853162507509380488
 
-'Generated with clang-uml, version 0.6.0
+'Generated with clang-uml, version 0.6.1
 'LLVM version Ubuntu clang version 19.1.1 (1ubuntu1)
 @enduml
